@@ -40,6 +40,13 @@ public struct JSONEncodingOptions: Sendable {
   /// by keys in lexographical order. This is an implementation detail
   /// and subject to change.
   public var useDeterministicOrdering: Bool = false
+    
+  /// Include fields that do not support presence even if they are equal to the default value
+  ///
+  /// If `true`, singular primitive fields, repeated fields, and map fields will always be serialized
+  /// If `false`, omit fields that are equal to the default value.
+  /// Singular message fields and oneof fields are not affected by this option
+  public var alwaysPrintFieldsWithoutPresence: Bool = false
 
   public init() {}
 }

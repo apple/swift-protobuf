@@ -281,29 +281,30 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !self.methods.isEmpty {
+    if !self.methods.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.methods, fieldNumber: 2)
     }
-    if !self.options.isEmpty {
+    if !self.options.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
     }
-    if !self.version.isEmpty {
+    if !self.version.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.version, fieldNumber: 4)
     }
     try { if let v = self._sourceContext {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
     } }()
-    if !self.mixins.isEmpty {
+    if !self.mixins.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.mixins, fieldNumber: 6)
     }
-    if self.syntax != .proto2 {
+    if self.syntax != .proto2 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -353,25 +354,26 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !self.requestTypeURL.isEmpty {
+    if !self.requestTypeURL.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.requestTypeURL, fieldNumber: 2)
     }
-    if self.requestStreaming != false {
+    if self.requestStreaming != false || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBoolField(value: self.requestStreaming, fieldNumber: 3)
     }
-    if !self.responseTypeURL.isEmpty {
+    if !self.responseTypeURL.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.responseTypeURL, fieldNumber: 4)
     }
-    if self.responseStreaming != false {
+    if self.responseStreaming != false || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBoolField(value: self.responseStreaming, fieldNumber: 5)
     }
-    if !self.options.isEmpty {
+    if !self.options.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 6)
     }
-    if self.syntax != .proto2 {
+    if self.syntax != .proto2 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -411,10 +413,11 @@ extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoName
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !self.root.isEmpty {
+    if !self.root.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.root, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)

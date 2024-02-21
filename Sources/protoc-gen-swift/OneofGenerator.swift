@@ -29,6 +29,7 @@ class OneofGenerator {
         let swiftDefaultValue: String
         let protoGenericType: String
         let comments: String
+        let usesAlwaysVisitPrimitivesFlagForTraversal: Bool = false
 
         var isGroupOrMessage: Bool {
             switch fieldDescriptor.type {

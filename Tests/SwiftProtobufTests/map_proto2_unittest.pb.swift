@@ -255,46 +255,47 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.knownMapField.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.knownMapField.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.knownMapField, fieldNumber: 101)
     }
-    if !self.unknownMapField.isEmpty {
+    if !self.unknownMapField.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapField, fieldNumber: 102)
     }
-    if !self.unknownMapFieldInt64.isEmpty {
+    if !self.unknownMapFieldInt64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt64,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldInt64, fieldNumber: 200)
     }
-    if !self.unknownMapFieldUint64.isEmpty {
+    if !self.unknownMapFieldUint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt64,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldUint64, fieldNumber: 201)
     }
-    if !self.unknownMapFieldInt32.isEmpty {
+    if !self.unknownMapFieldInt32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldInt32, fieldNumber: 202)
     }
-    if !self.unknownMapFieldUint32.isEmpty {
+    if !self.unknownMapFieldUint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldUint32, fieldNumber: 203)
     }
-    if !self.unknownMapFieldFixed32.isEmpty {
+    if !self.unknownMapFieldFixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldFixed32, fieldNumber: 204)
     }
-    if !self.unknownMapFieldFixed64.isEmpty {
+    if !self.unknownMapFieldFixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed64,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldFixed64, fieldNumber: 205)
     }
-    if !self.unknownMapFieldBool.isEmpty {
+    if !self.unknownMapFieldBool.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufBool,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldBool, fieldNumber: 206)
     }
-    if !self.unknownMapFieldString.isEmpty {
+    if !self.unknownMapFieldString.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldString, fieldNumber: 207)
     }
-    if !self.unknownMapFieldSint32.isEmpty {
+    if !self.unknownMapFieldSint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldSint32, fieldNumber: 208)
     }
-    if !self.unknownMapFieldSint64.isEmpty {
+    if !self.unknownMapFieldSint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt64,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldSint64, fieldNumber: 209)
     }
-    if !self.unknownMapFieldSfixed32.isEmpty {
+    if !self.unknownMapFieldSfixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldSfixed32, fieldNumber: 210)
     }
-    if !self.unknownMapFieldSfixed64.isEmpty {
+    if !self.unknownMapFieldSfixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtoTesting_Proto2MapEnum>.self, value: self.unknownMapFieldSfixed64, fieldNumber: 211)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -365,46 +366,47 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftPr
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.knownMapField.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.knownMapField.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.knownMapField, fieldNumber: 101)
     }
-    if !self.unknownMapField.isEmpty {
+    if !self.unknownMapField.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapField, fieldNumber: 102)
     }
-    if !self.unknownMapFieldInt64.isEmpty {
+    if !self.unknownMapFieldInt64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt64,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldInt64, fieldNumber: 200)
     }
-    if !self.unknownMapFieldUint64.isEmpty {
+    if !self.unknownMapFieldUint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt64,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldUint64, fieldNumber: 201)
     }
-    if !self.unknownMapFieldInt32.isEmpty {
+    if !self.unknownMapFieldInt32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldInt32, fieldNumber: 202)
     }
-    if !self.unknownMapFieldUint32.isEmpty {
+    if !self.unknownMapFieldUint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldUint32, fieldNumber: 203)
     }
-    if !self.unknownMapFieldFixed32.isEmpty {
+    if !self.unknownMapFieldFixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldFixed32, fieldNumber: 204)
     }
-    if !self.unknownMapFieldFixed64.isEmpty {
+    if !self.unknownMapFieldFixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed64,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldFixed64, fieldNumber: 205)
     }
-    if !self.unknownMapFieldBool.isEmpty {
+    if !self.unknownMapFieldBool.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufBool,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldBool, fieldNumber: 206)
     }
-    if !self.unknownMapFieldString.isEmpty {
+    if !self.unknownMapFieldString.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldString, fieldNumber: 207)
     }
-    if !self.unknownMapFieldSint32.isEmpty {
+    if !self.unknownMapFieldSint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldSint32, fieldNumber: 208)
     }
-    if !self.unknownMapFieldSint64.isEmpty {
+    if !self.unknownMapFieldSint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt64,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldSint64, fieldNumber: 209)
     }
-    if !self.unknownMapFieldSfixed32.isEmpty {
+    if !self.unknownMapFieldSfixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldSfixed32, fieldNumber: 210)
     }
-    if !self.unknownMapFieldSfixed64.isEmpty {
+    if !self.unknownMapFieldSfixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, value: self.unknownMapFieldSfixed64, fieldNumber: 211)
     }
     try unknownFields.traverse(visitor: &visitor)

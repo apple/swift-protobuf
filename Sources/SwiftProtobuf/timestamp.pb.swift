@@ -185,10 +185,11 @@ extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase, _Proto
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.seconds != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
     }
-    if self.nanos != 0 {
+    if self.nanos != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)

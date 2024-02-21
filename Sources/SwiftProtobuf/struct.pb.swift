@@ -242,7 +242,8 @@ extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNam
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.fields.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.fields.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: self.fields, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -396,7 +397,8 @@ extension Google_Protobuf_ListValue: Message, _MessageImplementationBase, _Proto
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.values.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.values.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)

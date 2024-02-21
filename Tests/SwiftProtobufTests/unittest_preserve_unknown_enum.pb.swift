@@ -279,20 +279,21 @@ extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage: SwiftProtobuf.Message,
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if self.e != .foo {
+    if self.e != .foo || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
     }
-    if !self.repeatedE.isEmpty {
+    if !self.repeatedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedE, fieldNumber: 2)
     }
-    if !self.repeatedPackedE.isEmpty {
+    if !self.repeatedPackedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
     }
-    if !self.repeatedPackedUnexpectedE.isEmpty {
+    if !self.repeatedPackedUnexpectedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     switch self.o {
@@ -363,20 +364,21 @@ extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: SwiftProtobuf
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if self.e != .eFoo {
+    if self.e != .eFoo || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
     }
-    if !self.repeatedE.isEmpty {
+    if !self.repeatedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedE, fieldNumber: 2)
     }
-    if !self.repeatedPackedE.isEmpty {
+    if !self.repeatedPackedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
     }
-    if !self.repeatedPackedUnexpectedE.isEmpty {
+    if !self.repeatedPackedUnexpectedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     switch self.o {

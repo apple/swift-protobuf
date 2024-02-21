@@ -106,20 +106,21 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if self.int32Value != 0 {
+    if self.int32Value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
     }
     try { if let v = self._anyValue {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     } }()
-    if !self.repeatedAnyValue.isEmpty {
+    if !self.repeatedAnyValue.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.repeatedAnyValue, fieldNumber: 3)
     }
-    if !self.text.isEmpty {
+    if !self.text.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.text, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)

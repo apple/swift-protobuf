@@ -47,6 +47,10 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         return false
       }
     }
+  
+    var usesAlwaysVisitPrimitivesFlagForTraversal: Bool {
+        !hasFieldPresence
+    }
 
     init(descriptor: FieldDescriptor,
          generatorOptions: GeneratorOptions,
@@ -195,22 +199,21 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
 
         let varName = hasFieldPresence ? "v" : storedProperty
-
         var usesLocals = false
         let conditional: String
         if isRepeated {  // Also covers maps
-            conditional = "!\(varName).isEmpty"
+            conditional = "!\(storedProperty).isEmpty || alwaysVisitPrimitiveFields"
         } else if hasFieldPresence {
-            conditional = "let v = \(storedProperty)"
             usesLocals = true
+            conditional = "let v = \(storedProperty)"
         } else {
             // At this point, the fields would be a primative type, and should only
             // be visted if it is the non default value.
             switch fieldDescriptor.type {
             case .string, .bytes:
-                conditional = ("!\(varName).isEmpty")
+                conditional = "!\(storedProperty).isEmpty || alwaysVisitPrimitiveFields"
             default:
-                conditional = ("\(varName) != \(swiftDefaultValue)")
+                conditional = "\(storedProperty) != \(swiftDefaultValue) || alwaysVisitPrimitiveFields"
             }
         }
         assert(usesLocals == generateTraverseUsesLocals)

@@ -227,7 +227,8 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -259,7 +260,8 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -291,7 +293,8 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _Prot
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -323,7 +326,8 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -355,7 +359,8 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _Prot
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -387,7 +392,8 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -419,7 +425,8 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _Proto
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != false {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.value != false || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -451,7 +458,8 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.value.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -483,7 +491,8 @@ extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _Prot
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.value.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)

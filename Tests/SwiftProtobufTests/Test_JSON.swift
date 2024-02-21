@@ -972,6 +972,293 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
     }
 }
 
+final class Test_JSONDefaultValues: XCTestCase {
+
+    func testProto3() throws {
+        let expected = "{"
+        + #""singularInt32":0,"#
+        + #""singularInt64":"0","#
+        + #""singularUint32":0,"#
+        + #""singularUint64":"0","#
+        + #""singularSint32":0,"#
+        + #""singularSint64":"0","#
+        + #""singularFixed32":0,"#
+        + #""singularFixed64":"0","#
+        + #""singularSfixed32":0,"#
+        + #""singularSfixed64":"0","#
+        + #""singularFloat":0.0,"#
+        + #""singularDouble":0.0,"#
+        + #""singularBool":false,"#
+        + #""singularString":"","#
+        + #""singularBytes":"","#
+        + #""singularNestedEnum":"FOO","#
+        + #""repeatedInt32":[],"#
+        + #""repeatedInt64":[],"#
+        + #""repeatedUint32":[],"#
+        + #""repeatedUint64":[],"#
+        + #""repeatedSint32":[],"#
+        + #""repeatedSint64":[],"#
+        + #""repeatedFixed32":[],"#
+        + #""repeatedFixed64":[],"#
+        + #""repeatedSfixed32":[],"#
+        + #""repeatedSfixed64":[],"#
+        + #""repeatedFloat":[],"#
+        + #""repeatedDouble":[],"#
+        + #""repeatedBool":[],"#
+        + #""repeatedString":[],"#
+        + #""repeatedBytes":[],"#
+        + #""repeatedNestedMessage":[],"#
+        + #""repeatedNestedEnum":[],"#
+        + #""mapInt32Int32":{},"#
+        + #""mapInt64Int64":{},"#
+        + #""mapUint32Uint32":{},"#
+        + #""mapUint64Uint64":{},"#
+        + #""mapSint32Sint32":{},"#
+        + #""mapSint64Sint64":{},"#
+        + #""mapFixed32Fixed32":{},"#
+        + #""mapFixed64Fixed64":{},"#
+        + #""mapSfixed32Sfixed32":{},"#
+        + #""mapSfixed64Sfixed64":{},"#
+        + #""mapInt32Float":{},"#
+        + #""mapInt32Double":{},"#
+        + #""mapBoolBool":{},"#
+        + #""mapStringString":{},"#
+        + #""mapStringBytes":{},"#
+        + #""mapStringNestedMessage":{},"#
+        + #""mapStringNestedEnum":{},"#
+        + #""repeatedBoolWrapper":[],"#
+        + #""repeatedInt32Wrapper":[],"#
+        + #""repeatedInt64Wrapper":[],"#
+        + #""repeatedUint32Wrapper":[],"#
+        + #""repeatedUint64Wrapper":[],"#
+        + #""repeatedFloatWrapper":[],"#
+        + #""repeatedDoubleWrapper":[],"#
+        + #""repeatedStringWrapper":[],"#
+        + #""repeatedBytesWrapper":[],"#
+        + #""repeatedDuration":[],"#
+        + #""repeatedTimestamp":[],"#
+        + #""repeatedFieldmask":[],"#
+        + #""repeatedAny":[],"#
+        + #""repeatedValue":[],"#
+        + #""repeatedListValue":[],"#
+        + #""repeatedStruct":[],"#
+        + #""fieldname1":0,"#
+        + #""fieldName2":0,"#
+        + #""FieldName3":0,"#
+        + #""fieldName4":0,"#
+        + #""field0name5":0,"#
+        + #""field0Name6":0,"#
+        + #""fieldName7":0,"#
+        + #""FieldName8":0,"#
+        + #""fieldName9":0,"#
+        + #""FieldName10":0,"#
+        + #""FIELDNAME11":0,"#
+        + #""FIELDName12":0,"#
+        + #""FieldName13":0,"#
+        + #""FieldName14":0,"#
+        + #""fieldName15":0,"#
+        + #""fieldName16":0,"#
+        + #""fieldName17":0,"#
+        + #""FieldName18":0"#
+        + "}"
+                
+        var encodingOptions = JSONEncodingOptions()
+        encodingOptions.alwaysPrintFieldsWithoutPresence = true
+        
+        let msg = SwiftProtoTesting_Test3_TestJsonAllTypesProto3()
+        XCTAssertEqual(try msg.jsonString(options: encodingOptions), expected)
+    }
+    
+    func testProto3Configured() {
+        let expected = "{"
+        + #""optionalString":"i am a test string value","#
+        + #""optionalBytes":"aSBhbSBhIHRlc3Qgc3RyaW5nIHZhbHVl","#
+        + #""optionalNestedMessage":{"a":0},"#
+        + #""singularInt32":0,"#
+        + #""singularInt64":"0","#
+        + #""singularUint32":0,"#
+        + #""singularUint64":"0","#
+        + #""singularSint32":0,"#
+        + #""singularSint64":"0","#
+        + #""singularFixed32":0,"#
+        + #""singularFixed64":"0","#
+        + #""singularSfixed32":0,"#
+        + #""singularSfixed64":"0","#
+        + #""singularFloat":0.0,"#
+        + #""singularDouble":0.0,"#
+        + #""singularBool":false,"#
+        + #""singularString":"i am a test string","#
+        + #""singularBytes":"","#
+        + #""singularNestedMessage":{"a":0},"#
+        + #""singularNestedEnum":"FOO","#
+        + #""repeatedInt32":[],"#
+        + #""repeatedInt64":[],"#
+        + #""repeatedUint32":[],"#
+        + #""repeatedUint64":[],"#
+        + #""repeatedSint32":[],"#
+        + #""repeatedSint64":[],"#
+        + #""repeatedFixed32":[],"#
+        + #""repeatedFixed64":[],"#
+        + #""repeatedSfixed32":[],"#
+        + #""repeatedSfixed64":[],"#
+        + #""repeatedFloat":[],"#
+        + #""repeatedDouble":[],"#
+        + #""repeatedBool":[],"#
+        + #""repeatedString":[],"#
+        + #""repeatedBytes":[],"#
+        + #""repeatedNestedMessage":[],"#
+        + #""repeatedNestedEnum":[],"#
+        + #""mapInt32Int32":{},"#
+        + #""mapInt64Int64":{},"#
+        + #""mapUint32Uint32":{},"#
+        + #""mapUint64Uint64":{},"#
+        + #""mapSint32Sint32":{},"#
+        + #""mapSint64Sint64":{},"#
+        + #""mapFixed32Fixed32":{},"#
+        + #""mapFixed64Fixed64":{},"#
+        + #""mapSfixed32Sfixed32":{},"#
+        + #""mapSfixed64Sfixed64":{},"#
+        + #""mapInt32Float":{},"#
+        + #""mapInt32Double":{},"#
+        + #""mapBoolBool":{},"#
+        + #""mapStringString":{},"#
+        + #""mapStringBytes":{},"#
+        + #""mapStringNestedMessage":{},"#
+        + #""mapStringNestedEnum":{},"#
+        + #""repeatedBoolWrapper":[],"#
+        + #""repeatedInt32Wrapper":[],"#
+        + #""repeatedInt64Wrapper":[],"#
+        + #""repeatedUint32Wrapper":[],"#
+        + #""repeatedUint64Wrapper":[],"#
+        + #""repeatedFloatWrapper":[],"#
+        + #""repeatedDoubleWrapper":[],"#
+        + #""repeatedStringWrapper":[],"#
+        + #""repeatedBytesWrapper":[],"#
+        + #""repeatedDuration":[],"#
+        + #""repeatedTimestamp":[],"#
+        + #""repeatedFieldmask":[],"#
+        + #""repeatedAny":[],"#
+        + #""repeatedValue":[],"#
+        + #""repeatedListValue":[],"#
+        + #""repeatedStruct":[],"#
+        + #""fieldname1":0,"#
+        + #""fieldName2":0,"#
+        + #""FieldName3":0,"#
+        + #""fieldName4":0,"#
+        + #""field0name5":0,"#
+        + #""field0Name6":0,"#
+        + #""fieldName7":0,"#
+        + #""FieldName8":0,"#
+        + #""fieldName9":0,"#
+        + #""FieldName10":0,"#
+        + #""FIELDNAME11":0,"#
+        + #""FIELDName12":0,"#
+        + #""FieldName13":0,"#
+        + #""FieldName14":0,"#
+        + #""fieldName15":0,"#
+        + #""fieldName16":0,"#
+        + #""fieldName17":0,"#
+        + #""FieldName18":0"#
+        + "}"
+
+        var encodingOptions = JSONEncodingOptions()
+        encodingOptions.alwaysPrintFieldsWithoutPresence = true
+
+        let msg = SwiftProtoTesting_Test3_TestJsonAllTypesProto3.with {
+            $0.optionalNestedMessage = .init()
+            $0.optionalString = "i am a test string value"
+            $0.optionalBytes = "i am a test string value".data(using: .utf8) ?? Data()
+            $0.singularString = "i am a test string"
+            $0.singularNestedMessage = .init()
+        }
+        
+        XCTAssertEqual(try msg.jsonString(options: encodingOptions), expected)
+    }
+
+    func testProto2() {
+        let expected = "{"
+        + #""repeatedInt32":[],"#
+        + #""repeatedInt64":[],"#
+        + #""repeatedUint32":[],"#
+        + #""repeatedUint64":[],"#
+        + #""repeatedSint32":[],"#
+        + #""repeatedSint64":[],"#
+        + #""repeatedFixed32":[],"#
+        + #""repeatedFixed64":[],"#
+        + #""repeatedSfixed32":[],"#
+        + #""repeatedSfixed64":[],"#
+        + #""repeatedFloat":[],"#
+        + #""repeatedDouble":[],"#
+        + #""repeatedBool":[],"#
+        + #""repeatedString":[],"#
+        + #""repeatedBytes":[],"#
+        + #""repeatedNestedMessage":[],"#
+        + #""repeatedForeignMessage":[],"#
+        + #""repeatedImportMessage":[],"#
+        + #""repeatedNestedEnum":[],"#
+        + #""repeatedForeignEnum":[],"#
+        + #""repeatedImportEnum":[],"#
+        + #""repeatedStringPiece":[],"#
+        + #""repeatedCord":[],"#
+        + #""repeatedLazyMessage":[]"#
+        + "}"
+        
+        var encodingOptions = JSONEncodingOptions()
+        encodingOptions.alwaysPrintFieldsWithoutPresence = true
+        let msg = SwiftProtoTesting_TestAllTypes()
+        XCTAssertEqual(try msg.jsonString(options: encodingOptions), expected)
+    }
+    
+    func testProto2Configured() {
+        let expected = "{"
+        + #""optionalString":"i am a test string value","#
+        + #""optionalBytes":"aSBhbSBhIHRlc3Qgc3RyaW5nIHZhbHVl","#
+        + #""optionalNestedMessage":{},"#
+        + #""repeatedInt32":[],"#
+        + #""repeatedInt64":[],"#
+        + #""repeatedUint32":[],"#
+        + #""repeatedUint64":[],"#
+        + #""repeatedSint32":[],"#
+        + #""repeatedSint64":[],"#
+        + #""repeatedFixed32":[],"#
+        + #""repeatedFixed64":[],"#
+        + #""repeatedSfixed32":[],"#
+        + #""repeatedSfixed64":[],"#
+        + #""repeatedFloat":[],"#
+        + #""repeatedDouble":[],"#
+        + #""repeatedBool":[],"#
+        + #""repeatedString":[],"#
+        + #""repeatedBytes":[],"#
+        + #""repeatedNestedMessage":[],"#
+        + #""repeatedForeignMessage":[],"#
+        + #""repeatedImportMessage":[],"#
+        + #""repeatedNestedEnum":[],"#
+        + #""repeatedForeignEnum":[],"#
+        + #""repeatedImportEnum":[],"#
+        + #""repeatedStringPiece":[],"#
+        + #""repeatedCord":[],"#
+        + #""repeatedLazyMessage":[]"#
+        + "}"
+        
+        var encodingOptions = JSONEncodingOptions()
+        encodingOptions.alwaysPrintFieldsWithoutPresence = true
+        let msg = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalNestedMessage = .init()
+            $0.optionalString = "i am a test string value"
+            $0.optionalBytes = "i am a test string value".data(using: .utf8) ?? Data()
+        }
+        XCTAssertEqual(try msg.jsonString(options: encodingOptions), expected)
+    }
+    
+    func testExtremeDefaultValues() {
+        let expected = "{}"
+        var encodingOptions = JSONEncodingOptions()
+        encodingOptions.alwaysPrintFieldsWithoutPresence = true
+        let msg = SwiftProtoTesting_TestExtremeDefaultValues()
+        XCTAssertEqual(try msg.jsonString(options: encodingOptions), expected)
+    }
+}
+
 
 final class Test_JSONPacked: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestPackedTypes

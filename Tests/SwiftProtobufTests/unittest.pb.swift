@@ -4340,6 +4340,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -4426,79 +4427,79 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
       try { if let v = _storage._optionalUnverifiedLazyMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
-      if !_storage._repeatedInt32.isEmpty {
+      if !_storage._repeatedInt32.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
       }
-      if !_storage._repeatedInt64.isEmpty {
+      if !_storage._repeatedInt64.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedInt64Field(value: _storage._repeatedInt64, fieldNumber: 32)
       }
-      if !_storage._repeatedUint32.isEmpty {
+      if !_storage._repeatedUint32.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedUInt32Field(value: _storage._repeatedUint32, fieldNumber: 33)
       }
-      if !_storage._repeatedUint64.isEmpty {
+      if !_storage._repeatedUint64.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedUInt64Field(value: _storage._repeatedUint64, fieldNumber: 34)
       }
-      if !_storage._repeatedSint32.isEmpty {
+      if !_storage._repeatedSint32.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedSInt32Field(value: _storage._repeatedSint32, fieldNumber: 35)
       }
-      if !_storage._repeatedSint64.isEmpty {
+      if !_storage._repeatedSint64.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedSInt64Field(value: _storage._repeatedSint64, fieldNumber: 36)
       }
-      if !_storage._repeatedFixed32.isEmpty {
+      if !_storage._repeatedFixed32.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedFixed32Field(value: _storage._repeatedFixed32, fieldNumber: 37)
       }
-      if !_storage._repeatedFixed64.isEmpty {
+      if !_storage._repeatedFixed64.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedFixed64Field(value: _storage._repeatedFixed64, fieldNumber: 38)
       }
-      if !_storage._repeatedSfixed32.isEmpty {
+      if !_storage._repeatedSfixed32.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedSFixed32Field(value: _storage._repeatedSfixed32, fieldNumber: 39)
       }
-      if !_storage._repeatedSfixed64.isEmpty {
+      if !_storage._repeatedSfixed64.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedSFixed64Field(value: _storage._repeatedSfixed64, fieldNumber: 40)
       }
-      if !_storage._repeatedFloat.isEmpty {
+      if !_storage._repeatedFloat.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedFloatField(value: _storage._repeatedFloat, fieldNumber: 41)
       }
-      if !_storage._repeatedDouble.isEmpty {
+      if !_storage._repeatedDouble.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedDoubleField(value: _storage._repeatedDouble, fieldNumber: 42)
       }
-      if !_storage._repeatedBool.isEmpty {
+      if !_storage._repeatedBool.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedBoolField(value: _storage._repeatedBool, fieldNumber: 43)
       }
-      if !_storage._repeatedString.isEmpty {
+      if !_storage._repeatedString.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedStringField(value: _storage._repeatedString, fieldNumber: 44)
       }
-      if !_storage._repeatedBytes.isEmpty {
+      if !_storage._repeatedBytes.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedBytesField(value: _storage._repeatedBytes, fieldNumber: 45)
       }
-      if !_storage._repeatedGroup.isEmpty {
+      if !_storage._repeatedGroup.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedGroupField(value: _storage._repeatedGroup, fieldNumber: 46)
       }
-      if !_storage._repeatedNestedMessage.isEmpty {
+      if !_storage._repeatedNestedMessage.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedNestedMessage, fieldNumber: 48)
       }
-      if !_storage._repeatedForeignMessage.isEmpty {
+      if !_storage._repeatedForeignMessage.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedForeignMessage, fieldNumber: 49)
       }
-      if !_storage._repeatedImportMessage.isEmpty {
+      if !_storage._repeatedImportMessage.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedImportMessage, fieldNumber: 50)
       }
-      if !_storage._repeatedNestedEnum.isEmpty {
+      if !_storage._repeatedNestedEnum.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedEnumField(value: _storage._repeatedNestedEnum, fieldNumber: 51)
       }
-      if !_storage._repeatedForeignEnum.isEmpty {
+      if !_storage._repeatedForeignEnum.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedEnumField(value: _storage._repeatedForeignEnum, fieldNumber: 52)
       }
-      if !_storage._repeatedImportEnum.isEmpty {
+      if !_storage._repeatedImportEnum.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedEnumField(value: _storage._repeatedImportEnum, fieldNumber: 53)
       }
-      if !_storage._repeatedStringPiece.isEmpty {
+      if !_storage._repeatedStringPiece.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedStringField(value: _storage._repeatedStringPiece, fieldNumber: 54)
       }
-      if !_storage._repeatedCord.isEmpty {
+      if !_storage._repeatedCord.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedStringField(value: _storage._repeatedCord, fieldNumber: 55)
       }
-      if !_storage._repeatedLazyMessage.isEmpty {
+      if !_storage._repeatedLazyMessage.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
       try { if let v = _storage._defaultInt32 {
@@ -4845,6 +4846,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -4856,7 +4858,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
       try { if let v = _storage._payload {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       } }()
-      if !_storage._repeatedChild.isEmpty {
+      if !_storage._repeatedChild.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
       try { if let v = _storage._lazyChild {
@@ -5422,6 +5424,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -5429,7 +5432,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     try { if let v = self._optionalMessage {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
-    if !self.repeatedMessage.isEmpty {
+    if !self.repeatedMessage.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.repeatedMessage, fieldNumber: 2)
     }
     try { if let v = self._dummy {
@@ -5482,6 +5485,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -5489,7 +5493,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     try { if let v = self._optionalMessage {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
-    if !self.repeatedMessage.isEmpty {
+    if !self.repeatedMessage.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.repeatedMessage, fieldNumber: 2)
     }
     try { if let v = self._requiredMessage {
@@ -6351,46 +6355,47 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.packedInt32.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.packedInt32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedInt32Field(value: self.packedInt32, fieldNumber: 90)
     }
-    if !self.packedInt64.isEmpty {
+    if !self.packedInt64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedInt64Field(value: self.packedInt64, fieldNumber: 91)
     }
-    if !self.packedUint32.isEmpty {
+    if !self.packedUint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedUInt32Field(value: self.packedUint32, fieldNumber: 92)
     }
-    if !self.packedUint64.isEmpty {
+    if !self.packedUint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedUInt64Field(value: self.packedUint64, fieldNumber: 93)
     }
-    if !self.packedSint32.isEmpty {
+    if !self.packedSint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedSInt32Field(value: self.packedSint32, fieldNumber: 94)
     }
-    if !self.packedSint64.isEmpty {
+    if !self.packedSint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedSInt64Field(value: self.packedSint64, fieldNumber: 95)
     }
-    if !self.packedFixed32.isEmpty {
+    if !self.packedFixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedFixed32Field(value: self.packedFixed32, fieldNumber: 96)
     }
-    if !self.packedFixed64.isEmpty {
+    if !self.packedFixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedFixed64Field(value: self.packedFixed64, fieldNumber: 97)
     }
-    if !self.packedSfixed32.isEmpty {
+    if !self.packedSfixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedSFixed32Field(value: self.packedSfixed32, fieldNumber: 98)
     }
-    if !self.packedSfixed64.isEmpty {
+    if !self.packedSfixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedSFixed64Field(value: self.packedSfixed64, fieldNumber: 99)
     }
-    if !self.packedFloat.isEmpty {
+    if !self.packedFloat.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedFloatField(value: self.packedFloat, fieldNumber: 100)
     }
-    if !self.packedDouble.isEmpty {
+    if !self.packedDouble.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedDoubleField(value: self.packedDouble, fieldNumber: 101)
     }
-    if !self.packedBool.isEmpty {
+    if !self.packedBool.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedBoolField(value: self.packedBool, fieldNumber: 102)
     }
-    if !self.packedEnum.isEmpty {
+    if !self.packedEnum.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.packedEnum, fieldNumber: 103)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -6461,46 +6466,47 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.unpackedInt32.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.unpackedInt32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedInt32Field(value: self.unpackedInt32, fieldNumber: 90)
     }
-    if !self.unpackedInt64.isEmpty {
+    if !self.unpackedInt64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedInt64Field(value: self.unpackedInt64, fieldNumber: 91)
     }
-    if !self.unpackedUint32.isEmpty {
+    if !self.unpackedUint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedUInt32Field(value: self.unpackedUint32, fieldNumber: 92)
     }
-    if !self.unpackedUint64.isEmpty {
+    if !self.unpackedUint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedUInt64Field(value: self.unpackedUint64, fieldNumber: 93)
     }
-    if !self.unpackedSint32.isEmpty {
+    if !self.unpackedSint32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedSInt32Field(value: self.unpackedSint32, fieldNumber: 94)
     }
-    if !self.unpackedSint64.isEmpty {
+    if !self.unpackedSint64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedSInt64Field(value: self.unpackedSint64, fieldNumber: 95)
     }
-    if !self.unpackedFixed32.isEmpty {
+    if !self.unpackedFixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedFixed32Field(value: self.unpackedFixed32, fieldNumber: 96)
     }
-    if !self.unpackedFixed64.isEmpty {
+    if !self.unpackedFixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedFixed64Field(value: self.unpackedFixed64, fieldNumber: 97)
     }
-    if !self.unpackedSfixed32.isEmpty {
+    if !self.unpackedSfixed32.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedSFixed32Field(value: self.unpackedSfixed32, fieldNumber: 98)
     }
-    if !self.unpackedSfixed64.isEmpty {
+    if !self.unpackedSfixed64.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedSFixed64Field(value: self.unpackedSfixed64, fieldNumber: 99)
     }
-    if !self.unpackedFloat.isEmpty {
+    if !self.unpackedFloat.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedFloatField(value: self.unpackedFloat, fieldNumber: 100)
     }
-    if !self.unpackedDouble.isEmpty {
+    if !self.unpackedDouble.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedDoubleField(value: self.unpackedDouble, fieldNumber: 101)
     }
-    if !self.unpackedBool.isEmpty {
+    if !self.unpackedBool.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedBoolField(value: self.unpackedBool, fieldNumber: 102)
     }
-    if !self.unpackedEnum.isEmpty {
+    if !self.unpackedEnum.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedEnumField(value: self.unpackedEnum, fieldNumber: 103)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -6590,6 +6596,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -6600,13 +6607,13 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     try { if let v = self._optionalAllTypes {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     } }()
-    if !self.repeatedAllTypes.isEmpty {
+    if !self.repeatedAllTypes.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 3)
     }
     try { if let v = self._optionalGroup {
       try visitor.visitSingularGroupField(value: v, fieldNumber: 10)
     } }()
-    if !self.repeatedGroup.isEmpty {
+    if !self.repeatedGroup.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedGroupField(value: self.repeatedGroup, fieldNumber: 20)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -6656,25 +6663,26 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.field1.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.field1.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.field1, fieldNumber: 1)
     }
-    if !self.field2.isEmpty {
+    if !self.field2.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.field2, fieldNumber: 2)
     }
-    if !self.field3.isEmpty {
+    if !self.field3.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.field3, fieldNumber: 3)
     }
-    if !self.group1.isEmpty {
+    if !self.group1.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedGroupField(value: self.group1, fieldNumber: 10)
     }
-    if !self.group2.isEmpty {
+    if !self.group2.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedGroupField(value: self.group2, fieldNumber: 20)
     }
-    if !self.ext1.isEmpty {
+    if !self.ext1.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.ext1, fieldNumber: 1000)
     }
-    if !self.ext2.isEmpty {
+    if !self.ext2.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.ext2, fieldNumber: 1001)
     }
     try unknownFields.traverse(visitor: &visitor)

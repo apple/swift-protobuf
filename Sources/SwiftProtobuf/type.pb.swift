@@ -505,29 +505,30 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !self.fields.isEmpty {
+    if !self.fields.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.fields, fieldNumber: 2)
     }
-    if !self.oneofs.isEmpty {
+    if !self.oneofs.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedStringField(value: self.oneofs, fieldNumber: 3)
     }
-    if !self.options.isEmpty {
+    if !self.options.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 4)
     }
     try { if let v = self._sourceContext {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
     } }()
-    if self.syntax != .proto2 {
+    if self.syntax != .proto2 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 6)
     }
-    if !self.edition.isEmpty {
+    if !self.edition.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.edition, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -583,34 +584,35 @@ extension Google_Protobuf_Field: Message, _MessageImplementationBase, _ProtoName
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.kind != .typeUnknown {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.kind != .typeUnknown || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.kind, fieldNumber: 1)
     }
-    if self.cardinality != .unknown {
+    if self.cardinality != .unknown || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.cardinality, fieldNumber: 2)
     }
-    if self.number != 0 {
+    if self.number != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 3)
     }
-    if !self.name.isEmpty {
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
     }
-    if !self.typeURL.isEmpty {
+    if !self.typeURL.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.typeURL, fieldNumber: 6)
     }
-    if self.oneofIndex != 0 {
+    if self.oneofIndex != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.oneofIndex, fieldNumber: 7)
     }
-    if self.packed != false {
+    if self.packed != false || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBoolField(value: self.packed, fieldNumber: 8)
     }
-    if !self.options.isEmpty {
+    if !self.options.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 9)
     }
-    if !self.jsonName.isEmpty {
+    if !self.jsonName.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.jsonName, fieldNumber: 10)
     }
-    if !self.defaultValue.isEmpty {
+    if !self.defaultValue.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.defaultValue, fieldNumber: 11)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -694,26 +696,27 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !self.enumvalue.isEmpty {
+    if !self.enumvalue.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.enumvalue, fieldNumber: 2)
     }
-    if !self.options.isEmpty {
+    if !self.options.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
     }
     try { if let v = self._sourceContext {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     } }()
-    if self.syntax != .proto2 {
+    if self.syntax != .proto2 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 5)
     }
-    if !self.edition.isEmpty {
+    if !self.edition.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.edition, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -754,13 +757,14 @@ extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase, _Proto
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if self.number != 0 {
+    if self.number != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 2)
     }
-    if !self.options.isEmpty {
+    if !self.options.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -796,11 +800,12 @@ extension Google_Protobuf_Option: Message, _MessageImplementationBase, _ProtoNam
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
     try { if let v = self._value {
