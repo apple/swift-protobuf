@@ -63,9 +63,20 @@ public protocol CodeGenerator {
   func printHelp()
 }
 
+extension CommandLine {
+  /// Get the command-line arguments passed to this process in a non mutable
+  /// form. Idea from https://github.com/apple/swift/issues/66213
+  ///
+  /// - Returns: An array of command-line arguments.
+  fileprivate static let safeArguments: [String] =
+    UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).compactMap {
+      String(validatingUTF8: $0!)
+    }
+}
+
 extension CodeGenerator {
   var programName: String {
-    guard let name = CommandLine.arguments.first?.split(separator: "/").last else {
+    guard let name = CommandLine.safeArguments.first?.split(separator: "/").last else {
       return "<plugin>"
     }
     return String(name)
@@ -74,7 +85,7 @@ extension CodeGenerator {
   /// Runs as a protocol buffer compiler plugin based on the given arguments
   /// or falls back to `CommandLine.arguments`.
   public func main(_ args: [String]?) {
-    let args = args ?? Array(CommandLine.arguments.dropFirst())
+    let args = args ?? Array(CommandLine.safeArguments.dropFirst())
 
     for arg in args {
       if arg == "--version", let version = version {

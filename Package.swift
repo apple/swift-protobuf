@@ -49,6 +49,7 @@ let package = Package(
         exclude: ["CMakeLists.txt"],
         swiftSettings: [
           .enableUpcomingFeature("ExistentialAny"),
+          .enableExperimentalFeature("StrictConcurrency=complete"),
         ]
     ),
     .target(
