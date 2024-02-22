@@ -88,17 +88,29 @@ fileprivate struct AnalyzeResult {
     AnalyzeResult(usesStorage: true, costAsField: FieldCost.singleMessageFieldUsingStorage)
 }
 
+// This is adapted from SwiftNIO so sendable checks don't flag issues with
+// `knownTypes`. Another options would be something like NIO's `LockedValueBox`
+// or moving the entire handling to a Task.
+fileprivate final class UnsafeMutableTransferBox<Wrapped> {
+  var wrappedValue: Wrapped
+  init(_ wrappedValue: Wrapped) {
+    self.wrappedValue = wrappedValue
+  }
+}
+
+extension UnsafeMutableTransferBox: @unchecked Sendable {}
+
 /// Cache for the `analyze(descriptor:)` results to avoid doing them multiple
 /// times.
-fileprivate var analysisCache: Dictionary<String,AnalyzeResult> = [
+fileprivate let analysisCache: UnsafeMutableTransferBox<Dictionary<String,AnalyzeResult>> = .init([
   // google.protobuf.Any can be seeded.
   "google.protobuf.Any": .useStorage,
-]
+])
 
 /// Analyze the given descriptor to decide if it should use storage and what
 /// the cost of it will be when appearing as a single field in another message.
 fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
-  if let analysis = analysisCache[descriptor.fullName] {
+  if let analysis = analysisCache.wrappedValue[descriptor.fullName] {
     return analysis
   }
 
@@ -122,7 +134,7 @@ fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
         if let first = messageStack.firstIndex(where: { $0 === messageType }) {
           // Mark all those in the loop as using storage.
           for msg in messageStack[first..<messageStack.endIndex] {
-            analysisCache[msg.fullName] = .useStorage
+            analysisCache.wrappedValue[msg.fullName] = .useStorage
           }
 
           // And it was the top message, so return the result.
@@ -176,7 +188,7 @@ fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
   }
 
   let result = helper(descriptor)
-  analysisCache[descriptor.fullName] = result
+  analysisCache.wrappedValue[descriptor.fullName] = result
   return result
 }
 
