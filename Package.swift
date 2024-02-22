@@ -65,7 +65,8 @@ let package = Package(
         dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"],
         exclude: ["CMakeLists.txt"],
         swiftSettings: [
-          .enableUpcomingFeature("ExistentialAny")
+          .enableUpcomingFeature("ExistentialAny"),
+          .enableExperimentalFeature("StrictConcurrency=complete"),
         ]
     ),
     .executableTarget(

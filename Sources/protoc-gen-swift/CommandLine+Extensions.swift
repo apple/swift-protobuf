@@ -11,8 +11,16 @@
 import Foundation
 
 extension CommandLine {
+
   static var programName: String {
-    guard let base = arguments.first else {
+    // Get the command-line arguments passed to this process in a non mutable
+    // form. Idea from https://github.com/apple/swift/issues/66213
+    let safeArgs: [String] =
+      UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).compactMap {
+        String(validatingUTF8: $0!)
+      }
+
+    guard let base = safeArgs.first else {
       return "protoc-gen-swift"
     }
     // Strip it down to just the leaf if it was a path.
