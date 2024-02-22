@@ -15,46 +15,63 @@
 ///
 // -----------------------------------------------------------------------------
 
-#if canImport(Glibc)
-import Glibc
-#elseif canImport(Musl)
-import Musl
-#else
-import Darwin.C
-#endif
+import Foundation
 
 import SwiftProtobuf
 
-func readRequest() -> [UInt8]? {
-    var rawCount: UInt32 = 0
-    let read1 = fread(&rawCount, 1, 4, stdin)
-    let count = Int(rawCount)
-    if read1 < 4 {
+extension FileHandle {
+  fileprivate func _read(count: Int) -> Data? {
+    if #available(macOS 10.15.4, *) {
+      do {
+        guard let result = try read(upToCount: count),
+              result.count == count else {
+          return nil
+        }
+        return result
+      } catch {
         return nil
-    }
-    var buff = [UInt8](repeating: 0, count: count)
-    let read2 = fread(&buff, 1, count, stdin)
-    if read2 < count {
+      }
+    } else {
+      let result = readData(ofLength: count)
+      guard result.count == count else {
         return nil
+      }
+      return result
     }
-    return buff
+  }
 }
 
-func writeResponse(bytes: [UInt8]) {
-    var count = UInt32(bytes.count)
-    fwrite(&count, 4, 1, stdout)
-    _ = bytes.withUnsafeBufferPointer { bp in
-        fwrite(bp.baseAddress, Int(count), 1, stdout)
+func readRequest() -> Data? {
+    let stdIn = FileHandle.standardInput
+    guard let countLEData = stdIn._read(count: 4) else {
+        return nil
     }
-    fflush(stdout)
+    let countLE: UInt32 = countLEData.withUnsafeBytes { rawBuffer in
+        rawBuffer.load(as: UInt32.self)
+    }
+    let count = UInt32(littleEndian: countLE)
+    guard count < Int.max,
+          let result = stdIn._read(count: Int(count)) else {
+        return nil
+    }
+    return result
 }
 
-func buildResponse(serializedBytes: [UInt8]) -> Conformance_ConformanceResponse {
+func writeResponse(data: Data) {
+    let count = UInt32(data.count)
+    var countLE = count.littleEndian
+    let countLEData = Data(bytes: &countLE, count: MemoryLayout.size(ofValue: countLE))
+    let stdOut = FileHandle.standardOutput
+    stdOut.write(countLEData)
+    stdOut.write(data)
+}
+
+func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     var response = Conformance_ConformanceResponse()
 
     let request: Conformance_ConformanceRequest
     do {
-        request = try Conformance_ConformanceRequest(serializedBytes: serializedBytes)
+        request = try Conformance_ConformanceRequest(serializedData: serializedData)
     } catch {
         response.runtimeError = "Failed to parse conformance request"
         return response
@@ -170,12 +187,12 @@ func buildResponse(serializedBytes: [UInt8]) -> Conformance_ConformanceResponse 
 
 func singleTest() throws -> Bool {
    if let indata = readRequest() {
-       let response = buildResponse(serializedBytes: indata)
-       let outdata: [UInt8] = try response.serializedBytes()
-       writeResponse(bytes: outdata)
+       let response = buildResponse(serializedData: indata)
+       let outdata: Data = try response.serializedData()
+       writeResponse(data: outdata)
        return true
    } else {
-      return false
+       return false
    }
 }
 
