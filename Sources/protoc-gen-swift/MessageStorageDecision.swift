@@ -89,8 +89,8 @@ fileprivate struct AnalyzeResult {
 }
 
 // This is adapted from SwiftNIO so sendable checks don't flag issues with
-// `knownTypes`. Another options would be something like NIO's `LockedValueBox`
-// or moving the entire handling to a Task.
+// `analysisCache`. Another option would be something like NIO's
+// `LockedValueBox` or moving the entire handling to a Task.
 fileprivate final class UnsafeMutableTransferBox<Wrapped> {
   var wrappedValue: Wrapped
   init(_ wrappedValue: Wrapped) {
