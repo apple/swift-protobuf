@@ -18,7 +18,7 @@ import Foundation
 import SwiftProtobufPluginLibrary
 import SwiftProtobuf
 
-/// Provides the generation for proto2 syntax extensions in a file.
+/// Provides the generation for extensions in a file.
 class ExtensionSetGenerator {
 
     /// Private helper used for the ExtensionSetGenerator.

@@ -67,8 +67,8 @@ extension Message {
   /// so that encoding can proceed without bounds checks or reallocation.
   internal func serializedDataSize() throws -> Int {
     // Note: since this api is internal, it doesn't currently worry about
-    // needing a partial argument to handle proto2 syntax required fields.
-    // If this become public, it will need that added.
+    // needing a partial argument to handle required fields. If this become
+    // public, it will need that added.
     var visitor = BinaryEncodingSizeVisitor()
     try traverse(visitor: &visitor)
     return visitor.serializedSize

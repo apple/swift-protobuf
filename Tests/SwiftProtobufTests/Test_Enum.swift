@@ -172,7 +172,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
     }
 
     func testCaseIterable() {
-      // proto3 syntax enums require the generator to create allCases,
+      // Open enums require the generator to create allCases,
       // ensure it is works as expected (order of the file, no aliases).
       var i = SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias.allCases.makeIterator()
       guard let e1 = i.next() else {
