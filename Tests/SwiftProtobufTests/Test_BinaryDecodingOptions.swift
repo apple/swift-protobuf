@@ -267,8 +267,8 @@ final class Test_BinaryDecodingOptions: XCTestCase {
             XCTAssertTrue(msg2.optionalGroup.unknownFields.data.isEmpty)
         }
 
-        // An unknown enum value. proto2 syntax unknown enums uses a different code
-        // path to end up in unknown fields, so ensure that is honoring the option.
+        // An unknown enum value. Closed enums uses a different code path and
+        // end up in unknown fields, so ensure that is honoring the option.
         // Test data:
         //   optional_nested_enum: 13
         let inputUnknownEnum: [UInt8] = [
