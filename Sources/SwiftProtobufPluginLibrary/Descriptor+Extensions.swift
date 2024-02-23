@@ -33,6 +33,14 @@ extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFi
   public var isDeprecated: Bool { options.deprecated }
 }
 
+extension Descriptor.ExtensionRange: ProvidesLocationPath, ProvidesSourceCodeLocation {
+  public func getLocationPath(path: inout IndexPath) {
+    containingType.getLocationPath(path: &path)
+    path.append(Google_Protobuf_DescriptorProto.FieldNumbers.extensionRange)
+    path.append(index)
+  }
+}
+
 extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     if let containingType = containingType {
