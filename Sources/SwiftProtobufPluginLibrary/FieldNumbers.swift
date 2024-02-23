@@ -29,6 +29,7 @@ extension Google_Protobuf_DescriptorProto {
     static let field: Int = 2
     static let nestedType: Int = 3
     static let enumType: Int = 4
+    static let extensionRange: Int = 4
     static let `extension`: Int = 6
     static let oneofDecl: Int = 8
   }

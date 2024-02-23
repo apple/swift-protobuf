@@ -258,6 +258,49 @@ public final class Descriptor {
     case `struct` = "google.protobuf.Struct"
   }
 
+  /// Describes an extension range of a message. `ExtensionRange`s are not
+  /// directly created, instead they are constructed/fetched via the
+  /// `Descriptor`.
+  public final class ExtensionRange {
+    /// The start field number of this range (inclusive).
+    public let start: Int32
+
+    // The end field number of this range (exclusive).
+    public let end: Int32
+
+    // Tndex of this extension range within the message's extension range array.
+    public let index: Int
+
+    /// The `Google_Protobuf_ExtensionRangeOptions` set on this ExtensionRange.
+    public let options: Google_Protobuf_ExtensionRangeOptions
+
+    /// The name of the containing type, not including its scope.
+    public var name: String { return containingType.name }
+    /// The fully-qualified name of the containing type, scope delimited by
+    /// periods.
+    public var fullName: String { return containingType.fullName }
+
+    /// The .proto file in which this ExtensionRange was defined.
+    public var file: FileDescriptor { return containingType.file }
+    /// The descriptor that owns with ExtensionRange.
+    public var containingType: Descriptor { return _containingType! }
+
+    // Storage for `containingType`, will be set by bind()
+    private unowned var _containingType: Descriptor?
+
+    fileprivate init(proto: Google_Protobuf_DescriptorProto.ExtensionRange,
+                     index: Int) {
+      self.start = proto.start
+      self.end = proto.end
+      self.index = index
+      self.options = proto.options
+    }
+
+    fileprivate func bind(containingType: Descriptor, registry: Registry) {
+      self._containingType = containingType
+    }
+  }
+
   /// The name of the message type, not including its scope.
   public let name: String
   /// The fully-qualified name of the message type, scope delimited by
@@ -304,7 +347,7 @@ public final class Descriptor {
 
   /// The extension ranges declared for this message. They are returned in
   /// the order they are defined in the .proto file.
-  public let extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]
+  public let extensionRanges: [ExtensionRange]
 
   /// The reserved field number ranges for this message. These are returned
   /// in the order they are defined in the .proto file.
@@ -336,10 +379,12 @@ public final class Descriptor {
     self.index = index
     self.options = proto.options
     self.wellKnownType = WellKnownType(rawValue: fullName)
-    self.extensionRanges = proto.extensionRange
     self.reservedRanges = proto.reservedRange.map { return $0.start ..< $0.end }
     self.reservedNames = proto.reservedName
 
+    self.extensionRanges = proto.extensionRange.enumerated().map {
+      return ExtensionRange(proto: $0.element, index: $0.offset)
+    }
     self.enums = proto.enumType.enumerated().map {
       return EnumDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: fullName)
     }
@@ -363,6 +408,7 @@ public final class Descriptor {
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
     _file = file
     self.containingType = containingType
+    extensionRanges.forEach { $0.bind(containingType: self, registry: registry) }
     enums.forEach { $0.bind(file: file, registry: registry, containingType: self) }
     messages.forEach { $0.bind(file: file, registry: registry, containingType: self) }
     fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }
@@ -480,7 +526,7 @@ public final class EnumValueDescriptor {
   /// The `Google_Protobuf_EnumValueOptions` set on this value.
   public let options: Google_Protobuf_EnumValueOptions
 
-  // Storage for `service`, will be set by bind()
+  // Storage for `enumType`, will be set by bind()
   private unowned var _enumType: EnumDescriptor?
 
   fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
