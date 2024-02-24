@@ -2951,7 +2951,8 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.file.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.file.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -3016,6 +3017,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3026,19 +3028,19 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     try { if let v = self._package {
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
     } }()
-    if !self.dependency.isEmpty {
+    if !self.dependency.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedStringField(value: self.dependency, fieldNumber: 3)
     }
-    if !self.messageType.isEmpty {
+    if !self.messageType.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.messageType, fieldNumber: 4)
     }
-    if !self.enumType.isEmpty {
+    if !self.enumType.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.enumType, fieldNumber: 5)
     }
-    if !self.service.isEmpty {
+    if !self.service.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.service, fieldNumber: 6)
     }
-    if !self.`extension`.isEmpty {
+    if !self.`extension`.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.`extension`, fieldNumber: 7)
     }
     try { if let v = self._options {
@@ -3047,10 +3049,10 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     try { if let v = self._sourceCodeInfo {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
     } }()
-    if !self.publicDependency.isEmpty {
+    if !self.publicDependency.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedInt32Field(value: self.publicDependency, fieldNumber: 10)
     }
-    if !self.weakDependency.isEmpty {
+    if !self.weakDependency.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedInt32Field(value: self.weakDependency, fieldNumber: 11)
     }
     try { if let v = self._syntax {
@@ -3171,6 +3173,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -3179,31 +3182,31 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
       try { if let v = _storage._name {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
       } }()
-      if !_storage._field.isEmpty {
+      if !_storage._field.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._field, fieldNumber: 2)
       }
-      if !_storage._nestedType.isEmpty {
+      if !_storage._nestedType.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._nestedType, fieldNumber: 3)
       }
-      if !_storage._enumType.isEmpty {
+      if !_storage._enumType.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._enumType, fieldNumber: 4)
       }
-      if !_storage._extensionRange.isEmpty {
+      if !_storage._extensionRange.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._extensionRange, fieldNumber: 5)
       }
-      if !_storage._extension.isEmpty {
+      if !_storage._extension.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._extension, fieldNumber: 6)
       }
       try { if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
       } }()
-      if !_storage._oneofDecl.isEmpty {
+      if !_storage._oneofDecl.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._oneofDecl, fieldNumber: 8)
       }
-      if !_storage._reservedRange.isEmpty {
+      if !_storage._reservedRange.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._reservedRange, fieldNumber: 9)
       }
-      if !_storage._reservedName.isEmpty {
+      if !_storage._reservedName.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedStringField(value: _storage._reservedName, fieldNumber: 10)
       }
     }
@@ -3363,11 +3366,12 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.declaration.isEmpty {
+    if !self.declaration.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.declaration, fieldNumber: 2)
     }
     try { if let v = self._verification {
@@ -3376,7 +3380,7 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 50)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -3673,6 +3677,7 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3680,16 +3685,16 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
     try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     } }()
-    if !self.value.isEmpty {
+    if !self.value.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.value, fieldNumber: 2)
     }
     try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     } }()
-    if !self.reservedRange.isEmpty {
+    if !self.reservedRange.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.reservedRange, fieldNumber: 4)
     }
-    if !self.reservedName.isEmpty {
+    if !self.reservedName.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedStringField(value: self.reservedName, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -3830,6 +3835,7 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -3837,7 +3843,7 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
     try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     } }()
-    if !self.method.isEmpty {
+    if !self.method.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.method, fieldNumber: 2)
     }
     try { if let v = self._options {
@@ -4058,6 +4064,7 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -4123,7 +4130,7 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
       try { if let v = _storage._features {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 50)
       } }()
-      if !_storage._uninterpretedOption.isEmpty {
+      if !_storage._uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4215,6 +4222,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4237,7 +4245,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4358,6 +4366,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -4390,16 +4399,16 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
       try { if let v = _storage._retention {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
       } }()
-      if !_storage._targets.isEmpty {
+      if !_storage._targets.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedEnumField(value: _storage._targets, fieldNumber: 19)
       }
-      if !_storage._editionDefaults.isEmpty {
+      if !_storage._editionDefaults.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._editionDefaults, fieldNumber: 20)
       }
       try { if let v = _storage._features {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
       } }()
-      if !_storage._uninterpretedOption.isEmpty {
+      if !_storage._uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4546,6 +4555,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4553,7 +4563,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4605,6 +4615,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4621,7 +4632,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4674,6 +4685,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4687,7 +4699,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
     try { if let v = self._debugRedact {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4737,6 +4749,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4747,7 +4760,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 34)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4798,6 +4811,7 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -4811,7 +4825,7 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
     } }()
-    if !self.uninterpretedOption.isEmpty {
+    if !self.uninterpretedOption.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -4873,11 +4887,12 @@ extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBa
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
+    if !self.name.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.name, fieldNumber: 2)
     }
     try { if let v = self._identifierValue {
@@ -5114,11 +5129,12 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.defaults.isEmpty {
+    if !self.defaults.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.defaults, fieldNumber: 1)
     }
     try { if let v = self._minimumEdition {
@@ -5205,7 +5221,8 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.location.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.location.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.location, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -5245,14 +5262,15 @@ extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementati
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.path.isEmpty {
+    if !self.path.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedInt32Field(value: self.path, fieldNumber: 1)
     }
-    if !self.span.isEmpty {
+    if !self.span.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedInt32Field(value: self.span, fieldNumber: 2)
     }
     try { if let v = self._leadingComments {
@@ -5261,7 +5279,7 @@ extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementati
     try { if let v = self._trailingComments {
       try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     } }()
-    if !self.leadingDetachedComments.isEmpty {
+    if !self.leadingDetachedComments.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedStringField(value: self.leadingDetachedComments, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -5297,7 +5315,8 @@ extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.annotation.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.annotation.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.annotation, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -5337,11 +5356,12 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImpleme
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.path.isEmpty {
+    if !self.path.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedInt32Field(value: self.path, fieldNumber: 1)
     }
     try { if let v = self._sourceFile {

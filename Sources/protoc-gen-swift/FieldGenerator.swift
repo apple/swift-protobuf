@@ -21,6 +21,9 @@ import SwiftProtobuf
 /// Interface for field generators.
 protocol FieldGenerator {
   var number: Int { get }
+    
+  /// If the field uses the `alwaysVisitPrimitiveValues` flag in its `generateTraverse` implementation.
+  var usesAlwaysVisitPrimitivesFlagForTraversal: Bool { get }
 
   /// Name mapping entry for the field.
   var fieldMapNames: String { get }

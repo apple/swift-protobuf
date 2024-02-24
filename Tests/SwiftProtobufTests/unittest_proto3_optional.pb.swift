@@ -442,6 +442,7 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -504,10 +505,10 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
       try { if let v = _storage._optionalNestedEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
       } }()
-      if _storage._singularInt32 != 0 {
+      if _storage._singularInt32 != 0 || alwaysVisitPrimitiveFields {
         try visitor.visitSingularInt32Field(value: _storage._singularInt32, fieldNumber: 22)
       }
-      if _storage._singularInt64 != 0 {
+      if _storage._singularInt64 != 0 || alwaysVisitPrimitiveFields {
         try visitor.visitSingularInt64Field(value: _storage._singularInt64, fieldNumber: 23)
       }
     }

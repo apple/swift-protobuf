@@ -9,7 +9,9 @@ message GeneratedSwiftReservedMessages {
   message allCases { int32 allCases = 1; }
   message allowAlias { int32 allowAlias = 1; }
   message alwaysPrintEnumsAsInts { int32 alwaysPrintEnumsAsInts = 1; }
+  message alwaysPrintFieldsWithoutPresence { int32 alwaysPrintFieldsWithoutPresence = 1; }
   message alwaysPrintInt64sAsNumbers { int32 alwaysPrintInt64sAsNumbers = 1; }
+  message alwaysVisitPrimitiveFields { int32 alwaysVisitPrimitiveFields = 1; }
   message annotation { int32 annotation = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
@@ -834,6 +836,7 @@ message GeneratedSwiftReservedMessages {
   message totalArrayDepth { int32 totalArrayDepth = 1; }
   message totalSize { int32 totalSize = 1; }
   message trailingComments { int32 trailingComments = 1; }
+  message traversalOptions { int32 traversalOptions = 1; }
   message traverse { int32 traverse = 1; }
   message true { int32 true = 1; }
   message try { int32 try = 1; }

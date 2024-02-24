@@ -223,12 +223,13 @@ extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNamePr
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage.preTraverse()
-      if !_storage._typeURL.isEmpty {
+      if !_storage._typeURL.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitSingularStringField(value: _storage._typeURL, fieldNumber: 1)
       }
-      if !_storage._value.isEmpty {
+      if !_storage._value.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitSingularBytesField(value: _storage._value, fieldNumber: 2)
       }
     }

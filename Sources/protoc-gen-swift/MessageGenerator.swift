@@ -322,7 +322,12 @@ class MessageGenerator {
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
     p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModulePrefix)Visitor>(visitor: inout V) throws {")
+      
     p.withIndentation { p in
+      if fields.contains(where: { $0.usesAlwaysVisitPrimitivesFlagForTraversal }) {
+        p.print("let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields")
+      }
+
       generateWithLifetimeExtension(printer: &p, throws: true) { p in
         if let storage = storage {
           storage.generatePreTraverse(printer: &p)

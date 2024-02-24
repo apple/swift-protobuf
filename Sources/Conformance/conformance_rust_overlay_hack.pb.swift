@@ -58,7 +58,8 @@ extension Conformance_ConformanceRequestRustOverlayHack: SwiftProtobuf.Message, 
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.requestedOutputFormat != 0 {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.requestedOutputFormat != 0 || alwaysVisitPrimitiveFields {
       try visitor.visitSingularInt32Field(value: self.requestedOutputFormat, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)

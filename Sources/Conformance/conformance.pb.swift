@@ -456,7 +456,8 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.failure.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.failure.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedStringField(value: self.failure, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -532,6 +533,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -547,13 +549,13 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     }()
     default: break
     }
-    if self.requestedOutputFormat != .unspecified {
+    if self.requestedOutputFormat != .unspecified || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
     }
-    if !self.messageType.isEmpty {
+    if !self.messageType.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
     }
-    if self.testCategory != .unspecifiedTest {
+    if self.testCategory != .unspecifiedTest || alwaysVisitPrimitiveFields {
       try visitor.visitSingularEnumField(value: self.testCategory, fieldNumber: 5)
     }
     try { if let v = self._jspbEncodingOptions {
@@ -570,7 +572,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     }()
     default: break
     }
-    if self.printUnknownFields != false {
+    if self.printUnknownFields != false || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBoolField(value: self.printUnknownFields, fieldNumber: 9)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -758,7 +760,8 @@ extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.useJspbArrayAnyFormat != false {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if self.useJspbArrayAnyFormat != false || alwaysVisitPrimitiveFields {
       try visitor.visitSingularBoolField(value: self.useJspbArrayAnyFormat, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)

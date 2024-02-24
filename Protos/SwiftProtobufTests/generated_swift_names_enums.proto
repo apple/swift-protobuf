@@ -9,7 +9,9 @@ message GeneratedSwiftReservedEnums {
   enum allCases { NONE_allCases = 0; }
   enum allowAlias { NONE_allowAlias = 0; }
   enum alwaysPrintEnumsAsInts { NONE_alwaysPrintEnumsAsInts = 0; }
+  enum alwaysPrintFieldsWithoutPresence { NONE_alwaysPrintFieldsWithoutPresence = 0; }
   enum alwaysPrintInt64sAsNumbers { NONE_alwaysPrintInt64sAsNumbers = 0; }
+  enum alwaysVisitPrimitiveFields { NONE_alwaysVisitPrimitiveFields = 0; }
   enum annotation { NONE_annotation = 0; }
   enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
@@ -834,6 +836,7 @@ message GeneratedSwiftReservedEnums {
   enum totalArrayDepth { NONE_totalArrayDepth = 0; }
   enum totalSize { NONE_totalSize = 0; }
   enum trailingComments { NONE_trailingComments = 0; }
+  enum traversalOptions { NONE_traversalOptions = 0; }
   enum traverse { NONE_traverse = 0; }
   enum true { NONE_true = 0; }
   enum try { NONE_try = 0; }

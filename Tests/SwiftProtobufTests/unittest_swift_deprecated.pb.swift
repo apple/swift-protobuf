@@ -500,6 +500,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtob
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -511,7 +512,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtob
       try { if let v = _storage._intField {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       } }()
-      if !_storage._fixedField.isEmpty {
+      if !_storage._fixedField.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedFixed32Field(value: _storage._fixedField, fieldNumber: 3)
       }
       try { if let v = _storage._msgField {
@@ -621,6 +622,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message, SwiftProto
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -632,7 +634,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message, SwiftProto
       try { if let v = _storage._intField {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       } }()
-      if !_storage._fixedField.isEmpty {
+      if !_storage._fixedField.isEmpty || alwaysVisitPrimitiveFields {
         try visitor.visitRepeatedFixed32Field(value: _storage._fixedField, fieldNumber: 3)
       }
       try { if let v = _storage._msgField {

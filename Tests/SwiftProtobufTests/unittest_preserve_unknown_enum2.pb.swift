@@ -186,6 +186,7 @@ extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.Message,
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -193,13 +194,13 @@ extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.Message,
     try { if let v = self._e {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     } }()
-    if !self.repeatedE.isEmpty {
+    if !self.repeatedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedEnumField(value: self.repeatedE, fieldNumber: 2)
     }
-    if !self.repeatedPackedE.isEmpty {
+    if !self.repeatedPackedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
     }
-    if !self.repeatedPackedUnexpectedE.isEmpty {
+    if !self.repeatedPackedUnexpectedE.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     switch self.o {

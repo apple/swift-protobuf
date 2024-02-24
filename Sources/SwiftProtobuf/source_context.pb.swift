@@ -89,7 +89,8 @@ extension Google_Protobuf_SourceContext: Message, _MessageImplementationBase, _P
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.fileName.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.fileName.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.fileName, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)

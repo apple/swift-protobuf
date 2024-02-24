@@ -332,6 +332,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, Swi
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -339,7 +340,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, Swi
     try { if let v = self._optionalMessage {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
-    if !self.repeatedMessage.isEmpty {
+    if !self.repeatedMessage.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.repeatedMessage, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -374,10 +375,11 @@ extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: Sw
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.field1.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.field1.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.field1, fieldNumber: 1)
     }
-    if !self.field2.isEmpty {
+    if !self.field2.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.field2, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)

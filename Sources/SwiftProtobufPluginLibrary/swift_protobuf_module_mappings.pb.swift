@@ -90,7 +90,8 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.mapping.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.mapping.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedMessageField(value: self.mapping, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -124,10 +125,11 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, Sw
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.moduleName.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.moduleName.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitSingularStringField(value: self.moduleName, fieldNumber: 1)
     }
-    if !self.protoFilePath.isEmpty {
+    if !self.protoFilePath.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedStringField(value: self.protoFilePath, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)

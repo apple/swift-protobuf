@@ -21,6 +21,7 @@ internal struct JSONEncodingVisitor: Visitor {
   private var nameMap: _NameMap
   private var extensions: ExtensionFieldValueSet?
   private let options: JSONEncodingOptions
+  let traversalOptions: TraversalOptions
 
   /// The JSON text produced by the visitor, as raw UTF8 bytes.
   var dataResult: [UInt8] {
@@ -41,6 +42,9 @@ internal struct JSONEncodingVisitor: Visitor {
       throw JSONEncodingError.missingFieldNames
     }
     self.options = options
+    var traversalOptions = TraversalOptions()
+    traversalOptions.alwaysVisitPrimitiveFields = options.alwaysPrintFieldsWithoutPresence
+    self.traversalOptions = traversalOptions
   }
 
   mutating func startArray() {
@@ -143,7 +147,6 @@ internal struct JSONEncodingVisitor: Visitor {
     fieldNumber: Int,
     encode: (inout JSONEncoder, T) throws -> ()
   ) throws {
-    assert(!value.isEmpty)
     try startField(for: fieldNumber)
     var comma = false
     encoder.startArray()
@@ -318,7 +321,6 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try startField(for: fieldNumber)
     var comma = false
     encoder.startArray()
@@ -351,7 +353,6 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     // Google does not serialize groups into JSON
   }
 

@@ -501,6 +501,7 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -511,7 +512,7 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
     try { if let v = self._subGroup1 {
       try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
     } }()
-    if !self.subGroup3.isEmpty {
+    if !self.subGroup3.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedGroupField(value: self.subGroup3, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -625,6 +626,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -632,7 +634,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
     try { if let v = self._sub3A {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     } }()
-    if !self.subGroup4.isEmpty {
+    if !self.subGroup4.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedGroupField(value: self.subGroup4, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)

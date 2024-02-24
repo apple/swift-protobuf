@@ -31,6 +31,9 @@ import Foundation
 /// used for serialization.  It is implemented by each serialization protocol:
 /// Protobuf Binary, Protobuf Text, JSON, and the Hash encoder.
 public protocol Visitor {
+  
+  /// Additional options for customizing the traversal behavior
+  var traversalOptions: TraversalOptions { get }
 
   /// Called for each non-repeated float field
   ///
@@ -445,8 +448,30 @@ public protocol Visitor {
   mutating func visitUnknown(bytes: Data) throws
 }
 
+/// Provides options for how visitor traversal should be carried out
+public struct TraversalOptions {
+
+  /// Determines if non-optional fields that are equal to their default values should be visited.
+  /// Defaults to `false`.
+  ///
+  /// ### When set to true:
+  /// - repeated fields: Will always be visited, even if they are empty.
+  /// - map fields: Will always be visited, even if they are empty.
+  /// - singular message and group fields: Will be visited only if they are set.
+  /// - singular primitive fields: Will always be visited under proto2. Under proto3 unset optional primitive fields will not be visited.
+  public var alwaysVisitPrimitiveFields: Bool = false
+
+  public init() {}
+}
+
+
 /// Forwarding default implementations of some visitor methods, for convenience.
 extension Visitor {
+    
+  // Use the default traversal options if not set
+  public var traversalOptions: TraversalOptions {
+    TraversalOptions()
+  }
 
   // Default definitions of numeric serializations.
   //
@@ -492,126 +517,108 @@ extension Visitor {
   // repeated values differently from singular, so overrides these.
 
   public mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularFloatField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularDoubleField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularInt32Field(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularInt64Field(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularUInt32Field(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularUInt64Field(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
       for v in value {
           try visitSingularSInt32Field(value: v, fieldNumber: fieldNumber)
       }
   }
 
   public mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
       for v in value {
           try visitSingularSInt64Field(value: v, fieldNumber: fieldNumber)
       }
   }
 
   public mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
       for v in value {
           try visitSingularFixed32Field(value: v, fieldNumber: fieldNumber)
       }
   }
 
   public mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
       for v in value {
           try visitSingularFixed64Field(value: v, fieldNumber: fieldNumber)
       }
   }
 
   public mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
       for v in value {
           try visitSingularSFixed32Field(value: v, fieldNumber: fieldNumber)
       }
   }
 
   public mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
       for v in value {
           try visitSingularSFixed64Field(value: v, fieldNumber: fieldNumber)
       }
   }
 
   public mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularBoolField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularStringField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularBytesField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
         try visitSingularEnumField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularMessageField(value: v, fieldNumber: fieldNumber)
     }
   }
 
   public mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     for v in value {
       try visitSingularGroupField(value: v, fieldNumber: fieldNumber)
     }
@@ -623,73 +630,59 @@ extension Visitor {
   // overridden by Protobuf Binary and Text.
 
   public mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedFloatField(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedDoubleField(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedInt64Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedUInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedUInt64Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitPackedUInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitPackedUInt64Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedBoolField(value: value, fieldNumber: fieldNumber)
   }
 
   public mutating func visitPackedEnumField<E: Enum>(value: [E],
                                             fieldNumber: Int) throws {
-    assert(!value.isEmpty)
     try visitRepeatedEnumField(value: value, fieldNumber: fieldNumber)
   }
 

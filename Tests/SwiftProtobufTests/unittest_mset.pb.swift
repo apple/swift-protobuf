@@ -418,7 +418,8 @@ extension SwiftProtoTesting_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.item.isEmpty {
+    let alwaysVisitPrimitiveFields = visitor.traversalOptions.alwaysVisitPrimitiveFields
+    if !self.item.isEmpty || alwaysVisitPrimitiveFields {
       try visitor.visitRepeatedGroupField(value: self.item, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)

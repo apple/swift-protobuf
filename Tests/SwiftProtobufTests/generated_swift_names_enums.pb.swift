@@ -181,6 +181,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum alwaysPrintFieldsWithoutPresence: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneAlwaysPrintFieldsWithoutPresence // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAlwaysPrintFieldsWithoutPresence
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAlwaysPrintFieldsWithoutPresence
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAlwaysPrintFieldsWithoutPresence: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintFieldsWithoutPresence] = [
+      .noneAlwaysPrintFieldsWithoutPresence,
+    ]
+
+  }
+
   enum alwaysPrintInt64sAsNumbers: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneAlwaysPrintInt64SAsNumbers // = 0
@@ -207,6 +237,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers] = [
       .noneAlwaysPrintInt64SAsNumbers,
+    ]
+
+  }
+
+  enum alwaysVisitPrimitiveFields: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneAlwaysVisitPrimitiveFields // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAlwaysVisitPrimitiveFields
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAlwaysVisitPrimitiveFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAlwaysVisitPrimitiveFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysVisitPrimitiveFields] = [
+      .noneAlwaysVisitPrimitiveFields,
     ]
 
   }
@@ -24931,6 +24991,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum traversalOptions: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneTraversalOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTraversalOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTraversalOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTraversalOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.traversalOptions] = [
+      .noneTraversalOptions,
+    ]
+
+  }
+
   enum traverseEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneTraverse // = 0
@@ -28707,9 +28797,21 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintEnu
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintFieldsWithoutPresence: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_alwaysPrintFieldsWithoutPresence"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_alwaysPrintInt64sAsNumbers"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysVisitPrimitiveFields: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_alwaysVisitPrimitiveFields"),
   ]
 }
 
@@ -33654,6 +33756,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.totalSize: Swi
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.trailingComments: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_trailingComments"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.traversalOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_traversalOptions"),
   ]
 }
 
