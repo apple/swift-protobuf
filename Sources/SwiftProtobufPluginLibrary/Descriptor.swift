@@ -89,45 +89,19 @@ public final class DescriptorSet {
 /// they are directly accessed via a `file` property on all the other
 /// types of descriptors.
 public final class FileDescriptor {
-  /// Syntax of this file.
-  public enum Syntax: RawRepresentable {
-    case proto2
-    case proto3
-    case unknown(String)
-
-    public init?(rawValue: String) {
-      switch rawValue {
-      case "proto2", "":
-        self = .proto2
-      case "proto3":
-        self = .proto3
-      default:
-        self = .unknown(rawValue)
-      }
-    }
-
-    public var rawValue: String {
-      switch self {
-      case .proto2:
-        return "proto2"
-      case .proto3:
-        return "proto3"
-      case .unknown(let value):
-        return value
-      }
-    }
-
-    /// The string form of the syntax.
-    public var name: String { return rawValue }
-  }
 
   /// The filename used with protoc.
   public let name: String
   /// The proto package.
   public let package: String
 
-  /// Syntax of this file.
-  public let syntax: Syntax
+  /// The edition of the file.
+  ///
+  /// This is not public because generators should not make decisions based
+  /// on the Edition, to properly handing editions, they should be checking
+  /// Features and in most case the other `Descriptor` api that expose the
+  /// information.
+  internal let edition: Google_Protobuf_Edition
 
   /// The imports for this file.
   public let dependencies: [FileDescriptor]
@@ -153,7 +127,23 @@ public final class FileDescriptor {
   fileprivate init(proto: Google_Protobuf_FileDescriptorProto, registry: Registry) {
     self.name = proto.name
     self.package = proto.package
-    self.syntax = Syntax(rawValue: proto.syntax)!
+
+    // This logic comes from upstream `DescriptorBuilder::BuildFileImpl()`.
+    switch proto.syntax {
+    case "", "proto2":
+      self.edition = .proto2
+    case "proto3":
+      self.edition = .proto3
+    case "edition":
+      self.edition = proto.edition
+      // TODO(thomasvl): Remove this when ready to support editions.
+      fatalError("SwiftProtobuf doesn't yet support editions.")
+    default:
+      self.edition = .unknown
+      // Somethings gone wrong if non of the above happen from protoc.
+      fatalError("protoc provided an expected value for syntax/edition: \(proto.name)")
+    }
+
     self.options = proto.options
 
     let protoPackage = proto.package
@@ -468,7 +458,7 @@ public final class EnumDescriptor {
   /// - The first value (i.e., the default) may be nonzero.
   public var isClosed: Bool {
     // Implementation comes from C++ EnumDescriptor::is_closed().
-    return file.syntax != .proto3
+    return file.edition != .proto3
   }
 
   // Storage for `file`, will be set by bind()
@@ -660,7 +650,7 @@ public final class FieldDescriptor {
     // their placeholder descriptor support, as once the FieldDescriptor is
     // fully wired it gets a default FileOptions instance, rendering nullptr
     // meaningless.
-    if file.syntax == .proto2 {
+    if file.edition == .proto2 {
       return options.packed
     } else {
       return !options.hasPacked || options.packed
@@ -678,7 +668,7 @@ public final class FieldDescriptor {
     // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
     // impl.
     return proto3Optional ||
-      (file.syntax == .proto2 && label == .optional && oneofIndex == nil)
+      (file.edition == .proto2 && label == .optional && oneofIndex == nil)
   }
 
   /// Returns true if this field tracks presence, ie. does the field
@@ -693,7 +683,7 @@ public final class FieldDescriptor {
       // Groups/messages always get field presence.
       return true
     default:
-      return file.syntax == .proto2 || oneofIndex != nil
+      return file.edition == .proto2 || oneofIndex != nil
     }
   }
 
@@ -708,7 +698,7 @@ public final class FieldDescriptor {
   /// languages have similar issues with their _string_ types and thus have the
   /// same issues.
   public var requiresUTF8Validation: Bool {
-    return type == .string && file.syntax == .proto3
+    return type == .string && file.edition == .proto3
   }
 
   /// Index of this field within the message's fields, or the file or
