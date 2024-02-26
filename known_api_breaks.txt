@@ -1,5 +1,6 @@
 API breakage: enumelement Google_Protobuf_Edition.proto2 has been added as a new enum case
 API breakage: enumelement Google_Protobuf_Edition.proto3 has been added as a new enum case
+API breakage: enumelement Google_Protobuf_Edition.edition2024 has been added as a new enum case
 API breakage: enumelement Google_Protobuf_Edition.max has been added as a new enum case
 API breakage: var Google_Protobuf_FileDescriptorProto.edition has declared type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
 API breakage: accessor Google_Protobuf_FileDescriptorProto.edition.Get() has return type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
