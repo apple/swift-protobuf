@@ -14,6 +14,8 @@
 
 import Foundation
 
+import SwiftProtobuf
+
 /// A protocol that generator should conform to then get easy support for
 /// being a protocol buffer compiler pluign.
 public protocol CodeGenerator {
@@ -44,6 +46,11 @@ public protocol CodeGenerator {
   /// The list of features this CodeGenerator support to be reported back to
   /// the protocol buffer compiler.
   var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] { get }
+
+  /// The Protobuf Edition range that this generator can handle. Attempting
+  /// to generate for an Edition outside this range will cause protoc to
+  /// error.
+  var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> { get }
 
   /// If provided, the argument parsing will support `--version` and report
   /// this value.
@@ -137,6 +144,9 @@ extension CodeGenerator {
 // Provide default implementation for things so `CodeGenerator`s only have to
 // provide them if they wish too.
 extension CodeGenerator {
+  public var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
+    return Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
+  }
   public var version: String? { return nil }
   public var projectURL: String? { return nil }
   public var copyrightLine: String? { return nil }
@@ -201,8 +211,16 @@ public func generateCode(
     return Google_Protobuf_Compiler_CodeGeneratorResponse(error: String(describing: e))
   }
 
-  return Google_Protobuf_Compiler_CodeGeneratorResponse(
-    files: outputs.files, supportedFeatures: generator.supportedFeatures)
+  var response = Google_Protobuf_Compiler_CodeGeneratorResponse()
+  response.file = outputs.files
+  let supportedFeatures = generator.supportedFeatures
+  response.supportedFeatures = supportedFeatures.reduce(0) { $0 | UInt64($1.rawValue) }
+  if supportedFeatures.contains(.supportsEditions) {
+    let supportedEditions = generator.supportedEditionRange
+    response.minimumEdition = Int32(supportedEditions.lowerBound.rawValue)
+    response.maximumEdition = Int32(supportedEditions.upperBound.rawValue)
+  }
+  return response
 }
 
 // MARK: Internal supporting types
