@@ -45,11 +45,53 @@ struct Pb_CppFeatures: Sendable {
   /// Clears the value of `legacyClosedEnum`. Subsequent reads from it will return its default value.
   mutating func clearLegacyClosedEnum() {self._legacyClosedEnum = nil}
 
+  var stringType: Pb_CppFeatures.StringType {
+    get {return _stringType ?? .unknown}
+    set {_stringType = newValue}
+  }
+  /// Returns true if `stringType` has been explicitly set.
+  var hasStringType: Bool {return self._stringType != nil}
+  /// Clears the value of `stringType`. Subsequent reads from it will return its default value.
+  mutating func clearStringType() {self._stringType = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum StringType: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unknown // = 0
+    case view // = 1
+    case cord // = 2
+    case string // = 3
+
+    init() {
+      self = .unknown
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unknown
+      case 1: self = .view
+      case 2: self = .cord
+      case 3: self = .string
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unknown: return 0
+      case .view: return 1
+      case .cord: return 2
+      case .string: return 3
+      }
+    }
+
+  }
 
   init() {}
 
   fileprivate var _legacyClosedEnum: Bool? = nil
+  fileprivate var _stringType: Pb_CppFeatures.StringType? = nil
 }
 
 // MARK: - Extension support defined in cpp_features.proto.
@@ -107,6 +149,7 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "legacy_closed_enum"),
+    2: .standard(proto: "string_type"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -116,6 +159,7 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self._legacyClosedEnum) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._stringType) }()
       default: break
       }
     }
@@ -129,12 +173,25 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try { if let v = self._legacyClosedEnum {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
     } }()
+    try { if let v = self._stringType {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_CppFeatures, rhs: Pb_CppFeatures) -> Bool {
     if lhs._legacyClosedEnum != rhs._legacyClosedEnum {return false}
+    if lhs._stringType != rhs._stringType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STRING_TYPE_UNKNOWN"),
+    1: .same(proto: "VIEW"),
+    2: .same(proto: "CORD"),
+    3: .same(proto: "STRING"),
+  ]
 }

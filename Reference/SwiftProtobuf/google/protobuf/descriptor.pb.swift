@@ -76,6 +76,7 @@ enum Google_Protobuf_Edition: Enum {
   /// should not be depended on, but they will always be time-ordered for easy
   /// comparison.
   case edition2023 // = 1000
+  case edition2024 // = 1001
 
   /// Placeholder editions for testing feature resolution.  These should not be
   /// used or relyed on outside of tests.
@@ -102,6 +103,7 @@ enum Google_Protobuf_Edition: Enum {
     case 998: self = .proto2
     case 999: self = .proto3
     case 1000: self = .edition2023
+    case 1001: self = .edition2024
     case 99997: self = .edition99997TestOnly
     case 99998: self = .edition99998TestOnly
     case 99999: self = .edition99999TestOnly
@@ -118,6 +120,7 @@ enum Google_Protobuf_Edition: Enum {
     case .proto2: return 998
     case .proto3: return 999
     case .edition2023: return 1000
+    case .edition2024: return 1001
     case .edition99997TestOnly: return 99997
     case .edition99998TestOnly: return 99998
     case .edition99999TestOnly: return 99999
@@ -1159,12 +1162,16 @@ struct Google_Protobuf_FileOptions: ExtensibleMessage, @unchecked Sendable {
   /// Clears the value of `javaGenerateEqualsAndHash`. Subsequent reads from it will return its default value.
   mutating func clearJavaGenerateEqualsAndHash() {_uniqueStorage()._javaGenerateEqualsAndHash = nil}
 
-  /// If set true, then the Java2 code generator will generate code that
-  /// throws an exception whenever an attempt is made to assign a non-UTF-8
-  /// byte sequence to a string field.
-  /// Message reflection will do the same.
-  /// However, an extension field still accepts non-UTF-8 byte sequences.
-  /// This option has no effect on when used with the lite runtime.
+  /// A proto2 file can set this to true to opt in to UTF-8 checking for Java,
+  /// which will throw an exception if invalid UTF-8 is parsed from the wire or
+  /// assigned to a string field.
+  ///
+  /// TODO: clarify exactly what kinds of field types this option
+  /// applies to, and update these docs accordingly.
+  ///
+  /// Proto3 files already perform these checks. Setting the option explicitly to
+  /// false has no effect: it cannot be used to opt proto3 files out of UTF-8
+  /// checks.
   var javaStringCheckUtf8: Bool {
     get {return _storage._javaStringCheckUtf8 ?? false}
     set {_uniqueStorage()._javaStringCheckUtf8 = newValue}
@@ -2920,6 +2927,7 @@ extension Google_Protobuf_Edition: _ProtoNameProviding {
     998: .same(proto: "EDITION_PROTO2"),
     999: .same(proto: "EDITION_PROTO3"),
     1000: .same(proto: "EDITION_2023"),
+    1001: .same(proto: "EDITION_2024"),
     99997: .same(proto: "EDITION_99997_TEST_ONLY"),
     99998: .same(proto: "EDITION_99998_TEST_ONLY"),
     99999: .same(proto: "EDITION_99999_TEST_ONLY"),
@@ -4990,7 +4998,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
       case 4: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self._messageEncoding) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jsonFormat) }()
-      case 1000..<1002, 9995..<10000:
+      case 1000..<1003, 9995..<10001:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FeatureSet.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -5020,7 +5028,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     try { if let v = self._jsonFormat {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     } }()
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 10000)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 10001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
