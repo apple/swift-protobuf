@@ -47,11 +47,6 @@ public protocol CodeGenerator {
   /// the protocol buffer compiler.
   var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] { get }
 
-  /// The Protobuf Edition range that this generator can handle. Attempting
-  /// to generate for an Edition outside this range will cause protoc to
-  /// error.
-  var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> { get }
-
   /// If provided, the argument parsing will support `--version` and report
   /// this value.
   var version: String? { get }
@@ -144,9 +139,6 @@ extension CodeGenerator {
 // Provide default implementation for things so `CodeGenerator`s only have to
 // provide them if they wish too.
 extension CodeGenerator {
-  public var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
-    return Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
-  }
   public var version: String? { return nil }
   public var projectURL: String? { return nil }
   public var copyrightLine: String? { return nil }
@@ -213,13 +205,14 @@ public func generateCode(
 
   var response = Google_Protobuf_Compiler_CodeGeneratorResponse()
   response.file = outputs.files
+  // TODO: Some of the supported features are completely handled within the
+  // Plugin library (optional, eventually editions), should we drop
+  // `supportedFeature` and just set it or move to a model where we default
+  // them with a way to override?  (although it's not clear why some of them
+  // wouldn't be supported)
   let supportedFeatures = generator.supportedFeatures
   response.supportedFeatures = supportedFeatures.reduce(0) { $0 | UInt64($1.rawValue) }
-  if supportedFeatures.contains(.supportsEditions) {
-    let supportedEditions = generator.supportedEditionRange
-    response.minimumEdition = Int32(supportedEditions.lowerBound.rawValue)
-    response.maximumEdition = Int32(supportedEditions.upperBound.rawValue)
-  }
+  // TODO: Auto provide the edition min/max.
   return response
 }
 
