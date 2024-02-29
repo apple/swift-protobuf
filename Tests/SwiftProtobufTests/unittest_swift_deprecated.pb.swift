@@ -421,29 +421,50 @@ extension SwiftProtoTesting_Deprecated_MsgScope {
 fileprivate let _protobuf_package = "swift_proto_testing.deprecated"
 
 extension SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "MYENUM_ONE"),
-    2: .same(proto: "MYENUM_TWO"),
-    3: .same(proto: "MYENUM_THREE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "MYENUM_ONE"),
+      2: .same(proto: "MYENUM_TWO"),
+      3: .same(proto: "MYENUM_THREE"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Deprecated_MyEnum2: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "MYENUM2_ONE"),
-    2: .same(proto: "MYENUM2_TWO"),
-    3: .same(proto: "MYENUM2_THREE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "MYENUM2_ONE"),
+      2: .same(proto: "MYENUM2_TWO"),
+      3: .same(proto: "MYENUM2_THREE"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "string_field"),
-    2: .standard(proto: "int_field"),
-    3: .standard(proto: "fixed_field"),
-    4: .standard(proto: "msg_field"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "string_field"),
+      2: .standard(proto: "int_field"),
+      3: .standard(proto: "fixed_field"),
+      4: .standard(proto: "msg_field"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _stringField: String? = nil
@@ -543,7 +564,11 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtob
 
 extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgScope"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -562,12 +587,19 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "string_field"),
-    2: .standard(proto: "int_field"),
-    3: .standard(proto: "fixed_field"),
-    4: .standard(proto: "msg_field"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "string_field"),
+      2: .standard(proto: "int_field"),
+      3: .standard(proto: "fixed_field"),
+      4: .standard(proto: "msg_field"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _stringField: String? = nil

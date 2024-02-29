@@ -218,16 +218,30 @@ struct Google_Protobuf_ListValue: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_NullValue: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "NULL_VALUE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "NULL_VALUE"),
+    ]
+  }
 }
 
 extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Struct"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "fields"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "fields"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -257,14 +271,21 @@ extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNam
 
 extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Value"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "null_value"),
-    2: .standard(proto: "number_value"),
-    3: .standard(proto: "string_value"),
-    4: .standard(proto: "bool_value"),
-    5: .standard(proto: "struct_value"),
-    6: .standard(proto: "list_value"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .standard(proto: "null_value"),
+      2: .standard(proto: "number_value"),
+      3: .standard(proto: "string_value"),
+      4: .standard(proto: "bool_value"),
+      5: .standard(proto: "struct_value"),
+      6: .standard(proto: "list_value"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -379,9 +400,16 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
 
 extension Google_Protobuf_ListValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ListValue"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "values"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "values"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

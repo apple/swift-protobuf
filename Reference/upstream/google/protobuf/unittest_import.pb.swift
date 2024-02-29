@@ -118,26 +118,47 @@ struct ProtobufUnittestImport_ImportMessage: Sendable {
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
 extension ProtobufUnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    7: .same(proto: "IMPORT_FOO"),
-    8: .same(proto: "IMPORT_BAR"),
-    9: .same(proto: "IMPORT_BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      7: .same(proto: "IMPORT_FOO"),
+      8: .same(proto: "IMPORT_BAR"),
+      9: .same(proto: "IMPORT_BAZ"),
+    ]
+  }
 }
 
 extension ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNKNOWN"),
-    1: .same(proto: "FOO"),
-    2: .same(proto: "BAR"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "UNKNOWN"),
+      1: .same(proto: "FOO"),
+      2: .same(proto: "BAR"),
+    ]
+  }
 }
 
 extension ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "d"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -15147,228 +15147,246 @@ extension SwiftProtoTesting_Names_WordCase {
 fileprivate let _protobuf_package = "swift_proto_testing.names"
 
 extension SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "A"),
-    1: .same(proto: "String"),
-    2: .same(proto: "Int"),
-    3: .same(proto: "Double"),
-    4: .same(proto: "Float"),
-    5: .same(proto: "UInt"),
-    6: .same(proto: "hashValue"),
-    7: .same(proto: "description"),
-    8: .same(proto: "debugDescription"),
-    9: .same(proto: "Swift"),
-    10: .same(proto: "UNRECOGNIZED"),
-    11: .same(proto: "class"),
-    12: .same(proto: "deinit"),
-    13: .same(proto: "enum"),
-    14: .same(proto: "extension"),
-    15: .same(proto: "func"),
-    16: .same(proto: "import"),
-    17: .same(proto: "init"),
-    18: .same(proto: "inout"),
-    19: .same(proto: "internal"),
-    20: .same(proto: "let"),
-    21: .same(proto: "operator"),
-    22: .same(proto: "private"),
-    23: .same(proto: "protocol"),
-    24: .same(proto: "public"),
-    25: .same(proto: "static"),
-    26: .same(proto: "struct"),
-    27: .same(proto: "subscript"),
-    28: .same(proto: "typealias"),
-    29: .same(proto: "var"),
-    30: .same(proto: "break"),
-    31: .same(proto: "case"),
-    32: .same(proto: "continue"),
-    33: .same(proto: "default"),
-    34: .same(proto: "defer"),
-    35: .same(proto: "do"),
-    36: .same(proto: "else"),
-    37: .same(proto: "fallthrough"),
-    38: .same(proto: "for"),
-    39: .same(proto: "guard"),
-    40: .same(proto: "if"),
-    41: .same(proto: "in"),
-    42: .same(proto: "repeat"),
-    43: .same(proto: "return"),
-    44: .same(proto: "switch"),
-    45: .same(proto: "where"),
-    46: .same(proto: "while"),
-    47: .same(proto: "as"),
-    48: .same(proto: "catch"),
-    49: .same(proto: "dynamicType"),
-    50: .same(proto: "false"),
-    51: .same(proto: "is"),
-    52: .same(proto: "nil"),
-    53: .same(proto: "rethrows"),
-    54: .same(proto: "super"),
-    55: .same(proto: "self"),
-    57: .same(proto: "throw"),
-    58: .same(proto: "throws"),
-    59: .same(proto: "true"),
-    60: .same(proto: "try"),
-    61: .same(proto: "__COLUMN__"),
-    62: .same(proto: "__FILE__"),
-    63: .same(proto: "__FUNCTION__"),
-    64: .same(proto: "__LINE__"),
-    65: .same(proto: "_"),
-    66: .same(proto: "associativity"),
-    67: .same(proto: "convenience"),
-    68: .same(proto: "dynamic"),
-    69: .same(proto: "didSet"),
-    70: .same(proto: "final"),
-    71: .same(proto: "get"),
-    72: .same(proto: "infix"),
-    73: .same(proto: "indirect"),
-    74: .same(proto: "lazy"),
-    75: .same(proto: "left"),
-    76: .same(proto: "mutating"),
-    77: .same(proto: "none"),
-    78: .same(proto: "nonmutating"),
-    79: .same(proto: "optional"),
-    80: .same(proto: "override"),
-    81: .same(proto: "postfix"),
-    82: .same(proto: "precedence"),
-    83: .same(proto: "prefix"),
-    85: .same(proto: "required"),
-    86: .same(proto: "right"),
-    87: .same(proto: "set"),
-    88: .same(proto: "Type"),
-    89: .same(proto: "unowned"),
-    90: .same(proto: "weak"),
-    91: .same(proto: "willSet"),
-    93: .same(proto: "_cmd"),
-    96: .same(proto: "out"),
-    98: .same(proto: "bycopy"),
-    99: .same(proto: "byref"),
-    100: .same(proto: "oneway"),
-    102: .same(proto: "and"),
-    103: .same(proto: "and_eq"),
-    104: .same(proto: "alignas"),
-    105: .same(proto: "alignof"),
-    106: .same(proto: "asm"),
-    107: .same(proto: "auto"),
-    108: .same(proto: "bitand"),
-    109: .same(proto: "bitor"),
-    110: .same(proto: "bool"),
-    114: .same(proto: "char"),
-    115: .same(proto: "char16_t"),
-    116: .same(proto: "char32_t"),
-    118: .same(proto: "compl"),
-    119: .same(proto: "const"),
-    120: .same(proto: "constexpr"),
-    121: .same(proto: "const_cast"),
-    123: .same(proto: "decltype"),
-    125: .same(proto: "delete"),
-    127: .same(proto: "dynamic_cast"),
-    130: .same(proto: "explicit"),
-    131: .same(proto: "export"),
-    132: .same(proto: "extern"),
-    136: .same(proto: "friend"),
-    137: .same(proto: "goto"),
-    139: .same(proto: "inline"),
-    141: .same(proto: "long"),
-    142: .same(proto: "mutable"),
-    143: .same(proto: "namespace"),
-    144: .same(proto: "new"),
-    145: .same(proto: "noexcept"),
-    146: .same(proto: "not"),
-    147: .same(proto: "not_eq"),
-    148: .same(proto: "nullptr"),
-    150: .same(proto: "or"),
-    151: .same(proto: "or_eq"),
-    153: .same(proto: "protected"),
-    155: .same(proto: "register"),
-    156: .same(proto: "reinterpret_cast"),
-    158: .same(proto: "short"),
-    159: .same(proto: "signed"),
-    160: .same(proto: "sizeof"),
-    162: .same(proto: "static_assert"),
-    163: .same(proto: "static_cast"),
-    166: .same(proto: "template"),
-    167: .same(proto: "this"),
-    168: .same(proto: "thread_local"),
-    172: .same(proto: "typedef"),
-    173: .same(proto: "typeid"),
-    174: .same(proto: "typename"),
-    175: .same(proto: "union"),
-    176: .same(proto: "unsigned"),
-    177: .same(proto: "using"),
-    178: .same(proto: "virtual"),
-    179: .same(proto: "void"),
-    180: .same(proto: "volatile"),
-    181: .same(proto: "wchar_t"),
-    183: .same(proto: "xor"),
-    184: .same(proto: "xor_eq"),
-    185: .same(proto: "restrict"),
-    186: .same(proto: "Category"),
-    187: .same(proto: "Ivar"),
-    188: .same(proto: "Method"),
-    192: .same(proto: "finalize"),
-    193: .same(proto: "hash"),
-    194: .same(proto: "dealloc"),
-    197: .same(proto: "superclass"),
-    198: .same(proto: "retain"),
-    199: .same(proto: "release"),
-    200: .same(proto: "autorelease"),
-    201: .same(proto: "retainCount"),
-    202: .same(proto: "zone"),
-    203: .same(proto: "isProxy"),
-    204: .same(proto: "copy"),
-    205: .same(proto: "mutableCopy"),
-    206: .same(proto: "classForCoder"),
-    207: .same(proto: "clear"),
-    208: .same(proto: "data"),
-    209: .same(proto: "delimitedData"),
-    210: .same(proto: "descriptor"),
-    211: .same(proto: "extensionRegistry"),
-    212: .same(proto: "extensionsCurrentlySet"),
-    213: .same(proto: "isInitialized"),
-    214: .same(proto: "serializedSize"),
-    215: .same(proto: "sortedExtensionsInUse"),
-    216: .same(proto: "unknownFields"),
-    217: .same(proto: "Fixed"),
-    218: .same(proto: "Fract"),
-    219: .same(proto: "Size"),
-    220: .same(proto: "LogicalAddress"),
-    221: .same(proto: "PhysicalAddress"),
-    222: .same(proto: "ByteCount"),
-    223: .same(proto: "ByteOffset"),
-    224: .same(proto: "Duration"),
-    225: .same(proto: "AbsoluteTime"),
-    226: .same(proto: "OptionBits"),
-    227: .same(proto: "ItemCount"),
-    228: .same(proto: "PBVersion"),
-    229: .same(proto: "ScriptCode"),
-    230: .same(proto: "LangCode"),
-    231: .same(proto: "RegionCode"),
-    232: .same(proto: "OSType"),
-    233: .same(proto: "ProcessSerialNumber"),
-    234: .same(proto: "Point"),
-    235: .same(proto: "Rect"),
-    236: .same(proto: "FixedPoint"),
-    237: .same(proto: "FixedRect"),
-    238: .same(proto: "Style"),
-    239: .same(proto: "StyleParameter"),
-    240: .same(proto: "StyleField"),
-    241: .same(proto: "TimeScale"),
-    242: .same(proto: "TimeBase"),
-    243: .same(proto: "TimeRecord"),
-    244: .same(proto: "Extensions"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "A"),
+      1: .same(proto: "String"),
+      2: .same(proto: "Int"),
+      3: .same(proto: "Double"),
+      4: .same(proto: "Float"),
+      5: .same(proto: "UInt"),
+      6: .same(proto: "hashValue"),
+      7: .same(proto: "description"),
+      8: .same(proto: "debugDescription"),
+      9: .same(proto: "Swift"),
+      10: .same(proto: "UNRECOGNIZED"),
+      11: .same(proto: "class"),
+      12: .same(proto: "deinit"),
+      13: .same(proto: "enum"),
+      14: .same(proto: "extension"),
+      15: .same(proto: "func"),
+      16: .same(proto: "import"),
+      17: .same(proto: "init"),
+      18: .same(proto: "inout"),
+      19: .same(proto: "internal"),
+      20: .same(proto: "let"),
+      21: .same(proto: "operator"),
+      22: .same(proto: "private"),
+      23: .same(proto: "protocol"),
+      24: .same(proto: "public"),
+      25: .same(proto: "static"),
+      26: .same(proto: "struct"),
+      27: .same(proto: "subscript"),
+      28: .same(proto: "typealias"),
+      29: .same(proto: "var"),
+      30: .same(proto: "break"),
+      31: .same(proto: "case"),
+      32: .same(proto: "continue"),
+      33: .same(proto: "default"),
+      34: .same(proto: "defer"),
+      35: .same(proto: "do"),
+      36: .same(proto: "else"),
+      37: .same(proto: "fallthrough"),
+      38: .same(proto: "for"),
+      39: .same(proto: "guard"),
+      40: .same(proto: "if"),
+      41: .same(proto: "in"),
+      42: .same(proto: "repeat"),
+      43: .same(proto: "return"),
+      44: .same(proto: "switch"),
+      45: .same(proto: "where"),
+      46: .same(proto: "while"),
+      47: .same(proto: "as"),
+      48: .same(proto: "catch"),
+      49: .same(proto: "dynamicType"),
+      50: .same(proto: "false"),
+      51: .same(proto: "is"),
+      52: .same(proto: "nil"),
+      53: .same(proto: "rethrows"),
+      54: .same(proto: "super"),
+      55: .same(proto: "self"),
+      57: .same(proto: "throw"),
+      58: .same(proto: "throws"),
+      59: .same(proto: "true"),
+      60: .same(proto: "try"),
+      61: .same(proto: "__COLUMN__"),
+      62: .same(proto: "__FILE__"),
+      63: .same(proto: "__FUNCTION__"),
+      64: .same(proto: "__LINE__"),
+      65: .same(proto: "_"),
+      66: .same(proto: "associativity"),
+      67: .same(proto: "convenience"),
+      68: .same(proto: "dynamic"),
+      69: .same(proto: "didSet"),
+      70: .same(proto: "final"),
+      71: .same(proto: "get"),
+      72: .same(proto: "infix"),
+      73: .same(proto: "indirect"),
+      74: .same(proto: "lazy"),
+      75: .same(proto: "left"),
+      76: .same(proto: "mutating"),
+      77: .same(proto: "none"),
+      78: .same(proto: "nonmutating"),
+      79: .same(proto: "optional"),
+      80: .same(proto: "override"),
+      81: .same(proto: "postfix"),
+      82: .same(proto: "precedence"),
+      83: .same(proto: "prefix"),
+      85: .same(proto: "required"),
+      86: .same(proto: "right"),
+      87: .same(proto: "set"),
+      88: .same(proto: "Type"),
+      89: .same(proto: "unowned"),
+      90: .same(proto: "weak"),
+      91: .same(proto: "willSet"),
+      93: .same(proto: "_cmd"),
+      96: .same(proto: "out"),
+      98: .same(proto: "bycopy"),
+      99: .same(proto: "byref"),
+      100: .same(proto: "oneway"),
+      102: .same(proto: "and"),
+      103: .same(proto: "and_eq"),
+      104: .same(proto: "alignas"),
+      105: .same(proto: "alignof"),
+      106: .same(proto: "asm"),
+      107: .same(proto: "auto"),
+      108: .same(proto: "bitand"),
+      109: .same(proto: "bitor"),
+      110: .same(proto: "bool"),
+      114: .same(proto: "char"),
+      115: .same(proto: "char16_t"),
+      116: .same(proto: "char32_t"),
+      118: .same(proto: "compl"),
+      119: .same(proto: "const"),
+      120: .same(proto: "constexpr"),
+      121: .same(proto: "const_cast"),
+      123: .same(proto: "decltype"),
+      125: .same(proto: "delete"),
+      127: .same(proto: "dynamic_cast"),
+      130: .same(proto: "explicit"),
+      131: .same(proto: "export"),
+      132: .same(proto: "extern"),
+      136: .same(proto: "friend"),
+      137: .same(proto: "goto"),
+      139: .same(proto: "inline"),
+      141: .same(proto: "long"),
+      142: .same(proto: "mutable"),
+      143: .same(proto: "namespace"),
+      144: .same(proto: "new"),
+      145: .same(proto: "noexcept"),
+      146: .same(proto: "not"),
+      147: .same(proto: "not_eq"),
+      148: .same(proto: "nullptr"),
+      150: .same(proto: "or"),
+      151: .same(proto: "or_eq"),
+      153: .same(proto: "protected"),
+      155: .same(proto: "register"),
+      156: .same(proto: "reinterpret_cast"),
+      158: .same(proto: "short"),
+      159: .same(proto: "signed"),
+      160: .same(proto: "sizeof"),
+      162: .same(proto: "static_assert"),
+      163: .same(proto: "static_cast"),
+      166: .same(proto: "template"),
+      167: .same(proto: "this"),
+      168: .same(proto: "thread_local"),
+      172: .same(proto: "typedef"),
+      173: .same(proto: "typeid"),
+      174: .same(proto: "typename"),
+      175: .same(proto: "union"),
+      176: .same(proto: "unsigned"),
+      177: .same(proto: "using"),
+      178: .same(proto: "virtual"),
+      179: .same(proto: "void"),
+      180: .same(proto: "volatile"),
+      181: .same(proto: "wchar_t"),
+      183: .same(proto: "xor"),
+      184: .same(proto: "xor_eq"),
+      185: .same(proto: "restrict"),
+      186: .same(proto: "Category"),
+      187: .same(proto: "Ivar"),
+      188: .same(proto: "Method"),
+      192: .same(proto: "finalize"),
+      193: .same(proto: "hash"),
+      194: .same(proto: "dealloc"),
+      197: .same(proto: "superclass"),
+      198: .same(proto: "retain"),
+      199: .same(proto: "release"),
+      200: .same(proto: "autorelease"),
+      201: .same(proto: "retainCount"),
+      202: .same(proto: "zone"),
+      203: .same(proto: "isProxy"),
+      204: .same(proto: "copy"),
+      205: .same(proto: "mutableCopy"),
+      206: .same(proto: "classForCoder"),
+      207: .same(proto: "clear"),
+      208: .same(proto: "data"),
+      209: .same(proto: "delimitedData"),
+      210: .same(proto: "descriptor"),
+      211: .same(proto: "extensionRegistry"),
+      212: .same(proto: "extensionsCurrentlySet"),
+      213: .same(proto: "isInitialized"),
+      214: .same(proto: "serializedSize"),
+      215: .same(proto: "sortedExtensionsInUse"),
+      216: .same(proto: "unknownFields"),
+      217: .same(proto: "Fixed"),
+      218: .same(proto: "Fract"),
+      219: .same(proto: "Size"),
+      220: .same(proto: "LogicalAddress"),
+      221: .same(proto: "PhysicalAddress"),
+      222: .same(proto: "ByteCount"),
+      223: .same(proto: "ByteOffset"),
+      224: .same(proto: "Duration"),
+      225: .same(proto: "AbsoluteTime"),
+      226: .same(proto: "OptionBits"),
+      227: .same(proto: "ItemCount"),
+      228: .same(proto: "PBVersion"),
+      229: .same(proto: "ScriptCode"),
+      230: .same(proto: "LangCode"),
+      231: .same(proto: "RegionCode"),
+      232: .same(proto: "OSType"),
+      233: .same(proto: "ProcessSerialNumber"),
+      234: .same(proto: "Point"),
+      235: .same(proto: "Rect"),
+      236: .same(proto: "FixedPoint"),
+      237: .same(proto: "FixedRect"),
+      238: .same(proto: "Style"),
+      239: .same(proto: "StyleParameter"),
+      240: .same(proto: "StyleField"),
+      241: .same(proto: "TimeScale"),
+      242: .same(proto: "TimeBase"),
+      243: .same(proto: "TimeRecord"),
+      244: .same(proto: "Extensions"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AA"),
-    1065: .same(proto: "__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "AA"),
+      1065: .same(proto: "__"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Foo"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -15397,230 +15415,237 @@ extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldNames"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "String"),
-    2: .same(proto: "Int"),
-    3: .same(proto: "Double"),
-    4: .same(proto: "Float"),
-    5: .same(proto: "UInt"),
-    6: .same(proto: "hashValue"),
-    7: .same(proto: "description"),
-    8: .same(proto: "debugDescription"),
-    9: .same(proto: "Swift"),
-    10: .same(proto: "UNRECOGNIZED"),
-    11: .same(proto: "class"),
-    12: .same(proto: "deinit"),
-    13: .same(proto: "enum"),
-    15: .same(proto: "func"),
-    16: .same(proto: "import"),
-    17: .same(proto: "init"),
-    18: .same(proto: "inout"),
-    19: .same(proto: "internal"),
-    20: .same(proto: "let"),
-    21: .same(proto: "operator"),
-    22: .same(proto: "private"),
-    23: .same(proto: "protocol"),
-    24: .same(proto: "public"),
-    25: .same(proto: "static"),
-    26: .same(proto: "struct"),
-    27: .same(proto: "subscript"),
-    28: .same(proto: "typealias"),
-    29: .same(proto: "var"),
-    30: .same(proto: "break"),
-    31: .same(proto: "case"),
-    32: .same(proto: "continue"),
-    33: .same(proto: "default"),
-    34: .same(proto: "defer"),
-    35: .same(proto: "do"),
-    36: .same(proto: "else"),
-    37: .same(proto: "fallthrough"),
-    38: .same(proto: "for"),
-    39: .same(proto: "guard"),
-    40: .same(proto: "if"),
-    41: .same(proto: "in"),
-    42: .same(proto: "repeat"),
-    43: .same(proto: "return"),
-    44: .same(proto: "switch"),
-    45: .same(proto: "where"),
-    46: .same(proto: "while"),
-    47: .same(proto: "as"),
-    48: .same(proto: "catch"),
-    49: .same(proto: "dynamicType"),
-    50: .same(proto: "false"),
-    51: .same(proto: "is"),
-    52: .same(proto: "nil"),
-    53: .same(proto: "rethrows"),
-    54: .same(proto: "super"),
-    55: .same(proto: "self"),
-    57: .same(proto: "throw"),
-    58: .same(proto: "throws"),
-    59: .same(proto: "true"),
-    60: .same(proto: "try"),
-    61: .standard(proto: "__COLUMN__"),
-    62: .standard(proto: "__FILE__"),
-    63: .standard(proto: "__FUNCTION__"),
-    64: .standard(proto: "__LINE__"),
-    65: .standard(proto: "_"),
-    66: .same(proto: "associativity"),
-    67: .same(proto: "convenience"),
-    68: .same(proto: "dynamic"),
-    69: .same(proto: "didSet"),
-    70: .same(proto: "final"),
-    71: .same(proto: "get"),
-    72: .same(proto: "infix"),
-    73: .same(proto: "indirect"),
-    74: .same(proto: "lazy"),
-    75: .same(proto: "left"),
-    76: .same(proto: "mutating"),
-    77: .same(proto: "none"),
-    78: .same(proto: "nonmutating"),
-    79: .same(proto: "optional"),
-    80: .same(proto: "override"),
-    81: .same(proto: "postfix"),
-    82: .same(proto: "precedence"),
-    83: .same(proto: "prefix"),
-    85: .same(proto: "required"),
-    86: .same(proto: "right"),
-    87: .same(proto: "set"),
-    88: .same(proto: "Type"),
-    89: .same(proto: "unowned"),
-    90: .same(proto: "weak"),
-    91: .same(proto: "willSet"),
-    92: .same(proto: "id"),
-    93: .standard(proto: "_cmd"),
-    96: .same(proto: "out"),
-    98: .same(proto: "bycopy"),
-    99: .same(proto: "byref"),
-    100: .same(proto: "oneway"),
-    102: .same(proto: "and"),
-    103: .standard(proto: "and_eq"),
-    104: .same(proto: "alignas"),
-    105: .same(proto: "alignof"),
-    106: .same(proto: "asm"),
-    107: .same(proto: "auto"),
-    108: .same(proto: "bitand"),
-    109: .same(proto: "bitor"),
-    110: .same(proto: "bool"),
-    114: .same(proto: "char"),
-    115: .standard(proto: "char16_t"),
-    116: .standard(proto: "char32_t"),
-    118: .same(proto: "compl"),
-    119: .same(proto: "const"),
-    120: .same(proto: "constexpr"),
-    121: .standard(proto: "const_cast"),
-    123: .same(proto: "decltype"),
-    125: .same(proto: "delete"),
-    127: .standard(proto: "dynamic_cast"),
-    130: .same(proto: "explicit"),
-    131: .same(proto: "export"),
-    132: .same(proto: "extern"),
-    136: .same(proto: "friend"),
-    137: .same(proto: "goto"),
-    139: .same(proto: "inline"),
-    141: .same(proto: "long"),
-    142: .same(proto: "mutable"),
-    143: .same(proto: "namespace"),
-    144: .same(proto: "new"),
-    145: .same(proto: "noexcept"),
-    146: .same(proto: "not"),
-    147: .standard(proto: "not_eq"),
-    148: .same(proto: "nullptr"),
-    150: .same(proto: "or"),
-    151: .standard(proto: "or_eq"),
-    153: .same(proto: "protected"),
-    155: .same(proto: "register"),
-    156: .standard(proto: "reinterpret_cast"),
-    158: .same(proto: "short"),
-    159: .same(proto: "signed"),
-    160: .same(proto: "sizeof"),
-    162: .standard(proto: "static_assert"),
-    163: .standard(proto: "static_cast"),
-    166: .same(proto: "template"),
-    167: .same(proto: "this"),
-    168: .standard(proto: "thread_local"),
-    172: .same(proto: "typedef"),
-    173: .same(proto: "typeid"),
-    174: .same(proto: "typename"),
-    175: .same(proto: "union"),
-    176: .same(proto: "unsigned"),
-    177: .same(proto: "using"),
-    178: .same(proto: "virtual"),
-    179: .same(proto: "void"),
-    180: .same(proto: "volatile"),
-    181: .standard(proto: "wchar_t"),
-    183: .same(proto: "xor"),
-    184: .standard(proto: "xor_eq"),
-    185: .same(proto: "restrict"),
-    186: .same(proto: "Category"),
-    187: .same(proto: "Ivar"),
-    188: .same(proto: "Method"),
-    192: .same(proto: "finalize"),
-    193: .same(proto: "hash"),
-    194: .same(proto: "dealloc"),
-    197: .same(proto: "superclass"),
-    198: .same(proto: "retain"),
-    199: .same(proto: "release"),
-    200: .same(proto: "autorelease"),
-    201: .same(proto: "retainCount"),
-    202: .same(proto: "zone"),
-    203: .same(proto: "isProxy"),
-    204: .same(proto: "copy"),
-    205: .same(proto: "mutableCopy"),
-    206: .same(proto: "classForCoder"),
-    207: .same(proto: "clear"),
-    208: .same(proto: "data"),
-    209: .same(proto: "delimitedData"),
-    210: .same(proto: "descriptor"),
-    211: .same(proto: "extensionRegistry"),
-    212: .same(proto: "extensionsCurrentlySet"),
-    213: .same(proto: "isInitialized"),
-    214: .same(proto: "serializedSize"),
-    215: .same(proto: "sortedExtensionsInUse"),
-    216: .same(proto: "unknownFields"),
-    217: .same(proto: "Fixed"),
-    218: .same(proto: "Fract"),
-    219: .same(proto: "Size"),
-    220: .same(proto: "LogicalAddress"),
-    221: .same(proto: "PhysicalAddress"),
-    222: .same(proto: "ByteCount"),
-    223: .same(proto: "ByteOffset"),
-    224: .same(proto: "Duration"),
-    225: .same(proto: "AbsoluteTime"),
-    226: .same(proto: "OptionBits"),
-    227: .same(proto: "ItemCount"),
-    228: .same(proto: "PBVersion"),
-    229: .same(proto: "ScriptCode"),
-    230: .same(proto: "LangCode"),
-    231: .same(proto: "RegionCode"),
-    232: .same(proto: "OSType"),
-    233: .same(proto: "ProcessSerialNumber"),
-    234: .same(proto: "Point"),
-    235: .same(proto: "Rect"),
-    236: .same(proto: "FixedPoint"),
-    237: .same(proto: "FixedRect"),
-    238: .same(proto: "Style"),
-    239: .same(proto: "StyleParameter"),
-    240: .same(proto: "StyleField"),
-    241: .same(proto: "TimeScale"),
-    242: .same(proto: "TimeBase"),
-    243: .same(proto: "TimeRecord"),
-    244: .unique(proto: "json_should_be_overridden", json: "json_was_overridden"),
-    245: .same(proto: "Any"),
-    246: .same(proto: "Int32"),
-    247: .same(proto: "Int64"),
-    250: .same(proto: "UInt32"),
-    251: .same(proto: "UInt64"),
-    252: .same(proto: "associatedtype"),
-    253: .same(proto: "fileprivate"),
-    254: .same(proto: "open"),
-    255: .same(proto: "serializedData"),
-    256: .same(proto: "hasSerializedData"),
-    257: .same(proto: "clearSerializedData"),
-    258: .same(proto: "jsonUTF8Data"),
-    259: .same(proto: "jsonString"),
-    260: .same(proto: "Extension"),
-    261: .same(proto: "Extensions"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "String"),
+      2: .same(proto: "Int"),
+      3: .same(proto: "Double"),
+      4: .same(proto: "Float"),
+      5: .same(proto: "UInt"),
+      6: .same(proto: "hashValue"),
+      7: .same(proto: "description"),
+      8: .same(proto: "debugDescription"),
+      9: .same(proto: "Swift"),
+      10: .same(proto: "UNRECOGNIZED"),
+      11: .same(proto: "class"),
+      12: .same(proto: "deinit"),
+      13: .same(proto: "enum"),
+      15: .same(proto: "func"),
+      16: .same(proto: "import"),
+      17: .same(proto: "init"),
+      18: .same(proto: "inout"),
+      19: .same(proto: "internal"),
+      20: .same(proto: "let"),
+      21: .same(proto: "operator"),
+      22: .same(proto: "private"),
+      23: .same(proto: "protocol"),
+      24: .same(proto: "public"),
+      25: .same(proto: "static"),
+      26: .same(proto: "struct"),
+      27: .same(proto: "subscript"),
+      28: .same(proto: "typealias"),
+      29: .same(proto: "var"),
+      30: .same(proto: "break"),
+      31: .same(proto: "case"),
+      32: .same(proto: "continue"),
+      33: .same(proto: "default"),
+      34: .same(proto: "defer"),
+      35: .same(proto: "do"),
+      36: .same(proto: "else"),
+      37: .same(proto: "fallthrough"),
+      38: .same(proto: "for"),
+      39: .same(proto: "guard"),
+      40: .same(proto: "if"),
+      41: .same(proto: "in"),
+      42: .same(proto: "repeat"),
+      43: .same(proto: "return"),
+      44: .same(proto: "switch"),
+      45: .same(proto: "where"),
+      46: .same(proto: "while"),
+      47: .same(proto: "as"),
+      48: .same(proto: "catch"),
+      49: .same(proto: "dynamicType"),
+      50: .same(proto: "false"),
+      51: .same(proto: "is"),
+      52: .same(proto: "nil"),
+      53: .same(proto: "rethrows"),
+      54: .same(proto: "super"),
+      55: .same(proto: "self"),
+      57: .same(proto: "throw"),
+      58: .same(proto: "throws"),
+      59: .same(proto: "true"),
+      60: .same(proto: "try"),
+      61: .standard(proto: "__COLUMN__"),
+      62: .standard(proto: "__FILE__"),
+      63: .standard(proto: "__FUNCTION__"),
+      64: .standard(proto: "__LINE__"),
+      65: .standard(proto: "_"),
+      66: .same(proto: "associativity"),
+      67: .same(proto: "convenience"),
+      68: .same(proto: "dynamic"),
+      69: .same(proto: "didSet"),
+      70: .same(proto: "final"),
+      71: .same(proto: "get"),
+      72: .same(proto: "infix"),
+      73: .same(proto: "indirect"),
+      74: .same(proto: "lazy"),
+      75: .same(proto: "left"),
+      76: .same(proto: "mutating"),
+      77: .same(proto: "none"),
+      78: .same(proto: "nonmutating"),
+      79: .same(proto: "optional"),
+      80: .same(proto: "override"),
+      81: .same(proto: "postfix"),
+      82: .same(proto: "precedence"),
+      83: .same(proto: "prefix"),
+      85: .same(proto: "required"),
+      86: .same(proto: "right"),
+      87: .same(proto: "set"),
+      88: .same(proto: "Type"),
+      89: .same(proto: "unowned"),
+      90: .same(proto: "weak"),
+      91: .same(proto: "willSet"),
+      92: .same(proto: "id"),
+      93: .standard(proto: "_cmd"),
+      96: .same(proto: "out"),
+      98: .same(proto: "bycopy"),
+      99: .same(proto: "byref"),
+      100: .same(proto: "oneway"),
+      102: .same(proto: "and"),
+      103: .standard(proto: "and_eq"),
+      104: .same(proto: "alignas"),
+      105: .same(proto: "alignof"),
+      106: .same(proto: "asm"),
+      107: .same(proto: "auto"),
+      108: .same(proto: "bitand"),
+      109: .same(proto: "bitor"),
+      110: .same(proto: "bool"),
+      114: .same(proto: "char"),
+      115: .standard(proto: "char16_t"),
+      116: .standard(proto: "char32_t"),
+      118: .same(proto: "compl"),
+      119: .same(proto: "const"),
+      120: .same(proto: "constexpr"),
+      121: .standard(proto: "const_cast"),
+      123: .same(proto: "decltype"),
+      125: .same(proto: "delete"),
+      127: .standard(proto: "dynamic_cast"),
+      130: .same(proto: "explicit"),
+      131: .same(proto: "export"),
+      132: .same(proto: "extern"),
+      136: .same(proto: "friend"),
+      137: .same(proto: "goto"),
+      139: .same(proto: "inline"),
+      141: .same(proto: "long"),
+      142: .same(proto: "mutable"),
+      143: .same(proto: "namespace"),
+      144: .same(proto: "new"),
+      145: .same(proto: "noexcept"),
+      146: .same(proto: "not"),
+      147: .standard(proto: "not_eq"),
+      148: .same(proto: "nullptr"),
+      150: .same(proto: "or"),
+      151: .standard(proto: "or_eq"),
+      153: .same(proto: "protected"),
+      155: .same(proto: "register"),
+      156: .standard(proto: "reinterpret_cast"),
+      158: .same(proto: "short"),
+      159: .same(proto: "signed"),
+      160: .same(proto: "sizeof"),
+      162: .standard(proto: "static_assert"),
+      163: .standard(proto: "static_cast"),
+      166: .same(proto: "template"),
+      167: .same(proto: "this"),
+      168: .standard(proto: "thread_local"),
+      172: .same(proto: "typedef"),
+      173: .same(proto: "typeid"),
+      174: .same(proto: "typename"),
+      175: .same(proto: "union"),
+      176: .same(proto: "unsigned"),
+      177: .same(proto: "using"),
+      178: .same(proto: "virtual"),
+      179: .same(proto: "void"),
+      180: .same(proto: "volatile"),
+      181: .standard(proto: "wchar_t"),
+      183: .same(proto: "xor"),
+      184: .standard(proto: "xor_eq"),
+      185: .same(proto: "restrict"),
+      186: .same(proto: "Category"),
+      187: .same(proto: "Ivar"),
+      188: .same(proto: "Method"),
+      192: .same(proto: "finalize"),
+      193: .same(proto: "hash"),
+      194: .same(proto: "dealloc"),
+      197: .same(proto: "superclass"),
+      198: .same(proto: "retain"),
+      199: .same(proto: "release"),
+      200: .same(proto: "autorelease"),
+      201: .same(proto: "retainCount"),
+      202: .same(proto: "zone"),
+      203: .same(proto: "isProxy"),
+      204: .same(proto: "copy"),
+      205: .same(proto: "mutableCopy"),
+      206: .same(proto: "classForCoder"),
+      207: .same(proto: "clear"),
+      208: .same(proto: "data"),
+      209: .same(proto: "delimitedData"),
+      210: .same(proto: "descriptor"),
+      211: .same(proto: "extensionRegistry"),
+      212: .same(proto: "extensionsCurrentlySet"),
+      213: .same(proto: "isInitialized"),
+      214: .same(proto: "serializedSize"),
+      215: .same(proto: "sortedExtensionsInUse"),
+      216: .same(proto: "unknownFields"),
+      217: .same(proto: "Fixed"),
+      218: .same(proto: "Fract"),
+      219: .same(proto: "Size"),
+      220: .same(proto: "LogicalAddress"),
+      221: .same(proto: "PhysicalAddress"),
+      222: .same(proto: "ByteCount"),
+      223: .same(proto: "ByteOffset"),
+      224: .same(proto: "Duration"),
+      225: .same(proto: "AbsoluteTime"),
+      226: .same(proto: "OptionBits"),
+      227: .same(proto: "ItemCount"),
+      228: .same(proto: "PBVersion"),
+      229: .same(proto: "ScriptCode"),
+      230: .same(proto: "LangCode"),
+      231: .same(proto: "RegionCode"),
+      232: .same(proto: "OSType"),
+      233: .same(proto: "ProcessSerialNumber"),
+      234: .same(proto: "Point"),
+      235: .same(proto: "Rect"),
+      236: .same(proto: "FixedPoint"),
+      237: .same(proto: "FixedRect"),
+      238: .same(proto: "Style"),
+      239: .same(proto: "StyleParameter"),
+      240: .same(proto: "StyleField"),
+      241: .same(proto: "TimeScale"),
+      242: .same(proto: "TimeBase"),
+      243: .same(proto: "TimeRecord"),
+      244: .unique(proto: "json_should_be_overridden", json: "json_was_overridden"),
+      245: .same(proto: "Any"),
+      246: .same(proto: "Int32"),
+      247: .same(proto: "Int64"),
+      250: .same(proto: "UInt32"),
+      251: .same(proto: "UInt64"),
+      252: .same(proto: "associatedtype"),
+      253: .same(proto: "fileprivate"),
+      254: .same(proto: "open"),
+      255: .same(proto: "serializedData"),
+      256: .same(proto: "hasSerializedData"),
+      257: .same(proto: "clearSerializedData"),
+      258: .same(proto: "jsonUTF8Data"),
+      259: .same(proto: "jsonString"),
+      260: .same(proto: "Extension"),
+      261: .same(proto: "Extensions"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _string: Int32? = nil
@@ -17233,7 +17258,11 @@ extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.Message, SwiftProtob
 
 extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageNames"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -17252,9 +17281,16 @@ extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".String"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "String"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "String"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17288,9 +17324,16 @@ extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Protocol"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Protocol"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Protocol"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17324,9 +17367,16 @@ extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Int"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Int"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Int"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17360,9 +17410,16 @@ extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Double"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Double"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Double"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17396,9 +17453,16 @@ extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Float"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Float"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Float"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17432,9 +17496,16 @@ extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".UInt"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "UInt"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "UInt"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17468,9 +17539,16 @@ extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".hashValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "hashValue"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "hashValue"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17504,9 +17582,16 @@ extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".description"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "description"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "description"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17540,9 +17625,16 @@ extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf
 
 extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".debugDescription"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "debugDescription"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "debugDescription"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17576,9 +17668,16 @@ extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftPro
 
 extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Swift"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Swift"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Swift"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17612,9 +17711,16 @@ extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "UNRECOGNIZED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "UNRECOGNIZED"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17648,9 +17754,16 @@ extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".class"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "class"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "class"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17684,9 +17797,16 @@ extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".deinit"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "deinit"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "deinit"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17720,9 +17840,16 @@ extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".enum"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "enum"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "enum"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17756,9 +17883,16 @@ extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "extension"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "extension"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17792,9 +17926,16 @@ extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".func"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "func"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "func"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17828,9 +17969,16 @@ extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".import"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "import"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "import"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17864,9 +18012,16 @@ extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".init"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "init"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "init"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17900,9 +18055,16 @@ extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".inout"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "inout"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "inout"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17936,9 +18098,16 @@ extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".internal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "internal"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "internal"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17972,9 +18141,16 @@ extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".let"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "let"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "let"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18008,9 +18184,16 @@ extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".operator"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "operator"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "operator"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18044,9 +18227,16 @@ extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".private"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "private"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "private"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18080,9 +18270,16 @@ extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.Mes
 
 extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".protocol"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "protocol"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "protocol"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18116,9 +18313,16 @@ extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".public"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "public"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "public"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18152,9 +18356,16 @@ extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".static"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "static"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "static"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18188,9 +18399,16 @@ extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".struct"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "struct"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "struct"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18224,9 +18442,16 @@ extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".subscript"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "subscript"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "subscript"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18260,9 +18485,16 @@ extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typealias"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "typealias"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "typealias"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18296,9 +18528,16 @@ extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".var"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "var"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "var"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18332,9 +18571,16 @@ extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".break"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "break"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "break"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18368,9 +18614,16 @@ extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".case"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "case"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "case"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18404,9 +18657,16 @@ extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".continue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "continue"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "continue"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18440,9 +18700,16 @@ extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".default"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "default"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "default"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18476,9 +18743,16 @@ extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.Mes
 
 extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".defer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "defer"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "defer"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18512,9 +18786,16 @@ extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".do"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "do"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "do"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18548,9 +18829,16 @@ extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".else"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "else"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "else"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18584,9 +18872,16 @@ extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".fallthrough"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "fallthrough"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "fallthrough"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18620,9 +18915,16 @@ extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf
 
 extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".for"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "for"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "for"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18656,9 +18958,16 @@ extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".guard"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "guard"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "guard"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18692,9 +19001,16 @@ extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".if"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "if"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "if"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18728,9 +19044,16 @@ extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".in"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "in"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "in"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18764,9 +19087,16 @@ extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".repeat"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "repeat"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "repeat"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18800,9 +19130,16 @@ extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".return"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "return"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "return"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18836,9 +19173,16 @@ extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".switch"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "switch"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "switch"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18872,9 +19216,16 @@ extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".where"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "where"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "where"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18908,9 +19259,16 @@ extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".while"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "while"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "while"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18944,9 +19302,16 @@ extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".as"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "as"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "as"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18980,9 +19345,16 @@ extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".catch"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "catch"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "catch"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19016,9 +19388,16 @@ extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dynamicType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "dynamicType"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "dynamicType"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19052,9 +19431,16 @@ extension SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf
 
 extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".false"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "false"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "false"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19088,9 +19474,16 @@ extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".is"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "is"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "is"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19124,9 +19517,16 @@ extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".nil"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "nil"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "nil"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19160,9 +19560,16 @@ extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".rethrows"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "rethrows"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "rethrows"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19196,9 +19603,16 @@ extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".super"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "super"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "super"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19232,9 +19646,16 @@ extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".self"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "self"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "self"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19268,9 +19689,16 @@ extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".throw"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "throw"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "throw"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19304,9 +19732,16 @@ extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".throws"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "throws"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "throws"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19340,9 +19775,16 @@ extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".true"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "true"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "true"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19376,9 +19818,16 @@ extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".try"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "try"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "try"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19412,9 +19861,16 @@ extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__COLUMN__"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "__COLUMN__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "__COLUMN__"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19448,9 +19904,16 @@ extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.
 
 extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__FILE__"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "__FILE__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "__FILE__"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19484,9 +19947,16 @@ extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__FUNCTION__"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "__FUNCTION__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "__FUNCTION__"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19520,9 +19990,16 @@ extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobu
 
 extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__LINE__"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "__LINE__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "__LINE__"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19556,9 +20033,16 @@ extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + "._"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "_"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "_"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19592,9 +20076,16 @@ extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "__"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19628,9 +20119,16 @@ extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".associativity"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "associativity"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "associativity"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19664,9 +20162,16 @@ extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".convenience"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "convenience"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "convenience"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19700,9 +20205,16 @@ extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dynamic"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "dynamic"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "dynamic"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19736,9 +20248,16 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".didSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "didSet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "didSet"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19772,9 +20291,16 @@ extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".final"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "final"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "final"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19808,9 +20334,16 @@ extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".get"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "get"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "get"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19844,9 +20377,16 @@ extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".infix"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "infix"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "infix"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19880,9 +20420,16 @@ extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".indirect"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "indirect"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "indirect"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19916,9 +20463,16 @@ extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".lazy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "lazy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "lazy"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19952,9 +20506,16 @@ extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".left"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "left"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "left"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19988,9 +20549,16 @@ extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".mutating"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "mutating"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "mutating"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20024,9 +20592,16 @@ extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".none"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "none"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "none"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20060,9 +20635,16 @@ extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".nonmutating"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "nonmutating"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "nonmutating"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20096,9 +20678,16 @@ extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".optional"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "optional"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "optional"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20132,9 +20721,16 @@ extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".override"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "override"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "override"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20168,9 +20764,16 @@ extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".postfix"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "postfix"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "postfix"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20204,9 +20807,16 @@ extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".precedence"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "precedence"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "precedence"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20240,9 +20850,16 @@ extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".prefix"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "prefix"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "prefix"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20276,9 +20893,16 @@ extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".required"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "required"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "required"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20312,9 +20936,16 @@ extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".right"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "right"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "right"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20348,9 +20979,16 @@ extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".set"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "set"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "set"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20384,9 +21022,16 @@ extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Type"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Type"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Type"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20420,9 +21065,16 @@ extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".unowned"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "unowned"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "unowned"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20456,9 +21108,16 @@ extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".weak"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "weak"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "weak"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20492,9 +21151,16 @@ extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".willSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "willSet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "willSet"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20528,9 +21194,16 @@ extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".id"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "id"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "id"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20564,9 +21237,16 @@ extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.Message, SwiftP
 
 extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + "._cmd"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "_cmd"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "_cmd"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20600,9 +21280,16 @@ extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".out"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "out"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "out"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20636,9 +21323,16 @@ extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bycopy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bycopy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "bycopy"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20672,9 +21366,16 @@ extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".byref"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "byref"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "byref"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20708,9 +21409,16 @@ extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".oneway"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "oneway"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "oneway"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20744,9 +21452,16 @@ extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".and"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "and"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "and"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20780,9 +21495,16 @@ extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".and_eq"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "and_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "and_eq"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20816,9 +21538,16 @@ extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".alignas"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "alignas"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "alignas"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20852,9 +21581,16 @@ extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".alignof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "alignof"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "alignof"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20888,9 +21624,16 @@ extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".asm"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "asm"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "asm"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20924,9 +21667,16 @@ extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".auto"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "auto"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "auto"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20960,9 +21710,16 @@ extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bitand"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bitand"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "bitand"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20996,9 +21753,16 @@ extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bitor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bitor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "bitor"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21032,9 +21796,16 @@ extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bool"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bool"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "bool"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21068,9 +21839,16 @@ extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".char"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "char"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "char"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21104,9 +21882,16 @@ extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".char16_t"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "char16_t"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "char16_t"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21140,9 +21925,16 @@ extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".char32_t"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "char32_t"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "char32_t"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21176,9 +21968,16 @@ extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".compl"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "compl"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "compl"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21212,9 +22011,16 @@ extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".const"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "const"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "const"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21248,9 +22054,16 @@ extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".constexpr"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "constexpr"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "constexpr"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21284,9 +22097,16 @@ extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".const_cast"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "const_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "const_cast"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21320,9 +22140,16 @@ extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".decltype"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "decltype"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "decltype"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21356,9 +22183,16 @@ extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".delete"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "delete"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "delete"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21392,9 +22226,16 @@ extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dynamic_cast"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "dynamic_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "dynamic_cast"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21428,9 +22269,16 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".explicit"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "explicit"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "explicit"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21464,9 +22312,16 @@ extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".export"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "export"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "export"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21500,9 +22355,16 @@ extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extern"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "extern"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "extern"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21536,9 +22398,16 @@ extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".friend"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "friend"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "friend"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21572,9 +22441,16 @@ extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".goto"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "goto"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "goto"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21608,9 +22484,16 @@ extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".inline"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "inline"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "inline"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21644,9 +22527,16 @@ extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".long"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "long"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "long"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21680,9 +22570,16 @@ extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".mutable"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "mutable"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "mutable"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21716,9 +22613,16 @@ extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".namespace"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "namespace"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "namespace"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21752,9 +22656,16 @@ extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".new"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "new"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "new"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21788,9 +22699,16 @@ extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".noexcept"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "noexcept"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "noexcept"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21824,9 +22742,16 @@ extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".not"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "not"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "not"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21860,9 +22785,16 @@ extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".not_eq"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "not_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "not_eq"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21896,9 +22828,16 @@ extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".nullptr"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "nullptr"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "nullptr"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21932,9 +22871,16 @@ extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".or"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "or"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "or"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21968,9 +22914,16 @@ extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.Message, SwiftP
 
 extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".or_eq"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "or_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "or_eq"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22004,9 +22957,16 @@ extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".protected"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "protected"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "protected"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22040,9 +23000,16 @@ extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".register"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "register"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "register"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22076,9 +23043,16 @@ extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".reinterpret_cast"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "reinterpret_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "reinterpret_cast"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22112,9 +23086,16 @@ extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".short"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "short"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "short"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22148,9 +23129,16 @@ extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".signed"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "signed"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "signed"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22184,9 +23172,16 @@ extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".sizeof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "sizeof"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "sizeof"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22220,9 +23215,16 @@ extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".static_assert"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "static_assert"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "static_assert"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22256,9 +23258,16 @@ extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".static_cast"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "static_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "static_cast"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22292,9 +23301,16 @@ extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".template"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "template"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "template"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22328,9 +23344,16 @@ extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".this"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "this"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "this"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22364,9 +23387,16 @@ extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".thread_local"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "thread_local"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "thread_local"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22400,9 +23430,16 @@ extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typedef"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "typedef"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "typedef"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22436,9 +23473,16 @@ extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typeid"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "typeid"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "typeid"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22472,9 +23516,16 @@ extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typename"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "typename"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "typename"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22508,9 +23559,16 @@ extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".union"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "union"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "union"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22544,9 +23602,16 @@ extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".unsigned"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "unsigned"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "unsigned"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22580,9 +23645,16 @@ extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".using"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "using"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "using"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22616,9 +23688,16 @@ extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".virtual"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "virtual"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "virtual"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22652,9 +23731,16 @@ extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".void"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "void"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "void"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22688,9 +23774,16 @@ extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".volatile"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "volatile"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "volatile"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22724,9 +23817,16 @@ extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".wchar_t"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "wchar_t"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "wchar_t"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22760,9 +23860,16 @@ extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".xor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "xor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "xor"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22796,9 +23903,16 @@ extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".xor_eq"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "xor_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "xor_eq"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22832,9 +23946,16 @@ extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".restrict"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "restrict"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "restrict"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22868,9 +23989,16 @@ extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Category"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Category"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Category"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22904,9 +24032,16 @@ extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Ivar"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Ivar"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Ivar"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22940,9 +24075,16 @@ extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Method"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Method"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Method"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22976,9 +24118,16 @@ extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".finalize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "finalize"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "finalize"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23012,9 +24161,16 @@ extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".hash"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "hash"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "hash"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23048,9 +24204,16 @@ extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dealloc"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "dealloc"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "dealloc"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23084,9 +24247,16 @@ extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".superclass"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "superclass"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "superclass"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23120,9 +24290,16 @@ extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".retain"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "retain"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "retain"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23156,9 +24333,16 @@ extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".release"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "release"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "release"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23192,9 +24376,16 @@ extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".autorelease"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "autorelease"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "autorelease"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23228,9 +24419,16 @@ extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".retainCount"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "retainCount"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "retainCount"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23264,9 +24462,16 @@ extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".zone"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "zone"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "zone"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23300,9 +24505,16 @@ extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".isProxy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "isProxy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "isProxy"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23336,9 +24548,16 @@ extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".copy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "copy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "copy"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23372,9 +24591,16 @@ extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".mutableCopy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "mutableCopy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "mutableCopy"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23408,9 +24634,16 @@ extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".classForCoder"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "classForCoder"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "classForCoder"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23444,9 +24677,16 @@ extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".clear"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "clear"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "clear"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23480,9 +24720,16 @@ extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".data"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "data"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "data"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23516,9 +24763,16 @@ extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".delimitedData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "delimitedData"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "delimitedData"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23552,9 +24806,16 @@ extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".descriptor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "descriptor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "descriptor"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23588,9 +24849,16 @@ extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extensionRegistry"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "extensionRegistry"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "extensionRegistry"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23624,9 +24892,16 @@ extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.
 
 extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "extensionsCurrentlySet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "extensionsCurrentlySet"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23660,9 +24935,16 @@ extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProt
 
 extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".isInitialized"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "isInitialized"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "isInitialized"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23696,9 +24978,16 @@ extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtob
 
 extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".serializedSize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "serializedSize"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "serializedSize"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23732,9 +25021,16 @@ extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.Mes
 
 extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "sortedExtensionsInUse"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "sortedExtensionsInUse"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23768,9 +25064,16 @@ extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProto
 
 extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".unknownFields"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "unknownFields"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "unknownFields"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23804,9 +25107,16 @@ extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtob
 
 extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Fixed"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Fixed"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Fixed"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23840,9 +25150,16 @@ extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Fract"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Fract"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Fract"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23876,9 +25193,16 @@ extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Size"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Size"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Size"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23912,9 +25236,16 @@ extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".LogicalAddress"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "LogicalAddress"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "LogicalAddress"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23948,9 +25279,16 @@ extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.Mes
 
 extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".PhysicalAddress"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "PhysicalAddress"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "PhysicalAddress"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23984,9 +25322,16 @@ extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ByteCount"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "ByteCount"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "ByteCount"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24020,9 +25365,16 @@ extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ByteOffset"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "ByteOffset"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "ByteOffset"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24056,9 +25408,16 @@ extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Duration"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Duration"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Duration"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24092,9 +25451,16 @@ extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".AbsoluteTime"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "AbsoluteTime"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "AbsoluteTime"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24128,9 +25494,16 @@ extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".OptionBits"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "OptionBits"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "OptionBits"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24164,9 +25537,16 @@ extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ItemCount"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "ItemCount"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "ItemCount"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24200,9 +25580,16 @@ extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".PBVersion"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "PBVersion"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "PBVersion"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24236,9 +25623,16 @@ extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ScriptCode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "ScriptCode"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "ScriptCode"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24272,9 +25666,16 @@ extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".LangCode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "LangCode"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "LangCode"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24308,9 +25709,16 @@ extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".RegionCode"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "RegionCode"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "RegionCode"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24344,9 +25752,16 @@ extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".OSType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "OSType"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "OSType"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24380,9 +25795,16 @@ extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "ProcessSerialNumber"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "ProcessSerialNumber"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24416,9 +25838,16 @@ extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobu
 
 extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Point"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Point"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Point"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24452,9 +25881,16 @@ extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Rect"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Rect"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Rect"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24488,9 +25924,16 @@ extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".FixedPoint"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "FixedPoint"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "FixedPoint"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24524,9 +25967,16 @@ extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".FixedRect"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "FixedRect"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "FixedRect"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24560,9 +26010,16 @@ extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Style"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Style"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Style"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24596,9 +26053,16 @@ extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".StyleParameter"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "StyleParameter"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "StyleParameter"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24632,9 +26096,16 @@ extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.Mes
 
 extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".StyleField"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "StyleField"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "StyleField"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24668,9 +26139,16 @@ extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".TimeScale"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "TimeScale"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "TimeScale"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24704,9 +26182,16 @@ extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".TimeBase"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "TimeBase"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "TimeBase"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24740,9 +26225,16 @@ extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.Message, 
 
 extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".TimeRecord"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "TimeRecord"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "TimeRecord"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24776,9 +26268,16 @@ extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".serializedData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "serializedData"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "serializedData"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24812,9 +26311,16 @@ extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.Mes
 
 extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "jsonUTF8Data"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "jsonUTF8Data"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24848,9 +26354,16 @@ extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".jsonString"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "jsonString"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "jsonString"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24884,9 +26397,16 @@ extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Extension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Extension"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Extension"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24920,9 +26440,16 @@ extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Extensions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Extensions"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Extensions"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24956,7 +26483,11 @@ extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.
 
 extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumNames"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -24974,1274 +26505,2755 @@ extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension SwiftProtoTesting_Names_EnumNames.StringEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aString"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aString"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aProtocol"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aProtocol"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.IntEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aInt"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aInt"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.DoubleEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aDouble"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aDouble"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.FloatEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aFloat"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aFloat"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.UIntEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aUInt"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aUInt"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ahashValue"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ahashValue"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adescription"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adescription"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adebugDescription"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adebugDescription"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.SwiftEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aSwift"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aSwift"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.UNRECOGNIZED: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aUNRECOGNIZED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aUNRECOGNIZED"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.classEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aclass"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aclass"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.deinitEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adeinit"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adeinit"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.enumEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aenum"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aenum"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.extensionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aextension"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aextension"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.funcEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afunc"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afunc"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.importEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aimport"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aimport"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.initEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ainit"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ainit"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.inoutEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ainout"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ainout"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.internalEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ainternal"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ainternal"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.letEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "alet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "alet"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.operatorEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aoperator"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aoperator"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.privateEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aprivate"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aprivate"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.protocolEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aprotocol"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aprotocol"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.publicEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "apublic"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "apublic"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.staticEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "astatic"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "astatic"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.structEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "astruct"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "astruct"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "asubscript"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "asubscript"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atypealias"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atypealias"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.varEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "avar"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "avar"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.breakEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "abreak"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "abreak"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.caseEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "acase"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "acase"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.continueEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "acontinue"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "acontinue"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.defaultEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adefault"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adefault"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.deferEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adefer"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adefer"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.doEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ado"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ado"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.elseEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aelse"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aelse"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.fallthroughEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afallthrough"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afallthrough"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.forEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afor"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.guardEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aguard"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aguard"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ifEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aif"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aif"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.inEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ain"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ain"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.repeatEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "arepeat"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "arepeat"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.returnEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "areturn"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "areturn"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.switchEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aswitch"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aswitch"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.whereEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "awhere"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "awhere"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "awhile"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "awhile"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.asEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aas"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aas"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.catchEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "acatch"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "acatch"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.dynamicTypeEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adynamicType"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adynamicType"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.falseEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afalse"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afalse"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.isEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ais"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ais"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.nilEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anil"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anil"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.rethrowsEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "arethrows"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "arethrows"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.superEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "asuper"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "asuper"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.selfEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aself"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aself"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.throwEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "athrow"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "athrow"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.throwsEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "athrows"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "athrows"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.trueEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atrue"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atrue"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.tryEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atry"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atry"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.__COLUMN__Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a__COLUMN__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a__COLUMN__"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.__FILE__Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a__FILE__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a__FILE__"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.__FUNCTION__Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a__FUNCTION__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a__FUNCTION__"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.__LINE__Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a__LINE__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a__LINE__"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames._Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a_"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a_"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.__Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a__"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a__"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.associativity: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aassociativity"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aassociativity"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.convenience: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aconvenience"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aconvenience"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.dynamic: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adynamic"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adynamic"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.didSet: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adidSet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adidSet"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.final: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afinal"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afinal"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.get: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aget"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aget"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.infix: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ainfix"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ainfix"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.indirect: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aindirect"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aindirect"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.lazy: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "alazy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "alazy"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.left: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aleft"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aleft"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.mutating: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "amutating"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "amutating"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.none: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anone"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anone"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.nonmutating: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anonmutating"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anonmutating"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.optional: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aoptional"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aoptional"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.override: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aoverride"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aoverride"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.postfix: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "apostfix"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "apostfix"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.precedence: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aprecedence"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aprecedence"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.prefix: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aprefix"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aprefix"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.required: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "arequired"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "arequired"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.right: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aright"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aright"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.set: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aset"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aset"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.TypeEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aType"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aType"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.unowned: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aunowned"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aunowned"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.weak: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aweak"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aweak"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.willSet: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "awillSet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "awillSet"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.id: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aid"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aid"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames._cmd: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "a_cmd"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "a_cmd"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.out: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aout"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aout"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.bycopy: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "abycopy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "abycopy"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.byref: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "abyref"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "abyref"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.oneway: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aoneway"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aoneway"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.and: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aand"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aand"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.and_eq: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aand_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aand_eq"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.alignas: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aalignas"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aalignas"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.alignof: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aalignof"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aalignof"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.asm: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aasm"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aasm"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.auto: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aauto"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aauto"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.bitand: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "abitand"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "abitand"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.bitor: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "abitor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "abitor"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.bool: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "abool"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "abool"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.char: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "achar"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "achar"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.char16_t: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "achar16_t"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "achar16_t"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.char32_t: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "achar32_t"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "achar32_t"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.compl: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "acompl"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "acompl"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.const: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aconst"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aconst"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.constexpr: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aconstexpr"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aconstexpr"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.const_cast: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aconst_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aconst_cast"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.decltype: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adecltype"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adecltype"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.delete: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adelete"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adelete"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.dynamic_cast: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adynamic_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adynamic_cast"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.explicit: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aexplicit"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aexplicit"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.export: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aexport"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aexport"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.extern: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aextern"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aextern"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.friend: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afriend"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afriend"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.goto: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "agoto"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "agoto"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.inline: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ainline"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ainline"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.long: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "along"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "along"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.mutable: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "amutable"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "amutable"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.namespace: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anamespace"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anamespace"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.new: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anew"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anew"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.noexcept: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anoexcept"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anoexcept"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.not: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anot"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anot"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.not_eq: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anot_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anot_eq"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.nullptr: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "anullptr"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "anullptr"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.or: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aor"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.or_eq: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aor_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aor_eq"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.protected: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aprotected"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aprotected"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.register: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aregister"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aregister"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.reinterpret_cast: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "areinterpret_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "areinterpret_cast"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.short: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ashort"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ashort"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.signed: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "asigned"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "asigned"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.sizeof: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "asizeof"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "asizeof"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.static_assert: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "astatic_assert"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "astatic_assert"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.static_cast: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "astatic_cast"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "astatic_cast"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.template: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atemplate"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atemplate"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.this: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "athis"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "athis"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.thread_local: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "athread_local"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "athread_local"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.typedef: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atypedef"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atypedef"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.typeid: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atypeid"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atypeid"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.typename: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "atypename"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "atypename"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.union: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aunion"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aunion"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.unsigned: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aunsigned"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aunsigned"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.using: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ausing"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ausing"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.virtual: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "avirtual"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "avirtual"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.void: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "avoid"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "avoid"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.volatile: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "avolatile"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "avolatile"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.wchar_t: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "awchar_t"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "awchar_t"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.xor: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "axor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "axor"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.xor_eq: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "axor_eq"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "axor_eq"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.restrict: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "arestrict"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "arestrict"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Category: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aCategory"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aCategory"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Ivar: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aIvar"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aIvar"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Method: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aMethod"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aMethod"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.finalize: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "afinalize"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "afinalize"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.hash: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ahash"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "ahash"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.dealloc: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adealloc"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adealloc"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.superclass: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "asuperclass"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "asuperclass"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.retain: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aretain"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aretain"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.release: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "arelease"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "arelease"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.autorelease: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aautorelease"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aautorelease"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.retainCount: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aretainCount"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aretainCount"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.zone: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "azone"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "azone"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.isProxy: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aisProxy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aisProxy"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.copy: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "acopy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "acopy"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.mutableCopy: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "amutableCopy"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "amutableCopy"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.classForCoder: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aclassForCoder"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aclassForCoder"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.clear: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aclear"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aclear"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.data: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adata"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adata"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.delimitedData: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adelimitedData"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adelimitedData"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.descriptor: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "adescriptor"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "adescriptor"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.extensionRegistry: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aextensionRegistry"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aextensionRegistry"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.extensionsCurrentlySet: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aextensionsCurrentlySet"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aextensionsCurrentlySet"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aisInitialized"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aisInitialized"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.serializedSize: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aserializedSize"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aserializedSize"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.sortedExtensionsInUse: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "asortedExtensionsInUse"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "asortedExtensionsInUse"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aunknownFields"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aunknownFields"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Fixed: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aFixed"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aFixed"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Fract: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aFract"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aFract"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Size: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aSize"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aSize"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.LogicalAddress: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aLogicalAddress"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aLogicalAddress"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.PhysicalAddress: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aPhysicalAddress"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aPhysicalAddress"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ByteCount: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aByteCount"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aByteCount"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ByteOffset: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aByteOffset"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aByteOffset"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Duration: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aDuration"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aDuration"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.AbsoluteTime: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aAbsoluteTime"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aAbsoluteTime"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.OptionBits: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aOptionBits"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aOptionBits"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ItemCount: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aItemCount"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aItemCount"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.PBVersion: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aPBVersion"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aPBVersion"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ScriptCode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aScriptCode"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aScriptCode"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.LangCode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aLangCode"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aLangCode"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.RegionCode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aRegionCode"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aRegionCode"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.OSType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aOSType"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aOSType"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ProcessSerialNumber: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aProcessSerialNumber"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aProcessSerialNumber"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Point: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aPoint"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aPoint"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Rect: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aRect"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aRect"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.FixedPoint: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aFixedPoint"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aFixedPoint"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.FixedRect: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aFixedRect"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aFixedRect"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Style: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aStyle"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aStyle"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.StyleParameter: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aStyleParameter"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aStyleParameter"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.StyleField: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aStyleField"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aStyleField"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.TimeScale: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aTimeScale"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aTimeScale"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.TimeBase: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aTimeBase"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aTimeBase"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.TimeRecord: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aTimeRecord"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aTimeRecord"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.Extension: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aExtension"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aExtension"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "aExtensions"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "aExtensions"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldNamingInitials"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -26260,25 +29272,32 @@ extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_FieldNamingInitials.protoMessageName + ".Lowers"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "http"),
-    2: .standard(proto: "http_request"),
-    3: .standard(proto: "the_http_request"),
-    4: .standard(proto: "the_http"),
-    11: .same(proto: "https"),
-    12: .standard(proto: "https_request"),
-    13: .standard(proto: "the_https_request"),
-    14: .standard(proto: "the_https"),
-    21: .same(proto: "url"),
-    22: .standard(proto: "url_value"),
-    23: .standard(proto: "the_url_value"),
-    24: .standard(proto: "the_url"),
-    31: .standard(proto: "a_b_c"),
-    41: .same(proto: "id"),
-    42: .standard(proto: "id_number"),
-    43: .standard(proto: "the_id_number"),
-    44: .standard(proto: "request_id"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "http"),
+      2: .standard(proto: "http_request"),
+      3: .standard(proto: "the_http_request"),
+      4: .standard(proto: "the_http"),
+      11: .same(proto: "https"),
+      12: .standard(proto: "https_request"),
+      13: .standard(proto: "the_https_request"),
+      14: .standard(proto: "the_https"),
+      21: .same(proto: "url"),
+      22: .standard(proto: "url_value"),
+      23: .standard(proto: "the_url_value"),
+      24: .standard(proto: "the_url"),
+      31: .standard(proto: "a_b_c"),
+      41: .same(proto: "id"),
+      42: .standard(proto: "id_number"),
+      43: .standard(proto: "the_id_number"),
+      44: .standard(proto: "request_id"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _http: Int32? = nil
@@ -26456,24 +29475,31 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_FieldNamingInitials.protoMessageName + ".Uppers"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "HTTP"),
-    2: .standard(proto: "HTTP_request"),
-    3: .standard(proto: "the_HTTP_request"),
-    4: .standard(proto: "the_HTTP"),
-    11: .same(proto: "HTTPS"),
-    12: .standard(proto: "HTTPS_request"),
-    13: .standard(proto: "the_HTTPS_request"),
-    14: .standard(proto: "the_HTTPS"),
-    21: .same(proto: "URL"),
-    22: .standard(proto: "URL_value"),
-    23: .standard(proto: "the_URL_value"),
-    24: .standard(proto: "the_URL"),
-    41: .same(proto: "ID"),
-    42: .standard(proto: "ID_number"),
-    43: .standard(proto: "the_ID_number"),
-    44: .standard(proto: "request_ID"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "HTTP"),
+      2: .standard(proto: "HTTP_request"),
+      3: .standard(proto: "the_HTTP_request"),
+      4: .standard(proto: "the_HTTP"),
+      11: .same(proto: "HTTPS"),
+      12: .standard(proto: "HTTPS_request"),
+      13: .standard(proto: "the_HTTPS_request"),
+      14: .standard(proto: "the_HTTPS"),
+      21: .same(proto: "URL"),
+      22: .standard(proto: "URL_value"),
+      23: .standard(proto: "the_URL_value"),
+      24: .standard(proto: "the_URL"),
+      41: .same(proto: "ID"),
+      42: .standard(proto: "ID_number"),
+      43: .standard(proto: "the_ID_number"),
+      44: .standard(proto: "request_ID"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26582,24 +29608,31 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_FieldNamingInitials.protoMessageName + ".WordCase"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Http"),
-    2: .same(proto: "HttpRequest"),
-    3: .same(proto: "TheHttpRequest"),
-    4: .same(proto: "TheHttp"),
-    11: .same(proto: "Https"),
-    12: .same(proto: "HttpsRequest"),
-    13: .same(proto: "TheHttpsRequest"),
-    14: .same(proto: "TheHttps"),
-    21: .same(proto: "Url"),
-    22: .same(proto: "UrlValue"),
-    23: .same(proto: "TheUrlValue"),
-    24: .same(proto: "TheUrl"),
-    41: .same(proto: "Id"),
-    42: .same(proto: "IdNumber"),
-    43: .same(proto: "TheIdNumber"),
-    44: .same(proto: "RequestId"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "Http"),
+      2: .same(proto: "HttpRequest"),
+      3: .same(proto: "TheHttpRequest"),
+      4: .same(proto: "TheHttp"),
+      11: .same(proto: "Https"),
+      12: .same(proto: "HttpsRequest"),
+      13: .same(proto: "TheHttpsRequest"),
+      14: .same(proto: "TheHttps"),
+      21: .same(proto: "Url"),
+      22: .same(proto: "UrlValue"),
+      23: .same(proto: "TheUrlValue"),
+      24: .same(proto: "TheUrl"),
+      41: .same(proto: "Id"),
+      42: .same(proto: "IdNumber"),
+      43: .same(proto: "TheIdNumber"),
+      44: .same(proto: "RequestId"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26708,7 +29741,11 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitials"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -26737,7 +29774,11 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Lowers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -26756,7 +29797,11 @@ extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Uppers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -26775,7 +29820,11 @@ extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".WordCase"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -26794,7 +29843,11 @@ extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsLowers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -26823,7 +29876,11 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsUppers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -26852,7 +29909,11 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.M
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsWordCase"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -26881,14 +29942,21 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf
 
 extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ValidIdentifiers"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "_1field"),
-    2: .standard(proto: "_field"),
-    3: .standard(proto: "_3field_3"),
-    4: .standard(proto: "_4"),
-    5: .standard(proto: "_5field"),
-    6: .standard(proto: "enum_field"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "_1field"),
+      2: .standard(proto: "_field"),
+      3: .standard(proto: "_3field_3"),
+      4: .standard(proto: "_4"),
+      5: .standard(proto: "_5field"),
+      6: .standard(proto: "enum_field"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26964,19 +30032,33 @@ extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message, Swift
 }
 
 extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_ENUM_0"),
-    1: .same(proto: "TEST_ENUM_FIRST"),
-    2: .same(proto: "_2"),
-    3: .same(proto: "_3_VALUE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "TEST_ENUM_0"),
+      1: .same(proto: "TEST_ENUM_FIRST"),
+      2: .same(proto: "_2"),
+      3: .same(proto: "_3_VALUE"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "str"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "str"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27017,9 +30099,16 @@ extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "new_value"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "new_value"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27053,10 +30142,17 @@ extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames3"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "str"),
-    2: .standard(proto: "forces_storage"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "str"),
+      2: .standard(proto: "forces_storage"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _newValue: SwiftProtoTesting_Names_SpecialNames3.OneOf_NewValue?
@@ -27136,10 +30232,17 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames4"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "new_value"),
-    2: .standard(proto: "forces_storage"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "new_value"),
+      2: .standard(proto: "forces_storage"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _newValue: String? = nil

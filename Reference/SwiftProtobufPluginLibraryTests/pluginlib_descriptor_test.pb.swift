@@ -521,23 +521,37 @@ extension SDTScoperForExt {
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "VALUE_ZERO"),
-    1: .same(proto: "VALUE_ONE"),
-    2: .same(proto: "VALUE_TWO"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "VALUE_ZERO"),
+      1: .same(proto: "VALUE_ONE"),
+      2: .same(proto: "VALUE_TWO"),
+    ]
+  }
 }
 
 extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-    4: .same(proto: "field4"),
-    5: .same(proto: "field5"),
-    6: .same(proto: "field6"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "field1"),
+      2: .same(proto: "field2"),
+      3: .same(proto: "field3"),
+      4: .same(proto: "field4"),
+      5: .same(proto: "field5"),
+      6: .same(proto: "field6"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _field1: String? = nil
@@ -673,20 +687,34 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SUB_VALUE_0"),
-    1: .same(proto: "SUB_VALUE_1"),
-    2: .same(proto: "SUB_VALUE_2"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "SUB_VALUE_0"),
+      1: .same(proto: "SUB_VALUE_1"),
+      2: .same(proto: "SUB_VALUE_2"),
+    ]
+  }
 }
 
 extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "field1"),
+      2: .same(proto: "field2"),
+      3: .same(proto: "field3"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _field1: Int32? = nil
@@ -766,10 +794,17 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "left"),
-    2: .same(proto: "right"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "left"),
+      2: .same(proto: "right"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _left: SDTTopLevelMessage? = nil
@@ -842,10 +877,17 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
 extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "desc"),
-    2: .same(proto: "ver"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "desc"),
+      2: .same(proto: "ver"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._desc, !v.isInitialized {return false}
@@ -889,7 +931,11 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ScoperForExt"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -908,24 +954,31 @@ extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto2MessageForPresence"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "req_str_field"),
-    2: .standard(proto: "req_int32_field"),
-    3: .standard(proto: "req_enum_field"),
-    4: .standard(proto: "req_message_field"),
-    11: .standard(proto: "opt_str_field"),
-    12: .standard(proto: "opt_int32_field"),
-    13: .standard(proto: "opt_enum_field"),
-    14: .standard(proto: "opt_message_field"),
-    21: .standard(proto: "repeat_str_field"),
-    22: .standard(proto: "repeat_int32_field"),
-    23: .standard(proto: "repeat_enum_field"),
-    24: .standard(proto: "repeat_message_field"),
-    31: .standard(proto: "oneof_str_field"),
-    32: .standard(proto: "oneof_int32_field"),
-    33: .standard(proto: "oneof_enum_field"),
-    34: .standard(proto: "oneof_message_field"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "req_str_field"),
+      2: .standard(proto: "req_int32_field"),
+      3: .standard(proto: "req_enum_field"),
+      4: .standard(proto: "req_message_field"),
+      11: .standard(proto: "opt_str_field"),
+      12: .standard(proto: "opt_int32_field"),
+      13: .standard(proto: "opt_enum_field"),
+      14: .standard(proto: "opt_message_field"),
+      21: .standard(proto: "repeat_str_field"),
+      22: .standard(proto: "repeat_int32_field"),
+      23: .standard(proto: "repeat_enum_field"),
+      24: .standard(proto: "repeat_message_field"),
+      31: .standard(proto: "oneof_str_field"),
+      32: .standard(proto: "oneof_int32_field"),
+      33: .standard(proto: "oneof_enum_field"),
+      34: .standard(proto: "oneof_message_field"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._reqStrField == nil {return false}

@@ -377,9 +377,16 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 
 extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "message_set"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "message_set"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._messageSet, !v.isInitialized {return false}
@@ -418,11 +425,18 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, Swift
 
 extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestMessageSetContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "container"),
-    2: .same(proto: "child"),
-    3: .standard(proto: "lazy_child"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "container"),
+      2: .same(proto: "child"),
+      3: .standard(proto: "lazy_child"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _container: ProtobufUnittest_TestMessageSetContainer? = nil
@@ -511,11 +525,18 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
 
 extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestInt"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    3: .same(proto: "b"),
-    2: .same(proto: "child"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "a"),
+      3: .same(proto: "b"),
+      2: .same(proto: "child"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _a: UInt32? = nil
@@ -595,11 +616,18 @@ extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    15: .same(proto: "i"),
-    16: .same(proto: "recursive"),
-    17: .standard(proto: "test_aliasing"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      15: .same(proto: "i"),
+      16: .same(proto: "recursive"),
+      17: .standard(proto: "test_aliasing"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._recursive, !v.isInitialized {return false}
@@ -648,9 +676,16 @@ extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, Swif
 
 extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    25: .same(proto: "str"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      25: .same(proto: "str"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -684,10 +719,17 @@ extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, Swif
 
 extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension3"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    35: .same(proto: "msg"),
-    36: .standard(proto: "required_int"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      35: .same(proto: "msg"),
+      36: .standard(proto: "required_int"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._requiredInt == nil {return false}
@@ -731,9 +773,16 @@ extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobuf.Message, Swif
 
 extension ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RawMessageSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "Item", json: "item"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .unique(proto: "Item", json: "item"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.item) {return false}
@@ -768,10 +817,17 @@ extension ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittest_RawMessageSet.protoMessageName + ".Item"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .standard(proto: "type_id"),
-    3: .same(proto: "message"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      2: .standard(proto: "type_id"),
+      3: .same(proto: "message"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._typeID == nil {return false}

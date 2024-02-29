@@ -86,18 +86,32 @@ struct ProtobufUnittestImport_ImportMessageLite: Sendable {
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
 extension ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    7: .same(proto: "IMPORT_LITE_FOO"),
-    8: .same(proto: "IMPORT_LITE_BAR"),
-    9: .same(proto: "IMPORT_LITE_BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      7: .same(proto: "IMPORT_LITE_FOO"),
+      8: .same(proto: "IMPORT_LITE_BAR"),
+      9: .same(proto: "IMPORT_LITE_BAZ"),
+    ]
+  }
 }
 
 extension ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "d"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

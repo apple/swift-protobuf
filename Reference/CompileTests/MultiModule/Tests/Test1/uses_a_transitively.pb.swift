@@ -57,10 +57,17 @@ public struct UsesATransitively: Sendable {
 
 extension UsesATransitively: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "UsesATransitively"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .same(proto: "a"),
-    102: .same(proto: "e"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      101: .same(proto: "a"),
+      102: .same(proto: "e"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._a, !v.isInitialized {return false}

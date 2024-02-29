@@ -220,32 +220,53 @@ struct SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing.unknown_enum.proto3"
 
 extension SwiftProtoTesting_UnknownEnum_Proto3_MyEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "FOO"),
+      1: .same(proto: "BAR"),
+      2: .same(proto: "BAZ"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_FOO"),
-    1: .same(proto: "E_BAR"),
-    2: .same(proto: "E_BAZ"),
-    3: .same(proto: "E_EXTRA"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "E_FOO"),
+      1: .same(proto: "E_BAR"),
+      2: .same(proto: "E_BAZ"),
+      3: .same(proto: "E_EXTRA"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "e"),
-    2: .standard(proto: "repeated_e"),
-    3: .standard(proto: "repeated_packed_e"),
-    4: .standard(proto: "repeated_packed_unexpected_e"),
-    5: .standard(proto: "oneof_e_1"),
-    6: .standard(proto: "oneof_e_2"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "e"),
+      2: .standard(proto: "repeated_e"),
+      3: .standard(proto: "repeated_packed_e"),
+      4: .standard(proto: "repeated_packed_unexpected_e"),
+      5: .standard(proto: "oneof_e_1"),
+      6: .standard(proto: "oneof_e_2"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -322,14 +343,21 @@ extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage: SwiftProtobuf.Message,
 
 extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "e"),
-    2: .standard(proto: "repeated_e"),
-    3: .standard(proto: "repeated_packed_e"),
-    4: .standard(proto: "repeated_packed_unexpected_e"),
-    5: .standard(proto: "oneof_e_1"),
-    6: .standard(proto: "oneof_e_2"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "e"),
+      2: .standard(proto: "repeated_e"),
+      3: .standard(proto: "repeated_packed_e"),
+      4: .standard(proto: "repeated_packed_unexpected_e"),
+      5: .standard(proto: "oneof_e_1"),
+      6: .standard(proto: "oneof_e_2"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

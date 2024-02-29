@@ -69,10 +69,17 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 
 extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestLiteImportsNonlite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
-    2: .standard(proto: "message_with_required"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "message"),
+      2: .standard(proto: "message_with_required"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._messageWithRequired, !v.isInitialized {return false}

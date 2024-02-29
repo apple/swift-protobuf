@@ -226,36 +226,50 @@ struct SwiftProtoTesting_TestRecursiveMapMessage: Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_MapEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MAP_ENUM_FOO"),
-    1: .same(proto: "MAP_ENUM_BAR"),
-    2: .same(proto: "MAP_ENUM_BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "MAP_ENUM_FOO"),
+      1: .same(proto: "MAP_ENUM_BAR"),
+      2: .same(proto: "MAP_ENUM_BAZ"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_int32"),
-    2: .standard(proto: "map_int64_int64"),
-    3: .standard(proto: "map_uint32_uint32"),
-    4: .standard(proto: "map_uint64_uint64"),
-    5: .standard(proto: "map_sint32_sint32"),
-    6: .standard(proto: "map_sint64_sint64"),
-    7: .standard(proto: "map_fixed32_fixed32"),
-    8: .standard(proto: "map_fixed64_fixed64"),
-    9: .standard(proto: "map_sfixed32_sfixed32"),
-    10: .standard(proto: "map_sfixed64_sfixed64"),
-    11: .standard(proto: "map_int32_float"),
-    12: .standard(proto: "map_int32_double"),
-    13: .standard(proto: "map_bool_bool"),
-    14: .standard(proto: "map_string_string"),
-    15: .standard(proto: "map_int32_bytes"),
-    16: .standard(proto: "map_int32_enum"),
-    17: .standard(proto: "map_int32_foreign_message"),
-    18: .standard(proto: "map_string_foreign_message"),
-    19: .standard(proto: "map_int32_all_types"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "map_int32_int32"),
+      2: .standard(proto: "map_int64_int64"),
+      3: .standard(proto: "map_uint32_uint32"),
+      4: .standard(proto: "map_uint64_uint64"),
+      5: .standard(proto: "map_sint32_sint32"),
+      6: .standard(proto: "map_sint64_sint64"),
+      7: .standard(proto: "map_fixed32_fixed32"),
+      8: .standard(proto: "map_fixed64_fixed64"),
+      9: .standard(proto: "map_sfixed32_sfixed32"),
+      10: .standard(proto: "map_sfixed64_sfixed64"),
+      11: .standard(proto: "map_int32_float"),
+      12: .standard(proto: "map_int32_double"),
+      13: .standard(proto: "map_bool_bool"),
+      14: .standard(proto: "map_string_string"),
+      15: .standard(proto: "map_int32_bytes"),
+      16: .standard(proto: "map_int32_enum"),
+      17: .standard(proto: "map_int32_foreign_message"),
+      18: .standard(proto: "map_string_foreign_message"),
+      19: .standard(proto: "map_int32_all_types"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -443,9 +457,16 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_field"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "map_field"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.mapField) {return false}
@@ -480,9 +501,16 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMapMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "a"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

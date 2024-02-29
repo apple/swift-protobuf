@@ -395,7 +395,11 @@ fileprivate let _protobuf_package = "pb"
 
 extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -414,7 +418,11 @@ extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 
 extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_TestMessage.protoMessageName + ".Nested"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -433,24 +441,31 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int_file_feature"),
-    2: .standard(proto: "int_extension_range_feature"),
-    3: .standard(proto: "int_message_feature"),
-    4: .standard(proto: "int_field_feature"),
-    5: .standard(proto: "int_oneof_feature"),
-    6: .standard(proto: "int_enum_feature"),
-    7: .standard(proto: "int_enum_entry_feature"),
-    8: .standard(proto: "int_service_feature"),
-    9: .standard(proto: "int_method_feature"),
-    10: .standard(proto: "int_multiple_feature"),
-    11: .standard(proto: "bool_field_feature"),
-    12: .standard(proto: "float_field_feature"),
-    13: .standard(proto: "message_field_feature"),
-    14: .standard(proto: "enum_field_feature"),
-    15: .standard(proto: "int_source_feature"),
-    16: .standard(proto: "string_source_feature"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "int_file_feature"),
+      2: .standard(proto: "int_extension_range_feature"),
+      3: .standard(proto: "int_message_feature"),
+      4: .standard(proto: "int_field_feature"),
+      5: .standard(proto: "int_oneof_feature"),
+      6: .standard(proto: "int_enum_feature"),
+      7: .standard(proto: "int_enum_entry_feature"),
+      8: .standard(proto: "int_service_feature"),
+      9: .standard(proto: "int_method_feature"),
+      10: .standard(proto: "int_multiple_feature"),
+      11: .standard(proto: "bool_field_feature"),
+      12: .standard(proto: "float_field_feature"),
+      13: .standard(proto: "message_field_feature"),
+      14: .standard(proto: "enum_field_feature"),
+      15: .standard(proto: "int_source_feature"),
+      16: .standard(proto: "string_source_feature"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _intFileFeature: Int32? = nil
@@ -620,24 +635,38 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Pb_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_ENUM_FEATURE_UNKNOWN"),
-    1: .same(proto: "ENUM_VALUE1"),
-    2: .same(proto: "ENUM_VALUE2"),
-    3: .same(proto: "ENUM_VALUE3"),
-    4: .same(proto: "ENUM_VALUE4"),
-    5: .same(proto: "ENUM_VALUE5"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "TEST_ENUM_FEATURE_UNKNOWN"),
+      1: .same(proto: "ENUM_VALUE1"),
+      2: .same(proto: "ENUM_VALUE2"),
+      3: .same(proto: "ENUM_VALUE3"),
+      4: .same(proto: "ENUM_VALUE4"),
+      5: .same(proto: "ENUM_VALUE5"),
+    ]
+  }
 }
 
 extension Pb_TestFeatures.MessageFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_TestFeatures.protoMessageName + ".MessageFeature"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "bool_field"),
-    2: .standard(proto: "int_field"),
-    3: .standard(proto: "float_field"),
-    4: .standard(proto: "string_field"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "bool_field"),
+      2: .standard(proto: "int_field"),
+      3: .standard(proto: "float_field"),
+      4: .standard(proto: "string_field"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

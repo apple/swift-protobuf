@@ -85,8 +85,15 @@ enum ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf.Enum {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "LAZY_ENUM_0"),
-    1: .same(proto: "LAZY_ENUM_1"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "LAZY_ENUM_0"),
+      1: .same(proto: "LAZY_ENUM_1"),
+    ]
+  }
 }

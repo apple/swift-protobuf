@@ -3957,101 +3957,122 @@ extension SwiftProtoTesting_TestParsingMerge {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    4: .same(proto: "FOREIGN_FOO"),
-    5: .same(proto: "FOREIGN_BAR"),
-    6: .same(proto: "FOREIGN_BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      4: .same(proto: "FOREIGN_FOO"),
+      5: .same(proto: "FOREIGN_BAR"),
+      6: .same(proto: "FOREIGN_BAZ"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
-    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
-    3: .same(proto: "BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+      2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+      3: .same(proto: "BAZ"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_int32"),
-    2: .standard(proto: "optional_int64"),
-    3: .standard(proto: "optional_uint32"),
-    4: .standard(proto: "optional_uint64"),
-    5: .standard(proto: "optional_sint32"),
-    6: .standard(proto: "optional_sint64"),
-    7: .standard(proto: "optional_fixed32"),
-    8: .standard(proto: "optional_fixed64"),
-    9: .standard(proto: "optional_sfixed32"),
-    10: .standard(proto: "optional_sfixed64"),
-    11: .standard(proto: "optional_float"),
-    12: .standard(proto: "optional_double"),
-    13: .standard(proto: "optional_bool"),
-    14: .standard(proto: "optional_string"),
-    15: .standard(proto: "optional_bytes"),
-    16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
-    18: .standard(proto: "optional_nested_message"),
-    19: .standard(proto: "optional_foreign_message"),
-    20: .standard(proto: "optional_import_message"),
-    21: .standard(proto: "optional_nested_enum"),
-    22: .standard(proto: "optional_foreign_enum"),
-    23: .standard(proto: "optional_import_enum"),
-    24: .standard(proto: "optional_string_piece"),
-    25: .standard(proto: "optional_cord"),
-    26: .standard(proto: "optional_public_import_message"),
-    27: .standard(proto: "optional_lazy_message"),
-    28: .standard(proto: "optional_unverified_lazy_message"),
-    31: .standard(proto: "repeated_int32"),
-    32: .standard(proto: "repeated_int64"),
-    33: .standard(proto: "repeated_uint32"),
-    34: .standard(proto: "repeated_uint64"),
-    35: .standard(proto: "repeated_sint32"),
-    36: .standard(proto: "repeated_sint64"),
-    37: .standard(proto: "repeated_fixed32"),
-    38: .standard(proto: "repeated_fixed64"),
-    39: .standard(proto: "repeated_sfixed32"),
-    40: .standard(proto: "repeated_sfixed64"),
-    41: .standard(proto: "repeated_float"),
-    42: .standard(proto: "repeated_double"),
-    43: .standard(proto: "repeated_bool"),
-    44: .standard(proto: "repeated_string"),
-    45: .standard(proto: "repeated_bytes"),
-    46: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
-    48: .standard(proto: "repeated_nested_message"),
-    49: .standard(proto: "repeated_foreign_message"),
-    50: .standard(proto: "repeated_import_message"),
-    51: .standard(proto: "repeated_nested_enum"),
-    52: .standard(proto: "repeated_foreign_enum"),
-    53: .standard(proto: "repeated_import_enum"),
-    54: .standard(proto: "repeated_string_piece"),
-    55: .standard(proto: "repeated_cord"),
-    57: .standard(proto: "repeated_lazy_message"),
-    61: .standard(proto: "default_int32"),
-    62: .standard(proto: "default_int64"),
-    63: .standard(proto: "default_uint32"),
-    64: .standard(proto: "default_uint64"),
-    65: .standard(proto: "default_sint32"),
-    66: .standard(proto: "default_sint64"),
-    67: .standard(proto: "default_fixed32"),
-    68: .standard(proto: "default_fixed64"),
-    69: .standard(proto: "default_sfixed32"),
-    70: .standard(proto: "default_sfixed64"),
-    71: .standard(proto: "default_float"),
-    72: .standard(proto: "default_double"),
-    73: .standard(proto: "default_bool"),
-    74: .standard(proto: "default_string"),
-    75: .standard(proto: "default_bytes"),
-    81: .standard(proto: "default_nested_enum"),
-    82: .standard(proto: "default_foreign_enum"),
-    83: .standard(proto: "default_import_enum"),
-    84: .standard(proto: "default_string_piece"),
-    85: .standard(proto: "default_cord"),
-    111: .standard(proto: "oneof_uint32"),
-    112: .standard(proto: "oneof_nested_message"),
-    113: .standard(proto: "oneof_string"),
-    114: .standard(proto: "oneof_bytes"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "optional_int32"),
+      2: .standard(proto: "optional_int64"),
+      3: .standard(proto: "optional_uint32"),
+      4: .standard(proto: "optional_uint64"),
+      5: .standard(proto: "optional_sint32"),
+      6: .standard(proto: "optional_sint64"),
+      7: .standard(proto: "optional_fixed32"),
+      8: .standard(proto: "optional_fixed64"),
+      9: .standard(proto: "optional_sfixed32"),
+      10: .standard(proto: "optional_sfixed64"),
+      11: .standard(proto: "optional_float"),
+      12: .standard(proto: "optional_double"),
+      13: .standard(proto: "optional_bool"),
+      14: .standard(proto: "optional_string"),
+      15: .standard(proto: "optional_bytes"),
+      16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+      18: .standard(proto: "optional_nested_message"),
+      19: .standard(proto: "optional_foreign_message"),
+      20: .standard(proto: "optional_import_message"),
+      21: .standard(proto: "optional_nested_enum"),
+      22: .standard(proto: "optional_foreign_enum"),
+      23: .standard(proto: "optional_import_enum"),
+      24: .standard(proto: "optional_string_piece"),
+      25: .standard(proto: "optional_cord"),
+      26: .standard(proto: "optional_public_import_message"),
+      27: .standard(proto: "optional_lazy_message"),
+      28: .standard(proto: "optional_unverified_lazy_message"),
+      31: .standard(proto: "repeated_int32"),
+      32: .standard(proto: "repeated_int64"),
+      33: .standard(proto: "repeated_uint32"),
+      34: .standard(proto: "repeated_uint64"),
+      35: .standard(proto: "repeated_sint32"),
+      36: .standard(proto: "repeated_sint64"),
+      37: .standard(proto: "repeated_fixed32"),
+      38: .standard(proto: "repeated_fixed64"),
+      39: .standard(proto: "repeated_sfixed32"),
+      40: .standard(proto: "repeated_sfixed64"),
+      41: .standard(proto: "repeated_float"),
+      42: .standard(proto: "repeated_double"),
+      43: .standard(proto: "repeated_bool"),
+      44: .standard(proto: "repeated_string"),
+      45: .standard(proto: "repeated_bytes"),
+      46: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
+      48: .standard(proto: "repeated_nested_message"),
+      49: .standard(proto: "repeated_foreign_message"),
+      50: .standard(proto: "repeated_import_message"),
+      51: .standard(proto: "repeated_nested_enum"),
+      52: .standard(proto: "repeated_foreign_enum"),
+      53: .standard(proto: "repeated_import_enum"),
+      54: .standard(proto: "repeated_string_piece"),
+      55: .standard(proto: "repeated_cord"),
+      57: .standard(proto: "repeated_lazy_message"),
+      61: .standard(proto: "default_int32"),
+      62: .standard(proto: "default_int64"),
+      63: .standard(proto: "default_uint32"),
+      64: .standard(proto: "default_uint64"),
+      65: .standard(proto: "default_sint32"),
+      66: .standard(proto: "default_sint64"),
+      67: .standard(proto: "default_fixed32"),
+      68: .standard(proto: "default_fixed64"),
+      69: .standard(proto: "default_sfixed32"),
+      70: .standard(proto: "default_sfixed64"),
+      71: .standard(proto: "default_float"),
+      72: .standard(proto: "default_double"),
+      73: .standard(proto: "default_bool"),
+      74: .standard(proto: "default_string"),
+      75: .standard(proto: "default_bytes"),
+      81: .standard(proto: "default_nested_enum"),
+      82: .standard(proto: "default_foreign_enum"),
+      83: .standard(proto: "default_import_enum"),
+      84: .standard(proto: "default_string_piece"),
+      85: .standard(proto: "default_cord"),
+      111: .standard(proto: "oneof_uint32"),
+      112: .standard(proto: "oneof_nested_message"),
+      113: .standard(proto: "oneof_string"),
+      114: .standard(proto: "oneof_bytes"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -4672,19 +4693,33 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension SwiftProtoTesting_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    -1: .same(proto: "NEG"),
-    1: .same(proto: "FOO"),
-    2: .same(proto: "BAR"),
-    3: .same(proto: "BAZ"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      -1: .same(proto: "NEG"),
+      1: .same(proto: "FOO"),
+      2: .same(proto: "BAR"),
+      3: .same(proto: "BAZ"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bb"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "bb"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4718,9 +4753,16 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".OptionalGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    17: .same(proto: "a"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      17: .same(proto: "a"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4754,9 +4796,16 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".RepeatedGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    47: .same(proto: "a"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      47: .same(proto: "a"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4790,13 +4839,20 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "child"),
-    2: .same(proto: "payload"),
-    3: .standard(proto: "repeated_child"),
-    4: .standard(proto: "lazy_child"),
-    5: .standard(proto: "eager_child"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "child"),
+      2: .same(proto: "payload"),
+      3: .standard(proto: "repeated_child"),
+      4: .standard(proto: "lazy_child"),
+      5: .standard(proto: "eager_child"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _child: SwiftProtoTesting_NestedTestAllTypes? = nil
@@ -4890,10 +4946,17 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-    2: .same(proto: "d"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "c"),
+      2: .same(proto: "d"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4932,7 +4995,11 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
 
 extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllExtensions"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4961,9 +5028,16 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
 
 extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionalGroup_extension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    17: .same(proto: "a"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      17: .same(proto: "a"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4997,9 +5071,16 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedGroup_extension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    47: .same(proto: "a"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      47: .same(proto: "a"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5033,7 +5114,11 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
 
 extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedExtension"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -5052,42 +5137,49 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "dummy2"),
-    3: .same(proto: "b"),
-    4: .same(proto: "dummy4"),
-    5: .same(proto: "dummy5"),
-    6: .same(proto: "dummy6"),
-    7: .same(proto: "dummy7"),
-    8: .same(proto: "dummy8"),
-    9: .same(proto: "dummy9"),
-    10: .same(proto: "dummy10"),
-    11: .same(proto: "dummy11"),
-    12: .same(proto: "dummy12"),
-    13: .same(proto: "dummy13"),
-    14: .same(proto: "dummy14"),
-    15: .same(proto: "dummy15"),
-    16: .same(proto: "dummy16"),
-    17: .same(proto: "dummy17"),
-    18: .same(proto: "dummy18"),
-    19: .same(proto: "dummy19"),
-    20: .same(proto: "dummy20"),
-    21: .same(proto: "dummy21"),
-    22: .same(proto: "dummy22"),
-    23: .same(proto: "dummy23"),
-    24: .same(proto: "dummy24"),
-    25: .same(proto: "dummy25"),
-    26: .same(proto: "dummy26"),
-    27: .same(proto: "dummy27"),
-    28: .same(proto: "dummy28"),
-    29: .same(proto: "dummy29"),
-    30: .same(proto: "dummy30"),
-    31: .same(proto: "dummy31"),
-    32: .same(proto: "dummy32"),
-    33: .same(proto: "c"),
-    34: .standard(proto: "optional_foreign"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "a"),
+      2: .same(proto: "dummy2"),
+      3: .same(proto: "b"),
+      4: .same(proto: "dummy4"),
+      5: .same(proto: "dummy5"),
+      6: .same(proto: "dummy6"),
+      7: .same(proto: "dummy7"),
+      8: .same(proto: "dummy8"),
+      9: .same(proto: "dummy9"),
+      10: .same(proto: "dummy10"),
+      11: .same(proto: "dummy11"),
+      12: .same(proto: "dummy12"),
+      13: .same(proto: "dummy13"),
+      14: .same(proto: "dummy14"),
+      15: .same(proto: "dummy15"),
+      16: .same(proto: "dummy16"),
+      17: .same(proto: "dummy17"),
+      18: .same(proto: "dummy18"),
+      19: .same(proto: "dummy19"),
+      20: .same(proto: "dummy20"),
+      21: .same(proto: "dummy21"),
+      22: .same(proto: "dummy22"),
+      23: .same(proto: "dummy23"),
+      24: .same(proto: "dummy24"),
+      25: .same(proto: "dummy25"),
+      26: .same(proto: "dummy26"),
+      27: .same(proto: "dummy27"),
+      28: .same(proto: "dummy28"),
+      29: .same(proto: "dummy29"),
+      30: .same(proto: "dummy30"),
+      31: .same(proto: "dummy31"),
+      32: .same(proto: "dummy32"),
+      33: .same(proto: "c"),
+      34: .standard(proto: "optional_foreign"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _a: Int32? = nil
@@ -5393,12 +5485,19 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredForeign"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_message"),
-    2: .standard(proto: "repeated_message"),
-    3: .same(proto: "dummy"),
-    4: .standard(proto: "optional_lazy_message"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "optional_message"),
+      2: .standard(proto: "repeated_message"),
+      3: .same(proto: "dummy"),
+      4: .standard(proto: "optional_lazy_message"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._optionalMessage, !v.isInitialized {return false}
@@ -5453,11 +5552,18 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_message"),
-    2: .standard(proto: "repeated_message"),
-    3: .standard(proto: "required_message"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "optional_message"),
+      2: .standard(proto: "repeated_message"),
+      3: .standard(proto: "required_message"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._requiredMessage == nil {return false}
@@ -5509,7 +5615,11 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -5528,10 +5638,17 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
 
 extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestReallyLargeTagNumber"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    268435455: .same(proto: "bb"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "a"),
+      268435455: .same(proto: "bb"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5570,10 +5687,17 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "i"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "a"),
+      2: .same(proto: "i"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _a: SwiftProtoTesting_TestRecursiveMessage? = nil
@@ -5646,12 +5770,19 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
 
 extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    11: .standard(proto: "my_string"),
-    1: .standard(proto: "my_int"),
-    101: .standard(proto: "my_float"),
-    200: .standard(proto: "optional_nested_message"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      11: .standard(proto: "my_string"),
+      1: .standard(proto: "my_int"),
+      101: .standard(proto: "my_float"),
+      200: .standard(proto: "optional_nested_message"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -5710,10 +5841,17 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestFieldOrderings.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .same(proto: "oo"),
-    1: .same(proto: "bb"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      2: .same(proto: "oo"),
+      1: .same(proto: "bb"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5752,35 +5890,42 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtremeDefaultValues"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "escaped_bytes"),
-    2: .standard(proto: "large_uint32"),
-    3: .standard(proto: "large_uint64"),
-    4: .standard(proto: "small_int32"),
-    5: .standard(proto: "small_int64"),
-    21: .standard(proto: "really_small_int32"),
-    22: .standard(proto: "really_small_int64"),
-    6: .standard(proto: "utf8_string"),
-    7: .standard(proto: "zero_float"),
-    8: .standard(proto: "one_float"),
-    9: .standard(proto: "small_float"),
-    10: .standard(proto: "negative_one_float"),
-    11: .standard(proto: "negative_float"),
-    12: .standard(proto: "large_float"),
-    13: .standard(proto: "small_negative_float"),
-    14: .standard(proto: "inf_double"),
-    15: .standard(proto: "neg_inf_double"),
-    16: .standard(proto: "nan_double"),
-    17: .standard(proto: "inf_float"),
-    18: .standard(proto: "neg_inf_float"),
-    19: .standard(proto: "nan_float"),
-    20: .standard(proto: "cpp_trigraph"),
-    23: .standard(proto: "string_with_zero"),
-    24: .standard(proto: "bytes_with_zero"),
-    25: .standard(proto: "string_piece_with_zero"),
-    26: .standard(proto: "cord_with_zero"),
-    27: .standard(proto: "replacement_string"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "escaped_bytes"),
+      2: .standard(proto: "large_uint32"),
+      3: .standard(proto: "large_uint64"),
+      4: .standard(proto: "small_int32"),
+      5: .standard(proto: "small_int64"),
+      21: .standard(proto: "really_small_int32"),
+      22: .standard(proto: "really_small_int64"),
+      6: .standard(proto: "utf8_string"),
+      7: .standard(proto: "zero_float"),
+      8: .standard(proto: "one_float"),
+      9: .standard(proto: "small_float"),
+      10: .standard(proto: "negative_one_float"),
+      11: .standard(proto: "negative_float"),
+      12: .standard(proto: "large_float"),
+      13: .standard(proto: "small_negative_float"),
+      14: .standard(proto: "inf_double"),
+      15: .standard(proto: "neg_inf_double"),
+      16: .standard(proto: "nan_double"),
+      17: .standard(proto: "inf_float"),
+      18: .standard(proto: "neg_inf_float"),
+      19: .standard(proto: "nan_float"),
+      20: .standard(proto: "cpp_trigraph"),
+      23: .standard(proto: "string_with_zero"),
+      24: .standard(proto: "bytes_with_zero"),
+      25: .standard(proto: "string_piece_with_zero"),
+      26: .standard(proto: "cord_with_zero"),
+      27: .standard(proto: "replacement_string"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _escapedBytes: Data? = nil
@@ -6028,12 +6173,19 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "foo_int"),
-    2: .standard(proto: "foo_string"),
-    3: .standard(proto: "foo_message"),
-    4: .unique(proto: "FooGroup", json: "foogroup"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "foo_int"),
+      2: .standard(proto: "foo_string"),
+      3: .standard(proto: "foo_message"),
+      4: .unique(proto: "FooGroup", json: "foogroup"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6124,10 +6276,17 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestOneof.protoMessageName + ".FooGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    5: .same(proto: "a"),
-    6: .same(proto: "b"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      5: .same(proto: "a"),
+      6: .same(proto: "b"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6166,12 +6325,19 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOneof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "foo_int"),
-    2: .standard(proto: "foo_string"),
-    3: .standard(proto: "foo_message"),
-    4: .standard(proto: "foo_lazy_message"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "foo_int"),
+      2: .standard(proto: "foo_string"),
+      3: .standard(proto: "foo_message"),
+      4: .standard(proto: "foo_lazy_message"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self.foo, !v.isInitialized {return false}
@@ -6267,9 +6433,16 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
 
 extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestRequiredOneof.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "required_double"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "required_double"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._requiredDouble == nil {return false}
@@ -6308,22 +6481,29 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
 
 extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    90: .standard(proto: "packed_int32"),
-    91: .standard(proto: "packed_int64"),
-    92: .standard(proto: "packed_uint32"),
-    93: .standard(proto: "packed_uint64"),
-    94: .standard(proto: "packed_sint32"),
-    95: .standard(proto: "packed_sint64"),
-    96: .standard(proto: "packed_fixed32"),
-    97: .standard(proto: "packed_fixed64"),
-    98: .standard(proto: "packed_sfixed32"),
-    99: .standard(proto: "packed_sfixed64"),
-    100: .standard(proto: "packed_float"),
-    101: .standard(proto: "packed_double"),
-    102: .standard(proto: "packed_bool"),
-    103: .standard(proto: "packed_enum"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      90: .standard(proto: "packed_int32"),
+      91: .standard(proto: "packed_int64"),
+      92: .standard(proto: "packed_uint32"),
+      93: .standard(proto: "packed_uint64"),
+      94: .standard(proto: "packed_sint32"),
+      95: .standard(proto: "packed_sint64"),
+      96: .standard(proto: "packed_fixed32"),
+      97: .standard(proto: "packed_fixed64"),
+      98: .standard(proto: "packed_sfixed32"),
+      99: .standard(proto: "packed_sfixed64"),
+      100: .standard(proto: "packed_float"),
+      101: .standard(proto: "packed_double"),
+      102: .standard(proto: "packed_bool"),
+      103: .standard(proto: "packed_enum"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6418,22 +6598,29 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
 
 extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    90: .standard(proto: "unpacked_int32"),
-    91: .standard(proto: "unpacked_int64"),
-    92: .standard(proto: "unpacked_uint32"),
-    93: .standard(proto: "unpacked_uint64"),
-    94: .standard(proto: "unpacked_sint32"),
-    95: .standard(proto: "unpacked_sint64"),
-    96: .standard(proto: "unpacked_fixed32"),
-    97: .standard(proto: "unpacked_fixed64"),
-    98: .standard(proto: "unpacked_sfixed32"),
-    99: .standard(proto: "unpacked_sfixed64"),
-    100: .standard(proto: "unpacked_float"),
-    101: .standard(proto: "unpacked_double"),
-    102: .standard(proto: "unpacked_bool"),
-    103: .standard(proto: "unpacked_enum"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      90: .standard(proto: "unpacked_int32"),
+      91: .standard(proto: "unpacked_int64"),
+      92: .standard(proto: "unpacked_uint32"),
+      93: .standard(proto: "unpacked_uint64"),
+      94: .standard(proto: "unpacked_sint32"),
+      95: .standard(proto: "unpacked_sint64"),
+      96: .standard(proto: "unpacked_fixed32"),
+      97: .standard(proto: "unpacked_fixed64"),
+      98: .standard(proto: "unpacked_sfixed32"),
+      99: .standard(proto: "unpacked_sfixed64"),
+      100: .standard(proto: "unpacked_float"),
+      101: .standard(proto: "unpacked_double"),
+      102: .standard(proto: "unpacked_bool"),
+      103: .standard(proto: "unpacked_enum"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6528,7 +6715,11 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
 
 extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedExtensions"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -6557,13 +6748,20 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
 
 extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "required_all_types"),
-    2: .standard(proto: "optional_all_types"),
-    3: .standard(proto: "repeated_all_types"),
-    10: .unique(proto: "OptionalGroup", json: "optionalgroup"),
-    20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "required_all_types"),
+      2: .standard(proto: "optional_all_types"),
+      3: .standard(proto: "repeated_all_types"),
+      10: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+      20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -6627,15 +6825,22 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-    10: .unique(proto: "Group1", json: "group1"),
-    20: .unique(proto: "Group2", json: "group2"),
-    1000: .same(proto: "ext1"),
-    1001: .same(proto: "ext2"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "field1"),
+      2: .same(proto: "field2"),
+      3: .same(proto: "field3"),
+      10: .unique(proto: "Group1", json: "group1"),
+      20: .unique(proto: "Group2", json: "group2"),
+      1000: .same(proto: "ext1"),
+      1001: .same(proto: "ext2"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6695,9 +6900,16 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    11: .same(proto: "field1"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      11: .same(proto: "field1"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6731,9 +6943,16 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    21: .same(proto: "field1"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      21: .same(proto: "field1"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6767,9 +6986,16 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
 
 extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestParsingMerge.protoMessageName + ".OptionalGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    11: .standard(proto: "optional_group_all_types"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      11: .standard(proto: "optional_group_all_types"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -6803,9 +7029,16 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestParsingMerge.protoMessageName + ".RepeatedGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    21: .standard(proto: "repeated_group_all_types"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      21: .standard(proto: "repeated_group_all_types"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

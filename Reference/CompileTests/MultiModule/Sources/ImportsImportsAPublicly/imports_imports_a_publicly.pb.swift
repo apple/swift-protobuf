@@ -61,10 +61,17 @@ public struct ImportsImportsAPublicly: Sendable {
 
 extension ImportsImportsAPublicly: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "ImportsImportsAPublicly"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    21: .same(proto: "a"),
-    22: .same(proto: "e"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      21: .same(proto: "a"),
+      22: .same(proto: "e"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._a, !v.isInitialized {return false}

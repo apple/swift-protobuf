@@ -172,11 +172,18 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_foo"),
-    2: .standard(proto: "a_bar"),
-    3: .standard(proto: "a_baz"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "a_foo"),
+      2: .standard(proto: "a_bar"),
+      3: .standard(proto: "a_baz"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _aFoo: SwiftProtoTesting_CycleFoo? = nil
@@ -256,11 +263,18 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_bar"),
-    2: .standard(proto: "a_baz"),
-    3: .standard(proto: "a_foo"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "a_bar"),
+      2: .standard(proto: "a_baz"),
+      3: .standard(proto: "a_foo"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _aBar: SwiftProtoTesting_CycleBar? = nil
@@ -340,11 +354,18 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_baz"),
-    2: .standard(proto: "a_foo"),
-    3: .standard(proto: "a_bar"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "a_baz"),
+      2: .standard(proto: "a_foo"),
+      3: .standard(proto: "a_bar"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _aBaz: SwiftProtoTesting_CycleBaz? = nil

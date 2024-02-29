@@ -2920,26 +2920,40 @@ struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Edition: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "EDITION_UNKNOWN"),
-    1: .same(proto: "EDITION_1_TEST_ONLY"),
-    2: .same(proto: "EDITION_2_TEST_ONLY"),
-    998: .same(proto: "EDITION_PROTO2"),
-    999: .same(proto: "EDITION_PROTO3"),
-    1000: .same(proto: "EDITION_2023"),
-    1001: .same(proto: "EDITION_2024"),
-    99997: .same(proto: "EDITION_99997_TEST_ONLY"),
-    99998: .same(proto: "EDITION_99998_TEST_ONLY"),
-    99999: .same(proto: "EDITION_99999_TEST_ONLY"),
-    2147483647: .same(proto: "EDITION_MAX"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "EDITION_UNKNOWN"),
+      1: .same(proto: "EDITION_1_TEST_ONLY"),
+      2: .same(proto: "EDITION_2_TEST_ONLY"),
+      998: .same(proto: "EDITION_PROTO2"),
+      999: .same(proto: "EDITION_PROTO3"),
+      1000: .same(proto: "EDITION_2023"),
+      1001: .same(proto: "EDITION_2024"),
+      99997: .same(proto: "EDITION_99997_TEST_ONLY"),
+      99998: .same(proto: "EDITION_99998_TEST_ONLY"),
+      99999: .same(proto: "EDITION_99999_TEST_ONLY"),
+      2147483647: .same(proto: "EDITION_MAX"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileDescriptorSet"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "file"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "file"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.file) {return false}
@@ -2974,21 +2988,28 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
 
 extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "package"),
-    3: .same(proto: "dependency"),
-    10: .standard(proto: "public_dependency"),
-    11: .standard(proto: "weak_dependency"),
-    4: .standard(proto: "message_type"),
-    5: .standard(proto: "enum_type"),
-    6: .same(proto: "service"),
-    7: .same(proto: "extension"),
-    8: .same(proto: "options"),
-    9: .standard(proto: "source_code_info"),
-    12: .same(proto: "syntax"),
-    14: .same(proto: "edition"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .same(proto: "package"),
+      3: .same(proto: "dependency"),
+      10: .standard(proto: "public_dependency"),
+      11: .standard(proto: "weak_dependency"),
+      4: .standard(proto: "message_type"),
+      5: .standard(proto: "enum_type"),
+      6: .same(proto: "service"),
+      7: .same(proto: "extension"),
+      8: .same(proto: "options"),
+      9: .standard(proto: "source_code_info"),
+      12: .same(proto: "syntax"),
+      14: .same(proto: "edition"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.messageType) {return false}
@@ -3091,18 +3112,25 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
 
 extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "field"),
-    6: .same(proto: "extension"),
-    3: .standard(proto: "nested_type"),
-    4: .standard(proto: "enum_type"),
-    5: .standard(proto: "extension_range"),
-    8: .standard(proto: "oneof_decl"),
-    7: .same(proto: "options"),
-    9: .standard(proto: "reserved_range"),
-    10: .standard(proto: "reserved_name"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .same(proto: "field"),
+      6: .same(proto: "extension"),
+      3: .standard(proto: "nested_type"),
+      4: .standard(proto: "enum_type"),
+      5: .standard(proto: "extension_range"),
+      8: .standard(proto: "oneof_decl"),
+      7: .same(proto: "options"),
+      9: .standard(proto: "reserved_range"),
+      10: .standard(proto: "reserved_name"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _name: String? = nil
@@ -3244,11 +3272,18 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ExtensionRange"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "start"),
-    2: .same(proto: "end"),
-    3: .same(proto: "options"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "start"),
+      2: .same(proto: "end"),
+      3: .same(proto: "options"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3297,10 +3332,17 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImple
 
 extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ReservedRange"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "start"),
-    2: .same(proto: "end"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "start"),
+      2: .same(proto: "end"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3339,12 +3381,19 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplem
 
 extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionRangeOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    999: .standard(proto: "uninterpreted_option"),
-    2: .same(proto: "declaration"),
-    50: .same(proto: "features"),
-    3: .same(proto: "verification"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      999: .standard(proto: "uninterpreted_option"),
+      2: .same(proto: "declaration"),
+      50: .same(proto: "features"),
+      3: .same(proto: "verification"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -3403,21 +3452,35 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
 }
 
 extension Google_Protobuf_ExtensionRangeOptions.VerificationState: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "DECLARATION"),
-    1: .same(proto: "UNVERIFIED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "DECLARATION"),
+      1: .same(proto: "UNVERIFIED"),
+    ]
+  }
 }
 
 extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_ExtensionRangeOptions.protoMessageName + ".Declaration"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "number"),
-    2: .standard(proto: "full_name"),
-    3: .same(proto: "type"),
-    5: .same(proto: "reserved"),
-    6: .same(proto: "repeated"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "number"),
+      2: .standard(proto: "full_name"),
+      3: .same(proto: "type"),
+      5: .same(proto: "reserved"),
+      6: .same(proto: "repeated"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3471,19 +3534,26 @@ extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageIm
 
 extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    3: .same(proto: "number"),
-    4: .same(proto: "label"),
-    5: .same(proto: "type"),
-    6: .standard(proto: "type_name"),
-    2: .same(proto: "extendee"),
-    7: .standard(proto: "default_value"),
-    9: .standard(proto: "oneof_index"),
-    10: .standard(proto: "json_name"),
-    8: .same(proto: "options"),
-    17: .standard(proto: "proto3_optional"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      3: .same(proto: "number"),
+      4: .same(proto: "label"),
+      5: .same(proto: "type"),
+      6: .standard(proto: "type_name"),
+      2: .same(proto: "extendee"),
+      7: .standard(proto: "default_value"),
+      9: .standard(proto: "oneof_index"),
+      10: .standard(proto: "json_name"),
+      8: .same(proto: "options"),
+      17: .standard(proto: "proto3_optional"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3571,42 +3641,63 @@ extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationB
 }
 
 extension Google_Protobuf_FieldDescriptorProto.TypeEnum: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "TYPE_DOUBLE"),
-    2: .same(proto: "TYPE_FLOAT"),
-    3: .same(proto: "TYPE_INT64"),
-    4: .same(proto: "TYPE_UINT64"),
-    5: .same(proto: "TYPE_INT32"),
-    6: .same(proto: "TYPE_FIXED64"),
-    7: .same(proto: "TYPE_FIXED32"),
-    8: .same(proto: "TYPE_BOOL"),
-    9: .same(proto: "TYPE_STRING"),
-    10: .same(proto: "TYPE_GROUP"),
-    11: .same(proto: "TYPE_MESSAGE"),
-    12: .same(proto: "TYPE_BYTES"),
-    13: .same(proto: "TYPE_UINT32"),
-    14: .same(proto: "TYPE_ENUM"),
-    15: .same(proto: "TYPE_SFIXED32"),
-    16: .same(proto: "TYPE_SFIXED64"),
-    17: .same(proto: "TYPE_SINT32"),
-    18: .same(proto: "TYPE_SINT64"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "TYPE_DOUBLE"),
+      2: .same(proto: "TYPE_FLOAT"),
+      3: .same(proto: "TYPE_INT64"),
+      4: .same(proto: "TYPE_UINT64"),
+      5: .same(proto: "TYPE_INT32"),
+      6: .same(proto: "TYPE_FIXED64"),
+      7: .same(proto: "TYPE_FIXED32"),
+      8: .same(proto: "TYPE_BOOL"),
+      9: .same(proto: "TYPE_STRING"),
+      10: .same(proto: "TYPE_GROUP"),
+      11: .same(proto: "TYPE_MESSAGE"),
+      12: .same(proto: "TYPE_BYTES"),
+      13: .same(proto: "TYPE_UINT32"),
+      14: .same(proto: "TYPE_ENUM"),
+      15: .same(proto: "TYPE_SFIXED32"),
+      16: .same(proto: "TYPE_SFIXED64"),
+      17: .same(proto: "TYPE_SINT32"),
+      18: .same(proto: "TYPE_SINT64"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FieldDescriptorProto.Label: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "LABEL_OPTIONAL"),
-    2: .same(proto: "LABEL_REQUIRED"),
-    3: .same(proto: "LABEL_REPEATED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "LABEL_OPTIONAL"),
+      2: .same(proto: "LABEL_REQUIRED"),
+      3: .same(proto: "LABEL_REPEATED"),
+    ]
+  }
 }
 
 extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "options"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .same(proto: "options"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3650,13 +3741,20 @@ extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationB
 
 extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "value"),
-    3: .same(proto: "options"),
-    4: .standard(proto: "reserved_range"),
-    5: .standard(proto: "reserved_name"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .same(proto: "value"),
+      3: .same(proto: "options"),
+      4: .standard(proto: "reserved_range"),
+      5: .standard(proto: "reserved_name"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.value) {return false}
@@ -3716,10 +3814,17 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
 
 extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_EnumDescriptorProto.protoMessageName + ".EnumReservedRange"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "start"),
-    2: .same(proto: "end"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "start"),
+      2: .same(proto: "end"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3758,11 +3863,18 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _Messa
 
 extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumValueDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "number"),
-    3: .same(proto: "options"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .same(proto: "number"),
+      3: .same(proto: "options"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3811,11 +3923,18 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
 
 extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "method"),
-    3: .same(proto: "options"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .same(proto: "method"),
+      3: .same(proto: "options"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.method) {return false}
@@ -3865,14 +3984,21 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
 
 extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "input_type"),
-    3: .standard(proto: "output_type"),
-    4: .same(proto: "options"),
-    5: .standard(proto: "client_streaming"),
-    6: .standard(proto: "server_streaming"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .standard(proto: "input_type"),
+      3: .standard(proto: "output_type"),
+      4: .same(proto: "options"),
+      5: .standard(proto: "client_streaming"),
+      6: .standard(proto: "server_streaming"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3936,29 +4062,36 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
 
 extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "java_package"),
-    8: .standard(proto: "java_outer_classname"),
-    10: .standard(proto: "java_multiple_files"),
-    20: .standard(proto: "java_generate_equals_and_hash"),
-    27: .standard(proto: "java_string_check_utf8"),
-    9: .standard(proto: "optimize_for"),
-    11: .standard(proto: "go_package"),
-    16: .standard(proto: "cc_generic_services"),
-    17: .standard(proto: "java_generic_services"),
-    18: .standard(proto: "py_generic_services"),
-    23: .same(proto: "deprecated"),
-    31: .standard(proto: "cc_enable_arenas"),
-    36: .standard(proto: "objc_class_prefix"),
-    37: .standard(proto: "csharp_namespace"),
-    39: .standard(proto: "swift_prefix"),
-    40: .standard(proto: "php_class_prefix"),
-    41: .standard(proto: "php_namespace"),
-    44: .standard(proto: "php_metadata_namespace"),
-    45: .standard(proto: "ruby_package"),
-    50: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .standard(proto: "java_package"),
+      8: .standard(proto: "java_outer_classname"),
+      10: .standard(proto: "java_multiple_files"),
+      20: .standard(proto: "java_generate_equals_and_hash"),
+      27: .standard(proto: "java_string_check_utf8"),
+      9: .standard(proto: "optimize_for"),
+      11: .standard(proto: "go_package"),
+      16: .standard(proto: "cc_generic_services"),
+      17: .standard(proto: "java_generic_services"),
+      18: .standard(proto: "py_generic_services"),
+      23: .same(proto: "deprecated"),
+      31: .standard(proto: "cc_enable_arenas"),
+      36: .standard(proto: "objc_class_prefix"),
+      37: .standard(proto: "csharp_namespace"),
+      39: .standard(proto: "swift_prefix"),
+      40: .standard(proto: "php_class_prefix"),
+      41: .standard(proto: "php_namespace"),
+      44: .standard(proto: "php_metadata_namespace"),
+      45: .standard(proto: "ruby_package"),
+      50: .same(proto: "features"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _javaPackage: String? = nil
@@ -4176,24 +4309,38 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
 }
 
 extension Google_Protobuf_FileOptions.OptimizeMode: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "SPEED"),
-    2: .same(proto: "CODE_SIZE"),
-    3: .same(proto: "LITE_RUNTIME"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "SPEED"),
+      2: .same(proto: "CODE_SIZE"),
+      3: .same(proto: "LITE_RUNTIME"),
+    ]
+  }
 }
 
 extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "message_set_wire_format"),
-    2: .standard(proto: "no_standard_descriptor_accessor"),
-    3: .same(proto: "deprecated"),
-    7: .standard(proto: "map_entry"),
-    11: .standard(proto: "deprecated_legacy_json_field_conflicts"),
-    12: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .standard(proto: "message_set_wire_format"),
+      2: .standard(proto: "no_standard_descriptor_accessor"),
+      3: .same(proto: "deprecated"),
+      7: .standard(proto: "map_entry"),
+      11: .standard(proto: "deprecated_legacy_json_field_conflicts"),
+      12: .same(proto: "features"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4268,21 +4415,28 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "ctype"),
-    2: .same(proto: "packed"),
-    6: .same(proto: "jstype"),
-    5: .same(proto: "lazy"),
-    15: .standard(proto: "unverified_lazy"),
-    3: .same(proto: "deprecated"),
-    10: .same(proto: "weak"),
-    16: .standard(proto: "debug_redact"),
-    17: .same(proto: "retention"),
-    19: .same(proto: "targets"),
-    20: .standard(proto: "edition_defaults"),
-    21: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "ctype"),
+      2: .same(proto: "packed"),
+      6: .same(proto: "jstype"),
+      5: .same(proto: "lazy"),
+      15: .standard(proto: "unverified_lazy"),
+      3: .same(proto: "deprecated"),
+      10: .same(proto: "weak"),
+      16: .standard(proto: "debug_redact"),
+      17: .same(proto: "retention"),
+      19: .same(proto: "targets"),
+      20: .standard(proto: "edition_defaults"),
+      21: .same(proto: "features"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _ctype: Google_Protobuf_FieldOptions.CType? = nil
@@ -4444,50 +4598,85 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
 }
 
 extension Google_Protobuf_FieldOptions.CType: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "STRING"),
-    1: .same(proto: "CORD"),
-    2: .same(proto: "STRING_PIECE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "STRING"),
+      1: .same(proto: "CORD"),
+      2: .same(proto: "STRING_PIECE"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FieldOptions.JSType: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "JS_NORMAL"),
-    1: .same(proto: "JS_STRING"),
-    2: .same(proto: "JS_NUMBER"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "JS_NORMAL"),
+      1: .same(proto: "JS_STRING"),
+      2: .same(proto: "JS_NUMBER"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FieldOptions.OptionRetention: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "RETENTION_UNKNOWN"),
-    1: .same(proto: "RETENTION_RUNTIME"),
-    2: .same(proto: "RETENTION_SOURCE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "RETENTION_UNKNOWN"),
+      1: .same(proto: "RETENTION_RUNTIME"),
+      2: .same(proto: "RETENTION_SOURCE"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FieldOptions.OptionTargetType: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "TARGET_TYPE_UNKNOWN"),
-    1: .same(proto: "TARGET_TYPE_FILE"),
-    2: .same(proto: "TARGET_TYPE_EXTENSION_RANGE"),
-    3: .same(proto: "TARGET_TYPE_MESSAGE"),
-    4: .same(proto: "TARGET_TYPE_FIELD"),
-    5: .same(proto: "TARGET_TYPE_ONEOF"),
-    6: .same(proto: "TARGET_TYPE_ENUM"),
-    7: .same(proto: "TARGET_TYPE_ENUM_ENTRY"),
-    8: .same(proto: "TARGET_TYPE_SERVICE"),
-    9: .same(proto: "TARGET_TYPE_METHOD"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "TARGET_TYPE_UNKNOWN"),
+      1: .same(proto: "TARGET_TYPE_FILE"),
+      2: .same(proto: "TARGET_TYPE_EXTENSION_RANGE"),
+      3: .same(proto: "TARGET_TYPE_MESSAGE"),
+      4: .same(proto: "TARGET_TYPE_FIELD"),
+      5: .same(proto: "TARGET_TYPE_ONEOF"),
+      6: .same(proto: "TARGET_TYPE_ENUM"),
+      7: .same(proto: "TARGET_TYPE_ENUM_ENTRY"),
+      8: .same(proto: "TARGET_TYPE_SERVICE"),
+      9: .same(proto: "TARGET_TYPE_METHOD"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".EditionDefault"
-  static let _protobuf_nameMap: _NameMap = [
-    3: .same(proto: "edition"),
-    2: .same(proto: "value"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      3: .same(proto: "edition"),
+      2: .same(proto: "value"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4526,10 +4715,17 @@ extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplemen
 
 extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "features"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4579,13 +4775,20 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
 
 extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    2: .standard(proto: "allow_alias"),
-    3: .same(proto: "deprecated"),
-    6: .standard(proto: "deprecated_legacy_json_field_conflicts"),
-    7: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      2: .standard(proto: "allow_alias"),
+      3: .same(proto: "deprecated"),
+      6: .standard(proto: "deprecated_legacy_json_field_conflicts"),
+      7: .same(proto: "features"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4650,12 +4853,19 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
 
 extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumValueOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "deprecated"),
-    2: .same(proto: "features"),
-    3: .standard(proto: "debug_redact"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "deprecated"),
+      2: .same(proto: "features"),
+      3: .standard(proto: "debug_redact"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4715,11 +4925,18 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
 
 extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    34: .same(proto: "features"),
-    33: .same(proto: "deprecated"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      34: .same(proto: "features"),
+      33: .same(proto: "deprecated"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4774,12 +4991,19 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MethodOptions"
-  static let _protobuf_nameMap: _NameMap = [
-    33: .same(proto: "deprecated"),
-    34: .standard(proto: "idempotency_level"),
-    35: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      33: .same(proto: "deprecated"),
+      34: .standard(proto: "idempotency_level"),
+      35: .same(proto: "features"),
+      999: .standard(proto: "uninterpreted_option"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4838,24 +5062,38 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
 }
 
 extension Google_Protobuf_MethodOptions.IdempotencyLevel: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "IDEMPOTENCY_UNKNOWN"),
-    1: .same(proto: "NO_SIDE_EFFECTS"),
-    2: .same(proto: "IDEMPOTENT"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "IDEMPOTENCY_UNKNOWN"),
+      1: .same(proto: "NO_SIDE_EFFECTS"),
+      2: .same(proto: "IDEMPOTENT"),
+    ]
+  }
 }
 
 extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UninterpretedOption"
-  static let _protobuf_nameMap: _NameMap = [
-    2: .same(proto: "name"),
-    3: .standard(proto: "identifier_value"),
-    4: .standard(proto: "positive_int_value"),
-    5: .standard(proto: "negative_int_value"),
-    6: .standard(proto: "double_value"),
-    7: .standard(proto: "string_value"),
-    8: .standard(proto: "aggregate_value"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      2: .same(proto: "name"),
+      3: .standard(proto: "identifier_value"),
+      4: .standard(proto: "positive_int_value"),
+      5: .standard(proto: "negative_int_value"),
+      6: .standard(proto: "double_value"),
+      7: .standard(proto: "string_value"),
+      8: .standard(proto: "aggregate_value"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.name) {return false}
@@ -4924,10 +5162,17 @@ extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBa
 
 extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_UninterpretedOption.protoMessageName + ".NamePart"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "name_part"),
-    2: .standard(proto: "is_extension"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .standard(proto: "name_part"),
+      2: .standard(proto: "is_extension"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._namePart == nil {return false}
@@ -4972,14 +5217,21 @@ extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImpleme
 
 extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FeatureSet"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "field_presence"),
-    2: .standard(proto: "enum_type"),
-    3: .standard(proto: "repeated_field_encoding"),
-    4: .standard(proto: "utf8_validation"),
-    5: .standard(proto: "message_encoding"),
-    6: .standard(proto: "json_format"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .standard(proto: "field_presence"),
+      2: .standard(proto: "enum_type"),
+      3: .standard(proto: "repeated_field_encoding"),
+      4: .standard(proto: "utf8_validation"),
+      5: .standard(proto: "message_encoding"),
+      6: .standard(proto: "json_format"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -5046,61 +5298,110 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
 }
 
 extension Google_Protobuf_FeatureSet.FieldPresence: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "FIELD_PRESENCE_UNKNOWN"),
-    1: .same(proto: "EXPLICIT"),
-    2: .same(proto: "IMPLICIT"),
-    3: .same(proto: "LEGACY_REQUIRED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "FIELD_PRESENCE_UNKNOWN"),
+      1: .same(proto: "EXPLICIT"),
+      2: .same(proto: "IMPLICIT"),
+      3: .same(proto: "LEGACY_REQUIRED"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FeatureSet.EnumType: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "ENUM_TYPE_UNKNOWN"),
-    1: .same(proto: "OPEN"),
-    2: .same(proto: "CLOSED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "ENUM_TYPE_UNKNOWN"),
+      1: .same(proto: "OPEN"),
+      2: .same(proto: "CLOSED"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "REPEATED_FIELD_ENCODING_UNKNOWN"),
-    1: .same(proto: "PACKED"),
-    2: .same(proto: "EXPANDED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "REPEATED_FIELD_ENCODING_UNKNOWN"),
+      1: .same(proto: "PACKED"),
+      2: .same(proto: "EXPANDED"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FeatureSet.Utf8Validation: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "UTF8_VALIDATION_UNKNOWN"),
-    2: .same(proto: "VERIFY"),
-    3: .same(proto: "NONE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "UTF8_VALIDATION_UNKNOWN"),
+      2: .same(proto: "VERIFY"),
+      3: .same(proto: "NONE"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FeatureSet.MessageEncoding: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "MESSAGE_ENCODING_UNKNOWN"),
-    1: .same(proto: "LENGTH_PREFIXED"),
-    2: .same(proto: "DELIMITED"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "MESSAGE_ENCODING_UNKNOWN"),
+      1: .same(proto: "LENGTH_PREFIXED"),
+      2: .same(proto: "DELIMITED"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FeatureSet.JsonFormat: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "JSON_FORMAT_UNKNOWN"),
-    1: .same(proto: "ALLOW"),
-    2: .same(proto: "LEGACY_BEST_EFFORT"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "JSON_FORMAT_UNKNOWN"),
+      1: .same(proto: "ALLOW"),
+      2: .same(proto: "LEGACY_BEST_EFFORT"),
+    ]
+  }
 }
 
 extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FeatureSetDefaults"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "defaults"),
-    4: .standard(proto: "minimum_edition"),
-    5: .standard(proto: "maximum_edition"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "defaults"),
+      4: .standard(proto: "minimum_edition"),
+      5: .standard(proto: "maximum_edition"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.defaults) {return false}
@@ -5149,10 +5450,17 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
 
 extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
-  static let _protobuf_nameMap: _NameMap = [
-    3: .same(proto: "edition"),
-    2: .same(proto: "features"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      3: .same(proto: "edition"),
+      2: .same(proto: "features"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self._features, !v.isInitialized {return false}
@@ -5196,9 +5504,16 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
 
 extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SourceCodeInfo"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "location"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "location"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5228,13 +5543,20 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_SourceCodeInfo.protoMessageName + ".Location"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "path"),
-    2: .same(proto: "span"),
-    3: .standard(proto: "leading_comments"),
-    4: .standard(proto: "trailing_comments"),
-    6: .standard(proto: "leading_detached_comments"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "path"),
+      2: .same(proto: "span"),
+      3: .standard(proto: "leading_comments"),
+      4: .standard(proto: "trailing_comments"),
+      6: .standard(proto: "leading_detached_comments"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5288,9 +5610,16 @@ extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementati
 
 extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GeneratedCodeInfo"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "annotation"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "annotation"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5320,13 +5649,20 @@ extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase
 
 extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_GeneratedCodeInfo.protoMessageName + ".Annotation"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "path"),
-    2: .standard(proto: "source_file"),
-    3: .same(proto: "begin"),
-    4: .same(proto: "end"),
-    5: .same(proto: "semantic"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      1: .same(proto: "path"),
+      2: .standard(proto: "source_file"),
+      3: .same(proto: "begin"),
+      4: .same(proto: "end"),
+      5: .same(proto: "semantic"),
+    ]
+  }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5379,9 +5715,16 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImpleme
 }
 
 extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "NONE"),
-    1: .same(proto: "SET"),
-    2: .same(proto: "ALIAS"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: _NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> _NameMap {
+    return [
+      0: .same(proto: "NONE"),
+      1: .same(proto: "SET"),
+      2: .same(proto: "ALIAS"),
+    ]
+  }
 }

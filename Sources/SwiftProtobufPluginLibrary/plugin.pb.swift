@@ -371,12 +371,19 @@ fileprivate let _protobuf_package = "google.protobuf.compiler"
 
 extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Version"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "major"),
-    2: .same(proto: "minor"),
-    3: .same(proto: "patch"),
-    4: .same(proto: "suffix"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "major"),
+      2: .same(proto: "minor"),
+      3: .same(proto: "patch"),
+      4: .same(proto: "suffix"),
+    ]
+  }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -425,13 +432,20 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "file_to_generate"),
-    2: .same(proto: "parameter"),
-    15: .standard(proto: "proto_file"),
-    17: .standard(proto: "source_file_descriptors"),
-    3: .standard(proto: "compiler_version"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "file_to_generate"),
+      2: .same(proto: "parameter"),
+      15: .standard(proto: "proto_file"),
+      17: .standard(proto: "source_file_descriptors"),
+      3: .standard(proto: "compiler_version"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.protoFile) {return false}
@@ -491,13 +505,20 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "error"),
-    2: .standard(proto: "supported_features"),
-    3: .standard(proto: "minimum_edition"),
-    4: .standard(proto: "maximum_edition"),
-    15: .same(proto: "file"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "error"),
+      2: .standard(proto: "supported_features"),
+      3: .standard(proto: "minimum_edition"),
+      4: .standard(proto: "maximum_edition"),
+      15: .same(proto: "file"),
+    ]
+  }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -550,21 +571,35 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FEATURE_NONE"),
-    1: .same(proto: "FEATURE_PROTO3_OPTIONAL"),
-    2: .same(proto: "FEATURE_SUPPORTS_EDITIONS"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "FEATURE_NONE"),
+      1: .same(proto: "FEATURE_PROTO3_OPTIONAL"),
+      2: .same(proto: "FEATURE_SUPPORTS_EDITIONS"),
+    ]
+  }
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "insertion_point"),
-    15: .same(proto: "content"),
-    16: .standard(proto: "generated_code_info"),
-  ]
+  #if swift(>=5.10)
+    public static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "name"),
+      2: .standard(proto: "insertion_point"),
+      15: .same(proto: "content"),
+      16: .standard(proto: "generated_code_info"),
+    ]
+  }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

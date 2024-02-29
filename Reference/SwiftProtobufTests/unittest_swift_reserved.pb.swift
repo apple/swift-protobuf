@@ -539,16 +539,23 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    10: .standard(proto: "proto_message_name"),
-    11: .standard(proto: "proto_package_name"),
-    12: .standard(proto: "any_type_prefix"),
-    13: .standard(proto: "any_type_url"),
-    20: .standard(proto: "is_initialized"),
-    21: .standard(proto: "hash_value"),
-    22: .standard(proto: "debug_description"),
-    30: .standard(proto: "required_int"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      10: .standard(proto: "proto_message_name"),
+      11: .standard(proto: "proto_package_name"),
+      12: .standard(proto: "any_type_prefix"),
+      13: .standard(proto: "any_type_url"),
+      20: .standard(proto: "is_initialized"),
+      21: .standard(proto: "hash_value"),
+      22: .standard(proto: "debug_description"),
+      30: .standard(proto: "required_int"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._requiredInt == nil {return false}
@@ -621,25 +628,43 @@ extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProto
 }
 
 extension SwiftProtoTesting_SwiftReservedTest.Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "DOUBLE"),
-    2: .same(proto: "JSON"),
-    3: .same(proto: "CLASS"),
-    4: .same(proto: "_"),
-    5: .same(proto: "SELF"),
-    6: .same(proto: "TYPE"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "DOUBLE"),
+      2: .same(proto: "JSON"),
+      3: .same(proto: "CLASS"),
+      4: .same(proto: "_"),
+      5: .same(proto: "SELF"),
+      6: .same(proto: "TYPE"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "a"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".class"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -668,7 +693,11 @@ extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Messag
 
 extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".Type"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -697,7 +726,11 @@ extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".isEqual"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -716,7 +749,11 @@ extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.Message, Sw
 
 extension SwiftProtoTesting_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTestExt"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields

@@ -621,78 +621,85 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Message3"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_int32"),
-    2: .standard(proto: "optional_int64"),
-    3: .standard(proto: "optional_uint32"),
-    4: .standard(proto: "optional_uint64"),
-    5: .standard(proto: "optional_sint32"),
-    6: .standard(proto: "optional_sint64"),
-    7: .standard(proto: "optional_fixed32"),
-    8: .standard(proto: "optional_fixed64"),
-    9: .standard(proto: "optional_sfixed32"),
-    10: .standard(proto: "optional_sfixed64"),
-    11: .standard(proto: "optional_float"),
-    12: .standard(proto: "optional_double"),
-    13: .standard(proto: "optional_bool"),
-    14: .standard(proto: "optional_string"),
-    15: .standard(proto: "optional_bytes"),
-    18: .standard(proto: "optional_message"),
-    19: .standard(proto: "optional_enum"),
-    31: .standard(proto: "repeated_int32"),
-    32: .standard(proto: "repeated_int64"),
-    33: .standard(proto: "repeated_uint32"),
-    34: .standard(proto: "repeated_uint64"),
-    35: .standard(proto: "repeated_sint32"),
-    36: .standard(proto: "repeated_sint64"),
-    37: .standard(proto: "repeated_fixed32"),
-    38: .standard(proto: "repeated_fixed64"),
-    39: .standard(proto: "repeated_sfixed32"),
-    40: .standard(proto: "repeated_sfixed64"),
-    41: .standard(proto: "repeated_float"),
-    42: .standard(proto: "repeated_double"),
-    43: .standard(proto: "repeated_bool"),
-    44: .standard(proto: "repeated_string"),
-    45: .standard(proto: "repeated_bytes"),
-    48: .standard(proto: "repeated_message"),
-    49: .standard(proto: "repeated_enum"),
-    51: .standard(proto: "oneof_int32"),
-    52: .standard(proto: "oneof_int64"),
-    53: .standard(proto: "oneof_uint32"),
-    54: .standard(proto: "oneof_uint64"),
-    55: .standard(proto: "oneof_sint32"),
-    56: .standard(proto: "oneof_sint64"),
-    57: .standard(proto: "oneof_fixed32"),
-    58: .standard(proto: "oneof_fixed64"),
-    59: .standard(proto: "oneof_sfixed32"),
-    60: .standard(proto: "oneof_sfixed64"),
-    61: .standard(proto: "oneof_float"),
-    62: .standard(proto: "oneof_double"),
-    63: .standard(proto: "oneof_bool"),
-    64: .standard(proto: "oneof_string"),
-    65: .standard(proto: "oneof_bytes"),
-    68: .standard(proto: "oneof_message"),
-    69: .standard(proto: "oneof_enum"),
-    70: .standard(proto: "map_int32_int32"),
-    71: .standard(proto: "map_int64_int64"),
-    72: .standard(proto: "map_uint32_uint32"),
-    73: .standard(proto: "map_uint64_uint64"),
-    74: .standard(proto: "map_sint32_sint32"),
-    75: .standard(proto: "map_sint64_sint64"),
-    76: .standard(proto: "map_fixed32_fixed32"),
-    77: .standard(proto: "map_fixed64_fixed64"),
-    78: .standard(proto: "map_sfixed32_sfixed32"),
-    79: .standard(proto: "map_sfixed64_sfixed64"),
-    80: .standard(proto: "map_int32_float"),
-    81: .standard(proto: "map_int32_double"),
-    82: .standard(proto: "map_bool_bool"),
-    83: .standard(proto: "map_string_string"),
-    84: .standard(proto: "map_string_bytes"),
-    85: .standard(proto: "map_string_message"),
-    86: .standard(proto: "map_int32_bytes"),
-    87: .standard(proto: "map_int32_enum"),
-    88: .standard(proto: "map_int32_message"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "optional_int32"),
+      2: .standard(proto: "optional_int64"),
+      3: .standard(proto: "optional_uint32"),
+      4: .standard(proto: "optional_uint64"),
+      5: .standard(proto: "optional_sint32"),
+      6: .standard(proto: "optional_sint64"),
+      7: .standard(proto: "optional_fixed32"),
+      8: .standard(proto: "optional_fixed64"),
+      9: .standard(proto: "optional_sfixed32"),
+      10: .standard(proto: "optional_sfixed64"),
+      11: .standard(proto: "optional_float"),
+      12: .standard(proto: "optional_double"),
+      13: .standard(proto: "optional_bool"),
+      14: .standard(proto: "optional_string"),
+      15: .standard(proto: "optional_bytes"),
+      18: .standard(proto: "optional_message"),
+      19: .standard(proto: "optional_enum"),
+      31: .standard(proto: "repeated_int32"),
+      32: .standard(proto: "repeated_int64"),
+      33: .standard(proto: "repeated_uint32"),
+      34: .standard(proto: "repeated_uint64"),
+      35: .standard(proto: "repeated_sint32"),
+      36: .standard(proto: "repeated_sint64"),
+      37: .standard(proto: "repeated_fixed32"),
+      38: .standard(proto: "repeated_fixed64"),
+      39: .standard(proto: "repeated_sfixed32"),
+      40: .standard(proto: "repeated_sfixed64"),
+      41: .standard(proto: "repeated_float"),
+      42: .standard(proto: "repeated_double"),
+      43: .standard(proto: "repeated_bool"),
+      44: .standard(proto: "repeated_string"),
+      45: .standard(proto: "repeated_bytes"),
+      48: .standard(proto: "repeated_message"),
+      49: .standard(proto: "repeated_enum"),
+      51: .standard(proto: "oneof_int32"),
+      52: .standard(proto: "oneof_int64"),
+      53: .standard(proto: "oneof_uint32"),
+      54: .standard(proto: "oneof_uint64"),
+      55: .standard(proto: "oneof_sint32"),
+      56: .standard(proto: "oneof_sint64"),
+      57: .standard(proto: "oneof_fixed32"),
+      58: .standard(proto: "oneof_fixed64"),
+      59: .standard(proto: "oneof_sfixed32"),
+      60: .standard(proto: "oneof_sfixed64"),
+      61: .standard(proto: "oneof_float"),
+      62: .standard(proto: "oneof_double"),
+      63: .standard(proto: "oneof_bool"),
+      64: .standard(proto: "oneof_string"),
+      65: .standard(proto: "oneof_bytes"),
+      68: .standard(proto: "oneof_message"),
+      69: .standard(proto: "oneof_enum"),
+      70: .standard(proto: "map_int32_int32"),
+      71: .standard(proto: "map_int64_int64"),
+      72: .standard(proto: "map_uint32_uint32"),
+      73: .standard(proto: "map_uint64_uint64"),
+      74: .standard(proto: "map_sint32_sint32"),
+      75: .standard(proto: "map_sint64_sint64"),
+      76: .standard(proto: "map_fixed32_fixed32"),
+      77: .standard(proto: "map_fixed64_fixed64"),
+      78: .standard(proto: "map_sfixed32_sfixed32"),
+      79: .standard(proto: "map_sfixed64_sfixed64"),
+      80: .standard(proto: "map_int32_float"),
+      81: .standard(proto: "map_int32_double"),
+      82: .standard(proto: "map_bool_bool"),
+      83: .standard(proto: "map_string_string"),
+      84: .standard(proto: "map_string_bytes"),
+      85: .standard(proto: "map_string_message"),
+      86: .standard(proto: "map_int32_bytes"),
+      87: .standard(proto: "map_int32_enum"),
+      88: .standard(proto: "map_int32_message"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32 = 0
@@ -1336,17 +1343,28 @@ extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension SwiftProtoTesting_Message3.Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-    30: .same(proto: "EXTRA_3"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "FOO"),
+      1: .same(proto: "BAR"),
+      2: .same(proto: "BAZ"),
+      30: .same(proto: "EXTRA_3"),
+    ]
+  }
 }
 
 extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NoStorage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #if swift(>=5.10)
+      static nonisolated(unsafe) let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #else
+      static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+    #endif
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -1365,9 +1383,16 @@ extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3UsesStorage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    999: .same(proto: "y"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      999: .same(proto: "y"),
+    ]
+  }
 
   fileprivate class _StorageClass {
     var _y: SwiftProtoTesting_Msg3UsesStorage? = nil
@@ -1433,11 +1458,18 @@ extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobu
 
 extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NamesNoStorage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "is_initialized"),
-    2: .standard(proto: "debug_description"),
-    3: .standard(proto: "has_value"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "is_initialized"),
+      2: .standard(proto: "debug_description"),
+      3: .standard(proto: "has_value"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1477,11 +1509,18 @@ extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NamesUsesStorage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "is_initialized"),
-    2: .standard(proto: "debug_description"),
-    3: .same(proto: "value"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "is_initialized"),
+      2: .standard(proto: "debug_description"),
+      3: .same(proto: "value"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

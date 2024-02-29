@@ -147,10 +147,17 @@ fileprivate let _protobuf_package = "pb"
 
 extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "legacy_closed_enum"),
-    2: .standard(proto: "string_type"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .standard(proto: "legacy_closed_enum"),
+      2: .standard(proto: "string_type"),
+    ]
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -188,10 +195,17 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "STRING_TYPE_UNKNOWN"),
-    1: .same(proto: "VIEW"),
-    2: .same(proto: "CORD"),
-    3: .same(proto: "STRING"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "STRING_TYPE_UNKNOWN"),
+      1: .same(proto: "VIEW"),
+      2: .same(proto: "CORD"),
+      3: .same(proto: "STRING"),
+    ]
+  }
 }

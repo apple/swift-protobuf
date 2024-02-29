@@ -202,9 +202,16 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "requiredField"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "requiredField"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._requiredField == nil {return false}
@@ -243,9 +250,16 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "requiredField"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "requiredField"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._requiredField == nil {return false}
@@ -284,12 +298,19 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "option1"),
-    2: .same(proto: "option2"),
-    3: .unique(proto: "Option3", json: "option3"),
-    6: .same(proto: "option4"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      1: .same(proto: "option1"),
+      2: .same(proto: "option2"),
+      3: .unique(proto: "Option3", json: "option3"),
+      6: .same(proto: "option4"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if let v = self.option, !v.isInitialized {return false}
@@ -390,10 +411,17 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf
 
 extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_OneOfContainer.protoMessageName + ".Option3"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    4: .same(proto: "a"),
-    5: .same(proto: "b"),
-  ]
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      4: .same(proto: "a"),
+      5: .same(proto: "b"),
+    ]
+  }
 
   public var isInitialized: Bool {
     if self._a == nil {return false}
