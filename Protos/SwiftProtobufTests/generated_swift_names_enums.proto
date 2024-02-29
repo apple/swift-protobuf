@@ -578,6 +578,7 @@ message GeneratedSwiftReservedEnums {
   enum major { NONE_major = 0; }
   enum makeAsyncIterator { NONE_makeAsyncIterator = 0; }
   enum makeIterator { NONE_makeIterator = 0; }
+  enum makeNameMap { NONE_makeNameMap = 0; }
   enum mapEntry { NONE_mapEntry = 0; }
   enum MapKeyType { NONE_MapKeyType = 0; }
   enum mapToMessages { NONE_mapToMessages = 0; }
@@ -628,6 +629,7 @@ message GeneratedSwiftReservedEnums {
   enum nextVarInt { NONE_nextVarInt = 0; }
   enum nil { NONE_nil = 0; }
   enum nilLiteral { NONE_nilLiteral = 0; }
+  enum nonisolated { NONE_nonisolated = 0; }
   enum noStandardDescriptorAccessor { NONE_noStandardDescriptorAccessor = 0; }
   enum nullValue { NONE_nullValue = 0; }
   enum number { NONE_number = 0; }
@@ -862,6 +864,7 @@ message GeneratedSwiftReservedEnums {
   enum unknownFields { NONE_unknownFields = 0; }
   enum UnknownStorage { NONE_UnknownStorage = 0; }
   enum unpackTo { NONE_unpackTo = 0; }
+  enum unsafe { NONE_unsafe = 0; }
   enum UnsafeBufferPointer { NONE_UnsafeBufferPointer = 0; }
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
   enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }

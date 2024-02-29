@@ -578,6 +578,7 @@ message GeneratedSwiftReservedMessages {
   message major { int32 major = 1; }
   message makeAsyncIterator { int32 makeAsyncIterator = 1; }
   message makeIterator { int32 makeIterator = 1; }
+  message makeNameMap { int32 makeNameMap = 1; }
   message mapEntry { int32 mapEntry = 1; }
   message MapKeyType { int32 MapKeyType = 1; }
   message mapToMessages { int32 mapToMessages = 1; }
@@ -628,6 +629,7 @@ message GeneratedSwiftReservedMessages {
   message nextVarInt { int32 nextVarInt = 1; }
   message nil { int32 nil = 1; }
   message nilLiteral { int32 nilLiteral = 1; }
+  message nonisolated { int32 nonisolated = 1; }
   message noStandardDescriptorAccessor { int32 noStandardDescriptorAccessor = 1; }
   message nullValue { int32 nullValue = 1; }
   message number { int32 number = 1; }
@@ -862,6 +864,7 @@ message GeneratedSwiftReservedMessages {
   message unknownFields { int32 unknownFields = 1; }
   message UnknownStorage { int32 UnknownStorage = 1; }
   message unpackTo { int32 unpackTo = 1; }
+  message unsafe { int32 unsafe = 1; }
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }

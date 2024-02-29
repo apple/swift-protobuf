@@ -17251,6 +17251,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum makeNameMap: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneMakeNameMap // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMakeNameMap
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMakeNameMap
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMakeNameMap: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeNameMap] = [
+      .noneMakeNameMap,
+    ]
+
+  }
+
   enum mapEntry: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneMapEntry // = 0
@@ -18747,6 +18777,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nilLiteral] = [
       .noneNilLiteral,
+    ]
+
+  }
+
+  enum nonisolated: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneNonisolated // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneNonisolated
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneNonisolated
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneNonisolated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nonisolated] = [
+      .noneNonisolated,
     ]
 
   }
@@ -25767,6 +25827,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unpackTo] = [
       .noneUnpackTo,
+    ]
+
+  }
+
+  enum unsafe: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneUnsafe // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUnsafe
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUnsafe
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUnsafe: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unsafe] = [
+      .noneUnsafe,
     ]
 
   }
@@ -36143,6 +36233,19 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeIterator: 
   }
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeNameMap: SwiftProtobuf._ProtoNameProviding {
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "NONE_makeNameMap"),
+    ]
+  }
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mapEntry: SwiftProtobuf._ProtoNameProviding {
   #if swift(>=5.10)
     static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
@@ -36789,6 +36892,19 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nilLiteral: Sw
   private static func _makeNameMap() -> SwiftProtobuf._NameMap {
     return [
       0: .same(proto: "NONE_nilLiteral"),
+    ]
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nonisolated: SwiftProtobuf._ProtoNameProviding {
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "NONE_nonisolated"),
     ]
   }
 }
@@ -39831,6 +39947,19 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unpackTo: Swif
   private static func _makeNameMap() -> SwiftProtobuf._NameMap {
     return [
       0: .same(proto: "NONE_unpackTo"),
+    ]
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unsafe: SwiftProtobuf._ProtoNameProviding {
+  #if swift(>=5.10)
+    static nonisolated(unsafe) let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #else
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = _makeNameMap()
+  #endif
+  private static func _makeNameMap() -> SwiftProtobuf._NameMap {
+    return [
+      0: .same(proto: "NONE_unsafe"),
     ]
   }
 }
