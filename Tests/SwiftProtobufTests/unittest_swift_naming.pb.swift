@@ -15846,7 +15846,15 @@ extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.Message, SwiftProtob
     var _extension: Int32? = nil
     var _extensions: Int32? = nil
 
-    static let defaultInstance = _StorageClass()
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
@@ -26299,7 +26307,15 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Mess
     var _theIDNumber: Int32? = nil
     var _requestID: Int32? = nil
 
-    static let defaultInstance = _StorageClass()
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
@@ -27062,7 +27078,15 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftPro
     var _newValue: SwiftProtoTesting_Names_SpecialNames3.OneOf_NewValue?
     var _forcesStorage: SwiftProtoTesting_Names_SpecialNames3? = nil
 
-    static let defaultInstance = _StorageClass()
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
@@ -27145,7 +27169,15 @@ extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.Message, SwiftPro
     var _newValue: String? = nil
     var _forcesStorage: SwiftProtoTesting_Names_SpecialNames4? = nil
 
-    static let defaultInstance = _StorageClass()
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
 
     private init() {}
 
