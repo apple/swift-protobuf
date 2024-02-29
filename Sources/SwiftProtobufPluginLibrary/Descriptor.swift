@@ -736,18 +736,32 @@ public final class FieldDescriptor {
   /// nil if was declared at a global scope.
   public private(set) unowned var extensionScope: Descriptor?
 
+  // This builds basically a union for the storage for `messageType`
+  // and `enumType` since only one can needed at a time.
+  private enum FieldTypeStorage {
+    case typeName(String)  // The value to be looked up during `bind()`.
+    case message(UnownedBox<Descriptor>)
+    case `enum`(UnownedBox<EnumDescriptor>)
+  }
+  private var _fieldTypeStorage: FieldTypeStorage?
+
   /// When this is a message/group field, that message's `Desciptor`.
-  public private(set) unowned var messageType: Descriptor?
+  public var messageType: Descriptor? {
+    guard case .message(let boxed) = _fieldTypeStorage else { return nil }
+    return boxed.value
+  }
   /// When this is a enum field, that enum's `EnumDesciptor`.
-  public private(set) unowned var enumType: EnumDescriptor?
+  public var enumType: EnumDescriptor? {
+    guard case .enum(let boxed) = _fieldTypeStorage else { return nil }
+    return boxed.value
+  }
 
   /// The FieldOptions for this field.
   public var options: Google_Protobuf_FieldOptions
 
   let proto3Optional: Bool
-  // These next two cache values until bind().
+  // Cache values until bind().
   var extendee: String?
-  var typeName: String?
 
   // Storage for `containingType`, will be set by bind()
   private unowned var _containingType: Descriptor?
@@ -788,9 +802,9 @@ public final class FieldDescriptor {
     self.extendee = isExtension ? proto.extendee : nil
     switch type {
     case .group, .message, .enum:
-      typeName = proto.typeName
+      _fieldTypeStorage = .typeName(proto.typeName)
     default:
-      typeName = nil
+      _fieldTypeStorage = nil
     }
   }
 
@@ -806,14 +820,13 @@ public final class FieldDescriptor {
     }
     extendee = nil
 
-    if let typeName = typeName {
+    if case .typeName(let typeName) = _fieldTypeStorage {
       if type == .enum {
-        enumType = registry.enumDescriptor(named: typeName)!
+        _fieldTypeStorage = .enum(UnownedBox(value: registry.enumDescriptor(named: typeName)!))
       } else {
-        messageType = registry.descriptor(named: typeName)!
+        _fieldTypeStorage = .message(UnownedBox(value: registry.descriptor(named: typeName)!))
       }
     }
-    typeName = nil
   }
 }
 
@@ -965,4 +978,9 @@ fileprivate final class Registry {
   func serviceDescriptor(named fullName: String) -> ServiceDescriptor? {
     return serviceMap[fullName]
   }
+}
+
+/// Helper for making an enum associated value `unowned`.
+fileprivate struct UnownedBox<T: AnyObject> {
+  unowned let value: T
 }
