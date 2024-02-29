@@ -234,15 +234,32 @@ class MessageGenerator {
 
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     if fields.isEmpty {
-      p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
+      p.print("""
+        #if swift(>=5.10)
+          \(visibility)static nonisolated(unsafe) let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()
+        #else
+          \(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()
+        #endif
+      """)
     } else {
-      p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
+      p.print("""
+        #if swift(>=5.10)
+          \(visibility)static nonisolated(unsafe) let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = _makeNameMap()
+        #else
+          \(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = _makeNameMap()
+        #endif
+        private static func _makeNameMap() -> \(namer.swiftProtobufModulePrefix)_NameMap {
+        """)
       p.withIndentation { p in
-        for f in fields {
-          p.print("\(f.number): \(f.fieldMapNames),")
+        p.print("return [")
+        p.withIndentation { p in
+          for f in fields {
+            p.print("\(f.number): \(f.fieldMapNames),")
+          }
         }
+        p.print("]")
       }
-      p.print("]")
+      p.print("}")
     }
   }
 

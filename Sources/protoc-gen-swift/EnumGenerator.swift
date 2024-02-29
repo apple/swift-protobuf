@@ -140,18 +140,29 @@ class EnumGenerator {
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
-    p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
+    p.print("""
+        #if swift(>=5.10)
+          \(visibility)static nonisolated(unsafe) let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = _makeNameMap()
+        #else
+          \(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = _makeNameMap()
+        #endif
+        private static func _makeNameMap() -> \(namer.swiftProtobufModulePrefix)_NameMap {
+        """)
     p.withIndentation { p in
-      for v in mainEnumValueDescriptorsSorted {
-        if let aliases = aliasInfo.aliases(v) {
-          let aliasNames = aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
-          p.print("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),")
-        } else {
-          p.print("\(v.number): .same(proto: \"\(v.name)\"),")
+      p.print("return [")
+      p.withIndentation { p in
+        for v in mainEnumValueDescriptorsSorted {
+          if let aliases = aliasInfo.aliases(v) {
+            let aliasNames = aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
+            p.print("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),")
+          } else {
+            p.print("\(v.number): .same(proto: \"\(v.name)\"),")
+          }
         }
       }
+      p.print("]")
     }
-    p.print("]")
+    p.print("}")
   }
 
   /// Generates `init?(rawValue:)` for the enum.
