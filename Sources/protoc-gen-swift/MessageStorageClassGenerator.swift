@@ -51,7 +51,15 @@ class MessageStorageClassGenerator {
     // readonly usage never causes the allocation.
     p.print(
         "\n",
-        "static let defaultInstance = _StorageClass()\n",
+        "#if swift(>=5.10)\n",
+        "  // This property is used as the initial default value for new instances of the type.\n",
+        "  // The type itself is protecting the reference to its storage via CoW semantics.\n",
+        "  // This will force a copy to be made of this reference when the first mutation occurs;\n",
+        "  // hence, it is safe to mark this as `nonisolated(unsafe)`.\n",
+        "  static nonisolated(unsafe) let defaultInstance = _StorageClass()\n",
+        "#else\n",
+        "  static let defaultInstance = _StorageClass()\n",
+        "#endif\n",
         "\n",
         "private init() {}\n",
         "\n")
