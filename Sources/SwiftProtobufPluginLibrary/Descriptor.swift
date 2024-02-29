@@ -731,10 +731,21 @@ public final class FieldDescriptor {
   /// The index in a oneof this field is in.
   public let oneofIndex: Int32?
 
+  // This builds basically a union for the storage for `extensionScope`
+  // and the value to look it up with.
+  private enum ExtensionScopeStorage {
+    case extendee(String)  // The value to be used for looked up during `bind()`.
+    case message(UnownedBox<Descriptor>)
+  }
+  private var _extensionScopeStorage: ExtensionScopeStorage?
+
   /// Extensions can be declared within the scope of another message. If this
   /// is an extension field, then this will be the scope it was declared in
   /// nil if was declared at a global scope.
-  public private(set) unowned var extensionScope: Descriptor?
+  public var extensionScope: Descriptor? {
+    guard case .message(let boxed) = _extensionScopeStorage else { return nil }
+    return boxed.value
+  }
 
   // This builds basically a union for the storage for `messageType`
   // and `enumType` since only one can needed at a time.
@@ -760,8 +771,6 @@ public final class FieldDescriptor {
   public var options: Google_Protobuf_FieldOptions
 
   let proto3Optional: Bool
-  // Cache values until bind().
-  var extendee: String?
 
   // Storage for `containingType`, will be set by bind()
   private unowned var _containingType: Descriptor?
@@ -799,7 +808,7 @@ public final class FieldDescriptor {
     }
 
     self.proto3Optional = proto.proto3Optional
-    self.extendee = isExtension ? proto.extendee : nil
+    self._extensionScopeStorage = isExtension ? .extendee(proto.extendee) : nil
     switch type {
     case .group, .message, .enum:
       _fieldTypeStorage = .typeName(proto.typeName)
@@ -811,14 +820,19 @@ public final class FieldDescriptor {
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
     _file = file
 
-    if let extendee = extendee {
+    // See the defintions of `containingType` and `extensionScope`, this
+    // dance can otherwise be a little confusing.
+    if case .extendee(let extendee) = _extensionScopeStorage {
       assert(isExtension)
-      extensionScope = containingType
       _containingType = registry.descriptor(named: extendee)!
+      if let containingType = containingType {
+        _extensionScopeStorage = .message(UnownedBox(value: containingType))
+      } else {
+        _extensionScopeStorage = nil  // Top level
+      }
     } else {
       _containingType = containingType
     }
-    extendee = nil
 
     if case .typeName(let typeName) = _fieldTypeStorage {
       if type == .enum {
