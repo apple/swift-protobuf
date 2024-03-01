@@ -38,12 +38,14 @@ let package = Package(
     .target(
         name: "SwiftProtobuf",
         exclude: ["CMakeLists.txt"],
+	resources: [.copy("PrivacyInfo.xcprivacy")],
         swiftSettings: .packageSettings
     ),
     .target(
         name: "SwiftProtobufPluginLibrary",
         dependencies: ["SwiftProtobuf"],
         exclude: ["CMakeLists.txt"],
+	resources: [.copy("PrivacyInfo.xcprivacy")],
         swiftSettings: .packageSettings
     ),
     .target(
