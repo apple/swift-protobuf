@@ -19,9 +19,11 @@ let package = Package(
     .library(name: "SwiftProtobufPluginLibrary", targets: ["SwiftProtobufPluginLibrary"]),
   ],
   targets: [
-    .target(name: "SwiftProtobuf"),
+    .target(name: "SwiftProtobuf",
+            resources: [.copy("PrivacyInfo.xcprivacy")]),
     .target(name: "SwiftProtobufPluginLibrary",
-            dependencies: ["SwiftProtobuf"]),
+            dependencies: ["SwiftProtobuf"],
+            resources: [.copy("PrivacyInfo.xcprivacy")]),
     .target(name: "protoc-gen-swift",
             dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"]),
     .target(name: "Conformance",
