@@ -24,7 +24,7 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer, _ count: Int) ->
   let semaphore = DispatchSemaphore(value: 0)
   Task {
     do {
-      for try await msg in decoding {
+      for try await _ in decoding {
         // TODO: Test serialization for completeness.
         // We could serialize individual messages like this:
         // let _: [UInt8] = try! msg.serializedBytes()
