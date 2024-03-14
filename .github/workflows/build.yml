@@ -141,7 +141,9 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release.
-      image: swift:latest
+      # image: swift:latest
+      # As of 5.10.0, the "thread" testing fails. Back to what last worked:
+      image: swift:5.9.2-jammy
     steps:
     - uses: actions/checkout@v4
     - name: Test
@@ -170,7 +172,9 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release.
-      image: swift:latest
+      # image: swift:latest
+      # As of 5.10.0, the "thread" testing fails. Back to what last worked:
+      image: swift:5.9.2-jammy
     steps:
     - uses: actions/checkout@v4
     - name: Build
