@@ -94,7 +94,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
   static var packageSettings: Self {
     [
-      .enableExperimentalFeature("StrictConcurrency=complete"),
+      // .enableExperimentalFeature("StrictConcurrency=complete"),
       .enableUpcomingFeature("ExistentialAny"),
     ]
   }

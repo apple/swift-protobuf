@@ -26,6 +26,7 @@ jobs:
         # seems better. This should also ensure protobuf caching changes with
         # each new image incase system in the Swift image are changed/updated.
         swift:
+        - 5.10.0-jammy
         - 5.9.2-jammy
         - 5.8.1-jammy
         - 5.7.3-jammy
