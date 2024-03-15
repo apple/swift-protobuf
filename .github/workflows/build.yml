@@ -133,6 +133,10 @@ jobs:
       run: swift package diagnose-api-breaking-changes origin/main --products SwiftProtobuf
 
   sanitizer_testing:
+    # Something likely changed in the base ubuntu image causing failures,
+    # don't fail the build based on these changes.
+    # https://github.com/apple/swift-protobuf/issues/1571
+    continue-on-error: true
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -163,6 +167,10 @@ jobs:
         swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
 
   fuzzing_regressions:
+    # Something likely changed in the base ubuntu image causing failures,
+    # don't fail the build based on these changes.
+    # https://github.com/apple/swift-protobuf/issues/1573
+    continue-on-error: true
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
