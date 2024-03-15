@@ -308,3 +308,18 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     return jsonToNumberMap[n]
   }
 }
+
+#if swift(>=5.5) && canImport(_Concurrency)
+// The `_NameMap` (and supporting types) are only mutated during their initial
+// creation, then for the lifetime of the a process they are constant. Swift
+// 5.10 flags the generated `_protobuf_nameMap` usages as a problem
+// (https://github.com/apple/swift-protobuf/issues/1560) so this silences those
+// warnings since the usage has been deemed safe.
+//
+// https://github.com/apple/swift-protobuf/issues/1561 is also opened to revisit
+// the `_NameMap` generally as it dates back to the days before Swift perferred
+// the UTF-8 internal encoding.
+extension _NameMap : Sendable {}
+extension _NameMap.Name : @unchecked Sendable {}
+extension InternPool : @unchecked Sendable {}
+#endif
