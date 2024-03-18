@@ -173,14 +173,19 @@ jobs:
           --breakage-allowlist-path known_api_breaks.txt
 
   sanitizer_testing:
-    runs-on: ubuntu-latest
+    # Using older ubuntu image due to issue with newer linux kernel images. When
+    # changing, see the "container" value below.
+    # https://github.com/apple/swift-protobuf/issues/1571
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         sanitizer: ["address", "thread"]
         swiftpm_config: ["debug", "release"]
     container:
-      image: swift:latest
+      # Test on the latest Swift release, but forcing the focal image to match the
+      # ubuntu issue mentioned aboce.
+      image: swift:focal
     steps:
     - uses: actions/checkout@v4
     - name: Test
@@ -202,13 +207,18 @@ jobs:
         swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
 
   fuzzing_regressions:
-    runs-on: ubuntu-latest
+    # Using older ubuntu image due to issue with newer linux kernel images. When
+    # changing, see the "container" value below.
+    # https://github.com/apple/swift-protobuf/issues/1571
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         swiftpm_config: ["debug", "release"]
     container:
-      image: swift:latest
+      # Test on the latest Swift release, but forcing the focal image to match the
+      # ubuntu issue mentioned aboce.
+      image: swift:focal
     steps:
     - uses: actions/checkout@v4
     - name: Build
