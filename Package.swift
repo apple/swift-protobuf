@@ -11,6 +11,15 @@
 
 import PackageDescription
 
+// NOTE: Once all supported Swift versions support visionOS, this gate could be
+// flipped to only require in on the specific platforms it is needed.
+#if !os(Linux) && !os(macOS)
+let include_privacy_manifests = true
+#else
+let include_privacy_manifests = false
+#endif
+
+
 let package = Package(
   name: "SwiftProtobuf",
   products: [
@@ -38,14 +47,14 @@ let package = Package(
     .target(
         name: "SwiftProtobuf",
         exclude: ["CMakeLists.txt"],
-        resources: [.copy("PrivacyInfo.xcprivacy")],
+        resources: include_privacy_manifests ? [.copy("PrivacyInfo.xcprivacy")] : [],
         swiftSettings: .packageSettings
     ),
     .target(
         name: "SwiftProtobufPluginLibrary",
         dependencies: ["SwiftProtobuf"],
         exclude: ["CMakeLists.txt"],
-        resources: [.copy("PrivacyInfo.xcprivacy")],
+        resources: include_privacy_manifests ? [.copy("PrivacyInfo.xcprivacy")] : [],
         swiftSettings: .packageSettings
     ),
     .target(
