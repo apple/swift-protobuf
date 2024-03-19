@@ -326,7 +326,6 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
 	@xxd -i < PluginLibDescriptorTestData.bin >> $@
 	@echo ']' >> $@
-	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
 SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
        Protos/protoc-gen-swiftTests/plugin_descriptor_test.proto
@@ -344,7 +343,6 @@ Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} 
 	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
 	@xxd -i < PluginDescriptorTestData.bin >> $@
 	@echo ']' >> $@
-	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
 #
 # Collect a list of words that appear in the SwiftProtobuf library
