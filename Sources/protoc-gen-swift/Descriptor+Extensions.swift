@@ -31,7 +31,7 @@ extension FileDescriptor {
   //
   // NOTE: There is a weakness for Swift with protobuf extensions. To make
   // the protobuf extensions easier to use, a Swift extension is declared with
-  // field exposed as a property on the exteneded message. There is no way
+  // field exposed as a property on the extended message. There is no way
   // to reexport the Swift `extension` and/or added properties. But the raw
   // types are re-exported to minimize the breaking of code if a type is moved
   // between files/modules.
@@ -112,7 +112,7 @@ extension FileDescriptor {
   private func computeSymbolReExports(namer: SwiftProtobufNamer) -> [String] {
     var result = [String]()
 
-    // To handle re-exporting, recuively walk all the `import public` files
+    // To handle re-exporting, recursively walk all the `import public` files
     // and make this module do a Swift exporting import of the specific
     // symbols. That will keep any type that gets moved between .proto files
     // still exposed from the same modules so as not to break developer
@@ -150,7 +150,7 @@ extension FileDescriptor {
         result.append("@_exported import enum \(namer.fullName(enum: e))")
       }
       // There is nothing we can do for the Swift extensions declared on the
-      // extended Messages, best we can do is expose the raw extenions
+      // extended Messages, best we can do is expose the raw extensions
       // themselves.
       for e in dependency.extensions {
         result.append("@_exported import let \(namer.fullName(extensionField: e))")
@@ -164,11 +164,11 @@ extension Descriptor {
   /// Returns true if the message should use the message set wireformat.
   var useMessageSetWireFormat: Bool { return options.messageSetWireFormat }
 
-  /// Returns True if this message recurisvely contains a required field.
+  /// Returns True if this message recursively contains a required field.
   /// This is a helper for generating isInitialized methods.
   ///
   /// The logic for this check comes from google/protobuf; the C++ and Java
-  /// generators specificly.
+  /// generators specifically
   func containsRequiredFields() -> Bool {
     var alreadySeen = Set<String>()
 
@@ -177,7 +177,7 @@ extension Descriptor {
         // First required thing found causes this to return true, so one can
         // assume if it is already visited and and wasn't cached, it is part
         // of a recursive cycle, so return false without caching to allow
-        // the evalutation to continue on other fields of the message.
+        // the evaluation to continue on other fields of the message.
         return false
       }
       alreadySeen.insert(descriptor.fullName)
@@ -205,7 +205,7 @@ extension Descriptor {
 
   /// The `extensionRanges` are in the order they appear in the original .proto
   /// file; this orders them and then merges any ranges that are actually
-  /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
+  /// contiguous (i.e. - [(21,30),(10,20)] -> [(10,30)])
   ///
   /// This also uses Range<> since the options that could be on
   /// `extensionRanges` no longer can apply as the things have been merged.
