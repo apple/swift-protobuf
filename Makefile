@@ -257,8 +257,10 @@ regenerate: \
 	regenerate-test-protos \
 	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
+	Sources/SwiftProtobufPluginLibrary/PluginLibEditionDefaults.swift \
 	Tests/protoc-gen-swiftTests/DescriptorTestData.swift \
-	Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift
+	Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift \
+	Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift
 
 # Rebuild just the protos included in the runtime library
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
@@ -282,6 +284,40 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		`find Protos/SwiftProtobufPluginLibrary -type f -name "*.proto"`
+
+# Is this based on the upstream bazel rules `compile_edition_defaults` and
+# `embed_edition_defaults`.
+Sources/SwiftProtobufPluginLibrary/PluginLibEditionDefaults.swift: build ${PROTOC_GEN_SWIFT} Protos/SwiftProtobuf/google/protobuf/descriptor.proto
+	@${PROTOC} \
+		--edition_defaults_out=PluginLibEditionDefaults.bin \
+		--edition_defaults_minimum=PROTO2 \
+		--edition_defaults_maximum=2023 \
+		-I Protos/SwiftProtobuf \
+		Protos/SwiftProtobuf/google/protobuf/descriptor.proto
+	@rm -f $@
+	@echo '// See Makefile how this is generated.' >> $@
+	@echo '// swift-format-ignore-file' >> $@
+	@echo 'import Foundation' >> $@
+	@echo 'let bundledFeatureSetDefaultBytes: [UInt8] = [' >> $@
+	@xxd -i < PluginLibEditionDefaults.bin >> $@
+	@echo ']' >> $@
+
+# Some defaults for the testing of custom features
+Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: build ${PROTOC_GEN_SWIFT} Protos/SwiftProtobufPluginLibraryTests/test_features.proto
+	@${PROTOC} \
+		--edition_defaults_out=PluginLibTestingEditionDefaults.bin \
+		--edition_defaults_minimum=PROTO2 \
+		--edition_defaults_maximum=2023 \
+		-I Protos/SwiftProtobuf \
+		-I Protos/SwiftProtobufPluginLibraryTests \
+		Protos/SwiftProtobufPluginLibraryTests/test_features.proto
+	@rm -f $@
+	@echo '// See Makefile how this is generated.' >> $@
+	@echo '// swift-format-ignore-file' >> $@
+	@echo 'import Foundation' >> $@
+	@echo 'let testFeatureSetDefaultBytes: [UInt8] = [' >> $@
+	@xxd -i < PluginLibTestingEditionDefaults.bin >> $@
+	@echo ']' >> $@
 
 # Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
