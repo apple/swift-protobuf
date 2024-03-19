@@ -129,19 +129,21 @@ public final class FileDescriptor {
     self.package = proto.package
 
     // This logic comes from upstream `DescriptorBuilder::BuildFileImpl()`.
-    switch proto.syntax {
-    case "", "proto2":
-      self.edition = .proto2
-    case "proto3":
-      self.edition = .proto3
-    case "edition":
+    if proto.hasEdition {
       self.edition = proto.edition
       // TODO(thomasvl): Remove this when ready to support editions.
       fatalError("SwiftProtobuf doesn't yet support editions.")
-    default:
-      self.edition = .unknown
-      // Somethings gone wrong if non of the above happen from protoc.
-      fatalError("protoc provided an expected value for syntax/edition: \(proto.name)")
+    } else {
+      switch proto.syntax {
+      case "", "proto2":
+        self.edition = .proto2
+      case "proto3":
+        self.edition = .proto3
+      default:
+        self.edition = .unknown
+        fatalError(
+          "protoc provided an expected value (\"\(proto.syntax)\") for syntax/edition: \(proto.name)")
+      }
     }
 
     self.options = proto.options
