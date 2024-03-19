@@ -13,6 +13,8 @@ mined_words.txt
 /CompileTests/MultiModule/.swiftpm
 /*DescriptorTestData.bin
 /Package.resolved
+/PluginLibEditionDefaults.bin
+/PluginLibTestingEditionDefaults.bin
 
 # Intermediate conformance test outputs
 failing_tests.txt

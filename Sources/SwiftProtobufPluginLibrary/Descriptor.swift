@@ -37,20 +37,49 @@ public final class DescriptorSet {
   public let files: [FileDescriptor]
   private let registry = Registry()
 
-  // Consturct out of a `Google_Protobuf_FileDescriptorSet` likely
+  // Construct out of a `Google_Protobuf_FileDescriptorSet` likely
   // created by protoc.
   public convenience init(proto: Google_Protobuf_FileDescriptorSet) {
     self.init(protos: proto.file)
   }
 
-  /// Consturct out of a ordered list of
+  /// Construct out of a ordered list of
+  /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc.
+  public convenience init(protos: [Google_Protobuf_FileDescriptorProto]) {
+    // Decoding the bundle defaults better never fail
+    let featureSetDefaults = try! Google_Protobuf_FeatureSetDefaults(serializedBytes: bundledFeatureSetDefaultBytes)
+
+    self.init(protos: protos, featureSetDefaults: featureSetDefaults)
+  }
+
+  /// Construct out of a ordered list of
   /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc. Since
   /// .proto files can import other .proto files, the imports have to be
   /// listed before the things that use them so the graph can be
   /// reconstructed.
-  public init(protos: [Google_Protobuf_FileDescriptorProto]) {
+  ///
+  /// - Parameters:
+  ///   - protos: An ordered list of `Google_Protobuf_FileDescriptorProto`.
+  ///     They must be order such that a file is provided before another file
+  ///     that depends on it.
+  ///   - featureSetDefaults: A `Google_Protobuf_FeatureSetDefaults` that provides
+  ///     the Feature defaults to use when parsing the give File protos.
+  ///   - featureExtensions: A list of Protobuf Extension extensions to
+  ///     `google.protobuf.FeatureSet` that define custom features. If used, the
+  ///     `defaults` should have been parsed with the extensions being
+  ///     supported.
+  public init(
+    protos: [Google_Protobuf_FileDescriptorProto],
+    featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
+    featureExtensions: [any AnyMessageExtension] = []
+  ) {
     let registry = self.registry
-    self.files = protos.map { return FileDescriptor(proto: $0, registry: registry) }
+    self.files = protos.map {
+      return FileDescriptor(proto: $0,
+                            featureSetDefaults: featureSetDefaults,
+                            featureExtensions: featureExtensions,
+                            registry: registry)
+    }
   }
 
   /// Lookup a specific file. The names for files are what was captured in
@@ -101,7 +130,10 @@ public final class FileDescriptor {
   /// on the Edition, to properly handing editions, they should be checking
   /// Features and in most case the other `Descriptor` api that expose the
   /// information.
-  internal let edition: Google_Protobuf_Edition
+  public let edition: Google_Protobuf_Edition
+
+  /// The resolved features for this File.
+  public let features: Google_Protobuf_FeatureSet
 
   /// The imports for this file.
   public let dependencies: [FileDescriptor]
@@ -124,15 +156,18 @@ public final class FileDescriptor {
 
   private let sourceCodeInfo: Google_Protobuf_SourceCodeInfo
 
-  fileprivate init(proto: Google_Protobuf_FileDescriptorProto, registry: Registry) {
+  fileprivate init(
+    proto: Google_Protobuf_FileDescriptorProto,
+    featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
+    featureExtensions: [any AnyMessageExtension],
+    registry: Registry
+  ) {
     self.name = proto.name
     self.package = proto.package
 
     // This logic comes from upstream `DescriptorBuilder::BuildFileImpl()`.
     if proto.hasEdition {
       self.edition = proto.edition
-      // TODO(thomasvl): Remove this when ready to support editions.
-      fatalError("SwiftProtobuf doesn't yet support editions.")
     } else {
       switch proto.syntax {
       case "", "proto2":
@@ -145,21 +180,51 @@ public final class FileDescriptor {
           "protoc provided an expected value (\"\(proto.syntax)\") for syntax/edition: \(proto.name)")
       }
     }
-
+    // TODO: Revsit capturing the error here and see about exposing it out
+    // to be reported via plugins.
+    let featureResolver: FeatureResolver
+    do {
+      featureResolver = try FeatureResolver(edition: self.edition,
+                                            featureSetDefaults: featureSetDefaults,
+                                            featureExtensions: featureExtensions)
+    } catch let e {
+      fatalError("Failed to make a FeatureResolver for \(self.name): \(e)")
+    }
+    let resolvedFeatures = featureResolver.resolve(proto.options)
+    self.features = resolvedFeatures
     self.options = proto.options
 
     let protoPackage = proto.package
     self.enums = proto.enumType.enumerated().map {
-      return EnumDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
+      return EnumDescriptor(proto: $0.element,
+                            index: $0.offset,
+                            parentFeatures: resolvedFeatures,
+                            featureResolver: featureResolver,
+                            registry: registry,
+                            scope: protoPackage)
     }
     self.messages = proto.messageType.enumerated().map {
-      return Descriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
+      return Descriptor(proto: $0.element,
+                        index: $0.offset,
+                        parentFeatures: resolvedFeatures,
+                        featureResolver: featureResolver,
+                        registry: registry,
+                        scope: protoPackage)
     }
     self.extensions = proto.extension.enumerated().map {
-      return FieldDescriptor(extension: $0.element, index: $0.offset, registry: registry)
+      return FieldDescriptor(extension: $0.element,
+                             index: $0.offset,
+                             parentFeatures: resolvedFeatures,
+                             featureResolver: featureResolver,
+                             registry: registry)
     }
     self.services = proto.service.enumerated().map {
-      return ServiceDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
+      return ServiceDescriptor(proto: $0.element,
+                               index: $0.offset,
+                               fileFeatures: resolvedFeatures,
+                               featureResolver: featureResolver,
+                               registry: registry,
+                               scope: protoPackage)
     }
 
     // The compiler ensures there aren't cycles between a file and dependencies, so
@@ -263,6 +328,9 @@ public final class Descriptor {
     // Tndex of this extension range within the message's extension range array.
     public let index: Int
 
+    /// The resolved features for this ExtensionRange.
+    public let features: Google_Protobuf_FeatureSet
+
     /// The `Google_Protobuf_ExtensionRangeOptions` set on this ExtensionRange.
     public let options: Google_Protobuf_ExtensionRangeOptions
 
@@ -281,10 +349,12 @@ public final class Descriptor {
     private unowned var _containingType: Descriptor?
 
     fileprivate init(proto: Google_Protobuf_DescriptorProto.ExtensionRange,
-                     index: Int) {
+                     index: Int,
+                     features: Google_Protobuf_FeatureSet) {
       self.start = proto.start
       self.end = proto.end
       self.index = index
+      self.features = features
       self.options = proto.options
     }
 
@@ -310,6 +380,9 @@ public final class Descriptor {
   /// If this Descriptor describes a nested type, this returns the type
   /// in which it is nested.
   public private(set) unowned var containingType: Descriptor?
+
+  /// The resolved features for this Descriptor.
+  public let features: Google_Protobuf_FeatureSet
 
   /// The `Google_Protobuf_MessageOptions` set on this Message.
   public let options: Google_Protobuf_MessageOptions
@@ -363,34 +436,72 @@ public final class Descriptor {
 
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
+                   parentFeatures: Google_Protobuf_FeatureSet,
+                   featureResolver: FeatureResolver,
                    registry: Registry,
                    scope: String) {
     self.name = proto.name
     let fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.fullName = fullName
     self.index = index
+    let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: parentFeatures)
+    self.features = resolvedFeatures
     self.options = proto.options
     self.wellKnownType = WellKnownType(rawValue: fullName)
     self.reservedRanges = proto.reservedRange.map { return $0.start ..< $0.end }
     self.reservedNames = proto.reservedName
 
+    // TODO: This can skip the synthetic oneofs as no features can be set on
+    // them to inherrit things.
+    let oneofFeatures = proto.oneofDecl.map {
+      return featureResolver.resolve($0.options, resolvedParent: resolvedFeatures)
+    }
+
     self.extensionRanges = proto.extensionRange.enumerated().map {
-      return ExtensionRange(proto: $0.element, index: $0.offset)
+      return ExtensionRange(proto: $0.element,
+                            index: $0.offset,
+                            features: featureResolver.resolve($0.element.options,
+                                                              resolvedParent: resolvedFeatures))
     }
     self.enums = proto.enumType.enumerated().map {
-      return EnumDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: fullName)
+      return EnumDescriptor(proto: $0.element,
+                            index: $0.offset,
+                            parentFeatures: resolvedFeatures,
+                            featureResolver: featureResolver,
+                            registry: registry,
+                            scope: fullName)
     }
     self.messages = proto.nestedType.enumerated().map {
-      return Descriptor(proto: $0.element, index: $0.offset, registry: registry, scope: fullName)
+      return Descriptor(proto: $0.element,
+                        index: $0.offset,
+                        parentFeatures: resolvedFeatures,
+                        featureResolver: featureResolver,
+                        registry: registry,
+                        scope: fullName)
     }
     self.fields = proto.field.enumerated().map {
-      return FieldDescriptor(messageField: $0.element, index: $0.offset, registry: registry)
+      // For field Features inherrit from the parent oneof or message. A
+      // synthetic oneof (for proto3 optional) can't get features, so those
+      // don't come into play.
+      let inRealOneof = $0.element.hasOneofIndex && !$0.element.proto3Optional
+      return FieldDescriptor(messageField: $0.element,
+                             index: $0.offset,
+                             parentFeatures: inRealOneof ? oneofFeatures[Int($0.element.oneofIndex)] : resolvedFeatures,
+                             featureResolver: featureResolver,
+                             registry: registry)
     }
     self.oneofs = proto.oneofDecl.enumerated().map {
-      return OneofDescriptor(proto: $0.element, index: $0.offset, registry: registry)
+      return OneofDescriptor(proto: $0.element,
+                             index: $0.offset,
+                             features: oneofFeatures[$0.offset],
+                             registry: registry)
     }
     self.extensions = proto.extension.enumerated().map {
-      return FieldDescriptor(extension: $0.element, index: $0.offset, registry: registry)
+      return FieldDescriptor(extension: $0.element,
+                             index: $0.offset,
+                             parentFeatures: resolvedFeatures,
+                             featureResolver: featureResolver,
+                             registry: registry)
     }
 
     // Done initializing, register ourselves.
@@ -439,6 +550,9 @@ public final class EnumDescriptor {
   /// in which it is nested.
   public private(set) unowned var containingType: Descriptor?
 
+  /// The resolved features for this Enum.
+  public let features: Google_Protobuf_FeatureSet
+
   /// The values defined for this enum. Guaranteed (by protoc) to be atleast
   /// one item. These are returned in the order they were defined in the .proto
   /// file.
@@ -469,17 +583,25 @@ public final class EnumDescriptor {
 
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
+                   parentFeatures: Google_Protobuf_FeatureSet,
+                   featureResolver: FeatureResolver,
                    registry: Registry,
                    scope: String) {
     self.name = proto.name
     self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
+    let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: parentFeatures)
+    self.features = resolvedFeatures
     self.options = proto.options
     self.reservedRanges = proto.reservedRange.map { return $0.start ... $0.end }
     self.reservedNames = proto.reservedName
 
     self.values = proto.value.enumerated().map {
-      return EnumValueDescriptor(proto: $0.element, index: $0.offset, scope: scope)
+      return EnumValueDescriptor(proto: $0.element,
+                                 index: $0.offset,
+                                 features: featureResolver.resolve($0.element.options,
+                                                                   resolvedParent: resolvedFeatures),
+                                 scope: scope)
     }
 
     // Done initializing, register ourselves.
@@ -511,6 +633,9 @@ public final class EnumValueDescriptor {
   /// Numeric value of this enum constant.
   public let number: Int32
 
+  /// The resolved features for this EnumValue.
+  public let features: Google_Protobuf_FeatureSet
+
   /// The .proto file in which this message type was defined.
   public var file: FileDescriptor { return enumType.file }
   /// The type of this value.
@@ -524,10 +649,12 @@ public final class EnumValueDescriptor {
 
   fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
                    index: Int,
+                   features: Google_Protobuf_FeatureSet,
                    scope: String) {
     self.name = proto.name
     self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
+    self.features = features
     self.number = proto.number
     self.options = proto.options
   }
@@ -545,6 +672,9 @@ public final class OneofDescriptor {
   public var fullName: String { return "\(containingType.fullName).\(name)" }
   /// Index of this oneof within the message's oneofs.
   public let index: Int
+
+  /// The resolved features for this Oneof.
+  public let features: Google_Protobuf_FeatureSet
 
   /// Returns whether this oneof was inserted by the compiler to wrap a proto3
   /// optional field. If this returns true, code generators should *not* emit it.
@@ -572,9 +702,11 @@ public final class OneofDescriptor {
 
   fileprivate init(proto: Google_Protobuf_OneofDescriptorProto,
                    index: Int,
+                   features: Google_Protobuf_FeatureSet,
                    registry: Registry) {
     self.name = proto.name
     self.index = index
+    self.features = features
     self.options = proto.options
   }
 
@@ -606,6 +738,8 @@ public final class FieldDescriptor {
   }
   /// JSON name of this field.
   public let jsonName: String
+
+  public let features: Google_Protobuf_FeatureSet
 
   /// File in which this field was defined.
   public var file: FileDescriptor { return _file! }
@@ -781,6 +915,8 @@ public final class FieldDescriptor {
 
   fileprivate convenience init(messageField proto: Google_Protobuf_FieldDescriptorProto,
                                index: Int,
+                               parentFeatures: Google_Protobuf_FeatureSet,
+                               featureResolver: FeatureResolver,
                                registry: Registry) {
     precondition(proto.extendee.isEmpty)  // Only for extensions
 
@@ -789,11 +925,18 @@ public final class FieldDescriptor {
     // not be `.proto3Optional`
     precondition(proto.hasOneofIndex || !proto.proto3Optional)
 
-    self.init(proto: proto, index: index, registry: registry, isExtension: false)
+    self.init(proto: proto,
+              index: index,
+              parentFeatures: parentFeatures,
+              featureResolver: featureResolver,
+              registry: registry,
+              isExtension: false)
   }
 
   fileprivate convenience init(extension proto: Google_Protobuf_FieldDescriptorProto,
                                index: Int,
+                               parentFeatures: Google_Protobuf_FeatureSet,
+                               featureResolver: FeatureResolver,
                                registry: Registry) {
     precondition(!proto.extendee.isEmpty)  // Required for extensions
 
@@ -805,15 +948,23 @@ public final class FieldDescriptor {
     // is checked on the oneof side.
     precondition(!proto.hasOneofIndex)
 
-    self.init(proto: proto, index: index, registry: registry, isExtension: true)
+    self.init(proto: proto,
+              index: index,
+              parentFeatures: parentFeatures,
+              featureResolver: featureResolver,
+              registry: registry,
+              isExtension: true)
   }
 
   private init(proto: Google_Protobuf_FieldDescriptorProto,
                index: Int,
+               parentFeatures: Google_Protobuf_FeatureSet,
+               featureResolver: FeatureResolver,
                registry: Registry,
                isExtension: Bool) {
     self.name = proto.name
     self.index = index
+    self.features = featureResolver.resolve(proto, resolvedParent: parentFeatures)
     self.defaultValue = proto.hasDefaultValue ? proto.defaultValue : nil
     precondition(proto.hasJsonName)  // protoc should always set the name
     self.jsonName = proto.jsonName
@@ -875,6 +1026,9 @@ public final class ServiceDescriptor {
   /// The .proto file in which this service was defined
   public var file: FileDescriptor { return _file! }
 
+  /// The resolved features for this Service.
+  public let features: Google_Protobuf_FeatureSet
+
   /// Get `Google_Protobuf_ServiceOptions` for this service.
   public let options: Google_Protobuf_ServiceOptions
 
@@ -887,15 +1041,22 @@ public final class ServiceDescriptor {
 
   fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
                    index: Int,
+                   fileFeatures: Google_Protobuf_FeatureSet,
+                   featureResolver: FeatureResolver,
                    registry: Registry,
                    scope: String) {
     self.name = proto.name
     self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
+    let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: fileFeatures)
+    self.features = resolvedFeatures
     self.options = proto.options
 
     self.methods = proto.method.enumerated().map {
-      return MethodDescriptor(proto: $0.element, index: $0.offset, registry: registry)
+      return MethodDescriptor(proto: $0.element,
+                              index: $0.offset,
+                              features: featureResolver.resolve($0.element.options, resolvedParent: resolvedFeatures),
+                              registry: registry)
     }
 
     // Done initializing, register ourselves.
@@ -926,6 +1087,9 @@ public final class MethodDescriptor {
   /// The service tha defines this method.
   public var service: ServiceDescriptor { return _service! }
 
+  /// The resolved features for this Method.
+  public let features: Google_Protobuf_FeatureSet
+
   /// Get `Google_Protobuf_MethodOptions` for this method.
   public let options: Google_Protobuf_MethodOptions
 
@@ -950,9 +1114,11 @@ public final class MethodDescriptor {
 
   fileprivate init(proto: Google_Protobuf_MethodDescriptorProto,
                    index: Int,
+                   features: Google_Protobuf_FeatureSet,
                    registry: Registry) {
     self.name = proto.name
     self.index = index
+    self.features = features
     self.options = proto.options
     self.clientStreaming = proto.clientStreaming
     self.serverStreaming = proto.serverStreaming
