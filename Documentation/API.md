@@ -687,7 +687,7 @@ those descriptors.
 
 Support for descriptors ends up requiring some amount of code, but more
 importantly it requires capturing a large binary blob of data for every
-message, enum, oneof, etc. That data has two potenial issues, it bloats the
+message, enum, oneof, etc. That data has two potential issues, it bloats the
 binaries, and it is something that can be extracted from the binary to help
 reverse engineer details about the binary.
 
