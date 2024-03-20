@@ -218,7 +218,7 @@ struct SwiftProtoTesting_Deprecated_MyMsg2: @unchecked Sendable {
 
 // MARK: - Extension Properties
 
-// Swift Extensions on the extended Messages to add easy access to the declared
+// Swift Extensions on the exteneded Messages to add easy access to the declared
 // extension fields. The names are based on the extension field name from the proto
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
