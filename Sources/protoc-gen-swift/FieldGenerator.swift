@@ -94,7 +94,6 @@ class FieldGeneratorBase {
   }
 
   init(descriptor: FieldDescriptor) {
-    precondition(!descriptor.isExtension)
     number = Int(descriptor.number)
     fieldDescriptor = descriptor
   }

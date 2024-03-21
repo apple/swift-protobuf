@@ -156,7 +156,7 @@ public final class FileDescriptor {
       return Descriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
     }
     self.extensions = proto.extension.enumerated().map {
-      return FieldDescriptor(proto: $0.element, index: $0.offset, registry: registry, isExtension: true)
+      return FieldDescriptor(extension: $0.element, index: $0.offset, registry: registry)
     }
     self.services = proto.service.enumerated().map {
       return ServiceDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
@@ -354,7 +354,7 @@ public final class Descriptor {
   /// This is like the C++ Descriptor `map_key()` and `map_value()` methods.
   public var mapKeyAndValue: (key: FieldDescriptor, value: FieldDescriptor)? {
     guard options.mapEntry else { return nil }
-    assert(fields.count == 2)
+    precondition(fields.count == 2)
     return (key: fields[0], value: fields[1])
   }
 
@@ -384,13 +384,13 @@ public final class Descriptor {
       return Descriptor(proto: $0.element, index: $0.offset, registry: registry, scope: fullName)
     }
     self.fields = proto.field.enumerated().map {
-      return FieldDescriptor(proto: $0.element, index: $0.offset, registry: registry)
+      return FieldDescriptor(messageField: $0.element, index: $0.offset, registry: registry)
     }
     self.oneofs = proto.oneofDecl.enumerated().map {
       return OneofDescriptor(proto: $0.element, index: $0.offset, registry: registry)
     }
     self.extensions = proto.extension.enumerated().map {
-      return FieldDescriptor(proto: $0.element, index: $0.offset, registry: registry, isExtension: true)
+      return FieldDescriptor(extension: $0.element, index: $0.offset, registry: registry)
     }
 
     // Done initializing, register ourselves.
@@ -411,10 +411,11 @@ public final class Descriptor {
     // here as a secondary validation because other code can rely on it.
     var seenSynthetic = false
     for o in oneofs {
-      if o.isSynthetic {
-        seenSynthetic = true
+      if seenSynthetic {
+        // Once we've seen one synthetic, all the rest must also be synthetic.
+        precondition(o.isSynthetic)
       } else {
-        assert(!seenSynthetic)
+        seenSynthetic = o.isSynthetic
       }
     }
   }
@@ -722,7 +723,6 @@ public final class FieldDescriptor {
   /// The oneof this field is a member of.
   public var containingOneof: OneofDescriptor? {
     guard let oneofIndex = oneofIndex else { return nil }
-    assert(!isExtension)
     return containingType.oneofs[Int(oneofIndex)]
   }
   /// The non synthetic oneof this field is a member of.
@@ -779,36 +779,50 @@ public final class FieldDescriptor {
   // Storage for `file`, will be set by bind()
   private unowned var _file: FileDescriptor?
 
-  fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
-                   index: Int,
-                   registry: Registry,
-                   isExtension: Bool = false) {
+  fileprivate convenience init(messageField proto: Google_Protobuf_FieldDescriptorProto,
+                               index: Int,
+                               registry: Registry) {
+    precondition(proto.extendee.isEmpty)  // Only for extensions
+
+    // On regular fields, it only makes sense to get `.proto3Optional`
+    // when also in a (synthetic) oneof. So...no oneof index, it better
+    // not be `.proto3Optional`
+    precondition(proto.hasOneofIndex || !proto.proto3Optional)
+
+    self.init(proto: proto, index: index, registry: registry, isExtension: false)
+  }
+
+  fileprivate convenience init(extension proto: Google_Protobuf_FieldDescriptorProto,
+                               index: Int,
+                               registry: Registry) {
+    precondition(!proto.extendee.isEmpty)  // Required for extensions
+
+    // FieldDescriptorProto is used for fields or extensions, generally
+    // .proto3Optional only makes sense on fields if it is in a oneof. But,
+    // it is allowed on extensions. For information on that, see
+    // https://github.com/protocolbuffers/protobuf/issues/8234#issuecomment-774224376
+    // The C++ Descriptor code encorces the field/oneof part, but nothing
+    // is checked on the oneof side.
+    precondition(!proto.hasOneofIndex)
+
+    self.init(proto: proto, index: index, registry: registry, isExtension: true)
+  }
+
+  private init(proto: Google_Protobuf_FieldDescriptorProto,
+               index: Int,
+               registry: Registry,
+               isExtension: Bool) {
     self.name = proto.name
     self.index = index
     self.defaultValue = proto.hasDefaultValue ? proto.defaultValue : nil
-    assert(proto.hasJsonName)  // protoc should always set the name
+    precondition(proto.hasJsonName)  // protoc should always set the name
     self.jsonName = proto.jsonName
-    assert(isExtension == !proto.extendee.isEmpty)
     self.isExtension = isExtension
     self.number = proto.number
     self.type = proto.type
     self.label = proto.label
     self.options = proto.options
-
-    if proto.hasOneofIndex {
-      assert(!isExtension)
-      oneofIndex = proto.oneofIndex
-    } else {
-      oneofIndex = nil
-      // FieldDescriptorProto is used for fields or extensions, generally
-      // .proto3Optional only makes sense on fields if it is in a oneof. But
-      // It is allowed on extensions. For information on that, see
-      // https://github.com/protocolbuffers/protobuf/issues/8234#issuecomment-774224376
-      // The C++ Descriptor code encorces the field/oneof part, but nothing
-      // is checked on the oneof side.
-      assert(!proto.proto3Optional || isExtension)
-    }
-
+    self.oneofIndex = proto.hasOneofIndex ? proto.oneofIndex : nil
     self.proto3Optional = proto.proto3Optional
     self._extensionScopeStorage = isExtension ? .extendee(proto.extendee) : nil
     switch type {
@@ -825,7 +839,6 @@ public final class FieldDescriptor {
     // See the defintions of `containingType` and `extensionScope`, this
     // dance can otherwise be a little confusing.
     if case .extendee(let extendee) = _extensionScopeStorage {
-      assert(isExtension)
       _containingType = registry.descriptor(named: extendee)!
       if let containingType = containingType {
         _extensionScopeStorage = .message(UnownedBox(value: containingType))
