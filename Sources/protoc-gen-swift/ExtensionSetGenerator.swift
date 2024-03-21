@@ -141,7 +141,6 @@ class ExtensionSetGenerator {
 
     func add(extensionFields: [FieldDescriptor]) {
         for e in extensionFields {
-            assert(e.isExtension)
             let extensionGenerator = ExtensionGenerator(descriptor: e,
                                                         generatorOptions: generatorOptions,
                                                         namer: namer)
