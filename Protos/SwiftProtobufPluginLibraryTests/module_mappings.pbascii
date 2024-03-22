@@ -1,0 +1,4 @@
+mapping {
+  module_name: "SwiftProtobufPluginLibrary"
+  proto_file_path: "google/protobuf/compiler/plugin.proto"
+}

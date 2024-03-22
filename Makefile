@@ -283,7 +283,7 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		`find Protos/SwiftProtobufPluginLibrary -type f -name "*.proto"`
 
-# Rebuild just the protos used by the runtime test suite
+# Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/SwiftProtobufTests/generated_swift_names_enums.proto Protos/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/SwiftProtobufTests/generated_swift_names_fields.proto Protos/SwiftProtobufTests/generated_swift_names_messages.proto
@@ -293,6 +293,15 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/SwiftProtobufTests/gene
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
 		`find Protos/SwiftProtobufTests -type f -name "*.proto"`
+	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
+	${GENERATE_SRCS} \
+	    -I Protos/SwiftProtobuf \
+		-I Protos/SwiftProtobufPluginLibrary \
+		-I Protos/SwiftProtobufPluginLibraryTests \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/SwiftProtobufPluginLibraryTests/module_mappings.pbascii \
+		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
+		`find Protos/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/SwiftProtobufTests to have just one copy.
