@@ -146,7 +146,7 @@ final class Test_BinaryDecodingOptions: XCTestCase {
             16, 1,
             // Field 2, fixed64 of 2
             25, 2, 0, 0, 0, 0, 0, 0, 0,
-            // Field 3, length delimted of 3
+            // Field 3, length delimited of 3
             34, 1, 3,
             // Field 4, group (start, field 6 varinit of 4, end)
             43, 56, 4, 44,

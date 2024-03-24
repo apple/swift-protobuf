@@ -106,10 +106,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
   /// The implementation tries to be "helpful" and if a length delimited field
   /// appears to be a submessage, it prints it as such. However, that opens the
   /// door to someone sending a message with an unknown field that is a stack
-  /// bomb, i.e. - it causes this code to recurse, exhausing the stack and
+  /// bomb, i.e. - it causes this code to recurse, exhausting the stack and
   /// thus opening up an attack vector. To keep this "help", but avoid the
   /// attack, a limit is placed on how many times it will recurse before just
-  /// treating the length delimted fields as bytes and not trying to decode
+  /// treating the length delimited fields as bytes and not trying to decode
   /// them.
   private mutating func visitUnknown(
     decoder: inout BinaryDecoder,

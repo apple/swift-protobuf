@@ -176,7 +176,7 @@ final class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
         assertUnknownFields(msg2, [24, 1])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimted
+        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimited
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1])
 
@@ -196,7 +196,7 @@ final class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
         assertUnknownFields(msg2, [24, 1])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimted
+        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimited
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1])
 
