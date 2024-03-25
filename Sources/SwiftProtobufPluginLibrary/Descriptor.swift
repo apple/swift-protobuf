@@ -43,13 +43,24 @@ public final class DescriptorSet {
     self.init(protos: proto.file)
   }
 
+  /// The bundled in `google.protobuf.FeatureSetDefault` that defines what
+  /// the plugin library can support.
+  private static let bundledFeatureSetDefaults =
+    // Decoding the bundle defaults better never fail
+    try! Google_Protobuf_FeatureSetDefaults(serializedBytes: bundledFeatureSetDefaultBytes)
+
+  /// The range of Editions that the library can support.
+  ///
+  /// This will limit what edition versions a plugin can claim to support.
+  public static var bundledEditionsSupport: ClosedRange<Google_Protobuf_Edition> {
+    return bundledFeatureSetDefaults.minimumEdition...bundledFeatureSetDefaults.maximumEdition
+  }
+
   /// Construct out of a ordered list of
   /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc.
   public convenience init(protos: [Google_Protobuf_FileDescriptorProto]) {
-    // Decoding the bundle defaults better never fail
-    let featureSetDefaults = try! Google_Protobuf_FeatureSetDefaults(serializedBytes: bundledFeatureSetDefaultBytes)
-
-    self.init(protos: protos, featureSetDefaults: featureSetDefaults)
+    self.init(protos: protos,
+              featureSetDefaults: DescriptorSet.bundledFeatureSetDefaults)
   }
 
   /// Construct out of a ordered list of
@@ -73,6 +84,10 @@ public final class DescriptorSet {
     featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
     featureExtensions: [any AnyMessageExtension] = []
   ) {
+    precondition(Self.bundledEditionsSupport.contains(featureSetDefaults.minimumEdition),
+                 "Attempt to use a FeatureSetDefault minimumEdition that isn't supported by the library.")
+    precondition(Self.bundledEditionsSupport.contains(featureSetDefaults.maximumEdition),
+                 "Attempt to use a FeatureSetDefault maximumEdition that isn't supported by the library.")
     let registry = self.registry
     self.files = protos.map {
       return FileDescriptor(proto: $0,
