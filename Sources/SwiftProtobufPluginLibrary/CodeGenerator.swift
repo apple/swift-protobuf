@@ -47,6 +47,11 @@ public protocol CodeGenerator {
   /// the protocol buffer compiler.
   var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] { get }
 
+  /// The Protobuf Edition range that this generator can handle. Attempting
+  /// to generate for an Edition outside this range will cause protoc to
+  /// error.
+  var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> { get }
+
   /// If provided, the argument parsing will support `--version` and report
   /// this value.
   var version: String? { get }
@@ -139,6 +144,11 @@ extension CodeGenerator {
 // Provide default implementation for things so `CodeGenerator`s only have to
 // provide them if they wish too.
 extension CodeGenerator {
+  public var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
+    // Default impl of unknown so generator don't have to provide this until
+    // they support editions.
+    return Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
+  }
   public var version: String? { return nil }
   public var projectURL: String? { return nil }
   public var copyrightLine: String? { return nil }
@@ -176,7 +186,7 @@ public func generateCode(
   request: Google_Protobuf_Compiler_CodeGeneratorRequest,
   generator: any CodeGenerator
 ) -> Google_Protobuf_Compiler_CodeGeneratorResponse {
-  // TODO: This will need update to support editions and language specific features.
+  // TODO: This will need update to language specific features.
 
   let descriptorSet = DescriptorSet(protos: request.protoFile)
 
@@ -205,14 +215,29 @@ public func generateCode(
 
   var response = Google_Protobuf_Compiler_CodeGeneratorResponse()
   response.file = outputs.files
-  // TODO: Some of the supported features are completely handled within the
-  // Plugin library (optional, eventually editions), should we drop
-  // `supportedFeature` and just set it or move to a model where we default
-  // them with a way to override?  (although it's not clear why some of them
-  // wouldn't be supported)
+
+  // TODO: Could supportedFeatures be completely handled within library?
+  // - The only "hard" part around hiding the proto3 optional support is making
+  //   sure the oneof index related bits aren't leaked from FieldDescriptors.
+  //   Otherwise the oneof related apis could likely take over the "realOneof"
+  //   jobs and just never vend the synthetic information.
+  // - The editions support bit likely could be computed based on the values
+  //   `supportedEditionRange` having been overridden.
   let supportedFeatures = generator.supportedFeatures
   response.supportedFeatures = supportedFeatures.reduce(0) { $0 | UInt64($1.rawValue) }
-  // TODO: Auto provide the edition min/max.
+
+  if supportedFeatures.contains(.supportsEditions) {
+    let supportedEditions = generator.supportedEditionRange
+    precondition(supportedEditions.upperBound != .unknown,
+                 "For a CodeGenerator to support Editions, it must override `supportedEditionRange`")
+    precondition(DescriptorSet.bundledEditionsSupport.contains(supportedEditions.lowerBound),
+                 "A CodeGenerator can't claim to support an Edition before what the library supports: \(supportedEditions.lowerBound) vs \(DescriptorSet.bundledEditionsSupport)")
+    precondition(DescriptorSet.bundledEditionsSupport.contains(supportedEditions.upperBound),
+                 "A CodeGenerator can't claim to support an Edition after what the library supports: \(supportedEditions.upperBound) vs \(DescriptorSet.bundledEditionsSupport)")
+    response.minimumEdition = Int32(supportedEditions.lowerBound.rawValue)
+    response.maximumEdition = Int32(supportedEditions.upperBound.rawValue)
+  }
+
   return response
 }
 
