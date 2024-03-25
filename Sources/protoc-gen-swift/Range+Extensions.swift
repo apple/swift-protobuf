@@ -50,7 +50,7 @@ extension Array where Element == Range<Int32> {
   /// This expression list is suitable as a pattern match in a `case`
   /// statement. For example, `"case 5..<10, 15, 20..<30:"`.
   ///
-  /// - Returns: A `String` containing the comma-delimted expressions.
+  /// - Returns: A `String` containing the comma-delimited expressions.
   var swiftCaseExpression: String {
     return map { $0.swiftCaseExpression }.joined(separator: ", ")
   }

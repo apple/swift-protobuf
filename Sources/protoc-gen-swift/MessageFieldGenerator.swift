@@ -204,7 +204,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             conditional = "let v = \(storedProperty)"
             usesLocals = true
         } else {
-            // At this point, the fields would be a primative type, and should only
+            // At this point, the fields would be a primitive type, and should only
             // be visted if it is the non default value.
             switch fieldDescriptor.type {
             case .string, .bytes:

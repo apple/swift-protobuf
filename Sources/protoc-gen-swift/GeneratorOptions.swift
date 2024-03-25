@@ -163,10 +163,10 @@ class GeneratorOptions {
     //    - foo.pb.swift from foo.proto generated with "public" visibility.
     //    module Two:
     //    - bar.pb.swift from bar.proto (which does `import foo.proto`)
-    //      generated with "internal" visiblity.
+    //      generated with "internal" visibility.
     //
     // Since this support is possible/valid, there's no good way a "bad" case
-    // (i.e. - if foo.pb.swift was generated with "internal" visiblity). So
+    // (i.e. - if foo.pb.swift was generated with "internal" visibility). So
     // no options validation here, and instead developers would have to figure
     // this out via the compiler errors around missing type (when bar.pb.swift
     // gets unknown reference for thing that should be in module One via

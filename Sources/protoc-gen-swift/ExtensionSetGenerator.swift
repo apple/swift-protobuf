@@ -156,7 +156,7 @@ class ExtensionSetGenerator {
 
             // MARK: - Extension Properties
 
-            // Swift Extensions on the exteneded Messages to add easy access to the declared
+            // Swift Extensions on the extended Messages to add easy access to the declared
             // extension fields. The names are based on the extension field name from the proto
             // declaration. To avoid naming collisions, the names are prefixed with the name of
             // the scope where the extend directive occurs.
@@ -206,17 +206,17 @@ class ExtensionSetGenerator {
         guard !extensions.isEmpty else { return }
 
         let pathParts = splitPath(pathname: fileDescriptor.name)
-        let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
+        let filenameAsIdentifier = NamingUtils.toUpperCamelCase(pathParts.base)
         let filePrefix = namer.typePrefix(forFile: fileDescriptor)
         p.print("""
 
-          // MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifer)_Extensions
+          // MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifier)_Extensions
 
           /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
           /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
           /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
           /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-          \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(namer.swiftProtobufModulePrefix)SimpleExtensionMap = [
+          \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)SimpleExtensionMap = [
           """)
         p.withIndentation { p in
           let lastIndex = extensions.count - 1

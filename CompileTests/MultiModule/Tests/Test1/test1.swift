@@ -21,11 +21,11 @@ final class ExampleTests: XCTestCase {
       $0.e = .b
     }
     XCTAssertEqual(imports.a.e, imports.e)
-    let transtively = UsesATransitively.with {
+    let transitively = UsesATransitively.with {
       $0.a = anA
       $0.e = imports.e
     }
-    XCTAssertEqual(transtively.a, anA)
-    XCTAssertEqual(transtively.e, imports.e)
+    XCTAssertEqual(transitively.a, anA)
+    XCTAssertEqual(transitively.e, imports.e)
   }
 }

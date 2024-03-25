@@ -11,14 +11,14 @@
 import SwiftProtobufPluginLibrary
 
 // The file attempts to isolate the decisions around when to use heap based
-// storage vs. inlining it into the value times. At the moment the decicions
+// storage vs. inlining it into the value times. At the moment the decisions
 // are entirely based on field counts and language requires, but this could be
 // revised in the future to better account for the actually *real* memory
 // impacts.
 
-/// Wraps the calcuation of the "cost" of fields.
+/// Wraps the calculation of the "cost" of fields.
 ///
-/// As mentioned in the file comment, these numbers can be revised in the futute
+/// As mentioned in the file comment, these numbers can be revised in the future
 /// to compute a real stack/heap cost if desired.
 fileprivate enum FieldCost {
   /// Of a repeated field.
@@ -37,7 +37,7 @@ fileprivate enum FieldCost {
   /// Of a `bytes` field.
   static let singleBytes = 1
 
-  /// A single Message field where the message in question uses storgage.
+  /// A single Message field where the message in question uses storage.
   static let singleMessageFieldUsingStorage = 1
 
   static func estimate(_ field: FieldDescriptor) -> Int {
@@ -63,7 +63,7 @@ fileprivate enum FieldCost {
   }
 }
 
-/// Maxium computed cost of a Message's fields allow before it uses Storage.
+/// Maximum computed cost of a Message's fields allow before it uses Storage.
 fileprivate let totalFieldCostRequiringStorage = 17
 
 /// The result of analysis, if the message should use heap storage and the
@@ -195,7 +195,7 @@ fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
 /// Encapsulates the decision choices around when a Message should use
 /// heap based storage.
 enum MessageStorageDecision {
-  /// Compute if a message should use heap based sortage or not.
+  /// Compute if a message should use heap based storage or not.
   static func shouldUseHeapStorage(descriptor: Descriptor) -> Bool {
     return analyze(descriptor: descriptor).usesStorage
   }
