@@ -10,6 +10,7 @@
 		0353A1CE1E81623B00067996 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
 		0353A1CF1E81624F00067996 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
 		0353A1D01E81625400067996 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
+		069F91BB2BA97DE400342FCE /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
 		6583D6E4246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */; };
 		6583D6E5246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */; };
 		6583D6E6246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */; };
@@ -125,9 +126,7 @@
 		9C84E4961E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48D1E5E3ABD00513BE0 /* JSONEncodingError.swift */; };
 		9C8CDA171D7A288E00E207CA /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */; };
 		9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
-		9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
 		9C8CDA201D7A28F600E207CA /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */; };
-		9C8CDA211D7A28F600E207CA /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
 		9C8CDA231D7A28F600E207CA /* Test_AllTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes.swift /* Test_AllTypes.swift */; };
 		9C8CDA241D7A28F600E207CA /* Test_AllTypes_Proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_AllTypes_Proto3.swift /* Test_AllTypes_Proto3.swift */; };
 		9C8CDA251D7A28F600E207CA /* Test_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Any.swift /* Test_Any.swift */; };
@@ -158,26 +157,13 @@
 		9C8CDA411D7A28F600E207CA /* Test_Unknown_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift */; };
 		9C8CDA421D7A28F600E207CA /* Test_Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift */; };
 		9C8CDA431D7A28F600E207CA /* unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift */; };
-		9C8CDA441D7A28F600E207CA /* unittest_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift */; };
-		9C8CDA451D7A28F600E207CA /* unittest_custom_options.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift */; };
-		9C8CDA461D7A28F600E207CA /* unittest_drop_unknown_fields.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift */; };
-		9C8CDA471D7A28F600E207CA /* unittest_embed_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift */; };
-		9C8CDA481D7A28F600E207CA /* unittest_empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift */; };
 		9C8CDA491D7A28F600E207CA /* unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift */; };
-		9C8CDA4A1D7A28F600E207CA /* unittest_import_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift */; };
 		9C8CDA4C1D7A28F600E207CA /* unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift */; };
-		9C8CDA4D1D7A28F600E207CA /* unittest_import_public_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift */; };
-		9C8CDA4F1D7A28F600E207CA /* unittest_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */; };
-		9C8CDA501D7A28F600E207CA /* unittest_lite_imports_nonlite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */; };
 		9C8CDA511D7A28F600E207CA /* unittest_mset.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */; };
 		9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */; };
-		9C8CDA561D7A28F600E207CA /* unittest_no_field_presence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */; };
-		9C8CDA571D7A28F600E207CA /* unittest_no_generic_services.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */; };
-		9C8CDA581D7A28F600E207CA /* unittest_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */; };
 		9C8CDA591D7A28F600E207CA /* unittest_preserve_unknown_enum.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift */; };
 		9C8CDA5A1D7A28F600E207CA /* unittest_preserve_unknown_enum2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift */; };
 		9C8CDA5B1D7A28F600E207CA /* unittest_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift */; };
-		9C8CDA5C1D7A28F600E207CA /* unittest_proto3_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift */; };
 		9C8CDA5D1D7A28F600E207CA /* unittest_swift_all_required_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift */; };
 		9C8CDA5E1D7A28F600E207CA /* unittest_swift_cycle.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_cycle.pb.swift /* unittest_swift_cycle.pb.swift */; };
 		9C8CDA5F1D7A28F600E207CA /* unittest_swift_enum.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_enum.pb.swift /* unittest_swift_enum.pb.swift */; };
@@ -186,7 +172,6 @@
 		9C8CDA621D7A28F600E207CA /* unittest_swift_fieldorder.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift */; };
 		9C8CDA631D7A28F600E207CA /* unittest_swift_groups.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift */; };
 		9C8CDA641D7A28F600E207CA /* unittest_swift_naming.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift */; };
-		9C8CDA651D7A28F600E207CA /* unittest_swift_performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift */; };
 		9C8CDA661D7A28F600E207CA /* unittest_swift_reserved.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift */; };
 		9C8CDA671D7A28F600E207CA /* unittest_swift_runtime_proto2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift */; };
 		9C8CDA681D7A28F600E207CA /* unittest_swift_runtime_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */; };
@@ -387,7 +372,6 @@
 		F44F939A1DAEA76700BC5B85 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
 		F44F93A41DAEA7C500BC5B85 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */; };
 		F44F93AA1DAEA8C900BC5B85 /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
-		F44F93AB1DAEA8C900BC5B85 /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
 		F44F93AD1DAEA8C900BC5B85 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */; };
 		F44F93AF1DAEA8C900BC5B85 /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
 		F44F93B01DAEA8C900BC5B85 /* Message+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift */; };
@@ -420,25 +404,12 @@
 		F44F93CE1DAEA8C900BC5B85 /* Test_Unknown_proto2.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto2.swift /* Test_Unknown_proto2.swift */; };
 		F44F93CF1DAEA8C900BC5B85 /* Test_Unknown_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift */; };
 		F44F93D01DAEA8C900BC5B85 /* Test_Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift */; };
-		F44F93D11DAEA8C900BC5B85 /* unittest_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift */; };
-		F44F93D21DAEA8C900BC5B85 /* unittest_custom_options.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift */; };
-		F44F93D31DAEA8C900BC5B85 /* unittest_drop_unknown_fields.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift */; };
-		F44F93D41DAEA8C900BC5B85 /* unittest_embed_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift */; };
-		F44F93D51DAEA8C900BC5B85 /* unittest_empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift */; };
-		F44F93D61DAEA8C900BC5B85 /* unittest_import_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift */; };
-		F44F93D81DAEA8C900BC5B85 /* unittest_import_public_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift */; };
 		F44F93DA1DAEA8C900BC5B85 /* unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift */; };
 		F44F93DB1DAEA8C900BC5B85 /* unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift */; };
-		F44F93DC1DAEA8C900BC5B85 /* unittest_lite_imports_nonlite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */; };
-		F44F93DD1DAEA8C900BC5B85 /* unittest_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */; };
 		F44F93DE1DAEA8C900BC5B85 /* unittest_mset_wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */; };
 		F44F93DF1DAEA8C900BC5B85 /* unittest_mset.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */; };
-		F44F93E31DAEA8C900BC5B85 /* unittest_no_field_presence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */; };
-		F44F93E41DAEA8C900BC5B85 /* unittest_no_generic_services.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */; };
-		F44F93E51DAEA8C900BC5B85 /* unittest_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */; };
 		F44F93E61DAEA8C900BC5B85 /* unittest_preserve_unknown_enum.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift */; };
 		F44F93E71DAEA8C900BC5B85 /* unittest_preserve_unknown_enum2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift */; };
-		F44F93E81DAEA8C900BC5B85 /* unittest_proto3_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift */; };
 		F44F93E91DAEA8C900BC5B85 /* unittest_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift */; };
 		F44F93EA1DAEA8C900BC5B85 /* unittest_swift_all_required_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift */; };
 		F44F93EB1DAEA8C900BC5B85 /* unittest_swift_cycle.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_cycle.pb.swift /* unittest_swift_cycle.pb.swift */; };
@@ -448,7 +419,6 @@
 		F44F93EF1DAEA8C900BC5B85 /* unittest_swift_fieldorder.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift */; };
 		F44F93F01DAEA8C900BC5B85 /* unittest_swift_groups.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift */; };
 		F44F93F11DAEA8C900BC5B85 /* unittest_swift_naming.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift */; };
-		F44F93F21DAEA8C900BC5B85 /* unittest_swift_performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift */; };
 		F44F93F31DAEA8C900BC5B85 /* unittest_swift_reserved.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift */; };
 		F44F93F41DAEA8C900BC5B85 /* unittest_swift_runtime_proto2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift */; };
 		F44F93F51DAEA8C900BC5B85 /* unittest_swift_runtime_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */; };
@@ -664,29 +634,15 @@
 		__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_cycle.pb.swift /* unittest_swift_cycle.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_cycle.pb.swift /* unittest_swift_cycle.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_enum.pb.swift /* unittest_swift_enum.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_enum.pb.swift /* unittest_swift_enum.pb.swift */; };
@@ -695,7 +651,6 @@
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */; };
@@ -909,29 +864,15 @@
 		__PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Unknown_proto3.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Wrappers.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = any_test.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conformance.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = map_unittest.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_arena.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_custom_options.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_drop_unknown_fields.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_embed_optimize_for.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_empty.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_import.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_import_lite.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_import_public.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_import_public_lite.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_lite.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_lite_imports_nonlite.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_mset.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_mset_wire_format.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_field_presence.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_generic_services.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_optimize_for.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_preserve_unknown_enum.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_preserve_unknown_enum2.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_proto3.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_proto3_arena.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_all_required_types.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_cycle.pb.swift /* unittest_swift_cycle.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_cycle.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_enum.pb.swift /* unittest_swift_enum.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_enum.pb.swift; sourceTree = "<group>"; };
@@ -940,7 +881,6 @@
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_fieldorder.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_groups.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_naming.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_performance.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_reserved.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_runtime_proto2.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto3.pb.swift /* unittest_swift_runtime_proto3.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_swift_runtime_proto3.pb.swift; sourceTree = "<group>"; };
@@ -1130,7 +1070,6 @@
 			children = (
 				F406A59C2AF146A200C84497 /* Test_BinaryEncodingOptions.swift */,
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */,
 				F451075723A2B9B500488257 /* Data+TestHelpers.swift */,
 				F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */,
 				9CC8CAA81EC512A0008EF45F /* generated_swift_names_enum_cases.pb.swift */,
@@ -1199,25 +1138,12 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift */,
 				__PBXFileRef_Tests/ProtobufTests/TestHelpers.swift /* TestHelpers.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift */,
 				F47C42B42437A3C700C08579 /* unittest_proto3_optional.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift */,
@@ -1237,7 +1163,6 @@
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift */,
 				F4C3A96F1E969F79006BB610 /* unittest_swift_oneof_all_required.pb.swift */,
 				F4584D391ECA4FB400803AB6 /* unittest_swift_oneof_merging.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift */,
 				F482B6771E856D1700A25EF8 /* unittest_swift_reserved_ext.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_runtime_proto2.pb.swift /* unittest_swift_runtime_proto2.pb.swift */,
@@ -1437,14 +1362,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				069F91BB2BA97DE400342FCE /* map_unittest.pb.swift in Sources */,
 				F4151F671EF3197200EEA00B /* Test_SimpleExtensionMap.swift in Sources */,
 				F4CECDDF262A1442008B05BC /* Test_TextFormatDecodingOptions.swift in Sources */,
 				F47CF9A223E88DD000C7B24C /* unittest_swift_naming_number_prefix.pb.swift in Sources */,
 				9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */,
 				8037FC962507E4F4003B7FAC /* unittest_swift_json.pb.swift in Sources */,
 				F40D33EB2017ED2200ABAF0F /* unittest_swift_enum_proto3.pb.swift in Sources */,
-				9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */,
-				9C8CDA211D7A28F600E207CA /* map_unittest.pb.swift in Sources */,
 				AAEA52211DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift in Sources */,
 				AAE0F4E01E6A3886005240E0 /* Test_EnumWithAliases.swift in Sources */,
 				F4C3A9721E96A08F006BB610 /* unittest_swift_oneof_all_required.pb.swift in Sources */,
@@ -1503,22 +1427,13 @@
 				9C8CDA411D7A28F600E207CA /* Test_Unknown_proto3.swift in Sources */,
 				9C8CDA421D7A28F600E207CA /* Test_Wrappers.swift in Sources */,
 				9C8CDA431D7A28F600E207CA /* unittest.pb.swift in Sources */,
-				9C8CDA441D7A28F600E207CA /* unittest_arena.pb.swift in Sources */,
 				F48FDD271E4D18060061D5C1 /* Test_TextFormat_proto2_extensions.swift in Sources */,
 				F430B11D262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */,
-				9C8CDA451D7A28F600E207CA /* unittest_custom_options.pb.swift in Sources */,
-				9C8CDA461D7A28F600E207CA /* unittest_drop_unknown_fields.pb.swift in Sources */,
-				9C8CDA471D7A28F600E207CA /* unittest_embed_optimize_for.pb.swift in Sources */,
-				9C8CDA481D7A28F600E207CA /* unittest_empty.pb.swift in Sources */,
 				F411FEAD1EDDDC61001AE6B2 /* Test_BinaryDecodingOptions.swift in Sources */,
 				9C8CDA491D7A28F600E207CA /* unittest_import.pb.swift in Sources */,
-				9C8CDA4A1D7A28F600E207CA /* unittest_import_lite.pb.swift in Sources */,
 				AA3640971E60EBB0000C3CF4 /* Test_Merge.swift in Sources */,
 				F45D73FE1EE9984B00E0A231 /* Test_MessageSet.swift in Sources */,
 				9C8CDA4C1D7A28F600E207CA /* unittest_import_public.pb.swift in Sources */,
-				9C8CDA4D1D7A28F600E207CA /* unittest_import_public_lite.pb.swift in Sources */,
-				9C8CDA4F1D7A28F600E207CA /* unittest_lite.pb.swift in Sources */,
-				9C8CDA501D7A28F600E207CA /* unittest_lite_imports_nonlite.pb.swift in Sources */,
 				9C8CDA511D7A28F600E207CA /* unittest_mset.pb.swift in Sources */,
 				F4D3154A1DEC811B005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
 				F4584D3C1ECA4FC700803AB6 /* unittest_swift_oneof_merging.pb.swift in Sources */,
@@ -1527,13 +1442,9 @@
 				F4A07B2D1E4A3E630035678A /* test_messages_proto3.pb.swift in Sources */,
 				9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */,
 				F47C42B62437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
-				9C8CDA561D7A28F600E207CA /* unittest_no_field_presence.pb.swift in Sources */,
 				F47C42C32437A73000C08579 /* Test_AllTypes_Proto3_Optional.swift in Sources */,
-				9C8CDA571D7A28F600E207CA /* unittest_no_generic_services.pb.swift in Sources */,
-				9C8CDA581D7A28F600E207CA /* unittest_optimize_for.pb.swift in Sources */,
 				9C8CDA591D7A28F600E207CA /* unittest_preserve_unknown_enum.pb.swift in Sources */,
 				9C8CDA5A1D7A28F600E207CA /* unittest_preserve_unknown_enum2.pb.swift in Sources */,
-				9C8CDA5C1D7A28F600E207CA /* unittest_proto3_arena.pb.swift in Sources */,
 				9C8CDA5B1D7A28F600E207CA /* unittest_proto3.pb.swift in Sources */,
 				9C8CDA5D1D7A28F600E207CA /* unittest_swift_all_required_types.pb.swift in Sources */,
 				9C8CDA5E1D7A28F600E207CA /* unittest_swift_cycle.pb.swift in Sources */,
@@ -1545,7 +1456,6 @@
 				9C8CDA601D7A28F600E207CA /* unittest_swift_enum_optional_default.pb.swift in Sources */,
 				9C8CDA621D7A28F600E207CA /* unittest_swift_fieldorder.pb.swift in Sources */,
 				9C8CDA631D7A28F600E207CA /* unittest_swift_groups.pb.swift in Sources */,
-				9C8CDA651D7A28F600E207CA /* unittest_swift_performance.pb.swift in Sources */,
 				F4618B652154245600E5FABA /* Test_JSONEncodingOptions.swift in Sources */,
 				9C8CDA661D7A28F600E207CA /* unittest_swift_reserved.pb.swift in Sources */,
 				F482B67A1E856D2700A25EF8 /* unittest_swift_reserved_ext.pb.swift in Sources */,
@@ -1751,7 +1661,6 @@
 				__src_cc_ref_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift in Sources */,
 				8037FC952507E4F4003B7FAC /* unittest_swift_json.pb.swift in Sources */,
 				F40D33EA2017ED2100ABAF0F /* unittest_swift_enum_proto3.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/map_unittest.pb.swift /* map_unittest.pb.swift in Sources */,
 				AAEA52201DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift in Sources */,
 				AAE0F4DF1E6A3886005240E0 /* Test_EnumWithAliases.swift in Sources */,
@@ -1811,36 +1720,23 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Unknown_proto3.swift /* Test_Unknown_proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Wrappers.swift /* Test_Wrappers.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift in Sources */,
 				F430B11C262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift in Sources */,
 				F4A07B2C1E4A3E620035678A /* test_messages_proto3.pb.swift in Sources */,
 				F411FEAC1EDDDC61001AE6B2 /* Test_BinaryDecodingOptions.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import.pb.swift /* unittest_import.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift in Sources */,
 				AA3640961E60EBB0000C3CF4 /* Test_Merge.swift in Sources */,
 				F45D73FD1EE9984A00E0A231 /* Test_MessageSet.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */,
 				F4584D3B1ECA4FC600803AB6 /* unittest_swift_oneof_merging.pb.swift in Sources */,
 				9C60CBE81DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
 				F406A59D2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */,
 				F47C42B52437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift in Sources */,
 				F47C42C22437A73000C08579 /* Test_AllTypes_Proto3_Optional.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_preserve_unknown_enum.pb.swift /* unittest_preserve_unknown_enum.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_preserve_unknown_enum2.pb.swift /* unittest_preserve_unknown_enum2.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_proto3.pb.swift /* unittest_proto3.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_proto3_arena.pb.swift /* unittest_proto3_arena.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_all_required_types.pb.swift /* unittest_swift_all_required_types.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_cycle.pb.swift /* unittest_swift_cycle.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_enum.pb.swift /* unittest_swift_enum.pb.swift in Sources */,
@@ -1853,7 +1749,6 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_naming.pb.swift /* unittest_swift_naming.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_swift_performance.pb.swift /* unittest_swift_performance.pb.swift in Sources */,
 				F4618B642154245600E5FABA /* Test_JSONEncodingOptions.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_swift_reserved.pb.swift /* unittest_swift_reserved.pb.swift in Sources */,
 				F482B6791E856D2600A25EF8 /* unittest_swift_reserved_ext.pb.swift in Sources */,
@@ -1968,44 +1863,36 @@
 				8037FC972507E4F4003B7FAC /* unittest_swift_json.pb.swift in Sources */,
 				F40D33EC2017ED2300ABAF0F /* unittest_swift_enum_proto3.pb.swift in Sources */,
 				F44F93C21DAEA8C900BC5B85 /* Test_Map_JSON.swift in Sources */,
-				F44F93DD1DAEA8C900BC5B85 /* unittest_lite.pb.swift in Sources */,
 				F44F93B31DAEA8C900BC5B85 /* Test_Any.swift in Sources */,
 				F44F93B71DAEA8C900BC5B85 /* Test_Duration.swift in Sources */,
 				AAE0F4E11E6A3886005240E0 /* Test_EnumWithAliases.swift in Sources */,
 				F4C3A9731E96A090006BB610 /* unittest_swift_oneof_all_required.pb.swift in Sources */,
 				F44F93DF1DAEA8C900BC5B85 /* unittest_mset.pb.swift in Sources */,
-				F44F93D51DAEA8C900BC5B85 /* unittest_empty.pb.swift in Sources */,
 				F44F93C11DAEA8C900BC5B85 /* Test_JSON.swift in Sources */,
 				F482B6951E857BC200A25EF8 /* unittest_swift_naming_no_prefix.pb.swift in Sources */,
 				9CCD5F951E008203002D1940 /* Test_TextFormat_WKT_proto3.swift in Sources */,
 				F44F93EB1DAEA8C900BC5B85 /* unittest_swift_cycle.pb.swift in Sources */,
 				F44F93C81DAEA8C900BC5B85 /* Test_RecursiveMap.swift in Sources */,
 				9CC8CAB41EC512A0008EF45F /* generated_swift_names_fields.pb.swift in Sources */,
-				F44F93D81DAEA8C900BC5B85 /* unittest_import_public_lite.pb.swift in Sources */,
 				6583D6E6246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */,
 				F4151F791EFAD85C00EEA00B /* Test_BinaryDelimited.swift in Sources */,
 				F44F93B81DAEA8C900BC5B85 /* Test_Empty.swift in Sources */,
 				F44F93B11DAEA8C900BC5B85 /* Test_AllTypes_Proto3.swift in Sources */,
 				F44F94451DBFE0C000BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
-				F44F93DC1DAEA8C900BC5B85 /* unittest_lite_imports_nonlite.pb.swift in Sources */,
 				F44F93F01DAEA8C900BC5B85 /* unittest_swift_groups.pb.swift in Sources */,
 				F44F93EE1DAEA8C900BC5B85 /* unittest_swift_extension.pb.swift in Sources */,
-				F44F93D31DAEA8C900BC5B85 /* unittest_drop_unknown_fields.pb.swift in Sources */,
 				F44F93BA1DAEA8C900BC5B85 /* Test_Extensions.swift in Sources */,
 				F44F93B51DAEA8C900BC5B85 /* Test_Conformance.swift in Sources */,
 				F44F93E71DAEA8C900BC5B85 /* unittest_preserve_unknown_enum2.pb.swift in Sources */,
 				F44F93CD1DAEA8C900BC5B85 /* Test_Type.swift in Sources */,
 				9CC8CAB11EC512A0008EF45F /* generated_swift_names_enums.pb.swift in Sources */,
 				F4A1A8AF1E65E2F10022E078 /* map_proto2_unittest.pb.swift in Sources */,
-				F44F93AB1DAEA8C900BC5B85 /* conformance.pb.swift in Sources */,
-				F44F93E31DAEA8C900BC5B85 /* unittest_no_field_presence.pb.swift in Sources */,
 				F44F93AA1DAEA8C900BC5B85 /* any_test.pb.swift in Sources */,
 				F44F93AF1DAEA8C900BC5B85 /* map_unittest.pb.swift in Sources */,
 				F44F93C91DAEA8C900BC5B85 /* Test_Required.swift in Sources */,
 				F4584DB61EDDCA8900803AB6 /* Test_JSONDecodingOptions.swift in Sources */,
 				F4F4F11A1E5633EA006C6CAD /* Test_Naming.swift in Sources */,
 				9CC8CAB71EC512A0008EF45F /* generated_swift_names_messages.pb.swift in Sources */,
-				F44F93D11DAEA8C900BC5B85 /* unittest_arena.pb.swift in Sources */,
 				F451075A23A2B9B500488257 /* Data+TestHelpers.swift in Sources */,
 				F44F93EC1DAEA8C900BC5B85 /* unittest_swift_enum_optional_default.pb.swift in Sources */,
 				F4539D281E688B050076251F /* Test_GroupWithGroups.swift in Sources */,
@@ -2014,16 +1901,12 @@
 				9C60CBEE1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
 				F44F93F81DAEA8C900BC5B85 /* unittest.pb.swift in Sources */,
 				F430B121262764D400C9EE2A /* Test_FuzzTests.swift in Sources */,
-				F44F93E81DAEA8C900BC5B85 /* unittest_proto3_arena.pb.swift in Sources */,
 				9C60CBEA1DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
-				F44F93F21DAEA8C900BC5B85 /* unittest_swift_performance.pb.swift in Sources */,
 				F44F93B41DAEA8C900BC5B85 /* Test_Api.swift in Sources */,
-				F44F93E41DAEA8C900BC5B85 /* unittest_no_generic_services.pb.swift in Sources */,
 				F44F944A1DBFF18100BC5B85 /* Test_MapFields_Access_Proto2.swift in Sources */,
 				DB2E0AFC1EB24C7600F59319 /* Test_JSON_Array.swift in Sources */,
 				F44F93CF1DAEA8C900BC5B85 /* Test_Unknown_proto3.swift in Sources */,
 				F48FDD2A1E4D18080061D5C1 /* Test_TextFormat_proto3.swift in Sources */,
-				F44F93D61DAEA8C900BC5B85 /* unittest_import_lite.pb.swift in Sources */,
 				F44F93BE1DAEA8C900BC5B85 /* Test_JSON_Conformance.swift in Sources */,
 				F48FDD291E4D18080061D5C1 /* Test_TextFormat_proto2_extensions.swift in Sources */,
 				F44F93CA1DAEA8C900BC5B85 /* Test_Reserved.swift in Sources */,
@@ -2031,14 +1914,12 @@
 				F44F93E61DAEA8C900BC5B85 /* unittest_preserve_unknown_enum.pb.swift in Sources */,
 				F430B11E262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */,
 				F411FEAE1EDDDC62001AE6B2 /* Test_BinaryDecodingOptions.swift in Sources */,
-				F44F93E51DAEA8C900BC5B85 /* unittest_optimize_for.pb.swift in Sources */,
 				F44F943C1DBFBB7700BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F44F93DB1DAEA8C900BC5B85 /* unittest_import.pb.swift in Sources */,
 				AA3640981E60EBB0000C3CF4 /* Test_Merge.swift in Sources */,
 				F45D73FF1EE9984C00E0A231 /* Test_MessageSet.swift in Sources */,
 				F44F93BC1DAEA8C900BC5B85 /* Test_FieldMask.swift in Sources */,
 				F4D3154C1DEC811C005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
-				F44F93D41DAEA8C900BC5B85 /* unittest_embed_optimize_for.pb.swift in Sources */,
 				F44F93C31DAEA8C900BC5B85 /* Test_Map.swift in Sources */,
 				F44F93F71DAEA8C900BC5B85 /* unittest_well_known_types.pb.swift in Sources */,
 				F44F93D01DAEA8C900BC5B85 /* Test_Wrappers.swift in Sources */,
@@ -2064,7 +1945,6 @@
 				F44F93C51DAEA8C900BC5B85 /* Test_ParsingMerge.swift in Sources */,
 				9C7254681E5F9B1600486C98 /* Test_TextFormat_Unknown.swift in Sources */,
 				F44F93E91DAEA8C900BC5B85 /* unittest_proto3.pb.swift in Sources */,
-				F44F93D21DAEA8C900BC5B85 /* unittest_custom_options.pb.swift in Sources */,
 				F44F93B91DAEA8C900BC5B85 /* Test_Enum.swift in Sources */,
 				F44F93DE1DAEA8C900BC5B85 /* unittest_mset_wire_format.pb.swift in Sources */,
 				F44F93CB1DAEA8C900BC5B85 /* Test_Struct.swift in Sources */,
