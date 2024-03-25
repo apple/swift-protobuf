@@ -10,7 +10,7 @@
 
 import XCTest
 import SwiftProtobuf
-import SwiftProtobufPluginLibrary
+@testable import SwiftProtobufPluginLibrary
 
 final class Test_Descriptor: XCTestCase {
 

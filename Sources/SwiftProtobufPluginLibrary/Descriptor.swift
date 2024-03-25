@@ -575,7 +575,7 @@ public final class EnumDescriptor {
   /// - The first value (i.e., the default) may be nonzero.
   public var isClosed: Bool {
     // Implementation comes from C++ EnumDescriptor::is_closed().
-    return file.edition != .proto3
+    return features.enumType == .closed
   }
 
   // Storage for `file`, will be set by bind()
@@ -678,7 +678,7 @@ public final class OneofDescriptor {
 
   /// Returns whether this oneof was inserted by the compiler to wrap a proto3
   /// optional field. If this returns true, code generators should *not* emit it.
-  public var isSynthetic: Bool {
+  var isSynthetic: Bool {
     return fields.count == 1 && fields.first!.proto3Optional
   }
 
@@ -767,7 +767,10 @@ public final class FieldDescriptor {
   /// Shorthand for `label` == `.required`.
   ///
   /// NOTE: This could also be a map as the are also repeated fields.
-  public var isRequired: Bool { return label == .required }
+  public var isRequired: Bool {
+    // Implementation comes from FieldDescriptor::is_required()
+    return features.fieldPresence == .legacyRequired
+  }
   /// Shorthand for `label` == `.optional`
   public var isOptional: Bool { return label == .optional }
   /// Shorthand for `label` == `.repeated`
@@ -778,20 +781,11 @@ public final class FieldDescriptor {
     // This logic comes from the C++ FieldDescriptor::is_packable() impl.
     return label == .repeated && FieldDescriptor.isPackable(type: type)
   }
-  /// Should this field be packed format.
+  /// If this field is packable and packed.
   public var isPacked: Bool {
     // This logic comes from the C++ FieldDescriptor::is_packed() impl.
-    // NOTE: It does not match what is in the C++ header for is_packed().
     guard isPackable else { return false }
-    // The C++ imp also checks if the `options_` are null, but that is only for
-    // their placeholder descriptor support, as once the FieldDescriptor is
-    // fully wired it gets a default FileOptions instance, rendering nullptr
-    // meaningless.
-    if file.edition == .proto2 {
-      return options.packed
-    } else {
-      return !options.hasPacked || options.packed
-    }
+    return features.repeatedFieldEncoding == .packed
   }
   /// True if this field is a map.
   public var isMap: Bool {
@@ -801,7 +795,7 @@ public final class FieldDescriptor {
 
   /// Returns true if this field was syntactically written with "optional" in the
   /// .proto file. Excludes singular proto3 fields that do not have a label.
-  public var hasOptionalKeyword: Bool {
+  var hasOptionalKeyword: Bool {
     // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
     // impl.
     return proto3Optional ||
@@ -820,8 +814,9 @@ public final class FieldDescriptor {
       // Groups/messages always get field presence.
       return true
     default:
-      return file.edition == .proto2 || oneofIndex != nil
+      break
     }
+    return isExtension || oneofIndex != nil || features.fieldPresence != .implicit
   }
 
   /// Returns true if this is a string field and should do UTF-8 validation.
@@ -835,7 +830,7 @@ public final class FieldDescriptor {
   /// languages have similar issues with their _string_ types and thus have the
   /// same issues.
   public var requiresUTF8Validation: Bool {
-    return type == .string && file.edition == .proto3
+    return type == .string && features.utf8Validation == .verify
   }
 
   /// Index of this field within the message's fields, or the file or
