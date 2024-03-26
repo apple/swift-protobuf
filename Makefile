@@ -576,7 +576,8 @@ test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_
 	$(CONFORMANCE_TEST_RUNNER) \
 	  --enforce_recommended \
 	  --failure_list Sources/Conformance/failure_list_swift.txt \
-	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt\
+	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt \
+	  --maximum_edition 2023 \
 	  $(SWIFT_CONFORMANCE_PLUGIN)
 
 # Validate the CocoaPods podspec file against the current tree state.
