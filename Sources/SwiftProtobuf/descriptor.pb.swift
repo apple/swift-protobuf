@@ -5022,7 +5022,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
       case 4: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self._messageEncoding) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jsonFormat) }()
-      case 1000..<1003, 9995..<10001:
+      case 1000..<1003, 9990, 9995..<10001:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FeatureSet.self, fieldNumber: fieldNumber) }()
       default: break
       }
