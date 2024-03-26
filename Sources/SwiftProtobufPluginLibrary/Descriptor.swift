@@ -989,7 +989,15 @@ public final class FieldDescriptor {
     } else {
       self.type = proto.type
     }
-    self.label = proto.label
+    // This remapping is based follow part of what upstream
+    // `DescriptorBuilder::PostProcessFieldFeatures()` does. If generators use
+    // helper instead of access `label` directly, they won't need this, but for
+    // consistency, remap `label` to expose the pre Editions/Features value.
+    if self.features.fieldPresence == .legacyRequired &&  proto.label == .optional {
+      self.label = .required
+    } else {
+      self.label = proto.label
+    }
     self.options = proto.options
     self.oneofIndex = proto.hasOneofIndex ? proto.oneofIndex : nil
     self.proto3Optional = proto.proto3Optional
