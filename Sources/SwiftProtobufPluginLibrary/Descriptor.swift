@@ -980,7 +980,15 @@ public final class FieldDescriptor {
     self.jsonName = proto.jsonName
     self.isExtension = isExtension
     self.number = proto.number
-    self.type = proto.type
+    // This remapping is based follow part of what upstream
+    // `DescriptorBuilder::PostProcessFieldFeatures()` does. It is needed to
+    // help ensure basic transforms from .proto2 to .edition2023 generate the
+    // same code/behaviors.
+    if proto.type == .message && self.features.messageEncoding == .delimited {
+      self.type = .group
+    } else {
+      self.type = proto.type
+    }
     self.label = proto.label
     self.options = proto.options
     self.oneofIndex = proto.hasOneofIndex ? proto.oneofIndex : nil
