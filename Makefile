@@ -519,11 +519,14 @@ check-for-protobuf-checkout:
 #
 update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/upstream
-	@mkdir -p Protos/upstream/conformance Protos/upstream/google/protobuf/compiler
+	@mkdir -p \
+	  Protos/upstream/conformance \
+	  Protos/upstream/google/protobuf/compiler \
+	  Protos/upstream/google/protobuf/editions/golden
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/upstream/conformance/
-	@mkdir -p Protos/upstream/google/protobuf/compiler
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/upstream/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/upstream/google/protobuf/compiler/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/editions/golden/test_messages_proto?_editions.proto Protos/upstream/google/protobuf/editions/golden/
 	# Now copy into the Proto directories for the local targets.
 	@rm -rf Protos/Conformance/conformance && mkdir -p Protos/Conformance/conformance
 	@cp -v Protos/upstream/conformance/*.proto Protos/Conformance/conformance
@@ -531,6 +534,8 @@ update-proto-files: check-for-protobuf-checkout
 	@cp -v \
 	  Protos/upstream/google/protobuf/test_messages_proto2.proto \
 	  Protos/upstream/google/protobuf/test_messages_proto3.proto \
+	  Protos/upstream/google/protobuf/editions/golden/test_messages_proto2_editions.proto \
+	  Protos/upstream/google/protobuf/editions/golden/test_messages_proto3_editions.proto \
 	  Protos/Conformance/google/protobuf/
 	@rm -rf Protos/SwiftProtobuf/google && mkdir -p Protos/SwiftProtobuf/google/protobuf
 	@cp -v \
