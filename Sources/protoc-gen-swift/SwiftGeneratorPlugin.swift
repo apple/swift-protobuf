@@ -47,8 +47,12 @@ struct SwiftGeneratorPlugin: CodeGenerator {
   }
 
   var supportedFeatures: [SwiftProtobufPluginLibrary.Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] = [
-    .proto3Optional,
+    .proto3Optional, .supportsEditions
   ]
+
+  var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
+    Google_Protobuf_Edition.proto2...Google_Protobuf_Edition.edition2023
+  }
 
   var version: String? { return "\(SwiftProtobuf.Version.versionString)" }
   var copyrightLine: String? { return "\(Version.copyright)" }
