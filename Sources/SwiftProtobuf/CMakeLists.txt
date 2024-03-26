@@ -26,6 +26,7 @@ add_library(SwiftProtobuf
   FieldTag.swift
   FieldTypes.swift
   field_mask.pb.swift
+  GetPathDecoder.swift
   Google_Protobuf_Any+Extensions.swift
   Google_Protobuf_Any+Registry.swift
   Google_Protobuf_Duration+Extensions.swift
@@ -50,6 +51,7 @@ add_library(SwiftProtobuf
   MathUtils.swift
   Message+AnyAdditions.swift
   Message+BinaryAdditions.swift
+  Message+FieldMask.swift
   Message+JSONAdditions.swift
   Message+JSONArrayAdditions.swift
   Message+TextFormatAdditions.swift
@@ -60,6 +62,7 @@ add_library(SwiftProtobuf
   ProtobufMap.swift
   ProtoNameProviding.swift
   SelectiveVisitor.swift
+  SetPathDecoder.swift
   SimpleExtensionMap.swift
   source_context.pb.swift
   StringUtils.swift
