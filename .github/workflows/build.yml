@@ -25,16 +25,20 @@ jobs:
         # seems better. This should also ensure protobuf caching changes with
         # each new image incase system in the Swift image are changed/updated.
         swift:
-        - 5.10.0-jammy
-        - 5.9.2-jammy
-        - 5.8.1-jammy
+        - version: 5.10.0-jammy
+          # No "hook", see https://github.com/apple/swift-protobuf/issues/1560 for the
+          # current issue with using -warnings-as-errors on linux.
+        - version: 5.9.2-jammy
+          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
+        - version: 5.8.1-jammy
+          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
     container:
-      image: swift:${{ matrix.swift }}
+      image: swift:${{ matrix.swift.version }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -59,17 +63,17 @@ jobs:
         esac
     - name: Build
       working-directory: main
-      run: make build "SWIFT_BUILD_TEST_HOOK=-Xswiftc -warnings-as-errors"
+      run: make build ${{ matrix.swift.hook }}
     - name: Test runtime
       working-directory: main
-      run: make test-runtime "SWIFT_BUILD_TEST_HOOK=-Xswiftc -warnings-as-errors"
+      run: make test-runtime ${{ matrix.swift.hook }}
     - name: Cache protobuf
       id: cache-protobuf
       uses: actions/cache@v3
       with:
         path: protobuf
         # NOTE: for refs that can float like 'main' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
+        key: ${{ runner.os }}-${{ matrix.swift.version}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       uses: actions/checkout@v4
