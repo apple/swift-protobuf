@@ -703,6 +703,15 @@ struct ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf.Ex
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
   mutating func clearData() {_uniqueStorage()._data = nil}
 
+  var multiWordGroupField: ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MultiWordGroupField {
+    get {return _storage._multiWordGroupField ?? ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MultiWordGroupField()}
+    set {_uniqueStorage()._multiWordGroupField = newValue}
+  }
+  /// Returns true if `multiWordGroupField` has been explicitly set.
+  var hasMultiWordGroupField: Bool {return _storage._multiWordGroupField != nil}
+  /// Clears the value of `multiWordGroupField`. Subsequent reads from it will return its default value.
+  mutating func clearMultiWordGroupField() {_uniqueStorage()._multiWordGroupField = nil}
+
   /// default values
   var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? -123456789}
@@ -1119,6 +1128,37 @@ struct ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf.Ex
     fileprivate var _groupUint32: UInt32? = nil
   }
 
+  struct MultiWordGroupField: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var groupInt32: Int32 {
+      get {return _groupInt32 ?? 0}
+      set {_groupInt32 = newValue}
+    }
+    /// Returns true if `groupInt32` has been explicitly set.
+    var hasGroupInt32: Bool {return self._groupInt32 != nil}
+    /// Clears the value of `groupInt32`. Subsequent reads from it will return its default value.
+    mutating func clearGroupInt32() {self._groupInt32 = nil}
+
+    var groupUint32: UInt32 {
+      get {return _groupUint32 ?? 0}
+      set {_groupUint32 = newValue}
+    }
+    /// Returns true if `groupUint32` has been explicitly set.
+    var hasGroupUint32: Bool {return self._groupUint32 != nil}
+    /// Clears the value of `groupUint32`. Subsequent reads from it will return its default value.
+    mutating func clearGroupUint32() {self._groupUint32 = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _groupInt32: Int32? = nil
+    fileprivate var _groupUint32: UInt32? = nil
+  }
+
   /// message_set test case.
   struct MessageSetCorrect: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1199,6 +1239,37 @@ struct ProtobufTestMessages_Editions_Proto2_ForeignMessageProto2: Sendable {
   init() {}
 
   fileprivate var _c: Int32? = nil
+}
+
+struct ProtobufTestMessages_Editions_Proto2_GroupField: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var groupInt32: Int32 {
+    get {return _groupInt32 ?? 0}
+    set {_groupInt32 = newValue}
+  }
+  /// Returns true if `groupInt32` has been explicitly set.
+  var hasGroupInt32: Bool {return self._groupInt32 != nil}
+  /// Clears the value of `groupInt32`. Subsequent reads from it will return its default value.
+  mutating func clearGroupInt32() {self._groupInt32 = nil}
+
+  var groupUint32: UInt32 {
+    get {return _groupUint32 ?? 0}
+    set {_groupUint32 = newValue}
+  }
+  /// Returns true if `groupUint32` has been explicitly set.
+  var hasGroupUint32: Bool {return self._groupUint32 != nil}
+  /// Clears the value of `groupUint32`. Subsequent reads from it will return its default value.
+  mutating func clearGroupUint32() {self._groupUint32 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _groupInt32: Int32? = nil
+  fileprivate var _groupUint32: UInt32? = nil
 }
 
 struct ProtobufTestMessages_Editions_Proto2_UnknownToTestAllTypes: Sendable {
@@ -1969,6 +2040,21 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2 {
   mutating func clearProtobufTestMessages_Editions_Proto2_extensionInt32() {
     clearExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_int32)
   }
+
+  var ProtobufTestMessages_Editions_Proto2_groupField: ProtobufTestMessages_Editions_Proto2_GroupField {
+    get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_GroupField) ?? ProtobufTestMessages_Editions_Proto2_GroupField()}
+    set {setExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_GroupField, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufTestMessages_Editions_Proto2_Extensions_GroupField`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Editions_Proto2_groupField: Bool {
+    return hasExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_GroupField)
+  }
+  /// Clears the value of extension `ProtobufTestMessages_Editions_Proto2_Extensions_GroupField`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Editions_Proto2_groupField() {
+    clearExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_GroupField)
+  }
 }
 
 extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrect {
@@ -2013,6 +2099,7 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorr
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufTestMessages_Editions_Proto2_TestMessagesProto2Editions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_Editions_Proto2_Extensions_extension_int32,
+  ProtobufTestMessages_Editions_Proto2_Extensions_GroupField,
   ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension,
   ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension,
   ProtobufTestMessages_Editions_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension,
@@ -2026,6 +2113,11 @@ let ProtobufTestMessages_Editions_Proto2_TestMessagesProto2Editions_Extensions: 
 let ProtobufTestMessages_Editions_Proto2_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2>(
   _protobuf_fieldNumber: 120,
   fieldName: "protobuf_test_messages.editions.proto2.extension_int32"
+)
+
+let ProtobufTestMessages_Editions_Proto2_Extensions_GroupField = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufTestMessages_Editions_Proto2_GroupField>, ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2>(
+  _protobuf_fieldNumber: 121,
+  fieldName: "protobuf_test_messages.editions.proto2.groupfield"
 )
 
 extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1 {
@@ -2179,6 +2271,7 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf
     118: .standard(proto: "oneof_double"),
     119: .standard(proto: "oneof_enum"),
     201: .unique(proto: "Data", json: "data"),
+    204: .unique(proto: "MultiWordGroupField", json: "multiwordgroupfield"),
     241: .standard(proto: "default_int32"),
     242: .standard(proto: "default_int64"),
     243: .standard(proto: "default_uint32"),
@@ -2307,6 +2400,7 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf
     var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Editions_Proto2_ForeignEnumProto2> = [:]
     var _oneofField: ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.OneOf_OneofField?
     var _data: ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.DataMessage? = nil
+    var _multiWordGroupField: ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MultiWordGroupField? = nil
     var _defaultInt32: Int32? = nil
     var _defaultInt64: Int64? = nil
     var _defaultUint32: UInt32? = nil
@@ -2446,6 +2540,7 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf
       _mapStringForeignEnum = source._mapStringForeignEnum
       _oneofField = source._oneofField
       _data = source._data
+      _multiWordGroupField = source._multiWordGroupField
       _defaultInt32 = source._defaultInt32
       _defaultInt64 = source._defaultInt64
       _defaultUint32 = source._defaultUint32
@@ -2677,6 +2772,7 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf
           }
         }()
         case 201: try { try decoder.decodeSingularGroupField(value: &_storage._data) }()
+        case 204: try { try decoder.decodeSingularGroupField(value: &_storage._multiWordGroupField) }()
         case 241: try { try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32) }()
         case 242: try { try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64) }()
         case 243: try { try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32) }()
@@ -3037,6 +3133,9 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf
       try { if let v = _storage._data {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 201)
       } }()
+      try { if let v = _storage._multiWordGroupField {
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 204)
+      } }()
       try { if let v = _storage._defaultInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
       } }()
@@ -3237,6 +3336,7 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf
         if _storage._mapStringForeignEnum != rhs_storage._mapStringForeignEnum {return false}
         if _storage._oneofField != rhs_storage._oneofField {return false}
         if _storage._data != rhs_storage._data {return false}
+        if _storage._multiWordGroupField != rhs_storage._multiWordGroupField {return false}
         if _storage._defaultInt32 != rhs_storage._defaultInt32 {return false}
         if _storage._defaultInt64 != rhs_storage._defaultInt64 {return false}
         if _storage._defaultUint32 != rhs_storage._defaultUint32 {return false}
@@ -3422,6 +3522,48 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.DataMessage: S
   }
 }
 
+extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MultiWordGroupField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.protoMessageName + ".MultiWordGroupField"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    205: .standard(proto: "group_int32"),
+    206: .standard(proto: "group_uint32"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 205: try { try decoder.decodeSingularInt32Field(value: &self._groupInt32) }()
+      case 206: try { try decoder.decodeSingularUInt32Field(value: &self._groupUint32) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupInt32 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 205)
+    } }()
+    try { if let v = self._groupUint32 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 206)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MultiWordGroupField, rhs: ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MultiWordGroupField) -> Bool {
+    if lhs._groupInt32 != rhs._groupInt32 {return false}
+    if lhs._groupUint32 != rhs._groupUint32 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.protoMessageName + ".MessageSetCorrect"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -3550,6 +3692,48 @@ extension ProtobufTestMessages_Editions_Proto2_ForeignMessageProto2: SwiftProtob
 
   static func ==(lhs: ProtobufTestMessages_Editions_Proto2_ForeignMessageProto2, rhs: ProtobufTestMessages_Editions_Proto2_ForeignMessageProto2) -> Bool {
     if lhs._c != rhs._c {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Editions_Proto2_GroupField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".GroupField"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    122: .standard(proto: "group_int32"),
+    123: .standard(proto: "group_uint32"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 122: try { try decoder.decodeSingularInt32Field(value: &self._groupInt32) }()
+      case 123: try { try decoder.decodeSingularUInt32Field(value: &self._groupUint32) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupInt32 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 122)
+    } }()
+    try { if let v = self._groupUint32 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 123)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Editions_Proto2_GroupField, rhs: ProtobufTestMessages_Editions_Proto2_GroupField) -> Bool {
+    if lhs._groupInt32 != rhs._groupInt32 {return false}
+    if lhs._groupUint32 != rhs._groupUint32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
