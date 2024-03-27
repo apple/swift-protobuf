@@ -27,6 +27,82 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+enum Pb_EnumFeature: SwiftProtobuf.Enum {
+  typealias RawValue = Int
+  case testEnumFeatureUnknown // = 0
+  case value1 // = 1
+  case value2 // = 2
+  case value3 // = 3
+  case value4 // = 4
+  case value5 // = 5
+  case value6 // = 6
+  case value7 // = 7
+  case value8 // = 8
+  case value9 // = 9
+  case value10 // = 10
+  case value11 // = 11
+  case value12 // = 12
+  case value13 // = 13
+  case value14 // = 14
+  case value15 // = 15
+
+  init() {
+    self = .testEnumFeatureUnknown
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .testEnumFeatureUnknown
+    case 1: self = .value1
+    case 2: self = .value2
+    case 3: self = .value3
+    case 4: self = .value4
+    case 5: self = .value5
+    case 6: self = .value6
+    case 7: self = .value7
+    case 8: self = .value8
+    case 9: self = .value9
+    case 10: self = .value10
+    case 11: self = .value11
+    case 12: self = .value12
+    case 13: self = .value13
+    case 14: self = .value14
+    case 15: self = .value15
+    default: return nil
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .testEnumFeatureUnknown: return 0
+    case .value1: return 1
+    case .value2: return 2
+    case .value3: return 3
+    case .value4: return 4
+    case .value5: return 5
+    case .value6: return 6
+    case .value7: return 7
+    case .value8: return 8
+    case .value9: return 9
+    case .value10: return 10
+    case .value11: return 11
+    case .value12: return 12
+    case .value13: return 13
+    case .value14: return 14
+    case .value15: return 15
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Pb_EnumFeature: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
+
 struct Pb_TestMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -52,260 +128,147 @@ struct Pb_TestFeatures {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var intFileFeature: Int32 {
-    get {return _storage._intFileFeature ?? 0}
-    set {_uniqueStorage()._intFileFeature = newValue}
+  var fileFeature: Pb_EnumFeature {
+    get {return _fileFeature ?? .testEnumFeatureUnknown}
+    set {_fileFeature = newValue}
   }
-  /// Returns true if `intFileFeature` has been explicitly set.
-  var hasIntFileFeature: Bool {return _storage._intFileFeature != nil}
-  /// Clears the value of `intFileFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntFileFeature() {_uniqueStorage()._intFileFeature = nil}
+  /// Returns true if `fileFeature` has been explicitly set.
+  var hasFileFeature: Bool {return self._fileFeature != nil}
+  /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
+  mutating func clearFileFeature() {self._fileFeature = nil}
 
-  var intExtensionRangeFeature: Int32 {
-    get {return _storage._intExtensionRangeFeature ?? 0}
-    set {_uniqueStorage()._intExtensionRangeFeature = newValue}
+  var extensionRangeFeature: Pb_EnumFeature {
+    get {return _extensionRangeFeature ?? .testEnumFeatureUnknown}
+    set {_extensionRangeFeature = newValue}
   }
-  /// Returns true if `intExtensionRangeFeature` has been explicitly set.
-  var hasIntExtensionRangeFeature: Bool {return _storage._intExtensionRangeFeature != nil}
-  /// Clears the value of `intExtensionRangeFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntExtensionRangeFeature() {_uniqueStorage()._intExtensionRangeFeature = nil}
+  /// Returns true if `extensionRangeFeature` has been explicitly set.
+  var hasExtensionRangeFeature: Bool {return self._extensionRangeFeature != nil}
+  /// Clears the value of `extensionRangeFeature`. Subsequent reads from it will return its default value.
+  mutating func clearExtensionRangeFeature() {self._extensionRangeFeature = nil}
 
-  var intMessageFeature: Int32 {
-    get {return _storage._intMessageFeature ?? 0}
-    set {_uniqueStorage()._intMessageFeature = newValue}
+  var messageFeature: Pb_EnumFeature {
+    get {return _messageFeature ?? .testEnumFeatureUnknown}
+    set {_messageFeature = newValue}
   }
-  /// Returns true if `intMessageFeature` has been explicitly set.
-  var hasIntMessageFeature: Bool {return _storage._intMessageFeature != nil}
-  /// Clears the value of `intMessageFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntMessageFeature() {_uniqueStorage()._intMessageFeature = nil}
+  /// Returns true if `messageFeature` has been explicitly set.
+  var hasMessageFeature: Bool {return self._messageFeature != nil}
+  /// Clears the value of `messageFeature`. Subsequent reads from it will return its default value.
+  mutating func clearMessageFeature() {self._messageFeature = nil}
 
-  var intFieldFeature: Int32 {
-    get {return _storage._intFieldFeature ?? 0}
-    set {_uniqueStorage()._intFieldFeature = newValue}
+  var fieldFeature: Pb_EnumFeature {
+    get {return _fieldFeature ?? .testEnumFeatureUnknown}
+    set {_fieldFeature = newValue}
   }
-  /// Returns true if `intFieldFeature` has been explicitly set.
-  var hasIntFieldFeature: Bool {return _storage._intFieldFeature != nil}
-  /// Clears the value of `intFieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntFieldFeature() {_uniqueStorage()._intFieldFeature = nil}
+  /// Returns true if `fieldFeature` has been explicitly set.
+  var hasFieldFeature: Bool {return self._fieldFeature != nil}
+  /// Clears the value of `fieldFeature`. Subsequent reads from it will return its default value.
+  mutating func clearFieldFeature() {self._fieldFeature = nil}
 
-  var intOneofFeature: Int32 {
-    get {return _storage._intOneofFeature ?? 0}
-    set {_uniqueStorage()._intOneofFeature = newValue}
+  var oneofFeature: Pb_EnumFeature {
+    get {return _oneofFeature ?? .testEnumFeatureUnknown}
+    set {_oneofFeature = newValue}
   }
-  /// Returns true if `intOneofFeature` has been explicitly set.
-  var hasIntOneofFeature: Bool {return _storage._intOneofFeature != nil}
-  /// Clears the value of `intOneofFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntOneofFeature() {_uniqueStorage()._intOneofFeature = nil}
+  /// Returns true if `oneofFeature` has been explicitly set.
+  var hasOneofFeature: Bool {return self._oneofFeature != nil}
+  /// Clears the value of `oneofFeature`. Subsequent reads from it will return its default value.
+  mutating func clearOneofFeature() {self._oneofFeature = nil}
 
-  var intEnumFeature: Int32 {
-    get {return _storage._intEnumFeature ?? 0}
-    set {_uniqueStorage()._intEnumFeature = newValue}
+  var enumFeature: Pb_EnumFeature {
+    get {return _enumFeature ?? .testEnumFeatureUnknown}
+    set {_enumFeature = newValue}
   }
-  /// Returns true if `intEnumFeature` has been explicitly set.
-  var hasIntEnumFeature: Bool {return _storage._intEnumFeature != nil}
-  /// Clears the value of `intEnumFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntEnumFeature() {_uniqueStorage()._intEnumFeature = nil}
+  /// Returns true if `enumFeature` has been explicitly set.
+  var hasEnumFeature: Bool {return self._enumFeature != nil}
+  /// Clears the value of `enumFeature`. Subsequent reads from it will return its default value.
+  mutating func clearEnumFeature() {self._enumFeature = nil}
 
-  var intEnumEntryFeature: Int32 {
-    get {return _storage._intEnumEntryFeature ?? 0}
-    set {_uniqueStorage()._intEnumEntryFeature = newValue}
+  var enumEntryFeature: Pb_EnumFeature {
+    get {return _enumEntryFeature ?? .testEnumFeatureUnknown}
+    set {_enumEntryFeature = newValue}
   }
-  /// Returns true if `intEnumEntryFeature` has been explicitly set.
-  var hasIntEnumEntryFeature: Bool {return _storage._intEnumEntryFeature != nil}
-  /// Clears the value of `intEnumEntryFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntEnumEntryFeature() {_uniqueStorage()._intEnumEntryFeature = nil}
+  /// Returns true if `enumEntryFeature` has been explicitly set.
+  var hasEnumEntryFeature: Bool {return self._enumEntryFeature != nil}
+  /// Clears the value of `enumEntryFeature`. Subsequent reads from it will return its default value.
+  mutating func clearEnumEntryFeature() {self._enumEntryFeature = nil}
 
-  var intServiceFeature: Int32 {
-    get {return _storage._intServiceFeature ?? 0}
-    set {_uniqueStorage()._intServiceFeature = newValue}
+  var serviceFeature: Pb_EnumFeature {
+    get {return _serviceFeature ?? .testEnumFeatureUnknown}
+    set {_serviceFeature = newValue}
   }
-  /// Returns true if `intServiceFeature` has been explicitly set.
-  var hasIntServiceFeature: Bool {return _storage._intServiceFeature != nil}
-  /// Clears the value of `intServiceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntServiceFeature() {_uniqueStorage()._intServiceFeature = nil}
+  /// Returns true if `serviceFeature` has been explicitly set.
+  var hasServiceFeature: Bool {return self._serviceFeature != nil}
+  /// Clears the value of `serviceFeature`. Subsequent reads from it will return its default value.
+  mutating func clearServiceFeature() {self._serviceFeature = nil}
 
-  var intMethodFeature: Int32 {
-    get {return _storage._intMethodFeature ?? 0}
-    set {_uniqueStorage()._intMethodFeature = newValue}
+  var methodFeature: Pb_EnumFeature {
+    get {return _methodFeature ?? .testEnumFeatureUnknown}
+    set {_methodFeature = newValue}
   }
-  /// Returns true if `intMethodFeature` has been explicitly set.
-  var hasIntMethodFeature: Bool {return _storage._intMethodFeature != nil}
-  /// Clears the value of `intMethodFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntMethodFeature() {_uniqueStorage()._intMethodFeature = nil}
+  /// Returns true if `methodFeature` has been explicitly set.
+  var hasMethodFeature: Bool {return self._methodFeature != nil}
+  /// Clears the value of `methodFeature`. Subsequent reads from it will return its default value.
+  mutating func clearMethodFeature() {self._methodFeature = nil}
 
-  var intMultipleFeature: Int32 {
-    get {return _storage._intMultipleFeature ?? 0}
-    set {_uniqueStorage()._intMultipleFeature = newValue}
+  var multipleFeature: Pb_EnumFeature {
+    get {return _multipleFeature ?? .testEnumFeatureUnknown}
+    set {_multipleFeature = newValue}
   }
-  /// Returns true if `intMultipleFeature` has been explicitly set.
-  var hasIntMultipleFeature: Bool {return _storage._intMultipleFeature != nil}
-  /// Clears the value of `intMultipleFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntMultipleFeature() {_uniqueStorage()._intMultipleFeature = nil}
+  /// Returns true if `multipleFeature` has been explicitly set.
+  var hasMultipleFeature: Bool {return self._multipleFeature != nil}
+  /// Clears the value of `multipleFeature`. Subsequent reads from it will return its default value.
+  mutating func clearMultipleFeature() {self._multipleFeature = nil}
 
   var boolFieldFeature: Bool {
-    get {return _storage._boolFieldFeature ?? false}
-    set {_uniqueStorage()._boolFieldFeature = newValue}
+    get {return _boolFieldFeature ?? false}
+    set {_boolFieldFeature = newValue}
   }
   /// Returns true if `boolFieldFeature` has been explicitly set.
-  var hasBoolFieldFeature: Bool {return _storage._boolFieldFeature != nil}
+  var hasBoolFieldFeature: Bool {return self._boolFieldFeature != nil}
   /// Clears the value of `boolFieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearBoolFieldFeature() {_uniqueStorage()._boolFieldFeature = nil}
+  mutating func clearBoolFieldFeature() {self._boolFieldFeature = nil}
 
-  var floatFieldFeature: Float {
-    get {return _storage._floatFieldFeature ?? 0}
-    set {_uniqueStorage()._floatFieldFeature = newValue}
+  var sourceFeature: Pb_EnumFeature {
+    get {return _sourceFeature ?? .testEnumFeatureUnknown}
+    set {_sourceFeature = newValue}
   }
-  /// Returns true if `floatFieldFeature` has been explicitly set.
-  var hasFloatFieldFeature: Bool {return _storage._floatFieldFeature != nil}
-  /// Clears the value of `floatFieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFloatFieldFeature() {_uniqueStorage()._floatFieldFeature = nil}
+  /// Returns true if `sourceFeature` has been explicitly set.
+  var hasSourceFeature: Bool {return self._sourceFeature != nil}
+  /// Clears the value of `sourceFeature`. Subsequent reads from it will return its default value.
+  mutating func clearSourceFeature() {self._sourceFeature = nil}
 
-  var messageFieldFeature: Pb_TestFeatures.MessageFeature {
-    get {return _storage._messageFieldFeature ?? Pb_TestFeatures.MessageFeature()}
-    set {_uniqueStorage()._messageFieldFeature = newValue}
+  var sourceFeature2: Pb_EnumFeature {
+    get {return _sourceFeature2 ?? .testEnumFeatureUnknown}
+    set {_sourceFeature2 = newValue}
   }
-  /// Returns true if `messageFieldFeature` has been explicitly set.
-  var hasMessageFieldFeature: Bool {return _storage._messageFieldFeature != nil}
-  /// Clears the value of `messageFieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMessageFieldFeature() {_uniqueStorage()._messageFieldFeature = nil}
-
-  var enumFieldFeature: Pb_TestFeatures.EnumFeature {
-    get {return _storage._enumFieldFeature ?? .testEnumFeatureUnknown}
-    set {_uniqueStorage()._enumFieldFeature = newValue}
-  }
-  /// Returns true if `enumFieldFeature` has been explicitly set.
-  var hasEnumFieldFeature: Bool {return _storage._enumFieldFeature != nil}
-  /// Clears the value of `enumFieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearEnumFieldFeature() {_uniqueStorage()._enumFieldFeature = nil}
-
-  var intSourceFeature: Int32 {
-    get {return _storage._intSourceFeature ?? 0}
-    set {_uniqueStorage()._intSourceFeature = newValue}
-  }
-  /// Returns true if `intSourceFeature` has been explicitly set.
-  var hasIntSourceFeature: Bool {return _storage._intSourceFeature != nil}
-  /// Clears the value of `intSourceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearIntSourceFeature() {_uniqueStorage()._intSourceFeature = nil}
-
-  var stringSourceFeature: String {
-    get {return _storage._stringSourceFeature ?? String()}
-    set {_uniqueStorage()._stringSourceFeature = newValue}
-  }
-  /// Returns true if `stringSourceFeature` has been explicitly set.
-  var hasStringSourceFeature: Bool {return _storage._stringSourceFeature != nil}
-  /// Clears the value of `stringSourceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearStringSourceFeature() {_uniqueStorage()._stringSourceFeature = nil}
+  /// Returns true if `sourceFeature2` has been explicitly set.
+  var hasSourceFeature2: Bool {return self._sourceFeature2 != nil}
+  /// Clears the value of `sourceFeature2`. Subsequent reads from it will return its default value.
+  mutating func clearSourceFeature2() {self._sourceFeature2 = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumFeature: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case testEnumFeatureUnknown // = 0
-    case enumValue1 // = 1
-    case enumValue2 // = 2
-    case enumValue3 // = 3
-    case enumValue4 // = 4
-    case enumValue5 // = 5
-
-    init() {
-      self = .testEnumFeatureUnknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .testEnumFeatureUnknown
-      case 1: self = .enumValue1
-      case 2: self = .enumValue2
-      case 3: self = .enumValue3
-      case 4: self = .enumValue4
-      case 5: self = .enumValue5
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .testEnumFeatureUnknown: return 0
-      case .enumValue1: return 1
-      case .enumValue2: return 2
-      case .enumValue3: return 3
-      case .enumValue4: return 4
-      case .enumValue5: return 5
-      }
-    }
-
-  }
-
-  struct MessageFeature {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var boolField: Bool {
-      get {return _boolField ?? false}
-      set {_boolField = newValue}
-    }
-    /// Returns true if `boolField` has been explicitly set.
-    var hasBoolField: Bool {return self._boolField != nil}
-    /// Clears the value of `boolField`. Subsequent reads from it will return its default value.
-    mutating func clearBoolField() {self._boolField = nil}
-
-    var intField: Int32 {
-      get {return _intField ?? 0}
-      set {_intField = newValue}
-    }
-    /// Returns true if `intField` has been explicitly set.
-    var hasIntField: Bool {return self._intField != nil}
-    /// Clears the value of `intField`. Subsequent reads from it will return its default value.
-    mutating func clearIntField() {self._intField = nil}
-
-    var floatField: Float {
-      get {return _floatField ?? 0}
-      set {_floatField = newValue}
-    }
-    /// Returns true if `floatField` has been explicitly set.
-    var hasFloatField: Bool {return self._floatField != nil}
-    /// Clears the value of `floatField`. Subsequent reads from it will return its default value.
-    mutating func clearFloatField() {self._floatField = nil}
-
-    var stringField: String {
-      get {return _stringField ?? String()}
-      set {_stringField = newValue}
-    }
-    /// Returns true if `stringField` has been explicitly set.
-    var hasStringField: Bool {return self._stringField != nil}
-    /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
-    mutating func clearStringField() {self._stringField = nil}
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    fileprivate var _boolField: Bool? = nil
-    fileprivate var _intField: Int32? = nil
-    fileprivate var _floatField: Float? = nil
-    fileprivate var _stringField: String? = nil
-  }
-
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _fileFeature: Pb_EnumFeature? = nil
+  fileprivate var _extensionRangeFeature: Pb_EnumFeature? = nil
+  fileprivate var _messageFeature: Pb_EnumFeature? = nil
+  fileprivate var _fieldFeature: Pb_EnumFeature? = nil
+  fileprivate var _oneofFeature: Pb_EnumFeature? = nil
+  fileprivate var _enumFeature: Pb_EnumFeature? = nil
+  fileprivate var _enumEntryFeature: Pb_EnumFeature? = nil
+  fileprivate var _serviceFeature: Pb_EnumFeature? = nil
+  fileprivate var _methodFeature: Pb_EnumFeature? = nil
+  fileprivate var _multipleFeature: Pb_EnumFeature? = nil
+  fileprivate var _boolFieldFeature: Bool? = nil
+  fileprivate var _sourceFeature: Pb_EnumFeature? = nil
+  fileprivate var _sourceFeature2: Pb_EnumFeature? = nil
 }
-
-#if swift(>=4.2)
-
-extension Pb_TestFeatures.EnumFeature: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-#endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Pb_EnumFeature: @unchecked Sendable {}
 extension Pb_TestMessage: @unchecked Sendable {}
 extension Pb_TestMessage.Nested: @unchecked Sendable {}
 extension Pb_TestFeatures: @unchecked Sendable {}
-extension Pb_TestFeatures.EnumFeature: @unchecked Sendable {}
-extension Pb_TestFeatures.MessageFeature: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_features.proto.
@@ -409,6 +372,27 @@ extension Pb_TestMessage.Nested {
 
 fileprivate let _protobuf_package = "pb"
 
+extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TEST_ENUM_FEATURE_UNKNOWN"),
+    1: .same(proto: "VALUE1"),
+    2: .same(proto: "VALUE2"),
+    3: .same(proto: "VALUE3"),
+    4: .same(proto: "VALUE4"),
+    5: .same(proto: "VALUE5"),
+    6: .same(proto: "VALUE6"),
+    7: .same(proto: "VALUE7"),
+    8: .same(proto: "VALUE8"),
+    9: .same(proto: "VALUE9"),
+    10: .same(proto: "VALUE10"),
+    11: .same(proto: "VALUE11"),
+    12: .same(proto: "VALUE12"),
+    13: .same(proto: "VALUE13"),
+    14: .same(proto: "VALUE14"),
+    15: .same(proto: "VALUE15"),
+  ]
+}
+
 extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -450,217 +434,19 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int_file_feature"),
-    2: .standard(proto: "int_extension_range_feature"),
-    3: .standard(proto: "int_message_feature"),
-    4: .standard(proto: "int_field_feature"),
-    5: .standard(proto: "int_oneof_feature"),
-    6: .standard(proto: "int_enum_feature"),
-    7: .standard(proto: "int_enum_entry_feature"),
-    8: .standard(proto: "int_service_feature"),
-    9: .standard(proto: "int_method_feature"),
-    10: .standard(proto: "int_multiple_feature"),
+    1: .standard(proto: "file_feature"),
+    2: .standard(proto: "extension_range_feature"),
+    3: .standard(proto: "message_feature"),
+    4: .standard(proto: "field_feature"),
+    5: .standard(proto: "oneof_feature"),
+    6: .standard(proto: "enum_feature"),
+    7: .standard(proto: "enum_entry_feature"),
+    8: .standard(proto: "service_feature"),
+    9: .standard(proto: "method_feature"),
+    10: .standard(proto: "multiple_feature"),
     11: .standard(proto: "bool_field_feature"),
-    12: .standard(proto: "float_field_feature"),
-    13: .standard(proto: "message_field_feature"),
-    14: .standard(proto: "enum_field_feature"),
-    15: .standard(proto: "int_source_feature"),
-    16: .standard(proto: "string_source_feature"),
-  ]
-
-  fileprivate class _StorageClass {
-    var _intFileFeature: Int32? = nil
-    var _intExtensionRangeFeature: Int32? = nil
-    var _intMessageFeature: Int32? = nil
-    var _intFieldFeature: Int32? = nil
-    var _intOneofFeature: Int32? = nil
-    var _intEnumFeature: Int32? = nil
-    var _intEnumEntryFeature: Int32? = nil
-    var _intServiceFeature: Int32? = nil
-    var _intMethodFeature: Int32? = nil
-    var _intMultipleFeature: Int32? = nil
-    var _boolFieldFeature: Bool? = nil
-    var _floatFieldFeature: Float? = nil
-    var _messageFieldFeature: Pb_TestFeatures.MessageFeature? = nil
-    var _enumFieldFeature: Pb_TestFeatures.EnumFeature? = nil
-    var _intSourceFeature: Int32? = nil
-    var _stringSourceFeature: String? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _intFileFeature = source._intFileFeature
-      _intExtensionRangeFeature = source._intExtensionRangeFeature
-      _intMessageFeature = source._intMessageFeature
-      _intFieldFeature = source._intFieldFeature
-      _intOneofFeature = source._intOneofFeature
-      _intEnumFeature = source._intEnumFeature
-      _intEnumEntryFeature = source._intEnumEntryFeature
-      _intServiceFeature = source._intServiceFeature
-      _intMethodFeature = source._intMethodFeature
-      _intMultipleFeature = source._intMultipleFeature
-      _boolFieldFeature = source._boolFieldFeature
-      _floatFieldFeature = source._floatFieldFeature
-      _messageFieldFeature = source._messageFieldFeature
-      _enumFieldFeature = source._enumFieldFeature
-      _intSourceFeature = source._intSourceFeature
-      _stringSourceFeature = source._stringSourceFeature
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._intFileFeature) }()
-        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._intExtensionRangeFeature) }()
-        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._intMessageFeature) }()
-        case 4: try { try decoder.decodeSingularInt32Field(value: &_storage._intFieldFeature) }()
-        case 5: try { try decoder.decodeSingularInt32Field(value: &_storage._intOneofFeature) }()
-        case 6: try { try decoder.decodeSingularInt32Field(value: &_storage._intEnumFeature) }()
-        case 7: try { try decoder.decodeSingularInt32Field(value: &_storage._intEnumEntryFeature) }()
-        case 8: try { try decoder.decodeSingularInt32Field(value: &_storage._intServiceFeature) }()
-        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._intMethodFeature) }()
-        case 10: try { try decoder.decodeSingularInt32Field(value: &_storage._intMultipleFeature) }()
-        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._boolFieldFeature) }()
-        case 12: try { try decoder.decodeSingularFloatField(value: &_storage._floatFieldFeature) }()
-        case 13: try { try decoder.decodeSingularMessageField(value: &_storage._messageFieldFeature) }()
-        case 14: try { try decoder.decodeSingularEnumField(value: &_storage._enumFieldFeature) }()
-        case 15: try { try decoder.decodeSingularInt32Field(value: &_storage._intSourceFeature) }()
-        case 16: try { try decoder.decodeSingularStringField(value: &_storage._stringSourceFeature) }()
-        default: break
-        }
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._intFileFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._intExtensionRangeFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._intMessageFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._intFieldFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      } }()
-      try { if let v = _storage._intOneofFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
-      } }()
-      try { if let v = _storage._intEnumFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
-      } }()
-      try { if let v = _storage._intEnumEntryFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
-      } }()
-      try { if let v = _storage._intServiceFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
-      } }()
-      try { if let v = _storage._intMethodFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
-      } }()
-      try { if let v = _storage._intMultipleFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-      } }()
-      try { if let v = _storage._boolFieldFeature {
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
-      } }()
-      try { if let v = _storage._floatFieldFeature {
-        try visitor.visitSingularFloatField(value: v, fieldNumber: 12)
-      } }()
-      try { if let v = _storage._messageFieldFeature {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-      } }()
-      try { if let v = _storage._enumFieldFeature {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 14)
-      } }()
-      try { if let v = _storage._intSourceFeature {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
-      } }()
-      try { if let v = _storage._stringSourceFeature {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 16)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Pb_TestFeatures, rhs: Pb_TestFeatures) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._intFileFeature != rhs_storage._intFileFeature {return false}
-        if _storage._intExtensionRangeFeature != rhs_storage._intExtensionRangeFeature {return false}
-        if _storage._intMessageFeature != rhs_storage._intMessageFeature {return false}
-        if _storage._intFieldFeature != rhs_storage._intFieldFeature {return false}
-        if _storage._intOneofFeature != rhs_storage._intOneofFeature {return false}
-        if _storage._intEnumFeature != rhs_storage._intEnumFeature {return false}
-        if _storage._intEnumEntryFeature != rhs_storage._intEnumEntryFeature {return false}
-        if _storage._intServiceFeature != rhs_storage._intServiceFeature {return false}
-        if _storage._intMethodFeature != rhs_storage._intMethodFeature {return false}
-        if _storage._intMultipleFeature != rhs_storage._intMultipleFeature {return false}
-        if _storage._boolFieldFeature != rhs_storage._boolFieldFeature {return false}
-        if _storage._floatFieldFeature != rhs_storage._floatFieldFeature {return false}
-        if _storage._messageFieldFeature != rhs_storage._messageFieldFeature {return false}
-        if _storage._enumFieldFeature != rhs_storage._enumFieldFeature {return false}
-        if _storage._intSourceFeature != rhs_storage._intSourceFeature {return false}
-        if _storage._stringSourceFeature != rhs_storage._stringSourceFeature {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Pb_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_ENUM_FEATURE_UNKNOWN"),
-    1: .same(proto: "ENUM_VALUE1"),
-    2: .same(proto: "ENUM_VALUE2"),
-    3: .same(proto: "ENUM_VALUE3"),
-    4: .same(proto: "ENUM_VALUE4"),
-    5: .same(proto: "ENUM_VALUE5"),
-  ]
-}
-
-extension Pb_TestFeatures.MessageFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Pb_TestFeatures.protoMessageName + ".MessageFeature"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "bool_field"),
-    2: .standard(proto: "int_field"),
-    3: .standard(proto: "float_field"),
-    4: .standard(proto: "string_field"),
+    15: .standard(proto: "source_feature"),
+    16: .standard(proto: "source_feature2"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -669,10 +455,19 @@ extension Pb_TestFeatures.MessageFeature: SwiftProtobuf.Message, SwiftProtobuf._
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBoolField(value: &self._boolField) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self._intField) }()
-      case 3: try { try decoder.decodeSingularFloatField(value: &self._floatField) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self._stringField) }()
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._fileFeature) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._extensionRangeFeature) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._messageFeature) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._fieldFeature) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self._oneofFeature) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self._enumFeature) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self._enumEntryFeature) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self._serviceFeature) }()
+      case 9: try { try decoder.decodeSingularEnumField(value: &self._methodFeature) }()
+      case 10: try { try decoder.decodeSingularEnumField(value: &self._multipleFeature) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self._boolFieldFeature) }()
+      case 15: try { try decoder.decodeSingularEnumField(value: &self._sourceFeature) }()
+      case 16: try { try decoder.decodeSingularEnumField(value: &self._sourceFeature2) }()
       default: break
       }
     }
@@ -683,26 +478,62 @@ extension Pb_TestFeatures.MessageFeature: SwiftProtobuf.Message, SwiftProtobuf._
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._boolField {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
+    try { if let v = self._fileFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     } }()
-    try { if let v = self._intField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    try { if let v = self._extensionRangeFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
     } }()
-    try { if let v = self._floatField {
-      try visitor.visitSingularFloatField(value: v, fieldNumber: 3)
+    try { if let v = self._messageFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
     } }()
-    try { if let v = self._stringField {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+    try { if let v = self._fieldFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._oneofFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._enumFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    } }()
+    try { if let v = self._enumEntryFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
+    } }()
+    try { if let v = self._serviceFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 8)
+    } }()
+    try { if let v = self._methodFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
+    } }()
+    try { if let v = self._multipleFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 10)
+    } }()
+    try { if let v = self._boolFieldFeature {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
+    } }()
+    try { if let v = self._sourceFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 15)
+    } }()
+    try { if let v = self._sourceFeature2 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 16)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Pb_TestFeatures.MessageFeature, rhs: Pb_TestFeatures.MessageFeature) -> Bool {
-    if lhs._boolField != rhs._boolField {return false}
-    if lhs._intField != rhs._intField {return false}
-    if lhs._floatField != rhs._floatField {return false}
-    if lhs._stringField != rhs._stringField {return false}
+  static func ==(lhs: Pb_TestFeatures, rhs: Pb_TestFeatures) -> Bool {
+    if lhs._fileFeature != rhs._fileFeature {return false}
+    if lhs._extensionRangeFeature != rhs._extensionRangeFeature {return false}
+    if lhs._messageFeature != rhs._messageFeature {return false}
+    if lhs._fieldFeature != rhs._fieldFeature {return false}
+    if lhs._oneofFeature != rhs._oneofFeature {return false}
+    if lhs._enumFeature != rhs._enumFeature {return false}
+    if lhs._enumEntryFeature != rhs._enumEntryFeature {return false}
+    if lhs._serviceFeature != rhs._serviceFeature {return false}
+    if lhs._methodFeature != rhs._methodFeature {return false}
+    if lhs._multipleFeature != rhs._multipleFeature {return false}
+    if lhs._boolFieldFeature != rhs._boolFieldFeature {return false}
+    if lhs._sourceFeature != rhs._sourceFeature {return false}
+    if lhs._sourceFeature2 != rhs._sourceFeature2 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
