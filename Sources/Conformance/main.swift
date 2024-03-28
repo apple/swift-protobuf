@@ -47,7 +47,7 @@ func readRequest() -> Data? {
         return nil
     }
     let countLE: UInt32 = countLEData.withUnsafeBytes { rawBuffer in
-        rawBuffer.load(as: UInt32.self)
+        rawBuffer.loadUnaligned(as: UInt32.self)
     }
     let count = UInt32(littleEndian: countLE)
     guard count < Int.max,
