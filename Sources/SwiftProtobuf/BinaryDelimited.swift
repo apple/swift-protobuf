@@ -14,6 +14,7 @@
 
 #if !os(WASI)
 import Foundation
+#endif
 
 /// Helper methods for reading/writing messages with a length prefix.
 public enum BinaryDelimited {
@@ -30,6 +31,7 @@ public enum BinaryDelimited {
     case truncated
   }
 
+#if !os(WASI)
   /// Serialize a single size-delimited message from the given stream. Delimited
   /// format allows a single file or stream to contain multiple messages,
   /// whereas normally writing multiple non-delimited messages to the same
@@ -204,8 +206,10 @@ public enum BinaryDelimited {
                       partial: partial,
                       options: options)
   }
+#endif  // !os(WASI)
 }
 
+#if !os(WASI)
 // TODO: This should go away when encoding/decoding are more stream based
 // as that should provide a more direct way to do this. This is basically
 // a rewrite of BinaryDecoder.decodeVarint().
@@ -247,4 +251,4 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
   }
 }
-#endif
+#endif  // !os(WASI)
