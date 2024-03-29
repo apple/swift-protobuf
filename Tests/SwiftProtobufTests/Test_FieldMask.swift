@@ -195,7 +195,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(message.optionalInt32, 0)
         XCTAssertEqual(message.optionalNestedMessage.bb, 2)
 
-        // Checks trim should does nothing with an empty fieldMask.
+        // Checks trim should do nothing with an empty fieldMask.
         let r2 = message.trim(fieldMask: .init())
         XCTAssertFalse(r2)
 
@@ -206,6 +206,25 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         // Checks trim to be unsuccessful with an invalid fieldMask.
         let r4 = message.trim(fieldMask: .init(protoPaths: "invalid_path"))
         XCTAssertFalse(r4)
+    }
+
+    // Checks trim functionality for field masks when applies on a extensible message.
+    func testTrimFieldsOfMessageWithExtension() throws {
+        var message = SwiftProtoTesting_Fuzz_Message()
+        message.singularInt32 = 1
+        message.SwiftProtoTesting_Fuzz_singularInt32Ext = 1
+        let mask = Google_Protobuf_FieldMask(protoPaths: ["singularString"])
+
+        // Checks trim should retain extensions while removes other fields.
+        let r1 = message.trim(fieldMask: mask)
+        XCTAssertTrue(r1)
+        XCTAssertEqual(message.SwiftProtoTesting_Fuzz_singularInt32Ext, .init(1))
+        XCTAssertEqual(message.singularInt32, .init(0))
+
+        // Checks trim should do nothing (fields are already removed) and still retain extension fields.
+        let r2 = message.trim(fieldMask: mask)
+        XCTAssertFalse(r2)
+        XCTAssertEqual(message.SwiftProtoTesting_Fuzz_singularInt32Ext, .init(1))
     }
 
     // Checks `isPathValid` func
