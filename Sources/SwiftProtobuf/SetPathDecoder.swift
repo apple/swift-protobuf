@@ -32,7 +32,7 @@ public enum PathDecodingError: Error {
 
 extension Message {
   static func number(for field: String) -> Int? {
-    guard let type = Self.self as? _ProtoNameProviding.Type else {
+    guard let type = Self.self as? any _ProtoNameProviding.Type else {
       return nil
     }
     return type._protobuf_nameMap.number(forJSONName: field)
@@ -371,7 +371,7 @@ struct SetPathDecoder<T: Message>: Decoder {
 
   mutating func decodeExtensionField(
     values: inout ExtensionFieldValueSet,
-    messageType: Message.Type,
+    messageType: any Message.Type,
     fieldNumber: Int
   ) throws {
     preconditionFailure(

@@ -109,8 +109,8 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
 
 private extension Message {
   init(removingAllFieldsOf message: Self) {
-    if let type = Self.self as? ExtensibleMessage.Type,
-       let extensible = message as? ExtensibleMessage {
+    if let type = Self.self as? any ExtensibleMessage.Type,
+       let extensible = message as? any ExtensibleMessage {
       self = type.init(extensionsOf: extensible) as? Self ?? .init()
     } else {
       self = .init()
@@ -120,7 +120,7 @@ private extension Message {
 }
 
 private extension Message where Self: ExtensibleMessage {
-  init(extensionsOf message: ExtensibleMessage) {
+  init(extensionsOf message: any ExtensibleMessage) {
     self.init()
     _protobuf_extensionFieldValues = message._protobuf_extensionFieldValues
   }

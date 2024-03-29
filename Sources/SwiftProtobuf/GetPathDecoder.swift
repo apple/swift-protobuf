@@ -299,7 +299,7 @@ struct GetPathDecoder<T: Message>: Decoder {
 
   mutating func decodeExtensionField(
     values: inout ExtensionFieldValueSet,
-    messageType: Message.Type,
+    messageType: any Message.Type,
     fieldNumber: Int
   ) throws {
     preconditionFailure(
