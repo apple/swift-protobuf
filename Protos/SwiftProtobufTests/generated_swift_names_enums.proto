@@ -590,7 +590,6 @@ message GeneratedSwiftReservedEnums {
   enum listOfMessages { NONE_listOfMessages = 0; }
   enum listValue { NONE_listValue = 0; }
   enum littleEndian { NONE_littleEndian = 0; }
-  enum littleEndianBytes { NONE_littleEndianBytes = 0; }
   enum load { NONE_load = 0; }
   enum localHasher { NONE_localHasher = 0; }
   enum location { NONE_location = 0; }
