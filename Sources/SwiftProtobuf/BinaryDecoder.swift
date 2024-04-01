@@ -1425,20 +1425,18 @@ internal struct BinaryDecoder: Decoder {
     /// Private: decode a fixed-length four-byte number.  This generic
     /// helper handles all four-byte number types.
     private mutating func decodeFourByteNumber<T>(value: inout T) throws {
+        assert(MemoryLayout<T>.size == 4)
         guard available >= 4 else {throw BinaryDecodingError.truncated}
-        withUnsafeMutableBytes(of: &value) { dest -> Void in
-            dest.copyMemory(from: UnsafeRawBufferPointer(start: p, count: 4))
-        }
+        value = p.loadUnaligned(as: T.self)
         consume(length: 4)
     }
 
     /// Private: decode a fixed-length eight-byte number.  This generic
     /// helper handles all eight-byte number types.
     private mutating func decodeEightByteNumber<T>(value: inout T) throws {
+        assert(MemoryLayout<T>.size == 8)
         guard available >= 8 else {throw BinaryDecodingError.truncated}
-        withUnsafeMutableBytes(of: &value) { dest -> Void in
-            dest.copyMemory(from: UnsafeRawBufferPointer(start: p, count: 8))
-        }
+        value = p.loadUnaligned(as: T.self)
         consume(length: 8)
     }
 
