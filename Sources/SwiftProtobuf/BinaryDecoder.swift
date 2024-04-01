@@ -212,7 +212,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed32 else {
             return
         }
-        try decodeFourByteNumber(value: &value)
+        value = try decodeFloat()
         consumed = true
     }
 
@@ -537,8 +537,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed32 else {
             return
         }
-        var i: UInt32 = 0
-        try decodeFourByteNumber(value: &i)
+        let i: UInt32 = try decodeFourByteNumber()
         value = UInt32(littleEndian: i)
         consumed = true
     }
@@ -547,8 +546,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed32 else {
             return
         }
-        var i: UInt32 = 0
-        try decodeFourByteNumber(value: &i)
+        let i: UInt32 = try decodeFourByteNumber()
         value = UInt32(littleEndian: i)
         consumed = true
     }
@@ -556,8 +554,7 @@ internal struct BinaryDecoder: Decoder {
     internal mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
         switch fieldWireFormat {
         case WireFormat.fixed32:
-            var i: UInt32 = 0
-            try decodeFourByteNumber(value: &i)
+            let i: UInt32 = try decodeFourByteNumber()
             value.append(UInt32(littleEndian: i))
             consumed = true
         case WireFormat.lengthDelimited:
@@ -565,9 +562,8 @@ internal struct BinaryDecoder: Decoder {
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<UInt32>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
-            var i: UInt32 = 0
             while !decoder.complete {
-                try decoder.decodeFourByteNumber(value: &i)
+                let i: UInt32 = try decoder.decodeFourByteNumber()
                 value.append(UInt32(littleEndian: i))
             }
             consumed = true
@@ -580,8 +576,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed64 else {
             return
         }
-        var i: UInt64 = 0
-        try decodeEightByteNumber(value: &i)
+        let i: UInt64 = try decodeEightByteNumber()
         value = UInt64(littleEndian: i)
         consumed = true
     }
@@ -590,8 +585,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed64 else {
             return
         }
-        var i: UInt64 = 0
-        try decodeEightByteNumber(value: &i)
+        let i: UInt64 = try decodeEightByteNumber()
         value = UInt64(littleEndian: i)
         consumed = true
     }
@@ -599,8 +593,7 @@ internal struct BinaryDecoder: Decoder {
     internal mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
         switch fieldWireFormat {
         case WireFormat.fixed64:
-            var i: UInt64 = 0
-            try decodeEightByteNumber(value: &i)
+            let i: UInt64 = try decodeEightByteNumber()
             value.append(UInt64(littleEndian: i))
             consumed = true
         case WireFormat.lengthDelimited:
@@ -608,9 +601,8 @@ internal struct BinaryDecoder: Decoder {
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<UInt64>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
-            var i: UInt64 = 0
             while !decoder.complete {
-                try decoder.decodeEightByteNumber(value: &i)
+                let i: UInt64 = try decoder.decodeEightByteNumber()
                 value.append(UInt64(littleEndian: i))
             }
             consumed = true
@@ -623,8 +615,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed32 else {
             return
         }
-        var i: Int32 = 0
-        try decodeFourByteNumber(value: &i)
+        let i: Int32 = try decodeFourByteNumber()
         value = Int32(littleEndian: i)
         consumed = true
     }
@@ -633,8 +624,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed32 else {
             return
         }
-        var i: Int32 = 0
-        try decodeFourByteNumber(value: &i)
+        let i: Int32 = try decodeFourByteNumber()
         value = Int32(littleEndian: i)
         consumed = true
     }
@@ -642,8 +632,7 @@ internal struct BinaryDecoder: Decoder {
     internal mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
         switch fieldWireFormat {
         case WireFormat.fixed32:
-            var i: Int32 = 0
-            try decodeFourByteNumber(value: &i)
+            let i: Int32 = try decodeFourByteNumber()
             value.append(Int32(littleEndian: i))
             consumed = true
         case WireFormat.lengthDelimited:
@@ -651,9 +640,8 @@ internal struct BinaryDecoder: Decoder {
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<Int32>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
-            var i: Int32 = 0
             while !decoder.complete {
-                try decoder.decodeFourByteNumber(value: &i)
+                let i: Int32 = try decoder.decodeFourByteNumber()
                 value.append(Int32(littleEndian: i))
             }
             consumed = true
@@ -666,8 +654,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed64 else {
             return
         }
-        var i: Int64 = 0
-        try decodeEightByteNumber(value: &i)
+        let i: Int64 = try decodeEightByteNumber()
         value = Int64(littleEndian: i)
         consumed = true
     }
@@ -676,8 +663,7 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed64 else {
             return
         }
-        var i: Int64 = 0
-        try decodeEightByteNumber(value: &i)
+        let i: Int64 = try decodeEightByteNumber()
         value = Int64(littleEndian: i)
         consumed = true
     }
@@ -685,8 +671,7 @@ internal struct BinaryDecoder: Decoder {
     internal mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
         switch fieldWireFormat {
         case WireFormat.fixed64:
-            var i: Int64 = 0
-            try decodeEightByteNumber(value: &i)
+            let i: Int64 = try decodeEightByteNumber()
             value.append(Int64(littleEndian: i))
             consumed = true
         case WireFormat.lengthDelimited:
@@ -694,9 +679,8 @@ internal struct BinaryDecoder: Decoder {
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<Int64>.size)
             var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
-            var i: Int64 = 0
             while !decoder.complete {
-                try decoder.decodeEightByteNumber(value: &i)
+                let i: Int64 = try decoder.decodeEightByteNumber()
                 value.append(Int64(littleEndian: i))
             }
             consumed = true
@@ -1424,32 +1408,30 @@ internal struct BinaryDecoder: Decoder {
 
     /// Private: decode a fixed-length four-byte number.  This generic
     /// helper handles all four-byte number types.
-    private mutating func decodeFourByteNumber<T>(value: inout T) throws {
+    private mutating func decodeFourByteNumber<T>() throws -> T {
         assert(MemoryLayout<T>.size == 4)
         guard available >= 4 else {throw BinaryDecodingError.truncated}
-        value = p.loadUnaligned(as: T.self)
-        consume(length: 4)
+        defer { consume(length: 4) }
+        return p.loadUnaligned(as: T.self)
     }
 
     /// Private: decode a fixed-length eight-byte number.  This generic
     /// helper handles all eight-byte number types.
-    private mutating func decodeEightByteNumber<T>(value: inout T) throws {
+    private mutating func decodeEightByteNumber<T>() throws -> T {
         assert(MemoryLayout<T>.size == 8)
         guard available >= 8 else {throw BinaryDecodingError.truncated}
-        value = p.loadUnaligned(as: T.self)
-        consume(length: 8)
+        defer { consume(length: 8) }
+        return p.loadUnaligned(as: T.self)
     }
 
     private mutating func decodeFloat() throws -> Float {
-        var littleEndianBytes: UInt32 = 0
-        try decodeFourByteNumber(value: &littleEndianBytes)
+        let littleEndianBytes: UInt32 = try decodeFourByteNumber()
         let nativeEndianBytes = UInt32(littleEndian: littleEndianBytes)
         return Float(bitPattern: nativeEndianBytes)
     }
 
     private mutating func decodeDouble() throws -> Double {
-        var littleEndianBytes: UInt64 = 0
-        try decodeEightByteNumber(value: &littleEndianBytes)
+        let littleEndianBytes: UInt64 = try decodeEightByteNumber()
         let nativeEndianBytes = UInt64(littleEndian: littleEndianBytes)
         return Double(bitPattern: nativeEndianBytes)
     }
