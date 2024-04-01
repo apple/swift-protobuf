@@ -17611,36 +17611,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum littleEndianBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneLittleEndianBytes // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneLittleEndianBytes
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneLittleEndianBytes
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneLittleEndianBytes: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.littleEndianBytes] = [
-      .noneLittleEndianBytes,
-    ]
-
-  }
-
   enum load: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLoad // = 0
@@ -32820,12 +32790,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.listValue: Swi
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.littleEndian: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_littleEndian"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.littleEndianBytes: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_littleEndianBytes"),
   ]
 }
 

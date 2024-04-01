@@ -590,7 +590,6 @@ message GeneratedSwiftReservedMessages {
   message listOfMessages { int32 listOfMessages = 1; }
   message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
-  message littleEndianBytes { int32 littleEndianBytes = 1; }
   message load { int32 load = 1; }
   message localHasher { int32 localHasher = 1; }
   message location { int32 location = 1; }

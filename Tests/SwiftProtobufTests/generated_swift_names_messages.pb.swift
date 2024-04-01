@@ -7063,18 +7063,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct littleEndianBytes: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var littleEndianBytes: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct load: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -30504,38 +30492,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndia
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndian, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndian) -> Bool {
     if lhs.littleEndian != rhs.littleEndian {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndianBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".littleEndianBytes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "littleEndianBytes"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.littleEndianBytes) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.littleEndianBytes != 0 {
-      try visitor.visitSingularInt32Field(value: self.littleEndianBytes, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndianBytes, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndianBytes) -> Bool {
-    if lhs.littleEndianBytes != rhs.littleEndianBytes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
