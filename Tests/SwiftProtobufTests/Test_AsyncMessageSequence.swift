@@ -126,7 +126,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if error as! BinaryDelimited.Error == .truncated {
+      if error as! SwiftProtobufError == .BinaryDecoding.truncated {
         truncatedThrown = true
       }
     }
@@ -136,18 +136,18 @@ final class Test_AsyncMessageSequence: XCTestCase {
   // Single varint describing a 2GB message
   func testTooLarge() async throws {
     let asyncBytes = asyncByteStream(bytes: [128, 128, 128, 128, 8])
-    var tooLargeThrown = false
     let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an invalid stream.")
       }
     } catch {
-      if error as! BinaryDecodingError == .tooLarge {
-        tooLargeThrown = true
-      }
+      self.assertSwiftProtobufError(
+        error,
+        code: .binaryDecodingError,
+        message: "Message too large: Bytes and Strings have a max size of 2GB."
+      )
     }
-    XCTAssertTrue(tooLargeThrown, "Should throw a BinaryDecodingError.tooLarge")
   }
   
   // Stream with truncated varint
@@ -161,7 +161,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if error as! BinaryDelimited.Error == .truncated {
+      if error as! SwiftProtobufError == .BinaryDecoding.truncated {
         truncatedThrown = true
       }
     }
@@ -193,7 +193,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
       }
       XCTAssertEqual(count, 1, "One message should be deserialized")
     } catch {
-      if error as! BinaryDelimited.Error == .truncated {
+      if error as! SwiftProtobufError == .BinaryDecoding.truncated {
         truncatedThrown = true
       }
     }

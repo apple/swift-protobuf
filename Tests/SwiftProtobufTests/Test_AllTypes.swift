@@ -824,7 +824,11 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
         ])) {
-          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.tooLarge)
+            self.assertSwiftProtobufError(
+                $0,
+                code: .binaryDecodingError,
+                message: "Message too large: Bytes and Strings have a max size of 2GB."
+            )
         }
 
         let empty = MessageTestType()
@@ -948,7 +952,11 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
         ])) {
-          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.tooLarge)
+            self.assertSwiftProtobufError(
+                $0,
+                code: .binaryDecodingError,
+                message: "Message too large: Bytes and Strings have a max size of 2GB."
+            )
         }
 
         let empty = MessageTestType()
@@ -1000,7 +1008,11 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
         ])) {
-          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.tooLarge)
+            self.assertSwiftProtobufError(
+                $0,
+                code: .binaryDecodingError,
+                message: "Message too large: Bytes and Strings have a max size of 2GB."
+            )
         }
 
         // Ensure storage is uniqued for clear.
@@ -1756,7 +1768,11 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
         ])) {
-          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.tooLarge)
+            self.assertSwiftProtobufError(
+                $0,
+                code: .binaryDecodingError,
+                message: "Message too large: Bytes and Strings have a max size of 2GB."
+            )
         }
 
         assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n") {(o: inout MessageTestType) in

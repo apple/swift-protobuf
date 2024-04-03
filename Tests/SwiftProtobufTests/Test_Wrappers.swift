@@ -25,7 +25,7 @@ final class Test_Wrappers: XCTestCase {
         do {
             _ = try type.init(jsonString: "null")
             XCTFail("Expected decode to throw .illegalNull, but it succeeded")
-        } catch JSONDecodingError.illegalNull {
+        } catch let error as SwiftProtobufError where error == .JSONDecoding.illegalNull {
             // Nothing to do; this is the expected error.
         } catch {
             XCTFail("Expected decode to throw .illegalNull, but instead it threw: \(error)")

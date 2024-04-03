@@ -113,7 +113,7 @@ final class Test_BinaryDecodingOptions: XCTestCase {
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
-                } catch BinaryDecodingError.messageDepthLimit {
+                } catch let error as SwiftProtobufError where error == .BinaryDecoding.messageDepthLimit {
                     if expectSuccess {
                         XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
                     } else {

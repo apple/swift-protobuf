@@ -13,6 +13,7 @@
 // -----------------------------------------------------------------------------
 
 /// Describes errors that can occur when decoding a message from binary format.
+@available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
 public enum BinaryEncodingError: Error, Equatable {
   /// `Any` fields that were decoded from JSON cannot be re-encoded to binary
   /// unless the object they hold is a well-known type or a type registered via

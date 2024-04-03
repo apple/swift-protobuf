@@ -46,7 +46,7 @@ internal struct TextFormatDecoder: Decoder {
     ) throws {
         scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, options: options, extensions: extensions)
         guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
-            throw TextFormatDecodingError.missingFieldNames
+            throw SwiftProtobufError.TextFormatDecoding.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
@@ -56,14 +56,14 @@ internal struct TextFormatDecoder: Decoder {
         self.scanner = scanner
         self.terminator = terminator
         guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
-            throw TextFormatDecodingError.missingFieldNames
+            throw SwiftProtobufError.TextFormatDecoding.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
     }
 
     mutating func handleConflictingOneOf() throws {
-        throw TextFormatDecodingError.conflictingOneOf
+        throw SwiftProtobufError.TextFormatDecoding.conflictingOneOf
     }
 
     mutating func nextFieldNumber() throws -> Int? {
@@ -142,7 +142,7 @@ internal struct TextFormatDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw TextFormatDecodingError.malformedNumber
+            throw SwiftProtobufError.TextFormatDecoding.malformedNumber
         }
         value = Int32(truncatingIfNeeded: n)
     }
@@ -150,7 +150,7 @@ internal struct TextFormatDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
-            throw TextFormatDecodingError.malformedNumber
+            throw SwiftProtobufError.TextFormatDecoding.malformedNumber
         }
         value = Int32(truncatingIfNeeded: n)
     }
@@ -169,14 +169,14 @@ internal struct TextFormatDecoder: Decoder {
                 }
                 let n = try scanner.nextSInt()
                 if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                    throw TextFormatDecodingError.malformedNumber
+                    throw SwiftProtobufError.TextFormatDecoding.malformedNumber
                 }
                 value.append(Int32(truncatingIfNeeded: n))
             }
         } else {
             let n = try scanner.nextSInt()
             if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                throw TextFormatDecodingError.malformedNumber
+                throw SwiftProtobufError.TextFormatDecoding.malformedNumber
             }
             value.append(Int32(truncatingIfNeeded: n))
         }
@@ -214,7 +214,7 @@ internal struct TextFormatDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
-            throw TextFormatDecodingError.malformedNumber
+            throw SwiftProtobufError.TextFormatDecoding.malformedNumber
         }
         value = UInt32(truncatingIfNeeded: n)
     }
@@ -222,7 +222,7 @@ internal struct TextFormatDecoder: Decoder {
         try scanner.skipRequiredColon()
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
-            throw TextFormatDecodingError.malformedNumber
+            throw SwiftProtobufError.TextFormatDecoding.malformedNumber
         }
         value = UInt32(truncatingIfNeeded: n)
     }
@@ -241,14 +241,14 @@ internal struct TextFormatDecoder: Decoder {
                 }
                 let n = try scanner.nextUInt()
                 if n > UInt64(UInt32.max) {
-                    throw TextFormatDecodingError.malformedNumber
+                    throw SwiftProtobufError.TextFormatDecoding.malformedNumber
                 }
                 value.append(UInt32(truncatingIfNeeded: n))
             }
         } else {
             let n = try scanner.nextUInt()
             if n > UInt64(UInt32.max) {
-                throw TextFormatDecodingError.malformedNumber
+                throw SwiftProtobufError.TextFormatDecoding.malformedNumber
             }
             value.append(UInt32(truncatingIfNeeded: n))
         }
@@ -429,7 +429,7 @@ internal struct TextFormatDecoder: Decoder {
             if let b = E(rawUTF8: name) {
                 return b
             } else {
-                throw TextFormatDecodingError.unrecognizedEnumValue
+                throw SwiftProtobufError.TextFormatDecoding.unrecognizedEnumValue
             }
         }
         let number = try scanner.nextSInt()
@@ -438,10 +438,10 @@ internal struct TextFormatDecoder: Decoder {
             if let e = E(rawValue: Int(n)) {
                 return e
             } else {
-                throw TextFormatDecodingError.unrecognizedEnumValue
+                throw SwiftProtobufError.TextFormatDecoding.unrecognizedEnumValue
             }
         }
-        throw TextFormatDecodingError.malformedText
+        throw SwiftProtobufError.TextFormatDecoding.malformedText
 
     }
 
@@ -560,7 +560,7 @@ internal struct TextFormatDecoder: Decoder {
                     value[keyField] = valueField
                     return
                 } else {
-                    throw TextFormatDecodingError.malformedText
+                    throw SwiftProtobufError.TextFormatDecoding.malformedText
                 }
             }
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
@@ -575,12 +575,12 @@ internal struct TextFormatDecoder: Decoder {
                     } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
                         try scanner.skipUnknownFieldValue()
                     } else {
-                        throw TextFormatDecodingError.unknownField
+                        throw SwiftProtobufError.TextFormatDecoding.unknownField
                     }
                 }
                 scanner.skipOptionalSeparator()
             } else {
-                throw TextFormatDecodingError.malformedText
+                throw SwiftProtobufError.TextFormatDecoding.malformedText
             }
         }
     }
@@ -616,7 +616,7 @@ internal struct TextFormatDecoder: Decoder {
                     value[keyField] = valueField
                     return
                 } else {
-                    throw TextFormatDecodingError.malformedText
+                    throw SwiftProtobufError.TextFormatDecoding.malformedText
                 }
             }
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
@@ -631,12 +631,12 @@ internal struct TextFormatDecoder: Decoder {
                     } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
                         try scanner.skipUnknownFieldValue()
                     } else {
-                        throw TextFormatDecodingError.unknownField
+                        throw SwiftProtobufError.TextFormatDecoding.unknownField
                     }
                 }
                 scanner.skipOptionalSeparator()
             } else {
-                throw TextFormatDecodingError.malformedText
+                throw SwiftProtobufError.TextFormatDecoding.malformedText
             }
         }
     }
@@ -672,7 +672,7 @@ internal struct TextFormatDecoder: Decoder {
                     value[keyField] = valueField
                     return
                 } else {
-                    throw TextFormatDecodingError.malformedText
+                    throw SwiftProtobufError.TextFormatDecoding.malformedText
                 }
             }
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
@@ -687,12 +687,12 @@ internal struct TextFormatDecoder: Decoder {
                     } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
                         try scanner.skipUnknownFieldValue()
                     } else {
-                        throw TextFormatDecodingError.unknownField
+                        throw SwiftProtobufError.TextFormatDecoding.unknownField
                     }
                 }
                 scanner.skipOptionalSeparator()
             } else {
-                throw TextFormatDecodingError.malformedText
+                throw SwiftProtobufError.TextFormatDecoding.malformedText
             }
         }
     }
@@ -729,7 +729,7 @@ internal struct TextFormatDecoder: Decoder {
                     // Really things should never get here, for TextFormat, decoding
                     // the value should always work or throw an error.  This specific
                     // error result is to allow this to be more detectable.
-                    throw TextFormatDecodingError.internalExtensionError
+                    throw SwiftProtobufError.TextFormatDecoding.internalExtensionError
                 }
             }
         }

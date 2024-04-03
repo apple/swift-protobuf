@@ -13,13 +13,59 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 
 private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
+
+extension SwiftProtobufError {
+  public enum ProtoFileToModuleMapping {
+    /// Raised if the path wasn't found.
+    /// - Parameter path: The path that wasn't found.
+    public static func failToOpen(path: String) -> SwiftProtobufError {
+      SwiftProtobufError(
+        code: .protoFileToModuleMappingError,
+        message: "Path not found: \(path)"
+      )
+    }
+
+    /// Raised if a mapping entry in the protobuf doesn't have a module name.
+    /// - Parameter mappingIndex: The index (0-N) of the mapping.
+    public static func entryMissingModuleName(mappingIndex: Int) -> SwiftProtobufError {
+      SwiftProtobufError(
+        code: .protoFileToModuleMappingError,
+        message: "Mapping with index \(mappingIndex) doesn't have a module name."
+      )
+    }
+
+    /// Raised if a mapping entry in the protobuf doesn't have any proto files listed.
+    /// - Parameter mappingIndex: The index (0-N) of the mapping.
+    public static func entryHasNoProtoPaths(mappingIndex: Int) -> SwiftProtobufError {
+      SwiftProtobufError(
+        code: .protoFileToModuleMappingError,
+        message: "Mapping with index \(mappingIndex) doesn't have any proto files listed."
+      )
+    }
+    
+    /// The given proto path was listed for both modules.
+    public static func duplicateProtoPathMapping(
+      path: String,
+      firstModule: String,
+      secondModule: String
+    ) -> SwiftProtobufError {
+      SwiftProtobufError(
+        code: .protoFileToModuleMappingError,
+        message: "The given path (\(path)) was listed in two modules: '\(firstModule)' and '\(secondModule)'."
+      )
+    }
+  }
+}
+
 
 /// Handles the mapping of proto files to the modules they will be compiled into.
 public struct ProtoFileToModuleMappings {
 
   /// Errors raised from parsing mappings
+  @available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
   public enum LoadError: Error {
     /// Raised if the path wasn't found.
     case failToOpen(path: String)
@@ -49,47 +95,49 @@ public struct ProtoFileToModuleMappings {
   /// We expect to find the WKTs in the module named here.
   public let swiftProtobufModuleName: String
 
-  /// Loads and parses the given module mapping from disk.  Raises LoadError
-  /// or TextFormatDecodingError.
+  /// Loads and parses the given module mapping from disk.
+  /// - Throws: ``SwiftProtobuf/SwiftProtobufError``.
   public init(path: String) throws {
     try self.init(path: path, swiftProtobufModuleName: nil)
   }
 
-  /// Loads and parses the given module mapping from disk.  Raises LoadError
-  /// or TextFormatDecodingError.
+  /// Loads and parses the given module mapping from disk. 
+  /// - Throws: ``SwiftProtobuf/SwiftProtobufError``.
   public init(path: String, swiftProtobufModuleName: String?) throws {
     let content: String
     do {
       content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
     } catch {
-      throw LoadError.failToOpen(path: path)
+      throw SwiftProtobufError.ProtoFileToModuleMapping.failToOpen(path: path)
     }
 
     let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
     try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
-  /// Parses the given module mapping.  Raises LoadError.
+  /// Parses the given module mapping.
+  /// - Throws: ``SwiftProtobuf/SwiftProtobufError``.
   public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
     try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
   }
 
-  /// Parses the given module mapping.  Raises LoadError.
+  /// Parses the given module mapping
+  /// - Throws: ``SwiftProtobuf/SwiftProtobufError``.
   public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings, swiftProtobufModuleName: String?) throws {
     self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
     var builder = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
     let initialCount = builder.count
     for (idx, mapping) in mappings.mapping.lazy.enumerated() {
       if mapping.moduleName.isEmpty {
-        throw LoadError.entryMissingModuleName(mappingIndex: idx)
+        throw SwiftProtobufError.ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: idx)
       }
       if mapping.protoFilePath.isEmpty {
-        throw LoadError.entryHasNoProtoPaths(mappingIndex: idx)
+        throw SwiftProtobufError.ProtoFileToModuleMapping.entryHasNoProtoPaths(mappingIndex: idx)
       }
       for path in mapping.protoFilePath {
         if let existing = builder[path] {
           if existing != mapping.moduleName {
-            throw LoadError.duplicateProtoPathMapping(path: path,
+            throw SwiftProtobufError.ProtoFileToModuleMapping.duplicateProtoPathMapping(path: path,
                                                       firstModule: existing,
                                                       secondModule: mapping.moduleName)
           }

@@ -16,9 +16,46 @@
 import Foundation
 #endif
 
+extension SwiftProtobufError.BinaryDecoding {
+  /// If a read/write to the stream fails, but the stream's `streamError` is nil,
+  /// this error will be thrown instead since the stream didn't provide anything
+  /// more specific. A common cause for this can be failing to open the stream
+  /// before trying to read/write to it.
+  public static let unknownStreamError = SwiftProtobufError(
+    code: .binaryDecodingError,
+    message: "Unknown error when reading/writing binary-delimited message into stream."
+  )
+  
+  /// While attempting to read the length of a message on the stream, the
+  /// bytes were malformed for the protobuf format.
+  public static let malformedLength = SwiftProtobufError(
+    code: .binaryDecodingError,
+    message: """
+      While attempting to read the length of a binary-delimited message \
+      on the stream, the bytes were malformed for the protobuf format.
+    """
+  )
+  
+  /// This isn't really an error. `InputStream` documents that
+  /// `hasBytesAvailable` _may_ return `True` if a read is needed to
+  /// determine if there really are bytes available. So this "error" is thrown
+  /// when a `parse` or `merge` fails because there were no bytes available.
+  /// If this is raised, the callers should decide via what ever other means
+  /// are correct if the stream has completely ended or if more bytes might
+  /// eventually show up.
+  public static let noBytesAvailable = SwiftProtobufError(
+    code: .binaryDecodingError,
+    message: """
+      This is not really an error: please read the documentation for
+      `SwiftProtobufError/BinaryDecoding/noBytesAvailable` for more information.
+    """
+  )
+}
+
 /// Helper methods for reading/writing messages with a length prefix.
 public enum BinaryDelimited {
   /// Additional errors for delimited message handing.
+  @available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
   public enum Error: Swift.Error {
     /// If a read/write to the stream fails, but the stream's `streamError` is nil,
     /// this error will be throw instead since the stream didn't provide anything
@@ -60,11 +97,10 @@ public enum BinaryDelimited {
   ///   - to: The `OutputStream` to write the message to.  The stream is
   ///     is assumed to be ready to be written to.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  /// - Throws: `BinaryEncodingError` if encoding fails, throws
-  ///           `BinaryDelimited.Error` for some writing errors, or the
+  ///     ``SwiftProtobufError/BinaryEncoding/missingRequiredFields``.
+  /// - Throws: ``SwiftProtobufError`` if encoding fails or some writing errors occur; or the
   ///           underlying `OutputStream.streamError` for a stream error.
   public static func serialize(
     message: any Message,
@@ -96,9 +132,9 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw BinaryDelimited.Error.unknownStreamError
+        throw SwiftProtobufError.BinaryDecoding.unknownStreamError
       }
-      throw BinaryDelimited.Error.truncated
+      throw SwiftProtobufError.BinaryEncoding.truncated
     }
   }
 
@@ -112,17 +148,16 @@ public enum BinaryDelimited {
   ///   - messageType: The type of message to read.
   ///   - from: The `InputStream` to read the data from.  The stream is assumed
   ///     to be ready to read from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
+  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: The message read.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors, and the
+  /// - Throws: ``SwiftProtobufError`` if decoding fails, and for some reading errors; or the
   ///           underlying `InputStream.streamError` for a stream error.
   public static func parse<M: Message>(
     messageType: M.Type,
@@ -154,16 +189,15 @@ public enum BinaryDelimited {
   ///   - mergingTo: The message to merge the data into.
   ///   - from: The `InputStream` to read the data from.  The stream is assumed
   ///     to be ready to read from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
+  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
   ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors, and the
+  /// - Throws: ``SwiftProtobufError`` if decoding fails, and for some reading errors; or the
   ///           underlying `InputStream.streamError` for a stream error.
   public static func merge<M: Message>(
     into message: inout M,
@@ -178,7 +212,7 @@ public enum BinaryDelimited {
       return
     }
     guard unsignedLength <= 0x7fffffff else {
-      throw BinaryDelimited.Error.tooLarge
+      throw SwiftProtobufError.BinaryDecoding.tooLarge
     }
     let length = Int(unsignedLength)
 
@@ -205,11 +239,11 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw BinaryDelimited.Error.unknownStreamError
+        throw SwiftProtobufError.BinaryDecoding.unknownStreamError
       }
       if bytesRead == 0 {
         // Hit the end of the stream
-        throw BinaryDelimited.Error.truncated
+        throw SwiftProtobufError.BinaryDecoding.truncated
       }
       if bytesRead < chunk.count {
         data += chunk[0..<bytesRead]
@@ -249,7 +283,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
       if let streamError = stream.streamError {
         throw streamError
       }
-      throw BinaryDelimited.Error.unknownStreamError
+      throw SwiftProtobufError.BinaryDecoding.unknownStreamError
     }
   }
 
@@ -258,9 +292,9 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
   while true {
     guard let c = try nextByte() else {
       if shift == 0 {
-        throw BinaryDelimited.Error.noBytesAvailable
+        throw SwiftProtobufError.BinaryDecoding.noBytesAvailable
       }
-      throw BinaryDelimited.Error.truncated
+      throw SwiftProtobufError.BinaryDecoding.truncated
     }
     value |= UInt64(c & 0x7f) << shift
     if c & 0x80 == 0 {
@@ -268,7 +302,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
     shift += 7
     if shift > 63 {
-      throw BinaryDelimited.Error.malformedLength
+      throw SwiftProtobufError.BinaryDecoding.malformedLength
     }
   }
 }

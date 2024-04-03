@@ -399,6 +399,16 @@ extension XCTestCase {
         XCTAssertTrue(actual.hasSuffix(expectedSuffix), fmt ?? "debugDescription did not match", file: file, line: line)
 #endif
     }
+    
+    func assertSwiftProtobufError(_ error: any Error, code: SwiftProtobufError.Code, message: String) {
+        let actualError = error as! SwiftProtobufError
+        let expectedError = SwiftProtobufError(
+            code: code,
+            message: message
+        )
+        XCTAssertEqual(actualError.code, expectedError.code)
+        XCTAssertEqual(actualError.message, expectedError.message)
+    }
 }
 
 /// Protocol to help write visitor for testing.  It provides default implementations

@@ -38,7 +38,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 if !expectSuccess {
                     XCTFail("Should not have succeed, limit: \(limit)")
                 }
-            } catch TextFormatDecodingError.messageDepthLimit {
+            } catch let error as SwiftProtobufError where error == .TextFormatDecoding.messageDepthLimit {
                 if expectSuccess {
                     XCTFail("Decode failed because of limit, but should *NOT* have, limit: \(limit)")
                 } else {

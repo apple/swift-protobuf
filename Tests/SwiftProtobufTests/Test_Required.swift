@@ -157,7 +157,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
-        } catch BinaryDecodingError.missingRequiredFields {
+        } catch let error as SwiftProtobufError where error == .BinaryDecoding.missingRequiredFields {
             // Correct error!
         } catch let e {
             XCTFail("Decoding \(bytes) got wrong error: \(e)", file: file, line: line)
@@ -254,7 +254,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         do {
             let _: [UInt8] = try message.serializedBytes()
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
-        } catch BinaryEncodingError.missingRequiredFields {
+        } catch let error as SwiftProtobufError where error == .BinaryEncoding.missingRequiredFields {
             // Correct error!
         } catch let e {
             XCTFail("Encoding got wrong error: \(e) for \(message)", file: file, line: line)
@@ -357,7 +357,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
-        } catch BinaryDecodingError.missingRequiredFields {
+        } catch let error as SwiftProtobufError where error == .BinaryDecoding.missingRequiredFields {
             // Correct error!
         } catch let e {
             XCTFail("Decoding \(bytes) got wrong error: \(e)", file: file, line: line)
@@ -414,7 +414,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
         do {
             let _: [UInt8] = try message.serializedBytes()
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
-        } catch BinaryEncodingError.missingRequiredFields {
+        } catch let error as SwiftProtobufError where error == .BinaryEncoding.missingRequiredFields {
             // Correct error!
         } catch let e {
             XCTFail("Encoding got wrong error: \(e) for \(message)", file: file, line: line)

@@ -30,20 +30,20 @@ extension Google_Protobuf_Any {
   ///
   /// - Parameters:
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  ///   - typePrefix: The prefix to be used when building the `type_url`. 
+  ///     ``SwiftProtobufError/BinaryEncoding/missingRequiredFields``.
+  ///   - typePrefix: The prefix to be used when building the `type_url`.
   ///     Defaults to "type.googleapis.com".
-  /// - Throws: `BinaryEncodingError.missingRequiredFields` if `partial` is
-  ///     false and `message` wasn't fully initialized.
+  /// - Throws: ``SwiftProtobufError/BinaryEncoding/missingRequiredFields`` if 
+  /// `partial` is false and `message` wasn't fully initialized.
   public init(
     message: any Message,
     partial: Bool = false,
     typePrefix: String = defaultAnyTypeURLPrefix
   ) throws {
     if !partial && !message.isInitialized {
-      throw BinaryEncodingError.missingRequiredFields
+      throw SwiftProtobufError.BinaryEncoding.missingRequiredFields
     }
     self.init()
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
@@ -55,11 +55,11 @@ extension Google_Protobuf_Any {
   ///
   /// - Parameters:
   ///   - textFormatString: The text format string to decode.
-  ///   - options: The `TextFormatDencodingOptions` to use.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - options: The ``TextFormatDecodingOptions`` to use.
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  /// - Throws: an instance of `TextFormatDecodingError` on failure.
+  /// - Throws: ``SwiftProtobufError`` on failure.
   public init(
     textFormatString: String,
     options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
@@ -78,7 +78,7 @@ extension Google_Protobuf_Any {
               extensions: extensions)
             try decodeTextFormat(decoder: &textDecoder)
             if !textDecoder.complete {
-              throw TextFormatDecodingError.trailingGarbage
+              throw SwiftProtobufError.TextFormatDecoding.trailingGarbage
             }
           }
         }

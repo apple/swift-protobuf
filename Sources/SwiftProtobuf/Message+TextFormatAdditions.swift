@@ -59,11 +59,11 @@ extension Message {
   ///
   /// - Parameters:
   ///   - textFormatString: The text format string to decode.
-  ///   - options: The `TextFormatDencodingOptions` to use.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - options: The ``TextFormatDecodingOptions`` to use.
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  /// - Throws: an instance of `TextFormatDecodingError` on failure.
+  /// - Throws: ``SwiftProtobufError`` on failure.
   public init(
     textFormatString: String,
     options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
@@ -81,7 +81,7 @@ extension Message {
                                                 extensions: extensions)
             try decodeMessage(decoder: &decoder)
             if !decoder.complete {
-              throw TextFormatDecodingError.trailingGarbage
+              throw SwiftProtobufError.TextFormatDecoding.trailingGarbage
             }
           }
         }

@@ -46,7 +46,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
-                } catch JSONDecodingError.messageDepthLimit {
+                } catch let error as SwiftProtobufError where error == .JSONDecoding.messageDepthLimit {
                     if expectSuccess {
                         XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
                     } else {
@@ -136,8 +136,9 @@ final class Test_JSONDecodingOptions: XCTestCase {
             do {
                 let _ = try SwiftProtoTesting_TestEmptyMessage(jsonString: jsonInput)
                 XCTFail("Input \(i): Should not have gotten here! Input: \(jsonInput)")
-            } catch JSONDecodingError.unknownField(let field) {
-                XCTAssertEqual(field, "unknown", "Input \(i): got field \(field)")
+            } catch let error as SwiftProtobufError {
+                XCTAssertEqual(error.code, .jsonDecodingError)
+                XCTAssertEqual(error.message, "Encountered an unknown field with name 'unknown'.")
             } catch let e {
                 XCTFail("Input \(i): Error \(e) decoding into an empty message \(jsonInput)")
             }
@@ -148,8 +149,8 @@ final class Test_JSONDecodingOptions: XCTestCase {
                                                               options:options)
                 XCTAssertTrue(isValidJSON,
                               "Input \(i): Should not have been able to parse: \(jsonInput)")
-            } catch JSONDecodingError.unknownField(let field) {
-                XCTFail("Input \(i): should not have gotten unknown field \(field), input \(jsonInput)")
+            } catch let error as SwiftProtobufError where error == .JSONDecoding.unknownField("unknown") {
+                XCTFail("Input \(i): should not have gotten unknown field, input \(jsonInput)")
             } catch let e {
                 XCTAssertFalse(isValidJSON,
                                "Input \(i): Error \(e): Should have been able to parse: \(jsonInput)")

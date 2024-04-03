@@ -21,16 +21,15 @@ extension AsyncSequence where Element == UInt8 {
   ///
   /// - Parameters:
   ///   - messageType: The type of message to read.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
-  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
+  ///   - partial: If `false` (the default),  after decoding a message, ``Message/isInitialized-6abgi`
   ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
-  ///   - options: The BinaryDecodingOptions to use.
+  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields`` will be thrown.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDelimited.Error` for errors in the framing of the messages
-  ///           in the sequence, `BinaryDecodingError` for errors while decoding
-  ///           messages.
+  /// - Throws: ``SwiftProtobufError`` for errors in the framing of the messages in the sequence
+  /// or while decoding messages.
   @inlinable
   public func binaryProtobufDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
@@ -68,16 +67,15 @@ public struct AsyncMessageSequence<
   ///
   /// - Parameters:
   ///   - baseSequence: The `AsyncSequence` to read messages from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
-  ///   - partial: If `false` (the default), after decoding a message, `Message.isInitialized`
+  ///   - partial: If `false` (the default), after decoding a message, ``Message/isInitialized-6abgi``
   ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
-  ///   - options: The BinaryDecodingOptions to use.
+  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields`` will be thrown.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDelimited.Error` for errors in the framing of the messages
-  ///           in the sequence, `BinaryDecodingError` for errors while decoding
-  ///           messages.
+  /// - Throws: ``SwiftProtobufError`` for errors in the framing of the messages in the sequence
+  /// or while decoding messages.
   public init(
     base: Base,
     extensions: (any ExtensionMap)? = nil,
@@ -124,7 +122,7 @@ public struct AsyncMessageSequence<
         shift += UInt64(7)
         if shift > 35 {
           iterator = nil
-          throw BinaryDelimited.Error.malformedLength
+          throw SwiftProtobufError.BinaryDecoding.malformedLength
         }
         if (byte & 0x80 == 0) {
           return messageSize
@@ -133,7 +131,7 @@ public struct AsyncMessageSequence<
       if (shift > 0) {
         // The stream has ended inside a varint.
         iterator = nil
-        throw BinaryDelimited.Error.truncated
+        throw SwiftProtobufError.BinaryDecoding.truncated
       }
       return nil // End of stream reached.
     }
@@ -155,7 +153,7 @@ public struct AsyncMessageSequence<
           guard let byte = try await iterator?.next() else {
             // The iterator hit the end, but the chunk wasn't filled, so the full
             // payload wasn't read.
-            throw BinaryDelimited.Error.truncated
+            throw SwiftProtobufError.BinaryDecoding.truncated
           }
           chunk[consumedBytes] = byte
           consumedBytes += 1
@@ -183,7 +181,7 @@ public struct AsyncMessageSequence<
       }
       guard messageSize <= UInt64(0x7fffffff) else {
         iterator = nil
-        throw BinaryDecodingError.tooLarge
+        throw SwiftProtobufError.BinaryDecoding.tooLarge
       }
       if messageSize == 0 {
         return try M(

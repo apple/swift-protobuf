@@ -76,7 +76,7 @@ fileprivate func unpack(contentJSON: [UInt8],
         }
         if !options.ignoreUnknownFields {
           // The only thing within a WKT should be "value".
-          throw AnyUnpackError.malformedWellKnownTypeJSON
+          throw SwiftProtobufError.AnyUnpack.malformedWellKnownTypeJSON
         }
         let _ = try scanner.skip()
         try scanner.skipRequiredComma()
@@ -84,7 +84,7 @@ fileprivate func unpack(contentJSON: [UInt8],
       if !options.ignoreUnknownFields && !scanner.complete {
         // If that wasn't the end, then there was another key, and WKTs should
         // only have the one when not skipping unknowns.
-        throw AnyUnpackError.malformedWellKnownTypeJSON
+        throw SwiftProtobufError.AnyUnpack.malformedWellKnownTypeJSON
       }
     }
   }
@@ -174,7 +174,7 @@ internal class AnyMessageStorage {
     options: BinaryDecodingOptions
   ) throws {
     guard isA(M.self) else {
-      throw AnyUnpackError.typeMismatch
+      throw SwiftProtobufError.AnyUnpack.typeMismatch
     }
 
     switch state {
@@ -218,7 +218,7 @@ internal class AnyMessageStorage {
     case .contentJSON(let contentJSON, let options):
       // contentJSON requires we have the type available for decoding
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          throw BinaryEncodingError.anyTypeURLNotRegistered(typeURL: _typeURL)
+        throw SwiftProtobufError.BinaryEncoding.anyTypeURLNotRegistered(typeURL: _typeURL)
       }
       do {
         // Decodes the full JSON and then discard the result.
@@ -230,7 +230,7 @@ internal class AnyMessageStorage {
                        options: options,
                        as: messageType)
       } catch {
-        throw BinaryEncodingError.anyTranscodeFailure
+        throw SwiftProtobufError.BinaryEncoding.anyTypeURLNotRegistered(typeURL: _typeURL)
       }
     }
   }
@@ -243,7 +243,7 @@ extension AnyMessageStorage {
     _typeURL = url
     guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
       // The type wasn't registered, can't parse it.
-      throw TextFormatDecodingError.malformedText
+      throw SwiftProtobufError.TextFormatDecoding.malformedText
     }
     let terminator = try decoder.scanner.skipObjectStart()
     var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
@@ -259,7 +259,7 @@ extension AnyMessageStorage {
     decoder.scanner = subDecoder.scanner
     if try decoder.nextFieldNumber() != nil {
       // Verbose any can never have additional keys.
-      throw TextFormatDecodingError.malformedText
+      throw SwiftProtobufError.TextFormatDecoding.malformedText
     }
   }
 
@@ -422,7 +422,7 @@ extension AnyMessageStorage {
         // binary value, so we're stuck.  (The Google spec does not
         // provide a way to just package the binary value for someone
         // else to decode later.)
-        throw JSONEncodingError.anyTypeURLNotRegistered(typeURL: _typeURL)
+        throw SwiftProtobufError.JSONEncoding.anyTypeURLNotRegistered(typeURL: _typeURL)
       }
       let m = try messageType.init(serializedBytes: valueData, partial: true)
       return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)

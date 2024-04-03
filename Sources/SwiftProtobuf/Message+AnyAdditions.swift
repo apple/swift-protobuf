@@ -32,8 +32,7 @@ extension Message {
   ///   extensions in this message or messages nested within this message's
   ///   fields.
   /// - Parameter options: The BinaryDecodingOptions to use.
-  /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
-  ///   `BinaryDecodingError` on failure.
+  /// - Throws: `SwiftProtobufError` on failure.
   public init(
     unpackingAny: Google_Protobuf_Any,
     extensions: (any ExtensionMap)? = nil,
