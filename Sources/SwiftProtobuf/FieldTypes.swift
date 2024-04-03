@@ -26,6 +26,7 @@ import Foundation
 
 // Note: The protobuf- and JSON-specific methods here are defined
 // in ProtobufTypeAdditions.swift and JSONTypeAdditions.swift
+@preconcurrency
 public protocol FieldType: Sendable {
     // The Swift type used to store data for this field.  For example,
     // proto "sint32" fields use Swift "Int32" type.
@@ -49,6 +50,7 @@ public protocol FieldType: Sendable {
 ///
 /// Marker protocol for types that can be used as map keys
 ///
+@preconcurrency
 public protocol MapKeyType: FieldType {
     /// A comparison function for where order is needed.  Can't use `Comparable`
     /// because `Bool` doesn't conform, and since it is `public` there is no way
@@ -66,6 +68,7 @@ extension MapKeyType where BaseType: Comparable {
 ///
 /// Marker Protocol for types that can be used as map values.
 ///
+@preconcurrency
 public protocol MapValueType: FieldType {
 }
 

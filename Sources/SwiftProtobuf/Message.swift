@@ -31,6 +31,7 @@
 ///
 /// The actual functionality is implemented either in the generated code or in
 /// default implementations of the below methods and properties.
+@preconcurrency
 public protocol Message: _CommonMessageConformances {
   /// Creates a new message with all of its fields initialized to their default
   /// values.
@@ -182,6 +183,7 @@ extension Message {
 /// generic constraints if you need to write generic code that can be applied to
 /// multiple message types that uses equality tests, puts messages in a `Set`,
 /// or uses them as `Dictionary` keys.
+@preconcurrency
 public protocol _MessageImplementationBase: Message, Hashable {
 
   // Legacy function; no longer used, but left to maintain source compatibility.

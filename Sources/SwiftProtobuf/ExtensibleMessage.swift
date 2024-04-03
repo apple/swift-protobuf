@@ -13,6 +13,7 @@
 // -----------------------------------------------------------------------------
 
 // Messages that support extensions implement this protocol
+@preconcurrency
 public protocol ExtensibleMessage: Message {
     var _protobuf_extensionFieldValues: ExtensionFieldValueSet { get set }
 }
