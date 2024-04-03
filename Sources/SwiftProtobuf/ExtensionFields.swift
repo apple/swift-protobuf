@@ -22,6 +22,7 @@
 // equality with some other extension field; but it's type-sealed
 // so you can't actually access the contained value itself.
 //
+@preconcurrency
 public protocol AnyExtensionField: Sendable {
   func hash(into hasher: inout Hasher)
   var protobufExtension: any AnyMessageExtension { get }
@@ -46,7 +47,8 @@ extension AnyExtensionField {
 ///
 /// The regular ExtensionField type exposes the value directly.
 ///
-public protocol ExtensionField: AnyExtensionField, Hashable, Sendable {
+@preconcurrency
+public protocol ExtensionField: AnyExtensionField, Hashable {
   associatedtype ValueType
   var value: ValueType { get set }
   init(protobufExtension: any AnyMessageExtension, value: ValueType)

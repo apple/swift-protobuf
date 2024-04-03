@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 
 /// Type-erased MessageExtension field implementation.
+@preconcurrency
 public protocol AnyMessageExtension: Sendable {
     var fieldNumber: Int { get }
     var fieldName: String { get }

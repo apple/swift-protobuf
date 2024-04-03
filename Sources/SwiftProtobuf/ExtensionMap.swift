@@ -22,6 +22,7 @@
 /// This is a protocol so that developers can build their own
 /// extension handling if they need something more complex than the
 /// standard `SimpleExtensionMap` implementation.
+@preconcurrency
 public protocol ExtensionMap: Sendable {
     /// Returns the extension object describing an extension or nil
     subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? { get }
