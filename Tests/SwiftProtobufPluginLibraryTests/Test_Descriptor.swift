@@ -12,20 +12,33 @@ import XCTest
 import SwiftProtobuf
 @testable import SwiftProtobufPluginLibrary
 
+extension FileDescriptor {
+  func extensionField(named: String) -> FieldDescriptor? {
+    return extensions.first { return $0.name == named }
+  }
+}
+extension Descriptor {
+  func field(named: String) -> FieldDescriptor? {
+    return fields.first { return $0.name == named }
+  }
+}
+
 final class Test_Descriptor: XCTestCase {
 
   func testParsing() throws {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
-    XCTAssertEqual(descriptorSet.files.count, 5)
+    XCTAssertEqual(descriptorSet.files.count, 7)
     // descriptor.proto documents the protoc will order the files based on the import
     // from plugin on descriptor.
     XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
     XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
     XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
-    XCTAssertEqual(descriptorSet.files[4].name, "swift_protobuf_module_mappings.proto")
+    XCTAssertEqual(descriptorSet.files[4].name, "google/protobuf/unittest_delimited_import.proto")
+    XCTAssertEqual(descriptorSet.files[5].name, "google/protobuf/unittest_delimited.proto")
+    XCTAssertEqual(descriptorSet.files[6].name, "swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
 
@@ -336,4 +349,54 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertTrue(nestedExt2.file === descriptorTestFile)
   }
 
+  func testIsGroupLike_GroupLikeDelimited() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+    let file = try XCTUnwrap(msg.file)
+
+    XCTAssertTrue(try XCTUnwrap(msg.field(named: "grouplike")).internal_isGroupLike)
+    XCTAssertTrue(try XCTUnwrap(file.extensionField(named: "grouplikefilescope")).internal_isGroupLike)
+  }
+
+  func testIsGroupLike_GroupLikeNotDelimited() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+
+    XCTAssertFalse(try XCTUnwrap(msg.field(named: "lengthprefixed")).internal_isGroupLike)
+  }
+
+  func testIsGroupLike_GroupLikeMismatchedName() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+    let file = try XCTUnwrap(msg.file)
+
+    XCTAssertFalse(try XCTUnwrap(msg.field(named: "notgrouplike")).internal_isGroupLike)
+    XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "not_group_like_scope")).internal_isGroupLike)
+  }
+
+  func testIsGroupLike_GroupLikeMismatchedScope() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+    let file = try XCTUnwrap(msg.file)
+
+    XCTAssertFalse(try XCTUnwrap(msg.field(named: "notgrouplikescope")).internal_isGroupLike)
+    XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "grouplike")).internal_isGroupLike)
+  }
+
+  func testIsGroupLike_GroupLikeMismatchedFile() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+
+    XCTAssertFalse(try XCTUnwrap(msg.field(named: "messageimport")).internal_isGroupLike)
+  }
 }
