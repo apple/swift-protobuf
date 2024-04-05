@@ -365,8 +365,10 @@ final class Test_Descriptor: XCTestCase {
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+    let file = try XCTUnwrap(msg.file)
 
     XCTAssertFalse(try XCTUnwrap(msg.field(named: "lengthprefixed")).internal_isGroupLike)
+    XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "lengthprefixed")).internal_isGroupLike)
   }
 
   func testIsGroupLike_GroupLikeMismatchedName() throws {
@@ -396,7 +398,9 @@ final class Test_Descriptor: XCTestCase {
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
+    let file = try XCTUnwrap(msg.file)
 
     XCTAssertFalse(try XCTUnwrap(msg.field(named: "messageimport")).internal_isGroupLike)
+    XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "messageimport")).internal_isGroupLike)
   }
 }
