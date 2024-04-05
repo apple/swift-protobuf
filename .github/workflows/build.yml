@@ -156,7 +156,8 @@ jobs:
       run: |
         LAST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
         echo "Checking for breaks against the tag: ${LAST_TAG}"
-        swift package diagnose-api-breaking-changes "${LAST_TAG}" --products SwiftProtobuf
+        swift package diagnose-api-breaking-changes "${LAST_TAG}" --products SwiftProtobuf \
+          --breakage-allowlist-path known_api_breaks.txt
 
   sanitizer_testing:
     # Using older ubuntu image due to issue with newer linux kernel images. When
