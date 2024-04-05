@@ -20,7 +20,7 @@ extension Message {
   /// containing a serialized message in Protocol Buffer binary format.
   ///
   /// - Parameters:
-  ///   - serializedData: The binary-encoded message data to decode.
+  ///   - serializedData: The binary-encoded message `Data` to decode.
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
@@ -31,6 +31,7 @@ extension Message {
   ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
+  @available(*, deprecated, renamed: "init(contiguousBytes:extensions:partial:options:)")
   public init(
     serializedData data: Data,
     extensions: (any ExtensionMap)? = nil,
@@ -38,7 +39,7 @@ extension Message {
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
-    try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
+    try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
   }
 
   /// Updates the message by decoding the given `Data` value
@@ -67,7 +68,7 @@ extension Message {
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
-    try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
+    try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
   }
 
   /// Returns a `Data` instance containing the Protocol Buffer binary
@@ -78,7 +79,21 @@ extension Message {
   ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     ``BinaryEncodingError/missingRequiredFields``.
-  ///   - options: The `BinaryEncodingOptions` to use.
+  /// - Returns: A `Data` instance containing the binary serialization of the message.
+  /// - Throws: ``BinaryEncodingError`` if encoding fails.
+  public func serializedData(partial: Bool = false) throws -> Data {
+    try serializedBytes(partial: partial, options: BinaryEncodingOptions())
+  }
+
+  /// Returns a `Data` instance containing the Protocol Buffer binary
+  /// format serialization of the message.
+  ///
+  /// - Parameters:
+  ///   - partial: If `false` (the default), this method will check
+  ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     ``BinaryEncodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryEncodingOptions`` to use.
   /// - Returns: A `Data` instance containing the binary serialization of the message.
   /// - Throws: ``BinaryEncodingError`` if encoding fails.
   public func serializedData(

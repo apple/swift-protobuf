@@ -48,7 +48,7 @@ final class Test_Map: XCTestCase, PBTestHelpers {
             }
             XCTAssert(availableBlocks.isEmpty && t.isEmpty, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(serializedBytes: encoded)
+                let decoded = try MessageTestType(contiguousBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object", file: file, line: line)
             } catch let e {
                 XCTFail("Encode/decode cycle should not fail: \(e)", file: file, line: line)
@@ -315,7 +315,7 @@ final class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be in unknowns
         let serialized: [UInt8] = try m1.serializedBytes()
-        let m2 = try SwiftProtoTesting_TestEnumMap(serializedBytes: serialized)
+        let m2 = try SwiftProtoTesting_TestEnumMap(contiguousBytes: serialized)
         XCTAssertEqual(m2.knownMapField.count, 1)
         XCTAssertEqual(m2.knownMapField[0], .foo)
         XCTAssertEqual(m2.unknownMapField.count, 0)
@@ -323,7 +323,7 @@ final class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be back in the map.
         let serialized2: [UInt8] = try m2.serializedBytes()
-        let m3 = try SwiftProtoTesting_TestEnumMapPlusExtra(serializedBytes: serialized2)
+        let m3 = try SwiftProtoTesting_TestEnumMapPlusExtra(contiguousBytes: serialized2)
         XCTAssertEqual(m3.knownMapField.count, 1)
         XCTAssertEqual(m3.knownMapField[0], .eProto2MapEnumFoo)
         XCTAssertEqual(m3.unknownMapField.count, 1)
@@ -338,7 +338,7 @@ final class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be in unknowns
         let serialized: [UInt8] = try m1.serializedBytes()
-        let m2 = try SwiftProtoTesting_TestMap(serializedBytes: serialized)
+        let m2 = try SwiftProtoTesting_TestMap(contiguousBytes: serialized)
         XCTAssertEqual(m2.mapInt32Enum.count, 2)
         XCTAssertEqual(m2.mapInt32Enum[1], .baz)
         XCTAssertEqual(m2.mapInt32Enum[2], .UNRECOGNIZED(999))

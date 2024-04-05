@@ -53,6 +53,24 @@ extension Message {
     }
     return visitor.result
   }
+    
+  /// Creates a new message by decoding the given string containing a
+  /// serialized message in Protocol Buffer text format.
+  ///
+  /// - Parameters:
+  ///   - textFormatString: The text format string to decode.
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  /// - Throws: ``SwiftProtobufError`` on failure.
+  public init(
+    textFormatString: String,
+    extensions: (any ExtensionMap)? = nil
+  ) throws {
+    try self.init(textFormatString: textFormatString,
+                  options: TextFormatDecodingOptions(),
+                  extensions: extensions)
+  }
 
   /// Creates a new message by decoding the given string containing a
   /// serialized message in Protocol Buffer text format.

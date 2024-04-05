@@ -37,7 +37,7 @@ systems:
   value semantics.
 * Efficient binary serialization: The `.serializedBytes()`
   method returns a bag of bytes with a compact binary form of your data.
-  You can deserialize the data using the `init(serializedBytes:)`
+  You can deserialize the data using the `init(contiguousBytes:)`
   initializer.
 * Standard JSON serialization: The `.jsonUTF8Bytes()` method returns a JSON
   form of your data that can be parsed with the `init(jsonUTF8Bytes:)`
@@ -270,7 +270,7 @@ let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
 let decodedInfo = try BookInfo(serializedData: binaryData)
 
 // Deserialize a received [UInt8] object from `binaryDataAsBytes`
-let decodedInfo = try BookInfo(serializedBytes: binaryDataAsBytes)
+let decodedInfo = try BookInfo(contiguousBytes: binaryDataAsBytes)
 
 // Serialize to JSON format as a Data object, or as any other type conforming to
 // SwiftProtobufContiguousBytes. For example:

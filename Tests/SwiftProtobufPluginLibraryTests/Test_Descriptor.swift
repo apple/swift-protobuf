@@ -26,7 +26,7 @@ extension Descriptor {
 final class Test_Descriptor: XCTestCase {
 
   func testParsing() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
     XCTAssertEqual(descriptorSet.files.count, 7)
@@ -90,7 +90,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testLookup() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
@@ -108,7 +108,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testParents() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
@@ -144,7 +144,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testFields() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
@@ -320,7 +320,7 @@ final class Test_Descriptor: XCTestCase {
     // Extensions are a little different in how they have extensionScope and
     // containingType, so they are split out to be a clear test of their behaviors.
 
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 

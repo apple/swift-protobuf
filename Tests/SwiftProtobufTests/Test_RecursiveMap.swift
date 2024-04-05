@@ -27,7 +27,7 @@ final class Test_RecursiveMap: XCTestCase {
             let encoded: [UInt8] = try outer.serializedBytes()
             XCTAssertEqual(encoded, [10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0])
 
-            let decodedOuter = try SwiftProtoTesting_TestRecursiveMapMessage(serializedBytes: encoded)
+            let decodedOuter = try SwiftProtoTesting_TestRecursiveMapMessage(contiguousBytes: encoded)
             if let decodedMid = decodedOuter.a["2"] {
                 if let decodedInner = decodedMid.a["1"] {
                     XCTAssertEqual(decodedOuter.a.count, 1)

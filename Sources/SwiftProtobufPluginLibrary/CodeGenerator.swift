@@ -113,7 +113,7 @@ extension CodeGenerator {
     let response: Google_Protobuf_Compiler_CodeGeneratorResponse
     do {
       let request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
-        serializedData: FileHandle.standardInput.readDataToEndOfFile())
+        contiguousBytes: FileHandle.standardInput.readDataToEndOfFile())
       response = generateCode(request: request, generator: self)
     } catch let e {
       response = Google_Protobuf_Compiler_CodeGeneratorResponse(

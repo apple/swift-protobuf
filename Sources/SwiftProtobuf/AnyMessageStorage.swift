@@ -179,7 +179,7 @@ internal class AnyMessageStorage {
 
     switch state {
     case .binary(let data):
-      target = try M(serializedBytes: data, extensions: extensions, partial: true, options: options)
+      target = try M(contiguousBytes: data, extensions: extensions, partial: true, options: options)
 
     case .message(let msg):
       if let message = msg as? M {
@@ -188,7 +188,7 @@ internal class AnyMessageStorage {
       } else {
         // Different type, serialize and parse.
         let bytes: [UInt8] = try msg.serializedBytes(partial: true)
-        target = try M(serializedBytes: bytes, extensions: extensions, partial: true)
+        target = try M(contiguousBytes: bytes, extensions: extensions, partial: true)
       }
 
     case .contentJSON(let contentJSON, let options):
@@ -272,7 +272,7 @@ extension AnyMessageStorage {
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         // If we can decode it, we can write the readable verbose form:
         do {
-          let m = try messageType.init(serializedBytes: valueData, partial: true)
+          let m = try messageType.init(contiguousBytes: valueData, partial: true)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
@@ -424,7 +424,7 @@ extension AnyMessageStorage {
         // else to decode later.)
         throw JSONEncodingError.anyTranscodeFailure
       }
-      let m = try messageType.init(serializedBytes: valueData, partial: true)
+      let m = try messageType.init(contiguousBytes: valueData, partial: true)
       return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)
 
     case .message(let msg):

@@ -79,7 +79,7 @@ extension Message {
   /// containing a serialized message in Protocol Buffer binary format.
   ///
   /// - Parameters:
-  ///   - serializedBytes: The binary-encoded message data to decode.
+  ///   - contiguousBytes: The binary-encoded message data to decode.
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
@@ -91,13 +91,13 @@ extension Message {
   /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public init<Bytes: SwiftProtobufContiguousBytes>(
-    serializedBytes bytes: Bytes,
+    contiguousBytes bytes: Bytes,
     extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
-    try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
+    try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
   }
 
   /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
@@ -109,7 +109,7 @@ extension Message {
   ///   occurred.
   ///
   /// - Parameters:
-  ///   - serializedBytes: The binary-encoded message data to decode.
+  ///   - contiguousBytes: The binary-encoded message data to decode.
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
@@ -121,7 +121,7 @@ extension Message {
   /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
-    serializedBytes bytes: Bytes,
+    contiguousBytes bytes: Bytes,
     extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()

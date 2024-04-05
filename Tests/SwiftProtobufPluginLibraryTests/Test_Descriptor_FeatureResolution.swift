@@ -13,7 +13,7 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
 fileprivate let testFeatureSetDefaults =
-  try! Google_Protobuf_FeatureSetDefaults(serializedBytes: testFeatureSetDefaultBytes,
+  try! Google_Protobuf_FeatureSetDefaults(contiguousBytes: testFeatureSetDefaultBytes,
                                           extensions: SwiftFeatureTest_TestFeatures_Extensions)
 
 fileprivate struct TestContext {

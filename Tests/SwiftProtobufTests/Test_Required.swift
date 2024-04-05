@@ -155,7 +155,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedBytes: bytes)
+            let _ = try MessageTestType(contiguousBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch BinaryDecodingError.missingRequiredFields {
             // Correct error!
@@ -167,7 +167,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding partial succeeds.
     fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let msg = try MessageTestType(serializedBytes: bytes, partial: true)
+            let msg = try MessageTestType(contiguousBytes: bytes, partial: true)
             var expected = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -245,7 +245,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
           allTextFormattedField.append(textFormattedField)
           allTextFormattedField.append("\n")
         }
-        let fullMsg = try SwiftProtoTesting_TestAllRequiredTypes(serializedBytes: allBytes)
+        let fullMsg = try SwiftProtoTesting_TestAllRequiredTypes(contiguousBytes: allBytes)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
@@ -355,7 +355,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedBytes: bytes)
+            let _ = try MessageTestType(contiguousBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch BinaryDecodingError.missingRequiredFields {
             // Correct error!
@@ -367,7 +367,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding partial succeeds.
     fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let msg = try MessageTestType(serializedBytes: bytes, partial: true)
+            let msg = try MessageTestType(contiguousBytes: bytes, partial: true)
             var expected = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -405,7 +405,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
           allTextFormattedField.append(textFormattedField)
           allTextFormattedField.append("\n")
         }
-        let fullMsg = try SwiftProtoTesting_TestSomeRequiredTypes(serializedBytes: allBytes)
+        let fullMsg = try SwiftProtoTesting_TestSomeRequiredTypes(contiguousBytes: allBytes)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 

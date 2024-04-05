@@ -71,7 +71,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
 
     let request: Conformance_ConformanceRequest
     do {
-        request = try Conformance_ConformanceRequest(serializedData: serializedData)
+        request = try Conformance_ConformanceRequest(contiguousBytes: serializedData)
     } catch {
         response.runtimeError = "Failed to parse conformance request"
         return response
@@ -132,7 +132,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     switch request.payload {
     case .protobufPayload(let data)?:
         do {
-            testMessage = try msgType.init(serializedData: data, extensions: extensions)
+            testMessage = try msgType.init(contiguousBytes: data, extensions: extensions)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response

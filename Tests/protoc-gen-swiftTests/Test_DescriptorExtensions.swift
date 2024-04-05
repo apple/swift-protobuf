@@ -1,4 +1,4 @@
-// Tests/protoc-gen-swiftTests/Test_DescriptorExtensions.swift - Test Descriptor+Extenions.swift
+// Tests/protoc-gen-swiftTests/Test_DescriptorExtensions.swift - Test Descriptor+Extensions.swift
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -18,7 +18,7 @@ fileprivate typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
 final class Test_DescriptorExtensions: XCTestCase {
 
   func testExtensionRanges() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 

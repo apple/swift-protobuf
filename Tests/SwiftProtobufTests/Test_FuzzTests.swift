@@ -29,7 +29,7 @@ final class Test_FuzzTests: XCTestCase {
 
   func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try SwiftProtoTesting_Fuzz_Message(serializedBytes: bytes, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(contiguousBytes: bytes, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 

@@ -28,7 +28,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
         do {
             // Make sure unknown fields are preserved by empty message decode/encode
-            let empty = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: bytes)
+            let empty = try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: bytes)
             do {
                 let newBytes: [UInt8] = try empty.serializedBytes()
                 XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match", file: file, line: line)
@@ -819,7 +819,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([119, 0])
 
         // Ensure strings over 2GB fail to decode according to spec.
-        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+        XCTAssertThrowsError(try MessageTestType(contiguousBytes: [
           114, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
@@ -943,8 +943,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([127, 0])
 
         // Ensure bytes over 2GB fail to decode according to spec.
-        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
-        122, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+        XCTAssertThrowsError(try MessageTestType(contiguousBytes: [
+          122, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
         ])) {
@@ -995,7 +995,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([146, 1, 1, 128])
 
         // Ensure message field over 2GB fail to decode according to spec.
-        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+        XCTAssertThrowsError(try MessageTestType(contiguousBytes: [
           146, 1, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
@@ -1022,7 +1022,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [146, 1, 2, 8, 1, // nested message with bb=1
                               208, 41, 0] // Unknown field 666 with varint 0
         do {
-            let m = try MessageTestType(serializedBytes: bytes)
+            let m = try MessageTestType(contiguousBytes: bytes)
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
                 let recoded: [UInt8] = try m.serializedBytes()
@@ -1040,7 +1040,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [208, 41, 0, // Unknown 666 with varint 0
                               146, 1, 2, 8, 1] // Nested msg with bb=1
         do {
-            let m = try MessageTestType(serializedBytes: bytes)
+            let m = try MessageTestType(contiguousBytes: bytes)
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
                 let recoded: [UInt8] = try m.serializedBytes()
@@ -1062,7 +1062,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99,
                               208, 41, 0]
         do {
-            let m = try MessageTestType(serializedBytes: bytes)
+            let m = try MessageTestType(contiguousBytes: bytes)
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
@@ -1082,7 +1082,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         // first in outer and inner message
         let bytes: [UInt8] = [208, 41, 0, 146, 1, 5, 208, 41, 99, 8, 1]
         do {
-            let m = try MessageTestType(serializedBytes: bytes)
+            let m = try MessageTestType(contiguousBytes: bytes)
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
@@ -1187,7 +1187,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
 
         // The out-of-range enum value should be preserved as an unknown field
-        let decoded = try SwiftProtoTesting_TestAllTypes(serializedBytes: [168, 1, 128, 1])
+        let decoded = try SwiftProtoTesting_TestAllTypes(contiguousBytes: [168, 1, 128, 1])
         XCTAssertFalse(decoded.hasOptionalNestedEnum)
         let recoded: [UInt8] = try decoded.serializedBytes()
         XCTAssertEqual(recoded, [168, 1, 128, 1])
@@ -1751,7 +1751,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodesAsUnknownFields([128, 3, 0])  // Wrong wire type (varint), valid as an unknown field
 
         // Ensure message field over 2GB fail to decode according to spec.
-        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+        XCTAssertThrowsError(try MessageTestType(contiguousBytes: [
           130, 3, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
@@ -1784,7 +1784,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         ]
 
         do {
-            let m = try MessageTestType(serializedBytes: bytes)
+            let m = try MessageTestType(contiguousBytes: bytes)
             XCTAssertEqual(m.repeatedNestedMessage.count, 2)
             XCTAssertNotEqual(m.repeatedNestedMessage[0], MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.repeatedNestedMessage[0].bb, 1)
@@ -1822,7 +1822,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // The out-of-range enum value should be preserved as an unknown field
         do {
-            let decoded1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: [152, 3, 1, 152, 3, 128, 1])
+            let decoded1 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: [152, 3, 1, 152, 3, 128, 1])
             XCTAssertEqual(decoded1.repeatedNestedEnum, [.foo])
             let recoded1: [UInt8] = try decoded1.serializedBytes()
             XCTAssertEqual(recoded1, [152, 3, 1, 152, 3, 128, 1])
@@ -1832,7 +1832,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Unknown fields always get reserialized last, which trashes order here:
         do {
-            let decoded2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: [152, 3, 128, 1, 152, 3, 2])
+            let decoded2 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: [152, 3, 128, 1, 152, 3, 2])
             XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
             let recoded2: [UInt8] = try decoded2.serializedBytes()
             XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
@@ -1842,7 +1842,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Unknown enums within packed behave as if it were plain repeated
         do {
-            let decoded3 = try SwiftProtoTesting_TestAllTypes(serializedBytes: [154, 3, 3, 128, 1, 2])
+            let decoded3 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: [154, 3, 3, 128, 1, 2])
             XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
             let recoded3: [UInt8] = try decoded3.serializedBytes()
             XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])
@@ -2616,7 +2616,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         // Fields at the top level of the message.
         for (bytes, expectedTextFormat) in testInputs {
             do {
-                let msg = try SwiftProtoTesting_TestAllTypes(serializedBytes: bytes)
+                let msg = try SwiftProtoTesting_TestAllTypes(contiguousBytes: bytes)
                 XCTAssertEqual(msg.unknownFields.data, Data(bytes), "Decoding \(bytes)")
                 XCTAssertEqual(msg.textFormatString(), expectedTextFormat + "\n", "Decoding \(bytes)")
                 XCTAssertEqual(try msg.serializedBytes(), bytes, "Decoding \(bytes)")
@@ -2636,7 +2636,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             fullExpectedTextFormat.append("}\n")
 
             do {
-                let msg = try SwiftProtoTesting_NestedTestAllTypes(serializedBytes: fullBytes)
+                let msg = try SwiftProtoTesting_NestedTestAllTypes(contiguousBytes: fullBytes)
                 XCTAssertTrue(msg.unknownFields.data.isEmpty)
                 XCTAssertEqual(msg.payload.unknownFields.data, Data(bytes), "Decoding \(bytes)")
                 XCTAssertEqual(msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
@@ -2656,7 +2656,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
             fullExpectedTextFormat.append("}\n")
             do {
-                let msg = try SwiftProtoTesting_TestAllTypes(serializedBytes: fullBytes)
+                let msg = try SwiftProtoTesting_TestAllTypes(contiguousBytes: fullBytes)
                 XCTAssertTrue(msg.unknownFields.data.isEmpty)
                 XCTAssertEqual(msg.optionalGroup.unknownFields.data, Data(bytes), "Decoding \(bytes)")
                 XCTAssertEqual(msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
@@ -2688,7 +2688,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         // Fields at the top level of the message.
         for bytes in testInputs {
             do {
-                _ = try SwiftProtoTesting_TestAllTypes(serializedBytes: bytes)
+                _ = try SwiftProtoTesting_TestAllTypes(contiguousBytes: bytes)
                 XCTFail("Decode of \(bytes) should have failed.")
             } catch {
                 // Nothing should error!
@@ -2700,7 +2700,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             // Hang it in the 'payload' field of NestedTestAllTypes
             let fullBytes = [18, UInt8(bytes.count)] + bytes
             do {
-                _ = try SwiftProtoTesting_NestedTestAllTypes(serializedBytes: fullBytes)
+                _ = try SwiftProtoTesting_NestedTestAllTypes(contiguousBytes: fullBytes)
                 XCTFail("Decode of \(bytes) should have failed.")
             } catch {
                 // Nothing should error!
@@ -2712,7 +2712,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             // Hang it after the start of the 'OptionalGroup' field of TestAllTypes
             let fullBytes = [131, 1] + bytes
             do {
-                _ = try SwiftProtoTesting_TestAllTypes(serializedBytes: fullBytes)
+                _ = try SwiftProtoTesting_TestAllTypes(contiguousBytes: fullBytes)
                 XCTFail("Decode of \(bytes) should have failed.")
             } catch {
                 // Nothing should error!

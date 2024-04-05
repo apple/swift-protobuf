@@ -169,7 +169,7 @@ class FeatureResolver {
     if let features = features {
       // Don't yet have a message level merge, so bounce through serialization.
       let bytes: [UInt8] = try! features.serializedBytes()
-      try! result.merge(serializedBytes: bytes, extensions: extensionMap)
+      try! result.merge(contiguousBytes: bytes, extensions: extensionMap)
     }
     return result
   }
