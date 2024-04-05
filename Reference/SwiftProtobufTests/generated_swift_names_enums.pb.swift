@@ -2521,6 +2521,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum clearDeprecationWarning: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearDeprecationWarning // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearDeprecationWarning
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearDeprecationWarning
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearDeprecationWarning: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDeprecationWarning] = [
+      .noneClearDeprecationWarning,
+    ]
+
+  }
+
   enum clearDoubleValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearDoubleValue // = 0
@@ -2577,6 +2607,96 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEdition] = [
       .noneClearEdition,
+    ]
+
+  }
+
+  enum clearEditionDeprecated: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearEditionDeprecated // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearEditionDeprecated
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearEditionDeprecated
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearEditionDeprecated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionDeprecated] = [
+      .noneClearEditionDeprecated,
+    ]
+
+  }
+
+  enum clearEditionIntroduced: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearEditionIntroduced // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearEditionIntroduced
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearEditionIntroduced
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearEditionIntroduced: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionIntroduced] = [
+      .noneClearEditionIntroduced,
+    ]
+
+  }
+
+  enum clearEditionRemoved: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearEditionRemoved // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearEditionRemoved
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearEditionRemoved
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearEditionRemoved: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionRemoved] = [
+      .noneClearEditionRemoved,
     ]
 
   }
@@ -2731,6 +2851,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum clearFeatureSupport: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearFeatureSupport // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearFeatureSupport
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearFeatureSupport
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearFeatureSupport: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFeatureSupport] = [
+      .noneClearFeatureSupport,
+    ]
+
+  }
+
   enum clearFieldPresence: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearFieldPresence // = 0
@@ -2757,6 +2907,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFieldPresence] = [
       .noneClearFieldPresence,
+    ]
+
+  }
+
+  enum clearFixedFeatures: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearFixedFeatures // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearFixedFeatures
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearFixedFeatures
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearFixedFeatures: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFixedFeatures] = [
+      .noneClearFixedFeatures,
     ]
 
   }
@@ -3747,6 +3927,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOutputType] = [
       .noneClearOutputType,
+    ]
+
+  }
+
+  enum clearOverridableFeatures: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearOverridableFeatures // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearOverridableFeatures
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearOverridableFeatures
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearOverridableFeatures: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOverridableFeatures] = [
+      .noneClearOverridableFeatures,
     ]
 
   }
@@ -6931,6 +7141,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum deprecationWarning: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDeprecationWarning // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDeprecationWarning
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDeprecationWarning
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDeprecationWarning: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deprecationWarning] = [
+      .noneDeprecationWarning,
+    ]
+
+  }
+
   enum descriptionEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneDescription // = 0
@@ -7497,6 +7737,96 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDefaults] = [
       .noneEditionDefaults,
+    ]
+
+  }
+
+  enum editionDeprecated: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneEditionDeprecated // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEditionDeprecated
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEditionDeprecated
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEditionDeprecated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDeprecated] = [
+      .noneEditionDeprecated,
+    ]
+
+  }
+
+  enum editionIntroduced: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneEditionIntroduced // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEditionIntroduced
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEditionIntroduced
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEditionIntroduced: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionIntroduced] = [
+      .noneEditionIntroduced,
+    ]
+
+  }
+
+  enum editionRemoved: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneEditionRemoved // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEditionRemoved
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEditionRemoved
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEditionRemoved: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionRemoved] = [
+      .noneEditionRemoved,
     ]
 
   }
@@ -9001,6 +9331,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum featureSupport: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFeatureSupport // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFeatureSupport
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFeatureSupport
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFeatureSupport: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.featureSupport] = [
+      .noneFeatureSupport,
+    ]
+
+  }
+
   enum field: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneField // = 0
@@ -9717,6 +10077,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.firstItem] = [
       .noneFirstItem,
+    ]
+
+  }
+
+  enum fixedFeatures: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFixedFeatures // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFixedFeatures
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFixedFeatures
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFixedFeatures: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fixedFeatures] = [
+      .noneFixedFeatures,
     ]
 
   }
@@ -12481,6 +12871,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum hasDeprecationWarning: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasDeprecationWarning // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasDeprecationWarning
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasDeprecationWarning
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasDeprecationWarning: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDeprecationWarning] = [
+      .noneHasDeprecationWarning,
+    ]
+
+  }
+
   enum hasDoubleValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHasDoubleValue // = 0
@@ -12537,6 +12957,96 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEdition] = [
       .noneHasEdition,
+    ]
+
+  }
+
+  enum hasEditionDeprecated: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasEditionDeprecated // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasEditionDeprecated
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasEditionDeprecated
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasEditionDeprecated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionDeprecated] = [
+      .noneHasEditionDeprecated,
+    ]
+
+  }
+
+  enum hasEditionIntroduced: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasEditionIntroduced // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasEditionIntroduced
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasEditionIntroduced
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasEditionIntroduced: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionIntroduced] = [
+      .noneHasEditionIntroduced,
+    ]
+
+  }
+
+  enum hasEditionRemoved: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasEditionRemoved // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasEditionRemoved
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasEditionRemoved
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasEditionRemoved: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionRemoved] = [
+      .noneHasEditionRemoved,
     ]
 
   }
@@ -12691,6 +13201,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum hasFeatureSupport: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasFeatureSupport // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasFeatureSupport
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasFeatureSupport
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasFeatureSupport: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFeatureSupport] = [
+      .noneHasFeatureSupport,
+    ]
+
+  }
+
   enum hasFieldPresence: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHasFieldPresence // = 0
@@ -12717,6 +13257,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFieldPresence] = [
       .noneHasFieldPresence,
+    ]
+
+  }
+
+  enum hasFixedFeatures: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasFixedFeatures // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasFixedFeatures
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasFixedFeatures
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasFixedFeatures: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFixedFeatures] = [
+      .noneHasFixedFeatures,
     ]
 
   }
@@ -13827,6 +14397,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOutputType] = [
       .noneHasOutputType,
+    ]
+
+  }
+
+  enum hasOverridableFeatures: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasOverridableFeatures // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasOverridableFeatures
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasOverridableFeatures
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasOverridableFeatures: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOverridableFeatures] = [
+      .noneHasOverridableFeatures,
     ]
 
   }
@@ -19527,6 +20127,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.outputType] = [
       .noneOutputType,
+    ]
+
+  }
+
+  enum overridableFeatures: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneOverridableFeatures // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOverridableFeatures
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOverridableFeatures
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOverridableFeatures: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.overridableFeatures] = [
+      .noneOverridableFeatures,
     ]
 
   }
@@ -29175,6 +29805,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDeprecate
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDeprecationWarning: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearDeprecationWarning"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDoubleValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearDoubleValue"),
@@ -29184,6 +29820,24 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDoubleVal
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEdition: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearEdition"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionDeprecated: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearEditionDeprecated"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionIntroduced: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearEditionIntroduced"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionRemoved: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearEditionRemoved"),
   ]
 }
 
@@ -29217,9 +29871,21 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFeatures:
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFeatureSupport: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearFeatureSupport"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFieldPresence: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearFieldPresence"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFixedFeatures: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearFixedFeatures"),
   ]
 }
 
@@ -29418,6 +30084,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOptions: 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOutputType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearOutputType"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOverridableFeatures: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearOverridableFeatures"),
   ]
 }
 
@@ -30057,6 +30729,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deprecatedLega
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deprecationWarning: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_deprecationWarning"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_description"),
@@ -30168,6 +30846,24 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.EditionDefault
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDefaults: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_editionDefaults"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDeprecated: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_editionDeprecated"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionIntroduced: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_editionIntroduced"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionRemoved: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_editionRemoved"),
   ]
 }
 
@@ -30471,6 +31167,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FeatureSetEdit
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.featureSupport: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_featureSupport"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_field"),
@@ -30612,6 +31314,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.first: SwiftPr
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.firstItem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_firstItem"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fixedFeatures: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_fixedFeatures"),
   ]
 }
 
@@ -31167,6 +31875,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDeprecatedL
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDeprecationWarning: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasDeprecationWarning"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDoubleValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasDoubleValue"),
@@ -31176,6 +31890,24 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDoubleValue
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEdition: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasEdition"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionDeprecated: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasEditionDeprecated"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionIntroduced: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasEditionIntroduced"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionRemoved: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasEditionRemoved"),
   ]
 }
 
@@ -31209,9 +31941,21 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFeatures: S
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFeatureSupport: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasFeatureSupport"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFieldPresence: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasFieldPresence"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFixedFeatures: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasFixedFeatures"),
   ]
 }
 
@@ -31434,6 +32178,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOptions: Sw
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOutputType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasOutputType"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOverridableFeatures: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasOverridableFeatures"),
   ]
 }
 
@@ -32574,6 +33324,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.out: SwiftProt
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.outputType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_outputType"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.overridableFeatures: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_overridableFeatures"),
   ]
 }
 
