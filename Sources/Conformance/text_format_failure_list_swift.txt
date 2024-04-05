@@ -1,1 +1,4 @@
-# No known failures
+Required.Proto2.TextFormatInput.GroupFieldLowercased.ProtobufOutput
+Required.Proto2.TextFormatInput.GroupFieldLowercased.TextFormatOutput
+Required.Proto2.TextFormatInput.GroupFieldLowercasedMultiWord.ProtobufOutput
+Required.Proto2.TextFormatInput.GroupFieldLowercasedMultiWord.TextFormatOutput
