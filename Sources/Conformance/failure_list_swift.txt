@@ -1,1 +1,2 @@
-# No known failures
+Required.Editions.ProtobufInput.ValidDelimitedField.GroupLike.JsonOutput
+Required.Editions.ProtobufInput.ValidDelimitedField.NotGroupLike.JsonOutput

@@ -114,6 +114,9 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     case ProtobufTestMessages_Proto2_TestAllTypesProto2.protoMessageName:
         msgType = ProtobufTestMessages_Proto2_TestAllTypesProto2.self
         extensions = ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions
+    case ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName:
+        msgType = ProtobufTestMessages_Editions_TestAllTypesEdition2023.self
+        extensions = ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions
     case ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.protoMessageName:
         msgType = ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.self
         extensions = SwiftProtobuf.SimpleExtensionMap()
