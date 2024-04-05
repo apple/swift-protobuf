@@ -14,11 +14,7 @@
 
 /// Describes errors that can occur when decoding a message from binary format.
 @available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
-public enum BinaryEncodingError: Error, Equatable {
-  /// `Any` fields that were decoded from JSON cannot be re-encoded to binary
-  /// unless the object they hold is a well-known type or a type registered via
-  /// `Google_Protobuf_Any.register()`.
-  case anyTypeURLNotRegistered(typeURL: String)
+public enum BinaryEncodingError: Error, Hashable {
   /// An unexpected failure when deserializing a `Google_Protobuf_Any`.
   case anyTranscodeFailure
   /// The definition of the message or one of its nested messages has required
@@ -26,6 +22,4 @@ public enum BinaryEncodingError: Error, Equatable {
   /// must pass `partial: true` during encoding if you wish to explicitly ignore
   /// missing required fields.
   case missingRequiredFields
-  /// Messages are limited to a maximum of 2GB in encoded size.
-  case tooLarge
 }

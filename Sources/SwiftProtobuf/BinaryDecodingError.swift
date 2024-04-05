@@ -42,8 +42,4 @@ public enum BinaryDecodingError: Error {
 
   /// Reached the nesting limit for messages within messages while decoding.
   case messageDepthLimit
-
-  /// Bytes and Strings have a max size of 2GB. And since messages are on the
-  /// wire as bytes/length delimited, they also have a 2GB size limit.
-  case tooLarge
 }

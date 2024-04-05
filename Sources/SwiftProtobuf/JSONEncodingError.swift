@@ -13,12 +13,12 @@
 // -----------------------------------------------------------------------------
 
 @available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
-public enum JSONEncodingError: Error, Equatable {
+public enum JSONEncodingError: Error, Hashable {
     /// Any fields that were decoded from binary format cannot be
     /// re-encoded into JSON unless the object they hold is a
     /// well-known type or a type registered with via
     /// Google_Protobuf_Any.register()
-    case anyTypeURLNotRegistered(typeURL: String)
+    case anyTranscodeFailure
     /// Timestamp values can only be JSON encoded if they hold a value
     /// between 0001-01-01Z00:00:00 and 9999-12-31Z23:59:59.
     case timestampRange

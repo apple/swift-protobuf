@@ -66,23 +66,6 @@ public enum BinaryDelimited {
     /// While reading/writing to the stream, less than the expected bytes was
     /// read/written.
     case truncated
-
-    /// Messages are limited by the protobuf spec to 2GB; when decoding, if the
-    /// length says the payload is over 2GB, this error is raised.
-    case tooLarge
-
-    /// While attempting to read the length of a message on the stream, the
-    /// bytes were malformed for the protobuf format.
-    case malformedLength
-
-    /// This isn't really an "error". `InputStream` documents that
-    /// `hasBytesAvailable` _may_ return `True` if a read is needed to
-    /// determine if there really are bytes available. So this "error" is throw
-    /// when a `parse` or `merge` fails because there were no bytes available.
-    /// If this is rasied, the callers should decides via what ever other means
-    /// are correct if the stream has completely ended or if more bytes might
-    /// eventually show up.
-    case noBytesAvailable
   }
 
 #if !os(WASI)
