@@ -1,0 +1,11 @@
+API breakage: protocol Enum is now with @preconcurrency
+API breakage: protocol ExtensibleMessage is now with @preconcurrency
+API breakage: protocol AnyExtensionField is now with @preconcurrency
+API breakage: protocol ExtensionField is now with @preconcurrency
+API breakage: protocol ExtensionMap is now with @preconcurrency
+API breakage: protocol FieldType is now with @preconcurrency
+API breakage: protocol MapKeyType is now with @preconcurrency
+API breakage: protocol MapValueType is now with @preconcurrency
+API breakage: protocol Message is now with @preconcurrency
+API breakage: protocol _MessageImplementationBase is now with @preconcurrency
+API breakage: protocol AnyMessageExtension is now with @preconcurrency
