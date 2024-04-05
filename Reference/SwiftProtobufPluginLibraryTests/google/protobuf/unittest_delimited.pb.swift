@@ -20,6 +20,37 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
+struct EditionsUnittest_LengthPrefixed: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var b: Int32 {
+    get {return _b ?? 0}
+    set {_b = newValue}
+  }
+  /// Returns true if `b` has been explicitly set.
+  var hasB: Bool {return self._b != nil}
+  /// Clears the value of `b`. Subsequent reads from it will return its default value.
+  mutating func clearB() {self._b = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _a: Int32? = nil
+  fileprivate var _b: Int32? = nil
+}
+
 struct EditionsUnittest_NotGroupLikeScope: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -228,6 +259,22 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
 
 extension EditionsUnittest_TestDelimited {
 
+  /// Non-delimited field that otherwise looks group-like.
+  var EditionsUnittest_lengthprefixed: EditionsUnittest_LengthPrefixed {
+    get {return getExtensionValue(ext: EditionsUnittest_Extensions_lengthprefixed) ?? EditionsUnittest_LengthPrefixed()}
+    set {setExtensionValue(ext: EditionsUnittest_Extensions_lengthprefixed, value: newValue)}
+  }
+  /// Returns true if extension `EditionsUnittest_Extensions_lengthprefixed`
+  /// has been explicitly set.
+  var hasEditionsUnittest_lengthprefixed: Bool {
+    return hasExtensionValue(ext: EditionsUnittest_Extensions_lengthprefixed)
+  }
+  /// Clears the value of extension `EditionsUnittest_Extensions_lengthprefixed`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearEditionsUnittest_lengthprefixed() {
+    clearExtensionValue(ext: EditionsUnittest_Extensions_lengthprefixed)
+  }
+
   /// Truly group-like extension.
   var EditionsUnittest_groupLikeFileScope: EditionsUnittest_GroupLikeFileScope {
     get {return getExtensionValue(ext: EditionsUnittest_Extensions_GroupLikeFileScope) ?? EditionsUnittest_GroupLikeFileScope()}
@@ -276,6 +323,22 @@ extension EditionsUnittest_TestDelimited {
     clearExtensionValue(ext: EditionsUnittest_Extensions_grouplike)
   }
 
+  /// Delimited extension that's grouplike except that it's an imported type.
+  var EditionsUnittest_messageimport: EditionsUnittest_MessageImport {
+    get {return getExtensionValue(ext: EditionsUnittest_Extensions_messageimport) ?? EditionsUnittest_MessageImport()}
+    set {setExtensionValue(ext: EditionsUnittest_Extensions_messageimport, value: newValue)}
+  }
+  /// Returns true if extension `EditionsUnittest_Extensions_messageimport`
+  /// has been explicitly set.
+  var hasEditionsUnittest_messageimport: Bool {
+    return hasExtensionValue(ext: EditionsUnittest_Extensions_messageimport)
+  }
+  /// Clears the value of extension `EditionsUnittest_Extensions_messageimport`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearEditionsUnittest_messageimport() {
+    clearExtensionValue(ext: EditionsUnittest_Extensions_messageimport)
+  }
+
 }
 
 // MARK: - File's ExtensionMap: EditionsUnittest_UnittestDelimited_Extensions
@@ -285,14 +348,22 @@ extension EditionsUnittest_TestDelimited {
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  EditionsUnittest_Extensions_lengthprefixed,
   EditionsUnittest_Extensions_GroupLikeFileScope,
   EditionsUnittest_Extensions_not_group_like_scope,
-  EditionsUnittest_Extensions_grouplike
+  EditionsUnittest_Extensions_grouplike,
+  EditionsUnittest_Extensions_messageimport
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
+
+/// Non-delimited field that otherwise looks group-like.
+let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionsUnittest_LengthPrefixed>, EditionsUnittest_TestDelimited>(
+  _protobuf_fieldNumber: 1004,
+  fieldName: "editions_unittest.lengthprefixed"
+)
 
 /// Truly group-like extension.
 let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_GroupLikeFileScope>, EditionsUnittest_TestDelimited>(
@@ -312,9 +383,57 @@ let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.MessageExtension<Swift
   fieldName: "editions_unittest.grouplike"
 )
 
+/// Delimited extension that's grouplike except that it's an imported type.
+let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_MessageImport>, EditionsUnittest_TestDelimited>(
+  _protobuf_fieldNumber: 1003,
+  fieldName: "editions_unittest.messageimport"
+)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "editions_unittest"
+
+extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".LengthPrefixed"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._b) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._b {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: EditionsUnittest_LengthPrefixed, rhs: EditionsUnittest_LengthPrefixed) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._b != rhs._b {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
 
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NotGroupLikeScope"
