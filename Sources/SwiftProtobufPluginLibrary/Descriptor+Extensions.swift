@@ -120,7 +120,46 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
   /// proto files, the filed names is derived by lowercasing the Group's name,
   /// so there are no underscores, etc. to rebuild a camel case name from.
   var namingBase: String {
-    return type == .group ? messageType!.name : name
+    return internal_isGroupLike ? messageType!.name : name
+  }
+
+  /// Helper to see if this is "group-like". Edition 2024 will likely provide
+  /// a new feature to better deal with this. See upsteam protobuf for more
+  /// details on the problem.
+  ///
+  ///  This models upstream internal::cpp::IsGroupLike().
+  ///
+  ///  TODO(thomasvl): make this `package` instead of `public` and drop the
+  ///  "internal" part from the name when 5.9 is the baseline.
+  public var internal_isGroupLike: Bool {
+    guard type == .group else {
+      return false
+    }
+    // `messageType` can't realy be nil once we know it's a group.
+    let messageType = messageType!
+
+    // The original proto2 syntax concept of a group always has a field name
+    // that is the exact lowercasing of the message name.
+    guard name == messageType.name.lowercased() else {
+      return false;
+    }
+
+    // The message defined by a group is at the same scope as the field. So...
+    if isExtension {
+      if extensionScope == nil {
+        // Top level extension, so the message made by the group has to be the
+        // same file and also a type level type.
+        return messageType.file === file && messageType.containingType == nil
+      } else {
+        // Extension field was scoped to a message, so the group will be also
+        // nested under that same message.
+        return messageType.containingType === extensionScope
+      }
+    } else {
+      // A regular message field, the message made by the group has to be
+      // nested under this same message.
+      return messageType.containingType === containingType
+    }
   }
 }
 

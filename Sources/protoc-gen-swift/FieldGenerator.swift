@@ -70,7 +70,7 @@ class FieldGeneratorBase {
     // so let's just put the field name that Protobuf Text
     // actually uses here.
     let protoName: String
-    if fieldDescriptor.type == .group {
+    if fieldDescriptor.internal_isGroupLike {
       protoName = fieldDescriptor.messageType!.name
     } else {
       protoName = fieldDescriptor.name
