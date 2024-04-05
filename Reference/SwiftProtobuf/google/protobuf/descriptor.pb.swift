@@ -1734,6 +1734,15 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `features`. Subsequent reads from it will return its default value.
   mutating func clearFeatures() {_uniqueStorage()._features = nil}
 
+  var featureSupport: Google_Protobuf_FieldOptions.FeatureSupport {
+    get {return _storage._featureSupport ?? Google_Protobuf_FieldOptions.FeatureSupport()}
+    set {_uniqueStorage()._featureSupport = newValue}
+  }
+  /// Returns true if `featureSupport` has been explicitly set.
+  var hasFeatureSupport: Bool {return _storage._featureSupport != nil}
+  /// Clears the value of `featureSupport`. Subsequent reads from it will return its default value.
+  mutating func clearFeatureSupport() {_uniqueStorage()._featureSupport = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] {
     get {return _storage._uninterpretedOption}
@@ -1931,6 +1940,68 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
 
     fileprivate var _edition: Google_Protobuf_Edition? = nil
     fileprivate var _value: String? = nil
+  }
+
+  /// Information about the support window of a feature.
+  struct FeatureSupport {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    /// The edition that this feature was first available in.  In editions
+    /// earlier than this one, the default assigned to EDITION_LEGACY will be
+    /// used, and proto files will not be able to override it.
+    var editionIntroduced: Google_Protobuf_Edition {
+      get {return _editionIntroduced ?? .unknown}
+      set {_editionIntroduced = newValue}
+    }
+    /// Returns true if `editionIntroduced` has been explicitly set.
+    var hasEditionIntroduced: Bool {return self._editionIntroduced != nil}
+    /// Clears the value of `editionIntroduced`. Subsequent reads from it will return its default value.
+    mutating func clearEditionIntroduced() {self._editionIntroduced = nil}
+
+    /// The edition this feature becomes deprecated in.  Using this after this
+    /// edition may trigger warnings.
+    var editionDeprecated: Google_Protobuf_Edition {
+      get {return _editionDeprecated ?? .unknown}
+      set {_editionDeprecated = newValue}
+    }
+    /// Returns true if `editionDeprecated` has been explicitly set.
+    var hasEditionDeprecated: Bool {return self._editionDeprecated != nil}
+    /// Clears the value of `editionDeprecated`. Subsequent reads from it will return its default value.
+    mutating func clearEditionDeprecated() {self._editionDeprecated = nil}
+
+    /// The deprecation warning text if this feature is used after the edition it
+    /// was marked deprecated in.
+    var deprecationWarning: String {
+      get {return _deprecationWarning ?? String()}
+      set {_deprecationWarning = newValue}
+    }
+    /// Returns true if `deprecationWarning` has been explicitly set.
+    var hasDeprecationWarning: Bool {return self._deprecationWarning != nil}
+    /// Clears the value of `deprecationWarning`. Subsequent reads from it will return its default value.
+    mutating func clearDeprecationWarning() {self._deprecationWarning = nil}
+
+    /// The edition this feature is no longer available in.  In editions after
+    /// this one, the last default assigned will be used, and proto files will
+    /// not be able to override it.
+    var editionRemoved: Google_Protobuf_Edition {
+      get {return _editionRemoved ?? .unknown}
+      set {_editionRemoved = newValue}
+    }
+    /// Returns true if `editionRemoved` has been explicitly set.
+    var hasEditionRemoved: Bool {return self._editionRemoved != nil}
+    /// Clears the value of `editionRemoved`. Subsequent reads from it will return its default value.
+    mutating func clearEditionRemoved() {self._editionRemoved = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _editionIntroduced: Google_Protobuf_Edition? = nil
+    fileprivate var _editionDeprecated: Google_Protobuf_Edition? = nil
+    fileprivate var _deprecationWarning: String? = nil
+    fileprivate var _editionRemoved: Google_Protobuf_Edition? = nil
   }
 
   init() {}
@@ -2685,29 +2756,50 @@ struct Google_Protobuf_FeatureSetDefaults {
     // methods supported on all messages.
 
     var edition: Google_Protobuf_Edition {
-      get {return _edition ?? .unknown}
-      set {_edition = newValue}
+      get {return _storage._edition ?? .unknown}
+      set {_uniqueStorage()._edition = newValue}
     }
     /// Returns true if `edition` has been explicitly set.
-    var hasEdition: Bool {return self._edition != nil}
+    var hasEdition: Bool {return _storage._edition != nil}
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
-    mutating func clearEdition() {self._edition = nil}
+    mutating func clearEdition() {_uniqueStorage()._edition = nil}
 
+    /// Defaults of features that can be overridden in this edition.
+    var overridableFeatures: Google_Protobuf_FeatureSet {
+      get {return _storage._overridableFeatures ?? Google_Protobuf_FeatureSet()}
+      set {_uniqueStorage()._overridableFeatures = newValue}
+    }
+    /// Returns true if `overridableFeatures` has been explicitly set.
+    var hasOverridableFeatures: Bool {return _storage._overridableFeatures != nil}
+    /// Clears the value of `overridableFeatures`. Subsequent reads from it will return its default value.
+    mutating func clearOverridableFeatures() {_uniqueStorage()._overridableFeatures = nil}
+
+    /// Defaults of features that can't be overridden in this edition.
+    var fixedFeatures: Google_Protobuf_FeatureSet {
+      get {return _storage._fixedFeatures ?? Google_Protobuf_FeatureSet()}
+      set {_uniqueStorage()._fixedFeatures = newValue}
+    }
+    /// Returns true if `fixedFeatures` has been explicitly set.
+    var hasFixedFeatures: Bool {return _storage._fixedFeatures != nil}
+    /// Clears the value of `fixedFeatures`. Subsequent reads from it will return its default value.
+    mutating func clearFixedFeatures() {_uniqueStorage()._fixedFeatures = nil}
+
+    /// TODO Deprecate and remove this field, which is just the
+    /// above two merged.
     var features: Google_Protobuf_FeatureSet {
-      get {return _features ?? Google_Protobuf_FeatureSet()}
-      set {_features = newValue}
+      get {return _storage._features ?? Google_Protobuf_FeatureSet()}
+      set {_uniqueStorage()._features = newValue}
     }
     /// Returns true if `features` has been explicitly set.
-    var hasFeatures: Bool {return self._features != nil}
+    var hasFeatures: Bool {return _storage._features != nil}
     /// Clears the value of `features`. Subsequent reads from it will return its default value.
-    mutating func clearFeatures() {self._features = nil}
+    mutating func clearFeatures() {_uniqueStorage()._features = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
-    fileprivate var _edition: Google_Protobuf_Edition? = nil
-    fileprivate var _features: Google_Protobuf_FeatureSet? = nil
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
@@ -3036,6 +3128,7 @@ extension Google_Protobuf_FieldOptions.JSType: @unchecked Sendable {}
 extension Google_Protobuf_FieldOptions.OptionRetention: @unchecked Sendable {}
 extension Google_Protobuf_FieldOptions.OptionTargetType: @unchecked Sendable {}
 extension Google_Protobuf_FieldOptions.EditionDefault: @unchecked Sendable {}
+extension Google_Protobuf_FieldOptions.FeatureSupport: @unchecked Sendable {}
 extension Google_Protobuf_OneofOptions: @unchecked Sendable {}
 extension Google_Protobuf_EnumOptions: @unchecked Sendable {}
 extension Google_Protobuf_EnumValueOptions: @unchecked Sendable {}
@@ -4442,6 +4535,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     19: .same(proto: "targets"),
     20: .standard(proto: "edition_defaults"),
     21: .same(proto: "features"),
+    22: .standard(proto: "feature_support"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -4458,6 +4552,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _targets: [Google_Protobuf_FieldOptions.OptionTargetType] = []
     var _editionDefaults: [Google_Protobuf_FieldOptions.EditionDefault] = []
     var _features: Google_Protobuf_FeatureSet? = nil
+    var _featureSupport: Google_Protobuf_FieldOptions.FeatureSupport? = nil
     var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
     #if swift(>=5.10)
@@ -4485,6 +4580,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
       _targets = source._targets
       _editionDefaults = source._editionDefaults
       _features = source._features
+      _featureSupport = source._featureSupport
       _uninterpretedOption = source._uninterpretedOption
     }
   }
@@ -4525,6 +4621,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
         case 19: try { try decoder.decodeRepeatedEnumField(value: &_storage._targets) }()
         case 20: try { try decoder.decodeRepeatedMessageField(value: &_storage._editionDefaults) }()
         case 21: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
+        case 22: try { try decoder.decodeSingularMessageField(value: &_storage._featureSupport) }()
         case 999: try { try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption) }()
         case 1000..<536870912:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
@@ -4576,6 +4673,9 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
       try { if let v = _storage._features {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
       } }()
+      try { if let v = _storage._featureSupport {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 22)
+      } }()
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
@@ -4601,6 +4701,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
         if _storage._targets != rhs_storage._targets {return false}
         if _storage._editionDefaults != rhs_storage._editionDefaults {return false}
         if _storage._features != rhs_storage._features {return false}
+        if _storage._featureSupport != rhs_storage._featureSupport {return false}
         if _storage._uninterpretedOption != rhs_storage._uninterpretedOption {return false}
         return true
       }
@@ -4688,6 +4789,60 @@ extension Google_Protobuf_FieldOptions.EditionDefault: SwiftProtobuf.Message, Sw
   static func ==(lhs: Google_Protobuf_FieldOptions.EditionDefault, rhs: Google_Protobuf_FieldOptions.EditionDefault) -> Bool {
     if lhs._edition != rhs._edition {return false}
     if lhs._value != rhs._value {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_FieldOptions.FeatureSupport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".FeatureSupport"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "edition_introduced"),
+    2: .standard(proto: "edition_deprecated"),
+    3: .standard(proto: "deprecation_warning"),
+    4: .standard(proto: "edition_removed"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._editionIntroduced) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._editionDeprecated) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self._deprecationWarning) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._editionRemoved) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._editionIntroduced {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._editionDeprecated {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._deprecationWarning {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._editionRemoved {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Protobuf_FieldOptions.FeatureSupport, rhs: Google_Protobuf_FieldOptions.FeatureSupport) -> Bool {
+    if lhs._editionIntroduced != rhs._editionIntroduced {return false}
+    if lhs._editionDeprecated != rhs._editionDeprecated {return false}
+    if lhs._deprecationWarning != rhs._deprecationWarning {return false}
+    if lhs._editionRemoved != rhs._editionRemoved {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -5320,44 +5475,106 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: SwiftProt
   static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .same(proto: "edition"),
+    4: .standard(proto: "overridable_features"),
+    5: .standard(proto: "fixed_features"),
     2: .same(proto: "features"),
   ]
 
+  fileprivate class _StorageClass {
+    var _edition: Google_Protobuf_Edition? = nil
+    var _overridableFeatures: Google_Protobuf_FeatureSet? = nil
+    var _fixedFeatures: Google_Protobuf_FeatureSet? = nil
+    var _features: Google_Protobuf_FeatureSet? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _edition = source._edition
+      _overridableFeatures = source._overridableFeatures
+      _fixedFeatures = source._fixedFeatures
+      _features = source._features
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public var isInitialized: Bool {
-    if let v = self._features, !v.isInitialized {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._overridableFeatures, !v.isInitialized {return false}
+      if let v = _storage._fixedFeatures, !v.isInitialized {return false}
+      if let v = _storage._features, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._features) }()
-      case 3: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._edition) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._overridableFeatures) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._fixedFeatures) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._features {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._edition {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
-    } }()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._features {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._edition {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._overridableFeatures {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._fixedFeatures {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault, rhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault) -> Bool {
-    if lhs._edition != rhs._edition {return false}
-    if lhs._features != rhs._features {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._edition != rhs_storage._edition {return false}
+        if _storage._overridableFeatures != rhs_storage._overridableFeatures {return false}
+        if _storage._fixedFeatures != rhs_storage._fixedFeatures {return false}
+        if _storage._features != rhs_storage._features {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -4877,21 +4877,33 @@ struct ProtobufUnittest_TestOneof2 {
     // methods supported on all messages.
 
     var mooInt: Int64 {
-      get {return _mooInt ?? 0}
-      set {_mooInt = newValue}
+      get {return _storage._mooInt ?? 0}
+      set {_uniqueStorage()._mooInt = newValue}
     }
     /// Returns true if `mooInt` has been explicitly set.
-    var hasMooInt: Bool {return self._mooInt != nil}
+    var hasMooInt: Bool {return _storage._mooInt != nil}
     /// Clears the value of `mooInt`. Subsequent reads from it will return its default value.
-    mutating func clearMooInt() {self._mooInt = nil}
+    mutating func clearMooInt() {_uniqueStorage()._mooInt = nil}
 
-    var corgeInt: [Int32] = []
+    var corgeInt: [Int32] {
+      get {return _storage._corgeInt}
+      set {_uniqueStorage()._corgeInt = newValue}
+    }
+
+    var child: ProtobufUnittest_TestOneof2.NestedMessage {
+      get {return _storage._child ?? ProtobufUnittest_TestOneof2.NestedMessage()}
+      set {_uniqueStorage()._child = newValue}
+    }
+    /// Returns true if `child` has been explicitly set.
+    var hasChild: Bool {return _storage._child != nil}
+    /// Clears the value of `child`. Subsequent reads from it will return its default value.
+    mutating func clearChild() {_uniqueStorage()._child = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
-    fileprivate var _mooInt: Int64? = nil
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
@@ -17552,38 +17564,88 @@ extension ProtobufUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, Swif
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "moo_int"),
     2: .standard(proto: "corge_int"),
+    3: .same(proto: "child"),
   ]
 
+  fileprivate class _StorageClass {
+    var _mooInt: Int64? = nil
+    var _corgeInt: [Int32] = []
+    var _child: ProtobufUnittest_TestOneof2.NestedMessage? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _mooInt = source._mooInt
+      _corgeInt = source._corgeInt
+      _child = source._child
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self._mooInt) }()
-      case 2: try { try decoder.decodeRepeatedInt32Field(value: &self.corgeInt) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt64Field(value: &_storage._mooInt) }()
+        case 2: try { try decoder.decodeRepeatedInt32Field(value: &_storage._corgeInt) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._mooInt {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
-    } }()
-    if !self.corgeInt.isEmpty {
-      try visitor.visitRepeatedInt32Field(value: self.corgeInt, fieldNumber: 2)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._mooInt {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
+      } }()
+      if !_storage._corgeInt.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._corgeInt, fieldNumber: 2)
+      }
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestOneof2.NestedMessage, rhs: ProtobufUnittest_TestOneof2.NestedMessage) -> Bool {
-    if lhs._mooInt != rhs._mooInt {return false}
-    if lhs.corgeInt != rhs.corgeInt {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._mooInt != rhs_storage._mooInt {return false}
+        if _storage._corgeInt != rhs_storage._corgeInt {return false}
+        if _storage._child != rhs_storage._child {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
