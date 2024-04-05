@@ -43,14 +43,14 @@ struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Sendable {
   /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
   mutating func clearRequiredField() {_uniqueStorage()._requiredField = nil}
 
-  var testEditionsMessage: LegacyFeaturesUnittest_TestEditionsMessage {
-    get {return _storage._testEditionsMessage ?? LegacyFeaturesUnittest_TestEditionsMessage()}
-    set {_uniqueStorage()._testEditionsMessage = newValue}
+  var delimitedField: LegacyFeaturesUnittest_TestEditionsMessage {
+    get {return _storage._delimitedField ?? LegacyFeaturesUnittest_TestEditionsMessage()}
+    set {_uniqueStorage()._delimitedField = newValue}
   }
-  /// Returns true if `testEditionsMessage` has been explicitly set.
-  var hasTestEditionsMessage: Bool {return _storage._testEditionsMessage != nil}
-  /// Clears the value of `testEditionsMessage`. Subsequent reads from it will return its default value.
-  mutating func clearTestEditionsMessage() {_uniqueStorage()._testEditionsMessage = nil}
+  /// Returns true if `delimitedField` has been explicitly set.
+  var hasDelimitedField: Bool {return _storage._delimitedField != nil}
+  /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
+  mutating func clearDelimitedField() {_uniqueStorage()._delimitedField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -67,12 +67,12 @@ extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, Swi
   static let protoMessageName: String = _protobuf_package + ".TestEditionsMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_field"),
-    2: .unique(proto: "TestEditionsMessage", json: "delimitedField"),
+    2: .standard(proto: "delimited_field"),
   ]
 
   fileprivate class _StorageClass {
     var _requiredField: Int32? = nil
-    var _testEditionsMessage: LegacyFeaturesUnittest_TestEditionsMessage? = nil
+    var _delimitedField: LegacyFeaturesUnittest_TestEditionsMessage? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -88,7 +88,7 @@ extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, Swi
 
     init(copying source: _StorageClass) {
       _requiredField = source._requiredField
-      _testEditionsMessage = source._testEditionsMessage
+      _delimitedField = source._delimitedField
     }
   }
 
@@ -102,7 +102,7 @@ extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, Swi
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._requiredField == nil {return false}
-      if let v = _storage._testEditionsMessage, !v.isInitialized {return false}
+      if let v = _storage._delimitedField, !v.isInitialized {return false}
       return true
     }
   }
@@ -116,7 +116,7 @@ extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, Swi
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._requiredField) }()
-        case 2: try { try decoder.decodeSingularGroupField(value: &_storage._testEditionsMessage) }()
+        case 2: try { try decoder.decodeSingularGroupField(value: &_storage._delimitedField) }()
         default: break
         }
       }
@@ -132,7 +132,7 @@ extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, Swi
       try { if let v = _storage._requiredField {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       } }()
-      try { if let v = _storage._testEditionsMessage {
+      try { if let v = _storage._delimitedField {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
       } }()
     }
@@ -145,7 +145,7 @@ extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, Swi
         let _storage = _args.0
         let rhs_storage = _args.1
         if _storage._requiredField != rhs_storage._requiredField {return false}
-        if _storage._testEditionsMessage != rhs_storage._testEditionsMessage {return false}
+        if _storage._delimitedField != rhs_storage._delimitedField {return false}
         return true
       }
       if !storagesAreEqual {return false}

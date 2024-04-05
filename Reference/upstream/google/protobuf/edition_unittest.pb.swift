@@ -5703,14 +5703,14 @@ struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var layer1OptionalGroup: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup {
-    get {return _layer1OptionalGroup ?? EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup()}
-    set {_layer1OptionalGroup = newValue}
+  var lay1Optionalgroup: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup {
+    get {return _lay1Optionalgroup ?? EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup()}
+    set {_lay1Optionalgroup = newValue}
   }
-  /// Returns true if `layer1OptionalGroup` has been explicitly set.
-  var hasLayer1OptionalGroup: Bool {return self._layer1OptionalGroup != nil}
-  /// Clears the value of `layer1OptionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearLayer1OptionalGroup() {self._layer1OptionalGroup = nil}
+  /// Returns true if `lay1Optionalgroup` has been explicitly set.
+  var hasLay1Optionalgroup: Bool {return self._lay1Optionalgroup != nil}
+  /// Clears the value of `lay1Optionalgroup`. Subsequent reads from it will return its default value.
+  mutating func clearLay1Optionalgroup() {self._lay1Optionalgroup = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5773,7 +5773,7 @@ struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
 
   init() {}
 
-  fileprivate var _layer1OptionalGroup: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup? = nil
+  fileprivate var _lay1Optionalgroup: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup? = nil
 }
 
 struct EditionUnittest_TestNestedGroupExtensionInnerExtension: Sendable {
@@ -17981,11 +17981,11 @@ extension EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.Message, Swift
 extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedGroupExtensionOuter"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "Layer1OptionalGroup", json: "lay1optionalgroup"),
+    1: .same(proto: "lay1optionalgroup"),
   ]
 
   public var isInitialized: Bool {
-    if let v = self._layer1OptionalGroup, !v.isInitialized {return false}
+    if let v = self._lay1Optionalgroup, !v.isInitialized {return false}
     return true
   }
 
@@ -17995,7 +17995,7 @@ extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, 
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularGroupField(value: &self._layer1OptionalGroup) }()
+      case 1: try { try decoder.decodeSingularGroupField(value: &self._lay1Optionalgroup) }()
       default: break
       }
     }
@@ -18006,14 +18006,14 @@ extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, 
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._layer1OptionalGroup {
+    try { if let v = self._lay1Optionalgroup {
       try visitor.visitSingularGroupField(value: v, fieldNumber: 1)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: EditionUnittest_TestNestedGroupExtensionOuter, rhs: EditionUnittest_TestNestedGroupExtensionOuter) -> Bool {
-    if lhs._layer1OptionalGroup != rhs._layer1OptionalGroup {return false}
+    if lhs._lay1Optionalgroup != rhs._lay1Optionalgroup {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
