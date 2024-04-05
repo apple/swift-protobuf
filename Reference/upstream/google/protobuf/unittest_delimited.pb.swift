@@ -98,14 +98,14 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
   mutating func clearLengthprefixed() {_uniqueStorage()._lengthprefixed = nil}
 
   /// Nested field for nested tests.
-  var testDelimited: EditionsUnittest_TestDelimited {
-    get {return _storage._testDelimited ?? EditionsUnittest_TestDelimited()}
-    set {_uniqueStorage()._testDelimited = newValue}
+  var nested: EditionsUnittest_TestDelimited {
+    get {return _storage._nested ?? EditionsUnittest_TestDelimited()}
+    set {_uniqueStorage()._nested = newValue}
   }
-  /// Returns true if `testDelimited` has been explicitly set.
-  var hasTestDelimited: Bool {return _storage._testDelimited != nil}
-  /// Clears the value of `testDelimited`. Subsequent reads from it will return its default value.
-  mutating func clearTestDelimited() {_uniqueStorage()._testDelimited = nil}
+  /// Returns true if `nested` has been explicitly set.
+  var hasNested: Bool {return _storage._nested != nil}
+  /// Clears the value of `nested`. Subsequent reads from it will return its default value.
+  mutating func clearNested() {_uniqueStorage()._nested = nil}
 
   /// Truly group-like field.
   var groupLike: EditionsUnittest_TestDelimited.GroupLike {
@@ -118,34 +118,34 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
   mutating func clearGroupLike() {_uniqueStorage()._groupLike = nil}
 
   /// Delimited field that isn't group-like solely because of its name.
-  var groupLike: EditionsUnittest_TestDelimited.GroupLike {
-    get {return _storage._groupLike ?? EditionsUnittest_TestDelimited.GroupLike()}
-    set {_uniqueStorage()._groupLike = newValue}
+  var notgrouplike: EditionsUnittest_TestDelimited.GroupLike {
+    get {return _storage._notgrouplike ?? EditionsUnittest_TestDelimited.GroupLike()}
+    set {_uniqueStorage()._notgrouplike = newValue}
   }
-  /// Returns true if `groupLike` has been explicitly set.
-  var hasGroupLike: Bool {return _storage._groupLike != nil}
-  /// Clears the value of `groupLike`. Subsequent reads from it will return its default value.
-  mutating func clearGroupLike() {_uniqueStorage()._groupLike = nil}
+  /// Returns true if `notgrouplike` has been explicitly set.
+  var hasNotgrouplike: Bool {return _storage._notgrouplike != nil}
+  /// Clears the value of `notgrouplike`. Subsequent reads from it will return its default value.
+  mutating func clearNotgrouplike() {_uniqueStorage()._notgrouplike = nil}
 
   /// Delimited field that isn't group-like because of the scope of its type.
-  var notGroupLikeScope: EditionsUnittest_NotGroupLikeScope {
-    get {return _storage._notGroupLikeScope ?? EditionsUnittest_NotGroupLikeScope()}
-    set {_uniqueStorage()._notGroupLikeScope = newValue}
+  var notgrouplikescope: EditionsUnittest_NotGroupLikeScope {
+    get {return _storage._notgrouplikescope ?? EditionsUnittest_NotGroupLikeScope()}
+    set {_uniqueStorage()._notgrouplikescope = newValue}
   }
-  /// Returns true if `notGroupLikeScope` has been explicitly set.
-  var hasNotGroupLikeScope: Bool {return _storage._notGroupLikeScope != nil}
-  /// Clears the value of `notGroupLikeScope`. Subsequent reads from it will return its default value.
-  mutating func clearNotGroupLikeScope() {_uniqueStorage()._notGroupLikeScope = nil}
+  /// Returns true if `notgrouplikescope` has been explicitly set.
+  var hasNotgrouplikescope: Bool {return _storage._notgrouplikescope != nil}
+  /// Clears the value of `notgrouplikescope`. Subsequent reads from it will return its default value.
+  mutating func clearNotgrouplikescope() {_uniqueStorage()._notgrouplikescope = nil}
 
   /// Delimited field that's grouplike except that it's an imported type.
-  var messageImport: EditionsUnittest_MessageImport {
-    get {return _storage._messageImport ?? EditionsUnittest_MessageImport()}
-    set {_uniqueStorage()._messageImport = newValue}
+  var messageimport: EditionsUnittest_MessageImport {
+    get {return _storage._messageimport ?? EditionsUnittest_MessageImport()}
+    set {_uniqueStorage()._messageimport = newValue}
   }
-  /// Returns true if `messageImport` has been explicitly set.
-  var hasMessageImport: Bool {return _storage._messageImport != nil}
-  /// Clears the value of `messageImport`. Subsequent reads from it will return its default value.
-  mutating func clearMessageImport() {_uniqueStorage()._messageImport = nil}
+  /// Returns true if `messageimport` has been explicitly set.
+  var hasMessageimport: Bool {return _storage._messageimport != nil}
+  /// Clears the value of `messageimport`. Subsequent reads from it will return its default value.
+  mutating func clearMessageimport() {_uniqueStorage()._messageimport = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -246,34 +246,34 @@ extension EditionsUnittest_TestDelimited {
 
   /// Delimited extension that isn't group-like because of its name.
   var EditionsUnittest_notGroupLikeScope: EditionsUnittest_NotGroupLikeScope {
-    get {return getExtensionValue(ext: EditionsUnittest_Extensions_NotGroupLikeScope) ?? EditionsUnittest_NotGroupLikeScope()}
-    set {setExtensionValue(ext: EditionsUnittest_Extensions_NotGroupLikeScope, value: newValue)}
+    get {return getExtensionValue(ext: EditionsUnittest_Extensions_not_group_like_scope) ?? EditionsUnittest_NotGroupLikeScope()}
+    set {setExtensionValue(ext: EditionsUnittest_Extensions_not_group_like_scope, value: newValue)}
   }
-  /// Returns true if extension `EditionsUnittest_Extensions_NotGroupLikeScope`
+  /// Returns true if extension `EditionsUnittest_Extensions_not_group_like_scope`
   /// has been explicitly set.
   var hasEditionsUnittest_notGroupLikeScope: Bool {
-    return hasExtensionValue(ext: EditionsUnittest_Extensions_NotGroupLikeScope)
+    return hasExtensionValue(ext: EditionsUnittest_Extensions_not_group_like_scope)
   }
-  /// Clears the value of extension `EditionsUnittest_Extensions_NotGroupLikeScope`.
+  /// Clears the value of extension `EditionsUnittest_Extensions_not_group_like_scope`.
   /// Subsequent reads from it will return its default value.
   mutating func clearEditionsUnittest_notGroupLikeScope() {
-    clearExtensionValue(ext: EditionsUnittest_Extensions_NotGroupLikeScope)
+    clearExtensionValue(ext: EditionsUnittest_Extensions_not_group_like_scope)
   }
 
   /// Delimited extension that isn't group-like because of the scope of its type.
-  var EditionsUnittest_groupLike: EditionsUnittest_TestDelimited.GroupLike {
-    get {return getExtensionValue(ext: EditionsUnittest_Extensions_GroupLike) ?? EditionsUnittest_TestDelimited.GroupLike()}
-    set {setExtensionValue(ext: EditionsUnittest_Extensions_GroupLike, value: newValue)}
+  var EditionsUnittest_grouplike: EditionsUnittest_TestDelimited.GroupLike {
+    get {return getExtensionValue(ext: EditionsUnittest_Extensions_grouplike) ?? EditionsUnittest_TestDelimited.GroupLike()}
+    set {setExtensionValue(ext: EditionsUnittest_Extensions_grouplike, value: newValue)}
   }
-  /// Returns true if extension `EditionsUnittest_Extensions_GroupLike`
+  /// Returns true if extension `EditionsUnittest_Extensions_grouplike`
   /// has been explicitly set.
-  var hasEditionsUnittest_groupLike: Bool {
-    return hasExtensionValue(ext: EditionsUnittest_Extensions_GroupLike)
+  var hasEditionsUnittest_grouplike: Bool {
+    return hasExtensionValue(ext: EditionsUnittest_Extensions_grouplike)
   }
-  /// Clears the value of extension `EditionsUnittest_Extensions_GroupLike`.
+  /// Clears the value of extension `EditionsUnittest_Extensions_grouplike`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionsUnittest_groupLike() {
-    clearExtensionValue(ext: EditionsUnittest_Extensions_GroupLike)
+  mutating func clearEditionsUnittest_grouplike() {
+    clearExtensionValue(ext: EditionsUnittest_Extensions_grouplike)
   }
 
 }
@@ -286,8 +286,8 @@ extension EditionsUnittest_TestDelimited {
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   EditionsUnittest_Extensions_GroupLikeFileScope,
-  EditionsUnittest_Extensions_NotGroupLikeScope,
-  EditionsUnittest_Extensions_GroupLike
+  EditionsUnittest_Extensions_not_group_like_scope,
+  EditionsUnittest_Extensions_grouplike
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -301,13 +301,13 @@ let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.MessageExtens
 )
 
 /// Delimited extension that isn't group-like because of its name.
-let EditionsUnittest_Extensions_NotGroupLikeScope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_NotGroupLikeScope>, EditionsUnittest_TestDelimited>(
+let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_NotGroupLikeScope>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1001,
   fieldName: "editions_unittest.not_group_like_scope"
 )
 
 /// Delimited extension that isn't group-like because of the scope of its type.
-let EditionsUnittest_Extensions_GroupLike = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_TestDelimited.GroupLike>, EditionsUnittest_TestDelimited>(
+let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_TestDelimited.GroupLike>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1002,
   fieldName: "editions_unittest.grouplike"
 )
@@ -404,20 +404,20 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
   static let protoMessageName: String = _protobuf_package + ".TestDelimited"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "lengthprefixed"),
-    2: .unique(proto: "TestDelimited", json: "nested"),
+    2: .same(proto: "nested"),
     3: .unique(proto: "GroupLike", json: "grouplike"),
-    4: .unique(proto: "GroupLike", json: "notgrouplike"),
-    5: .unique(proto: "NotGroupLikeScope", json: "notgrouplikescope"),
-    6: .unique(proto: "MessageImport", json: "messageimport"),
+    4: .same(proto: "notgrouplike"),
+    5: .same(proto: "notgrouplikescope"),
+    6: .same(proto: "messageimport"),
   ]
 
   fileprivate class _StorageClass {
     var _lengthprefixed: EditionsUnittest_TestDelimited.LengthPrefixed? = nil
-    var _testDelimited: EditionsUnittest_TestDelimited? = nil
+    var _nested: EditionsUnittest_TestDelimited? = nil
     var _groupLike: EditionsUnittest_TestDelimited.GroupLike? = nil
-    var _groupLike: EditionsUnittest_TestDelimited.GroupLike? = nil
-    var _notGroupLikeScope: EditionsUnittest_NotGroupLikeScope? = nil
-    var _messageImport: EditionsUnittest_MessageImport? = nil
+    var _notgrouplike: EditionsUnittest_TestDelimited.GroupLike? = nil
+    var _notgrouplikescope: EditionsUnittest_NotGroupLikeScope? = nil
+    var _messageimport: EditionsUnittest_MessageImport? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -433,11 +433,11 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
 
     init(copying source: _StorageClass) {
       _lengthprefixed = source._lengthprefixed
-      _testDelimited = source._testDelimited
+      _nested = source._nested
       _groupLike = source._groupLike
-      _groupLike = source._groupLike
-      _notGroupLikeScope = source._notGroupLikeScope
-      _messageImport = source._messageImport
+      _notgrouplike = source._notgrouplike
+      _notgrouplikescope = source._notgrouplikescope
+      _messageimport = source._messageimport
     }
   }
 
@@ -451,7 +451,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._testDelimited, !v.isInitialized {return false}
+      if let v = _storage._nested, !v.isInitialized {return false}
       return true
     }
   }
@@ -465,11 +465,11 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._lengthprefixed) }()
-        case 2: try { try decoder.decodeSingularGroupField(value: &_storage._testDelimited) }()
+        case 2: try { try decoder.decodeSingularGroupField(value: &_storage._nested) }()
         case 3: try { try decoder.decodeSingularGroupField(value: &_storage._groupLike) }()
-        case 4: try { try decoder.decodeSingularGroupField(value: &_storage._groupLike) }()
-        case 5: try { try decoder.decodeSingularGroupField(value: &_storage._notGroupLikeScope) }()
-        case 6: try { try decoder.decodeSingularGroupField(value: &_storage._messageImport) }()
+        case 4: try { try decoder.decodeSingularGroupField(value: &_storage._notgrouplike) }()
+        case 5: try { try decoder.decodeSingularGroupField(value: &_storage._notgrouplikescope) }()
+        case 6: try { try decoder.decodeSingularGroupField(value: &_storage._messageimport) }()
         case 1000..<536870912:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: EditionsUnittest_TestDelimited.self, fieldNumber: fieldNumber) }()
         default: break
@@ -487,19 +487,19 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
       try { if let v = _storage._lengthprefixed {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       } }()
-      try { if let v = _storage._testDelimited {
+      try { if let v = _storage._nested {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
       } }()
       try { if let v = _storage._groupLike {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
       } }()
-      try { if let v = _storage._groupLike {
+      try { if let v = _storage._notgrouplike {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
       } }()
-      try { if let v = _storage._notGroupLikeScope {
+      try { if let v = _storage._notgrouplikescope {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 5)
       } }()
-      try { if let v = _storage._messageImport {
+      try { if let v = _storage._messageimport {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 6)
       } }()
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -513,11 +513,11 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
         let _storage = _args.0
         let rhs_storage = _args.1
         if _storage._lengthprefixed != rhs_storage._lengthprefixed {return false}
-        if _storage._testDelimited != rhs_storage._testDelimited {return false}
+        if _storage._nested != rhs_storage._nested {return false}
         if _storage._groupLike != rhs_storage._groupLike {return false}
-        if _storage._groupLike != rhs_storage._groupLike {return false}
-        if _storage._notGroupLikeScope != rhs_storage._notGroupLikeScope {return false}
-        if _storage._messageImport != rhs_storage._messageImport {return false}
+        if _storage._notgrouplike != rhs_storage._notgrouplike {return false}
+        if _storage._notgrouplikescope != rhs_storage._notgrouplikescope {return false}
+        if _storage._messageimport != rhs_storage._messageimport {return false}
         return true
       }
       if !storagesAreEqual {return false}
