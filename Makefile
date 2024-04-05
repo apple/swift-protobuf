@@ -522,16 +522,18 @@ check-for-protobuf-checkout:
 update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/upstream
 	@mkdir -p \
-	  Protos/upstream/conformance \
+	  Protos/upstream/conformance/test_protos \
 	  Protos/upstream/google/protobuf/compiler \
 	  Protos/upstream/google/protobuf/editions/golden
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/upstream/conformance/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/test_protos/*.proto Protos/upstream/conformance/test_protos/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/upstream/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/upstream/google/protobuf/compiler/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/editions/golden/test_messages_proto?_editions.proto Protos/upstream/google/protobuf/editions/golden/
 	# Now copy into the Proto directories for the local targets.
-	@rm -rf Protos/Conformance/conformance && mkdir -p Protos/Conformance/conformance
+	@rm -rf Protos/Conformance/conformance/test_protos && mkdir -p Protos/Conformance/conformance/test_protos
 	@cp -v Protos/upstream/conformance/*.proto Protos/Conformance/conformance
+	@cp -v Protos/upstream/conformance/test_protos/*.proto Protos/Conformance/conformance/test_protos
 	@rm -rf Protos/Conformance/google && mkdir -p Protos/Conformance/google/protobuf
 	@cp -v \
 	  Protos/upstream/google/protobuf/test_messages_proto2.proto \
@@ -560,7 +562,7 @@ update-proto-files: check-for-protobuf-checkout
 # Helper to see if update-proto-files should be done
 #
 check-proto-files: check-for-protobuf-checkout
-	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto`; do \
+	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto conformance/test_protos/*.proto`; do \
 		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
