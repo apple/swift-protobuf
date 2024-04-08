@@ -84,7 +84,7 @@ struct SwiftFeatureTest_TestFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumFeature: SwiftProtobuf.Enum {
+  enum EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unknown // = 0
     case value1 // = 1

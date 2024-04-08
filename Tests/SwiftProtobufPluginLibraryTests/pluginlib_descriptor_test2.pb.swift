@@ -144,7 +144,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
 
   }
 
-  enum SubEnum: SwiftProtobuf.Enum {
+  enum SubEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case subValue0 // = 0
     case subValue1 // = 1
