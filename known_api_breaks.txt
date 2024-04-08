@@ -1,11 +1,50 @@
 API breakage: protocol Enum is now with @preconcurrency
+API breakage: protocol Enum has added inherited protocol Sendable
 API breakage: protocol ExtensibleMessage is now with @preconcurrency
+API breakage: protocol ExtensibleMessage has added inherited protocol Sendable
 API breakage: protocol AnyExtensionField is now with @preconcurrency
+API breakage: protocol AnyExtensionField has added inherited protocol Sendable
 API breakage: protocol ExtensionField is now with @preconcurrency
+API breakage: protocol ExtensionField has added inherited protocol Sendable
+API breakage: protocol ExtensionField has removed inherited protocol CustomDebugStringConvertible
 API breakage: protocol ExtensionMap is now with @preconcurrency
+API breakage: protocol ExtensionMap has added inherited protocol Sendable
+API breakage: protocol ExtensionMap has generic signature change from  to <Self : Swift.Sendable>
 API breakage: protocol FieldType is now with @preconcurrency
+API breakage: protocol FieldType has added inherited protocol Sendable
+API breakage: protocol FieldType has generic signature change from <Self.BaseType : Swift.Hashable> to <Self : Swift.Sendable, Self.BaseType : Swift.Hashable, Self.BaseType : Swift.Sendable>
 API breakage: protocol MapKeyType is now with @preconcurrency
+API breakage: protocol MapKeyType has added inherited protocol Sendable
 API breakage: protocol MapValueType is now with @preconcurrency
+API breakage: protocol MapValueType has added inherited protocol Sendable
 API breakage: protocol Message is now with @preconcurrency
+API breakage: protocol Message has added inherited protocol Sendable
+API breakage: protocol Message has generic signature change from <Self : Swift.CustomDebugStringConvertible> to <Self : Swift.CustomDebugStringConvertible, Self : Swift.Sendable>
 API breakage: protocol _MessageImplementationBase is now with @preconcurrency
+API breakage: protocol _MessageImplementationBase has added inherited protocol Sendable
 API breakage: protocol AnyMessageExtension is now with @preconcurrency
+API breakage: protocol AnyMessageExtension has added inherited protocol Sendable
+API breakage: protocol AnyMessageExtension has generic signature change from  to <Self : Swift.Sendable>
+API breakage: subscript SimpleExtensionMap.subscript(_:_:) has return type change from SwiftProtobuf.AnyMessageExtension? to (any SwiftProtobuf.AnyMessageExtension)?
+API breakage: accessor SimpleExtensionMap.subscript(_:_:).Get() has return type change from SwiftProtobuf.AnyMessageExtension? to (any SwiftProtobuf.AnyMessageExtension)?
+API breakage: constructor Google_Protobuf_Any.init(textFormatString:options:extensions:) has parameter 2 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: func Google_Protobuf_Any.messageType(forTypeURL:) has return type change from SwiftProtobuf.Message.Type? to (any SwiftProtobuf.Message.Type)?
+API breakage: func Google_Protobuf_Any.messageType(forMessageName:) has return type change from SwiftProtobuf.Message.Type? to (any SwiftProtobuf.Message.Type)?
+API breakage: func AnyMessageExtension._protobuf_newField(decoder:) has return type change from SwiftProtobuf.AnyExtensionField? to (any SwiftProtobuf.AnyExtensionField)?
+API breakage: func MessageExtension._protobuf_newField(decoder:) has return type change from SwiftProtobuf.AnyExtensionField? to (any SwiftProtobuf.AnyExtensionField)?
+API breakage: func Message.merge(contiguousBytes:extensions:partial:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(jsonString:extensions:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(jsonUTF8Data:extensions:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(textFormatString:extensions:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(textFormatString:options:extensions:) has parameter 2 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(contiguousBytes:extensions:partial:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: func Message.merge(serializedData:extensions:partial:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(unpackingAny:extensions:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: constructor Message.init(serializedData:extensions:partial:options:) has parameter 1 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: subscript ExtensionMap.subscript(_:_:) has return type change from SwiftProtobuf.AnyMessageExtension? to (any SwiftProtobuf.AnyMessageExtension)?
+API breakage: accessor ExtensionMap.subscript(_:_:).Get() has return type change from SwiftProtobuf.AnyMessageExtension? to (any SwiftProtobuf.AnyMessageExtension)?
+API breakage: subscript ExtensionFieldValueSet.subscript(_:) has return type change from SwiftProtobuf.AnyExtensionField? to (any SwiftProtobuf.AnyExtensionField)?
+API breakage: accessor ExtensionFieldValueSet.subscript(_:).Get() has return type change from SwiftProtobuf.AnyExtensionField? to (any SwiftProtobuf.AnyExtensionField)?
+API breakage: accessor ExtensionFieldValueSet.subscript(_:).Set() has parameter 0 type change from SwiftProtobuf.AnyExtensionField? to (any SwiftProtobuf.AnyExtensionField)?
+API breakage: func BinaryDelimited.parse(messageType:from:extensions:partial:options:) has parameter 2 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: func BinaryDelimited.merge(into:from:extensions:partial:options:) has parameter 2 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
