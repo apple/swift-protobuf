@@ -22,6 +22,8 @@ private let unrecognizedCaseName = "UNRECOGNIZED"
 
 /// Generates a Swift enum from a protobuf enum descriptor.
 class EnumGenerator {
+  private static let requiredProtocolConformancesForEnums = ["Swift.CaseIterable"].joined(separator: ", ")
+
   private let enumDescriptor: EnumDescriptor
   private let generatorOptions: GeneratorOptions
   private let namer: SwiftProtobufNamer
@@ -56,7 +58,7 @@ class EnumGenerator {
 
     p.print(
       "",
-      "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum {")
+      "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {")
     p.withIndentation { p in
       p.print("\(visibility)typealias RawValue = Int")
 
