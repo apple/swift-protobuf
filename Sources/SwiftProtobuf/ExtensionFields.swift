@@ -23,7 +23,7 @@
 // so you can't actually access the contained value itself.
 //
 @preconcurrency
-public protocol AnyExtensionField: Sendable {
+public protocol AnyExtensionField: Sendable, CustomDebugStringConvertible {
   func hash(into hasher: inout Hasher)
   var protobufExtension: any AnyMessageExtension { get }
   func isEqual(other: any AnyExtensionField) -> Bool
@@ -73,6 +73,14 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     self.protobufExtension = protobufExtension
     self.value = value
   }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return String(reflecting: value)
+    #else
+    return String(reflecting: type(of: self))
+    #endif
+  }
 
   public func hash(into hasher: inout Hasher) {
     hasher.combine(value)
@@ -106,16 +114,6 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
   }
 }
 
-#if DEBUG
-extension OptionalExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    get {
-      return String(reflecting: value)
-    }
-  }
-}
-#endif
-
 ///
 /// Repeated fields
 ///
@@ -133,6 +131,14 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -161,14 +167,6 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   }
 }
 
-#if DEBUG
-extension RepeatedExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
-  }
-}
-#endif
-
 ///
 /// Packed Repeated fields
 ///
@@ -189,6 +187,14 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -217,14 +223,6 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   }
 }
 
-#if DEBUG
-extension PackedExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
-  }
-}
-#endif
-
 ///
 /// Enum extensions
 ///
@@ -242,6 +240,14 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return String(reflecting: value)
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -278,16 +284,6 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   }
 }
 
-#if DEBUG
-extension OptionalEnumExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    get {
-      return String(reflecting: value)
-    }
-  }
-}
-#endif
-
 ///
 /// Repeated Enum fields
 ///
@@ -305,6 +301,14 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -335,14 +339,6 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   }
 }
 
-#if DEBUG
-extension RepeatedEnumExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
-  }
-}
-#endif
-
 ///
 /// Packed Repeated Enum fields
 ///
@@ -363,6 +359,14 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -393,14 +397,6 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
   }
 }
 
-#if DEBUG
-extension PackedEnumExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
-  }
-}
-#endif
-
 //
 // ========== Message ==========
 //
@@ -419,6 +415,14 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return String(reflecting: value)
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -458,16 +462,6 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
   }
 }
 
-#if DEBUG
-extension OptionalMessageExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    get {
-      return String(reflecting: value)
-    }
-  }
-}
-#endif
-
 public struct RepeatedMessageExtensionField<M: Message & Equatable>:
   ExtensionField {
   public typealias BaseType = M
@@ -483,6 +477,14 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -518,14 +520,6 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
   }
 }
 
-#if DEBUG
-extension RepeatedMessageExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
-  }
-}
-#endif
-
 //
 // ======== Groups within Messages ========
 //
@@ -547,6 +541,14 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return value.debugDescription
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -586,16 +588,6 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
   }
 }
 
-#if DEBUG
-extension OptionalGroupExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    get {
-      return value.debugDescription
-    }
-  }
-}
-#endif
-
 public struct RepeatedGroupExtensionField<G: Message & Hashable>:
   ExtensionField {
   public typealias BaseType = G
@@ -611,6 +603,14 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
   public init(protobufExtension: any AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
+  }
+  
+  public var debugDescription: String {
+    #if DEBUG
+    return "[" + value.map{$0.debugDescription}.joined(separator: ",") + "]"
+    #else
+    return String(reflecting: type(of: self))
+    #endif
   }
 
   public func hash(into hasher: inout Hasher) {
@@ -643,11 +643,3 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     return Internal.areAllInitialized(value)
   }
 }
-
-#if DEBUG
-extension RepeatedGroupExtensionField: CustomDebugStringConvertible {
-  public var debugDescription: String {
-    return "[" + value.map{$0.debugDescription}.joined(separator: ",") + "]"
-  }
-}
-#endif
