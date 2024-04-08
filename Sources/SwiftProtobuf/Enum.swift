@@ -17,7 +17,7 @@
 
 /// Generated enum types conform to this protocol.
 @preconcurrency
-public protocol Enum: RawRepresentable, Hashable, CaseIterable, Sendable {
+public protocol Enum: RawRepresentable, Hashable, Sendable {
   /// Creates a new instance of the enum initialized to its default value.
   init()
 
