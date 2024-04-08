@@ -41,6 +41,66 @@ extension Message {
     self.init()
     try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
   }
+  
+  /// Creates a new message by decoding the given `Foundation/ContiguousBytes` value
+  /// containing a serialized message in Protocol Buffer binary format.
+  ///
+  /// - Parameters:
+  ///   - contiguousBytes: The binary-encoded message data to decode.
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  ///   - partial: If `false` (the default), this method will check
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
+  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  @inlinable
+  @_disfavoredOverload
+  @available(*, deprecated, message: "Please conform your Bytes type to `SwiftProtobufContiguousBytes` instead of `Foundation.ContiguousBytes`.")
+  public init<Bytes: ContiguousBytes>(
+    contiguousBytes bytes: Bytes,
+    extensions: (any ExtensionMap)? = nil,
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
+  ) throws {
+    self.init()
+    try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
+  }
+  
+  /// Updates the message by decoding the given `Foundation/ContiguousBytes` value
+  /// containing a serialized message in Protocol Buffer binary format into the
+  /// receiver.
+  ///
+  /// - Note: If this method throws an error, the message may still have been
+  ///   partially mutated by the binary data that was decoded before the error
+  ///   occurred.
+  ///
+  /// - Parameters:
+  ///   - contiguousBytes: The binary-encoded message data to decode.
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  ///   - partial: If `false` (the default), this method will check
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
+  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  @inlinable
+  @_disfavoredOverload
+  @available(*, deprecated, message: "Please conform your Bytes type to `SwiftProtobufContiguousBytes` instead of `Foundation.ContiguousBytes`.")
+  public mutating func merge<Bytes: ContiguousBytes>(
+    contiguousBytes bytes: Bytes,
+    extensions: (any ExtensionMap)? = nil,
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
+  ) throws {
+    try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
+    }
+  }
 
   /// Updates the message by decoding the given `Data` value
   /// containing a serialized message in Protocol Buffer binary format into the
