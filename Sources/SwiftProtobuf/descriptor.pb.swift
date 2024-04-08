@@ -59,7 +59,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 }
 
 /// The full set of known editions.
-public enum Google_Protobuf_Edition: Enum {
+public enum Google_Protobuf_Edition: Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// A placeholder for an unknown edition value.
@@ -436,7 +436,7 @@ public struct Google_Protobuf_ExtensionRangeOptions: ExtensibleMessage, Sendable
   public var unknownFields = UnknownStorage()
 
   /// The verification state of the extension range.
-  public enum VerificationState: Enum {
+  public enum VerificationState: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
 
     /// All the extensions of the range must be declared.
@@ -690,7 +690,7 @@ public struct Google_Protobuf_FieldDescriptorProto: Sendable {
 
   public var unknownFields = UnknownStorage()
 
-  public enum TypeEnum: Enum {
+  public enum TypeEnum: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
 
     /// 0 is reserved for errors.
@@ -787,7 +787,7 @@ public struct Google_Protobuf_FieldDescriptorProto: Sendable {
 
   }
 
-  public enum Label: Enum {
+  public enum Label: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
 
     /// 0 is reserved for errors
@@ -1366,7 +1366,7 @@ public struct Google_Protobuf_FileOptions: ExtensibleMessage, @unchecked Sendabl
   public var unknownFields = UnknownStorage()
 
   /// Generated classes can be optimized for speed or code size.
-  public enum OptimizeMode: Enum {
+  public enum OptimizeMode: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
 
     /// Generate complete code for parsing, serialization,
@@ -1720,7 +1720,7 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
 
   public var unknownFields = UnknownStorage()
 
-  public enum CType: Enum {
+  public enum CType: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
 
     /// Default mode.
@@ -1758,7 +1758,7 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
 
   }
 
-  public enum JSType: Enum {
+  public enum JSType: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
 
     /// Use the default type.
@@ -1796,7 +1796,7 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
   /// If set to RETENTION_SOURCE, the option will be omitted from the binary.
   /// Note: as of January 2023, support for this is in progress and does not yet
   /// have an effect (b/264593489).
-  public enum OptionRetention: Enum {
+  public enum OptionRetention: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case retentionUnknown // = 0
     case retentionRuntime // = 1
@@ -1829,7 +1829,7 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
   /// as an option. If it is unset, then the field may be freely used as an
   /// option on any kind of entity. Note: as of January 2023, support for this is
   /// in progress and does not yet have an effect (b/264593489).
-  public enum OptionTargetType: Enum {
+  public enum OptionTargetType: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case targetTypeUnknown // = 0
     case targetTypeFile // = 1
@@ -2213,7 +2213,7 @@ public struct Google_Protobuf_MethodOptions: ExtensibleMessage, Sendable {
   /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   /// or neither? HTTP based RPC implementation may choose GET verb for safe
   /// methods, and PUT verb for idempotent methods instead of the default POST.
-  public enum IdempotencyLevel: Enum {
+  public enum IdempotencyLevel: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case idempotencyUnknown // = 0
 
@@ -2438,7 +2438,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   public var unknownFields = UnknownStorage()
 
-  public enum FieldPresence: Enum {
+  public enum FieldPresence: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case unknown // = 0
     case explicit // = 1
@@ -2470,7 +2470,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
-  public enum EnumType: Enum {
+  public enum EnumType: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case unknown // = 0
     case `open` // = 1
@@ -2499,7 +2499,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
-  public enum RepeatedFieldEncoding: Enum {
+  public enum RepeatedFieldEncoding: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case unknown // = 0
     case packed // = 1
@@ -2528,7 +2528,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
-  public enum Utf8Validation: Enum {
+  public enum Utf8Validation: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case unknown // = 0
     case verify // = 2
@@ -2557,7 +2557,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
-  public enum MessageEncoding: Enum {
+  public enum MessageEncoding: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case unknown // = 0
     case lengthPrefixed // = 1
@@ -2586,7 +2586,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
-  public enum JsonFormat: Enum {
+  public enum JsonFormat: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case unknown // = 0
     case allow // = 1
@@ -2961,7 +2961,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 
     /// Represents the identified object's effect on the element in the original
     /// .proto file.
-    public enum Semantic: Enum {
+    public enum Semantic: Enum, Swift.CaseIterable {
       public typealias RawValue = Int
 
       /// There is no effect or the effect is indescribable.

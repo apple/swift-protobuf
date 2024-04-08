@@ -34,7 +34,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-public enum SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf.Enum {
+public enum SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case zero // = 0
   case one // = 1

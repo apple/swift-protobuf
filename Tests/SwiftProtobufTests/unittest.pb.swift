@@ -58,7 +58,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum SwiftProtoTesting_ForeignEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foreignFoo // = 4
   case foreignBar // = 5
@@ -88,7 +88,7 @@ enum SwiftProtoTesting_ForeignEnum: SwiftProtobuf.Enum {
 }
 
 /// Test an enum that has multiple values with the same number.
-enum SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foo1 // = 1
   case bar1 // = 2
@@ -727,7 +727,7 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2

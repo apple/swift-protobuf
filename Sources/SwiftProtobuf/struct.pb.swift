@@ -54,7 +54,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// `Value` type union.
 ///
 /// The JSON representation for `NullValue` is JSON `null`.
-public enum Google_Protobuf_NullValue: Enum {
+public enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
   public typealias RawValue = Int
 
   /// Null value.
