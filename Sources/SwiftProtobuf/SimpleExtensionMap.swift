@@ -100,9 +100,9 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
 
 }
 
-#if DEBUG
 extension SimpleExtensionMap: CustomDebugStringConvertible {
     public var debugDescription: String {
+        #if DEBUG
         var names = [String]()
         for (_, list) in fields {
             for e in list {
@@ -111,6 +111,8 @@ extension SimpleExtensionMap: CustomDebugStringConvertible {
         }
         let d = names.joined(separator: ",")
         return "SimpleExtensionMap(\(d))"
+        #else
+        return String(reflecting: type(of: self))
+        #endif
     }
 }
-#endif
