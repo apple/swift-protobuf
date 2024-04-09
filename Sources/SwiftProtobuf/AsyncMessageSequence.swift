@@ -122,7 +122,7 @@ public struct AsyncMessageSequence<
         shift += UInt64(7)
         if shift > 35 {
           iterator = nil
-          throw SwiftProtobufError.BinaryDecoding.malformedLength()
+          throw SwiftProtobufError.BinaryStreamDecoding.malformedLength()
         }
         if (byte & 0x80 == 0) {
           return messageSize
@@ -131,7 +131,7 @@ public struct AsyncMessageSequence<
       if (shift > 0) {
         // The stream has ended inside a varint.
         iterator = nil
-          throw SwiftProtobufError.BinaryDecoding.truncated()
+          throw SwiftProtobufError.BinaryStreamDecoding.truncated()
       }
       return nil // End of stream reached.
     }
@@ -153,7 +153,7 @@ public struct AsyncMessageSequence<
           guard let byte = try await iterator?.next() else {
             // The iterator hit the end, but the chunk wasn't filled, so the full
             // payload wasn't read.
-              throw SwiftProtobufError.BinaryDecoding.truncated()
+            throw SwiftProtobufError.BinaryStreamDecoding.truncated()
           }
           chunk[consumedBytes] = byte
           consumedBytes += 1

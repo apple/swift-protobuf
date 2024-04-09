@@ -91,6 +91,7 @@ extension SwiftProtobufError {
         private enum Wrapped: Hashable, Sendable, CustomStringConvertible {
             case binaryEncodingError
             case binaryDecodingError
+            case binaryStreamDecodingError
             case jsonEncodingError
             case jsonDecodingError
             case textFormatDecodingError
@@ -103,6 +104,8 @@ extension SwiftProtobufError {
                     return "Binary encoding error"
                 case .binaryDecodingError:
                     return "Binary decoding error"
+                case .binaryStreamDecodingError:
+                    return "Stream decoding error"
                 case .jsonEncodingError:
                     return "JSON encoding error"
                 case .jsonDecodingError:
@@ -132,6 +135,10 @@ extension SwiftProtobufError {
         
         public static var binaryDecodingError: Self {
             Self(.binaryDecodingError)
+        }
+        
+        public static var binaryStreamDecodingError: Self {
+            Self(.binaryStreamDecodingError)
         }
         
         public static var jsonEncodingError: Self {
@@ -388,6 +395,91 @@ extension SwiftProtobufError {
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
+    }
+    
+    /// Errors arising from decoding streams of binary messages. These errors have to do with the framing
+    /// of the messages in the stream, or the stream as a whole.
+    public enum BinaryStreamDecoding {
+      /// If a read/write to the stream fails, but the stream's `streamError` is nil,
+      /// this error will be thrown instead since the stream didn't provide anything
+      /// more specific. A common cause for this can be failing to open the stream
+      /// before trying to read/write to it.
+      public static func unknownStreamError(
+        function: String = #function,
+        file: String = #fileID,
+        line: Int = #line
+      ) -> SwiftProtobufError {
+        SwiftProtobufError(
+          code: .binaryStreamDecodingError,
+          message: "Unknown error when reading/writing binary-delimited message into stream.",
+          location: .init(function: function, file: file, line: line)
+        )
+      }
+      
+      /// While reading/writing to the stream, less than the expected bytes was read/written.
+      public static func truncated(
+          function: String = #function,
+          file: String = #fileID,
+          line: Int = #line
+      ) -> SwiftProtobufError {
+          SwiftProtobufError(
+              code: .binaryStreamDecodingError,
+              message: "The end of the data was reached before it was expected.",
+              location: SourceLocation(function: function, file: file, line: line)
+          )
+      }
+      
+      /// Message is too large. Bytes and Strings have a max size of 2GB.
+      public static func tooLarge(
+          function: String = #function,
+          file: String = #fileID,
+          line: Int = #line
+      ) -> SwiftProtobufError {
+          SwiftProtobufError(
+              code: .binaryStreamDecodingError,
+              message: "Message too large: Bytes and Strings have a max size of 2GB.",
+              location: SourceLocation(function: function, file: file, line: line)
+          )
+      }
+      
+      /// While attempting to read the length of a message on the stream, the
+      /// bytes were malformed for the protobuf format.
+      public static func malformedLength(
+        function: String = #function,
+        file: String = #fileID,
+        line: Int = #line
+      ) -> SwiftProtobufError {
+        SwiftProtobufError(
+          code: .binaryStreamDecodingError,
+          message: """
+          While attempting to read the length of a binary-delimited message \
+          on the stream, the bytes were malformed for the protobuf format.
+        """,
+          location: .init(function: function, file: file, line: line)
+        )
+      }
+      
+      /// This isn't really an error. `InputStream` documents that
+      /// `hasBytesAvailable` _may_ return `True` if a read is needed to
+      /// determine if there really are bytes available. So this "error" is thrown
+      /// when a `parse` or `merge` fails because there were no bytes available.
+      /// If this is raised, the callers should decide via what ever other means
+      /// are correct if the stream has completely ended or if more bytes might
+      /// eventually show up.
+      public static func noBytesAvailable(
+        function: String = #function,
+        file: String = #fileID,
+        line: Int = #line
+      ) -> SwiftProtobufError {
+        SwiftProtobufError(
+          code: .binaryStreamDecodingError,
+          message: """
+          This is not really an error: please read the documentation for
+          `SwiftProtobufError/BinaryStreamDecoding/noBytesAvailable` for more information.
+        """,
+          location: .init(function: function, file: file, line: line)
+        )
+      }
     }
     
     /// Errors arising from encoding protobufs into JSON.

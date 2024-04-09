@@ -126,11 +126,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()) {
+      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.truncated()) {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryDecoding.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryStreamDecoding.truncated")
   }
   
   // Single varint describing a 2GB message
@@ -157,11 +157,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()) {
+      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.truncated()) {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryStreamDecoding.truncated")
   }
   
   // Stream with a valid varint and message, but the following varint is truncated
@@ -189,11 +189,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
       }
       XCTAssertEqual(count, 1, "One message should be deserialized")
     } catch {
-      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()) {
+      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.truncated()) {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobuf.BinaryStreamDecoding.truncated")
   }
 
   // Slow test case found by oss-fuzz: 1 million zero-sized messages

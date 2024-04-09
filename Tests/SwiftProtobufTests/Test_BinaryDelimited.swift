@@ -40,14 +40,14 @@ final class Test_BinaryDelimited: XCTestCase {
   func assertParseFails(atEndOfStream istream: InputStream) {
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.noBytesAvailable()))
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.noBytesAvailable()))
     }
   }
 
   func assertParsing(failsWithTruncatedStream istream: InputStream) {
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()))
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.truncated()))
     }
   }
 
@@ -90,7 +90,7 @@ final class Test_BinaryDelimited: XCTestCase {
 
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.tooLarge()))
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.tooLarge()))
     }
   }
 
@@ -99,7 +99,7 @@ final class Test_BinaryDelimited: XCTestCase {
 
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.malformedLength()))
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.malformedLength()))
     }
   }
 

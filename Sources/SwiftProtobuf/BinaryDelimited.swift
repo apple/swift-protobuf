@@ -16,63 +16,6 @@
 import Foundation
 #endif
 
-extension SwiftProtobufError.BinaryDecoding {
-  /// If a read/write to the stream fails, but the stream's `streamError` is nil,
-  /// this error will be thrown instead since the stream didn't provide anything
-  /// more specific. A common cause for this can be failing to open the stream
-  /// before trying to read/write to it.
-  public static func unknownStreamError(
-    function: String = #function,
-    file: String = #fileID,
-    line: Int = #line
-  ) -> SwiftProtobufError {
-    SwiftProtobufError(
-      code: .binaryDecodingError,
-      message: "Unknown error when reading/writing binary-delimited message into stream.",
-      location: .init(function: function, file: file, line: line)
-    )
-  }
-  
-  /// While attempting to read the length of a message on the stream, the
-  /// bytes were malformed for the protobuf format.
-  public static func malformedLength(
-    function: String = #function,
-    file: String = #fileID,
-    line: Int = #line
-  ) -> SwiftProtobufError {
-    SwiftProtobufError(
-      code: .binaryDecodingError,
-      message: """
-        While attempting to read the length of a binary-delimited message \
-        on the stream, the bytes were malformed for the protobuf format.
-      """,
-      location: .init(function: function, file: file, line: line)
-    )
-  }
-  
-  /// This isn't really an error. `InputStream` documents that
-  /// `hasBytesAvailable` _may_ return `True` if a read is needed to
-  /// determine if there really are bytes available. So this "error" is thrown
-  /// when a `parse` or `merge` fails because there were no bytes available.
-  /// If this is raised, the callers should decide via what ever other means
-  /// are correct if the stream has completely ended or if more bytes might
-  /// eventually show up.
-  public static func noBytesAvailable(
-    function: String = #function,
-    file: String = #fileID,
-    line: Int = #line
-  ) -> SwiftProtobufError {
-    SwiftProtobufError(
-      code: .binaryDecodingError,
-      message: """
-        This is not really an error: please read the documentation for
-        `SwiftProtobufError/BinaryDecoding/noBytesAvailable` for more information.
-      """,
-      location: .init(function: function, file: file, line: line)
-    )
-  }
-}
-
 /// Helper methods for reading/writing messages with a length prefix.
 public enum BinaryDelimited {
   /// Additional errors for delimited message handing.
@@ -103,7 +46,7 @@ public enum BinaryDelimited {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryEncoding/missingRequiredFields``.
+  ///     ``SwiftProtobufError/BinaryStreamDecoding/missingRequiredFields``.
   /// - Throws: ``SwiftProtobufError`` if encoding fails or some writing errors occur; or the
   ///           underlying `OutputStream.streamError` for a stream error.
   public static func serialize(
@@ -136,9 +79,9 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw SwiftProtobufError.BinaryDecoding.unknownStreamError()
+        throw SwiftProtobufError.BinaryStreamDecoding.unknownStreamError()
       }
-      throw SwiftProtobufError.BinaryEncoding.truncated()
+      throw SwiftProtobufError.BinaryStreamDecoding.truncated()
     }
   }
 
@@ -158,7 +101,7 @@ public enum BinaryDelimited {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///     ``SwiftProtobufError/BinaryStreamDecoding/missingRequiredFields``.
   ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: The message read.
   /// - Throws: ``SwiftProtobufError`` if decoding fails, and for some reading errors; or the
@@ -199,7 +142,7 @@ public enum BinaryDelimited {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///     ``SwiftProtobufError/BinaryStreamDecoding/missingRequiredFields``.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: ``SwiftProtobufError`` if decoding fails, and for some reading errors; or the
   ///           underlying `InputStream.streamError` for a stream error.
@@ -216,7 +159,7 @@ public enum BinaryDelimited {
       return
     }
     guard unsignedLength <= 0x7fffffff else {
-      throw SwiftProtobufError.BinaryDecoding.tooLarge()
+      throw SwiftProtobufError.BinaryStreamDecoding.tooLarge()
     }
     let length = Int(unsignedLength)
 
@@ -243,11 +186,11 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw SwiftProtobufError.BinaryDecoding.unknownStreamError()
+        throw SwiftProtobufError.BinaryStreamDecoding.unknownStreamError()
       }
       if bytesRead == 0 {
         // Hit the end of the stream
-        throw SwiftProtobufError.BinaryDecoding.truncated()
+        throw SwiftProtobufError.BinaryStreamDecoding.truncated()
       }
       if bytesRead < chunk.count {
         data += chunk[0..<bytesRead]
@@ -287,7 +230,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
       if let streamError = stream.streamError {
         throw streamError
       }
-      throw SwiftProtobufError.BinaryDecoding.unknownStreamError()
+      throw SwiftProtobufError.BinaryStreamDecoding.unknownStreamError()
     }
   }
 
@@ -296,9 +239,9 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
   while true {
     guard let c = try nextByte() else {
       if shift == 0 {
-        throw SwiftProtobufError.BinaryDecoding.noBytesAvailable()
+        throw SwiftProtobufError.BinaryStreamDecoding.noBytesAvailable()
       }
-      throw SwiftProtobufError.BinaryDecoding.truncated()
+      throw SwiftProtobufError.BinaryStreamDecoding.truncated()
     }
     value |= UInt64(c & 0x7f) << shift
     if c & 0x80 == 0 {
@@ -306,7 +249,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
     shift += 7
     if shift > 63 {
-      throw SwiftProtobufError.BinaryDecoding.malformedLength()
+      throw SwiftProtobufError.BinaryStreamDecoding.malformedLength()
     }
   }
 }
