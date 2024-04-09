@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case a // = 0
   case string // = 1
@@ -684,7 +684,7 @@ enum SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf.Enum {
 
 }
 
-enum SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case aa // = 0
 
@@ -7251,7 +7251,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum StringEnum: SwiftProtobuf.Enum {
+  enum StringEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aString // = 0
 
@@ -7274,7 +7274,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum {
+  enum ProtocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aProtocol // = 0
 
@@ -7297,7 +7297,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum IntEnum: SwiftProtobuf.Enum {
+  enum IntEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aInt // = 0
 
@@ -7320,7 +7320,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum DoubleEnum: SwiftProtobuf.Enum {
+  enum DoubleEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aDouble // = 0
 
@@ -7343,7 +7343,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum FloatEnum: SwiftProtobuf.Enum {
+  enum FloatEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aFloat // = 0
 
@@ -7366,7 +7366,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum UIntEnum: SwiftProtobuf.Enum {
+  enum UIntEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aUint // = 0
 
@@ -7389,7 +7389,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum hashValueEnum: SwiftProtobuf.Enum {
+  enum hashValueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ahashValue // = 0
 
@@ -7412,7 +7412,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum descriptionEnum: SwiftProtobuf.Enum {
+  enum descriptionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adescription // = 0
 
@@ -7435,7 +7435,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum debugDescriptionEnum: SwiftProtobuf.Enum {
+  enum debugDescriptionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adebugDescription // = 0
 
@@ -7458,7 +7458,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum SwiftEnum: SwiftProtobuf.Enum {
+  enum SwiftEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aSwift // = 0
 
@@ -7481,7 +7481,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum UNRECOGNIZED: SwiftProtobuf.Enum {
+  enum UNRECOGNIZED: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aUnrecognized // = 0
 
@@ -7504,7 +7504,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum classEnum: SwiftProtobuf.Enum {
+  enum classEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aclass // = 0
 
@@ -7527,7 +7527,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum deinitEnum: SwiftProtobuf.Enum {
+  enum deinitEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adeinit // = 0
 
@@ -7550,7 +7550,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum enumEnum: SwiftProtobuf.Enum {
+  enum enumEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aenum // = 0
 
@@ -7573,7 +7573,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum extensionEnum: SwiftProtobuf.Enum {
+  enum extensionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aextension // = 0
 
@@ -7596,7 +7596,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum funcEnum: SwiftProtobuf.Enum {
+  enum funcEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afunc // = 0
 
@@ -7619,7 +7619,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum importEnum: SwiftProtobuf.Enum {
+  enum importEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aimport // = 0
 
@@ -7642,7 +7642,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum initEnum: SwiftProtobuf.Enum {
+  enum initEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ainit // = 0
 
@@ -7665,7 +7665,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum inoutEnum: SwiftProtobuf.Enum {
+  enum inoutEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ainout // = 0
 
@@ -7688,7 +7688,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum internalEnum: SwiftProtobuf.Enum {
+  enum internalEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ainternal // = 0
 
@@ -7711,7 +7711,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum letEnum: SwiftProtobuf.Enum {
+  enum letEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case alet // = 0
 
@@ -7734,7 +7734,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum operatorEnum: SwiftProtobuf.Enum {
+  enum operatorEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aoperator // = 0
 
@@ -7757,7 +7757,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum privateEnum: SwiftProtobuf.Enum {
+  enum privateEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aprivate // = 0
 
@@ -7780,7 +7780,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum protocolEnum: SwiftProtobuf.Enum {
+  enum protocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aprotocol // = 0
 
@@ -7803,7 +7803,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum publicEnum: SwiftProtobuf.Enum {
+  enum publicEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case apublic // = 0
 
@@ -7826,7 +7826,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum staticEnum: SwiftProtobuf.Enum {
+  enum staticEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case astatic // = 0
 
@@ -7849,7 +7849,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum structEnum: SwiftProtobuf.Enum {
+  enum structEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case astruct // = 0
 
@@ -7872,7 +7872,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum subscriptEnum: SwiftProtobuf.Enum {
+  enum subscriptEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case asubscript // = 0
 
@@ -7895,7 +7895,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum typealiasEnum: SwiftProtobuf.Enum {
+  enum typealiasEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atypealias // = 0
 
@@ -7918,7 +7918,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum varEnum: SwiftProtobuf.Enum {
+  enum varEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case avar // = 0
 
@@ -7941,7 +7941,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum breakEnum: SwiftProtobuf.Enum {
+  enum breakEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case abreak // = 0
 
@@ -7964,7 +7964,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum caseEnum: SwiftProtobuf.Enum {
+  enum caseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case acase // = 0
 
@@ -7987,7 +7987,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum continueEnum: SwiftProtobuf.Enum {
+  enum continueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case acontinue // = 0
 
@@ -8010,7 +8010,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum defaultEnum: SwiftProtobuf.Enum {
+  enum defaultEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adefault // = 0
 
@@ -8033,7 +8033,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum deferEnum: SwiftProtobuf.Enum {
+  enum deferEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adefer // = 0
 
@@ -8056,7 +8056,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum doEnum: SwiftProtobuf.Enum {
+  enum doEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ado // = 0
 
@@ -8079,7 +8079,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum elseEnum: SwiftProtobuf.Enum {
+  enum elseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aelse // = 0
 
@@ -8102,7 +8102,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum fallthroughEnum: SwiftProtobuf.Enum {
+  enum fallthroughEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afallthrough // = 0
 
@@ -8125,7 +8125,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum forEnum: SwiftProtobuf.Enum {
+  enum forEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afor // = 0
 
@@ -8148,7 +8148,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum guardEnum: SwiftProtobuf.Enum {
+  enum guardEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aguard // = 0
 
@@ -8171,7 +8171,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ifEnum: SwiftProtobuf.Enum {
+  enum ifEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aif // = 0
 
@@ -8194,7 +8194,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum inEnum: SwiftProtobuf.Enum {
+  enum inEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ain // = 0
 
@@ -8217,7 +8217,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum repeatEnum: SwiftProtobuf.Enum {
+  enum repeatEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case arepeat // = 0
 
@@ -8240,7 +8240,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum returnEnum: SwiftProtobuf.Enum {
+  enum returnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case areturn // = 0
 
@@ -8263,7 +8263,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum switchEnum: SwiftProtobuf.Enum {
+  enum switchEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aswitch // = 0
 
@@ -8286,7 +8286,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum whereEnum: SwiftProtobuf.Enum {
+  enum whereEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case awhere // = 0
 
@@ -8309,7 +8309,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum whileEnum: SwiftProtobuf.Enum {
+  enum whileEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case awhile // = 0
 
@@ -8332,7 +8332,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum asEnum: SwiftProtobuf.Enum {
+  enum asEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aas // = 0
 
@@ -8355,7 +8355,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum catchEnum: SwiftProtobuf.Enum {
+  enum catchEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case acatch // = 0
 
@@ -8378,7 +8378,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum dynamicTypeEnum: SwiftProtobuf.Enum {
+  enum dynamicTypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adynamicType // = 0
 
@@ -8401,7 +8401,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum falseEnum: SwiftProtobuf.Enum {
+  enum falseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afalse // = 0
 
@@ -8424,7 +8424,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum isEnum: SwiftProtobuf.Enum {
+  enum isEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ais // = 0
 
@@ -8447,7 +8447,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum nilEnum: SwiftProtobuf.Enum {
+  enum nilEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anil // = 0
 
@@ -8470,7 +8470,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum rethrowsEnum: SwiftProtobuf.Enum {
+  enum rethrowsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case arethrows // = 0
 
@@ -8493,7 +8493,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum superEnum: SwiftProtobuf.Enum {
+  enum superEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case asuper // = 0
 
@@ -8516,7 +8516,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum selfEnum: SwiftProtobuf.Enum {
+  enum selfEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aself // = 0
 
@@ -8539,7 +8539,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum throwEnum: SwiftProtobuf.Enum {
+  enum throwEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case athrow // = 0
 
@@ -8562,7 +8562,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum throwsEnum: SwiftProtobuf.Enum {
+  enum throwsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case athrows // = 0
 
@@ -8585,7 +8585,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum trueEnum: SwiftProtobuf.Enum {
+  enum trueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atrue // = 0
 
@@ -8608,7 +8608,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum tryEnum: SwiftProtobuf.Enum {
+  enum tryEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atry // = 0
 
@@ -8631,7 +8631,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum __COLUMN__Enum: SwiftProtobuf.Enum {
+  enum __COLUMN__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a_Column__ // = 0
 
@@ -8654,7 +8654,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum __FILE__Enum: SwiftProtobuf.Enum {
+  enum __FILE__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a_File__ // = 0
 
@@ -8677,7 +8677,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum __FUNCTION__Enum: SwiftProtobuf.Enum {
+  enum __FUNCTION__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a_Function__ // = 0
 
@@ -8700,7 +8700,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum __LINE__Enum: SwiftProtobuf.Enum {
+  enum __LINE__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a_Line__ // = 0
 
@@ -8723,7 +8723,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum _Enum: SwiftProtobuf.Enum {
+  enum _Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a_ // = 0
 
@@ -8746,7 +8746,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum __Enum: SwiftProtobuf.Enum {
+  enum __Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a__ // = 0
 
@@ -8769,7 +8769,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum associativity: SwiftProtobuf.Enum {
+  enum associativity: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aassociativity // = 0
 
@@ -8792,7 +8792,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum convenience: SwiftProtobuf.Enum {
+  enum convenience: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aconvenience // = 0
 
@@ -8815,7 +8815,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum dynamic: SwiftProtobuf.Enum {
+  enum dynamic: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adynamic // = 0
 
@@ -8838,7 +8838,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum didSet: SwiftProtobuf.Enum {
+  enum didSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adidSet // = 0
 
@@ -8861,7 +8861,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum final: SwiftProtobuf.Enum {
+  enum final: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afinal // = 0
 
@@ -8884,7 +8884,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum get: SwiftProtobuf.Enum {
+  enum get: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aget // = 0
 
@@ -8907,7 +8907,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum infix: SwiftProtobuf.Enum {
+  enum infix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ainfix // = 0
 
@@ -8930,7 +8930,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum indirect: SwiftProtobuf.Enum {
+  enum indirect: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aindirect // = 0
 
@@ -8953,7 +8953,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum lazy: SwiftProtobuf.Enum {
+  enum lazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case alazy // = 0
 
@@ -8976,7 +8976,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum left: SwiftProtobuf.Enum {
+  enum left: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aleft // = 0
 
@@ -8999,7 +8999,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum mutating: SwiftProtobuf.Enum {
+  enum mutating: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case amutating // = 0
 
@@ -9022,7 +9022,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum none: SwiftProtobuf.Enum {
+  enum none: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anone // = 0
 
@@ -9045,7 +9045,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum nonmutating: SwiftProtobuf.Enum {
+  enum nonmutating: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anonmutating // = 0
 
@@ -9068,7 +9068,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum optional: SwiftProtobuf.Enum {
+  enum optional: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aoptional // = 0
 
@@ -9091,7 +9091,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum override: SwiftProtobuf.Enum {
+  enum override: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aoverride // = 0
 
@@ -9114,7 +9114,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum postfix: SwiftProtobuf.Enum {
+  enum postfix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case apostfix // = 0
 
@@ -9137,7 +9137,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum precedence: SwiftProtobuf.Enum {
+  enum precedence: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aprecedence // = 0
 
@@ -9160,7 +9160,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum prefix: SwiftProtobuf.Enum {
+  enum prefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aprefix // = 0
 
@@ -9183,7 +9183,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum required: SwiftProtobuf.Enum {
+  enum required: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case arequired // = 0
 
@@ -9206,7 +9206,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum right: SwiftProtobuf.Enum {
+  enum right: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aright // = 0
 
@@ -9229,7 +9229,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum set: SwiftProtobuf.Enum {
+  enum set: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aset // = 0
 
@@ -9252,7 +9252,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum TypeEnum: SwiftProtobuf.Enum {
+  enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aType // = 0
 
@@ -9275,7 +9275,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum unowned: SwiftProtobuf.Enum {
+  enum unowned: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aunowned // = 0
 
@@ -9298,7 +9298,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum weak: SwiftProtobuf.Enum {
+  enum weak: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aweak // = 0
 
@@ -9321,7 +9321,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum willSet: SwiftProtobuf.Enum {
+  enum willSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case awillSet // = 0
 
@@ -9344,7 +9344,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum id: SwiftProtobuf.Enum {
+  enum id: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aid // = 0
 
@@ -9367,7 +9367,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum _cmd: SwiftProtobuf.Enum {
+  enum _cmd: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aCmd // = 0
 
@@ -9390,7 +9390,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum out: SwiftProtobuf.Enum {
+  enum out: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aout // = 0
 
@@ -9413,7 +9413,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum bycopy: SwiftProtobuf.Enum {
+  enum bycopy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case abycopy // = 0
 
@@ -9436,7 +9436,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum byref: SwiftProtobuf.Enum {
+  enum byref: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case abyref // = 0
 
@@ -9459,7 +9459,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum oneway: SwiftProtobuf.Enum {
+  enum oneway: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aoneway // = 0
 
@@ -9482,7 +9482,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum and: SwiftProtobuf.Enum {
+  enum and: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aand // = 0
 
@@ -9505,7 +9505,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum and_eq: SwiftProtobuf.Enum {
+  enum and_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aandEq // = 0
 
@@ -9528,7 +9528,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum alignas: SwiftProtobuf.Enum {
+  enum alignas: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aalignas // = 0
 
@@ -9551,7 +9551,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum alignof: SwiftProtobuf.Enum {
+  enum alignof: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aalignof // = 0
 
@@ -9574,7 +9574,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum asm: SwiftProtobuf.Enum {
+  enum asm: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aasm // = 0
 
@@ -9597,7 +9597,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum auto: SwiftProtobuf.Enum {
+  enum auto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aauto // = 0
 
@@ -9620,7 +9620,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum bitand: SwiftProtobuf.Enum {
+  enum bitand: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case abitand // = 0
 
@@ -9643,7 +9643,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum bitor: SwiftProtobuf.Enum {
+  enum bitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case abitor // = 0
 
@@ -9666,7 +9666,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum bool: SwiftProtobuf.Enum {
+  enum bool: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case abool // = 0
 
@@ -9689,7 +9689,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum char: SwiftProtobuf.Enum {
+  enum char: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case achar // = 0
 
@@ -9712,7 +9712,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum char16_t: SwiftProtobuf.Enum {
+  enum char16_t: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case achar16T // = 0
 
@@ -9735,7 +9735,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum char32_t: SwiftProtobuf.Enum {
+  enum char32_t: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case achar32T // = 0
 
@@ -9758,7 +9758,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum compl: SwiftProtobuf.Enum {
+  enum compl: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case acompl // = 0
 
@@ -9781,7 +9781,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum const: SwiftProtobuf.Enum {
+  enum const: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aconst // = 0
 
@@ -9804,7 +9804,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum constexpr: SwiftProtobuf.Enum {
+  enum constexpr: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aconstexpr // = 0
 
@@ -9827,7 +9827,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum const_cast: SwiftProtobuf.Enum {
+  enum const_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aconstCast // = 0
 
@@ -9850,7 +9850,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum decltype: SwiftProtobuf.Enum {
+  enum decltype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adecltype // = 0
 
@@ -9873,7 +9873,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum delete: SwiftProtobuf.Enum {
+  enum delete: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adelete // = 0
 
@@ -9896,7 +9896,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum dynamic_cast: SwiftProtobuf.Enum {
+  enum dynamic_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adynamicCast // = 0
 
@@ -9919,7 +9919,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum explicit: SwiftProtobuf.Enum {
+  enum explicit: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aexplicit // = 0
 
@@ -9942,7 +9942,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum export: SwiftProtobuf.Enum {
+  enum export: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aexport // = 0
 
@@ -9965,7 +9965,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum extern: SwiftProtobuf.Enum {
+  enum extern: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aextern // = 0
 
@@ -9988,7 +9988,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum friend: SwiftProtobuf.Enum {
+  enum friend: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afriend // = 0
 
@@ -10011,7 +10011,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum goto: SwiftProtobuf.Enum {
+  enum goto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case agoto // = 0
 
@@ -10034,7 +10034,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum inline: SwiftProtobuf.Enum {
+  enum inline: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ainline // = 0
 
@@ -10057,7 +10057,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum long: SwiftProtobuf.Enum {
+  enum long: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case along // = 0
 
@@ -10080,7 +10080,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum mutable: SwiftProtobuf.Enum {
+  enum mutable: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case amutable // = 0
 
@@ -10103,7 +10103,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum namespace: SwiftProtobuf.Enum {
+  enum namespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anamespace // = 0
 
@@ -10126,7 +10126,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum new: SwiftProtobuf.Enum {
+  enum new: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anew // = 0
 
@@ -10149,7 +10149,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum noexcept: SwiftProtobuf.Enum {
+  enum noexcept: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anoexcept // = 0
 
@@ -10172,7 +10172,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum not: SwiftProtobuf.Enum {
+  enum not: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anot // = 0
 
@@ -10195,7 +10195,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum not_eq: SwiftProtobuf.Enum {
+  enum not_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anotEq // = 0
 
@@ -10218,7 +10218,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum nullptr: SwiftProtobuf.Enum {
+  enum nullptr: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case anullptr // = 0
 
@@ -10241,7 +10241,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum or: SwiftProtobuf.Enum {
+  enum or: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aor // = 0
 
@@ -10264,7 +10264,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum or_eq: SwiftProtobuf.Enum {
+  enum or_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aorEq // = 0
 
@@ -10287,7 +10287,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum protected: SwiftProtobuf.Enum {
+  enum protected: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aprotected // = 0
 
@@ -10310,7 +10310,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum register: SwiftProtobuf.Enum {
+  enum register: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aregister // = 0
 
@@ -10333,7 +10333,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum reinterpret_cast: SwiftProtobuf.Enum {
+  enum reinterpret_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case areinterpretCast // = 0
 
@@ -10356,7 +10356,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum short: SwiftProtobuf.Enum {
+  enum short: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ashort // = 0
 
@@ -10379,7 +10379,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum signed: SwiftProtobuf.Enum {
+  enum signed: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case asigned // = 0
 
@@ -10402,7 +10402,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum sizeof: SwiftProtobuf.Enum {
+  enum sizeof: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case asizeof // = 0
 
@@ -10425,7 +10425,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum static_assert: SwiftProtobuf.Enum {
+  enum static_assert: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case astaticAssert // = 0
 
@@ -10448,7 +10448,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum static_cast: SwiftProtobuf.Enum {
+  enum static_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case astaticCast // = 0
 
@@ -10471,7 +10471,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum template: SwiftProtobuf.Enum {
+  enum template: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atemplate // = 0
 
@@ -10494,7 +10494,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum this: SwiftProtobuf.Enum {
+  enum this: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case athis // = 0
 
@@ -10517,7 +10517,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum thread_local: SwiftProtobuf.Enum {
+  enum thread_local: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case athreadLocal // = 0
 
@@ -10540,7 +10540,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum typedef: SwiftProtobuf.Enum {
+  enum typedef: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atypedef // = 0
 
@@ -10563,7 +10563,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum typeid: SwiftProtobuf.Enum {
+  enum typeid: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atypeid // = 0
 
@@ -10586,7 +10586,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum typename: SwiftProtobuf.Enum {
+  enum typename: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case atypename // = 0
 
@@ -10609,7 +10609,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum union: SwiftProtobuf.Enum {
+  enum union: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aunion // = 0
 
@@ -10632,7 +10632,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum unsigned: SwiftProtobuf.Enum {
+  enum unsigned: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aunsigned // = 0
 
@@ -10655,7 +10655,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum using: SwiftProtobuf.Enum {
+  enum using: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ausing // = 0
 
@@ -10678,7 +10678,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum virtual: SwiftProtobuf.Enum {
+  enum virtual: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case avirtual // = 0
 
@@ -10701,7 +10701,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum void: SwiftProtobuf.Enum {
+  enum void: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case avoid // = 0
 
@@ -10724,7 +10724,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum volatile: SwiftProtobuf.Enum {
+  enum volatile: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case avolatile // = 0
 
@@ -10747,7 +10747,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum wchar_t: SwiftProtobuf.Enum {
+  enum wchar_t: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case awcharT // = 0
 
@@ -10770,7 +10770,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum xor: SwiftProtobuf.Enum {
+  enum xor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case axor // = 0
 
@@ -10793,7 +10793,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum xor_eq: SwiftProtobuf.Enum {
+  enum xor_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case axorEq // = 0
 
@@ -10816,7 +10816,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum restrict: SwiftProtobuf.Enum {
+  enum restrict: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case arestrict // = 0
 
@@ -10839,7 +10839,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Category: SwiftProtobuf.Enum {
+  enum Category: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aCategory // = 0
 
@@ -10862,7 +10862,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Ivar: SwiftProtobuf.Enum {
+  enum Ivar: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aIvar // = 0
 
@@ -10885,7 +10885,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Method: SwiftProtobuf.Enum {
+  enum Method: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aMethod // = 0
 
@@ -10908,7 +10908,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum finalize: SwiftProtobuf.Enum {
+  enum finalize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case afinalize // = 0
 
@@ -10931,7 +10931,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum hash: SwiftProtobuf.Enum {
+  enum hash: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case ahash // = 0
 
@@ -10954,7 +10954,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum dealloc: SwiftProtobuf.Enum {
+  enum dealloc: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adealloc // = 0
 
@@ -10977,7 +10977,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum superclass: SwiftProtobuf.Enum {
+  enum superclass: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case asuperclass // = 0
 
@@ -11000,7 +11000,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum retain: SwiftProtobuf.Enum {
+  enum retain: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aretain // = 0
 
@@ -11023,7 +11023,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum release: SwiftProtobuf.Enum {
+  enum release: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case arelease // = 0
 
@@ -11046,7 +11046,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum autorelease: SwiftProtobuf.Enum {
+  enum autorelease: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aautorelease // = 0
 
@@ -11069,7 +11069,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum retainCount: SwiftProtobuf.Enum {
+  enum retainCount: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aretainCount // = 0
 
@@ -11092,7 +11092,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum zone: SwiftProtobuf.Enum {
+  enum zone: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case azone // = 0
 
@@ -11115,7 +11115,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum isProxy: SwiftProtobuf.Enum {
+  enum isProxy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aisProxy // = 0
 
@@ -11138,7 +11138,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum copy: SwiftProtobuf.Enum {
+  enum copy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case acopy // = 0
 
@@ -11161,7 +11161,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum mutableCopy: SwiftProtobuf.Enum {
+  enum mutableCopy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case amutableCopy // = 0
 
@@ -11184,7 +11184,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum classForCoder: SwiftProtobuf.Enum {
+  enum classForCoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aclassForCoder // = 0
 
@@ -11207,7 +11207,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum clear: SwiftProtobuf.Enum {
+  enum clear: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aclear // = 0
 
@@ -11230,7 +11230,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum data: SwiftProtobuf.Enum {
+  enum data: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adata // = 0
 
@@ -11253,7 +11253,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum delimitedData: SwiftProtobuf.Enum {
+  enum delimitedData: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adelimitedData // = 0
 
@@ -11276,7 +11276,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum descriptor: SwiftProtobuf.Enum {
+  enum descriptor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case adescriptor // = 0
 
@@ -11299,7 +11299,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum extensionRegistry: SwiftProtobuf.Enum {
+  enum extensionRegistry: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aextensionRegistry // = 0
 
@@ -11322,7 +11322,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum extensionsCurrentlySet: SwiftProtobuf.Enum {
+  enum extensionsCurrentlySet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aextensionsCurrentlySet // = 0
 
@@ -11345,7 +11345,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum isInitializedEnum: SwiftProtobuf.Enum {
+  enum isInitializedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aisInitialized // = 0
 
@@ -11368,7 +11368,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum serializedSize: SwiftProtobuf.Enum {
+  enum serializedSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aserializedSize // = 0
 
@@ -11391,7 +11391,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum sortedExtensionsInUse: SwiftProtobuf.Enum {
+  enum sortedExtensionsInUse: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case asortedExtensionsInUse // = 0
 
@@ -11414,7 +11414,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum unknownFieldsEnum: SwiftProtobuf.Enum {
+  enum unknownFieldsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aunknownFields // = 0
 
@@ -11437,7 +11437,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Fixed: SwiftProtobuf.Enum {
+  enum Fixed: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aFixed // = 0
 
@@ -11460,7 +11460,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Fract: SwiftProtobuf.Enum {
+  enum Fract: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aFract // = 0
 
@@ -11483,7 +11483,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Size: SwiftProtobuf.Enum {
+  enum Size: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aSize // = 0
 
@@ -11506,7 +11506,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum LogicalAddress: SwiftProtobuf.Enum {
+  enum LogicalAddress: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aLogicalAddress // = 0
 
@@ -11529,7 +11529,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum PhysicalAddress: SwiftProtobuf.Enum {
+  enum PhysicalAddress: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aPhysicalAddress // = 0
 
@@ -11552,7 +11552,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ByteCount: SwiftProtobuf.Enum {
+  enum ByteCount: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aByteCount // = 0
 
@@ -11575,7 +11575,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ByteOffset: SwiftProtobuf.Enum {
+  enum ByteOffset: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aByteOffset // = 0
 
@@ -11598,7 +11598,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Duration: SwiftProtobuf.Enum {
+  enum Duration: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aDuration // = 0
 
@@ -11621,7 +11621,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum AbsoluteTime: SwiftProtobuf.Enum {
+  enum AbsoluteTime: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aAbsoluteTime // = 0
 
@@ -11644,7 +11644,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum OptionBits: SwiftProtobuf.Enum {
+  enum OptionBits: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aOptionBits // = 0
 
@@ -11667,7 +11667,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ItemCount: SwiftProtobuf.Enum {
+  enum ItemCount: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aItemCount // = 0
 
@@ -11690,7 +11690,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum PBVersion: SwiftProtobuf.Enum {
+  enum PBVersion: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aPbversion // = 0
 
@@ -11713,7 +11713,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ScriptCode: SwiftProtobuf.Enum {
+  enum ScriptCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aScriptCode // = 0
 
@@ -11736,7 +11736,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum LangCode: SwiftProtobuf.Enum {
+  enum LangCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aLangCode // = 0
 
@@ -11759,7 +11759,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum RegionCode: SwiftProtobuf.Enum {
+  enum RegionCode: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aRegionCode // = 0
 
@@ -11782,7 +11782,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum OSType: SwiftProtobuf.Enum {
+  enum OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aOstype // = 0
 
@@ -11805,7 +11805,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ProcessSerialNumber: SwiftProtobuf.Enum {
+  enum ProcessSerialNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aProcessSerialNumber // = 0
 
@@ -11828,7 +11828,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Point: SwiftProtobuf.Enum {
+  enum Point: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aPoint // = 0
 
@@ -11851,7 +11851,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Rect: SwiftProtobuf.Enum {
+  enum Rect: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aRect // = 0
 
@@ -11874,7 +11874,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum FixedPoint: SwiftProtobuf.Enum {
+  enum FixedPoint: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aFixedPoint // = 0
 
@@ -11897,7 +11897,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum FixedRect: SwiftProtobuf.Enum {
+  enum FixedRect: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aFixedRect // = 0
 
@@ -11920,7 +11920,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Style: SwiftProtobuf.Enum {
+  enum Style: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aStyle // = 0
 
@@ -11943,7 +11943,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum StyleParameter: SwiftProtobuf.Enum {
+  enum StyleParameter: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aStyleParameter // = 0
 
@@ -11966,7 +11966,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum StyleField: SwiftProtobuf.Enum {
+  enum StyleField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aStyleField // = 0
 
@@ -11989,7 +11989,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum TimeScale: SwiftProtobuf.Enum {
+  enum TimeScale: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aTimeScale // = 0
 
@@ -12012,7 +12012,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum TimeBase: SwiftProtobuf.Enum {
+  enum TimeBase: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aTimeBase // = 0
 
@@ -12035,7 +12035,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum TimeRecord: SwiftProtobuf.Enum {
+  enum TimeRecord: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aTimeRecord // = 0
 
@@ -12058,7 +12058,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum Extension: SwiftProtobuf.Enum {
+  enum Extension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aExtension // = 0
 
@@ -12081,7 +12081,7 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   }
 
-  enum ExtensionsEnum: SwiftProtobuf.Enum {
+  enum ExtensionsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case aExtensions // = 0
 
@@ -12769,7 +12769,7 @@ struct SwiftProtoTesting_Names_ValidIdentifiers: Sendable {
 
   }
 
-  enum TestEnum: SwiftProtobuf.Enum {
+  enum TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Won't prefix strip

@@ -33,7 +33,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
@@ -63,7 +63,7 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
 }
 
 /// To use an enum in a map, it must has the first value as 0.
-enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
+enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unknown // = 0
   case foo // = 1

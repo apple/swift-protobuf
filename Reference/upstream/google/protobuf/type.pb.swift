@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 }
 
 /// The syntax in which a protocol buffer element is defined.
-enum Google_Protobuf_Syntax: Enum {
+enum Google_Protobuf_Syntax: Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// Syntax `proto2`.
@@ -177,7 +177,7 @@ struct Google_Protobuf_Field: Sendable {
   var unknownFields = UnknownStorage()
 
   /// Basic field types.
-  enum Kind: Enum {
+  enum Kind: Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Field type unknown.
@@ -318,7 +318,7 @@ struct Google_Protobuf_Field: Sendable {
   }
 
   /// Whether a field is optional, required, or repeated.
-  enum Cardinality: Enum {
+  enum Cardinality: Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// For fields with unknown cardinality.

@@ -33,7 +33,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
+enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case val1 // = 1
   case val2 // = 2
@@ -59,7 +59,7 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
 
 }
 
-enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case value // = 1
 
@@ -117,7 +117,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: Sendable {
 
   }
 
-  enum AnEnum: SwiftProtobuf.Enum {
+  enum AnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case val1 // = 1
     case val2 // = 2
@@ -197,7 +197,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnumType: SwiftProtobuf.Enum {
+  enum TestEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case testOptionEnumType1 // = 22
     case testOptionEnumType2 // = -23
@@ -612,7 +612,7 @@ struct ProtobufUnittest_NestedOptionType: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case value // = 1
 
@@ -677,7 +677,7 @@ struct ProtobufUnittest_OldOptionType: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: SwiftProtobuf.Enum {
+  enum TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case oldValue // = 0
 
@@ -722,7 +722,7 @@ struct ProtobufUnittest_NewOptionType: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: SwiftProtobuf.Enum {
+  enum TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case oldValue // = 0
     case newValue // = 1

@@ -33,7 +33,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufTestMessages_Proto2_ForeignEnumProto2: SwiftProtobuf.Enum {
+enum ProtobufTestMessages_Proto2_ForeignEnumProto2: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -1032,7 +1032,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -1373,7 +1373,7 @@ struct ProtobufTestMessages_Proto2_EnumOnlyProto2: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum BoolEnum: SwiftProtobuf.Enum {
+  enum BoolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case kFalse // = 0
     case kTrue // = 1
@@ -1816,7 +1816,7 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1

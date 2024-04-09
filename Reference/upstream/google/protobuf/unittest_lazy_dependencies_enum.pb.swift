@@ -33,7 +33,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case lazyEnum0 // = 0
   case lazyEnum1 // = 1

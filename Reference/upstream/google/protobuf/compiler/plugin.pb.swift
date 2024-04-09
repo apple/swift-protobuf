@@ -224,7 +224,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Sync with code_generator.h.
-  enum Feature: SwiftProtobuf.Enum {
+  enum Feature: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case none // = 0
     case proto3Optional // = 1

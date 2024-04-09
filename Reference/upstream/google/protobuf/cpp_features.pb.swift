@@ -56,7 +56,7 @@ struct Pb_CppFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum StringType: SwiftProtobuf.Enum {
+  enum StringType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unknown // = 0
     case view // = 1

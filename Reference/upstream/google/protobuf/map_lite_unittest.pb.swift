@@ -27,7 +27,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
+enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case proto2MapEnumFooLite // = 0
   case proto2MapEnumBarLite // = 1
@@ -56,7 +56,7 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
 
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
+enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case eProto2MapEnumFooLite // = 0
   case eProto2MapEnumBarLite // = 1
@@ -88,7 +88,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
 
 }
 
-enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
+enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case mapEnumFooLite // = 0
   case mapEnumBarLite // = 1

@@ -575,7 +575,7 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
 
   }
 
-  enum Enum: SwiftProtobuf.Enum {
+  enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1

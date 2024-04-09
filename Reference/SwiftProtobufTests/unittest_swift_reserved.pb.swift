@@ -118,7 +118,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Enum: SwiftProtobuf.Enum {
+  enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case double // = 1
     case json // = 2
@@ -156,7 +156,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
 
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum {
+  enum ProtocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a // = 1
 

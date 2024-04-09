@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum EditionUnittest_ForeignEnum: SwiftProtobuf.Enum {
+enum EditionUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foreignFoo // = 4
   case foreignBar // = 5
@@ -70,7 +70,7 @@ enum EditionUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
 }
 
-enum EditionUnittest_TestReservedEnumFields: SwiftProtobuf.Enum {
+enum EditionUnittest_TestReservedEnumFields: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unknown // = 0
 
@@ -94,7 +94,7 @@ enum EditionUnittest_TestReservedEnumFields: SwiftProtobuf.Enum {
 }
 
 /// Test an enum that has multiple values with the same number.
-enum EditionUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
+enum EditionUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case dupUnknown1 // = 0
   case dupFoo1 // = 1
@@ -130,7 +130,7 @@ enum EditionUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
 }
 
 /// Test an enum with large, unordered values.
-enum EditionUnittest_TestSparseEnum: SwiftProtobuf.Enum {
+enum EditionUnittest_TestSparseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case sparseA // = 123
   case sparseB // = 62374
@@ -171,7 +171,7 @@ enum EditionUnittest_TestSparseEnum: SwiftProtobuf.Enum {
 
 }
 
-enum EditionUnittest_VeryLargeEnum: SwiftProtobuf.Enum {
+enum EditionUnittest_VeryLargeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case enumLabelDefault // = 0
   case enumLabel1 // = 1
@@ -1129,7 +1129,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -1853,7 +1853,7 @@ struct EditionUnittest_TestRequiredEnumNoMask: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unspecified // = 0
     case foo // = 2
@@ -1938,7 +1938,7 @@ struct EditionUnittest_TestRequiredEnumMulti: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unspecified // = 0
     case foo // = 1
@@ -2051,7 +2051,7 @@ struct EditionUnittest_TestRequiredNoMaskMulti: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unspecified // = 0
     case foo // = 1
@@ -4572,7 +4572,7 @@ struct EditionUnittest_TestOneof2: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unknown // = 0
     case foo // = 1
@@ -4915,7 +4915,7 @@ struct EditionUnittest_TestDynamicExtensions: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum DynamicEnumType: SwiftProtobuf.Enum {
+  enum DynamicEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case dynamicUnknown // = 0
     case dynamicFoo // = 2200
@@ -6941,7 +6941,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum SeqSmall0: SwiftProtobuf.Enum {
+  enum SeqSmall0: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case `default` // = 0
     case seqSmall01 // = 1
@@ -6970,7 +6970,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   }
 
-  enum SeqSmall1: SwiftProtobuf.Enum {
+  enum SeqSmall1: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unknown // = 0
     case `default` // = 1
@@ -7002,7 +7002,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   }
 
-  enum SeqLarge: SwiftProtobuf.Enum {
+  enum SeqLarge: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case `default` // = -1
     case seqLarge0 // = 0
@@ -7127,7 +7127,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   }
 
-  enum Arbitrary: SwiftProtobuf.Enum {
+  enum Arbitrary: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case `default` // = -123123
     case arbitrary1 // = -123
@@ -7634,7 +7634,7 @@ struct EditionUnittest_TestPackedEnumSmallRange: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unspecified // = 0
     case foo // = 1
@@ -7676,7 +7676,7 @@ struct EditionUnittest_EnumsForBenchmark: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Flat: SwiftProtobuf.Enum {
+  enum Flat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case a0 // = 0
     case a1 // = 1
@@ -7745,7 +7745,7 @@ struct EditionUnittest_EnumsForBenchmark: Sendable {
   }
 
   /// Has a few holes, bitmap can be used.
-  enum AlmostFlat: SwiftProtobuf.Enum {
+  enum AlmostFlat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case b0 // = 0
     case b1 // = 1
@@ -7813,7 +7813,7 @@ struct EditionUnittest_EnumsForBenchmark: Sendable {
 
   }
 
-  enum Sparse: SwiftProtobuf.Enum {
+  enum Sparse: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case c0 // = 0
     case c536 // = 536
