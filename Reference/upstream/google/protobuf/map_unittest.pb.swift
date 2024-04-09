@@ -27,7 +27,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -376,7 +376,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TypeEnum: SwiftProtobuf.Enum {
+  enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case UNRECOGNIZED(Int)

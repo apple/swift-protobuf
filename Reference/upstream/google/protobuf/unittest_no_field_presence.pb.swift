@@ -29,7 +29,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
+enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -375,7 +375,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1

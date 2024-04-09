@@ -31,7 +31,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum adjusted: SwiftProtobuf.Enum {
+  enum adjusted: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAdjusted // = 0
     case UNRECOGNIZED(Int)
@@ -61,7 +61,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum aggregateValue: SwiftProtobuf.Enum {
+  enum aggregateValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAggregateValue // = 0
     case UNRECOGNIZED(Int)
@@ -91,7 +91,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum allCases: SwiftProtobuf.Enum {
+  enum allCases: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAllCases // = 0
     case UNRECOGNIZED(Int)
@@ -121,7 +121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum allowAlias: SwiftProtobuf.Enum {
+  enum allowAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAllowAlias // = 0
     case UNRECOGNIZED(Int)
@@ -151,7 +151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum alwaysPrintEnumsAsInts: SwiftProtobuf.Enum {
+  enum alwaysPrintEnumsAsInts: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAlwaysPrintEnumsAsInts // = 0
     case UNRECOGNIZED(Int)
@@ -181,7 +181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum alwaysPrintInt64sAsNumbers: SwiftProtobuf.Enum {
+  enum alwaysPrintInt64sAsNumbers: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAlwaysPrintInt64SAsNumbers // = 0
     case UNRECOGNIZED(Int)
@@ -211,7 +211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum annotation: SwiftProtobuf.Enum {
+  enum annotation: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnnotation // = 0
     case UNRECOGNIZED(Int)
@@ -241,7 +241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum any: SwiftProtobuf.Enum {
+  enum any: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAny // = 0
     case UNRECOGNIZED(Int)
@@ -271,7 +271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AnyExtensionField: SwiftProtobuf.Enum {
+  enum AnyExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnyExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -301,7 +301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AnyMessageExtension: SwiftProtobuf.Enum {
+  enum AnyMessageExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnyMessageExtension // = 0
     case UNRECOGNIZED(Int)
@@ -331,7 +331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AnyMessageStorage: SwiftProtobuf.Enum {
+  enum AnyMessageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnyMessageStorage // = 0
     case UNRECOGNIZED(Int)
@@ -361,7 +361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AnyUnpackError: SwiftProtobuf.Enum {
+  enum AnyUnpackError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnyUnpackError // = 0
     case UNRECOGNIZED(Int)
@@ -391,7 +391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Api: SwiftProtobuf.Enum {
+  enum Api: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneApi // = 0
     case UNRECOGNIZED(Int)
@@ -421,7 +421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum appended: SwiftProtobuf.Enum {
+  enum appended: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAppended // = 0
     case UNRECOGNIZED(Int)
@@ -451,7 +451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum appendUIntHex: SwiftProtobuf.Enum {
+  enum appendUIntHex: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAppendUintHex // = 0
     case UNRECOGNIZED(Int)
@@ -481,7 +481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum appendUnknown: SwiftProtobuf.Enum {
+  enum appendUnknown: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAppendUnknown // = 0
     case UNRECOGNIZED(Int)
@@ -511,7 +511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum areAllInitialized: SwiftProtobuf.Enum {
+  enum areAllInitialized: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAreAllInitialized // = 0
     case UNRECOGNIZED(Int)
@@ -541,7 +541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Array: SwiftProtobuf.Enum {
+  enum Array: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneArray // = 0
     case UNRECOGNIZED(Int)
@@ -571,7 +571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum arrayDepth: SwiftProtobuf.Enum {
+  enum arrayDepth: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneArrayDepth // = 0
     case UNRECOGNIZED(Int)
@@ -601,7 +601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum arrayLiteral: SwiftProtobuf.Enum {
+  enum arrayLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneArrayLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -631,7 +631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum arraySeparator: SwiftProtobuf.Enum {
+  enum arraySeparator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneArraySeparator // = 0
     case UNRECOGNIZED(Int)
@@ -661,7 +661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum asEnum: SwiftProtobuf.Enum {
+  enum asEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAs // = 0
     case UNRECOGNIZED(Int)
@@ -691,7 +691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum asciiOpenCurlyBracket: SwiftProtobuf.Enum {
+  enum asciiOpenCurlyBracket: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsciiOpenCurlyBracket // = 0
     case UNRECOGNIZED(Int)
@@ -721,7 +721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum asciiZero: SwiftProtobuf.Enum {
+  enum asciiZero: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsciiZero // = 0
     case UNRECOGNIZED(Int)
@@ -751,7 +751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum async: SwiftProtobuf.Enum {
+  enum async: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsync // = 0
     case UNRECOGNIZED(Int)
@@ -781,7 +781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AsyncIterator: SwiftProtobuf.Enum {
+  enum AsyncIterator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsyncIterator // = 0
     case UNRECOGNIZED(Int)
@@ -811,7 +811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AsyncIteratorProtocol: SwiftProtobuf.Enum {
+  enum AsyncIteratorProtocol: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsyncIteratorProtocol // = 0
     case UNRECOGNIZED(Int)
@@ -841,7 +841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum AsyncMessageSequence: SwiftProtobuf.Enum {
+  enum AsyncMessageSequence: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsyncMessageSequence // = 0
     case UNRECOGNIZED(Int)
@@ -871,7 +871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum available: SwiftProtobuf.Enum {
+  enum available: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAvailable // = 0
     case UNRECOGNIZED(Int)
@@ -901,7 +901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum b: SwiftProtobuf.Enum {
+  enum b: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneB // = 0
     case UNRECOGNIZED(Int)
@@ -931,7 +931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Base: SwiftProtobuf.Enum {
+  enum Base: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBase // = 0
     case UNRECOGNIZED(Int)
@@ -961,7 +961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum base64Values: SwiftProtobuf.Enum {
+  enum base64Values: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBase64Values // = 0
     case UNRECOGNIZED(Int)
@@ -991,7 +991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum baseAddress: SwiftProtobuf.Enum {
+  enum baseAddress: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBaseAddress // = 0
     case UNRECOGNIZED(Int)
@@ -1021,7 +1021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BaseType: SwiftProtobuf.Enum {
+  enum BaseType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBaseType // = 0
     case UNRECOGNIZED(Int)
@@ -1051,7 +1051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum begin: SwiftProtobuf.Enum {
+  enum begin: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBegin // = 0
     case UNRECOGNIZED(Int)
@@ -1081,7 +1081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum binary: SwiftProtobuf.Enum {
+  enum binary: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinary // = 0
     case UNRECOGNIZED(Int)
@@ -1111,7 +1111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryDecoder: SwiftProtobuf.Enum {
+  enum BinaryDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -1141,7 +1141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryDecodingError: SwiftProtobuf.Enum {
+  enum BinaryDecodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryDecodingError // = 0
     case UNRECOGNIZED(Int)
@@ -1171,7 +1171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryDecodingOptions: SwiftProtobuf.Enum {
+  enum BinaryDecodingOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryDecodingOptions // = 0
     case UNRECOGNIZED(Int)
@@ -1201,7 +1201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryDelimited: SwiftProtobuf.Enum {
+  enum BinaryDelimited: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryDelimited // = 0
     case UNRECOGNIZED(Int)
@@ -1231,7 +1231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncoder: SwiftProtobuf.Enum {
+  enum BinaryEncoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncoder // = 0
     case UNRECOGNIZED(Int)
@@ -1261,7 +1261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncodingError: SwiftProtobuf.Enum {
+  enum BinaryEncodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncodingError // = 0
     case UNRECOGNIZED(Int)
@@ -1291,7 +1291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf.Enum {
+  enum BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncodingMessageSetSizeVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -1321,7 +1321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncodingMessageSetVisitor: SwiftProtobuf.Enum {
+  enum BinaryEncodingMessageSetVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncodingMessageSetVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -1351,7 +1351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncodingOptions: SwiftProtobuf.Enum {
+  enum BinaryEncodingOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncodingOptions // = 0
     case UNRECOGNIZED(Int)
@@ -1381,7 +1381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncodingSizeVisitor: SwiftProtobuf.Enum {
+  enum BinaryEncodingSizeVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncodingSizeVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -1411,7 +1411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BinaryEncodingVisitor: SwiftProtobuf.Enum {
+  enum BinaryEncodingVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryEncodingVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -1441,7 +1441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum binaryOptions: SwiftProtobuf.Enum {
+  enum binaryOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryOptions // = 0
     case UNRECOGNIZED(Int)
@@ -1471,7 +1471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum binaryProtobufDelimitedMessages: SwiftProtobuf.Enum {
+  enum binaryProtobufDelimitedMessages: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBinaryProtobufDelimitedMessages // = 0
     case UNRECOGNIZED(Int)
@@ -1501,7 +1501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum bitPattern: SwiftProtobuf.Enum {
+  enum bitPattern: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBitPattern // = 0
     case UNRECOGNIZED(Int)
@@ -1531,7 +1531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum body: SwiftProtobuf.Enum {
+  enum body: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBody // = 0
     case UNRECOGNIZED(Int)
@@ -1561,7 +1561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BoolEnum: SwiftProtobuf.Enum {
+  enum BoolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBool // = 0
     case UNRECOGNIZED(Int)
@@ -1591,7 +1591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum booleanLiteral: SwiftProtobuf.Enum {
+  enum booleanLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBooleanLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -1621,7 +1621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BooleanLiteralType: SwiftProtobuf.Enum {
+  enum BooleanLiteralType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBooleanLiteralType // = 0
     case UNRECOGNIZED(Int)
@@ -1651,7 +1651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum boolValue: SwiftProtobuf.Enum {
+  enum boolValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBoolValue // = 0
     case UNRECOGNIZED(Int)
@@ -1681,7 +1681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum buffer: SwiftProtobuf.Enum {
+  enum buffer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBuffer // = 0
     case UNRECOGNIZED(Int)
@@ -1711,7 +1711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum bytes: SwiftProtobuf.Enum {
+  enum bytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBytes // = 0
     case UNRECOGNIZED(Int)
@@ -1741,7 +1741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum bytesInGroup: SwiftProtobuf.Enum {
+  enum bytesInGroup: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBytesInGroup // = 0
     case UNRECOGNIZED(Int)
@@ -1771,7 +1771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum bytesNeeded: SwiftProtobuf.Enum {
+  enum bytesNeeded: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBytesNeeded // = 0
     case UNRECOGNIZED(Int)
@@ -1801,7 +1801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum bytesRead: SwiftProtobuf.Enum {
+  enum bytesRead: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBytesRead // = 0
     case UNRECOGNIZED(Int)
@@ -1831,7 +1831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum BytesValue: SwiftProtobuf.Enum {
+  enum BytesValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneBytesValue // = 0
     case UNRECOGNIZED(Int)
@@ -1861,7 +1861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum c: SwiftProtobuf.Enum {
+  enum c: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneC // = 0
     case UNRECOGNIZED(Int)
@@ -1891,7 +1891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum capitalizeNext: SwiftProtobuf.Enum {
+  enum capitalizeNext: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCapitalizeNext // = 0
     case UNRECOGNIZED(Int)
@@ -1921,7 +1921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum cardinality: SwiftProtobuf.Enum {
+  enum cardinality: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCardinality // = 0
     case UNRECOGNIZED(Int)
@@ -1951,7 +1951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum CaseIterable: SwiftProtobuf.Enum {
+  enum CaseIterable: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCaseIterable // = 0
     case UNRECOGNIZED(Int)
@@ -1981,7 +1981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ccEnableArenas: SwiftProtobuf.Enum {
+  enum ccEnableArenas: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCcEnableArenas // = 0
     case UNRECOGNIZED(Int)
@@ -2011,7 +2011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ccGenericServices: SwiftProtobuf.Enum {
+  enum ccGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCcGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -2041,7 +2041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Character: SwiftProtobuf.Enum {
+  enum Character: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCharacter // = 0
     case UNRECOGNIZED(Int)
@@ -2071,7 +2071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum chars: SwiftProtobuf.Enum {
+  enum chars: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneChars // = 0
     case UNRECOGNIZED(Int)
@@ -2101,7 +2101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum chunk: SwiftProtobuf.Enum {
+  enum chunk: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneChunk // = 0
     case UNRECOGNIZED(Int)
@@ -2131,7 +2131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum classEnum: SwiftProtobuf.Enum {
+  enum classEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClass // = 0
     case UNRECOGNIZED(Int)
@@ -2161,7 +2161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearAggregateValue: SwiftProtobuf.Enum {
+  enum clearAggregateValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearAggregateValue // = 0
     case UNRECOGNIZED(Int)
@@ -2191,7 +2191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearAllowAlias: SwiftProtobuf.Enum {
+  enum clearAllowAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearAllowAlias // = 0
     case UNRECOGNIZED(Int)
@@ -2221,7 +2221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearBegin: SwiftProtobuf.Enum {
+  enum clearBegin: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearBegin // = 0
     case UNRECOGNIZED(Int)
@@ -2251,7 +2251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearCcEnableArenas: SwiftProtobuf.Enum {
+  enum clearCcEnableArenas: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearCcEnableArenas // = 0
     case UNRECOGNIZED(Int)
@@ -2281,7 +2281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearCcGenericServices: SwiftProtobuf.Enum {
+  enum clearCcGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearCcGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -2311,7 +2311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearClientStreaming: SwiftProtobuf.Enum {
+  enum clearClientStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearClientStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -2341,7 +2341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearCsharpNamespace: SwiftProtobuf.Enum {
+  enum clearCsharpNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearCsharpNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -2371,7 +2371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearCtype: SwiftProtobuf.Enum {
+  enum clearCtype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearCtype // = 0
     case UNRECOGNIZED(Int)
@@ -2401,7 +2401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearDebugRedact: SwiftProtobuf.Enum {
+  enum clearDebugRedact: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearDebugRedact // = 0
     case UNRECOGNIZED(Int)
@@ -2431,7 +2431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearDefaultValue: SwiftProtobuf.Enum {
+  enum clearDefaultValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearDefaultValue // = 0
     case UNRECOGNIZED(Int)
@@ -2461,7 +2461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearDeprecated: SwiftProtobuf.Enum {
+  enum clearDeprecated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearDeprecated // = 0
     case UNRECOGNIZED(Int)
@@ -2491,7 +2491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum {
+  enum clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearDeprecatedLegacyJsonFieldConflicts // = 0
     case UNRECOGNIZED(Int)
@@ -2521,7 +2521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearDeprecationWarning: SwiftProtobuf.Enum {
+  enum clearDeprecationWarning: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearDeprecationWarning // = 0
     case UNRECOGNIZED(Int)
@@ -2551,7 +2551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearDoubleValue: SwiftProtobuf.Enum {
+  enum clearDoubleValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearDoubleValue // = 0
     case UNRECOGNIZED(Int)
@@ -2581,7 +2581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEdition: SwiftProtobuf.Enum {
+  enum clearEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEdition // = 0
     case UNRECOGNIZED(Int)
@@ -2611,7 +2611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEditionDeprecated: SwiftProtobuf.Enum {
+  enum clearEditionDeprecated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEditionDeprecated // = 0
     case UNRECOGNIZED(Int)
@@ -2641,7 +2641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEditionIntroduced: SwiftProtobuf.Enum {
+  enum clearEditionIntroduced: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEditionIntroduced // = 0
     case UNRECOGNIZED(Int)
@@ -2671,7 +2671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEditionRemoved: SwiftProtobuf.Enum {
+  enum clearEditionRemoved: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEditionRemoved // = 0
     case UNRECOGNIZED(Int)
@@ -2701,7 +2701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEnd: SwiftProtobuf.Enum {
+  enum clearEnd: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEnd // = 0
     case UNRECOGNIZED(Int)
@@ -2731,7 +2731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEnumType: SwiftProtobuf.Enum {
+  enum clearEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEnumType // = 0
     case UNRECOGNIZED(Int)
@@ -2761,7 +2761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearExtendee: SwiftProtobuf.Enum {
+  enum clearExtendee: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearExtendee // = 0
     case UNRECOGNIZED(Int)
@@ -2791,7 +2791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearExtensionValue: SwiftProtobuf.Enum {
+  enum clearExtensionValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearExtensionValue // = 0
     case UNRECOGNIZED(Int)
@@ -2821,7 +2821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearFeatures: SwiftProtobuf.Enum {
+  enum clearFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -2851,7 +2851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearFeatureSupport: SwiftProtobuf.Enum {
+  enum clearFeatureSupport: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearFeatureSupport // = 0
     case UNRECOGNIZED(Int)
@@ -2881,7 +2881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearFieldPresence: SwiftProtobuf.Enum {
+  enum clearFieldPresence: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearFieldPresence // = 0
     case UNRECOGNIZED(Int)
@@ -2911,7 +2911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearFixedFeatures: SwiftProtobuf.Enum {
+  enum clearFixedFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearFixedFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -2941,7 +2941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearFullName: SwiftProtobuf.Enum {
+  enum clearFullName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearFullName // = 0
     case UNRECOGNIZED(Int)
@@ -2971,7 +2971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearGoPackage: SwiftProtobuf.Enum {
+  enum clearGoPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearGoPackage // = 0
     case UNRECOGNIZED(Int)
@@ -3001,7 +3001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearIdempotencyLevel: SwiftProtobuf.Enum {
+  enum clearIdempotencyLevel: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearIdempotencyLevel // = 0
     case UNRECOGNIZED(Int)
@@ -3031,7 +3031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearIdentifierValue: SwiftProtobuf.Enum {
+  enum clearIdentifierValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearIdentifierValue // = 0
     case UNRECOGNIZED(Int)
@@ -3061,7 +3061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearInputType: SwiftProtobuf.Enum {
+  enum clearInputType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearInputType // = 0
     case UNRECOGNIZED(Int)
@@ -3091,7 +3091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearIsExtension: SwiftProtobuf.Enum {
+  enum clearIsExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearIsExtension // = 0
     case UNRECOGNIZED(Int)
@@ -3121,7 +3121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJavaGenerateEqualsAndHash: SwiftProtobuf.Enum {
+  enum clearJavaGenerateEqualsAndHash: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJavaGenerateEqualsAndHash // = 0
     case UNRECOGNIZED(Int)
@@ -3151,7 +3151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJavaGenericServices: SwiftProtobuf.Enum {
+  enum clearJavaGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJavaGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -3181,7 +3181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJavaMultipleFiles: SwiftProtobuf.Enum {
+  enum clearJavaMultipleFiles: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJavaMultipleFiles // = 0
     case UNRECOGNIZED(Int)
@@ -3211,7 +3211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJavaOuterClassname: SwiftProtobuf.Enum {
+  enum clearJavaOuterClassname: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJavaOuterClassname // = 0
     case UNRECOGNIZED(Int)
@@ -3241,7 +3241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJavaPackage: SwiftProtobuf.Enum {
+  enum clearJavaPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJavaPackage // = 0
     case UNRECOGNIZED(Int)
@@ -3271,7 +3271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJavaStringCheckUtf8: SwiftProtobuf.Enum {
+  enum clearJavaStringCheckUtf8: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJavaStringCheckUtf8 // = 0
     case UNRECOGNIZED(Int)
@@ -3301,7 +3301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJsonFormat: SwiftProtobuf.Enum {
+  enum clearJsonFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJsonFormat // = 0
     case UNRECOGNIZED(Int)
@@ -3331,7 +3331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJsonName: SwiftProtobuf.Enum {
+  enum clearJsonName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJsonName // = 0
     case UNRECOGNIZED(Int)
@@ -3361,7 +3361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearJstype: SwiftProtobuf.Enum {
+  enum clearJstype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearJstype // = 0
     case UNRECOGNIZED(Int)
@@ -3391,7 +3391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearLabel: SwiftProtobuf.Enum {
+  enum clearLabel: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearLabel // = 0
     case UNRECOGNIZED(Int)
@@ -3421,7 +3421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearLazy: SwiftProtobuf.Enum {
+  enum clearLazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearLazy // = 0
     case UNRECOGNIZED(Int)
@@ -3451,7 +3451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearLeadingComments: SwiftProtobuf.Enum {
+  enum clearLeadingComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearLeadingComments // = 0
     case UNRECOGNIZED(Int)
@@ -3481,7 +3481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearMapEntry: SwiftProtobuf.Enum {
+  enum clearMapEntry: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearMapEntry // = 0
     case UNRECOGNIZED(Int)
@@ -3511,7 +3511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearMaximumEdition: SwiftProtobuf.Enum {
+  enum clearMaximumEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearMaximumEdition // = 0
     case UNRECOGNIZED(Int)
@@ -3541,7 +3541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearMessageEncoding: SwiftProtobuf.Enum {
+  enum clearMessageEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearMessageEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -3571,7 +3571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearMessageSetWireFormat: SwiftProtobuf.Enum {
+  enum clearMessageSetWireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearMessageSetWireFormat // = 0
     case UNRECOGNIZED(Int)
@@ -3601,7 +3601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearMinimumEdition: SwiftProtobuf.Enum {
+  enum clearMinimumEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearMinimumEdition // = 0
     case UNRECOGNIZED(Int)
@@ -3631,7 +3631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearName: SwiftProtobuf.Enum {
+  enum clearName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearName // = 0
     case UNRECOGNIZED(Int)
@@ -3661,7 +3661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearNamePart: SwiftProtobuf.Enum {
+  enum clearNamePart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearNamePart // = 0
     case UNRECOGNIZED(Int)
@@ -3691,7 +3691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearNegativeIntValue: SwiftProtobuf.Enum {
+  enum clearNegativeIntValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearNegativeIntValue // = 0
     case UNRECOGNIZED(Int)
@@ -3721,7 +3721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearNoStandardDescriptorAccessor: SwiftProtobuf.Enum {
+  enum clearNoStandardDescriptorAccessor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearNoStandardDescriptorAccessor // = 0
     case UNRECOGNIZED(Int)
@@ -3751,7 +3751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearNumber: SwiftProtobuf.Enum {
+  enum clearNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearNumber // = 0
     case UNRECOGNIZED(Int)
@@ -3781,7 +3781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearObjcClassPrefix: SwiftProtobuf.Enum {
+  enum clearObjcClassPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearObjcClassPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -3811,7 +3811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearOneofIndex: SwiftProtobuf.Enum {
+  enum clearOneofIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearOneofIndex // = 0
     case UNRECOGNIZED(Int)
@@ -3841,7 +3841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearOptimizeFor: SwiftProtobuf.Enum {
+  enum clearOptimizeFor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearOptimizeFor // = 0
     case UNRECOGNIZED(Int)
@@ -3871,7 +3871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearOptions: SwiftProtobuf.Enum {
+  enum clearOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearOptions // = 0
     case UNRECOGNIZED(Int)
@@ -3901,7 +3901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearOutputType: SwiftProtobuf.Enum {
+  enum clearOutputType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearOutputType // = 0
     case UNRECOGNIZED(Int)
@@ -3931,7 +3931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearOverridableFeatures: SwiftProtobuf.Enum {
+  enum clearOverridableFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearOverridableFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -3961,7 +3961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPackage: SwiftProtobuf.Enum {
+  enum clearPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPackage // = 0
     case UNRECOGNIZED(Int)
@@ -3991,7 +3991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPacked: SwiftProtobuf.Enum {
+  enum clearPacked: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPacked // = 0
     case UNRECOGNIZED(Int)
@@ -4021,7 +4021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPhpClassPrefix: SwiftProtobuf.Enum {
+  enum clearPhpClassPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPhpClassPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -4051,7 +4051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPhpMetadataNamespace: SwiftProtobuf.Enum {
+  enum clearPhpMetadataNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPhpMetadataNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -4081,7 +4081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPhpNamespace: SwiftProtobuf.Enum {
+  enum clearPhpNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPhpNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -4111,7 +4111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPositiveIntValue: SwiftProtobuf.Enum {
+  enum clearPositiveIntValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPositiveIntValue // = 0
     case UNRECOGNIZED(Int)
@@ -4141,7 +4141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearProto3Optional: SwiftProtobuf.Enum {
+  enum clearProto3Optional: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearProto3Optional // = 0
     case UNRECOGNIZED(Int)
@@ -4171,7 +4171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearPyGenericServices: SwiftProtobuf.Enum {
+  enum clearPyGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearPyGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -4201,7 +4201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearRepeated: SwiftProtobuf.Enum {
+  enum clearRepeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearRepeated // = 0
     case UNRECOGNIZED(Int)
@@ -4231,7 +4231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearRepeatedFieldEncoding: SwiftProtobuf.Enum {
+  enum clearRepeatedFieldEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearRepeatedFieldEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -4261,7 +4261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearReserved: SwiftProtobuf.Enum {
+  enum clearReserved: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearReserved // = 0
     case UNRECOGNIZED(Int)
@@ -4291,7 +4291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearRetention: SwiftProtobuf.Enum {
+  enum clearRetention: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearRetention // = 0
     case UNRECOGNIZED(Int)
@@ -4321,7 +4321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearRubyPackage: SwiftProtobuf.Enum {
+  enum clearRubyPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearRubyPackage // = 0
     case UNRECOGNIZED(Int)
@@ -4351,7 +4351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearSemantic: SwiftProtobuf.Enum {
+  enum clearSemantic: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearSemantic // = 0
     case UNRECOGNIZED(Int)
@@ -4381,7 +4381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearServerStreaming: SwiftProtobuf.Enum {
+  enum clearServerStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearServerStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -4411,7 +4411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearSourceCodeInfo: SwiftProtobuf.Enum {
+  enum clearSourceCodeInfo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearSourceCodeInfo // = 0
     case UNRECOGNIZED(Int)
@@ -4441,7 +4441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearSourceContext: SwiftProtobuf.Enum {
+  enum clearSourceContext: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearSourceContext // = 0
     case UNRECOGNIZED(Int)
@@ -4471,7 +4471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearSourceFile: SwiftProtobuf.Enum {
+  enum clearSourceFile: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearSourceFile // = 0
     case UNRECOGNIZED(Int)
@@ -4501,7 +4501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearStart: SwiftProtobuf.Enum {
+  enum clearStart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearStart // = 0
     case UNRECOGNIZED(Int)
@@ -4531,7 +4531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearStringValue: SwiftProtobuf.Enum {
+  enum clearStringValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearStringValue // = 0
     case UNRECOGNIZED(Int)
@@ -4561,7 +4561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearSwiftPrefix: SwiftProtobuf.Enum {
+  enum clearSwiftPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearSwiftPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -4591,7 +4591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearSyntax: SwiftProtobuf.Enum {
+  enum clearSyntax: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearSyntax // = 0
     case UNRECOGNIZED(Int)
@@ -4621,7 +4621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearTrailingComments: SwiftProtobuf.Enum {
+  enum clearTrailingComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearTrailingComments // = 0
     case UNRECOGNIZED(Int)
@@ -4651,7 +4651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearType: SwiftProtobuf.Enum {
+  enum clearType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearType // = 0
     case UNRECOGNIZED(Int)
@@ -4681,7 +4681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearTypeName: SwiftProtobuf.Enum {
+  enum clearTypeName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearTypeName // = 0
     case UNRECOGNIZED(Int)
@@ -4711,7 +4711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearUnverifiedLazy: SwiftProtobuf.Enum {
+  enum clearUnverifiedLazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearUnverifiedLazy // = 0
     case UNRECOGNIZED(Int)
@@ -4741,7 +4741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearUtf8Validation: SwiftProtobuf.Enum {
+  enum clearUtf8Validation: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearUtf8Validation // = 0
     case UNRECOGNIZED(Int)
@@ -4771,7 +4771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearValue: SwiftProtobuf.Enum {
+  enum clearValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearValue // = 0
     case UNRECOGNIZED(Int)
@@ -4801,7 +4801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearVerification: SwiftProtobuf.Enum {
+  enum clearVerification: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearVerification // = 0
     case UNRECOGNIZED(Int)
@@ -4831,7 +4831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearWeak: SwiftProtobuf.Enum {
+  enum clearWeak: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearWeak // = 0
     case UNRECOGNIZED(Int)
@@ -4861,7 +4861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clientStreaming: SwiftProtobuf.Enum {
+  enum clientStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClientStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -4891,7 +4891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum codePoint: SwiftProtobuf.Enum {
+  enum codePoint: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCodePoint // = 0
     case UNRECOGNIZED(Int)
@@ -4921,7 +4921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum codeUnits: SwiftProtobuf.Enum {
+  enum codeUnits: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCodeUnits // = 0
     case UNRECOGNIZED(Int)
@@ -4951,7 +4951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Collection: SwiftProtobuf.Enum {
+  enum Collection: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCollection // = 0
     case UNRECOGNIZED(Int)
@@ -4981,7 +4981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum com: SwiftProtobuf.Enum {
+  enum com: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCom // = 0
     case UNRECOGNIZED(Int)
@@ -5011,7 +5011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum comma: SwiftProtobuf.Enum {
+  enum comma: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneComma // = 0
     case UNRECOGNIZED(Int)
@@ -5041,7 +5041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum CommonMessageConformances: SwiftProtobuf.Enum {
+  enum CommonMessageConformances: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCommonMessageConformances // = 0
     case UNRECOGNIZED(Int)
@@ -5071,7 +5071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum consumedBytes: SwiftProtobuf.Enum {
+  enum consumedBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneConsumedBytes // = 0
     case UNRECOGNIZED(Int)
@@ -5101,7 +5101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum contentsOf: SwiftProtobuf.Enum {
+  enum contentsOf: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneContentsOf // = 0
     case UNRECOGNIZED(Int)
@@ -5131,7 +5131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum count: SwiftProtobuf.Enum {
+  enum count: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCount // = 0
     case UNRECOGNIZED(Int)
@@ -5161,7 +5161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum countVarintsInBuffer: SwiftProtobuf.Enum {
+  enum countVarintsInBuffer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCountVarintsInBuffer // = 0
     case UNRECOGNIZED(Int)
@@ -5191,7 +5191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum csharpNamespace: SwiftProtobuf.Enum {
+  enum csharpNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCsharpNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -5221,7 +5221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ctype: SwiftProtobuf.Enum {
+  enum ctype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCtype // = 0
     case UNRECOGNIZED(Int)
@@ -5251,7 +5251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum customCodable: SwiftProtobuf.Enum {
+  enum customCodable: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCustomCodable // = 0
     case UNRECOGNIZED(Int)
@@ -5281,7 +5281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum d: SwiftProtobuf.Enum {
+  enum d: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneD // = 0
     case UNRECOGNIZED(Int)
@@ -5311,7 +5311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum DataEnum: SwiftProtobuf.Enum {
+  enum DataEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneData // = 0
     case UNRECOGNIZED(Int)
@@ -5341,7 +5341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum dataResult: SwiftProtobuf.Enum {
+  enum dataResult: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDataResult // = 0
     case UNRECOGNIZED(Int)
@@ -5371,7 +5371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum date: SwiftProtobuf.Enum {
+  enum date: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDate // = 0
     case UNRECOGNIZED(Int)
@@ -5401,7 +5401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum daySec: SwiftProtobuf.Enum {
+  enum daySec: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDaySec // = 0
     case UNRECOGNIZED(Int)
@@ -5431,7 +5431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum daysSinceEpoch: SwiftProtobuf.Enum {
+  enum daysSinceEpoch: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDaysSinceEpoch // = 0
     case UNRECOGNIZED(Int)
@@ -5461,7 +5461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum debugDescriptionEnum: SwiftProtobuf.Enum {
+  enum debugDescriptionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDebugDescription // = 0
     case UNRECOGNIZED(Int)
@@ -5491,7 +5491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum debugRedact: SwiftProtobuf.Enum {
+  enum debugRedact: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDebugRedact // = 0
     case UNRECOGNIZED(Int)
@@ -5521,7 +5521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum declaration: SwiftProtobuf.Enum {
+  enum declaration: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDeclaration // = 0
     case UNRECOGNIZED(Int)
@@ -5551,7 +5551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decoded: SwiftProtobuf.Enum {
+  enum decoded: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecoded // = 0
     case UNRECOGNIZED(Int)
@@ -5581,7 +5581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodedFromJSONNull: SwiftProtobuf.Enum {
+  enum decodedFromJSONNull: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodedFromJsonnull // = 0
     case UNRECOGNIZED(Int)
@@ -5611,7 +5611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeExtensionField: SwiftProtobuf.Enum {
+  enum decodeExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -5641,7 +5641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeExtensionFieldsAsMessageSet: SwiftProtobuf.Enum {
+  enum decodeExtensionFieldsAsMessageSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeExtensionFieldsAsMessageSet // = 0
     case UNRECOGNIZED(Int)
@@ -5671,7 +5671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeJSON: SwiftProtobuf.Enum {
+  enum decodeJSON: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeJson // = 0
     case UNRECOGNIZED(Int)
@@ -5701,7 +5701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeMapField: SwiftProtobuf.Enum {
+  enum decodeMapField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeMapField // = 0
     case UNRECOGNIZED(Int)
@@ -5731,7 +5731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeMessageEnum: SwiftProtobuf.Enum {
+  enum decodeMessageEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeMessage // = 0
     case UNRECOGNIZED(Int)
@@ -5761,7 +5761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decoder: SwiftProtobuf.Enum {
+  enum decoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -5791,7 +5791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeated: SwiftProtobuf.Enum {
+  enum decodeRepeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeated // = 0
     case UNRECOGNIZED(Int)
@@ -5821,7 +5821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedBoolField: SwiftProtobuf.Enum {
+  enum decodeRepeatedBoolField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedBoolField // = 0
     case UNRECOGNIZED(Int)
@@ -5851,7 +5851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedBytesField: SwiftProtobuf.Enum {
+  enum decodeRepeatedBytesField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedBytesField // = 0
     case UNRECOGNIZED(Int)
@@ -5881,7 +5881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedDoubleField: SwiftProtobuf.Enum {
+  enum decodeRepeatedDoubleField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedDoubleField // = 0
     case UNRECOGNIZED(Int)
@@ -5911,7 +5911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedEnumField: SwiftProtobuf.Enum {
+  enum decodeRepeatedEnumField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedEnumField // = 0
     case UNRECOGNIZED(Int)
@@ -5941,7 +5941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedFixed32Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedFixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -5971,7 +5971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedFixed64Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedFixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6001,7 +6001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedFloatField: SwiftProtobuf.Enum {
+  enum decodeRepeatedFloatField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedFloatField // = 0
     case UNRECOGNIZED(Int)
@@ -6031,7 +6031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedGroupField: SwiftProtobuf.Enum {
+  enum decodeRepeatedGroupField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedGroupField // = 0
     case UNRECOGNIZED(Int)
@@ -6061,7 +6061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedInt32Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedInt32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6091,7 +6091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedInt64Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedInt64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6121,7 +6121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedMessageField: SwiftProtobuf.Enum {
+  enum decodeRepeatedMessageField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedMessageField // = 0
     case UNRECOGNIZED(Int)
@@ -6151,7 +6151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedSFixed32Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedSFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedSfixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6181,7 +6181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedSFixed64Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedSFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedSfixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6211,7 +6211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedSInt32Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedSInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedSint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6241,7 +6241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedSInt64Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedSInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedSint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6271,7 +6271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedStringField: SwiftProtobuf.Enum {
+  enum decodeRepeatedStringField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedStringField // = 0
     case UNRECOGNIZED(Int)
@@ -6301,7 +6301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedUInt32Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedUInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedUint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6331,7 +6331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeRepeatedUInt64Field: SwiftProtobuf.Enum {
+  enum decodeRepeatedUInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeRepeatedUint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6361,7 +6361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingular: SwiftProtobuf.Enum {
+  enum decodeSingular: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingular // = 0
     case UNRECOGNIZED(Int)
@@ -6391,7 +6391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularBoolField: SwiftProtobuf.Enum {
+  enum decodeSingularBoolField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularBoolField // = 0
     case UNRECOGNIZED(Int)
@@ -6421,7 +6421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularBytesField: SwiftProtobuf.Enum {
+  enum decodeSingularBytesField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularBytesField // = 0
     case UNRECOGNIZED(Int)
@@ -6451,7 +6451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularDoubleField: SwiftProtobuf.Enum {
+  enum decodeSingularDoubleField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularDoubleField // = 0
     case UNRECOGNIZED(Int)
@@ -6481,7 +6481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularEnumField: SwiftProtobuf.Enum {
+  enum decodeSingularEnumField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularEnumField // = 0
     case UNRECOGNIZED(Int)
@@ -6511,7 +6511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularFixed32Field: SwiftProtobuf.Enum {
+  enum decodeSingularFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularFixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6541,7 +6541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularFixed64Field: SwiftProtobuf.Enum {
+  enum decodeSingularFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularFixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6571,7 +6571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularFloatField: SwiftProtobuf.Enum {
+  enum decodeSingularFloatField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularFloatField // = 0
     case UNRECOGNIZED(Int)
@@ -6601,7 +6601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularGroupField: SwiftProtobuf.Enum {
+  enum decodeSingularGroupField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularGroupField // = 0
     case UNRECOGNIZED(Int)
@@ -6631,7 +6631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularInt32Field: SwiftProtobuf.Enum {
+  enum decodeSingularInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularInt32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6661,7 +6661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularInt64Field: SwiftProtobuf.Enum {
+  enum decodeSingularInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularInt64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6691,7 +6691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularMessageField: SwiftProtobuf.Enum {
+  enum decodeSingularMessageField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularMessageField // = 0
     case UNRECOGNIZED(Int)
@@ -6721,7 +6721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularSFixed32Field: SwiftProtobuf.Enum {
+  enum decodeSingularSFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularSfixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6751,7 +6751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularSFixed64Field: SwiftProtobuf.Enum {
+  enum decodeSingularSFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularSfixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6781,7 +6781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularSInt32Field: SwiftProtobuf.Enum {
+  enum decodeSingularSInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularSint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6811,7 +6811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularSInt64Field: SwiftProtobuf.Enum {
+  enum decodeSingularSInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularSint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6841,7 +6841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularStringField: SwiftProtobuf.Enum {
+  enum decodeSingularStringField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularStringField // = 0
     case UNRECOGNIZED(Int)
@@ -6871,7 +6871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularUInt32Field: SwiftProtobuf.Enum {
+  enum decodeSingularUInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularUint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -6901,7 +6901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeSingularUInt64Field: SwiftProtobuf.Enum {
+  enum decodeSingularUInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeSingularUint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -6931,7 +6931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum decodeTextFormat: SwiftProtobuf.Enum {
+  enum decodeTextFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDecodeTextFormat // = 0
     case UNRECOGNIZED(Int)
@@ -6961,7 +6961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum defaultAnyTypeURLPrefix: SwiftProtobuf.Enum {
+  enum defaultAnyTypeURLPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDefaultAnyTypeUrlprefix // = 0
     case UNRECOGNIZED(Int)
@@ -6991,7 +6991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum defaults: SwiftProtobuf.Enum {
+  enum defaults: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDefaults // = 0
     case UNRECOGNIZED(Int)
@@ -7021,7 +7021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum defaultValue: SwiftProtobuf.Enum {
+  enum defaultValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDefaultValue // = 0
     case UNRECOGNIZED(Int)
@@ -7051,7 +7051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum dependency: SwiftProtobuf.Enum {
+  enum dependency: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDependency // = 0
     case UNRECOGNIZED(Int)
@@ -7081,7 +7081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum deprecated: SwiftProtobuf.Enum {
+  enum deprecated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDeprecated // = 0
     case UNRECOGNIZED(Int)
@@ -7111,7 +7111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum deprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum {
+  enum deprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDeprecatedLegacyJsonFieldConflicts // = 0
     case UNRECOGNIZED(Int)
@@ -7141,7 +7141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum deprecationWarning: SwiftProtobuf.Enum {
+  enum deprecationWarning: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDeprecationWarning // = 0
     case UNRECOGNIZED(Int)
@@ -7171,7 +7171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum descriptionEnum: SwiftProtobuf.Enum {
+  enum descriptionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDescription // = 0
     case UNRECOGNIZED(Int)
@@ -7201,7 +7201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum DescriptorProto: SwiftProtobuf.Enum {
+  enum DescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -7231,7 +7231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Dictionary: SwiftProtobuf.Enum {
+  enum Dictionary: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDictionary // = 0
     case UNRECOGNIZED(Int)
@@ -7261,7 +7261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum dictionaryLiteral: SwiftProtobuf.Enum {
+  enum dictionaryLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDictionaryLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -7291,7 +7291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum digit: SwiftProtobuf.Enum {
+  enum digit: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDigit // = 0
     case UNRECOGNIZED(Int)
@@ -7321,7 +7321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum digit0: SwiftProtobuf.Enum {
+  enum digit0: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDigit0 // = 0
     case UNRECOGNIZED(Int)
@@ -7351,7 +7351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum digit1: SwiftProtobuf.Enum {
+  enum digit1: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDigit1 // = 0
     case UNRECOGNIZED(Int)
@@ -7381,7 +7381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum digitCount: SwiftProtobuf.Enum {
+  enum digitCount: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDigitCount // = 0
     case UNRECOGNIZED(Int)
@@ -7411,7 +7411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum digits: SwiftProtobuf.Enum {
+  enum digits: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDigits // = 0
     case UNRECOGNIZED(Int)
@@ -7441,7 +7441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum digitValue: SwiftProtobuf.Enum {
+  enum digitValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDigitValue // = 0
     case UNRECOGNIZED(Int)
@@ -7471,7 +7471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum discardableResult: SwiftProtobuf.Enum {
+  enum discardableResult: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDiscardableResult // = 0
     case UNRECOGNIZED(Int)
@@ -7501,7 +7501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum discardUnknownFields: SwiftProtobuf.Enum {
+  enum discardUnknownFields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDiscardUnknownFields // = 0
     case UNRECOGNIZED(Int)
@@ -7531,7 +7531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum DoubleEnum: SwiftProtobuf.Enum {
+  enum DoubleEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDouble // = 0
     case UNRECOGNIZED(Int)
@@ -7561,7 +7561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum doubleValue: SwiftProtobuf.Enum {
+  enum doubleValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDoubleValue // = 0
     case UNRECOGNIZED(Int)
@@ -7591,7 +7591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Duration: SwiftProtobuf.Enum {
+  enum Duration: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDuration // = 0
     case UNRECOGNIZED(Int)
@@ -7621,7 +7621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum E: SwiftProtobuf.Enum {
+  enum E: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneE // = 0
     case UNRECOGNIZED(Int)
@@ -7651,7 +7651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum edition: SwiftProtobuf.Enum {
+  enum edition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEdition // = 0
     case UNRECOGNIZED(Int)
@@ -7681,7 +7681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EditionDefault: SwiftProtobuf.Enum {
+  enum EditionDefault: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEditionDefault // = 0
     case UNRECOGNIZED(Int)
@@ -7711,7 +7711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum editionDefaults: SwiftProtobuf.Enum {
+  enum editionDefaults: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEditionDefaults // = 0
     case UNRECOGNIZED(Int)
@@ -7741,7 +7741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum editionDeprecated: SwiftProtobuf.Enum {
+  enum editionDeprecated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEditionDeprecated // = 0
     case UNRECOGNIZED(Int)
@@ -7771,7 +7771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum editionIntroduced: SwiftProtobuf.Enum {
+  enum editionIntroduced: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEditionIntroduced // = 0
     case UNRECOGNIZED(Int)
@@ -7801,7 +7801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum editionRemoved: SwiftProtobuf.Enum {
+  enum editionRemoved: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEditionRemoved // = 0
     case UNRECOGNIZED(Int)
@@ -7831,7 +7831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Element: SwiftProtobuf.Enum {
+  enum Element: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneElement // = 0
     case UNRECOGNIZED(Int)
@@ -7861,7 +7861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum elements: SwiftProtobuf.Enum {
+  enum elements: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneElements // = 0
     case UNRECOGNIZED(Int)
@@ -7891,7 +7891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum emitExtensionFieldName: SwiftProtobuf.Enum {
+  enum emitExtensionFieldName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEmitExtensionFieldName // = 0
     case UNRECOGNIZED(Int)
@@ -7921,7 +7921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum emitFieldName: SwiftProtobuf.Enum {
+  enum emitFieldName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEmitFieldName // = 0
     case UNRECOGNIZED(Int)
@@ -7951,7 +7951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum emitFieldNumber: SwiftProtobuf.Enum {
+  enum emitFieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEmitFieldNumber // = 0
     case UNRECOGNIZED(Int)
@@ -7981,7 +7981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Empty: SwiftProtobuf.Enum {
+  enum Empty: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEmpty // = 0
     case UNRECOGNIZED(Int)
@@ -8011,7 +8011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum encodeAsBytes: SwiftProtobuf.Enum {
+  enum encodeAsBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEncodeAsBytes // = 0
     case UNRECOGNIZED(Int)
@@ -8041,7 +8041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum encoded: SwiftProtobuf.Enum {
+  enum encoded: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEncoded // = 0
     case UNRECOGNIZED(Int)
@@ -8071,7 +8071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum encodedJSONString: SwiftProtobuf.Enum {
+  enum encodedJSONString: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEncodedJsonstring // = 0
     case UNRECOGNIZED(Int)
@@ -8101,7 +8101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum encodedSize: SwiftProtobuf.Enum {
+  enum encodedSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEncodedSize // = 0
     case UNRECOGNIZED(Int)
@@ -8131,7 +8131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum encodeField: SwiftProtobuf.Enum {
+  enum encodeField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEncodeField // = 0
     case UNRECOGNIZED(Int)
@@ -8161,7 +8161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum encoder: SwiftProtobuf.Enum {
+  enum encoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEncoder // = 0
     case UNRECOGNIZED(Int)
@@ -8191,7 +8191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum end: SwiftProtobuf.Enum {
+  enum end: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnd // = 0
     case UNRECOGNIZED(Int)
@@ -8221,7 +8221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum endArray: SwiftProtobuf.Enum {
+  enum endArray: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEndArray // = 0
     case UNRECOGNIZED(Int)
@@ -8251,7 +8251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum endMessageField: SwiftProtobuf.Enum {
+  enum endMessageField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEndMessageField // = 0
     case UNRECOGNIZED(Int)
@@ -8281,7 +8281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum endObject: SwiftProtobuf.Enum {
+  enum endObject: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEndObject // = 0
     case UNRECOGNIZED(Int)
@@ -8311,7 +8311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum endRegularField: SwiftProtobuf.Enum {
+  enum endRegularField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEndRegularField // = 0
     case UNRECOGNIZED(Int)
@@ -8341,7 +8341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum enumEnum: SwiftProtobuf.Enum {
+  enum enumEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnum // = 0
     case UNRECOGNIZED(Int)
@@ -8371,7 +8371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EnumDescriptorProto: SwiftProtobuf.Enum {
+  enum EnumDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -8401,7 +8401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EnumOptions: SwiftProtobuf.Enum {
+  enum EnumOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumOptions // = 0
     case UNRECOGNIZED(Int)
@@ -8431,7 +8431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EnumReservedRange: SwiftProtobuf.Enum {
+  enum EnumReservedRange: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumReservedRange // = 0
     case UNRECOGNIZED(Int)
@@ -8461,7 +8461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum enumType: SwiftProtobuf.Enum {
+  enum enumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumType // = 0
     case UNRECOGNIZED(Int)
@@ -8491,7 +8491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum enumvalue: SwiftProtobuf.Enum {
+  enum enumvalue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumvalue // = 0
     case UNRECOGNIZED(Int)
@@ -8521,7 +8521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EnumValueDescriptorProto: SwiftProtobuf.Enum {
+  enum EnumValueDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumValueDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -8551,7 +8551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EnumValueOptions: SwiftProtobuf.Enum {
+  enum EnumValueOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnumValueOptions // = 0
     case UNRECOGNIZED(Int)
@@ -8581,7 +8581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum EquatableEnum: SwiftProtobuf.Enum {
+  enum EquatableEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEquatable // = 0
     case UNRECOGNIZED(Int)
@@ -8611,7 +8611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Error: SwiftProtobuf.Enum {
+  enum Error: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneError // = 0
     case UNRECOGNIZED(Int)
@@ -8641,7 +8641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExpressibleByArrayLiteral: SwiftProtobuf.Enum {
+  enum ExpressibleByArrayLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExpressibleByArrayLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -8671,7 +8671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExpressibleByDictionaryLiteral: SwiftProtobuf.Enum {
+  enum ExpressibleByDictionaryLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExpressibleByDictionaryLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -8701,7 +8701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ext: SwiftProtobuf.Enum {
+  enum ext: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExt // = 0
     case UNRECOGNIZED(Int)
@@ -8731,7 +8731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extDecoder: SwiftProtobuf.Enum {
+  enum extDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -8761,7 +8761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extendedGraphemeClusterLiteral: SwiftProtobuf.Enum {
+  enum extendedGraphemeClusterLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtendedGraphemeClusterLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -8791,7 +8791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExtendedGraphemeClusterLiteralType: SwiftProtobuf.Enum {
+  enum ExtendedGraphemeClusterLiteralType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtendedGraphemeClusterLiteralType // = 0
     case UNRECOGNIZED(Int)
@@ -8821,7 +8821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extendee: SwiftProtobuf.Enum {
+  enum extendee: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtendee // = 0
     case UNRECOGNIZED(Int)
@@ -8851,7 +8851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExtensibleMessage: SwiftProtobuf.Enum {
+  enum ExtensibleMessage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensibleMessage // = 0
     case UNRECOGNIZED(Int)
@@ -8881,7 +8881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extensionEnum: SwiftProtobuf.Enum {
+  enum extensionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtension // = 0
     case UNRECOGNIZED(Int)
@@ -8911,7 +8911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExtensionField: SwiftProtobuf.Enum {
+  enum ExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -8941,7 +8941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extensionFieldNumber: SwiftProtobuf.Enum {
+  enum extensionFieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensionFieldNumber // = 0
     case UNRECOGNIZED(Int)
@@ -8971,7 +8971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExtensionFieldValueSet: SwiftProtobuf.Enum {
+  enum ExtensionFieldValueSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensionFieldValueSet // = 0
     case UNRECOGNIZED(Int)
@@ -9001,7 +9001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExtensionMap: SwiftProtobuf.Enum {
+  enum ExtensionMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensionMap // = 0
     case UNRECOGNIZED(Int)
@@ -9031,7 +9031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extensionRange: SwiftProtobuf.Enum {
+  enum extensionRange: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensionRange // = 0
     case UNRECOGNIZED(Int)
@@ -9061,7 +9061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ExtensionRangeOptions: SwiftProtobuf.Enum {
+  enum ExtensionRangeOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensionRangeOptions // = 0
     case UNRECOGNIZED(Int)
@@ -9091,7 +9091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extensions: SwiftProtobuf.Enum {
+  enum extensions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtensions // = 0
     case UNRECOGNIZED(Int)
@@ -9121,7 +9121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum extras: SwiftProtobuf.Enum {
+  enum extras: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneExtras // = 0
     case UNRECOGNIZED(Int)
@@ -9151,7 +9151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum F: SwiftProtobuf.Enum {
+  enum F: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneF // = 0
     case UNRECOGNIZED(Int)
@@ -9181,7 +9181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum falseEnum: SwiftProtobuf.Enum {
+  enum falseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFalse // = 0
     case UNRECOGNIZED(Int)
@@ -9211,7 +9211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum features: SwiftProtobuf.Enum {
+  enum features: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -9241,7 +9241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FeatureSet: SwiftProtobuf.Enum {
+  enum FeatureSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFeatureSet // = 0
     case UNRECOGNIZED(Int)
@@ -9271,7 +9271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FeatureSetDefaults: SwiftProtobuf.Enum {
+  enum FeatureSetDefaults: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFeatureSetDefaults // = 0
     case UNRECOGNIZED(Int)
@@ -9301,7 +9301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FeatureSetEditionDefault: SwiftProtobuf.Enum {
+  enum FeatureSetEditionDefault: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFeatureSetEditionDefault // = 0
     case UNRECOGNIZED(Int)
@@ -9331,7 +9331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum featureSupport: SwiftProtobuf.Enum {
+  enum featureSupport: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFeatureSupport // = 0
     case UNRECOGNIZED(Int)
@@ -9361,7 +9361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum field: SwiftProtobuf.Enum {
+  enum field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneField // = 0
     case UNRECOGNIZED(Int)
@@ -9391,7 +9391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldData: SwiftProtobuf.Enum {
+  enum fieldData: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldData // = 0
     case UNRECOGNIZED(Int)
@@ -9421,7 +9421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FieldDescriptorProto: SwiftProtobuf.Enum {
+  enum FieldDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -9451,7 +9451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FieldMask: SwiftProtobuf.Enum {
+  enum FieldMask: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldMask // = 0
     case UNRECOGNIZED(Int)
@@ -9481,7 +9481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldName: SwiftProtobuf.Enum {
+  enum fieldName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldName // = 0
     case UNRECOGNIZED(Int)
@@ -9511,7 +9511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldNameCount: SwiftProtobuf.Enum {
+  enum fieldNameCount: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldNameCount // = 0
     case UNRECOGNIZED(Int)
@@ -9541,7 +9541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldNum: SwiftProtobuf.Enum {
+  enum fieldNum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldNum // = 0
     case UNRECOGNIZED(Int)
@@ -9571,7 +9571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldNumber: SwiftProtobuf.Enum {
+  enum fieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldNumber // = 0
     case UNRECOGNIZED(Int)
@@ -9601,7 +9601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldNumberForProto: SwiftProtobuf.Enum {
+  enum fieldNumberForProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldNumberForProto // = 0
     case UNRECOGNIZED(Int)
@@ -9631,7 +9631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FieldOptions: SwiftProtobuf.Enum {
+  enum FieldOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldOptions // = 0
     case UNRECOGNIZED(Int)
@@ -9661,7 +9661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldPresence: SwiftProtobuf.Enum {
+  enum fieldPresence: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldPresence // = 0
     case UNRECOGNIZED(Int)
@@ -9691,7 +9691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fields: SwiftProtobuf.Enum {
+  enum fields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFields // = 0
     case UNRECOGNIZED(Int)
@@ -9721,7 +9721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldSize: SwiftProtobuf.Enum {
+  enum fieldSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldSize // = 0
     case UNRECOGNIZED(Int)
@@ -9751,7 +9751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FieldTag: SwiftProtobuf.Enum {
+  enum FieldTag: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldTag // = 0
     case UNRECOGNIZED(Int)
@@ -9781,7 +9781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fieldType: SwiftProtobuf.Enum {
+  enum fieldType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFieldType // = 0
     case UNRECOGNIZED(Int)
@@ -9811,7 +9811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum file: SwiftProtobuf.Enum {
+  enum file: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFile // = 0
     case UNRECOGNIZED(Int)
@@ -9841,7 +9841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FileDescriptorProto: SwiftProtobuf.Enum {
+  enum FileDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFileDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -9871,7 +9871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FileDescriptorSet: SwiftProtobuf.Enum {
+  enum FileDescriptorSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFileDescriptorSet // = 0
     case UNRECOGNIZED(Int)
@@ -9901,7 +9901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fileName: SwiftProtobuf.Enum {
+  enum fileName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFileName // = 0
     case UNRECOGNIZED(Int)
@@ -9931,7 +9931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FileOptions: SwiftProtobuf.Enum {
+  enum FileOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFileOptions // = 0
     case UNRECOGNIZED(Int)
@@ -9961,7 +9961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum filter: SwiftProtobuf.Enum {
+  enum filter: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFilter // = 0
     case UNRECOGNIZED(Int)
@@ -9991,7 +9991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum final: SwiftProtobuf.Enum {
+  enum final: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFinal // = 0
     case UNRECOGNIZED(Int)
@@ -10021,7 +10021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum first: SwiftProtobuf.Enum {
+  enum first: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFirst // = 0
     case UNRECOGNIZED(Int)
@@ -10051,7 +10051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum firstItem: SwiftProtobuf.Enum {
+  enum firstItem: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFirstItem // = 0
     case UNRECOGNIZED(Int)
@@ -10081,7 +10081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fixedFeatures: SwiftProtobuf.Enum {
+  enum fixedFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFixedFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -10111,7 +10111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FloatEnum: SwiftProtobuf.Enum {
+  enum FloatEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFloat // = 0
     case UNRECOGNIZED(Int)
@@ -10141,7 +10141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum floatLiteral: SwiftProtobuf.Enum {
+  enum floatLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFloatLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -10171,7 +10171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FloatLiteralType: SwiftProtobuf.Enum {
+  enum FloatLiteralType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFloatLiteralType // = 0
     case UNRECOGNIZED(Int)
@@ -10201,7 +10201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum FloatValue: SwiftProtobuf.Enum {
+  enum FloatValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFloatValue // = 0
     case UNRECOGNIZED(Int)
@@ -10231,7 +10231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum forMessageName: SwiftProtobuf.Enum {
+  enum forMessageName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneForMessageName // = 0
     case UNRECOGNIZED(Int)
@@ -10261,7 +10261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum formUnion: SwiftProtobuf.Enum {
+  enum formUnion: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFormUnion // = 0
     case UNRECOGNIZED(Int)
@@ -10291,7 +10291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum forReadingFrom: SwiftProtobuf.Enum {
+  enum forReadingFrom: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneForReadingFrom // = 0
     case UNRECOGNIZED(Int)
@@ -10321,7 +10321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum forTypeURL: SwiftProtobuf.Enum {
+  enum forTypeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneForTypeURL // = 0
     case UNRECOGNIZED(Int)
@@ -10351,7 +10351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ForwardParser: SwiftProtobuf.Enum {
+  enum ForwardParser: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneForwardParser // = 0
     case UNRECOGNIZED(Int)
@@ -10381,7 +10381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum forWritingInto: SwiftProtobuf.Enum {
+  enum forWritingInto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneForWritingInto // = 0
     case UNRECOGNIZED(Int)
@@ -10411,7 +10411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum from: SwiftProtobuf.Enum {
+  enum from: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFrom // = 0
     case UNRECOGNIZED(Int)
@@ -10441,7 +10441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fromAscii2: SwiftProtobuf.Enum {
+  enum fromAscii2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFromAscii2 // = 0
     case UNRECOGNIZED(Int)
@@ -10471,7 +10471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fromAscii4: SwiftProtobuf.Enum {
+  enum fromAscii4: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFromAscii4 // = 0
     case UNRECOGNIZED(Int)
@@ -10501,7 +10501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fromByteOffset: SwiftProtobuf.Enum {
+  enum fromByteOffset: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFromByteOffset // = 0
     case UNRECOGNIZED(Int)
@@ -10531,7 +10531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fromHexDigit: SwiftProtobuf.Enum {
+  enum fromHexDigit: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFromHexDigit // = 0
     case UNRECOGNIZED(Int)
@@ -10561,7 +10561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum fullName: SwiftProtobuf.Enum {
+  enum fullName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFullName // = 0
     case UNRECOGNIZED(Int)
@@ -10591,7 +10591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum funcEnum: SwiftProtobuf.Enum {
+  enum funcEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFunc // = 0
     case UNRECOGNIZED(Int)
@@ -10621,7 +10621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum G: SwiftProtobuf.Enum {
+  enum G: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneG // = 0
     case UNRECOGNIZED(Int)
@@ -10651,7 +10651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum GeneratedCodeInfo: SwiftProtobuf.Enum {
+  enum GeneratedCodeInfo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGeneratedCodeInfo // = 0
     case UNRECOGNIZED(Int)
@@ -10681,7 +10681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum get: SwiftProtobuf.Enum {
+  enum get: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGet // = 0
     case UNRECOGNIZED(Int)
@@ -10711,7 +10711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum getExtensionValue: SwiftProtobuf.Enum {
+  enum getExtensionValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGetExtensionValue // = 0
     case UNRECOGNIZED(Int)
@@ -10741,7 +10741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum googleapis: SwiftProtobuf.Enum {
+  enum googleapis: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleapis // = 0
     case UNRECOGNIZED(Int)
@@ -10771,7 +10771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Any: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Any: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufAny // = 0
     case UNRECOGNIZED(Int)
@@ -10801,7 +10801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Api: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Api: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufApi // = 0
     case UNRECOGNIZED(Int)
@@ -10831,7 +10831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_BoolValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_BoolValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufBoolValue // = 0
     case UNRECOGNIZED(Int)
@@ -10861,7 +10861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_BytesValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_BytesValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufBytesValue // = 0
     case UNRECOGNIZED(Int)
@@ -10891,7 +10891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_DescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_DescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -10921,7 +10921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_DoubleValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_DoubleValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufDoubleValue // = 0
     case UNRECOGNIZED(Int)
@@ -10951,7 +10951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Duration: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Duration: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufDuration // = 0
     case UNRECOGNIZED(Int)
@@ -10981,7 +10981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Edition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEdition // = 0
     case UNRECOGNIZED(Int)
@@ -11011,7 +11011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Empty: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Empty: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEmpty // = 0
     case UNRECOGNIZED(Int)
@@ -11041,7 +11041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Enum: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEnum // = 0
     case UNRECOGNIZED(Int)
@@ -11071,7 +11071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEnumDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11101,7 +11101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_EnumOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_EnumOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEnumOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11131,7 +11131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_EnumValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_EnumValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEnumValue // = 0
     case UNRECOGNIZED(Int)
@@ -11161,7 +11161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEnumValueDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11191,7 +11191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_EnumValueOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_EnumValueOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufEnumValueOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11221,7 +11221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufExtensionRangeOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11251,7 +11251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FeatureSet: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FeatureSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFeatureSet // = 0
     case UNRECOGNIZED(Int)
@@ -11281,7 +11281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFeatureSetDefaults // = 0
     case UNRECOGNIZED(Int)
@@ -11311,7 +11311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Field: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufField // = 0
     case UNRECOGNIZED(Int)
@@ -11341,7 +11341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFieldDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11371,7 +11371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FieldMask: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FieldMask: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFieldMask // = 0
     case UNRECOGNIZED(Int)
@@ -11401,7 +11401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FieldOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FieldOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFieldOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11431,7 +11431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFileDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11461,7 +11461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFileDescriptorSet // = 0
     case UNRECOGNIZED(Int)
@@ -11491,7 +11491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FileOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FileOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFileOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11521,7 +11521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_FloatValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_FloatValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufFloatValue // = 0
     case UNRECOGNIZED(Int)
@@ -11551,7 +11551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Enum {
+  enum Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufGeneratedCodeInfo // = 0
     case UNRECOGNIZED(Int)
@@ -11581,7 +11581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Int32Value: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Int32Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufInt32Value // = 0
     case UNRECOGNIZED(Int)
@@ -11611,7 +11611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Int64Value: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Int64Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufInt64Value // = 0
     case UNRECOGNIZED(Int)
@@ -11641,7 +11641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_ListValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_ListValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufListValue // = 0
     case UNRECOGNIZED(Int)
@@ -11671,7 +11671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_MessageOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_MessageOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufMessageOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11701,7 +11701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Method: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Method: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufMethod // = 0
     case UNRECOGNIZED(Int)
@@ -11731,7 +11731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufMethodDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11761,7 +11761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_MethodOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_MethodOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufMethodOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11791,7 +11791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Mixin: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Mixin: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufMixin // = 0
     case UNRECOGNIZED(Int)
@@ -11821,7 +11821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufNullValue // = 0
     case UNRECOGNIZED(Int)
@@ -11851,7 +11851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufOneofDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11881,7 +11881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_OneofOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_OneofOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufOneofOptions // = 0
     case UNRECOGNIZED(Int)
@@ -11911,7 +11911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Option: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Option: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufOption // = 0
     case UNRECOGNIZED(Int)
@@ -11941,7 +11941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Enum {
+  enum Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufServiceDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -11971,7 +11971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_ServiceOptions: SwiftProtobuf.Enum {
+  enum Google_Protobuf_ServiceOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufServiceOptions // = 0
     case UNRECOGNIZED(Int)
@@ -12001,7 +12001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Enum {
+  enum Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufSourceCodeInfo // = 0
     case UNRECOGNIZED(Int)
@@ -12031,7 +12031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_SourceContext: SwiftProtobuf.Enum {
+  enum Google_Protobuf_SourceContext: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufSourceContext // = 0
     case UNRECOGNIZED(Int)
@@ -12061,7 +12061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_StringValue: SwiftProtobuf.Enum {
+  enum Google_Protobuf_StringValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufStringValue // = 0
     case UNRECOGNIZED(Int)
@@ -12091,7 +12091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Struct: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Struct: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufStruct // = 0
     case UNRECOGNIZED(Int)
@@ -12121,7 +12121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufSyntax // = 0
     case UNRECOGNIZED(Int)
@@ -12151,7 +12151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Timestamp: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Timestamp: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufTimestamp // = 0
     case UNRECOGNIZED(Int)
@@ -12181,7 +12181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Type: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Type: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufType // = 0
     case UNRECOGNIZED(Int)
@@ -12211,7 +12211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_UInt32Value: SwiftProtobuf.Enum {
+  enum Google_Protobuf_UInt32Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufUint32Value // = 0
     case UNRECOGNIZED(Int)
@@ -12241,7 +12241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_UInt64Value: SwiftProtobuf.Enum {
+  enum Google_Protobuf_UInt64Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufUint64Value // = 0
     case UNRECOGNIZED(Int)
@@ -12271,7 +12271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_UninterpretedOption: SwiftProtobuf.Enum {
+  enum Google_Protobuf_UninterpretedOption: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufUninterpretedOption // = 0
     case UNRECOGNIZED(Int)
@@ -12301,7 +12301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Google_Protobuf_Value: SwiftProtobuf.Enum {
+  enum Google_Protobuf_Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoogleProtobufValue // = 0
     case UNRECOGNIZED(Int)
@@ -12331,7 +12331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum goPackage: SwiftProtobuf.Enum {
+  enum goPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGoPackage // = 0
     case UNRECOGNIZED(Int)
@@ -12361,7 +12361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum group: SwiftProtobuf.Enum {
+  enum group: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGroup // = 0
     case UNRECOGNIZED(Int)
@@ -12391,7 +12391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum groupFieldNumberStack: SwiftProtobuf.Enum {
+  enum groupFieldNumberStack: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGroupFieldNumberStack // = 0
     case UNRECOGNIZED(Int)
@@ -12421,7 +12421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum groupSize: SwiftProtobuf.Enum {
+  enum groupSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGroupSize // = 0
     case UNRECOGNIZED(Int)
@@ -12451,7 +12451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hadOneofValue: SwiftProtobuf.Enum {
+  enum hadOneofValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHadOneofValue // = 0
     case UNRECOGNIZED(Int)
@@ -12481,7 +12481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum handleConflictingOneOf: SwiftProtobuf.Enum {
+  enum handleConflictingOneOf: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHandleConflictingOneOf // = 0
     case UNRECOGNIZED(Int)
@@ -12511,7 +12511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasAggregateValue: SwiftProtobuf.Enum {
+  enum hasAggregateValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasAggregateValue // = 0
     case UNRECOGNIZED(Int)
@@ -12541,7 +12541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasAllowAlias: SwiftProtobuf.Enum {
+  enum hasAllowAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasAllowAlias // = 0
     case UNRECOGNIZED(Int)
@@ -12571,7 +12571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasBegin: SwiftProtobuf.Enum {
+  enum hasBegin: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasBegin // = 0
     case UNRECOGNIZED(Int)
@@ -12601,7 +12601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasCcEnableArenas: SwiftProtobuf.Enum {
+  enum hasCcEnableArenas: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasCcEnableArenas // = 0
     case UNRECOGNIZED(Int)
@@ -12631,7 +12631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasCcGenericServices: SwiftProtobuf.Enum {
+  enum hasCcGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasCcGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -12661,7 +12661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasClientStreaming: SwiftProtobuf.Enum {
+  enum hasClientStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasClientStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -12691,7 +12691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasCsharpNamespace: SwiftProtobuf.Enum {
+  enum hasCsharpNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasCsharpNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -12721,7 +12721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasCtype: SwiftProtobuf.Enum {
+  enum hasCtype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasCtype // = 0
     case UNRECOGNIZED(Int)
@@ -12751,7 +12751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasDebugRedact: SwiftProtobuf.Enum {
+  enum hasDebugRedact: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasDebugRedact // = 0
     case UNRECOGNIZED(Int)
@@ -12781,7 +12781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasDefaultValue: SwiftProtobuf.Enum {
+  enum hasDefaultValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasDefaultValue // = 0
     case UNRECOGNIZED(Int)
@@ -12811,7 +12811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasDeprecated: SwiftProtobuf.Enum {
+  enum hasDeprecated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasDeprecated // = 0
     case UNRECOGNIZED(Int)
@@ -12841,7 +12841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum {
+  enum hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasDeprecatedLegacyJsonFieldConflicts // = 0
     case UNRECOGNIZED(Int)
@@ -12871,7 +12871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasDeprecationWarning: SwiftProtobuf.Enum {
+  enum hasDeprecationWarning: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasDeprecationWarning // = 0
     case UNRECOGNIZED(Int)
@@ -12901,7 +12901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasDoubleValue: SwiftProtobuf.Enum {
+  enum hasDoubleValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasDoubleValue // = 0
     case UNRECOGNIZED(Int)
@@ -12931,7 +12931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEdition: SwiftProtobuf.Enum {
+  enum hasEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasEdition // = 0
     case UNRECOGNIZED(Int)
@@ -12961,7 +12961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEditionDeprecated: SwiftProtobuf.Enum {
+  enum hasEditionDeprecated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasEditionDeprecated // = 0
     case UNRECOGNIZED(Int)
@@ -12991,7 +12991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEditionIntroduced: SwiftProtobuf.Enum {
+  enum hasEditionIntroduced: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasEditionIntroduced // = 0
     case UNRECOGNIZED(Int)
@@ -13021,7 +13021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEditionRemoved: SwiftProtobuf.Enum {
+  enum hasEditionRemoved: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasEditionRemoved // = 0
     case UNRECOGNIZED(Int)
@@ -13051,7 +13051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEnd: SwiftProtobuf.Enum {
+  enum hasEnd: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasEnd // = 0
     case UNRECOGNIZED(Int)
@@ -13081,7 +13081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEnumType: SwiftProtobuf.Enum {
+  enum hasEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasEnumType // = 0
     case UNRECOGNIZED(Int)
@@ -13111,7 +13111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasExtendee: SwiftProtobuf.Enum {
+  enum hasExtendee: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasExtendee // = 0
     case UNRECOGNIZED(Int)
@@ -13141,7 +13141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasExtensionValue: SwiftProtobuf.Enum {
+  enum hasExtensionValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasExtensionValue // = 0
     case UNRECOGNIZED(Int)
@@ -13171,7 +13171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasFeatures: SwiftProtobuf.Enum {
+  enum hasFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -13201,7 +13201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasFeatureSupport: SwiftProtobuf.Enum {
+  enum hasFeatureSupport: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasFeatureSupport // = 0
     case UNRECOGNIZED(Int)
@@ -13231,7 +13231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasFieldPresence: SwiftProtobuf.Enum {
+  enum hasFieldPresence: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasFieldPresence // = 0
     case UNRECOGNIZED(Int)
@@ -13261,7 +13261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasFixedFeatures: SwiftProtobuf.Enum {
+  enum hasFixedFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasFixedFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -13291,7 +13291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasFullName: SwiftProtobuf.Enum {
+  enum hasFullName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasFullName // = 0
     case UNRECOGNIZED(Int)
@@ -13321,7 +13321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasGoPackage: SwiftProtobuf.Enum {
+  enum hasGoPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasGoPackage // = 0
     case UNRECOGNIZED(Int)
@@ -13351,7 +13351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hash: SwiftProtobuf.Enum {
+  enum hash: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHash // = 0
     case UNRECOGNIZED(Int)
@@ -13381,7 +13381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum HashableEnum: SwiftProtobuf.Enum {
+  enum HashableEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHashable // = 0
     case UNRECOGNIZED(Int)
@@ -13411,7 +13411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasher: SwiftProtobuf.Enum {
+  enum hasher: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasher // = 0
     case UNRECOGNIZED(Int)
@@ -13441,7 +13441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum HashVisitor: SwiftProtobuf.Enum {
+  enum HashVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHashVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -13471,7 +13471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasIdempotencyLevel: SwiftProtobuf.Enum {
+  enum hasIdempotencyLevel: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasIdempotencyLevel // = 0
     case UNRECOGNIZED(Int)
@@ -13501,7 +13501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasIdentifierValue: SwiftProtobuf.Enum {
+  enum hasIdentifierValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasIdentifierValue // = 0
     case UNRECOGNIZED(Int)
@@ -13531,7 +13531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasInputType: SwiftProtobuf.Enum {
+  enum hasInputType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasInputType // = 0
     case UNRECOGNIZED(Int)
@@ -13561,7 +13561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasIsExtension: SwiftProtobuf.Enum {
+  enum hasIsExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasIsExtension // = 0
     case UNRECOGNIZED(Int)
@@ -13591,7 +13591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJavaGenerateEqualsAndHash: SwiftProtobuf.Enum {
+  enum hasJavaGenerateEqualsAndHash: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJavaGenerateEqualsAndHash // = 0
     case UNRECOGNIZED(Int)
@@ -13621,7 +13621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJavaGenericServices: SwiftProtobuf.Enum {
+  enum hasJavaGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJavaGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -13651,7 +13651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJavaMultipleFiles: SwiftProtobuf.Enum {
+  enum hasJavaMultipleFiles: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJavaMultipleFiles // = 0
     case UNRECOGNIZED(Int)
@@ -13681,7 +13681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJavaOuterClassname: SwiftProtobuf.Enum {
+  enum hasJavaOuterClassname: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJavaOuterClassname // = 0
     case UNRECOGNIZED(Int)
@@ -13711,7 +13711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJavaPackage: SwiftProtobuf.Enum {
+  enum hasJavaPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJavaPackage // = 0
     case UNRECOGNIZED(Int)
@@ -13741,7 +13741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJavaStringCheckUtf8: SwiftProtobuf.Enum {
+  enum hasJavaStringCheckUtf8: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJavaStringCheckUtf8 // = 0
     case UNRECOGNIZED(Int)
@@ -13771,7 +13771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJsonFormat: SwiftProtobuf.Enum {
+  enum hasJsonFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJsonFormat // = 0
     case UNRECOGNIZED(Int)
@@ -13801,7 +13801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJsonName: SwiftProtobuf.Enum {
+  enum hasJsonName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJsonName // = 0
     case UNRECOGNIZED(Int)
@@ -13831,7 +13831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasJstype: SwiftProtobuf.Enum {
+  enum hasJstype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasJstype // = 0
     case UNRECOGNIZED(Int)
@@ -13861,7 +13861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasLabel: SwiftProtobuf.Enum {
+  enum hasLabel: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasLabel // = 0
     case UNRECOGNIZED(Int)
@@ -13891,7 +13891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasLazy: SwiftProtobuf.Enum {
+  enum hasLazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasLazy // = 0
     case UNRECOGNIZED(Int)
@@ -13921,7 +13921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasLeadingComments: SwiftProtobuf.Enum {
+  enum hasLeadingComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasLeadingComments // = 0
     case UNRECOGNIZED(Int)
@@ -13951,7 +13951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasMapEntry: SwiftProtobuf.Enum {
+  enum hasMapEntry: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasMapEntry // = 0
     case UNRECOGNIZED(Int)
@@ -13981,7 +13981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasMaximumEdition: SwiftProtobuf.Enum {
+  enum hasMaximumEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasMaximumEdition // = 0
     case UNRECOGNIZED(Int)
@@ -14011,7 +14011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasMessageEncoding: SwiftProtobuf.Enum {
+  enum hasMessageEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasMessageEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -14041,7 +14041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasMessageSetWireFormat: SwiftProtobuf.Enum {
+  enum hasMessageSetWireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasMessageSetWireFormat // = 0
     case UNRECOGNIZED(Int)
@@ -14071,7 +14071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasMinimumEdition: SwiftProtobuf.Enum {
+  enum hasMinimumEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasMinimumEdition // = 0
     case UNRECOGNIZED(Int)
@@ -14101,7 +14101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasName: SwiftProtobuf.Enum {
+  enum hasName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasName // = 0
     case UNRECOGNIZED(Int)
@@ -14131,7 +14131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasNamePart: SwiftProtobuf.Enum {
+  enum hasNamePart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasNamePart // = 0
     case UNRECOGNIZED(Int)
@@ -14161,7 +14161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasNegativeIntValue: SwiftProtobuf.Enum {
+  enum hasNegativeIntValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasNegativeIntValue // = 0
     case UNRECOGNIZED(Int)
@@ -14191,7 +14191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasNoStandardDescriptorAccessor: SwiftProtobuf.Enum {
+  enum hasNoStandardDescriptorAccessor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasNoStandardDescriptorAccessor // = 0
     case UNRECOGNIZED(Int)
@@ -14221,7 +14221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasNumber: SwiftProtobuf.Enum {
+  enum hasNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasNumber // = 0
     case UNRECOGNIZED(Int)
@@ -14251,7 +14251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasObjcClassPrefix: SwiftProtobuf.Enum {
+  enum hasObjcClassPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasObjcClassPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -14281,7 +14281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasOneofIndex: SwiftProtobuf.Enum {
+  enum hasOneofIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasOneofIndex // = 0
     case UNRECOGNIZED(Int)
@@ -14311,7 +14311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasOptimizeFor: SwiftProtobuf.Enum {
+  enum hasOptimizeFor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasOptimizeFor // = 0
     case UNRECOGNIZED(Int)
@@ -14341,7 +14341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasOptions: SwiftProtobuf.Enum {
+  enum hasOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasOptions // = 0
     case UNRECOGNIZED(Int)
@@ -14371,7 +14371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasOutputType: SwiftProtobuf.Enum {
+  enum hasOutputType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasOutputType // = 0
     case UNRECOGNIZED(Int)
@@ -14401,7 +14401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasOverridableFeatures: SwiftProtobuf.Enum {
+  enum hasOverridableFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasOverridableFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -14431,7 +14431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPackage: SwiftProtobuf.Enum {
+  enum hasPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPackage // = 0
     case UNRECOGNIZED(Int)
@@ -14461,7 +14461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPacked: SwiftProtobuf.Enum {
+  enum hasPacked: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPacked // = 0
     case UNRECOGNIZED(Int)
@@ -14491,7 +14491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPhpClassPrefix: SwiftProtobuf.Enum {
+  enum hasPhpClassPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPhpClassPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -14521,7 +14521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPhpMetadataNamespace: SwiftProtobuf.Enum {
+  enum hasPhpMetadataNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPhpMetadataNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -14551,7 +14551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPhpNamespace: SwiftProtobuf.Enum {
+  enum hasPhpNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPhpNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -14581,7 +14581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPositiveIntValue: SwiftProtobuf.Enum {
+  enum hasPositiveIntValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPositiveIntValue // = 0
     case UNRECOGNIZED(Int)
@@ -14611,7 +14611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasProto3Optional: SwiftProtobuf.Enum {
+  enum hasProto3Optional: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasProto3Optional // = 0
     case UNRECOGNIZED(Int)
@@ -14641,7 +14641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasPyGenericServices: SwiftProtobuf.Enum {
+  enum hasPyGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasPyGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -14671,7 +14671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasRepeated: SwiftProtobuf.Enum {
+  enum hasRepeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasRepeated // = 0
     case UNRECOGNIZED(Int)
@@ -14701,7 +14701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasRepeatedFieldEncoding: SwiftProtobuf.Enum {
+  enum hasRepeatedFieldEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasRepeatedFieldEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -14731,7 +14731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasReserved: SwiftProtobuf.Enum {
+  enum hasReserved: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasReserved // = 0
     case UNRECOGNIZED(Int)
@@ -14761,7 +14761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasRetention: SwiftProtobuf.Enum {
+  enum hasRetention: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasRetention // = 0
     case UNRECOGNIZED(Int)
@@ -14791,7 +14791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasRubyPackage: SwiftProtobuf.Enum {
+  enum hasRubyPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasRubyPackage // = 0
     case UNRECOGNIZED(Int)
@@ -14821,7 +14821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasSemantic: SwiftProtobuf.Enum {
+  enum hasSemantic: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasSemantic // = 0
     case UNRECOGNIZED(Int)
@@ -14851,7 +14851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasServerStreaming: SwiftProtobuf.Enum {
+  enum hasServerStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasServerStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -14881,7 +14881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasSourceCodeInfo: SwiftProtobuf.Enum {
+  enum hasSourceCodeInfo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasSourceCodeInfo // = 0
     case UNRECOGNIZED(Int)
@@ -14911,7 +14911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasSourceContext: SwiftProtobuf.Enum {
+  enum hasSourceContext: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasSourceContext // = 0
     case UNRECOGNIZED(Int)
@@ -14941,7 +14941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasSourceFile: SwiftProtobuf.Enum {
+  enum hasSourceFile: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasSourceFile // = 0
     case UNRECOGNIZED(Int)
@@ -14971,7 +14971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasStart: SwiftProtobuf.Enum {
+  enum hasStart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasStart // = 0
     case UNRECOGNIZED(Int)
@@ -15001,7 +15001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasStringValue: SwiftProtobuf.Enum {
+  enum hasStringValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasStringValue // = 0
     case UNRECOGNIZED(Int)
@@ -15031,7 +15031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasSwiftPrefix: SwiftProtobuf.Enum {
+  enum hasSwiftPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasSwiftPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -15061,7 +15061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasSyntax: SwiftProtobuf.Enum {
+  enum hasSyntax: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasSyntax // = 0
     case UNRECOGNIZED(Int)
@@ -15091,7 +15091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasTrailingComments: SwiftProtobuf.Enum {
+  enum hasTrailingComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasTrailingComments // = 0
     case UNRECOGNIZED(Int)
@@ -15121,7 +15121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasType: SwiftProtobuf.Enum {
+  enum hasType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasType // = 0
     case UNRECOGNIZED(Int)
@@ -15151,7 +15151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasTypeName: SwiftProtobuf.Enum {
+  enum hasTypeName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasTypeName // = 0
     case UNRECOGNIZED(Int)
@@ -15181,7 +15181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasUnverifiedLazy: SwiftProtobuf.Enum {
+  enum hasUnverifiedLazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasUnverifiedLazy // = 0
     case UNRECOGNIZED(Int)
@@ -15211,7 +15211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasUtf8Validation: SwiftProtobuf.Enum {
+  enum hasUtf8Validation: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasUtf8Validation // = 0
     case UNRECOGNIZED(Int)
@@ -15241,7 +15241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasValue: SwiftProtobuf.Enum {
+  enum hasValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasValue // = 0
     case UNRECOGNIZED(Int)
@@ -15271,7 +15271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasVerification: SwiftProtobuf.Enum {
+  enum hasVerification: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasVerification // = 0
     case UNRECOGNIZED(Int)
@@ -15301,7 +15301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasWeak: SwiftProtobuf.Enum {
+  enum hasWeak: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasWeak // = 0
     case UNRECOGNIZED(Int)
@@ -15331,7 +15331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hour: SwiftProtobuf.Enum {
+  enum hour: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHour // = 0
     case UNRECOGNIZED(Int)
@@ -15361,7 +15361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum i: SwiftProtobuf.Enum {
+  enum i: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneI // = 0
     case UNRECOGNIZED(Int)
@@ -15391,7 +15391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum idempotencyLevel: SwiftProtobuf.Enum {
+  enum idempotencyLevel: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIdempotencyLevel // = 0
     case UNRECOGNIZED(Int)
@@ -15421,7 +15421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum identifierValue: SwiftProtobuf.Enum {
+  enum identifierValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIdentifierValue // = 0
     case UNRECOGNIZED(Int)
@@ -15451,7 +15451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ifEnum: SwiftProtobuf.Enum {
+  enum ifEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIf // = 0
     case UNRECOGNIZED(Int)
@@ -15481,7 +15481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ignoreUnknownFields: SwiftProtobuf.Enum {
+  enum ignoreUnknownFields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIgnoreUnknownFields // = 0
     case UNRECOGNIZED(Int)
@@ -15511,7 +15511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum index: SwiftProtobuf.Enum {
+  enum index: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIndex // = 0
     case UNRECOGNIZED(Int)
@@ -15541,7 +15541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum initEnum: SwiftProtobuf.Enum {
+  enum initEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInit // = 0
     case UNRECOGNIZED(Int)
@@ -15571,7 +15571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum inoutEnum: SwiftProtobuf.Enum {
+  enum inoutEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInout // = 0
     case UNRECOGNIZED(Int)
@@ -15601,7 +15601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum inputType: SwiftProtobuf.Enum {
+  enum inputType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInputType // = 0
     case UNRECOGNIZED(Int)
@@ -15631,7 +15631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum insert: SwiftProtobuf.Enum {
+  enum insert: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInsert // = 0
     case UNRECOGNIZED(Int)
@@ -15661,7 +15661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum IntEnum: SwiftProtobuf.Enum {
+  enum IntEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInt // = 0
     case UNRECOGNIZED(Int)
@@ -15691,7 +15691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Int32Enum: SwiftProtobuf.Enum {
+  enum Int32Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInt32 // = 0
     case UNRECOGNIZED(Int)
@@ -15721,7 +15721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Int32Value: SwiftProtobuf.Enum {
+  enum Int32Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInt32Value // = 0
     case UNRECOGNIZED(Int)
@@ -15751,7 +15751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Int64Enum: SwiftProtobuf.Enum {
+  enum Int64Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInt64 // = 0
     case UNRECOGNIZED(Int)
@@ -15781,7 +15781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Int64Value: SwiftProtobuf.Enum {
+  enum Int64Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInt64Value // = 0
     case UNRECOGNIZED(Int)
@@ -15811,7 +15811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Int8: SwiftProtobuf.Enum {
+  enum Int8: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInt8 // = 0
     case UNRECOGNIZED(Int)
@@ -15841,7 +15841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum integerLiteral: SwiftProtobuf.Enum {
+  enum integerLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIntegerLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -15871,7 +15871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum IntegerLiteralType: SwiftProtobuf.Enum {
+  enum IntegerLiteralType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIntegerLiteralType // = 0
     case UNRECOGNIZED(Int)
@@ -15901,7 +15901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum intern: SwiftProtobuf.Enum {
+  enum intern: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIntern // = 0
     case UNRECOGNIZED(Int)
@@ -15931,7 +15931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Internal: SwiftProtobuf.Enum {
+  enum Internal: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInternal // = 0
     case UNRECOGNIZED(Int)
@@ -15961,7 +15961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum InternalState: SwiftProtobuf.Enum {
+  enum InternalState: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInternalState // = 0
     case UNRECOGNIZED(Int)
@@ -15991,7 +15991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum into: SwiftProtobuf.Enum {
+  enum into: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInto // = 0
     case UNRECOGNIZED(Int)
@@ -16021,7 +16021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ints: SwiftProtobuf.Enum {
+  enum ints: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneInts // = 0
     case UNRECOGNIZED(Int)
@@ -16051,7 +16051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum isA: SwiftProtobuf.Enum {
+  enum isA: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsA // = 0
     case UNRECOGNIZED(Int)
@@ -16081,7 +16081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum isEqual: SwiftProtobuf.Enum {
+  enum isEqual: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsEqual // = 0
     case UNRECOGNIZED(Int)
@@ -16111,7 +16111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum isEqualTo: SwiftProtobuf.Enum {
+  enum isEqualTo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsEqualTo // = 0
     case UNRECOGNIZED(Int)
@@ -16141,7 +16141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum isExtension: SwiftProtobuf.Enum {
+  enum isExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsExtension // = 0
     case UNRECOGNIZED(Int)
@@ -16171,7 +16171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum isInitializedEnum: SwiftProtobuf.Enum {
+  enum isInitializedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsInitialized // = 0
     case UNRECOGNIZED(Int)
@@ -16201,7 +16201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum isNegative: SwiftProtobuf.Enum {
+  enum isNegative: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsNegative // = 0
     case UNRECOGNIZED(Int)
@@ -16231,7 +16231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum itemTagsEncodedSize: SwiftProtobuf.Enum {
+  enum itemTagsEncodedSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneItemTagsEncodedSize // = 0
     case UNRECOGNIZED(Int)
@@ -16261,7 +16261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum iterator: SwiftProtobuf.Enum {
+  enum iterator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIterator // = 0
     case UNRECOGNIZED(Int)
@@ -16291,7 +16291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum javaGenerateEqualsAndHash: SwiftProtobuf.Enum {
+  enum javaGenerateEqualsAndHash: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJavaGenerateEqualsAndHash // = 0
     case UNRECOGNIZED(Int)
@@ -16321,7 +16321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum javaGenericServices: SwiftProtobuf.Enum {
+  enum javaGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJavaGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -16351,7 +16351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum javaMultipleFiles: SwiftProtobuf.Enum {
+  enum javaMultipleFiles: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJavaMultipleFiles // = 0
     case UNRECOGNIZED(Int)
@@ -16381,7 +16381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum javaOuterClassname: SwiftProtobuf.Enum {
+  enum javaOuterClassname: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJavaOuterClassname // = 0
     case UNRECOGNIZED(Int)
@@ -16411,7 +16411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum javaPackage: SwiftProtobuf.Enum {
+  enum javaPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJavaPackage // = 0
     case UNRECOGNIZED(Int)
@@ -16441,7 +16441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum javaStringCheckUtf8: SwiftProtobuf.Enum {
+  enum javaStringCheckUtf8: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJavaStringCheckUtf8 // = 0
     case UNRECOGNIZED(Int)
@@ -16471,7 +16471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONDecoder: SwiftProtobuf.Enum {
+  enum JSONDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsondecoder // = 0
     case UNRECOGNIZED(Int)
@@ -16501,7 +16501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONDecodingError: SwiftProtobuf.Enum {
+  enum JSONDecodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsondecodingError // = 0
     case UNRECOGNIZED(Int)
@@ -16531,7 +16531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONDecodingOptions: SwiftProtobuf.Enum {
+  enum JSONDecodingOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsondecodingOptions // = 0
     case UNRECOGNIZED(Int)
@@ -16561,7 +16561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonEncoder: SwiftProtobuf.Enum {
+  enum jsonEncoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonEncoder // = 0
     case UNRECOGNIZED(Int)
@@ -16591,7 +16591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONEncodingError: SwiftProtobuf.Enum {
+  enum JSONEncodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonencodingError // = 0
     case UNRECOGNIZED(Int)
@@ -16621,7 +16621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONEncodingOptions: SwiftProtobuf.Enum {
+  enum JSONEncodingOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonencodingOptions // = 0
     case UNRECOGNIZED(Int)
@@ -16651,7 +16651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONEncodingVisitor: SwiftProtobuf.Enum {
+  enum JSONEncodingVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonencodingVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -16681,7 +16681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonFormat: SwiftProtobuf.Enum {
+  enum jsonFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonFormat // = 0
     case UNRECOGNIZED(Int)
@@ -16711,7 +16711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONMapEncodingVisitor: SwiftProtobuf.Enum {
+  enum JSONMapEncodingVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonmapEncodingVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -16741,7 +16741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonName: SwiftProtobuf.Enum {
+  enum jsonName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonName // = 0
     case UNRECOGNIZED(Int)
@@ -16771,7 +16771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonPath: SwiftProtobuf.Enum {
+  enum jsonPath: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonPath // = 0
     case UNRECOGNIZED(Int)
@@ -16801,7 +16801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonPaths: SwiftProtobuf.Enum {
+  enum jsonPaths: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonPaths // = 0
     case UNRECOGNIZED(Int)
@@ -16831,7 +16831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONScanner: SwiftProtobuf.Enum {
+  enum JSONScanner: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonscanner // = 0
     case UNRECOGNIZED(Int)
@@ -16861,7 +16861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonString: SwiftProtobuf.Enum {
+  enum jsonString: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonString // = 0
     case UNRECOGNIZED(Int)
@@ -16891,7 +16891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonText: SwiftProtobuf.Enum {
+  enum jsonText: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonText // = 0
     case UNRECOGNIZED(Int)
@@ -16921,7 +16921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonUTF8Bytes: SwiftProtobuf.Enum {
+  enum jsonUTF8Bytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonUtf8Bytes // = 0
     case UNRECOGNIZED(Int)
@@ -16951,7 +16951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jsonUTF8Data: SwiftProtobuf.Enum {
+  enum jsonUTF8Data: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonUtf8Data // = 0
     case UNRECOGNIZED(Int)
@@ -16981,7 +16981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum jstype: SwiftProtobuf.Enum {
+  enum jstype: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJstype // = 0
     case UNRECOGNIZED(Int)
@@ -17011,7 +17011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum k: SwiftProtobuf.Enum {
+  enum k: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneK // = 0
     case UNRECOGNIZED(Int)
@@ -17041,7 +17041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum kChunkSize: SwiftProtobuf.Enum {
+  enum kChunkSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKChunkSize // = 0
     case UNRECOGNIZED(Int)
@@ -17071,7 +17071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Key: SwiftProtobuf.Enum {
+  enum Key: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKey // = 0
     case UNRECOGNIZED(Int)
@@ -17101,7 +17101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum keyField: SwiftProtobuf.Enum {
+  enum keyField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKeyField // = 0
     case UNRECOGNIZED(Int)
@@ -17131,7 +17131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum keyFieldOpt: SwiftProtobuf.Enum {
+  enum keyFieldOpt: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKeyFieldOpt // = 0
     case UNRECOGNIZED(Int)
@@ -17161,7 +17161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum KeyType: SwiftProtobuf.Enum {
+  enum KeyType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKeyType // = 0
     case UNRECOGNIZED(Int)
@@ -17191,7 +17191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum kind: SwiftProtobuf.Enum {
+  enum kind: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKind // = 0
     case UNRECOGNIZED(Int)
@@ -17221,7 +17221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum l: SwiftProtobuf.Enum {
+  enum l: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneL // = 0
     case UNRECOGNIZED(Int)
@@ -17251,7 +17251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum label: SwiftProtobuf.Enum {
+  enum label: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLabel // = 0
     case UNRECOGNIZED(Int)
@@ -17281,7 +17281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum lazy: SwiftProtobuf.Enum {
+  enum lazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLazy // = 0
     case UNRECOGNIZED(Int)
@@ -17311,7 +17311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum leadingComments: SwiftProtobuf.Enum {
+  enum leadingComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLeadingComments // = 0
     case UNRECOGNIZED(Int)
@@ -17341,7 +17341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum leadingDetachedComments: SwiftProtobuf.Enum {
+  enum leadingDetachedComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLeadingDetachedComments // = 0
     case UNRECOGNIZED(Int)
@@ -17371,7 +17371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum length: SwiftProtobuf.Enum {
+  enum length: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLength // = 0
     case UNRECOGNIZED(Int)
@@ -17401,7 +17401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum lessThan: SwiftProtobuf.Enum {
+  enum lessThan: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLessThan // = 0
     case UNRECOGNIZED(Int)
@@ -17431,7 +17431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum letEnum: SwiftProtobuf.Enum {
+  enum letEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLet // = 0
     case UNRECOGNIZED(Int)
@@ -17461,7 +17461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum lhs: SwiftProtobuf.Enum {
+  enum lhs: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLhs // = 0
     case UNRECOGNIZED(Int)
@@ -17491,7 +17491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum list: SwiftProtobuf.Enum {
+  enum list: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneList // = 0
     case UNRECOGNIZED(Int)
@@ -17521,7 +17521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum listOfMessages: SwiftProtobuf.Enum {
+  enum listOfMessages: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneListOfMessages // = 0
     case UNRECOGNIZED(Int)
@@ -17551,7 +17551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum listValue: SwiftProtobuf.Enum {
+  enum listValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneListValue // = 0
     case UNRECOGNIZED(Int)
@@ -17581,7 +17581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum littleEndian: SwiftProtobuf.Enum {
+  enum littleEndian: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLittleEndian // = 0
     case UNRECOGNIZED(Int)
@@ -17611,7 +17611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum littleEndianBytes: SwiftProtobuf.Enum {
+  enum littleEndianBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLittleEndianBytes // = 0
     case UNRECOGNIZED(Int)
@@ -17641,7 +17641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum load: SwiftProtobuf.Enum {
+  enum load: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLoad // = 0
     case UNRECOGNIZED(Int)
@@ -17671,7 +17671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum localHasher: SwiftProtobuf.Enum {
+  enum localHasher: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLocalHasher // = 0
     case UNRECOGNIZED(Int)
@@ -17701,7 +17701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum location: SwiftProtobuf.Enum {
+  enum location: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneLocation // = 0
     case UNRECOGNIZED(Int)
@@ -17731,7 +17731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum M: SwiftProtobuf.Enum {
+  enum M: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneM // = 0
     case UNRECOGNIZED(Int)
@@ -17761,7 +17761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum major: SwiftProtobuf.Enum {
+  enum major: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMajor // = 0
     case UNRECOGNIZED(Int)
@@ -17791,7 +17791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum makeAsyncIterator: SwiftProtobuf.Enum {
+  enum makeAsyncIterator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMakeAsyncIterator // = 0
     case UNRECOGNIZED(Int)
@@ -17821,7 +17821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum makeIterator: SwiftProtobuf.Enum {
+  enum makeIterator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMakeIterator // = 0
     case UNRECOGNIZED(Int)
@@ -17851,7 +17851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum mapEntry: SwiftProtobuf.Enum {
+  enum mapEntry: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMapEntry // = 0
     case UNRECOGNIZED(Int)
@@ -17881,7 +17881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MapKeyType: SwiftProtobuf.Enum {
+  enum MapKeyType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMapKeyType // = 0
     case UNRECOGNIZED(Int)
@@ -17911,7 +17911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum mapToMessages: SwiftProtobuf.Enum {
+  enum mapToMessages: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMapToMessages // = 0
     case UNRECOGNIZED(Int)
@@ -17941,7 +17941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MapValueType: SwiftProtobuf.Enum {
+  enum MapValueType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMapValueType // = 0
     case UNRECOGNIZED(Int)
@@ -17971,7 +17971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum mapVisitor: SwiftProtobuf.Enum {
+  enum mapVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMapVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -18001,7 +18001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum maximumEdition: SwiftProtobuf.Enum {
+  enum maximumEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMaximumEdition // = 0
     case UNRECOGNIZED(Int)
@@ -18031,7 +18031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum mdayStart: SwiftProtobuf.Enum {
+  enum mdayStart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMdayStart // = 0
     case UNRECOGNIZED(Int)
@@ -18061,7 +18061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum merge: SwiftProtobuf.Enum {
+  enum merge: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMerge // = 0
     case UNRECOGNIZED(Int)
@@ -18091,7 +18091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum message: SwiftProtobuf.Enum {
+  enum message: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessage // = 0
     case UNRECOGNIZED(Int)
@@ -18121,7 +18121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum messageDepthLimit: SwiftProtobuf.Enum {
+  enum messageDepthLimit: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageDepthLimit // = 0
     case UNRECOGNIZED(Int)
@@ -18151,7 +18151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum messageEncoding: SwiftProtobuf.Enum {
+  enum messageEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -18181,7 +18181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MessageExtension: SwiftProtobuf.Enum {
+  enum MessageExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageExtension // = 0
     case UNRECOGNIZED(Int)
@@ -18211,7 +18211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MessageImplementationBase: SwiftProtobuf.Enum {
+  enum MessageImplementationBase: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageImplementationBase // = 0
     case UNRECOGNIZED(Int)
@@ -18241,7 +18241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MessageOptions: SwiftProtobuf.Enum {
+  enum MessageOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageOptions // = 0
     case UNRECOGNIZED(Int)
@@ -18271,7 +18271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MessageSet: SwiftProtobuf.Enum {
+  enum MessageSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageSet // = 0
     case UNRECOGNIZED(Int)
@@ -18301,7 +18301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum messageSetWireFormat: SwiftProtobuf.Enum {
+  enum messageSetWireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageSetWireFormat // = 0
     case UNRECOGNIZED(Int)
@@ -18331,7 +18331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum messageSize: SwiftProtobuf.Enum {
+  enum messageSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageSize // = 0
     case UNRECOGNIZED(Int)
@@ -18361,7 +18361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum messageType: SwiftProtobuf.Enum {
+  enum messageType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMessageType // = 0
     case UNRECOGNIZED(Int)
@@ -18391,7 +18391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Method: SwiftProtobuf.Enum {
+  enum Method: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMethod // = 0
     case UNRECOGNIZED(Int)
@@ -18421,7 +18421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MethodDescriptorProto: SwiftProtobuf.Enum {
+  enum MethodDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMethodDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -18451,7 +18451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum MethodOptions: SwiftProtobuf.Enum {
+  enum MethodOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMethodOptions // = 0
     case UNRECOGNIZED(Int)
@@ -18481,7 +18481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum methods: SwiftProtobuf.Enum {
+  enum methods: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMethods // = 0
     case UNRECOGNIZED(Int)
@@ -18511,7 +18511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum min: SwiftProtobuf.Enum {
+  enum min: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMin // = 0
     case UNRECOGNIZED(Int)
@@ -18541,7 +18541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum minimumEdition: SwiftProtobuf.Enum {
+  enum minimumEdition: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMinimumEdition // = 0
     case UNRECOGNIZED(Int)
@@ -18571,7 +18571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum minor: SwiftProtobuf.Enum {
+  enum minor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMinor // = 0
     case UNRECOGNIZED(Int)
@@ -18601,7 +18601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Mixin: SwiftProtobuf.Enum {
+  enum Mixin: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMixin // = 0
     case UNRECOGNIZED(Int)
@@ -18631,7 +18631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum mixins: SwiftProtobuf.Enum {
+  enum mixins: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMixins // = 0
     case UNRECOGNIZED(Int)
@@ -18661,7 +18661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum modifier: SwiftProtobuf.Enum {
+  enum modifier: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneModifier // = 0
     case UNRECOGNIZED(Int)
@@ -18691,7 +18691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum modify: SwiftProtobuf.Enum {
+  enum modify: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneModify // = 0
     case UNRECOGNIZED(Int)
@@ -18721,7 +18721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum month: SwiftProtobuf.Enum {
+  enum month: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMonth // = 0
     case UNRECOGNIZED(Int)
@@ -18751,7 +18751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum msgExtension: SwiftProtobuf.Enum {
+  enum msgExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMsgExtension // = 0
     case UNRECOGNIZED(Int)
@@ -18781,7 +18781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum mutating: SwiftProtobuf.Enum {
+  enum mutating: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneMutating // = 0
     case UNRECOGNIZED(Int)
@@ -18811,7 +18811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum n: SwiftProtobuf.Enum {
+  enum n: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case oneN // = 0
     case UNRECOGNIZED(Int)
@@ -18841,7 +18841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum name: SwiftProtobuf.Enum {
+  enum name: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneName // = 0
     case UNRECOGNIZED(Int)
@@ -18871,7 +18871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum NameDescription: SwiftProtobuf.Enum {
+  enum NameDescription: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNameDescription // = 0
     case UNRECOGNIZED(Int)
@@ -18901,7 +18901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum NameMap: SwiftProtobuf.Enum {
+  enum NameMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNameMap // = 0
     case UNRECOGNIZED(Int)
@@ -18931,7 +18931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum NamePart: SwiftProtobuf.Enum {
+  enum NamePart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNamePart // = 0
     case UNRECOGNIZED(Int)
@@ -18961,7 +18961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum names: SwiftProtobuf.Enum {
+  enum names: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNames // = 0
     case UNRECOGNIZED(Int)
@@ -18991,7 +18991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nanos: SwiftProtobuf.Enum {
+  enum nanos: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNanos // = 0
     case UNRECOGNIZED(Int)
@@ -19021,7 +19021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum negativeIntValue: SwiftProtobuf.Enum {
+  enum negativeIntValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNegativeIntValue // = 0
     case UNRECOGNIZED(Int)
@@ -19051,7 +19051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nestedType: SwiftProtobuf.Enum {
+  enum nestedType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNestedType // = 0
     case UNRECOGNIZED(Int)
@@ -19081,7 +19081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum newL: SwiftProtobuf.Enum {
+  enum newL: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNewL // = 0
     case UNRECOGNIZED(Int)
@@ -19111,7 +19111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum newList: SwiftProtobuf.Enum {
+  enum newList: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNewList // = 0
     case UNRECOGNIZED(Int)
@@ -19141,7 +19141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum newValue: SwiftProtobuf.Enum {
+  enum newValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNewValue // = 0
     case UNRECOGNIZED(Int)
@@ -19171,7 +19171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum next: SwiftProtobuf.Enum {
+  enum next: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNext // = 0
     case UNRECOGNIZED(Int)
@@ -19201,7 +19201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nextByte: SwiftProtobuf.Enum {
+  enum nextByte: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNextByte // = 0
     case UNRECOGNIZED(Int)
@@ -19231,7 +19231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nextFieldNumber: SwiftProtobuf.Enum {
+  enum nextFieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNextFieldNumber // = 0
     case UNRECOGNIZED(Int)
@@ -19261,7 +19261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nextVarInt: SwiftProtobuf.Enum {
+  enum nextVarInt: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNextVarInt // = 0
     case UNRECOGNIZED(Int)
@@ -19291,7 +19291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nilEnum: SwiftProtobuf.Enum {
+  enum nilEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNil // = 0
     case UNRECOGNIZED(Int)
@@ -19321,7 +19321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nilLiteral: SwiftProtobuf.Enum {
+  enum nilLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNilLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -19351,7 +19351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum noStandardDescriptorAccessor: SwiftProtobuf.Enum {
+  enum noStandardDescriptorAccessor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNoStandardDescriptorAccessor // = 0
     case UNRECOGNIZED(Int)
@@ -19381,7 +19381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum nullValue: SwiftProtobuf.Enum {
+  enum nullValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNullValue // = 0
     case UNRECOGNIZED(Int)
@@ -19411,7 +19411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum number: SwiftProtobuf.Enum {
+  enum number: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNumber // = 0
     case UNRECOGNIZED(Int)
@@ -19441,7 +19441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum numberValue: SwiftProtobuf.Enum {
+  enum numberValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneNumberValue // = 0
     case UNRECOGNIZED(Int)
@@ -19471,7 +19471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum objcClassPrefix: SwiftProtobuf.Enum {
+  enum objcClassPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneObjcClassPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -19501,7 +19501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum of: SwiftProtobuf.Enum {
+  enum of: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOf // = 0
     case UNRECOGNIZED(Int)
@@ -19531,7 +19531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum oneofDecl: SwiftProtobuf.Enum {
+  enum oneofDecl: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOneofDecl // = 0
     case UNRECOGNIZED(Int)
@@ -19561,7 +19561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OneofDescriptorProto: SwiftProtobuf.Enum {
+  enum OneofDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOneofDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -19591,7 +19591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum oneofIndex: SwiftProtobuf.Enum {
+  enum oneofIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOneofIndex // = 0
     case UNRECOGNIZED(Int)
@@ -19621,7 +19621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OneofOptions: SwiftProtobuf.Enum {
+  enum OneofOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOneofOptions // = 0
     case UNRECOGNIZED(Int)
@@ -19651,7 +19651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum oneofs: SwiftProtobuf.Enum {
+  enum oneofs: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOneofs // = 0
     case UNRECOGNIZED(Int)
@@ -19681,7 +19681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OneOf_Kind: SwiftProtobuf.Enum {
+  enum OneOf_Kind: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOneOfKind // = 0
     case UNRECOGNIZED(Int)
@@ -19711,7 +19711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum optimizeFor: SwiftProtobuf.Enum {
+  enum optimizeFor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptimizeFor // = 0
     case UNRECOGNIZED(Int)
@@ -19741,7 +19741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptimizeMode: SwiftProtobuf.Enum {
+  enum OptimizeMode: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptimizeMode // = 0
     case UNRECOGNIZED(Int)
@@ -19771,7 +19771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Option: SwiftProtobuf.Enum {
+  enum Option: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOption // = 0
     case UNRECOGNIZED(Int)
@@ -19801,7 +19801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptionalEnumExtensionField: SwiftProtobuf.Enum {
+  enum OptionalEnumExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptionalEnumExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -19831,7 +19831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptionalExtensionField: SwiftProtobuf.Enum {
+  enum OptionalExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptionalExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -19861,7 +19861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptionalGroupExtensionField: SwiftProtobuf.Enum {
+  enum OptionalGroupExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptionalGroupExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -19891,7 +19891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptionalMessageExtensionField: SwiftProtobuf.Enum {
+  enum OptionalMessageExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptionalMessageExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -19921,7 +19921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptionRetention: SwiftProtobuf.Enum {
+  enum OptionRetention: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptionRetention // = 0
     case UNRECOGNIZED(Int)
@@ -19951,7 +19951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum options: SwiftProtobuf.Enum {
+  enum options: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptions // = 0
     case UNRECOGNIZED(Int)
@@ -19981,7 +19981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum OptionTargetType: SwiftProtobuf.Enum {
+  enum OptionTargetType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOptionTargetType // = 0
     case UNRECOGNIZED(Int)
@@ -20011,7 +20011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum other: SwiftProtobuf.Enum {
+  enum other: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOther // = 0
     case UNRECOGNIZED(Int)
@@ -20041,7 +20041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum others: SwiftProtobuf.Enum {
+  enum others: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOthers // = 0
     case UNRECOGNIZED(Int)
@@ -20071,7 +20071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum out: SwiftProtobuf.Enum {
+  enum out: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOut // = 0
     case UNRECOGNIZED(Int)
@@ -20101,7 +20101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum outputType: SwiftProtobuf.Enum {
+  enum outputType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOutputType // = 0
     case UNRECOGNIZED(Int)
@@ -20131,7 +20131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum overridableFeatures: SwiftProtobuf.Enum {
+  enum overridableFeatures: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneOverridableFeatures // = 0
     case UNRECOGNIZED(Int)
@@ -20161,7 +20161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum p: SwiftProtobuf.Enum {
+  enum p: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneP // = 0
     case UNRECOGNIZED(Int)
@@ -20191,7 +20191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum package: SwiftProtobuf.Enum {
+  enum package: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePackage // = 0
     case UNRECOGNIZED(Int)
@@ -20221,7 +20221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum packed: SwiftProtobuf.Enum {
+  enum packed: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePacked // = 0
     case UNRECOGNIZED(Int)
@@ -20251,7 +20251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum PackedEnumExtensionField: SwiftProtobuf.Enum {
+  enum PackedEnumExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePackedEnumExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -20281,7 +20281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum PackedExtensionField: SwiftProtobuf.Enum {
+  enum PackedExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePackedExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -20311,7 +20311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum padding: SwiftProtobuf.Enum {
+  enum padding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePadding // = 0
     case UNRECOGNIZED(Int)
@@ -20341,7 +20341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum parent: SwiftProtobuf.Enum {
+  enum parent: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneParent // = 0
     case UNRECOGNIZED(Int)
@@ -20371,7 +20371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum parse: SwiftProtobuf.Enum {
+  enum parse: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneParse // = 0
     case UNRECOGNIZED(Int)
@@ -20401,7 +20401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum path: SwiftProtobuf.Enum {
+  enum path: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePath // = 0
     case UNRECOGNIZED(Int)
@@ -20431,7 +20431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum paths: SwiftProtobuf.Enum {
+  enum paths: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePaths // = 0
     case UNRECOGNIZED(Int)
@@ -20461,7 +20461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum payload: SwiftProtobuf.Enum {
+  enum payload: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePayload // = 0
     case UNRECOGNIZED(Int)
@@ -20491,7 +20491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum payloadSize: SwiftProtobuf.Enum {
+  enum payloadSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePayloadSize // = 0
     case UNRECOGNIZED(Int)
@@ -20521,7 +20521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum phpClassPrefix: SwiftProtobuf.Enum {
+  enum phpClassPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePhpClassPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -20551,7 +20551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum phpMetadataNamespace: SwiftProtobuf.Enum {
+  enum phpMetadataNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePhpMetadataNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -20581,7 +20581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum phpNamespace: SwiftProtobuf.Enum {
+  enum phpNamespace: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePhpNamespace // = 0
     case UNRECOGNIZED(Int)
@@ -20611,7 +20611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum pos: SwiftProtobuf.Enum {
+  enum pos: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePos // = 0
     case UNRECOGNIZED(Int)
@@ -20641,7 +20641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum positiveIntValue: SwiftProtobuf.Enum {
+  enum positiveIntValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePositiveIntValue // = 0
     case UNRECOGNIZED(Int)
@@ -20671,7 +20671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum prefix: SwiftProtobuf.Enum {
+  enum prefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePrefix // = 0
     case UNRECOGNIZED(Int)
@@ -20701,7 +20701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum preserveProtoFieldNames: SwiftProtobuf.Enum {
+  enum preserveProtoFieldNames: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePreserveProtoFieldNames // = 0
     case UNRECOGNIZED(Int)
@@ -20731,7 +20731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum preTraverse: SwiftProtobuf.Enum {
+  enum preTraverse: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePreTraverse // = 0
     case UNRECOGNIZED(Int)
@@ -20761,7 +20761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum printUnknownFields: SwiftProtobuf.Enum {
+  enum printUnknownFields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePrintUnknownFields // = 0
     case UNRECOGNIZED(Int)
@@ -20791,7 +20791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum proto2: SwiftProtobuf.Enum {
+  enum proto2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProto2 // = 0
     case UNRECOGNIZED(Int)
@@ -20821,7 +20821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum proto3DefaultValue: SwiftProtobuf.Enum {
+  enum proto3DefaultValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProto3DefaultValue // = 0
     case UNRECOGNIZED(Int)
@@ -20851,7 +20851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum proto3Optional: SwiftProtobuf.Enum {
+  enum proto3Optional: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProto3Optional // = 0
     case UNRECOGNIZED(Int)
@@ -20881,7 +20881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufAPIVersionCheck: SwiftProtobuf.Enum {
+  enum ProtobufAPIVersionCheck: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufApiversionCheck // = 0
     case UNRECOGNIZED(Int)
@@ -20911,7 +20911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufAPIVersion_3: SwiftProtobuf.Enum {
+  enum ProtobufAPIVersion_3: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufApiversion3 // = 0
     case UNRECOGNIZED(Int)
@@ -20941,7 +20941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufBool: SwiftProtobuf.Enum {
+  enum ProtobufBool: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufBool // = 0
     case UNRECOGNIZED(Int)
@@ -20971,7 +20971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufBytes: SwiftProtobuf.Enum {
+  enum ProtobufBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufBytes // = 0
     case UNRECOGNIZED(Int)
@@ -21001,7 +21001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufDouble: SwiftProtobuf.Enum {
+  enum ProtobufDouble: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufDouble // = 0
     case UNRECOGNIZED(Int)
@@ -21031,7 +21031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufEnumMap: SwiftProtobuf.Enum {
+  enum ProtobufEnumMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufEnumMap // = 0
     case UNRECOGNIZED(Int)
@@ -21061,7 +21061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobufExtension: SwiftProtobuf.Enum {
+  enum protobufExtension: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufExtension // = 0
     case UNRECOGNIZED(Int)
@@ -21091,7 +21091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufFixed32: SwiftProtobuf.Enum {
+  enum ProtobufFixed32: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufFixed32 // = 0
     case UNRECOGNIZED(Int)
@@ -21121,7 +21121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufFixed64: SwiftProtobuf.Enum {
+  enum ProtobufFixed64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufFixed64 // = 0
     case UNRECOGNIZED(Int)
@@ -21151,7 +21151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufFloat: SwiftProtobuf.Enum {
+  enum ProtobufFloat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufFloat // = 0
     case UNRECOGNIZED(Int)
@@ -21181,7 +21181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufInt32: SwiftProtobuf.Enum {
+  enum ProtobufInt32: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufInt32 // = 0
     case UNRECOGNIZED(Int)
@@ -21211,7 +21211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufInt64: SwiftProtobuf.Enum {
+  enum ProtobufInt64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufInt64 // = 0
     case UNRECOGNIZED(Int)
@@ -21241,7 +21241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufMap: SwiftProtobuf.Enum {
+  enum ProtobufMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufMap // = 0
     case UNRECOGNIZED(Int)
@@ -21271,7 +21271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufMessageMap: SwiftProtobuf.Enum {
+  enum ProtobufMessageMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufMessageMap // = 0
     case UNRECOGNIZED(Int)
@@ -21301,7 +21301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufSFixed32: SwiftProtobuf.Enum {
+  enum ProtobufSFixed32: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufSfixed32 // = 0
     case UNRECOGNIZED(Int)
@@ -21331,7 +21331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufSFixed64: SwiftProtobuf.Enum {
+  enum ProtobufSFixed64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufSfixed64 // = 0
     case UNRECOGNIZED(Int)
@@ -21361,7 +21361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufSInt32: SwiftProtobuf.Enum {
+  enum ProtobufSInt32: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufSint32 // = 0
     case UNRECOGNIZED(Int)
@@ -21391,7 +21391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufSInt64: SwiftProtobuf.Enum {
+  enum ProtobufSInt64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufSint64 // = 0
     case UNRECOGNIZED(Int)
@@ -21421,7 +21421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufString: SwiftProtobuf.Enum {
+  enum ProtobufString: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufString // = 0
     case UNRECOGNIZED(Int)
@@ -21451,7 +21451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufUInt32: SwiftProtobuf.Enum {
+  enum ProtobufUInt32: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufUint32 // = 0
     case UNRECOGNIZED(Int)
@@ -21481,7 +21481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufUInt64: SwiftProtobuf.Enum {
+  enum ProtobufUInt64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufUint64 // = 0
     case UNRECOGNIZED(Int)
@@ -21511,7 +21511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobuf_extensionFieldValues: SwiftProtobuf.Enum {
+  enum protobuf_extensionFieldValues: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufExtensionFieldValues // = 0
     case UNRECOGNIZED(Int)
@@ -21541,7 +21541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobuf_fieldNumber: SwiftProtobuf.Enum {
+  enum protobuf_fieldNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufFieldNumber // = 0
     case UNRECOGNIZED(Int)
@@ -21571,7 +21571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobuf_generated_isEqualTo: SwiftProtobuf.Enum {
+  enum protobuf_generated_isEqualTo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufGeneratedIsEqualTo // = 0
     case UNRECOGNIZED(Int)
@@ -21601,7 +21601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobuf_nameMap: SwiftProtobuf.Enum {
+  enum protobuf_nameMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufNameMap // = 0
     case UNRECOGNIZED(Int)
@@ -21631,7 +21631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobuf_newField: SwiftProtobuf.Enum {
+  enum protobuf_newField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufNewField // = 0
     case UNRECOGNIZED(Int)
@@ -21661,7 +21661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protobuf_package: SwiftProtobuf.Enum {
+  enum protobuf_package: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtobufPackage // = 0
     case UNRECOGNIZED(Int)
@@ -21691,7 +21691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protocolEnum: SwiftProtobuf.Enum {
+  enum protocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtocol // = 0
     case UNRECOGNIZED(Int)
@@ -21721,7 +21721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protoFieldName: SwiftProtobuf.Enum {
+  enum protoFieldName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtoFieldName // = 0
     case UNRECOGNIZED(Int)
@@ -21751,7 +21751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protoMessageNameEnum: SwiftProtobuf.Enum {
+  enum protoMessageNameEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtoMessageName // = 0
     case UNRECOGNIZED(Int)
@@ -21781,7 +21781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtoNameProviding: SwiftProtobuf.Enum {
+  enum ProtoNameProviding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtoNameProviding // = 0
     case UNRECOGNIZED(Int)
@@ -21811,7 +21811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum protoPaths: SwiftProtobuf.Enum {
+  enum protoPaths: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtoPaths // = 0
     case UNRECOGNIZED(Int)
@@ -21841,7 +21841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum publicEnum: SwiftProtobuf.Enum {
+  enum publicEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePublic // = 0
     case UNRECOGNIZED(Int)
@@ -21871,7 +21871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum publicDependency: SwiftProtobuf.Enum {
+  enum publicDependency: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePublicDependency // = 0
     case UNRECOGNIZED(Int)
@@ -21901,7 +21901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putBoolValue: SwiftProtobuf.Enum {
+  enum putBoolValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutBoolValue // = 0
     case UNRECOGNIZED(Int)
@@ -21931,7 +21931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putBytesValue: SwiftProtobuf.Enum {
+  enum putBytesValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutBytesValue // = 0
     case UNRECOGNIZED(Int)
@@ -21961,7 +21961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putDoubleValue: SwiftProtobuf.Enum {
+  enum putDoubleValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutDoubleValue // = 0
     case UNRECOGNIZED(Int)
@@ -21991,7 +21991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putEnumValue: SwiftProtobuf.Enum {
+  enum putEnumValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutEnumValue // = 0
     case UNRECOGNIZED(Int)
@@ -22021,7 +22021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putFixedUInt32: SwiftProtobuf.Enum {
+  enum putFixedUInt32: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutFixedUint32 // = 0
     case UNRECOGNIZED(Int)
@@ -22051,7 +22051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putFixedUInt64: SwiftProtobuf.Enum {
+  enum putFixedUInt64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutFixedUint64 // = 0
     case UNRECOGNIZED(Int)
@@ -22081,7 +22081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putFloatValue: SwiftProtobuf.Enum {
+  enum putFloatValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutFloatValue // = 0
     case UNRECOGNIZED(Int)
@@ -22111,7 +22111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putInt64: SwiftProtobuf.Enum {
+  enum putInt64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutInt64 // = 0
     case UNRECOGNIZED(Int)
@@ -22141,7 +22141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putStringValue: SwiftProtobuf.Enum {
+  enum putStringValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutStringValue // = 0
     case UNRECOGNIZED(Int)
@@ -22171,7 +22171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putUInt64: SwiftProtobuf.Enum {
+  enum putUInt64: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutUint64 // = 0
     case UNRECOGNIZED(Int)
@@ -22201,7 +22201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putUInt64Hex: SwiftProtobuf.Enum {
+  enum putUInt64Hex: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutUint64Hex // = 0
     case UNRECOGNIZED(Int)
@@ -22231,7 +22231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putVarInt: SwiftProtobuf.Enum {
+  enum putVarInt: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutVarInt // = 0
     case UNRECOGNIZED(Int)
@@ -22261,7 +22261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum putZigZagVarInt: SwiftProtobuf.Enum {
+  enum putZigZagVarInt: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePutZigZagVarInt // = 0
     case UNRECOGNIZED(Int)
@@ -22291,7 +22291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum pyGenericServices: SwiftProtobuf.Enum {
+  enum pyGenericServices: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePyGenericServices // = 0
     case UNRECOGNIZED(Int)
@@ -22321,7 +22321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum R: SwiftProtobuf.Enum {
+  enum R: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneR // = 0
     case UNRECOGNIZED(Int)
@@ -22351,7 +22351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum rawChars: SwiftProtobuf.Enum {
+  enum rawChars: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRawChars // = 0
     case UNRECOGNIZED(Int)
@@ -22381,7 +22381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum RawRepresentable: SwiftProtobuf.Enum {
+  enum RawRepresentable: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRawRepresentable // = 0
     case UNRECOGNIZED(Int)
@@ -22411,7 +22411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum RawValue: SwiftProtobuf.Enum {
+  enum RawValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRawValue // = 0
     case UNRECOGNIZED(Int)
@@ -22441,7 +22441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum read4HexDigits: SwiftProtobuf.Enum {
+  enum read4HexDigits: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRead4HexDigits // = 0
     case UNRECOGNIZED(Int)
@@ -22471,7 +22471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum readBytes: SwiftProtobuf.Enum {
+  enum readBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneReadBytes // = 0
     case UNRECOGNIZED(Int)
@@ -22501,7 +22501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum register: SwiftProtobuf.Enum {
+  enum register: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRegister // = 0
     case UNRECOGNIZED(Int)
@@ -22531,7 +22531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum repeated: SwiftProtobuf.Enum {
+  enum repeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeated // = 0
     case UNRECOGNIZED(Int)
@@ -22561,7 +22561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum RepeatedEnumExtensionField: SwiftProtobuf.Enum {
+  enum RepeatedEnumExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeatedEnumExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -22591,7 +22591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum RepeatedExtensionField: SwiftProtobuf.Enum {
+  enum RepeatedExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeatedExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -22621,7 +22621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum repeatedFieldEncoding: SwiftProtobuf.Enum {
+  enum repeatedFieldEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeatedFieldEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -22651,7 +22651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum RepeatedGroupExtensionField: SwiftProtobuf.Enum {
+  enum RepeatedGroupExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeatedGroupExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -22681,7 +22681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum RepeatedMessageExtensionField: SwiftProtobuf.Enum {
+  enum RepeatedMessageExtensionField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeatedMessageExtensionField // = 0
     case UNRECOGNIZED(Int)
@@ -22711,7 +22711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum repeating: SwiftProtobuf.Enum {
+  enum repeating: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRepeating // = 0
     case UNRECOGNIZED(Int)
@@ -22741,7 +22741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum requestStreaming: SwiftProtobuf.Enum {
+  enum requestStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRequestStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -22771,7 +22771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum requestTypeURL: SwiftProtobuf.Enum {
+  enum requestTypeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRequestTypeURL // = 0
     case UNRECOGNIZED(Int)
@@ -22801,7 +22801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum requiredSize: SwiftProtobuf.Enum {
+  enum requiredSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRequiredSize // = 0
     case UNRECOGNIZED(Int)
@@ -22831,7 +22831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum responseStreaming: SwiftProtobuf.Enum {
+  enum responseStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneResponseStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -22861,7 +22861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum responseTypeURL: SwiftProtobuf.Enum {
+  enum responseTypeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneResponseTypeURL // = 0
     case UNRECOGNIZED(Int)
@@ -22891,7 +22891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum result: SwiftProtobuf.Enum {
+  enum result: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneResult // = 0
     case UNRECOGNIZED(Int)
@@ -22921,7 +22921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum retention: SwiftProtobuf.Enum {
+  enum retention: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRetention // = 0
     case UNRECOGNIZED(Int)
@@ -22951,7 +22951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum rethrowsEnum: SwiftProtobuf.Enum {
+  enum rethrowsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRethrows // = 0
     case UNRECOGNIZED(Int)
@@ -22981,7 +22981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum returnEnum: SwiftProtobuf.Enum {
+  enum returnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneReturn // = 0
     case UNRECOGNIZED(Int)
@@ -23011,7 +23011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ReturnType: SwiftProtobuf.Enum {
+  enum ReturnType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneReturnType // = 0
     case UNRECOGNIZED(Int)
@@ -23041,7 +23041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum revision: SwiftProtobuf.Enum {
+  enum revision: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRevision // = 0
     case UNRECOGNIZED(Int)
@@ -23071,7 +23071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum rhs: SwiftProtobuf.Enum {
+  enum rhs: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRhs // = 0
     case UNRECOGNIZED(Int)
@@ -23101,7 +23101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum root: SwiftProtobuf.Enum {
+  enum root: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRoot // = 0
     case UNRECOGNIZED(Int)
@@ -23131,7 +23131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum rubyPackage: SwiftProtobuf.Enum {
+  enum rubyPackage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRubyPackage // = 0
     case UNRECOGNIZED(Int)
@@ -23161,7 +23161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum s: SwiftProtobuf.Enum {
+  enum s: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneS // = 0
     case UNRECOGNIZED(Int)
@@ -23191,7 +23191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sawBackslash: SwiftProtobuf.Enum {
+  enum sawBackslash: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSawBackslash // = 0
     case UNRECOGNIZED(Int)
@@ -23221,7 +23221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sawSection4Characters: SwiftProtobuf.Enum {
+  enum sawSection4Characters: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSawSection4Characters // = 0
     case UNRECOGNIZED(Int)
@@ -23251,7 +23251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sawSection5Characters: SwiftProtobuf.Enum {
+  enum sawSection5Characters: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSawSection5Characters // = 0
     case UNRECOGNIZED(Int)
@@ -23281,7 +23281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum scanner: SwiftProtobuf.Enum {
+  enum scanner: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneScanner // = 0
     case UNRECOGNIZED(Int)
@@ -23311,7 +23311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum seconds: SwiftProtobuf.Enum {
+  enum seconds: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSeconds // = 0
     case UNRECOGNIZED(Int)
@@ -23341,7 +23341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum selfEnum: SwiftProtobuf.Enum {
+  enum selfEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSelf // = 0
     case UNRECOGNIZED(Int)
@@ -23371,7 +23371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum semantic: SwiftProtobuf.Enum {
+  enum semantic: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSemantic // = 0
     case UNRECOGNIZED(Int)
@@ -23401,7 +23401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum SendableEnum: SwiftProtobuf.Enum {
+  enum SendableEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSendable // = 0
     case UNRECOGNIZED(Int)
@@ -23431,7 +23431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum separator: SwiftProtobuf.Enum {
+  enum separator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSeparator // = 0
     case UNRECOGNIZED(Int)
@@ -23461,7 +23461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum serialize: SwiftProtobuf.Enum {
+  enum serialize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSerialize // = 0
     case UNRECOGNIZED(Int)
@@ -23491,7 +23491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum serializedBytes: SwiftProtobuf.Enum {
+  enum serializedBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSerializedBytes // = 0
     case UNRECOGNIZED(Int)
@@ -23521,7 +23521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum serializedData: SwiftProtobuf.Enum {
+  enum serializedData: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSerializedData // = 0
     case UNRECOGNIZED(Int)
@@ -23551,7 +23551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum serializedSize: SwiftProtobuf.Enum {
+  enum serializedSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSerializedSize // = 0
     case UNRECOGNIZED(Int)
@@ -23581,7 +23581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum serverStreaming: SwiftProtobuf.Enum {
+  enum serverStreaming: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneServerStreaming // = 0
     case UNRECOGNIZED(Int)
@@ -23611,7 +23611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum service: SwiftProtobuf.Enum {
+  enum service: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneService // = 0
     case UNRECOGNIZED(Int)
@@ -23641,7 +23641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ServiceDescriptorProto: SwiftProtobuf.Enum {
+  enum ServiceDescriptorProto: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneServiceDescriptorProto // = 0
     case UNRECOGNIZED(Int)
@@ -23671,7 +23671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ServiceOptions: SwiftProtobuf.Enum {
+  enum ServiceOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneServiceOptions // = 0
     case UNRECOGNIZED(Int)
@@ -23701,7 +23701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum set: SwiftProtobuf.Enum {
+  enum set: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSet // = 0
     case UNRECOGNIZED(Int)
@@ -23731,7 +23731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum setExtensionValue: SwiftProtobuf.Enum {
+  enum setExtensionValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSetExtensionValue // = 0
     case UNRECOGNIZED(Int)
@@ -23761,7 +23761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum shift: SwiftProtobuf.Enum {
+  enum shift: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneShift // = 0
     case UNRECOGNIZED(Int)
@@ -23791,7 +23791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum SimpleExtensionMap: SwiftProtobuf.Enum {
+  enum SimpleExtensionMap: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSimpleExtensionMap // = 0
     case UNRECOGNIZED(Int)
@@ -23821,7 +23821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum size: SwiftProtobuf.Enum {
+  enum size: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSize // = 0
     case UNRECOGNIZED(Int)
@@ -23851,7 +23851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sizer: SwiftProtobuf.Enum {
+  enum sizer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSizer // = 0
     case UNRECOGNIZED(Int)
@@ -23881,7 +23881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum source: SwiftProtobuf.Enum {
+  enum source: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSource // = 0
     case UNRECOGNIZED(Int)
@@ -23911,7 +23911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sourceCodeInfo: SwiftProtobuf.Enum {
+  enum sourceCodeInfo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSourceCodeInfo // = 0
     case UNRECOGNIZED(Int)
@@ -23941,7 +23941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sourceContext: SwiftProtobuf.Enum {
+  enum sourceContext: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSourceContext // = 0
     case UNRECOGNIZED(Int)
@@ -23971,7 +23971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sourceEncoding: SwiftProtobuf.Enum {
+  enum sourceEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSourceEncoding // = 0
     case UNRECOGNIZED(Int)
@@ -24001,7 +24001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum sourceFile: SwiftProtobuf.Enum {
+  enum sourceFile: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSourceFile // = 0
     case UNRECOGNIZED(Int)
@@ -24031,7 +24031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum span: SwiftProtobuf.Enum {
+  enum span: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSpan // = 0
     case UNRECOGNIZED(Int)
@@ -24061,7 +24061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum split: SwiftProtobuf.Enum {
+  enum split: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSplit // = 0
     case UNRECOGNIZED(Int)
@@ -24091,7 +24091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum start: SwiftProtobuf.Enum {
+  enum start: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStart // = 0
     case UNRECOGNIZED(Int)
@@ -24121,7 +24121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startArray: SwiftProtobuf.Enum {
+  enum startArray: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartArray // = 0
     case UNRECOGNIZED(Int)
@@ -24151,7 +24151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startArrayObject: SwiftProtobuf.Enum {
+  enum startArrayObject: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartArrayObject // = 0
     case UNRECOGNIZED(Int)
@@ -24181,7 +24181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startField: SwiftProtobuf.Enum {
+  enum startField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartField // = 0
     case UNRECOGNIZED(Int)
@@ -24211,7 +24211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startIndex: SwiftProtobuf.Enum {
+  enum startIndex: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartIndex // = 0
     case UNRECOGNIZED(Int)
@@ -24241,7 +24241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startMessageField: SwiftProtobuf.Enum {
+  enum startMessageField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartMessageField // = 0
     case UNRECOGNIZED(Int)
@@ -24271,7 +24271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startObject: SwiftProtobuf.Enum {
+  enum startObject: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartObject // = 0
     case UNRECOGNIZED(Int)
@@ -24301,7 +24301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum startRegularField: SwiftProtobuf.Enum {
+  enum startRegularField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStartRegularField // = 0
     case UNRECOGNIZED(Int)
@@ -24331,7 +24331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum state: SwiftProtobuf.Enum {
+  enum state: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneState // = 0
     case UNRECOGNIZED(Int)
@@ -24361,7 +24361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum staticEnum: SwiftProtobuf.Enum {
+  enum staticEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStatic // = 0
     case UNRECOGNIZED(Int)
@@ -24391,7 +24391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum StaticString: SwiftProtobuf.Enum {
+  enum StaticString: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStaticString // = 0
     case UNRECOGNIZED(Int)
@@ -24421,7 +24421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum storage: SwiftProtobuf.Enum {
+  enum storage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStorage // = 0
     case UNRECOGNIZED(Int)
@@ -24451,7 +24451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum StringEnum: SwiftProtobuf.Enum {
+  enum StringEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneString // = 0
     case UNRECOGNIZED(Int)
@@ -24481,7 +24481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum stringLiteral: SwiftProtobuf.Enum {
+  enum stringLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStringLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -24511,7 +24511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum StringLiteralType: SwiftProtobuf.Enum {
+  enum StringLiteralType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStringLiteralType // = 0
     case UNRECOGNIZED(Int)
@@ -24541,7 +24541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum stringResult: SwiftProtobuf.Enum {
+  enum stringResult: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStringResult // = 0
     case UNRECOGNIZED(Int)
@@ -24571,7 +24571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum stringValue: SwiftProtobuf.Enum {
+  enum stringValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStringValue // = 0
     case UNRECOGNIZED(Int)
@@ -24601,7 +24601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum structEnum: SwiftProtobuf.Enum {
+  enum structEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStruct // = 0
     case UNRECOGNIZED(Int)
@@ -24631,7 +24631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum structValue: SwiftProtobuf.Enum {
+  enum structValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneStructValue // = 0
     case UNRECOGNIZED(Int)
@@ -24661,7 +24661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum subDecoder: SwiftProtobuf.Enum {
+  enum subDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSubDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -24691,7 +24691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum subscriptEnum: SwiftProtobuf.Enum {
+  enum subscriptEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSubscript // = 0
     case UNRECOGNIZED(Int)
@@ -24721,7 +24721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum subVisitor: SwiftProtobuf.Enum {
+  enum subVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSubVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -24751,7 +24751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum SwiftEnum: SwiftProtobuf.Enum {
+  enum SwiftEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSwift // = 0
     case UNRECOGNIZED(Int)
@@ -24781,7 +24781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum swiftPrefix: SwiftProtobuf.Enum {
+  enum swiftPrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSwiftPrefix // = 0
     case UNRECOGNIZED(Int)
@@ -24811,7 +24811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum SwiftProtobufContiguousBytes: SwiftProtobuf.Enum {
+  enum SwiftProtobufContiguousBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSwiftProtobufContiguousBytes // = 0
     case UNRECOGNIZED(Int)
@@ -24841,7 +24841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum syntax: SwiftProtobuf.Enum {
+  enum syntax: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSyntax // = 0
     case UNRECOGNIZED(Int)
@@ -24871,7 +24871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum T: SwiftProtobuf.Enum {
+  enum T: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneT // = 0
     case UNRECOGNIZED(Int)
@@ -24901,7 +24901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum tag: SwiftProtobuf.Enum {
+  enum tag: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTag // = 0
     case UNRECOGNIZED(Int)
@@ -24931,7 +24931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum targets: SwiftProtobuf.Enum {
+  enum targets: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTargets // = 0
     case UNRECOGNIZED(Int)
@@ -24961,7 +24961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum terminator: SwiftProtobuf.Enum {
+  enum terminator: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTerminator // = 0
     case UNRECOGNIZED(Int)
@@ -24991,7 +24991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum testDecoder: SwiftProtobuf.Enum {
+  enum testDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTestDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -25021,7 +25021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum text: SwiftProtobuf.Enum {
+  enum text: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneText // = 0
     case UNRECOGNIZED(Int)
@@ -25051,7 +25051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum textDecoder: SwiftProtobuf.Enum {
+  enum textDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -25081,7 +25081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum TextFormatDecoder: SwiftProtobuf.Enum {
+  enum TextFormatDecoder: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatDecoder // = 0
     case UNRECOGNIZED(Int)
@@ -25111,7 +25111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum TextFormatDecodingError: SwiftProtobuf.Enum {
+  enum TextFormatDecodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatDecodingError // = 0
     case UNRECOGNIZED(Int)
@@ -25141,7 +25141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum TextFormatDecodingOptions: SwiftProtobuf.Enum {
+  enum TextFormatDecodingOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatDecodingOptions // = 0
     case UNRECOGNIZED(Int)
@@ -25171,7 +25171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum TextFormatEncodingOptions: SwiftProtobuf.Enum {
+  enum TextFormatEncodingOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatEncodingOptions // = 0
     case UNRECOGNIZED(Int)
@@ -25201,7 +25201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum TextFormatEncodingVisitor: SwiftProtobuf.Enum {
+  enum TextFormatEncodingVisitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatEncodingVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -25231,7 +25231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum textFormatString: SwiftProtobuf.Enum {
+  enum textFormatString: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTextFormatString // = 0
     case UNRECOGNIZED(Int)
@@ -25261,7 +25261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum throwOrIgnore: SwiftProtobuf.Enum {
+  enum throwOrIgnore: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneThrowOrIgnore // = 0
     case UNRECOGNIZED(Int)
@@ -25291,7 +25291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum throwsEnum: SwiftProtobuf.Enum {
+  enum throwsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneThrows // = 0
     case UNRECOGNIZED(Int)
@@ -25321,7 +25321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum timeInterval: SwiftProtobuf.Enum {
+  enum timeInterval: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTimeInterval // = 0
     case UNRECOGNIZED(Int)
@@ -25351,7 +25351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum timeIntervalSince1970: SwiftProtobuf.Enum {
+  enum timeIntervalSince1970: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTimeIntervalSince1970 // = 0
     case UNRECOGNIZED(Int)
@@ -25381,7 +25381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum timeIntervalSinceReferenceDate: SwiftProtobuf.Enum {
+  enum timeIntervalSinceReferenceDate: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTimeIntervalSinceReferenceDate // = 0
     case UNRECOGNIZED(Int)
@@ -25411,7 +25411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Timestamp: SwiftProtobuf.Enum {
+  enum Timestamp: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTimestamp // = 0
     case UNRECOGNIZED(Int)
@@ -25441,7 +25441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum total: SwiftProtobuf.Enum {
+  enum total: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTotal // = 0
     case UNRECOGNIZED(Int)
@@ -25471,7 +25471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum totalArrayDepth: SwiftProtobuf.Enum {
+  enum totalArrayDepth: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTotalArrayDepth // = 0
     case UNRECOGNIZED(Int)
@@ -25501,7 +25501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum totalSize: SwiftProtobuf.Enum {
+  enum totalSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTotalSize // = 0
     case UNRECOGNIZED(Int)
@@ -25531,7 +25531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum trailingComments: SwiftProtobuf.Enum {
+  enum trailingComments: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTrailingComments // = 0
     case UNRECOGNIZED(Int)
@@ -25561,7 +25561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum traverseEnum: SwiftProtobuf.Enum {
+  enum traverseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTraverse // = 0
     case UNRECOGNIZED(Int)
@@ -25591,7 +25591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum trueEnum: SwiftProtobuf.Enum {
+  enum trueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTrue // = 0
     case UNRECOGNIZED(Int)
@@ -25621,7 +25621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum tryEnum: SwiftProtobuf.Enum {
+  enum tryEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTry // = 0
     case UNRECOGNIZED(Int)
@@ -25651,7 +25651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum type: SwiftProtobuf.Enum {
+  enum type: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneType // = 0
     case UNRECOGNIZED(Int)
@@ -25681,7 +25681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum typealiasEnum: SwiftProtobuf.Enum {
+  enum typealiasEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypealias // = 0
     case UNRECOGNIZED(Int)
@@ -25711,7 +25711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum TypeEnumEnum: SwiftProtobuf.Enum {
+  enum TypeEnumEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypeEnum // = 0
     case UNRECOGNIZED(Int)
@@ -25741,7 +25741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum typeName: SwiftProtobuf.Enum {
+  enum typeName: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypeName // = 0
     case UNRECOGNIZED(Int)
@@ -25771,7 +25771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum typePrefix: SwiftProtobuf.Enum {
+  enum typePrefix: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypePrefix // = 0
     case UNRECOGNIZED(Int)
@@ -25801,7 +25801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum typeStart: SwiftProtobuf.Enum {
+  enum typeStart: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypeStart // = 0
     case UNRECOGNIZED(Int)
@@ -25831,7 +25831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum typeUnknown: SwiftProtobuf.Enum {
+  enum typeUnknown: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypeUnknown // = 0
     case UNRECOGNIZED(Int)
@@ -25861,7 +25861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum typeURL: SwiftProtobuf.Enum {
+  enum typeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneTypeURL // = 0
     case UNRECOGNIZED(Int)
@@ -25891,7 +25891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UInt32Enum: SwiftProtobuf.Enum {
+  enum UInt32Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUint32 // = 0
     case UNRECOGNIZED(Int)
@@ -25921,7 +25921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UInt32Value: SwiftProtobuf.Enum {
+  enum UInt32Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUint32Value // = 0
     case UNRECOGNIZED(Int)
@@ -25951,7 +25951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UInt64Enum: SwiftProtobuf.Enum {
+  enum UInt64Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUint64 // = 0
     case UNRECOGNIZED(Int)
@@ -25981,7 +25981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UInt64Value: SwiftProtobuf.Enum {
+  enum UInt64Value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUint64Value // = 0
     case UNRECOGNIZED(Int)
@@ -26011,7 +26011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UInt8: SwiftProtobuf.Enum {
+  enum UInt8: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUint8 // = 0
     case UNRECOGNIZED(Int)
@@ -26041,7 +26041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unchecked: SwiftProtobuf.Enum {
+  enum unchecked: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnchecked // = 0
     case UNRECOGNIZED(Int)
@@ -26071,7 +26071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unicodeScalarLiteral: SwiftProtobuf.Enum {
+  enum unicodeScalarLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnicodeScalarLiteral // = 0
     case UNRECOGNIZED(Int)
@@ -26101,7 +26101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnicodeScalarLiteralType: SwiftProtobuf.Enum {
+  enum UnicodeScalarLiteralType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnicodeScalarLiteralType // = 0
     case UNRECOGNIZED(Int)
@@ -26131,7 +26131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unicodeScalars: SwiftProtobuf.Enum {
+  enum unicodeScalars: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnicodeScalars // = 0
     case UNRECOGNIZED(Int)
@@ -26161,7 +26161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnicodeScalarView: SwiftProtobuf.Enum {
+  enum UnicodeScalarView: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnicodeScalarView // = 0
     case UNRECOGNIZED(Int)
@@ -26191,7 +26191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum uninterpretedOption: SwiftProtobuf.Enum {
+  enum uninterpretedOption: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUninterpretedOption // = 0
     case UNRECOGNIZED(Int)
@@ -26221,7 +26221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum union: SwiftProtobuf.Enum {
+  enum union: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnion // = 0
     case UNRECOGNIZED(Int)
@@ -26251,7 +26251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum uniqueStorage: SwiftProtobuf.Enum {
+  enum uniqueStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUniqueStorage // = 0
     case UNRECOGNIZED(Int)
@@ -26281,7 +26281,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unknown: SwiftProtobuf.Enum {
+  enum unknown: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnknown // = 0
     case UNRECOGNIZED(Int)
@@ -26311,7 +26311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unknownFieldsEnum: SwiftProtobuf.Enum {
+  enum unknownFieldsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnknownFields // = 0
     case UNRECOGNIZED(Int)
@@ -26341,7 +26341,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnknownStorage: SwiftProtobuf.Enum {
+  enum UnknownStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnknownStorage // = 0
     case UNRECOGNIZED(Int)
@@ -26371,7 +26371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unpackTo: SwiftProtobuf.Enum {
+  enum unpackTo: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnpackTo // = 0
     case UNRECOGNIZED(Int)
@@ -26401,7 +26401,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnsafeBufferPointer: SwiftProtobuf.Enum {
+  enum UnsafeBufferPointer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnsafeBufferPointer // = 0
     case UNRECOGNIZED(Int)
@@ -26431,7 +26431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnsafeMutablePointer: SwiftProtobuf.Enum {
+  enum UnsafeMutablePointer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnsafeMutablePointer // = 0
     case UNRECOGNIZED(Int)
@@ -26461,7 +26461,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnsafeMutableRawBufferPointer: SwiftProtobuf.Enum {
+  enum UnsafeMutableRawBufferPointer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnsafeMutableRawBufferPointer // = 0
     case UNRECOGNIZED(Int)
@@ -26491,7 +26491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnsafeRawBufferPointer: SwiftProtobuf.Enum {
+  enum UnsafeRawBufferPointer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnsafeRawBufferPointer // = 0
     case UNRECOGNIZED(Int)
@@ -26521,7 +26521,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UnsafeRawPointer: SwiftProtobuf.Enum {
+  enum UnsafeRawPointer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnsafeRawPointer // = 0
     case UNRECOGNIZED(Int)
@@ -26551,7 +26551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unverifiedLazy: SwiftProtobuf.Enum {
+  enum unverifiedLazy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnverifiedLazy // = 0
     case UNRECOGNIZED(Int)
@@ -26581,7 +26581,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum updatedOptions: SwiftProtobuf.Enum {
+  enum updatedOptions: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUpdatedOptions // = 0
     case UNRECOGNIZED(Int)
@@ -26611,7 +26611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum url: SwiftProtobuf.Enum {
+  enum url: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneURL // = 0
     case UNRECOGNIZED(Int)
@@ -26641,7 +26641,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum useDeterministicOrdering: SwiftProtobuf.Enum {
+  enum useDeterministicOrdering: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUseDeterministicOrdering // = 0
     case UNRECOGNIZED(Int)
@@ -26671,7 +26671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum utf8: SwiftProtobuf.Enum {
+  enum utf8: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUtf8 // = 0
     case UNRECOGNIZED(Int)
@@ -26701,7 +26701,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum utf8Ptr: SwiftProtobuf.Enum {
+  enum utf8Ptr: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUtf8Ptr // = 0
     case UNRECOGNIZED(Int)
@@ -26731,7 +26731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum utf8ToDouble: SwiftProtobuf.Enum {
+  enum utf8ToDouble: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUtf8ToDouble // = 0
     case UNRECOGNIZED(Int)
@@ -26761,7 +26761,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum utf8Validation: SwiftProtobuf.Enum {
+  enum utf8Validation: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUtf8Validation // = 0
     case UNRECOGNIZED(Int)
@@ -26791,7 +26791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum UTF8View: SwiftProtobuf.Enum {
+  enum UTF8View: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUtf8View // = 0
     case UNRECOGNIZED(Int)
@@ -26821,7 +26821,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum v: SwiftProtobuf.Enum {
+  enum v: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneV // = 0
     case UNRECOGNIZED(Int)
@@ -26851,7 +26851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum value: SwiftProtobuf.Enum {
+  enum value: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneValue // = 0
     case UNRECOGNIZED(Int)
@@ -26881,7 +26881,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum valueField: SwiftProtobuf.Enum {
+  enum valueField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneValueField // = 0
     case UNRECOGNIZED(Int)
@@ -26911,7 +26911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum values: SwiftProtobuf.Enum {
+  enum values: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneValues // = 0
     case UNRECOGNIZED(Int)
@@ -26941,7 +26941,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ValueType: SwiftProtobuf.Enum {
+  enum ValueType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneValueType // = 0
     case UNRECOGNIZED(Int)
@@ -26971,7 +26971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum varEnum: SwiftProtobuf.Enum {
+  enum varEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVar // = 0
     case UNRECOGNIZED(Int)
@@ -27001,7 +27001,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum verification: SwiftProtobuf.Enum {
+  enum verification: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVerification // = 0
     case UNRECOGNIZED(Int)
@@ -27031,7 +27031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum VerificationState: SwiftProtobuf.Enum {
+  enum VerificationState: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVerificationState // = 0
     case UNRECOGNIZED(Int)
@@ -27061,7 +27061,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Version: SwiftProtobuf.Enum {
+  enum Version: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVersion // = 0
     case UNRECOGNIZED(Int)
@@ -27091,7 +27091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum versionString: SwiftProtobuf.Enum {
+  enum versionString: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVersionString // = 0
     case UNRECOGNIZED(Int)
@@ -27121,7 +27121,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitExtensionFields: SwiftProtobuf.Enum {
+  enum visitExtensionFields: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitExtensionFields // = 0
     case UNRECOGNIZED(Int)
@@ -27151,7 +27151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitExtensionFieldsAsMessageSet: SwiftProtobuf.Enum {
+  enum visitExtensionFieldsAsMessageSet: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitExtensionFieldsAsMessageSet // = 0
     case UNRECOGNIZED(Int)
@@ -27181,7 +27181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitMapField: SwiftProtobuf.Enum {
+  enum visitMapField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitMapField // = 0
     case UNRECOGNIZED(Int)
@@ -27211,7 +27211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitor: SwiftProtobuf.Enum {
+  enum visitor: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitor // = 0
     case UNRECOGNIZED(Int)
@@ -27241,7 +27241,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPacked: SwiftProtobuf.Enum {
+  enum visitPacked: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPacked // = 0
     case UNRECOGNIZED(Int)
@@ -27271,7 +27271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedBoolField: SwiftProtobuf.Enum {
+  enum visitPackedBoolField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedBoolField // = 0
     case UNRECOGNIZED(Int)
@@ -27301,7 +27301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedDoubleField: SwiftProtobuf.Enum {
+  enum visitPackedDoubleField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedDoubleField // = 0
     case UNRECOGNIZED(Int)
@@ -27331,7 +27331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedEnumField: SwiftProtobuf.Enum {
+  enum visitPackedEnumField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedEnumField // = 0
     case UNRECOGNIZED(Int)
@@ -27361,7 +27361,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedFixed32Field: SwiftProtobuf.Enum {
+  enum visitPackedFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedFixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27391,7 +27391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedFixed64Field: SwiftProtobuf.Enum {
+  enum visitPackedFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedFixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -27421,7 +27421,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedFloatField: SwiftProtobuf.Enum {
+  enum visitPackedFloatField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedFloatField // = 0
     case UNRECOGNIZED(Int)
@@ -27451,7 +27451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedInt32Field: SwiftProtobuf.Enum {
+  enum visitPackedInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedInt32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27481,7 +27481,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedInt64Field: SwiftProtobuf.Enum {
+  enum visitPackedInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedInt64Field // = 0
     case UNRECOGNIZED(Int)
@@ -27511,7 +27511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedSFixed32Field: SwiftProtobuf.Enum {
+  enum visitPackedSFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedSfixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27541,7 +27541,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedSFixed64Field: SwiftProtobuf.Enum {
+  enum visitPackedSFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedSfixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -27571,7 +27571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedSInt32Field: SwiftProtobuf.Enum {
+  enum visitPackedSInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedSint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27601,7 +27601,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedSInt64Field: SwiftProtobuf.Enum {
+  enum visitPackedSInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedSint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -27631,7 +27631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedUInt32Field: SwiftProtobuf.Enum {
+  enum visitPackedUInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedUint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27661,7 +27661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitPackedUInt64Field: SwiftProtobuf.Enum {
+  enum visitPackedUInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitPackedUint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -27691,7 +27691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeated: SwiftProtobuf.Enum {
+  enum visitRepeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeated // = 0
     case UNRECOGNIZED(Int)
@@ -27721,7 +27721,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedBoolField: SwiftProtobuf.Enum {
+  enum visitRepeatedBoolField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedBoolField // = 0
     case UNRECOGNIZED(Int)
@@ -27751,7 +27751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedBytesField: SwiftProtobuf.Enum {
+  enum visitRepeatedBytesField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedBytesField // = 0
     case UNRECOGNIZED(Int)
@@ -27781,7 +27781,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedDoubleField: SwiftProtobuf.Enum {
+  enum visitRepeatedDoubleField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedDoubleField // = 0
     case UNRECOGNIZED(Int)
@@ -27811,7 +27811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedEnumField: SwiftProtobuf.Enum {
+  enum visitRepeatedEnumField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedEnumField // = 0
     case UNRECOGNIZED(Int)
@@ -27841,7 +27841,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedFixed32Field: SwiftProtobuf.Enum {
+  enum visitRepeatedFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedFixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27871,7 +27871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedFixed64Field: SwiftProtobuf.Enum {
+  enum visitRepeatedFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedFixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -27901,7 +27901,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedFloatField: SwiftProtobuf.Enum {
+  enum visitRepeatedFloatField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedFloatField // = 0
     case UNRECOGNIZED(Int)
@@ -27931,7 +27931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedGroupField: SwiftProtobuf.Enum {
+  enum visitRepeatedGroupField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedGroupField // = 0
     case UNRECOGNIZED(Int)
@@ -27961,7 +27961,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedInt32Field: SwiftProtobuf.Enum {
+  enum visitRepeatedInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedInt32Field // = 0
     case UNRECOGNIZED(Int)
@@ -27991,7 +27991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedInt64Field: SwiftProtobuf.Enum {
+  enum visitRepeatedInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedInt64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28021,7 +28021,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedMessageField: SwiftProtobuf.Enum {
+  enum visitRepeatedMessageField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedMessageField // = 0
     case UNRECOGNIZED(Int)
@@ -28051,7 +28051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedSFixed32Field: SwiftProtobuf.Enum {
+  enum visitRepeatedSFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedSfixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28081,7 +28081,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedSFixed64Field: SwiftProtobuf.Enum {
+  enum visitRepeatedSFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedSfixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28111,7 +28111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedSInt32Field: SwiftProtobuf.Enum {
+  enum visitRepeatedSInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedSint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28141,7 +28141,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedSInt64Field: SwiftProtobuf.Enum {
+  enum visitRepeatedSInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedSint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28171,7 +28171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedStringField: SwiftProtobuf.Enum {
+  enum visitRepeatedStringField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedStringField // = 0
     case UNRECOGNIZED(Int)
@@ -28201,7 +28201,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedUInt32Field: SwiftProtobuf.Enum {
+  enum visitRepeatedUInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedUint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28231,7 +28231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitRepeatedUInt64Field: SwiftProtobuf.Enum {
+  enum visitRepeatedUInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitRepeatedUint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28261,7 +28261,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingular: SwiftProtobuf.Enum {
+  enum visitSingular: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingular // = 0
     case UNRECOGNIZED(Int)
@@ -28291,7 +28291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularBoolField: SwiftProtobuf.Enum {
+  enum visitSingularBoolField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularBoolField // = 0
     case UNRECOGNIZED(Int)
@@ -28321,7 +28321,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularBytesField: SwiftProtobuf.Enum {
+  enum visitSingularBytesField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularBytesField // = 0
     case UNRECOGNIZED(Int)
@@ -28351,7 +28351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularDoubleField: SwiftProtobuf.Enum {
+  enum visitSingularDoubleField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularDoubleField // = 0
     case UNRECOGNIZED(Int)
@@ -28381,7 +28381,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularEnumField: SwiftProtobuf.Enum {
+  enum visitSingularEnumField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularEnumField // = 0
     case UNRECOGNIZED(Int)
@@ -28411,7 +28411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularFixed32Field: SwiftProtobuf.Enum {
+  enum visitSingularFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularFixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28441,7 +28441,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularFixed64Field: SwiftProtobuf.Enum {
+  enum visitSingularFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularFixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28471,7 +28471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularFloatField: SwiftProtobuf.Enum {
+  enum visitSingularFloatField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularFloatField // = 0
     case UNRECOGNIZED(Int)
@@ -28501,7 +28501,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularGroupField: SwiftProtobuf.Enum {
+  enum visitSingularGroupField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularGroupField // = 0
     case UNRECOGNIZED(Int)
@@ -28531,7 +28531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularInt32Field: SwiftProtobuf.Enum {
+  enum visitSingularInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularInt32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28561,7 +28561,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularInt64Field: SwiftProtobuf.Enum {
+  enum visitSingularInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularInt64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28591,7 +28591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularMessageField: SwiftProtobuf.Enum {
+  enum visitSingularMessageField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularMessageField // = 0
     case UNRECOGNIZED(Int)
@@ -28621,7 +28621,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularSFixed32Field: SwiftProtobuf.Enum {
+  enum visitSingularSFixed32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularSfixed32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28651,7 +28651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularSFixed64Field: SwiftProtobuf.Enum {
+  enum visitSingularSFixed64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularSfixed64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28681,7 +28681,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularSInt32Field: SwiftProtobuf.Enum {
+  enum visitSingularSInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularSint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28711,7 +28711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularSInt64Field: SwiftProtobuf.Enum {
+  enum visitSingularSInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularSint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28741,7 +28741,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularStringField: SwiftProtobuf.Enum {
+  enum visitSingularStringField: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularStringField // = 0
     case UNRECOGNIZED(Int)
@@ -28771,7 +28771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularUInt32Field: SwiftProtobuf.Enum {
+  enum visitSingularUInt32Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularUint32Field // = 0
     case UNRECOGNIZED(Int)
@@ -28801,7 +28801,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitSingularUInt64Field: SwiftProtobuf.Enum {
+  enum visitSingularUInt64Field: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitSingularUint64Field // = 0
     case UNRECOGNIZED(Int)
@@ -28831,7 +28831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum visitUnknown: SwiftProtobuf.Enum {
+  enum visitUnknown: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneVisitUnknown // = 0
     case UNRECOGNIZED(Int)
@@ -28861,7 +28861,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum wasDecoded: SwiftProtobuf.Enum {
+  enum wasDecoded: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWasDecoded // = 0
     case UNRECOGNIZED(Int)
@@ -28891,7 +28891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum weak: SwiftProtobuf.Enum {
+  enum weak: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWeak // = 0
     case UNRECOGNIZED(Int)
@@ -28921,7 +28921,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum weakDependency: SwiftProtobuf.Enum {
+  enum weakDependency: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWeakDependency // = 0
     case UNRECOGNIZED(Int)
@@ -28951,7 +28951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum whereEnum: SwiftProtobuf.Enum {
+  enum whereEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWhere // = 0
     case UNRECOGNIZED(Int)
@@ -28981,7 +28981,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum wireFormat: SwiftProtobuf.Enum {
+  enum wireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWireFormat // = 0
     case UNRECOGNIZED(Int)
@@ -29011,7 +29011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum with: SwiftProtobuf.Enum {
+  enum with: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWith // = 0
     case UNRECOGNIZED(Int)
@@ -29041,7 +29041,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum withUnsafeBytes: SwiftProtobuf.Enum {
+  enum withUnsafeBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWithUnsafeBytes // = 0
     case UNRECOGNIZED(Int)
@@ -29071,7 +29071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum withUnsafeMutableBytes: SwiftProtobuf.Enum {
+  enum withUnsafeMutableBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWithUnsafeMutableBytes // = 0
     case UNRECOGNIZED(Int)
@@ -29101,7 +29101,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum work: SwiftProtobuf.Enum {
+  enum work: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWork // = 0
     case UNRECOGNIZED(Int)
@@ -29131,7 +29131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum Wrapped: SwiftProtobuf.Enum {
+  enum Wrapped: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWrapped // = 0
     case UNRECOGNIZED(Int)
@@ -29161,7 +29161,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum WrappedType: SwiftProtobuf.Enum {
+  enum WrappedType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWrappedType // = 0
     case UNRECOGNIZED(Int)
@@ -29191,7 +29191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum wrappedValue: SwiftProtobuf.Enum {
+  enum wrappedValue: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWrappedValue // = 0
     case UNRECOGNIZED(Int)
@@ -29221,7 +29221,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum written: SwiftProtobuf.Enum {
+  enum written: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneWritten // = 0
     case UNRECOGNIZED(Int)
@@ -29251,7 +29251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum yday: SwiftProtobuf.Enum {
+  enum yday: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneYday // = 0
     case UNRECOGNIZED(Int)

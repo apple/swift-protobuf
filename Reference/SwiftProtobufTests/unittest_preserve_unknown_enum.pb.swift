@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -88,7 +88,7 @@ enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnum: SwiftProtobuf.Enum {
 
 }
 
-enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1

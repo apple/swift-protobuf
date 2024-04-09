@@ -27,7 +27,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_TopLevelEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_TopLevelEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case topLevelUnknown // = 0
 
@@ -135,7 +135,7 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendab
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nestedUnknown // = 0
 

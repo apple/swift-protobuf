@@ -65,7 +65,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumTest1: SwiftProtobuf.Enum {
+  enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case firstValue // = 1
     case secondValue // = 2
@@ -91,7 +91,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTest2: SwiftProtobuf.Enum {
+  enum EnumTest2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case firstValue // = 1
     case secondValue // = 2
@@ -117,7 +117,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTestNoStem: SwiftProtobuf.Enum {
+  enum EnumTestNoStem: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case enumTestNoStem1 // = 1
     case enumTestNoStem2 // = 2
@@ -143,7 +143,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTestReservedWord: SwiftProtobuf.Enum {
+  enum EnumTestReservedWord: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case `var` // = 1
     case notReserved // = 2
@@ -181,7 +181,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumWithAlias: SwiftProtobuf.Enum {
+  enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo1 // = 1
     static let foo2 = foo1

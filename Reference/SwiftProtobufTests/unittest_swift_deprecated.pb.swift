@@ -37,7 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// An enum value marked as deprecated.
-enum SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case one // = 1
 
@@ -75,7 +75,7 @@ enum SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf.Enum {
 /// Whole enum marked as deprecated.
 ///
 /// NOTE: This enum was marked as deprecated in the .proto file.
-enum SwiftProtoTesting_Deprecated_MyEnum2: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Deprecated_MyEnum2: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case one // = 1
   case two // = 2

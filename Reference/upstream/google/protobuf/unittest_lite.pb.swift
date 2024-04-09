@@ -31,7 +31,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
+enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foreignLiteFoo // = 4
   case foreignLiteBaz // = 6
@@ -60,7 +60,7 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
 
 }
 
-enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
+enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case v1First // = 1
 
@@ -83,7 +83,7 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
 
 }
 
-enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
+enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case v2First // = 1
   case v2Second // = 2
@@ -744,7 +744,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -1647,7 +1647,7 @@ struct ProtobufUnittest_DupEnum: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnumWithDupValueLite: SwiftProtobuf.Enum {
+  enum TestEnumWithDupValueLite: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo1 // = 1
     case bar1 // = 2

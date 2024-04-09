@@ -28,7 +28,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// This generates `GID_MAX`, which is a macro in some circumstances.
-enum ProtobufUnittest_GID: SwiftProtobuf.Enum {
+enum ProtobufUnittest_GID: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unused // = 0
   case UNRECOGNIZED(Int)
@@ -59,7 +59,7 @@ enum ProtobufUnittest_GID: SwiftProtobuf.Enum {
 }
 
 /// This generates `UID_MAX`, which is a mcro in some circumstances.
-enum ProtobufUnittest_UID: SwiftProtobuf.Enum {
+enum ProtobufUnittest_UID: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unused // = 0
   case UNRECOGNIZED(Int)
@@ -92,7 +92,7 @@ enum ProtobufUnittest_UID: SwiftProtobuf.Enum {
 /// Just a container for bad macro names. Some of these do not follow the normal
 /// naming conventions, this is intentional, we just want to trigger a build
 /// failure if the macro is left defined.
-enum ProtobufUnittest_BadNames: SwiftProtobuf.Enum {
+enum ProtobufUnittest_BadNames: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// autoheader defines this in some circumstances.

@@ -38,7 +38,7 @@ struct UnittestDropUnknownFields_Foo: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -92,7 +92,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1

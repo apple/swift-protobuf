@@ -27,7 +27,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum Conformance_WireFormat: SwiftProtobuf.Enum {
+enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
@@ -75,7 +75,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 
 }
 
-enum Conformance_TestCategory: SwiftProtobuf.Enum {
+enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unspecifiedTest // = 0
 
