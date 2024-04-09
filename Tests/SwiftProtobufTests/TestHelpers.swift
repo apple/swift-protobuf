@@ -14,7 +14,7 @@
 
 import XCTest
 import Foundation
-import SwiftProtobuf
+@testable import SwiftProtobuf
 
 typealias XCTestFileArgType = StaticString
 

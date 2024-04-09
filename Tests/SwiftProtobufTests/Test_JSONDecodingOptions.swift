@@ -14,7 +14,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobuf
+@testable import SwiftProtobuf
 
 final class Test_JSONDecodingOptions: XCTestCase {
 
