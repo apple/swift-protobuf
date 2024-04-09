@@ -67,7 +67,7 @@ jobs:
         esac
     - name: Cache protobuf
       id: cache-protobuf
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf
         # NOTE: for refs that can float like 'main' the cache might be out of date!
