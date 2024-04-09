@@ -32,7 +32,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
     case "-":
       // Only accept '-' as very first character
       if total > 0 {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration
+        throw SwiftProtobufError.JSONDecoding.malformedDuration()
       }
       digits.append(c)
       isNegative = true
@@ -41,14 +41,14 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
       digitCount += 1
     case ".":
       if let _ = seconds {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration
+        throw SwiftProtobufError.JSONDecoding.malformedDuration()
       }
       let digitString = String(digits)
       if let s = Int64(digitString),
-        s >= minDurationSeconds && s <= maxDurationSeconds {
+         s >= minDurationSeconds && s <= maxDurationSeconds {
         seconds = s
       } else {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration
+        throw SwiftProtobufError.JSONDecoding.malformedDuration()
       }
       digits.removeAll()
       digitCount = 0
@@ -71,29 +71,29 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
             nanos = rawNanos
           }
         } else {
-          throw SwiftProtobufError.JSONDecoding.malformedDuration
+          throw SwiftProtobufError.JSONDecoding.malformedDuration()
         }
       } else {
         // No fraction, we just have an integral number of seconds
         let digitString = String(digits)
         if let s = Int64(digitString),
-          s >= minDurationSeconds && s <= maxDurationSeconds {
+           s >= minDurationSeconds && s <= maxDurationSeconds {
           seconds = s
         } else {
-          throw SwiftProtobufError.JSONDecoding.malformedDuration
+          throw SwiftProtobufError.JSONDecoding.malformedDuration()
         }
       }
       // Fail if there are characters after 's'
       if chars.next() != nil {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration
+        throw SwiftProtobufError.JSONDecoding.malformedDuration()
       }
       return (seconds!, nanos)
     default:
-      throw SwiftProtobufError.JSONDecoding.malformedDuration
+      throw SwiftProtobufError.JSONDecoding.malformedDuration()
     }
     total += 1
   }
-  throw SwiftProtobufError.JSONDecoding.malformedDuration
+  throw SwiftProtobufError.JSONDecoding.malformedDuration()
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
@@ -130,14 +130,14 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
     if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
       return "\"\(formatted)\""
     } else {
-      throw SwiftProtobufError.JSONEncoding.durationRange
+      throw SwiftProtobufError.JSONEncoding.durationRange()
     }
   }
 }
 
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = Double
-
+  
   /// Creates a new `Google_Protobuf_Duration` from a floating point literal
   /// that is interpreted as a duration in seconds, rounded to the nearest
   /// nanosecond.
@@ -160,11 +160,11 @@ extension Google_Protobuf_Duration {
     let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
     self.init(seconds: s, nanos: n)
   }
-
+  
   /// The `TimeInterval` (measured in seconds) equal to this duration.
   public var timeInterval: TimeInterval {
     return TimeInterval(self.seconds) +
-      TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
+    TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
   }
 }
 
@@ -174,14 +174,14 @@ private func normalizeForDuration(
 ) -> (seconds: Int64, nanos: Int32) {
   var s = seconds
   var n = nanos
-
+  
   // If the magnitude of n exceeds a second then
   // we need to factor it into s instead.
   if n >= nanosPerSecond || n <= -nanosPerSecond {
     s += Int64(n / nanosPerSecond)
     n = n % nanosPerSecond
   }
-
+  
   // The Duration spec says that when s != 0, s and
   // n must have the same sign.
   if s > 0 && n < 0 {
@@ -191,7 +191,7 @@ private func normalizeForDuration(
     n -= nanosPerSecond
     s += 1
   }
-
+  
   return (seconds: s, nanos: n)
 }
 

@@ -80,7 +80,7 @@ internal struct BinaryDecoder: Decoder {
     private mutating func incrementRecursionDepth() throws {
         recursionBudget -= 1
         if recursionBudget < 0 {
-            throw SwiftProtobufError.BinaryDecoding.messageDepthLimit
+            throw SwiftProtobufError.BinaryDecoding.messageDepthLimit()
         }
     }
 
@@ -139,7 +139,7 @@ internal struct BinaryDecoder: Decoder {
         if let wireFormat = WireFormat(rawValue: c0 & 7) {
             fieldWireFormat = wireFormat
         } else {
-            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
         }
         if (c0 & 0x80) == 0 {
             p += 1
@@ -148,7 +148,7 @@ internal struct BinaryDecoder: Decoder {
         } else {
             fieldNumber = Int(c0 & 0x7f) >> 3
             if available < 2 {
-                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
             let c1 = start[1]
             if (c1 & 0x80) == 0 {
@@ -158,7 +158,7 @@ internal struct BinaryDecoder: Decoder {
             } else {
                 fieldNumber |= Int(c1 & 0x7f) << 4
                 if available < 3 {
-                    throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                    throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
                 }
                 let c2 = start[2]
                 fieldNumber |= Int(c2 & 0x7f) << 11
@@ -167,7 +167,7 @@ internal struct BinaryDecoder: Decoder {
                     available -= 3
                 } else {
                     if available < 4 {
-                        throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                        throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
                     }
                     let c3 = start[3]
                     fieldNumber |= Int(c3 & 0x7f) << 18
@@ -176,11 +176,11 @@ internal struct BinaryDecoder: Decoder {
                         available -= 4
                     } else {
                         if available < 5 {
-                            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
                         }
                         let c4 = start[4]
                         if c4 > 15 {
-                            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
                         }
                         fieldNumber |= Int(c4 & 0x7f) << 25
                         p += 5
@@ -200,12 +200,12 @@ internal struct BinaryDecoder: Decoder {
                 } else {
                     // .endGroup when not in a group or for a different
                     // group is an invalid binary.
-                    throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                    throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
                 }
             }
             return fieldNumber
         }
-        throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+        throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
     }
 
     internal mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -236,7 +236,7 @@ internal struct BinaryDecoder: Decoder {
                 let itemSize = UInt64(MemoryLayout<Float>.size)
                 let itemCount = bodyBytes / itemSize
                 if bodyBytes % itemSize != 0 || bodyBytes > available {
-                    throw SwiftProtobufError.BinaryDecoding.truncated
+                    throw SwiftProtobufError.BinaryDecoding.truncated()
                 }
                 value.reserveCapacity(value.count + Int(truncatingIfNeeded: itemCount))
                 for _ in 1...itemCount {
@@ -277,7 +277,7 @@ internal struct BinaryDecoder: Decoder {
                 let itemSize = UInt64(MemoryLayout<Double>.size)
                 let itemCount = bodyBytes / itemSize
                 if bodyBytes % itemSize != 0 || bodyBytes > available {
-                  throw SwiftProtobufError.BinaryDecoding.truncated
+                    throw SwiftProtobufError.BinaryDecoding.truncated()
                 }
                 value.reserveCapacity(value.count + Int(truncatingIfNeeded: itemCount))
                 for _ in 1...itemCount {
@@ -721,7 +721,7 @@ internal struct BinaryDecoder: Decoder {
             value = s
             consumed = true
         } else {
-            throw SwiftProtobufError.BinaryDecoding.invalidUTF8
+            throw SwiftProtobufError.BinaryDecoding.invalidUTF8()
         }
     }
 
@@ -735,7 +735,7 @@ internal struct BinaryDecoder: Decoder {
             value = s
             consumed = true
         } else {
-            throw SwiftProtobufError.BinaryDecoding.invalidUTF8
+            throw SwiftProtobufError.BinaryDecoding.invalidUTF8()
         }
     }
 
@@ -748,7 +748,7 @@ internal struct BinaryDecoder: Decoder {
                 value.append(s)
                 consumed = true
             } else {
-                throw SwiftProtobufError.BinaryDecoding.invalidUTF8
+                throw SwiftProtobufError.BinaryDecoding.invalidUTF8()
             }
         default:
             return
@@ -890,7 +890,7 @@ internal struct BinaryDecoder: Decoder {
       try message.decodeMessage(decoder: &self)
       decrementRecursionDepth()
       guard complete else {
-        throw SwiftProtobufError.BinaryDecoding.trailingGarbage
+          throw SwiftProtobufError.BinaryDecoding.trailingGarbage()
       }
       if let unknownData = unknownData {
         message.unknownFields.append(protobufData: unknownData)
@@ -935,7 +935,7 @@ internal struct BinaryDecoder: Decoder {
         subDecoder.unknownData = nil
         try group.decodeMessage(decoder: &subDecoder)
         guard subDecoder.fieldNumber == fieldNumber && subDecoder.fieldWireFormat == .endGroup else {
-            throw SwiftProtobufError.BinaryDecoding.truncated
+            throw SwiftProtobufError.BinaryDecoding.truncated()
         }
         if let groupUnknowns = subDecoder.unknownData {
             group.unknownFields.append(protobufData: groupUnknowns)
@@ -958,7 +958,7 @@ internal struct BinaryDecoder: Decoder {
         var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         while let tag = try subdecoder.getTag() {
             if tag.wireFormat == .endGroup {
-                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
@@ -971,7 +971,7 @@ internal struct BinaryDecoder: Decoder {
             }
         }
         if !subdecoder.complete {
-          throw SwiftProtobufError.BinaryDecoding.trailingGarbage
+            throw SwiftProtobufError.BinaryDecoding.trailingGarbage()
         }
         // A map<> definition can't provide a default value for the keys/values,
         // so it is safe to use the proto3 default to get the right
@@ -993,7 +993,7 @@ internal struct BinaryDecoder: Decoder {
         var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         while let tag = try subdecoder.getTag() {
             if tag.wireFormat == .endGroup {
-                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
@@ -1014,7 +1014,7 @@ internal struct BinaryDecoder: Decoder {
             }
         }
         if !subdecoder.complete {
-          throw SwiftProtobufError.BinaryDecoding.trailingGarbage
+            throw SwiftProtobufError.BinaryDecoding.trailingGarbage()
         }
         // A map<> definition can't provide a default value for the keys, so it
         // is safe to use the proto3 default to get the right integer/string/bytes.
@@ -1033,7 +1033,7 @@ internal struct BinaryDecoder: Decoder {
         var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         while let tag = try subdecoder.getTag() {
             if tag.wireFormat == .endGroup {
-                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
@@ -1046,7 +1046,7 @@ internal struct BinaryDecoder: Decoder {
             }
         }
         if !subdecoder.complete {
-          throw SwiftProtobufError.BinaryDecoding.trailingGarbage
+            throw SwiftProtobufError.BinaryDecoding.trailingGarbage()
         }
         // A map<> definition can't provide a default value for the keys, so it
         // is safe to use the proto3 default to get the right integer/string/bytes.
@@ -1090,7 +1090,7 @@ internal struct BinaryDecoder: Decoder {
                 // the bytes were consumed, then there should have been a
                 // field that consumed them (existing or created). This
                 // specific error result is to allow this to be more detectable.
-                throw SwiftProtobufError.BinaryDecoding.internalExtensionError
+                throw SwiftProtobufError.BinaryDecoding.internalExtensionError()
             }
         }
     }
@@ -1125,7 +1125,7 @@ internal struct BinaryDecoder: Decoder {
               break
 
             case .malformed:
-              throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
 
             assert(recursionBudget == subDecoder.recursionBudget)
@@ -1256,7 +1256,7 @@ internal struct BinaryDecoder: Decoder {
             let _ = try decodeVarint()
         case .fixed64:
             if available < 8 {
-                throw SwiftProtobufError.BinaryDecoding.truncated
+                throw SwiftProtobufError.BinaryDecoding.truncated()
             }
             p += 8
             available -= 8
@@ -1266,7 +1266,7 @@ internal struct BinaryDecoder: Decoder {
                 p += Int(n)
                 available -= Int(n)
             } else {
-                throw SwiftProtobufError.BinaryDecoding.truncated
+                throw SwiftProtobufError.BinaryDecoding.truncated()
             }
         case .startGroup:
             try incrementRecursionDepth()
@@ -1279,20 +1279,20 @@ internal struct BinaryDecoder: Decoder {
                         } else {
                             // .endGroup for a something other than the current
                             // group is an invalid binary.
-                            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
                         }
                     } else {
                         try skipOver(tag: innerTag)
                     }
                 } else {
-                    throw SwiftProtobufError.BinaryDecoding.truncated
+                    throw SwiftProtobufError.BinaryDecoding.truncated()
                 }
             }
         case .endGroup:
-            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
         case .fixed32:
             if available < 4 {
-                throw SwiftProtobufError.BinaryDecoding.truncated
+                throw SwiftProtobufError.BinaryDecoding.truncated()
             }
             p += 4
             available -= 4
@@ -1314,7 +1314,7 @@ internal struct BinaryDecoder: Decoder {
             available += p - fieldStartP
             p = fieldStartP
             guard let tag = try getTagWithoutUpdatingFieldStart() else {
-                throw SwiftProtobufError.BinaryDecoding.truncated
+                throw SwiftProtobufError.BinaryDecoding.truncated()
             }
             try skipOver(tag: tag)
             fieldEndP = p
@@ -1324,7 +1324,7 @@ internal struct BinaryDecoder: Decoder {
     /// Private: Parse the next raw varint from the input.
     private mutating func decodeVarint() throws -> UInt64 {
         if available < 1 {
-            throw SwiftProtobufError.BinaryDecoding.truncated
+            throw SwiftProtobufError.BinaryDecoding.truncated()
         }
         var start = p
         var length = available
@@ -1340,7 +1340,7 @@ internal struct BinaryDecoder: Decoder {
         var shift = UInt64(7)
         while true {
             if length < 1 || shift > 63 {
-                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
             c = start.load(fromByteOffset: 0, as: UInt8.self)
             start += 1
@@ -1373,13 +1373,13 @@ internal struct BinaryDecoder: Decoder {
         let t = try decodeVarint()
         if t < UInt64(UInt32.max) {
             guard let tag = FieldTag(rawValue: UInt32(truncatingIfNeeded: t)) else {
-                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+                throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
             }
             fieldWireFormat = tag.wireFormat
             fieldNumber = tag.fieldNumber
             return tag
         } else {
-            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf
+            throw SwiftProtobufError.BinaryDecoding.malformedProtobuf()
         }
     }
 
@@ -1394,7 +1394,7 @@ internal struct BinaryDecoder: Decoder {
     private mutating func decodeLittleEndianInteger<T: FixedWidthInteger>() throws -> T {
         let size = MemoryLayout<T>.size
         assert(size == 4 || size == 8)
-        guard available >= size else {throw BinaryDecodingError.truncated}
+        guard available >= size else {throw SwiftProtobufError.BinaryDecoding.truncated()}
         defer { consume(length: size) }
         return T(littleEndian: p.loadUnaligned(as: T.self))
     }
@@ -1424,11 +1424,11 @@ internal struct BinaryDecoder: Decoder {
         // that is length delimited on the wire, so the spec would imply
         // the limit still applies.
         guard length < 0x7fffffff else {
-          throw SwiftProtobufError.BinaryDecoding.tooLarge
+            throw SwiftProtobufError.BinaryDecoding.tooLarge()
         }
 
         guard length <= UInt64(available) else {
-            throw SwiftProtobufError.BinaryDecoding.truncated
+            throw SwiftProtobufError.BinaryDecoding.truncated()
         }
 
         count = Int(length)

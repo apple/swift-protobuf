@@ -81,7 +81,7 @@ extension Message {
                                                 extensions: extensions)
             try decodeMessage(decoder: &decoder)
             if !decoder.complete {
-              throw SwiftProtobufError.TextFormatDecoding.trailingGarbage
+              throw SwiftProtobufError.TextFormatDecoding.trailingGarbage()
             }
           }
         }

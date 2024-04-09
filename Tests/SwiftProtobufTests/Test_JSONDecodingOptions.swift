@@ -46,7 +46,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
-                } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .JSONDecoding.messageDepthLimit) {
+                } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .JSONDecoding.messageDepthLimit()) {
                     if expectSuccess {
                         XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
                     } else {

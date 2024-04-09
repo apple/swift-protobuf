@@ -21,28 +21,46 @@ extension SwiftProtobufError {
   public enum ProtoFileToModuleMapping {
     /// Raised if the path wasn't found.
     /// - Parameter path: The path that wasn't found.
-    public static func failToOpen(path: String) -> SwiftProtobufError {
+    public static func failToOpen(
+      path: String,
+      function: String = #function,
+      file: String = #fileID,
+      line: Int = #line
+    ) -> SwiftProtobufError {
       SwiftProtobufError(
         code: .invalidArgument,
-        message: "Path not found: \(path)"
+        message: "Path not found: \(path)",
+        location: .init(function: function, file: file, line: line)
       )
     }
 
     /// Raised if a mapping entry in the protobuf doesn't have a module name.
     /// - Parameter mappingIndex: The index (0-N) of the mapping.
-    public static func entryMissingModuleName(mappingIndex: Int) -> SwiftProtobufError {
+    public static func entryMissingModuleName(
+      mappingIndex: Int,
+      function: String = #function,
+      file: String = #fileID,
+      line: Int = #line
+    ) -> SwiftProtobufError {
       SwiftProtobufError(
         code: .invalidArgument,
-        message: "Error with proto file to module mapping: mapping with index \(mappingIndex) doesn't have a module name."
+        message: "Error with proto file to module mapping: mapping with index \(mappingIndex) doesn't have a module name.",
+        location: .init(function: function, file: file, line: line)
       )
     }
 
     /// Raised if a mapping entry in the protobuf doesn't have any proto files listed.
     /// - Parameter mappingIndex: The index (0-N) of the mapping.
-    public static func entryHasNoProtoPaths(mappingIndex: Int) -> SwiftProtobufError {
+    public static func entryHasNoProtoPaths(
+      mappingIndex: Int,
+      function: String = #function,
+      file: String = #fileID,
+      line: Int = #line
+    ) -> SwiftProtobufError {
       SwiftProtobufError(
         code: .invalidArgument,
-        message: "Error with proto file to module mapping: mapping with index \(mappingIndex) doesn't have any proto files listed."
+        message: "Error with proto file to module mapping: mapping with index \(mappingIndex) doesn't have any proto files listed.",
+        location: .init(function: function, file: file, line: line)
       )
     }
     
@@ -50,11 +68,15 @@ extension SwiftProtobufError {
     public static func duplicateProtoPathMapping(
       path: String,
       firstModule: String,
-      secondModule: String
+      secondModule: String,
+      function: String = #function,
+      file: String = #fileID,
+      line: Int = #line
     ) -> SwiftProtobufError {
       SwiftProtobufError(
         code: .invalidArgument,
-        message: "Error with proto file to module mapping - The given path (\(path)) was listed in two modules: '\(firstModule)' and '\(secondModule)'."
+        message: "Error with proto file to module mapping - The given path (\(path)) was listed in two modules: '\(firstModule)' and '\(secondModule)'.",
+        location: .init(function: function, file: file, line: line)
       )
     }
   }

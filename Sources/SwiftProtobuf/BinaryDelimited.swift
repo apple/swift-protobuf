@@ -21,20 +21,34 @@ extension SwiftProtobufError.BinaryDecoding {
   /// this error will be thrown instead since the stream didn't provide anything
   /// more specific. A common cause for this can be failing to open the stream
   /// before trying to read/write to it.
-  public static let unknownStreamError = SwiftProtobufError(
-    code: .binaryDecodingError,
-    message: "Unknown error when reading/writing binary-delimited message into stream."
-  )
+  public static func unknownStreamError(
+    function: String = #function,
+    file: String = #fileID,
+    line: Int = #line
+  ) -> SwiftProtobufError {
+    SwiftProtobufError(
+      code: .binaryDecodingError,
+      message: "Unknown error when reading/writing binary-delimited message into stream.",
+      location: .init(function: function, file: file, line: line)
+    )
+  }
   
   /// While attempting to read the length of a message on the stream, the
   /// bytes were malformed for the protobuf format.
-  public static let malformedLength = SwiftProtobufError(
-    code: .binaryDecodingError,
-    message: """
-      While attempting to read the length of a binary-delimited message \
-      on the stream, the bytes were malformed for the protobuf format.
-    """
-  )
+  public static func malformedLength(
+    function: String = #function,
+    file: String = #fileID,
+    line: Int = #line
+  ) -> SwiftProtobufError {
+    SwiftProtobufError(
+      code: .binaryDecodingError,
+      message: """
+        While attempting to read the length of a binary-delimited message \
+        on the stream, the bytes were malformed for the protobuf format.
+      """,
+      location: .init(function: function, file: file, line: line)
+    )
+  }
   
   /// This isn't really an error. `InputStream` documents that
   /// `hasBytesAvailable` _may_ return `True` if a read is needed to
@@ -43,13 +57,20 @@ extension SwiftProtobufError.BinaryDecoding {
   /// If this is raised, the callers should decide via what ever other means
   /// are correct if the stream has completely ended or if more bytes might
   /// eventually show up.
-  public static let noBytesAvailable = SwiftProtobufError(
-    code: .binaryDecodingError,
-    message: """
-      This is not really an error: please read the documentation for
-      `SwiftProtobufError/BinaryDecoding/noBytesAvailable` for more information.
-    """
-  )
+  public static func noBytesAvailable(
+    function: String = #function,
+    file: String = #fileID,
+    line: Int = #line
+  ) -> SwiftProtobufError {
+    SwiftProtobufError(
+      code: .binaryDecodingError,
+      message: """
+        This is not really an error: please read the documentation for
+        `SwiftProtobufError/BinaryDecoding/noBytesAvailable` for more information.
+      """,
+      location: .init(function: function, file: file, line: line)
+    )
+  }
 }
 
 /// Helper methods for reading/writing messages with a length prefix.
@@ -115,9 +136,9 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw SwiftProtobufError.BinaryDecoding.unknownStreamError
+        throw SwiftProtobufError.BinaryDecoding.unknownStreamError()
       }
-      throw SwiftProtobufError.BinaryEncoding.truncated
+      throw SwiftProtobufError.BinaryEncoding.truncated()
     }
   }
 
@@ -195,7 +216,7 @@ public enum BinaryDelimited {
       return
     }
     guard unsignedLength <= 0x7fffffff else {
-      throw SwiftProtobufError.BinaryDecoding.tooLarge
+      throw SwiftProtobufError.BinaryDecoding.tooLarge()
     }
     let length = Int(unsignedLength)
 
@@ -222,11 +243,11 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw SwiftProtobufError.BinaryDecoding.unknownStreamError
+        throw SwiftProtobufError.BinaryDecoding.unknownStreamError()
       }
       if bytesRead == 0 {
         // Hit the end of the stream
-        throw SwiftProtobufError.BinaryDecoding.truncated
+        throw SwiftProtobufError.BinaryDecoding.truncated()
       }
       if bytesRead < chunk.count {
         data += chunk[0..<bytesRead]
@@ -266,7 +287,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
       if let streamError = stream.streamError {
         throw streamError
       }
-      throw SwiftProtobufError.BinaryDecoding.unknownStreamError
+      throw SwiftProtobufError.BinaryDecoding.unknownStreamError()
     }
   }
 
@@ -275,9 +296,9 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
   while true {
     guard let c = try nextByte() else {
       if shift == 0 {
-        throw SwiftProtobufError.BinaryDecoding.noBytesAvailable
+        throw SwiftProtobufError.BinaryDecoding.noBytesAvailable()
       }
-      throw SwiftProtobufError.BinaryDecoding.truncated
+      throw SwiftProtobufError.BinaryDecoding.truncated()
     }
     value |= UInt64(c & 0x7f) << shift
     if c & 0x80 == 0 {
@@ -285,7 +306,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
     shift += 7
     if shift > 63 {
-      throw SwiftProtobufError.BinaryDecoding.malformedLength
+      throw SwiftProtobufError.BinaryDecoding.malformedLength()
     }
   }
 }

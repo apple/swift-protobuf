@@ -166,7 +166,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
     if let names = parseJSONFieldNames(names: s) {
       paths = names
     } else {
-      throw SwiftProtobufError.JSONDecoding.malformedFieldMask
+      throw SwiftProtobufError.JSONDecoding.malformedFieldMask()
     }
   }
 
@@ -178,7 +178,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
       if let jsonPath = ProtoToJSON(name: p) {
         jsonPaths.append(jsonPath)
       } else {
-        throw SwiftProtobufError.JSONEncoding.fieldMaskConversion
+        throw SwiftProtobufError.JSONEncoding.fieldMaskConversion()
       }
     }
     return "\"" + jsonPaths.joined(separator: ",") + "\""

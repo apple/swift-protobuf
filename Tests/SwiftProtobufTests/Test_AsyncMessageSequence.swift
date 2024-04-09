@@ -126,7 +126,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated) {
+      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()) {
         truncatedThrown = true
       }
     }
@@ -142,7 +142,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an invalid stream.")
       }
     } catch {
-      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.tooLarge))
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.tooLarge()))
     }
   }
   
@@ -157,7 +157,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated) {
+      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()) {
         truncatedThrown = true
       }
     }
@@ -189,7 +189,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
       }
       XCTAssertEqual(count, 1, "One message should be deserialized")
     } catch {
-      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated) {
+      if self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.truncated()) {
         truncatedThrown = true
       }
     }

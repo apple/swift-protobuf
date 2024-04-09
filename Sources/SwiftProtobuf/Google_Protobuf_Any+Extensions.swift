@@ -43,7 +43,7 @@ extension Google_Protobuf_Any {
     typePrefix: String = defaultAnyTypeURLPrefix
   ) throws {
     if !partial && !message.isInitialized {
-      throw SwiftProtobufError.BinaryEncoding.missingRequiredFields
+      throw SwiftProtobufError.BinaryEncoding.missingRequiredFields()
     }
     self.init()
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
@@ -78,7 +78,7 @@ extension Google_Protobuf_Any {
               extensions: extensions)
             try decodeTextFormat(decoder: &textDecoder)
             if !textDecoder.complete {
-              throw SwiftProtobufError.TextFormatDecoding.trailingGarbage
+              throw SwiftProtobufError.TextFormatDecoding.trailingGarbage()
             }
           }
         }

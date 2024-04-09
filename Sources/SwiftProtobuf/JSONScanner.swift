@@ -122,7 +122,7 @@ private func parseBytes(
 ) throws -> Data {
     let c = source[index]
     if c != asciiDoubleQuote {
-        throw SwiftProtobufError.JSONDecoding.malformedString
+      throw SwiftProtobufError.JSONDecoding.malformedString()
     }
     source.formIndex(after: &index)
 
@@ -142,7 +142,7 @@ private func parseBytes(
         if digit == asciiBackslash {
             source.formIndex(after: &index)
             if index == end {
-                throw SwiftProtobufError.JSONDecoding.malformedString
+              throw SwiftProtobufError.JSONDecoding.malformedString()
             }
             let escaped = source[index]
             switch escaped {
@@ -150,12 +150,12 @@ private func parseBytes(
                 // TODO: Parse hex escapes such as \u0041.  Note that
                 // such escapes are going to be extremely rare, so
                 // there's little point in optimizing for them.
-                throw SwiftProtobufError.JSONDecoding.malformedString
+              throw SwiftProtobufError.JSONDecoding.malformedString()
             case asciiForwardSlash:
                 digit = escaped
             default:
                 // Reject \b \f \n \r \t \" or \\ and all illegal escapes
-              throw SwiftProtobufError.JSONDecoding.malformedString
+              throw SwiftProtobufError.JSONDecoding.malformedString()
             }
         }
 
@@ -173,11 +173,11 @@ private func parseBytes(
 
     // We reached the end without seeing the close quote
     if index == end {
-        throw SwiftProtobufError.JSONDecoding.malformedString
+      throw SwiftProtobufError.JSONDecoding.malformedString()
     }
     // Reject mixed encodings.
     if sawSection4Characters && sawSection5Characters {
-      throw SwiftProtobufError.JSONDecoding.malformedString
+      throw SwiftProtobufError.JSONDecoding.malformedString()
     }
 
     // Allocate a Data object of exactly the right size
@@ -211,7 +211,7 @@ private func parseBytes(
                     default:
                         // Note: Invalid backslash escapes were caught
                         // above; we should never get here.
-                      throw SwiftProtobufError.JSONDecoding.malformedString
+                        throw SwiftProtobufError.JSONDecoding.malformedString()
                     }
                 case asciiSpace:
                     source.formIndex(after: &index)
@@ -226,12 +226,12 @@ private func parseBytes(
                         case 61:
                             padding += 1
                         default: // Only '=' and whitespace permitted
-                          throw SwiftProtobufError.JSONDecoding.malformedString
+                            throw SwiftProtobufError.JSONDecoding.malformedString()
                         }
                         source.formIndex(after: &index)
                     }
                 default:
-                  throw SwiftProtobufError.JSONDecoding.malformedString
+                    throw SwiftProtobufError.JSONDecoding.malformedString()
                 }
             }
             n <<= 6
@@ -266,7 +266,7 @@ private func parseBytes(
         default:
             break
         }
-        throw SwiftProtobufError.JSONDecoding.malformedString
+        throw SwiftProtobufError.JSONDecoding.malformedString()
       }
     }
     source.formIndex(after: &index)
@@ -412,7 +412,7 @@ internal struct JSONScanner {
   internal mutating func incrementRecursionDepth() throws {
     recursionBudget -= 1
     if recursionBudget < 0 {
-      throw SwiftProtobufError.JSONDecoding.messageDepthLimit
+      throw SwiftProtobufError.JSONDecoding.messageDepthLimit()
     }
   }
 
@@ -449,7 +449,7 @@ internal struct JSONScanner {
   internal mutating func peekOneCharacter() throws -> Character {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     return Character(UnicodeScalar(UInt32(currentByte))!)
   }
@@ -487,7 +487,7 @@ internal struct JSONScanner {
     end: UnsafeRawBufferPointer.Index
   ) throws -> UInt64? {
     if index == end {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let start = index
     let c = source[index]
@@ -499,7 +499,7 @@ internal struct JSONScanner {
         switch after {
         case asciiZero...asciiNine: // 0...9
           // leading '0' forbidden unless it is the only digit
-          throw SwiftProtobufError.JSONDecoding.leadingZero
+          throw SwiftProtobufError.JSONDecoding.leadingZero()
         case asciiPeriod, asciiLowerE, asciiUpperE: // . e
           // Slow path: JSON numbers can be written in floating-point notation
           index = start
@@ -510,7 +510,7 @@ internal struct JSONScanner {
               return u
             }
           }
-          throw SwiftProtobufError.JSONDecoding.malformedNumber
+          throw SwiftProtobufError.JSONDecoding.malformedNumber()
         case asciiBackslash:
           return nil
         default:
@@ -526,7 +526,7 @@ internal struct JSONScanner {
         case asciiZero...asciiNine: // 0...9
           let val = UInt64(digit - asciiZero)
           if n > UInt64.max / 10 || n * 10 > UInt64.max - val {
-            throw SwiftProtobufError.JSONDecoding.numberRange
+            throw SwiftProtobufError.JSONDecoding.numberRange()
           }
           source.formIndex(after: &index)
           n = n * 10 + val
@@ -540,7 +540,7 @@ internal struct JSONScanner {
               return u
             }
           }
-          throw SwiftProtobufError.JSONDecoding.malformedNumber
+          throw SwiftProtobufError.JSONDecoding.malformedNumber()
         case asciiBackslash:
           return nil
         default:
@@ -551,7 +551,7 @@ internal struct JSONScanner {
     case asciiBackslash:
       return nil
     default:
-      throw SwiftProtobufError.JSONDecoding.malformedNumber
+      throw SwiftProtobufError.JSONDecoding.malformedNumber()
     }
   }
 
@@ -572,25 +572,25 @@ internal struct JSONScanner {
     end: UnsafeRawBufferPointer.Index
   ) throws -> Int64? {
     if index == end {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = source[index]
     if c == asciiMinus { // -
       source.formIndex(after: &index)
       if index == end {
-        throw SwiftProtobufError.JSONDecoding.truncated
+        throw SwiftProtobufError.JSONDecoding.truncated()
       }
       // character after '-' must be digit
       let digit = source[index]
       if digit < asciiZero || digit > asciiNine {
-        throw SwiftProtobufError.JSONDecoding.malformedNumber
+        throw SwiftProtobufError.JSONDecoding.malformedNumber()
       }
       if let n = try parseBareUInt64(source: source, index: &index, end: end) {
         let limit: UInt64 = 0x8000000000000000 // -Int64.min
         if n >= limit {
           if n > limit {
             // Too large negative number
-            throw SwiftProtobufError.JSONDecoding.numberRange
+            throw SwiftProtobufError.JSONDecoding.numberRange()
           } else {
             return Int64.min // Special case for Int64.min
           }
@@ -601,7 +601,7 @@ internal struct JSONScanner {
       }
     } else if let n = try parseBareUInt64(source: source, index: &index, end: end) {
       if n > UInt64(bitPattern: Int64.max) {
-        throw SwiftProtobufError.JSONDecoding.numberRange
+        throw SwiftProtobufError.JSONDecoding.numberRange()
       }
       return Int64(bitPattern: n)
     } else {
@@ -628,7 +628,7 @@ internal struct JSONScanner {
     // RFC 7159 defines the grammar for JSON numbers as:
     // number = [ minus ] int [ frac ] [ exp ]
     if index == end {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let start = index
     var c = source[index]
@@ -641,7 +641,7 @@ internal struct JSONScanner {
       source.formIndex(after: &index)
       if index == end {
         index = start
-        throw SwiftProtobufError.JSONDecoding.truncated
+        throw SwiftProtobufError.JSONDecoding.truncated()
       }
       c = source[index]
       if c == asciiBackslash {
@@ -671,7 +671,7 @@ internal struct JSONScanner {
         return nil
       }
       if c >= asciiZero && c <= asciiNine {
-        throw SwiftProtobufError.JSONDecoding.leadingZero
+        throw SwiftProtobufError.JSONDecoding.leadingZero()
       }
     case asciiOne...asciiNine:
       while c >= asciiZero && c <= asciiNine {
@@ -680,7 +680,7 @@ internal struct JSONScanner {
           if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
             return d
           } else {
-            throw SwiftProtobufError.JSONDecoding.invalidUTF8
+            throw SwiftProtobufError.JSONDecoding.invalidUTF8()
           }
         }
         c = source[index]
@@ -690,7 +690,7 @@ internal struct JSONScanner {
       }
     default:
       // Integer part cannot be empty
-      throw SwiftProtobufError.JSONDecoding.malformedNumber
+      throw SwiftProtobufError.JSONDecoding.malformedNumber()
     }
 
     // frac = decimal-point 1*DIGIT
@@ -698,7 +698,7 @@ internal struct JSONScanner {
       source.formIndex(after: &index)
       if index == end {
         // decimal point must have a following digit
-        throw SwiftProtobufError.JSONDecoding.truncated
+        throw SwiftProtobufError.JSONDecoding.truncated()
       }
       c = source[index]
       switch c {
@@ -709,7 +709,7 @@ internal struct JSONScanner {
             if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
               return d
             } else {
-              throw SwiftProtobufError.JSONDecoding.invalidUTF8
+              throw SwiftProtobufError.JSONDecoding.invalidUTF8()
             }
           }
           c = source[index]
@@ -721,7 +721,7 @@ internal struct JSONScanner {
         return nil
       default:
         // decimal point must be followed by at least one digit
-        throw SwiftProtobufError.JSONDecoding.malformedNumber
+        throw SwiftProtobufError.JSONDecoding.malformedNumber()
       }
     }
 
@@ -730,7 +730,7 @@ internal struct JSONScanner {
       source.formIndex(after: &index)
       if index == end {
         // "e" must be followed by +,-, or digit
-        throw SwiftProtobufError.JSONDecoding.truncated
+        throw SwiftProtobufError.JSONDecoding.truncated()
       }
       c = source[index]
       if c == asciiBackslash {
@@ -740,7 +740,7 @@ internal struct JSONScanner {
         source.formIndex(after: &index)
         if index == end {
           // must be at least one digit in exponent
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         c = source[index]
         if c == asciiBackslash {
@@ -755,7 +755,7 @@ internal struct JSONScanner {
             if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
               return d
             } else {
-              throw SwiftProtobufError.JSONDecoding.invalidUTF8
+              throw SwiftProtobufError.JSONDecoding.invalidUTF8()
             }
           }
           c = source[index]
@@ -765,13 +765,13 @@ internal struct JSONScanner {
         }
       default:
         // must be at least one digit in exponent
-        throw SwiftProtobufError.JSONDecoding.malformedNumber
+        throw SwiftProtobufError.JSONDecoding.malformedNumber()
       }
     }
     if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
       return d
     } else {
-      throw SwiftProtobufError.JSONDecoding.invalidUTF8
+      throw SwiftProtobufError.JSONDecoding.invalidUTF8()
     }
   }
 
@@ -822,7 +822,7 @@ internal struct JSONScanner {
   internal mutating func nextUInt() throws -> UInt64 {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = currentByte
     if c == asciiDoubleQuote {
@@ -832,10 +832,10 @@ internal struct JSONScanner {
                                      index: &index,
                                      end: source.endIndex) {
         guard hasMoreContent else {
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         if currentByte != asciiDoubleQuote {
-          throw SwiftProtobufError.JSONDecoding.malformedNumber
+          throw SwiftProtobufError.JSONDecoding.malformedNumber()
         }
         advance()
         return u
@@ -870,7 +870,7 @@ internal struct JSONScanner {
                                           end: source.endIndex) {
       return u
     }
-    throw SwiftProtobufError.JSONDecoding.malformedNumber
+    throw SwiftProtobufError.JSONDecoding.malformedNumber()
   }
 
   /// Parse a signed integer, quoted or not, including handling
@@ -882,7 +882,7 @@ internal struct JSONScanner {
   internal mutating func nextSInt() throws -> Int64 {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = currentByte
     if c == asciiDoubleQuote {
@@ -892,10 +892,10 @@ internal struct JSONScanner {
                                      index: &index,
                                      end: source.endIndex) {
         guard hasMoreContent else {
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         if currentByte != asciiDoubleQuote {
-          throw SwiftProtobufError.JSONDecoding.malformedNumber
+          throw SwiftProtobufError.JSONDecoding.malformedNumber()
         }
         advance()
         return s
@@ -930,7 +930,7 @@ internal struct JSONScanner {
                                           end: source.endIndex) {
       return s
     }
-    throw SwiftProtobufError.JSONDecoding.malformedNumber
+    throw SwiftProtobufError.JSONDecoding.malformedNumber()
   }
 
   /// Parse the next Float value, regardless of whether it
@@ -939,7 +939,7 @@ internal struct JSONScanner {
   internal mutating func nextFloat() throws -> Float {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = currentByte
     if c == asciiDoubleQuote { // "
@@ -949,10 +949,10 @@ internal struct JSONScanner {
                                      index: &index,
                                      end: source.endIndex) {
         guard hasMoreContent else {
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         if currentByte != asciiDoubleQuote {
-          throw SwiftProtobufError.JSONDecoding.malformedNumber
+          throw SwiftProtobufError.JSONDecoding.malformedNumber()
         }
         advance()
         return Float(d)
@@ -1002,7 +1002,7 @@ internal struct JSONScanner {
         }
       }
     }
-    throw SwiftProtobufError.JSONDecoding.malformedNumber
+    throw SwiftProtobufError.JSONDecoding.malformedNumber()
   }
 
   /// Parse the next Double value, regardless of whether it
@@ -1011,7 +1011,7 @@ internal struct JSONScanner {
   internal mutating func nextDouble() throws -> Double {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = currentByte
     if c == asciiDoubleQuote { // "
@@ -1021,10 +1021,10 @@ internal struct JSONScanner {
                                      index: &index,
                                      end: source.endIndex) {
         guard hasMoreContent else {
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         if currentByte != asciiDoubleQuote {
-          throw SwiftProtobufError.JSONDecoding.malformedNumber
+          throw SwiftProtobufError.JSONDecoding.malformedNumber()
         }
         advance()
         return d
@@ -1070,7 +1070,7 @@ internal struct JSONScanner {
         return d
       }
     }
-    throw SwiftProtobufError.JSONDecoding.malformedNumber
+    throw SwiftProtobufError.JSONDecoding.malformedNumber()
   }
 
   /// Return the contents of the following quoted string,
@@ -1078,16 +1078,16 @@ internal struct JSONScanner {
   internal mutating func nextQuotedString() throws -> String {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = currentByte
     if c != asciiDoubleQuote {
-      throw SwiftProtobufError.JSONDecoding.malformedString
+      throw SwiftProtobufError.JSONDecoding.malformedString()
     }
     if let s = parseOptionalQuotedString() {
       return s
     } else {
-      throw SwiftProtobufError.JSONDecoding.malformedString
+      throw SwiftProtobufError.JSONDecoding.malformedString()
     }
   }
 
@@ -1121,7 +1121,7 @@ internal struct JSONScanner {
   internal mutating func nextBytesValue() throws -> Data {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     return try parseBytes(source: source, index: &index, end: source.endIndex)
   }
@@ -1169,7 +1169,7 @@ internal struct JSONScanner {
   internal mutating func nextBool() throws -> Bool {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let c = currentByte
     switch c {
@@ -1188,7 +1188,7 @@ internal struct JSONScanner {
     default:
       break
     }
-    throw SwiftProtobufError.JSONDecoding.malformedBool
+    throw SwiftProtobufError.JSONDecoding.malformedBool()
   }
 
   /// Return the following Bool "true" or "false", including
@@ -1197,10 +1197,10 @@ internal struct JSONScanner {
   internal mutating func nextQuotedBool() throws -> Bool {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     if currentByte != asciiDoubleQuote {
-      throw SwiftProtobufError.JSONDecoding.unquotedMapKey
+      throw SwiftProtobufError.JSONDecoding.unquotedMapKey()
     }
     if let s = parseOptionalQuotedString() {
       switch s {
@@ -1209,7 +1209,7 @@ internal struct JSONScanner {
       default: break
       }
     }
-    throw SwiftProtobufError.JSONDecoding.malformedBool
+    throw SwiftProtobufError.JSONDecoding.malformedBool()
   }
 
   /// Returns pointer/count spanning the UTF8 bytes of the next regular
@@ -1219,7 +1219,7 @@ internal struct JSONScanner {
     skipWhitespace()
     let stringStart = index
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     if currentByte != asciiDoubleQuote {
       return nil
@@ -1234,7 +1234,7 @@ internal struct JSONScanner {
       advance()
     }
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let buff = UnsafeRawBufferPointer(
       start: source.baseAddress! + nameStart,
@@ -1265,7 +1265,7 @@ internal struct JSONScanner {
         if let s = utf8ToString(bytes: key.baseAddress!, count: key.count) {
           fieldName = s
         } else {
-          throw SwiftProtobufError.JSONDecoding.invalidUTF8
+          throw SwiftProtobufError.JSONDecoding.invalidUTF8()
         }
       } else {
         // Slow path:  We parsed a String; lookups from String are slower.
@@ -1304,12 +1304,12 @@ internal struct JSONScanner {
       if options.ignoreUnknownFields {
         return nil
       } else {
-        throw SwiftProtobufError.JSONDecoding.unrecognizedEnumValue
+        throw SwiftProtobufError.JSONDecoding.unrecognizedEnumValue()
       }
     }
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     if currentByte == asciiDoubleQuote {
       if let name = try nextOptionalKey() {
@@ -1334,7 +1334,7 @@ internal struct JSONScanner {
           return try throwOrIgnore()
         }
       } else {
-        throw SwiftProtobufError.JSONDecoding.numberRange
+        throw SwiftProtobufError.JSONDecoding.numberRange()
       }
     }
   }
@@ -1343,14 +1343,14 @@ internal struct JSONScanner {
   private mutating func skipRequiredCharacter(_ required: UInt8) throws {
     skipWhitespace()
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     let next = currentByte
     if next == required {
       advance()
       return
     }
-    throw SwiftProtobufError.JSONDecoding.failure
+    throw SwiftProtobufError.JSONDecoding.failure()
   }
 
   /// Skip "{", throw if that's not the next character
@@ -1419,7 +1419,7 @@ internal struct JSONScanner {
     if let s = utf8ToString(bytes: source, start: start, end: index) {
       return s
     } else {
-      throw SwiftProtobufError.JSONDecoding.invalidUTF8
+      throw SwiftProtobufError.JSONDecoding.invalidUTF8()
     }
   }
 
@@ -1437,7 +1437,7 @@ internal struct JSONScanner {
             arrayDepth += 1
         }
         guard hasMoreContent else {
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         switch currentByte {
         case asciiDoubleQuote: // " begins a string
@@ -1446,7 +1446,7 @@ internal struct JSONScanner {
             try skipObject()
         case asciiCloseSquareBracket: // ] ends an empty array
             if arrayDepth == 0 {
-              throw SwiftProtobufError.JSONDecoding.failure
+              throw SwiftProtobufError.JSONDecoding.failure()
             }
             // We also close out [[]] or [[[]]] here
             while arrayDepth > 0 && skipOptionalArrayEnd() {
@@ -1456,19 +1456,19 @@ internal struct JSONScanner {
             if !skipOptionalKeyword(bytes: [
                 asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
             ]) {
-              throw SwiftProtobufError.JSONDecoding.truncated
+              throw SwiftProtobufError.JSONDecoding.truncated()
             }
         case asciiLowerF: // f must be false
             if !skipOptionalKeyword(bytes: [
                 asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
             ]) {
-              throw SwiftProtobufError.JSONDecoding.truncated
+              throw SwiftProtobufError.JSONDecoding.truncated()
             }
         case asciiLowerT: // t must be true
             if !skipOptionalKeyword(bytes: [
                 asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
             ]) {
-              throw SwiftProtobufError.JSONDecoding.truncated
+              throw SwiftProtobufError.JSONDecoding.truncated()
             }
         default: // everything else is a number token
             _ = try nextDouble()
@@ -1516,10 +1516,10 @@ internal struct JSONScanner {
   // schema mismatches or other issues.
   private mutating func skipString() throws {
     guard hasMoreContent else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     if currentByte != asciiDoubleQuote {
-      throw SwiftProtobufError.JSONDecoding.malformedString
+      throw SwiftProtobufError.JSONDecoding.malformedString()
     }
     advance()
     while hasMoreContent {
@@ -1531,13 +1531,13 @@ internal struct JSONScanner {
       case asciiBackslash:
         advance()
         guard hasMoreContent else {
-          throw SwiftProtobufError.JSONDecoding.truncated
+          throw SwiftProtobufError.JSONDecoding.truncated()
         }
         advance()
       default:
         advance()
       }
     }
-    throw SwiftProtobufError.JSONDecoding.truncated
+    throw SwiftProtobufError.JSONDecoding.truncated()
   }
 }

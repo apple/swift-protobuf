@@ -87,12 +87,12 @@ extension Message {
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     if jsonString.isEmpty {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
       return try array(fromJSONUTF8Bytes: data, extensions: extensions, options: options)
     } else {
-      throw SwiftProtobufError.JSONDecoding.truncated
+      throw SwiftProtobufError.JSONDecoding.truncated()
     }
   }
 
@@ -135,7 +135,7 @@ extension Message {
           messageType: Self.self, extensions: extensions)
         try decoder.decodeRepeatedMessageField(value: &array)
         if !decoder.scanner.complete {
-          throw SwiftProtobufError.JSONDecoding.trailingGarbage
+          throw SwiftProtobufError.JSONDecoding.trailingGarbage()
         }
       }
 

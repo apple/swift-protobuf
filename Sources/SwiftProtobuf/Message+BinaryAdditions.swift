@@ -34,7 +34,7 @@ extension Message {
     options: BinaryEncodingOptions = BinaryEncodingOptions()
   ) throws -> Bytes {
     if !partial && !isInitialized {
-      throw SwiftProtobufError.BinaryEncoding.missingRequiredFields
+      throw SwiftProtobufError.BinaryEncoding.missingRequiredFields()
     }
 
     // Note that this assumes `options` will not change the required size.
@@ -48,7 +48,7 @@ extension Message {
     // the places that encode message fields (or strings/bytes fields), keeping
     // the overhead of the check to a minimum.
     guard requiredSize < 0x7fffffff else {
-      throw SwiftProtobufError.BinaryEncoding.tooLarge
+      throw SwiftProtobufError.BinaryEncoding.tooLarge()
     }
 
     var data = Bytes(repeating: 0, count: requiredSize)
@@ -149,7 +149,7 @@ extension Message {
       try decoder.decodeFullMessage(message: &self)
     }
     if !partial && !isInitialized {
-      throw SwiftProtobufError.BinaryDecoding.missingRequiredFields
+      throw SwiftProtobufError.BinaryDecoding.missingRequiredFields()
     }
   }
 }

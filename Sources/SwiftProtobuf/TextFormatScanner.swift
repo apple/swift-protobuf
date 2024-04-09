@@ -270,7 +270,7 @@ internal struct TextFormatScanner {
     private mutating func incrementRecursionDepth() throws {
         recursionBudget -= 1
         if recursionBudget < 0 {
-            throw SwiftProtobufError.TextFormatDecoding.messageDepthLimit
+          throw SwiftProtobufError.TextFormatDecoding.messageDepthLimit()
         }
     }
 
@@ -355,7 +355,7 @@ internal struct TextFormatScanner {
         switch byte {
         case asciiNewLine, asciiCarriageReturn:
           // Can't have a newline in the middle of a bytes string.
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         case asciiBackslash: //  "\\"
           sawBackslash = true
           if p != end {
@@ -369,7 +369,7 @@ internal struct TextFormatScanner {
                   if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
                     if escaped > asciiThree {
                        // Out of range octal: three digits and first digit is greater than 3
-                        throw SwiftProtobufError.TextFormatDecoding.malformedText
+                      throw SwiftProtobufError.TextFormatDecoding.malformedText()
                     }
                     p += 1
                   }
@@ -378,14 +378,14 @@ internal struct TextFormatScanner {
               case asciiLowerU, asciiUpperU: // 'u' or 'U' unicode escape
                 let numDigits = (escaped == asciiLowerU) ? 4 : 8
                 guard (end - p) >= numDigits else {
-                    throw SwiftProtobufError.TextFormatDecoding.malformedText // unicode escape must 4/8 digits
+                  throw SwiftProtobufError.TextFormatDecoding.malformedText() // unicode escape must 4/8 digits
                 }
                 var codePoint: UInt32 = 0
                 for i in 0..<numDigits {
                   if let digit = uint32FromHexDigit(p[i]) {
                     codePoint = (codePoint << 4) + digit
                   } else {
-                      throw SwiftProtobufError.TextFormatDecoding.malformedText // wasn't a hex digit
+                    throw SwiftProtobufError.TextFormatDecoding.malformedText() // wasn't a hex digit
                   }
                 }
                 p += numDigits
@@ -398,7 +398,7 @@ internal struct TextFormatScanner {
                   count += 2
                 case 0xD800...0xDFFF:
                   // Surrogate pair (low or high), shouldn't get a unicode literal of those.
-                    throw SwiftProtobufError.TextFormatDecoding.malformedText
+                  throw SwiftProtobufError.TextFormatDecoding.malformedText()
                 case 0x800...0xffff:
                   // 3 byte encoding
                   count += 3
@@ -406,7 +406,7 @@ internal struct TextFormatScanner {
                   // 4 byte encoding
                   count += 4
                 default:
-                    throw SwiftProtobufError.TextFormatDecoding.malformedText // Isn't a valid unicode character
+                  throw SwiftProtobufError.TextFormatDecoding.malformedText() // Isn't a valid unicode character
                 }
               case asciiLowerX: // 'x' hexadecimal escape
                 if p != end && fromHexDigit(p[0]) != nil {
@@ -415,7 +415,7 @@ internal struct TextFormatScanner {
                     p += 1
                   }
                 } else {
-                    throw SwiftProtobufError.TextFormatDecoding.malformedText // Hex escape must have at least 1 digit
+                  throw SwiftProtobufError.TextFormatDecoding.malformedText() // Hex escape must have at least 1 digit
                 }
                 count += 1
               case asciiLowerA, // \a ("alert")
@@ -431,14 +431,14 @@ internal struct TextFormatScanner {
                    asciiBackslash: // \\
                 count += 1
               default:
-                throw SwiftProtobufError.TextFormatDecoding.malformedText // Unrecognized escape
+              throw SwiftProtobufError.TextFormatDecoding.malformedText() // Unrecognized escape
             }
           }
         default:
           count += 1
         }
       }
-        throw SwiftProtobufError.TextFormatDecoding.malformedText
+      throw SwiftProtobufError.TextFormatDecoding.malformedText()
     }
 
     /// Protobuf Text format uses C ASCII conventions for
@@ -592,7 +592,7 @@ internal struct TextFormatScanner {
 
     internal mutating func nextUInt() throws -> UInt64 {
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+          throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
         }
         let c = p[0]
         p += 1
@@ -619,7 +619,7 @@ internal struct TextFormatScanner {
                         return n
                     }
                     if n > UInt64.max / 16 {
-                        throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+                      throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
                     }
                     p += 1
                     n = n * 16 + val
@@ -636,7 +636,7 @@ internal struct TextFormatScanner {
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
-                        throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+                      throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
                     }
                     p += 1
                     n = n * 8 + val
@@ -654,7 +654,7 @@ internal struct TextFormatScanner {
                 }
                 let val = UInt64(digit - asciiZero)
                 if n > UInt64.max / 10 || n * 10 > UInt64.max - val {
-                    throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+                  throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
                 }
                 p += 1
                 n = n * 10 + val
@@ -662,30 +662,30 @@ internal struct TextFormatScanner {
             skipWhitespace()
             return n
         }
-        throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+      throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
     }
 
     internal mutating func nextSInt() throws -> Int64 {
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+          throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
         }
         let c = p[0]
         if c == asciiMinus { // -
             p += 1
             if p == end {
-                throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+              throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
             }
             // character after '-' must be digit
             let digit = p[0]
             if digit < asciiZero || digit > asciiNine {
-                throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+              throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
             }
             let n = try nextUInt()
             let limit: UInt64 = 0x8000000000000000 // -Int64.min
             if n >= limit {
                 if n > limit {
                     // Too large negative number
-                    throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+                  throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
                 } else {
                     return Int64.min // Special case for Int64.min
                 }
@@ -694,7 +694,7 @@ internal struct TextFormatScanner {
         } else {
             let n = try nextUInt()
             if n > UInt64(bitPattern: Int64.max) {
-                throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+              throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
             }
             return Int64(bitPattern: n)
         }
@@ -704,17 +704,17 @@ internal struct TextFormatScanner {
         var result: String
         skipWhitespace()
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         let c = p[0]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         p += 1
         if let s = parseStringSegment(terminator: c) {
             result = s
         } else {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
 
         while true {
@@ -729,7 +729,7 @@ internal struct TextFormatScanner {
             if let s = parseStringSegment(terminator: c) {
                 result.append(s)
             } else {
-                throw SwiftProtobufError.TextFormatDecoding.malformedText
+              throw SwiftProtobufError.TextFormatDecoding.malformedText()
             }
         }
     }
@@ -744,11 +744,11 @@ internal struct TextFormatScanner {
         var result: Data
         skipWhitespace()
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         let c = p[0]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         p += 1
         var sawBackslash = false
@@ -947,7 +947,7 @@ internal struct TextFormatScanner {
         if let inf = skipOptionalInfinity() {
             return inf
         }
-        throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+      throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
     }
 
     internal mutating func nextDouble() throws -> Double {
@@ -960,13 +960,13 @@ internal struct TextFormatScanner {
         if let inf = skipOptionalInfinity() {
             return Double(inf)
         }
-        throw SwiftProtobufError.TextFormatDecoding.malformedNumber
+      throw SwiftProtobufError.TextFormatDecoding.malformedNumber()
     }
 
     internal mutating func nextBool() throws -> Bool {
         skipWhitespace()
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         let c = p[0]
         p += 1
@@ -989,7 +989,7 @@ internal struct TextFormatScanner {
             }
             result = true
         default:
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         if p == end {
             return result
@@ -1008,14 +1008,14 @@ internal struct TextFormatScanner {
             skipWhitespace()
             return result
         default:
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
     }
 
     internal mutating func nextOptionalEnumName() throws -> UnsafeRawBufferPointer? {
         skipWhitespace()
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         switch p[0] {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
@@ -1060,14 +1060,14 @@ internal struct TextFormatScanner {
         assert(p[0] == asciiOpenSquareBracket)
         p += 1
         if p == end {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+            throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         let start = p
         switch p[0] {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
             p += 1
         default:
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+            throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         loop: while p != end {
             switch p[0] {
@@ -1081,14 +1081,14 @@ internal struct TextFormatScanner {
             case asciiCloseSquareBracket: // ]
                 break loop
             default:
-                throw SwiftProtobufError.TextFormatDecoding.malformedText
+                throw SwiftProtobufError.TextFormatDecoding.malformedText()
             }
         }
         if p == end || p[0] != asciiCloseSquareBracket {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+            throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         guard let extensionName = utf8ToString(bytes: start, count: p - start) else {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+            throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
         p += 1  // Skip ]
         skipWhitespace()
@@ -1107,7 +1107,7 @@ internal struct TextFormatScanner {
             if allowExtensions {
                 return "[\(try parseExtensionKey())]"
             }
-            throw SwiftProtobufError.TextFormatDecoding.unknownField
+            throw SwiftProtobufError.TextFormatDecoding.unknownField()
         case asciiLowerA...asciiLowerZ,
              asciiUpperA...asciiUpperZ: // a...z, A...Z
             return parseIdentifier()
@@ -1130,7 +1130,7 @@ internal struct TextFormatScanner {
             // Safe, can't be invalid UTF-8 given the input.
             return s!
         default:
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
     }
 
@@ -1156,7 +1156,7 @@ internal struct TextFormatScanner {
                     return nil
                 } else {
                     // Never got the terminator.
-                    throw SwiftProtobufError.TextFormatDecoding.malformedText
+                    throw SwiftProtobufError.TextFormatDecoding.malformedText()
                 }
             }
             let c = p[0]
@@ -1350,12 +1350,12 @@ internal struct TextFormatScanner {
         let terminator = try skipObjectStart()
         while !skipOptionalObjectEnd(terminator) {
             if p == end {
-                throw TextFormatDecodingError.malformedText
+                throw SwiftProtobufError.TextFormatDecoding.malformedText()
             }
             if let _ = try nextKey(allowExtensions: true) {
                 // Got a valid field name or extension name ("[ext.name]")
             } else {
-                throw TextFormatDecodingError.malformedText
+                throw SwiftProtobufError.TextFormatDecoding.malformedText()
             }
             try skipUnknownFieldValue()
             skipOptionalSeparator()
@@ -1368,7 +1368,7 @@ internal struct TextFormatScanner {
             p += 1
             skipWhitespace()
         } else {
-            throw SwiftProtobufError.TextFormatDecoding.malformedText
+          throw SwiftProtobufError.TextFormatDecoding.malformedText()
         }
     }
 
@@ -1436,6 +1436,6 @@ internal struct TextFormatScanner {
                 break
             }
         }
-        throw SwiftProtobufError.TextFormatDecoding.malformedText
+      throw SwiftProtobufError.TextFormatDecoding.malformedText()
     }
 }

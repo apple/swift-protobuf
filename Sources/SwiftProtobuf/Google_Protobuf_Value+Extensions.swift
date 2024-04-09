@@ -80,7 +80,7 @@ extension Google_Protobuf_Value: _CustomJSONCodable {
     switch c {
     case "n":
       if !decoder.scanner.skipOptionalNull() {
-        throw SwiftProtobufError.JSONDecoding.failure
+        throw SwiftProtobufError.JSONDecoding.failure()
       }
       kind = .nullValue(.nullValue)
     case "[":
@@ -154,14 +154,14 @@ extension Google_Protobuf_Value {
     case .nullValue?: encoder.putNullValue()
     case .numberValue(let v)?:
       guard v.isFinite else {
-        throw SwiftProtobufError.JSONEncoding.valueNumberNotFinite
+        throw SwiftProtobufError.JSONEncoding.valueNumberNotFinite()
       }
       encoder.putDoubleValue(value: v)
     case .stringValue(let v)?: encoder.putStringValue(value: v)
     case .boolValue(let v)?: encoder.putNonQuotedBoolValue(value: v)
     case .structValue(let v)?: encoder.append(text: try v.jsonString(options: options))
     case .listValue(let v)?: encoder.append(text: try v.jsonString(options: options))
-    case nil: throw SwiftProtobufError.JSONEncoding.missingValue
+    case nil: throw SwiftProtobufError.JSONEncoding.missingValue()
     }
   }
 }

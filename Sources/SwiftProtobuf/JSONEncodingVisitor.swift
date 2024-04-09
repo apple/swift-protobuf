@@ -38,7 +38,7 @@ internal struct JSONEncodingVisitor: Visitor {
     if let nameProviding = type as? any _ProtoNameProviding.Type {
       self.nameMap = nameProviding._protobuf_nameMap
     } else {
-      throw SwiftProtobufError.JSONEncoding.missingFieldNames
+      throw SwiftProtobufError.JSONEncoding.missingFieldNames()
     }
     self.options = options
   }
@@ -186,7 +186,7 @@ internal struct JSONEncodingVisitor: Visitor {
       self.nameMap = oldNameMap
       self.extensions = oldExtensions
     } else {
-      throw SwiftProtobufError.JSONEncoding.missingFieldNames
+      throw SwiftProtobufError.JSONEncoding.missingFieldNames()
     }
   }
 
@@ -345,7 +345,7 @@ internal struct JSONEncodingVisitor: Visitor {
       self.nameMap = oldNameMap
       self.extensions = oldExtensions
     } else {
-      throw SwiftProtobufError.JSONEncoding.missingFieldNames
+      throw SwiftProtobufError.JSONEncoding.missingFieldNames()
     }
     encoder.endArray()
   }
@@ -421,7 +421,7 @@ internal struct JSONEncodingVisitor: Visitor {
     } else if let name = extensions?[number]?.protobufExtension.fieldName {
         encoder.startExtensionField(name: name)
     } else {
-        throw SwiftProtobufError.JSONEncoding.missingFieldNames
+      throw SwiftProtobufError.JSONEncoding.missingFieldNames()
     }
   }
 }
