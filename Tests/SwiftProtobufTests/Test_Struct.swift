@@ -221,7 +221,7 @@ final class Test_JSON_Value: XCTestCase, PBTestHelpers {
         do {
             _ = try empty.jsonString()
             XCTFail("Encoding should have thrown .missingValue, but it succeeded")
-        } catch let error as SwiftProtobufError where error == .JSONEncoding.missingValue {
+        } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .JSONEncoding.missingValue) {
             // Nothing to do here; this is the expected error.
         } catch {
             XCTFail("Encoding should have thrown .missingValue, but instead it threw: \(error)")

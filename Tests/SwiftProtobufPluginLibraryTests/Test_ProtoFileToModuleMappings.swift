@@ -122,7 +122,8 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
         let _ = try ProtoFileToModuleMappings(moduleMappingsProto: config)
         XCTFail("Shouldn't have gotten here, index \(idx)")
       } catch let error as SwiftProtobufError {
-        XCTAssertEqual(error, expected, "Index \(idx)")
+        XCTAssertEqual(error.code, expected.code, "Index \(idx)")
+        XCTAssertEqual(error.message, expected.message, "Index \(idx)")
       } catch let error {
         XCTFail("Index \(idx) - Unexpected error: \(error)")
       }

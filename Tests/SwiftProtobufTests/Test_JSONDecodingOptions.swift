@@ -46,7 +46,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
-                } catch let error as SwiftProtobufError where error == .JSONDecoding.messageDepthLimit {
+                } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .JSONDecoding.messageDepthLimit) {
                     if expectSuccess {
                         XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
                     } else {
@@ -149,7 +149,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                                                               options:options)
                 XCTAssertTrue(isValidJSON,
                               "Input \(i): Should not have been able to parse: \(jsonInput)")
-            } catch let error as SwiftProtobufError where error == .JSONDecoding.unknownField("unknown") {
+            } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .JSONDecoding.unknownField("unknown")) {
                 XCTFail("Input \(i): should not have gotten unknown field, input \(jsonInput)")
             } catch let e {
                 XCTAssertFalse(isValidJSON,

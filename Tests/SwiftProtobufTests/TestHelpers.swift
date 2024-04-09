@@ -400,14 +400,8 @@ extension XCTestCase {
 #endif
     }
     
-    func assertSwiftProtobufError(_ error: any Error, code: SwiftProtobufError.Code, message: String) {
-        let actualError = error as! SwiftProtobufError
-        let expectedError = SwiftProtobufError(
-            code: code,
-            message: message
-        )
-        XCTAssertEqual(actualError.code, expectedError.code)
-        XCTAssertEqual(actualError.message, expectedError.message)
+    func isSwiftProtobufErrorEqual(_ actual: SwiftProtobufError, _ expected: SwiftProtobufError) -> Bool {
+        (actual.code == expected.code) && (actual.message == expected.message)
     }
 }
 

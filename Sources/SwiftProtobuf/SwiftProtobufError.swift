@@ -16,7 +16,7 @@
 /// Errors also include a message describing what went wrong and how to remedy it (if applicable). The
 /// ``SwiftProtobufError/message`` is not static and may include dynamic information such as the
 /// type URL for a type that could not be decoded, for example.
-public struct SwiftProtobufError: Error, Equatable, @unchecked Sendable {
+public struct SwiftProtobufError: Error, @unchecked Sendable {
     // Note: @unchecked because we use a backing class for storage.
 
     private var storage: Storage
@@ -26,7 +26,7 @@ public struct SwiftProtobufError: Error, Equatable, @unchecked Sendable {
         }
     }
     
-    private final class Storage: Equatable {
+    private final class Storage {
         var code: Code
         var message: String
 
@@ -36,13 +36,6 @@ public struct SwiftProtobufError: Error, Equatable, @unchecked Sendable {
         ) {
             self.code = code
             self.message = message
-        }
-        
-        static func == (
-            lhs: SwiftProtobufError.Storage,
-            rhs: SwiftProtobufError.Storage
-        ) -> Bool {
-            lhs.code == rhs.code && lhs.message == rhs.message
         }
 
         func copy() -> Self {
