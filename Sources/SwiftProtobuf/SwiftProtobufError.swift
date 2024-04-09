@@ -88,8 +88,8 @@ extension SwiftProtobufError {
             case jsonEncodingError
             case jsonDecodingError
             case textFormatDecodingError
-            case anyUnpackError
-            case protoFileToModuleMappingError
+            case invalidArgument
+            case internalError
 
             var description: String {
                 switch self {
@@ -103,10 +103,10 @@ extension SwiftProtobufError {
                     return "JSON decoding error"
                 case .textFormatDecodingError:
                     return "Text format decoding error"
-                case .anyUnpackError:
-                    return "Error unpacking a Google_Protobuf_Any message"
-                case .protoFileToModuleMappingError:
-                    return "Error with proto file to module mapping"
+                case .invalidArgument:
+                    return "An argument provided by the user is invalid"
+                case .internalError:
+                    return "Other internal error"
                 }
             }
         }
@@ -140,12 +140,12 @@ extension SwiftProtobufError {
             Self(.textFormatDecodingError)
         }
         
-        public static var anyUnpackError: Self {
-            Self(.anyUnpackError)
+        public static var invalidArgument: Self {
+            Self(.invalidArgument)
         }
         
-        public static var protoFileToModuleMappingError: Self {
-            Self(.protoFileToModuleMappingError)
+        public static var internalError: Self {
+            Self(.internalError)
         }
     }
 
@@ -591,7 +591,7 @@ extension SwiftProtobufError {
         /// The `type_url` field in the `Google_Protobuf_Any` message did not match
         /// the message type provided to the `unpack()` method.
         public static let typeMismatch = SwiftProtobufError(
-            code: .anyUnpackError,
+            code: .invalidArgument,
             message: """
                 The `type_url` field in the `Google_Protobuf_Any` message did not match
                 the message type provided to the `unpack()` method.
@@ -602,7 +602,7 @@ extension SwiftProtobufError {
         /// `@type` field and a `value` field containing the specialized JSON coding
         /// of the well-known type.
         public static let malformedWellKnownTypeJSON = SwiftProtobufError(
-            code: .anyUnpackError,
+            code: .jsonDecodingError,
             message: """
                 Malformed JSON type: well-known types being decoded from JSON must have only two fields:
                 the `@type` field and a `value` field containing the specialized JSON coding
@@ -613,7 +613,7 @@ extension SwiftProtobufError {
         /// The `Google_Protobuf_Any` message was malformed in some other way not
         /// covered by the other error cases.
         public static let malformedAnyField = SwiftProtobufError(
-            code: .anyUnpackError,
+            code: .internalError,
             message: "The `Google_Protobuf_Any` message was malformed."
         )
     }

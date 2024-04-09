@@ -34,7 +34,7 @@ extension Message {
   /// of the message.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
-  /// serializing to JSON.
+  /// serializing to text format.
   ///
   /// - Returns: A string containing the text format serialization of the message.
   /// - Parameters:
