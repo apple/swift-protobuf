@@ -748,6 +748,7 @@ extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobuf.Message, Swif
 extension ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RawMessageSet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "item"),
     1: .unique(proto: "Item", json: "item"),
   ]
 

@@ -1078,6 +1078,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
     117: .standard(proto: "oneof_float"),
     118: .standard(proto: "oneof_double"),
     119: .standard(proto: "oneof_enum"),
+    201: .same(proto: "groupliketype"),
     201: .unique(proto: "GroupLikeType", json: "groupliketype"),
     202: .standard(proto: "delimited_field"),
   ]

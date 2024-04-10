@@ -482,7 +482,9 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "outer_a"),
+    2: .same(proto: "subgroup1"),
     2: .unique(proto: "SubGroup1", json: "subgroup1"),
+    3: .same(proto: "subgroup3"),
     3: .unique(proto: "SubGroup3", json: "subgroup3"),
   ]
 
@@ -530,6 +532,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftP
   static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sub1_a"),
+    2: .same(proto: "subgroup2"),
     2: .unique(proto: "SubGroup2", json: "subgroup2"),
   ]
 
@@ -608,6 +611,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
   static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sub3_a"),
+    2: .same(proto: "subgroup4"),
     2: .unique(proto: "SubGroup4", json: "subgroup4"),
   ]
 

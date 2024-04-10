@@ -524,6 +524,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "lengthprefixed"),
     2: .same(proto: "nested"),
+    3: .same(proto: "grouplike"),
     3: .unique(proto: "GroupLike", json: "grouplike"),
     4: .same(proto: "notgrouplike"),
     5: .same(proto: "notgrouplikescope"),
