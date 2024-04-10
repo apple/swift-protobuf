@@ -191,7 +191,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
-    // Google does not serialize groups into JSON
+    try visitSingularMessageField(value: value, fieldNumber: fieldNumber)
   }
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
@@ -351,8 +351,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
-    assert(!value.isEmpty)
-    // Google does not serialize groups into JSON
+    try visitRepeatedMessageField(value: value, fieldNumber: fieldNumber)
   }
 
   // Packed fields are handled the same as non-packed fields, so JSON just

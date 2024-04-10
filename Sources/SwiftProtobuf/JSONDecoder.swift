@@ -605,11 +605,11 @@ internal struct JSONDecoder: Decoder {
   }
 
   mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {
-    throw JSONDecodingError.schemaMismatch
+    try decodeSingularMessageField(value: &value)
   }
 
   mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws {
-    throw JSONDecodingError.schemaMismatch
+    try decodeRepeatedMessageField(value: &value)
   }
 
   mutating func decodeMapField<KeyType, ValueType: MapValueType>(
