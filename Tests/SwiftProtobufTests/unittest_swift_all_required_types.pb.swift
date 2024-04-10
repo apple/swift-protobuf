@@ -729,6 +729,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
     13: .standard(proto: "required_bool"),
     14: .standard(proto: "required_string"),
     15: .standard(proto: "required_bytes"),
+    16: .same(proto: "requiredgroup"),
     16: .unique(proto: "RequiredGroup", json: "requiredgroup"),
     18: .standard(proto: "required_nested_message"),
     19: .standard(proto: "required_foreign_message"),

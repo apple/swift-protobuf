@@ -287,6 +287,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "option1"),
     2: .same(proto: "option2"),
+    3: .same(proto: "option3"),
     3: .unique(proto: "Option3", json: "option3"),
     6: .same(proto: "option4"),
   ]

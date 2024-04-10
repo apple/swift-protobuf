@@ -10685,6 +10685,7 @@ extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
     13: .standard(proto: "optional_bool"),
     14: .standard(proto: "optional_string"),
     15: .standard(proto: "optional_bytes"),
+    16: .same(proto: "optionalgroup"),
     16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
     18: .standard(proto: "optional_nested_message"),
     19: .standard(proto: "optional_foreign_message"),
@@ -10712,6 +10713,7 @@ extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
     43: .standard(proto: "repeated_bool"),
     44: .standard(proto: "repeated_string"),
     45: .standard(proto: "repeated_bytes"),
+    46: .same(proto: "repeatedgroup"),
     46: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
     48: .standard(proto: "repeated_nested_message"),
     49: .standard(proto: "repeated_foreign_message"),
@@ -11994,6 +11996,7 @@ extension EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.Message, S
 extension EditionUnittest_TestGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    16: .same(proto: "optionalgroup"),
     16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
     22: .standard(proto: "optional_foreign_enum"),
   ]
@@ -13626,7 +13629,9 @@ extension EditionUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProt
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
+    2: .same(proto: "subgroup"),
     2: .unique(proto: "SubGroup", json: "subgroup"),
+    5: .same(proto: "subgroupr"),
     5: .unique(proto: "SubGroupR", json: "subgroupr"),
   ]
 
@@ -14038,6 +14043,7 @@ extension EditionUnittest_TestIsInitialized: SwiftProtobuf.Message, SwiftProtobu
 extension EditionUnittest_TestIsInitialized.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestIsInitialized.protoMessageName + ".SubMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "subgroup"),
     1: .unique(proto: "SubGroup", json: "subgroup"),
   ]
 
@@ -14121,7 +14127,9 @@ extension EditionUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtob
   static let protoMessageName: String = _protobuf_package + ".TestDupFieldNumber"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
+    2: .same(proto: "foo"),
     2: .unique(proto: "Foo", json: "foo"),
+    3: .same(proto: "bar"),
     3: .unique(proto: "Bar", json: "bar"),
   ]
 
@@ -15781,6 +15789,7 @@ extension EditionUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Messa
     1: .standard(proto: "foo_int"),
     2: .standard(proto: "foo_string"),
     3: .standard(proto: "foo_message"),
+    4: .same(proto: "foogroup"),
     4: .unique(proto: "FooGroup", json: "foogroup"),
   ]
 
@@ -15919,6 +15928,7 @@ extension EditionUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, S
     1: .standard(proto: "foo_int"),
     2: .standard(proto: "foo_string"),
     3: .standard(proto: "foo_message"),
+    4: .same(proto: "foogroup"),
     4: .unique(proto: "FooGroup", json: "foogroup"),
   ]
 
@@ -16019,6 +16029,7 @@ extension EditionUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mess
     5: .standard(proto: "foo_bytes"),
     6: .standard(proto: "foo_enum"),
     7: .standard(proto: "foo_message"),
+    8: .same(proto: "foogroup"),
     8: .unique(proto: "FooGroup", json: "foogroup"),
     11: .standard(proto: "foo_lazy_message"),
     30: .standard(proto: "foo_bytes_cord"),
@@ -17084,7 +17095,9 @@ extension EditionUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf
     1: .standard(proto: "required_all_types"),
     2: .standard(proto: "optional_all_types"),
     3: .standard(proto: "repeated_all_types"),
+    10: .same(proto: "optionalgroup"),
     10: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+    20: .same(proto: "repeatedgroup"),
     20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
   ]
 
@@ -17154,7 +17167,9 @@ extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobu
     1: .same(proto: "field1"),
     2: .same(proto: "field2"),
     3: .same(proto: "field3"),
+    10: .same(proto: "group1"),
     10: .unique(proto: "Group1", json: "group1"),
+    20: .same(proto: "group2"),
     20: .unique(proto: "Group2", json: "group2"),
     1000: .same(proto: "ext1"),
     1001: .same(proto: "ext2"),
@@ -17700,6 +17715,7 @@ extension EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProt
     536870005: .standard(proto: "optional_string"),
     536870006: .standard(proto: "optional_bytes"),
     536870007: .standard(proto: "optional_message"),
+    536870008: .same(proto: "optionalgroup"),
     536870008: .unique(proto: "OptionalGroup", json: "optionalgroup"),
     536870010: .standard(proto: "string_string_map"),
     536870011: .standard(proto: "oneof_uint32"),
@@ -18022,7 +18038,9 @@ extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, 
 extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestNestedGroupExtensionOuter.protoMessageName + ".Layer1OptionalGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2: .same(proto: "layer2repeatedgroup"),
     2: .unique(proto: "Layer2RepeatedGroup", json: "layer2repeatedgroup"),
+    4: .same(proto: "layer2anotheroptionalrepeatedgroup"),
     4: .unique(proto: "Layer2AnotherOptionalRepeatedGroup", json: "layer2anotheroptionalrepeatedgroup"),
   ]
 

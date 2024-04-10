@@ -3990,6 +3990,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     13: .standard(proto: "optional_bool"),
     14: .standard(proto: "optional_string"),
     15: .standard(proto: "optional_bytes"),
+    16: .same(proto: "optionalgroup"),
     16: .unique(proto: "OptionalGroup", json: "optionalgroup"),
     18: .standard(proto: "optional_nested_message"),
     19: .standard(proto: "optional_foreign_message"),
@@ -4017,6 +4018,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     43: .standard(proto: "repeated_bool"),
     44: .standard(proto: "repeated_string"),
     45: .standard(proto: "repeated_bytes"),
+    46: .same(proto: "repeatedgroup"),
     46: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
     48: .standard(proto: "repeated_nested_message"),
     49: .standard(proto: "repeated_foreign_message"),
@@ -6072,6 +6074,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     1: .standard(proto: "foo_int"),
     2: .standard(proto: "foo_string"),
     3: .standard(proto: "foo_message"),
+    4: .same(proto: "foogroup"),
     4: .unique(proto: "FooGroup", json: "foogroup"),
   ]
 
@@ -6601,7 +6604,9 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     1: .standard(proto: "required_all_types"),
     2: .standard(proto: "optional_all_types"),
     3: .standard(proto: "repeated_all_types"),
+    10: .same(proto: "optionalgroup"),
     10: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+    20: .same(proto: "repeatedgroup"),
     20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
   ]
 
@@ -6671,7 +6676,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     1: .same(proto: "field1"),
     2: .same(proto: "field2"),
     3: .same(proto: "field3"),
+    10: .same(proto: "group1"),
     10: .unique(proto: "Group1", json: "group1"),
+    20: .same(proto: "group2"),
     20: .unique(proto: "Group2", json: "group2"),
     1000: .same(proto: "ext1"),
     1001: .same(proto: "ext2"),

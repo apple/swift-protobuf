@@ -2268,6 +2268,7 @@ extension ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProto
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "moo"),
+    2: .same(proto: "complexoptiontype5"),
     2: .unique(proto: "ComplexOptionType5", json: "complexoptiontype5"),
   ]
 
