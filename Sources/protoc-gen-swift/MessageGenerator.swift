@@ -239,7 +239,9 @@ class MessageGenerator {
       p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
       p.withIndentation { p in
         for f in fields {
-          p.print("\(f.number): \(f.fieldMapNames),")
+          for n in f.fieldMapNames {
+            p.print("\(f.number): \(n),")
+          }
         }
       }
       p.print("]")

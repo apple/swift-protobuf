@@ -22,8 +22,8 @@ import SwiftProtobuf
 protocol FieldGenerator {
   var number: Int { get }
 
-  /// Name mapping entry for the field.
-  var fieldMapNames: String { get }
+  /// Name mapping entries for the field.
+  var fieldMapNames: [String] { get }
 
   /// Generate the interface for this field, this is includes any extra methods (has/clear).
   func generateInterface(printer: inout CodePrinter)
@@ -63,7 +63,7 @@ class FieldGeneratorBase {
   let number: Int
   let fieldDescriptor: FieldDescriptor
 
-  var fieldMapNames: String {
+  var fieldMapNames: [String] {
     // Protobuf Text uses the unqualified group name for the field
     // name instead of the field name provided by protoc.  As far
     // as I can tell, no one uses the fieldname provided by protoc,
@@ -76,20 +76,39 @@ class FieldGeneratorBase {
       protoName = fieldDescriptor.name
     }
 
+    var result: String
     let jsonName = fieldDescriptor.jsonName
     if jsonName == protoName {
       /// The proto and JSON names are identical:
-      return ".same(proto: \"\(protoName)\")"
+      result = ".same(proto: \"\(protoName)\")"
     } else {
       let libraryGeneratedJsonName = NamingUtils.toJsonFieldName(protoName)
       if jsonName == libraryGeneratedJsonName {
         /// The library will generate the same thing protoc gave, so
         /// we can let the library recompute this:
-        return ".standard(proto: \"\(protoName)\")"
+        result = ".standard(proto: \"\(protoName)\")"
       } else {
         /// The library's generation didn't match, so specify this explicitly.
-        return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\")"
+        result = ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\")"
       }
+    }
+
+    // TODO: When the library can take a breaking change there should be a new
+    // enum for the nametable to handle the group being able to match the
+    // raw fieldname or the name based on the group's name. But until then
+    // we add two entries, to provide both options for TextFormat, but we add
+    // the preferred one second, so when the runtime builds up the mappings,
+    // it will become the default for what gets used when generating TextFormat.
+    if fieldDescriptor.internal_isGroupLike &&
+        protoName != fieldDescriptor.name {
+      let nameLowercase = protoName.lowercased()
+      if nameLowercase == jsonName {
+        return [".same(proto: \"\(nameLowercase)\")", result]
+      } else {
+        return [".unique(proto: \"\(nameLowercase)\", json: \"\(jsonName)\")", result]
+      }
+    } else {
+      return [result]
     }
   }
 
