@@ -194,14 +194,14 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
   case collection // = 165
   case com // = 166
   case comma // = 167
-  case commonMessageConformances // = 168
-  case consumedBytes // = 169
-  case contentsOf // = 170
-  case count // = 171
-  case countVarintsInBuffer // = 172
-  case csharpNamespace // = 173
-  case ctype // = 174
-  case customCodable // = 175
+  case consumedBytes // = 168
+  case contentsOf // = 169
+  case count // = 170
+  case countVarintsInBuffer // = 171
+  case csharpNamespace // = 172
+  case ctype // = 173
+  case customCodable // = 174
+  case customDebugStringConvertible // = 175
   case d // = 176
   case data // = 177
   case dataResult // = 178
@@ -1178,14 +1178,14 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case 165: self = .collection
     case 166: self = .com
     case 167: self = .comma
-    case 168: self = .commonMessageConformances
-    case 169: self = .consumedBytes
-    case 170: self = .contentsOf
-    case 171: self = .count
-    case 172: self = .countVarintsInBuffer
-    case 173: self = .csharpNamespace
-    case 174: self = .ctype
-    case 175: self = .customCodable
+    case 168: self = .consumedBytes
+    case 169: self = .contentsOf
+    case 170: self = .count
+    case 171: self = .countVarintsInBuffer
+    case 172: self = .csharpNamespace
+    case 173: self = .ctype
+    case 174: self = .customCodable
+    case 175: self = .customDebugStringConvertible
     case 176: self = .d
     case 177: self = .data
     case 178: self = .dataResult
@@ -2160,14 +2160,14 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case .collection: return 165
     case .com: return 166
     case .comma: return 167
-    case .commonMessageConformances: return 168
-    case .consumedBytes: return 169
-    case .contentsOf: return 170
-    case .count: return 171
-    case .countVarintsInBuffer: return 172
-    case .csharpNamespace: return 173
-    case .ctype: return 174
-    case .customCodable: return 175
+    case .consumedBytes: return 168
+    case .contentsOf: return 169
+    case .count: return 170
+    case .countVarintsInBuffer: return 171
+    case .csharpNamespace: return 172
+    case .ctype: return 173
+    case .customCodable: return 174
+    case .customDebugStringConvertible: return 175
     case .d: return 176
     case .data: return 177
     case .dataResult: return 178
@@ -3150,7 +3150,6 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .collection,
     .com,
     .comma,
-    .commonMessageConformances,
     .consumedBytes,
     .contentsOf,
     .count,
@@ -3158,6 +3157,7 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .csharpNamespace,
     .ctype,
     .customCodable,
+    .customDebugStringConvertible,
     .d,
     .data,
     .dataResult,
@@ -4134,14 +4134,14 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     165: .same(proto: "Collection"),
     166: .same(proto: "com"),
     167: .same(proto: "comma"),
-    168: .same(proto: "CommonMessageConformances"),
-    169: .same(proto: "consumedBytes"),
-    170: .same(proto: "contentsOf"),
-    171: .same(proto: "count"),
-    172: .same(proto: "countVarintsInBuffer"),
-    173: .same(proto: "csharpNamespace"),
-    174: .same(proto: "ctype"),
-    175: .same(proto: "customCodable"),
+    168: .same(proto: "consumedBytes"),
+    169: .same(proto: "contentsOf"),
+    170: .same(proto: "count"),
+    171: .same(proto: "countVarintsInBuffer"),
+    172: .same(proto: "csharpNamespace"),
+    173: .same(proto: "ctype"),
+    174: .same(proto: "customCodable"),
+    175: .same(proto: "CustomDebugStringConvertible"),
     176: .same(proto: "d"),
     177: .same(proto: "Data"),
     178: .same(proto: "dataResult"),

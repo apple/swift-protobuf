@@ -2035,18 +2035,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct CommonMessageConformances: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var commonMessageConformances: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct consumedBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2125,6 +2113,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var customCodable: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct CustomDebugStringConvertible: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var customDebugStringConvertible: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17101,38 +17101,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.comma: Swif
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CommonMessageConformances: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".CommonMessageConformances"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "CommonMessageConformances"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.commonMessageConformances) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.commonMessageConformances != 0 {
-      try visitor.visitSingularInt32Field(value: self.commonMessageConformances, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CommonMessageConformances, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CommonMessageConformances) -> Bool {
-    if lhs.commonMessageConformances != rhs.commonMessageConformances {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.consumedBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".consumedBytes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -17352,6 +17320,38 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.customCodab
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.customCodable, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.customCodable) -> Bool {
     if lhs.customCodable != rhs.customCodable {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomDebugStringConvertible: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".CustomDebugStringConvertible"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "CustomDebugStringConvertible"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.customDebugStringConvertible) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.customDebugStringConvertible != 0 {
+      try visitor.visitSingularInt32Field(value: self.customDebugStringConvertible, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomDebugStringConvertible, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomDebugStringConvertible) -> Bool {
+    if lhs.customDebugStringConvertible != rhs.customDebugStringConvertible {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
