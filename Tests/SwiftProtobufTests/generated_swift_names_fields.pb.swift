@@ -864,11 +864,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
     set {_uniqueStorage()._comma = newValue}
   }
 
-  var commonMessageConformances: Int32 {
-    get {return _storage._commonMessageConformances}
-    set {_uniqueStorage()._commonMessageConformances = newValue}
-  }
-
   var consumedBytes: Int32 {
     get {return _storage._consumedBytes}
     set {_uniqueStorage()._consumedBytes = newValue}
@@ -902,6 +897,11 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
   var customCodable: Int32 {
     get {return _storage._customCodable}
     set {_uniqueStorage()._customCodable = newValue}
+  }
+
+  var customDebugStringConvertible: Int32 {
+    get {return _storage._customDebugStringConvertible}
+    set {_uniqueStorage()._customDebugStringConvertible = newValue}
   }
 
   var d: Int32 {
@@ -5085,14 +5085,14 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     165: .same(proto: "Collection"),
     166: .same(proto: "com"),
     167: .same(proto: "comma"),
-    168: .same(proto: "CommonMessageConformances"),
-    169: .same(proto: "consumedBytes"),
-    170: .same(proto: "contentsOf"),
-    171: .same(proto: "count"),
-    172: .same(proto: "countVarintsInBuffer"),
-    173: .same(proto: "csharpNamespace"),
-    174: .same(proto: "ctype"),
-    175: .same(proto: "customCodable"),
+    168: .same(proto: "consumedBytes"),
+    169: .same(proto: "contentsOf"),
+    170: .same(proto: "count"),
+    171: .same(proto: "countVarintsInBuffer"),
+    172: .same(proto: "csharpNamespace"),
+    173: .same(proto: "ctype"),
+    174: .same(proto: "customCodable"),
+    175: .same(proto: "CustomDebugStringConvertible"),
     176: .same(proto: "d"),
     177: .same(proto: "Data"),
     178: .same(proto: "dataResult"),
@@ -6063,7 +6063,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _collection: Int32 = 0
     var _com: Int32 = 0
     var _comma: Int32 = 0
-    var _commonMessageConformances: Int32 = 0
     var _consumedBytes: Int32 = 0
     var _contentsOf: Int32 = 0
     var _count: Int32 = 0
@@ -6071,6 +6070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _csharpNamespace: Int32 = 0
     var _ctype: Int32 = 0
     var _customCodable: Int32 = 0
+    var _customDebugStringConvertible: Int32 = 0
     var _d: Int32 = 0
     var _data: Int32 = 0
     var _dataResult: Int32 = 0
@@ -7052,7 +7052,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _collection = source._collection
       _com = source._com
       _comma = source._comma
-      _commonMessageConformances = source._commonMessageConformances
       _consumedBytes = source._consumedBytes
       _contentsOf = source._contentsOf
       _count = source._count
@@ -7060,6 +7059,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _csharpNamespace = source._csharpNamespace
       _ctype = source._ctype
       _customCodable = source._customCodable
+      _customDebugStringConvertible = source._customDebugStringConvertible
       _d = source._d
       _data = source._data
       _dataResult = source._dataResult
@@ -8045,14 +8045,14 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         case 165: try { try decoder.decodeSingularInt32Field(value: &_storage._collection) }()
         case 166: try { try decoder.decodeSingularInt32Field(value: &_storage._com) }()
         case 167: try { try decoder.decodeSingularInt32Field(value: &_storage._comma) }()
-        case 168: try { try decoder.decodeSingularInt32Field(value: &_storage._commonMessageConformances) }()
-        case 169: try { try decoder.decodeSingularInt32Field(value: &_storage._consumedBytes) }()
-        case 170: try { try decoder.decodeSingularInt32Field(value: &_storage._contentsOf) }()
-        case 171: try { try decoder.decodeSingularInt32Field(value: &_storage._count) }()
-        case 172: try { try decoder.decodeSingularInt32Field(value: &_storage._countVarintsInBuffer) }()
-        case 173: try { try decoder.decodeSingularInt32Field(value: &_storage._csharpNamespace) }()
-        case 174: try { try decoder.decodeSingularInt32Field(value: &_storage._ctype) }()
-        case 175: try { try decoder.decodeSingularInt32Field(value: &_storage._customCodable) }()
+        case 168: try { try decoder.decodeSingularInt32Field(value: &_storage._consumedBytes) }()
+        case 169: try { try decoder.decodeSingularInt32Field(value: &_storage._contentsOf) }()
+        case 170: try { try decoder.decodeSingularInt32Field(value: &_storage._count) }()
+        case 171: try { try decoder.decodeSingularInt32Field(value: &_storage._countVarintsInBuffer) }()
+        case 172: try { try decoder.decodeSingularInt32Field(value: &_storage._csharpNamespace) }()
+        case 173: try { try decoder.decodeSingularInt32Field(value: &_storage._ctype) }()
+        case 174: try { try decoder.decodeSingularInt32Field(value: &_storage._customCodable) }()
+        case 175: try { try decoder.decodeSingularInt32Field(value: &_storage._customDebugStringConvertible) }()
         case 176: try { try decoder.decodeSingularInt32Field(value: &_storage._d) }()
         case 177: try { try decoder.decodeSingularInt32Field(value: &_storage._data) }()
         case 178: try { try decoder.decodeSingularInt32Field(value: &_storage._dataResult) }()
@@ -9362,29 +9362,29 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       if _storage._comma != 0 {
         try visitor.visitSingularInt32Field(value: _storage._comma, fieldNumber: 167)
       }
-      if _storage._commonMessageConformances != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._commonMessageConformances, fieldNumber: 168)
-      }
       if _storage._consumedBytes != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._consumedBytes, fieldNumber: 169)
+        try visitor.visitSingularInt32Field(value: _storage._consumedBytes, fieldNumber: 168)
       }
       if _storage._contentsOf != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._contentsOf, fieldNumber: 170)
+        try visitor.visitSingularInt32Field(value: _storage._contentsOf, fieldNumber: 169)
       }
       if _storage._count != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._count, fieldNumber: 171)
+        try visitor.visitSingularInt32Field(value: _storage._count, fieldNumber: 170)
       }
       if _storage._countVarintsInBuffer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._countVarintsInBuffer, fieldNumber: 172)
+        try visitor.visitSingularInt32Field(value: _storage._countVarintsInBuffer, fieldNumber: 171)
       }
       if _storage._csharpNamespace != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._csharpNamespace, fieldNumber: 173)
+        try visitor.visitSingularInt32Field(value: _storage._csharpNamespace, fieldNumber: 172)
       }
       if _storage._ctype != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._ctype, fieldNumber: 174)
+        try visitor.visitSingularInt32Field(value: _storage._ctype, fieldNumber: 173)
       }
       if _storage._customCodable != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._customCodable, fieldNumber: 175)
+        try visitor.visitSingularInt32Field(value: _storage._customCodable, fieldNumber: 174)
+      }
+      if _storage._customDebugStringConvertible != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._customDebugStringConvertible, fieldNumber: 175)
       }
       if _storage._d != 0 {
         try visitor.visitSingularInt32Field(value: _storage._d, fieldNumber: 176)
@@ -11962,7 +11962,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._collection != rhs_storage._collection {return false}
         if _storage._com != rhs_storage._com {return false}
         if _storage._comma != rhs_storage._comma {return false}
-        if _storage._commonMessageConformances != rhs_storage._commonMessageConformances {return false}
         if _storage._consumedBytes != rhs_storage._consumedBytes {return false}
         if _storage._contentsOf != rhs_storage._contentsOf {return false}
         if _storage._count != rhs_storage._count {return false}
@@ -11970,6 +11969,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._csharpNamespace != rhs_storage._csharpNamespace {return false}
         if _storage._ctype != rhs_storage._ctype {return false}
         if _storage._customCodable != rhs_storage._customCodable {return false}
+        if _storage._customDebugStringConvertible != rhs_storage._customDebugStringConvertible {return false}
         if _storage._d != rhs_storage._d {return false}
         if _storage._data != rhs_storage._data {return false}
         if _storage._dataResult != rhs_storage._dataResult {return false}

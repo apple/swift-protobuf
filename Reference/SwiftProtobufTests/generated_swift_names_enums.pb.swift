@@ -5041,36 +5041,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum CommonMessageConformances: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneCommonMessageConformances // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneCommonMessageConformances
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneCommonMessageConformances
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneCommonMessageConformances: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CommonMessageConformances] = [
-      .noneCommonMessageConformances,
-    ]
-
-  }
-
   enum consumedBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneConsumedBytes // = 0
@@ -5277,6 +5247,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.customCodable] = [
       .noneCustomCodable,
+    ]
+
+  }
+
+  enum CustomDebugStringConvertible: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneCustomDebugStringConvertible // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCustomDebugStringConvertible
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCustomDebugStringConvertible
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCustomDebugStringConvertible: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CustomDebugStringConvertible] = [
+      .noneCustomDebugStringConvertible,
     ]
 
   }
@@ -30309,12 +30309,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.comma: SwiftPr
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CommonMessageConformances: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_CommonMessageConformances"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.consumedBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_consumedBytes"),
@@ -30354,6 +30348,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ctype: SwiftPr
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.customCodable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_customCodable"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CustomDebugStringConvertible: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_CustomDebugStringConvertible"),
   ]
 }
 

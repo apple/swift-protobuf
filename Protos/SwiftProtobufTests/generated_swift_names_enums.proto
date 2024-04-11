@@ -171,7 +171,6 @@ message GeneratedSwiftReservedEnums {
   enum Collection { NONE_Collection = 0; }
   enum com { NONE_com = 0; }
   enum comma { NONE_comma = 0; }
-  enum CommonMessageConformances { NONE_CommonMessageConformances = 0; }
   enum consumedBytes { NONE_consumedBytes = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
@@ -179,6 +178,7 @@ message GeneratedSwiftReservedEnums {
   enum csharpNamespace { NONE_csharpNamespace = 0; }
   enum ctype { NONE_ctype = 0; }
   enum customCodable { NONE_customCodable = 0; }
+  enum CustomDebugStringConvertible { NONE_CustomDebugStringConvertible = 0; }
   enum d { NONE_d = 0; }
   enum Data { NONE_Data = 0; }
   enum dataResult { NONE_dataResult = 0; }

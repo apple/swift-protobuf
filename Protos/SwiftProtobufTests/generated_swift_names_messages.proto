@@ -171,7 +171,6 @@ message GeneratedSwiftReservedMessages {
   message Collection { int32 Collection = 1; }
   message com { int32 com = 1; }
   message comma { int32 comma = 1; }
-  message CommonMessageConformances { int32 CommonMessageConformances = 1; }
   message consumedBytes { int32 consumedBytes = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
@@ -179,6 +178,7 @@ message GeneratedSwiftReservedMessages {
   message csharpNamespace { int32 csharpNamespace = 1; }
   message ctype { int32 ctype = 1; }
   message customCodable { int32 customCodable = 1; }
+  message CustomDebugStringConvertible { int32 CustomDebugStringConvertible = 1; }
   message d { int32 d = 1; }
   message Data { int32 Data = 1; }
   message dataResult { int32 dataResult = 1; }
