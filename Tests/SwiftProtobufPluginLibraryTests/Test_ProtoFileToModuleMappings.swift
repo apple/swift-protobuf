@@ -9,10 +9,22 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
+import SwiftProtobuf
 import SwiftProtobufTestHelpers
-
-@testable import SwiftProtobuf
 @testable import SwiftProtobufPluginLibrary
+
+// Support equality to simplify testing of getting the correct errors.
+extension ProtoFileToModuleMappings.LoadError: Equatable {
+  public static func ==(lhs: ProtoFileToModuleMappings.LoadError, rhs: ProtoFileToModuleMappings.LoadError) -> Bool {
+    switch (lhs, rhs) {
+    case (.entryMissingModuleName(let l), .entryMissingModuleName(let r)): return l == r
+    case (.entryHasNoProtoPaths(let l), .entryHasNoProtoPaths(let r)): return l == r
+    case (.duplicateProtoPathMapping(let l1, let l2, let l3),
+          .duplicateProtoPathMapping(let r1, let r2, let r3)): return l1 == r1 && l2 == r2 && l3 == r3
+    default: return false
+    }
+  }
+}
 
 // Helpers to make test cases.
 
@@ -74,40 +86,40 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
   func test_Initialization_InvalidConfigs() {
     // This are valid text format, but not valid config protos.
     // (input, expected_error_type)
-    let partialConfigs: [(String, SwiftProtobufError)] = [
+    let partialConfigs: [(String, ProtoFileToModuleMappings.LoadError)] = [
       // No module or proto files
-        ("mapping { }", .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 0)),
+      ("mapping { }", .entryMissingModuleName(mappingIndex: 0)),
 
       // No proto files
-      ("mapping { module_name: \"foo\" }", .ProtoFileToModuleMapping.entryHasNoProtoPaths(mappingIndex: 0)),
+      ("mapping { module_name: \"foo\" }", .entryHasNoProtoPaths(mappingIndex: 0)),
 
       // No module
-      ("mapping { proto_file_path: [\"foo\"] }", .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 0)),
-      ("mapping { proto_file_path: [\"foo\", \"bar\"] }", .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 0)),
+      ("mapping { proto_file_path: [\"foo\"] }", .entryMissingModuleName(mappingIndex: 0)),
+      ("mapping { proto_file_path: [\"foo\", \"bar\"] }", .entryMissingModuleName(mappingIndex: 0)),
 
       // Empty module name.
-      ("mapping { module_name: \"\" }", .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 0)),
-      ("mapping { module_name: \"\", proto_file_path: [\"foo\"] }", .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 0)),
-      ("mapping { module_name: \"\", proto_file_path: [\"foo\", \"bar\"] }", .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 0)),
+      ("mapping { module_name: \"\" }", .entryMissingModuleName(mappingIndex: 0)),
+      ("mapping { module_name: \"\", proto_file_path: [\"foo\"] }", .entryMissingModuleName(mappingIndex: 0)),
+      ("mapping { module_name: \"\", proto_file_path: [\"foo\", \"bar\"] }", .entryMissingModuleName(mappingIndex: 0)),
 
       // Throw some on a second entry just to check that also.
       ("mapping { module_name: \"good\", proto_file_path: \"file.proto\" }\n" +
        "mapping { }",
-       .ProtoFileToModuleMapping.entryMissingModuleName(mappingIndex: 1)),
+       .entryMissingModuleName(mappingIndex: 1)),
       ("mapping { module_name: \"good\", proto_file_path: \"file.proto\" }\n" +
        "mapping { module_name: \"foo\" }",
-       .ProtoFileToModuleMapping.entryHasNoProtoPaths(mappingIndex: 1)),
+       .entryHasNoProtoPaths(mappingIndex: 1)),
 
       // Duplicates
 
       ("mapping { module_name: \"foo\", proto_file_path: \"abc\" }\n" +
        "mapping { module_name: \"bar\", proto_file_path: \"abc\" }",
-       .ProtoFileToModuleMapping.duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "bar")),
+       .duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "bar")),
 
       ("mapping { module_name: \"foo\", proto_file_path: \"abc\" }\n" +
        "mapping { module_name: \"bar\", proto_file_path: \"xyz\" }\n" +
        "mapping { module_name: \"baz\", proto_file_path: \"abc\" }",
-       .ProtoFileToModuleMapping.duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "baz")),
+       .duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "baz")),
     ]
 
     for (idx, (configText, expected)) in partialConfigs.enumerated() {
@@ -122,9 +134,8 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
       do {
         let _ = try ProtoFileToModuleMappings(moduleMappingsProto: config)
         XCTFail("Shouldn't have gotten here, index \(idx)")
-      } catch let error as SwiftProtobufError {
-        XCTAssertEqual(error.code, expected.code, "Index \(idx)")
-        XCTAssertEqual(error.message, expected.message, "Index \(idx)")
+      } catch let error as ProtoFileToModuleMappings.LoadError {
+        XCTAssertEqual(error, expected, "Index \(idx)")
       } catch let error {
         XCTFail("Index \(idx) - Unexpected error: \(error)")
       }
