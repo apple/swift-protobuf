@@ -97,6 +97,11 @@ extension SwiftProtobufError {
             case textFormatDecodingError
             case invalidArgument
             case internalError
+            
+            // These are not domains, but rather specific errors for which we
+            // want to have associated types, and thus require special treatment.
+            case anyTypeURLNotRegistered(typeURL: String)
+            case unknownField(name: String)
 
             var description: String {
                 switch self {
@@ -116,10 +121,15 @@ extension SwiftProtobufError {
                     return "An argument provided by the user is invalid"
                 case .internalError:
                     return "Other internal error"
+                case .anyTypeURLNotRegistered(let typeURL):
+                    return "Type URL not registered: \(typeURL)"
+                case .unknownField(let name):
+                    return "Unknown field: \(name)"
                 }
             }
         }
 
+        /// This Code's description.
         public var description: String {
             String(describing: self.code)
         }
@@ -129,36 +139,100 @@ extension SwiftProtobufError {
             self.code = code
         }
 
+        /// Errors arising from encoding protobufs into binary data.
         public static var binaryEncodingError: Self {
             Self(.binaryEncodingError)
         }
         
+        /// Errors arising from binary decoding of data into protobufs.
         public static var binaryDecodingError: Self {
             Self(.binaryDecodingError)
         }
         
+        /// Errors arising from decoding streams of binary messages. These errors have to do with the framing
+        /// of the messages in the stream, or the stream as a whole.
         public static var binaryStreamDecodingError: Self {
             Self(.binaryStreamDecodingError)
         }
         
+        /// Errors arising from encoding protobufs into JSON.
         public static var jsonEncodingError: Self {
             Self(.jsonEncodingError)
         }
         
+        /// Errors arising from JSON decoding of data into protobufs.
         public static var jsonDecodingError: Self {
             Self(.jsonDecodingError)
         }
         
+        /// Errors arising from text format decoding of data into protobufs.
         public static var textFormatDecodingError: Self {
             Self(.textFormatDecodingError)
         }
         
+        /// Errors arising from an invalid argument being passed by the caller.
         public static var invalidArgument: Self {
             Self(.invalidArgument)
         }
         
+        /// Errors arising from some invalid internal state.
         public static var internalError: Self {
             Self(.internalError)
+        }
+        
+        /// `Any` fields that were decoded from JSON cannot be re-encoded to binary
+        /// unless the object they hold is a well-known type or a type registered via
+        /// `Google_Protobuf_Any.register()`.
+        /// This Code refers to errors that arise from this scenario.
+        ///
+        /// - Parameter typeURL: The URL for the unregistered type.
+        /// - Returns: A `SwiftProtobufError.Code`.
+        public static func anyTypeURLNotRegistered(typeURL: String) -> Self {
+            Self(.anyTypeURLNotRegistered(typeURL: typeURL))
+        }
+        
+        /// Errors arising from decoding JSON objects and encountering an unknown field.
+        ///
+        /// - Parameter name: The name of the encountered unknown field.
+        /// - Returns: A `SwiftProtobufError.Code`.
+        public static func unknownField(name: String) -> Self {
+            Self(.unknownField(name: name))
+        }
+        
+        /// The unregistered type URL that caused the error, if any is associated with this `Code`.
+        public var unregisteredTypeURL: String? {
+            switch self.code {
+            case .anyTypeURLNotRegistered(let typeURL):
+                return typeURL
+            case .binaryEncodingError,
+                 .binaryDecodingError,
+                 .binaryStreamDecodingError,
+                 .jsonEncodingError,
+                 .jsonDecodingError,
+                 .textFormatDecodingError,
+                 .invalidArgument,
+                 .internalError,
+                 .unknownField:
+                return nil
+            }
+        }
+        
+        /// The unknown field name that caused the error, if any is associated with this `Code`.
+        public var unknownFieldName: String? {
+            switch self.code {
+            case .unknownField(let name):
+                return name
+            case .binaryEncodingError,
+                 .binaryDecodingError,
+                 .binaryStreamDecodingError,
+                 .jsonEncodingError,
+                 .jsonDecodingError,
+                 .textFormatDecodingError,
+                 .invalidArgument,
+                 .internalError,
+                 .anyTypeURLNotRegistered:
+                return nil
+            }
         }
     }
 
@@ -250,7 +324,7 @@ extension SwiftProtobufError {
             line: Int = #line
         ) -> SwiftProtobufError {
           SwiftProtobufError(
-            code: .binaryEncodingError,
+            code: .anyTypeURLNotRegistered(typeURL: typeURL),
             message: """
                 Any fields that were decoded from JSON format cannot be re-encoded to binary \
                 unless the object they hold is a well-known type or a type registered via \
@@ -582,7 +656,7 @@ extension SwiftProtobufError {
             line: Int = #line
         ) -> SwiftProtobufError {
             SwiftProtobufError(
-                code: .jsonEncodingError,
+                code: .anyTypeURLNotRegistered(typeURL: typeURL),
                 message: """
                     Any fields that were decoded from binary format cannot be re-encoded into JSON \
                     unless the object they hold is a well-known type or a type registered via \
@@ -867,7 +941,7 @@ extension SwiftProtobufError {
             line: Int = #line
         ) -> SwiftProtobufError {
             SwiftProtobufError(
-                code: .jsonDecodingError,
+                code: .unknownField(name: name),
                 message: "Encountered an unknown field with name '\(name)'.",
                 location: SourceLocation(function: function, file: file, line: line)
             )

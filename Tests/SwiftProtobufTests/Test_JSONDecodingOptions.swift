@@ -137,7 +137,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                 let _ = try SwiftProtoTesting_TestEmptyMessage(jsonString: jsonInput)
                 XCTFail("Input \(i): Should not have gotten here! Input: \(jsonInput)")
             } catch let error as SwiftProtobufError {
-                XCTAssertEqual(error.code, .jsonDecodingError)
+                XCTAssertEqual(error.code, .unknownField(name: "unknown"))
                 XCTAssertEqual(error.message, "Encountered an unknown field with name 'unknown'.")
             } catch let e {
                 XCTFail("Input \(i): Error \(e) decoding into an empty message \(jsonInput)")
