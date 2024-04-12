@@ -46,8 +46,8 @@ import Foundation
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
-  struct _3: ProtobufAPIVersion_3 {}
-  typealias Version = _3
+  struct _2: ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 /// A generic empty message that you can re-use to avoid defining duplicated
