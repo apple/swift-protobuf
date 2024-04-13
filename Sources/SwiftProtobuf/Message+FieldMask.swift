@@ -57,7 +57,7 @@ extension Message {
   ///   - source: Message should be merged to the original one.
   ///   - fieldMask: FieldMask specifies which fields should be merged.
   public mutating func merge(
-    from source: Self,
+    with source: Self,
     fieldMask: Google_Protobuf_FieldMask,
     mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
   ) throws {
@@ -97,7 +97,7 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
     }
     var tmp = Self(removingAllFieldsOf: self)
     do {
-      try tmp.merge(from: self, fieldMask: fieldMask)
+      try tmp.merge(with: self, fieldMask: fieldMask)
       let changed = tmp != self
       self = tmp
       return changed
