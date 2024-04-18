@@ -67,15 +67,15 @@ final class Test_FeatureResolver: XCTestCase {
       maximum_edition: EDITION_99999_TEST_ONLY
       defaults {
           edition: EDITION_99997_TEST_ONLY
-          features { field_presence: EXPLICIT}
+          overridable_features { field_presence: EXPLICIT}
       }
       defaults {
           edition: EDITION_99998_TEST_ONLY
-          features { field_presence: IMPLICIT}
+          overridable_features { field_presence: IMPLICIT}
       }
       defaults {
           edition: EDITION_99999_TEST_ONLY
-          features { field_presence: LEGACY_REQUIRED}
+          overridable_features { field_presence: LEGACY_REQUIRED}
       }
       """)
 
@@ -108,11 +108,11 @@ final class Test_FeatureResolver: XCTestCase {
       maximum_edition: EDITION_99999_TEST_ONLY
       defaults {
           edition: EDITION_99997_TEST_ONLY
-          features { field_presence: EXPLICIT}
+          overridable_features { field_presence: EXPLICIT}
       }
       defaults {
           edition: EDITION_99999_TEST_ONLY
-          features { field_presence: LEGACY_REQUIRED}
+          overridable_features { field_presence: LEGACY_REQUIRED}
       }
       """)
 
@@ -155,6 +155,28 @@ final class Test_FeatureResolver: XCTestCase {
       XCTAssertEqual(e as! FeatureResolver.Error,
                      FeatureResolver.Error.invalidExtension(type: "google.protobuf.FieldOptions"))
     }
+  }
+
+  func testInit_mergingFixedOverridable() throws {
+    let defaults = try! Google_Protobuf_FeatureSetDefaults(textFormatString: """
+      minimum_edition: EDITION_99997_TEST_ONLY
+      maximum_edition: EDITION_99999_TEST_ONLY
+      defaults {
+          edition: EDITION_99997_TEST_ONLY
+          overridable_features { field_presence: EXPLICIT }
+          fixed_features { enum_type: CLOSED }
+      }
+      """)
+
+    // Test that fixed and overridable merge
+
+    // If lookup fails, throw out of the test method.
+
+    let resolver1: FeatureResolver = try FeatureResolver(edition: .edition99997TestOnly,
+                                                         featureSetDefaults: defaults)
+    XCTAssertEqual(resolver1.edition, .edition99997TestOnly)
+    XCTAssertEqual(resolver1.defaultFeatureSet.fieldPresence, .explicit)
+    XCTAssertEqual(resolver1.defaultFeatureSet.enumType, .closed)
   }
 
   func testResolve_Basics() {

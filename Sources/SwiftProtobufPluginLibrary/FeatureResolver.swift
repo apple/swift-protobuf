@@ -80,17 +80,16 @@ class FeatureResolver {
     }
 
     // When protoc generates defaults, they are ordered, so find the last one.
-    var result: Google_Protobuf_FeatureSet?
+    var found: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault?
     for d in defaults.defaults {
       guard d.edition <= edition else { break }
-      result = d.features
+      found = d
     }
 
-    guard let result = result else {
+    guard let found = found else {
       throw Error.noDefault(edition: edition)
     }
     self.edition = edition
-    defaultFeatureSet = result
 
     if extensions.isEmpty {
       extensionMap = nil
@@ -104,6 +103,12 @@ class FeatureResolver {
       simpleMap.insert(contentsOf: extensions)
       extensionMap = simpleMap
     }
+
+    var features = found.fixedFeatures
+    // Don't yet have a message level merge, so bounce through serialization.
+    let bytes: [UInt8] = try! found.overridableFeatures.serializedBytes()
+    try! features.merge(serializedBytes: bytes, extensions: extensionMap)
+    defaultFeatureSet = features
   }
 
   /// Resolve the Features for a File.
