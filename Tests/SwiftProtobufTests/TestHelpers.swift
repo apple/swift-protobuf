@@ -469,3 +469,261 @@ extension PBTestVisitor {
     XCTFail("Unexpected map<*, Message>: \(fieldNumber) = \(value)")
   }
 }
+
+struct PBTestDecoder: Decoder {
+
+  enum DecodingMode {
+    case get
+    case set(Any)
+  }
+
+  var fieldNumber: Int?
+  var decodingMode: DecodingMode = .get
+  private(set) var value: Any
+
+  init(fieldNumber: Int, decodingMode: DecodingMode = .get) {
+    self.fieldNumber = fieldNumber
+    self.decodingMode = decodingMode
+    self.value = Void()
+  }
+
+  mutating func handleConflictingOneOf() throws {}
+
+  mutating func nextFieldNumber() throws -> Int? {
+    defer { fieldNumber = nil }
+    return fieldNumber
+  }
+
+  private mutating func decode<T>(_ value: inout T) {
+    switch decodingMode {
+    case .get:
+      self.value = value
+    case .set(let v):
+      guard let v = v as? T else { return }
+      value = v
+    }
+  }
+
+  mutating func decodeSingularFloatField(value: inout Float) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularFloatField(value: inout Float?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularDoubleField(value: inout Double) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularDoubleField(value: inout Double?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularInt32Field(value: inout Int32) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularInt32Field(value: inout Int32?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularInt64Field(value: inout Int64) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularInt64Field(value: inout Int64?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSInt32Field(value: inout Int32) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSInt64Field(value: inout Int64) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularBoolField(value: inout Bool) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularBoolField(value: inout Bool?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularStringField(value: inout String) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularStringField(value: inout String?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedStringField(value: inout [String]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularBytesField(value: inout Data) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularBytesField(value: inout Data?) throws {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+    decode(&value)
+  }
+
+  mutating func decodeSingularEnumField<E>(value: inout E) throws where E : SwiftProtobuf.Enum, E.RawValue == Int {
+    decode(&value)
+  }
+
+  mutating func decodeSingularEnumField<E>(value: inout E?) throws where E : SwiftProtobuf.Enum, E.RawValue == Int {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedEnumField<E>(value: inout [E]) throws where E : SwiftProtobuf.Enum, E.RawValue == Int {
+    decode(&value)
+  }
+
+  mutating func decodeSingularMessageField<M>(value: inout M?) throws where M : SwiftProtobuf.Message {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedMessageField<M>(value: inout [M]) throws where M : SwiftProtobuf.Message {
+    decode(&value)
+  }
+
+  mutating func decodeSingularGroupField<G>(value: inout G?) throws where G : SwiftProtobuf.Message {
+    decode(&value)
+  }
+
+  mutating func decodeRepeatedGroupField<G>(value: inout [G]) throws where G : SwiftProtobuf.Message {
+    decode(&value)
+  }
+
+  mutating func decodeMapField<KeyType, ValueType>(fieldType: SwiftProtobuf._ProtobufMap<KeyType, ValueType>.Type, value: inout SwiftProtobuf._ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType : SwiftProtobuf.MapKeyType, ValueType : SwiftProtobuf.MapValueType {
+    decode(&value)
+  }
+
+  mutating func decodeMapField<KeyType, ValueType>(fieldType: SwiftProtobuf._ProtobufEnumMap<KeyType, ValueType>.Type, value: inout SwiftProtobuf._ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where KeyType : SwiftProtobuf.MapKeyType, ValueType : SwiftProtobuf.Enum, ValueType.RawValue == Int {
+    decode(&value)
+  }
+
+  mutating func decodeMapField<KeyType, ValueType>(fieldType: SwiftProtobuf._ProtobufMessageMap<KeyType, ValueType>.Type, value: inout SwiftProtobuf._ProtobufMessageMap<KeyType, ValueType>.BaseType) throws where KeyType : SwiftProtobuf.MapKeyType, ValueType : Hashable, ValueType : SwiftProtobuf.Message {
+    decode(&value)
+  }
+
+  mutating func decodeExtensionField(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: any SwiftProtobuf.Message.Type, fieldNumber: Int) throws {}
+
+}
