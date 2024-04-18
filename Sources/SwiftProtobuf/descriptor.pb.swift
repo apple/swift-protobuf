@@ -64,6 +64,10 @@ public enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
   /// A placeholder for an unknown edition value.
   case unknown // = 0
 
+  /// A placeholder edition for specifying default behaviors *before* a feature
+  /// was first introduced.  This is effectively an "infinite past".
+  case legacy // = 900
+
   /// Legacy syntax "editions".  These pre-date editions, but behave much like
   /// distinct editions.  These can't be used to specify the edition of proto
   /// files, but feature definitions must supply proto2/proto3 defaults for
@@ -99,6 +103,7 @@ public enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
     case 0: self = .unknown
     case 1: self = .edition1TestOnly
     case 2: self = .edition2TestOnly
+    case 900: self = .legacy
     case 998: self = .proto2
     case 999: self = .proto3
     case 1000: self = .edition2023
@@ -116,6 +121,7 @@ public enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
     case .unknown: return 0
     case .edition1TestOnly: return 1
     case .edition2TestOnly: return 2
+    case .legacy: return 900
     case .proto2: return 998
     case .proto3: return 999
     case .edition2023: return 1000
@@ -2756,50 +2762,41 @@ public struct Google_Protobuf_FeatureSetDefaults {
     // methods supported on all messages.
 
     public var edition: Google_Protobuf_Edition {
-      get {return _storage._edition ?? .unknown}
-      set {_uniqueStorage()._edition = newValue}
+      get {return _edition ?? .unknown}
+      set {_edition = newValue}
     }
     /// Returns true if `edition` has been explicitly set.
-    public var hasEdition: Bool {return _storage._edition != nil}
+    public var hasEdition: Bool {return self._edition != nil}
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
-    public mutating func clearEdition() {_uniqueStorage()._edition = nil}
+    public mutating func clearEdition() {self._edition = nil}
 
     /// Defaults of features that can be overridden in this edition.
     public var overridableFeatures: Google_Protobuf_FeatureSet {
-      get {return _storage._overridableFeatures ?? Google_Protobuf_FeatureSet()}
-      set {_uniqueStorage()._overridableFeatures = newValue}
+      get {return _overridableFeatures ?? Google_Protobuf_FeatureSet()}
+      set {_overridableFeatures = newValue}
     }
     /// Returns true if `overridableFeatures` has been explicitly set.
-    public var hasOverridableFeatures: Bool {return _storage._overridableFeatures != nil}
+    public var hasOverridableFeatures: Bool {return self._overridableFeatures != nil}
     /// Clears the value of `overridableFeatures`. Subsequent reads from it will return its default value.
-    public mutating func clearOverridableFeatures() {_uniqueStorage()._overridableFeatures = nil}
+    public mutating func clearOverridableFeatures() {self._overridableFeatures = nil}
 
     /// Defaults of features that can't be overridden in this edition.
     public var fixedFeatures: Google_Protobuf_FeatureSet {
-      get {return _storage._fixedFeatures ?? Google_Protobuf_FeatureSet()}
-      set {_uniqueStorage()._fixedFeatures = newValue}
+      get {return _fixedFeatures ?? Google_Protobuf_FeatureSet()}
+      set {_fixedFeatures = newValue}
     }
     /// Returns true if `fixedFeatures` has been explicitly set.
-    public var hasFixedFeatures: Bool {return _storage._fixedFeatures != nil}
+    public var hasFixedFeatures: Bool {return self._fixedFeatures != nil}
     /// Clears the value of `fixedFeatures`. Subsequent reads from it will return its default value.
-    public mutating func clearFixedFeatures() {_uniqueStorage()._fixedFeatures = nil}
-
-    /// TODO Deprecate and remove this field, which is just the
-    /// above two merged.
-    public var features: Google_Protobuf_FeatureSet {
-      get {return _storage._features ?? Google_Protobuf_FeatureSet()}
-      set {_uniqueStorage()._features = newValue}
-    }
-    /// Returns true if `features` has been explicitly set.
-    public var hasFeatures: Bool {return _storage._features != nil}
-    /// Clears the value of `features`. Subsequent reads from it will return its default value.
-    public mutating func clearFeatures() {_uniqueStorage()._features = nil}
+    public mutating func clearFixedFeatures() {self._fixedFeatures = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _edition: Google_Protobuf_Edition? = nil
+    fileprivate var _overridableFeatures: Google_Protobuf_FeatureSet? = nil
+    fileprivate var _fixedFeatures: Google_Protobuf_FeatureSet? = nil
   }
 
   public init() {}
@@ -3162,6 +3159,7 @@ extension Google_Protobuf_Edition: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "EDITION_UNKNOWN"),
     1: .same(proto: "EDITION_1_TEST_ONLY"),
     2: .same(proto: "EDITION_2_TEST_ONLY"),
+    900: .same(proto: "EDITION_LEGACY"),
     998: .same(proto: "EDITION_PROTO2"),
     999: .same(proto: "EDITION_PROTO3"),
     1000: .same(proto: "EDITION_2023"),
@@ -5477,104 +5475,49 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: SwiftProt
     3: .same(proto: "edition"),
     4: .standard(proto: "overridable_features"),
     5: .standard(proto: "fixed_features"),
-    2: .same(proto: "features"),
   ]
 
-  fileprivate class _StorageClass {
-    var _edition: Google_Protobuf_Edition? = nil
-    var _overridableFeatures: Google_Protobuf_FeatureSet? = nil
-    var _fixedFeatures: Google_Protobuf_FeatureSet? = nil
-    var _features: Google_Protobuf_FeatureSet? = nil
-
-    #if swift(>=5.10)
-      // This property is used as the initial default value for new instances of the type.
-      // The type itself is protecting the reference to its storage via CoW semantics.
-      // This will force a copy to be made of this reference when the first mutation occurs;
-      // hence, it is safe to mark this as `nonisolated(unsafe)`.
-      static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _edition = source._edition
-      _overridableFeatures = source._overridableFeatures
-      _fixedFeatures = source._fixedFeatures
-      _features = source._features
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public var isInitialized: Bool {
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._overridableFeatures, !v.isInitialized {return false}
-      if let v = _storage._fixedFeatures, !v.isInitialized {return false}
-      if let v = _storage._features, !v.isInitialized {return false}
-      return true
-    }
+    if let v = self._overridableFeatures, !v.isInitialized {return false}
+    if let v = self._fixedFeatures, !v.isInitialized {return false}
+    return true
   }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
-        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._edition) }()
-        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._overridableFeatures) }()
-        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._fixedFeatures) }()
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._overridableFeatures) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._fixedFeatures) }()
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._features {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._edition {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._overridableFeatures {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
-      try { if let v = _storage._fixedFeatures {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      } }()
-    }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._edition {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._overridableFeatures {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._fixedFeatures {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault, rhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._edition != rhs_storage._edition {return false}
-        if _storage._overridableFeatures != rhs_storage._overridableFeatures {return false}
-        if _storage._fixedFeatures != rhs_storage._fixedFeatures {return false}
-        if _storage._features != rhs_storage._features {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._edition != rhs._edition {return false}
+    if lhs._overridableFeatures != rhs._overridableFeatures {return false}
+    if lhs._fixedFeatures != rhs._fixedFeatures {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
