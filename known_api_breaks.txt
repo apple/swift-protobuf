@@ -48,3 +48,7 @@ API breakage: accessor ExtensionFieldValueSet.subscript(_:).Get() has return typ
 API breakage: accessor ExtensionFieldValueSet.subscript(_:).Set() has parameter 0 type change from SwiftProtobuf.AnyExtensionField? to (any SwiftProtobuf.AnyExtensionField)?
 API breakage: func BinaryDelimited.parse(messageType:from:extensions:partial:options:) has parameter 2 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
 API breakage: func BinaryDelimited.merge(into:from:extensions:partial:options:) has parameter 2 type change from SwiftProtobuf.ExtensionMap? to (any SwiftProtobuf.ExtensionMap)?
+API breakage: enumelement Google_Protobuf_Edition.legacy has been added as a new enum case
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.hasFeatures has been removed
+API breakage: func Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.clearFeatures() has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.features has been renamed to var fixedFeatures
