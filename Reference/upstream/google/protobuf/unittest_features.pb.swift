@@ -245,6 +245,33 @@ struct Pb_TestFeatures {
   /// Clears the value of `sourceFeature2`. Subsequent reads from it will return its default value.
   mutating func clearSourceFeature2() {self._sourceFeature2 = nil}
 
+  var removedFeature: Pb_EnumFeature {
+    get {return _removedFeature ?? .testEnumFeatureUnknown}
+    set {_removedFeature = newValue}
+  }
+  /// Returns true if `removedFeature` has been explicitly set.
+  var hasRemovedFeature: Bool {return self._removedFeature != nil}
+  /// Clears the value of `removedFeature`. Subsequent reads from it will return its default value.
+  mutating func clearRemovedFeature() {self._removedFeature = nil}
+
+  var futureFeature: Pb_EnumFeature {
+    get {return _futureFeature ?? .testEnumFeatureUnknown}
+    set {_futureFeature = newValue}
+  }
+  /// Returns true if `futureFeature` has been explicitly set.
+  var hasFutureFeature: Bool {return self._futureFeature != nil}
+  /// Clears the value of `futureFeature`. Subsequent reads from it will return its default value.
+  mutating func clearFutureFeature() {self._futureFeature = nil}
+
+  var legacyFeature: Pb_EnumFeature {
+    get {return _legacyFeature ?? .testEnumFeatureUnknown}
+    set {_legacyFeature = newValue}
+  }
+  /// Returns true if `legacyFeature` has been explicitly set.
+  var hasLegacyFeature: Bool {return self._legacyFeature != nil}
+  /// Clears the value of `legacyFeature`. Subsequent reads from it will return its default value.
+  mutating func clearLegacyFeature() {self._legacyFeature = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -262,6 +289,9 @@ struct Pb_TestFeatures {
   fileprivate var _boolFieldFeature: Bool? = nil
   fileprivate var _sourceFeature: Pb_EnumFeature? = nil
   fileprivate var _sourceFeature2: Pb_EnumFeature? = nil
+  fileprivate var _removedFeature: Pb_EnumFeature? = nil
+  fileprivate var _futureFeature: Pb_EnumFeature? = nil
+  fileprivate var _legacyFeature: Pb_EnumFeature? = nil
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -447,6 +477,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     11: .standard(proto: "bool_field_feature"),
     15: .standard(proto: "source_feature"),
     16: .standard(proto: "source_feature2"),
+    17: .standard(proto: "removed_feature"),
+    18: .standard(proto: "future_feature"),
+    19: .standard(proto: "legacy_feature"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -468,6 +501,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       case 11: try { try decoder.decodeSingularBoolField(value: &self._boolFieldFeature) }()
       case 15: try { try decoder.decodeSingularEnumField(value: &self._sourceFeature) }()
       case 16: try { try decoder.decodeSingularEnumField(value: &self._sourceFeature2) }()
+      case 17: try { try decoder.decodeSingularEnumField(value: &self._removedFeature) }()
+      case 18: try { try decoder.decodeSingularEnumField(value: &self._futureFeature) }()
+      case 19: try { try decoder.decodeSingularEnumField(value: &self._legacyFeature) }()
       default: break
       }
     }
@@ -517,6 +553,15 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try { if let v = self._sourceFeature2 {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 16)
     } }()
+    try { if let v = self._removedFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+    } }()
+    try { if let v = self._futureFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 18)
+    } }()
+    try { if let v = self._legacyFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 19)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -534,6 +579,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     if lhs._boolFieldFeature != rhs._boolFieldFeature {return false}
     if lhs._sourceFeature != rhs._sourceFeature {return false}
     if lhs._sourceFeature2 != rhs._sourceFeature2 {return false}
+    if lhs._removedFeature != rhs._removedFeature {return false}
+    if lhs._futureFeature != rhs._futureFeature {return false}
+    if lhs._legacyFeature != rhs._legacyFeature {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
