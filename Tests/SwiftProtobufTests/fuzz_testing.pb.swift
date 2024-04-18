@@ -3471,6 +3471,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         case 49: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessage) }()
         case 61: try {
           var v: Int32?
+          if case .oneofInt32(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularInt32Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3479,6 +3480,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 62: try {
           var v: Int64?
+          if case .oneofInt64(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularInt64Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3487,6 +3489,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 63: try {
           var v: UInt32?
+          if case .oneofUint32(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3495,6 +3498,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 64: try {
           var v: UInt64?
+          if case .oneofUint64(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularUInt64Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3503,6 +3507,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 65: try {
           var v: Int32?
+          if case .oneofSint32(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularSInt32Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3511,6 +3516,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 66: try {
           var v: Int64?
+          if case .oneofSint64(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularSInt64Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3519,6 +3525,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 67: try {
           var v: UInt32?
+          if case .oneofFixed32(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularFixed32Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3527,6 +3534,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 68: try {
           var v: UInt64?
+          if case .oneofFixed64(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularFixed64Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3535,6 +3543,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 69: try {
           var v: Int32?
+          if case .oneofSfixed32(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularSFixed32Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3543,6 +3552,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 70: try {
           var v: Int64?
+          if case .oneofSfixed64(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularSFixed64Field(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3551,6 +3561,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 71: try {
           var v: Float?
+          if case .oneofFloat(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularFloatField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3559,6 +3570,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 72: try {
           var v: Double?
+          if case .oneofDouble(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularDoubleField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3567,6 +3579,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 73: try {
           var v: Bool?
+          if case .oneofBool(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularBoolField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3575,6 +3588,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 74: try {
           var v: String?
+          if case .oneofString(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3583,6 +3597,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 75: try {
           var v: Data?
+          if case .oneofBytes(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -3591,6 +3606,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
         }()
         case 76: try {
           var v: SwiftProtoTesting_Fuzz_AnEnum?
+          if case .oneofEnum(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}

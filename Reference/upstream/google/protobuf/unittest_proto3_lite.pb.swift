@@ -821,6 +821,7 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.
         case 57: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage) }()
         case 111: try {
           var v: UInt32?
+          if case .oneofUint32(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -842,6 +843,7 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.
         }()
         case 113: try {
           var v: String?
+          if case .oneofString(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -850,6 +852,7 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.
         }()
         case 114: try {
           var v: Data?
+          if case .oneofBytes(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}

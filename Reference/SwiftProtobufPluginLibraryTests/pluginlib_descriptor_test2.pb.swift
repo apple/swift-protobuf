@@ -248,6 +248,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
       case 24: try { try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField) }()
       case 31: try {
         var v: String?
+        if case .oneofStrField(let _v) = self.o {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -256,6 +257,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
       }()
       case 32: try {
         var v: Int32?
+        if case .oneofInt32Field(let _v) = self.o {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -264,6 +266,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
       }()
       case 33: try {
         var v: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum?
+        if case .oneofEnumField(let _v) = self.o {v = _v}
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}

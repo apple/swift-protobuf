@@ -574,6 +574,7 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
         case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._field2) }()
         case 3: try {
           var v: SDTTopLevelEnum?
+          if case .field3(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -582,6 +583,7 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
         }()
         case 4: try {
           var v: SDTTopLevelMessage.SubEnum?
+          if case .field4(let _v) = _storage._o {v = _v}
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -955,6 +957,7 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 24: try { try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField) }()
       case 31: try {
         var v: String?
+        if case .oneofStrField(let _v) = self.o {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -963,6 +966,7 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
       }()
       case 32: try {
         var v: Int32?
+        if case .oneofInt32Field(let _v) = self.o {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -971,6 +975,7 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
       }()
       case 33: try {
         var v: SDTTopLevelEnum?
+        if case .oneofEnumField(let _v) = self.o {v = _v}
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}

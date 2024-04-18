@@ -1863,6 +1863,7 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, 
       case 1: try { try decoder.decodeSingularStringField(value: &self._field1) }()
       case 2: try {
         var v: Int32?
+        if case .oneofField(let _v) = self.anOneof {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.anOneof != nil {try decoder.handleConflictingOneOf()}

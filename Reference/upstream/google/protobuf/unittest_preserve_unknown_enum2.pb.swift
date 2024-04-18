@@ -166,6 +166,7 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
       case 5: try {
         var v: Proto2PreserveUnknownEnumUnittest_MyEnum?
+        if case .oneofE1(let _v) = self.o {v = _v}
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -174,6 +175,7 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
       }()
       case 6: try {
         var v: Proto2PreserveUnknownEnumUnittest_MyEnum?
+        if case .oneofE2(let _v) = self.o {v = _v}
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}

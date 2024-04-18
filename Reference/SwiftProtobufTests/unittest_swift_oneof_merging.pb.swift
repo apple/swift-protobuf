@@ -189,6 +189,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftPro
       switch fieldNumber {
       case 111: try {
         var v: UInt32?
+        if case .oneofUint32(let _v) = self.oneofField {v = _v}
         try decoder.decodeSingularUInt32Field(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -210,6 +211,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftPro
       }()
       case 113: try {
         var v: String?
+        if case .oneofString(let _v) = self.oneofField {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -218,6 +220,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftPro
       }()
       case 114: try {
         var v: Data?
+        if case .oneofBytes(let _v) = self.oneofField {v = _v}
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}

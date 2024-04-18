@@ -345,6 +345,7 @@ class OneofGenerator {
               hadValueTest = "hadOneofValue"
           } else {
               p.print("var v: \(field.swiftType)?")
+              p.print("if case \(field.dottedSwiftName)(let _v) = \(storedProperty) {v = _v}")
               hadValueTest = "\(storedProperty) != nil"
           }
 

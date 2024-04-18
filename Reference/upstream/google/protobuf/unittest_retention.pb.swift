@@ -667,6 +667,7 @@ extension ProtobufUnittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf
       case 1: try { try decoder.decodeSingularFloatField(value: &self._f) }()
       case 2: try {
         var v: Int64?
+        if case .i(let _v) = self.o {v = _v}
         try decoder.decodeSingularInt64Field(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}

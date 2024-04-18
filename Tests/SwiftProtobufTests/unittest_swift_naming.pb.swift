@@ -26901,6 +26901,7 @@ extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message, Swift
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.__3Field3) }()
       case 4: try {
         var v: Int32?
+        if case ._4(let _v) = self._2Of {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self._2Of != nil {try decoder.handleConflictingOneOf()}
@@ -26909,6 +26910,7 @@ extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message, Swift
       }()
       case 5: try {
         var v: Int32?
+        if case ._5Field(let _v) = self._2Of {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self._2Of != nil {try decoder.handleConflictingOneOf()}
@@ -26986,6 +26988,7 @@ extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message, SwiftPro
       switch fieldNumber {
       case 1: try {
         var v: String?
+        if case .str(let _v) = self.newValue {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.newValue != nil {try decoder.handleConflictingOneOf()}
@@ -27089,6 +27092,7 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftPro
         switch fieldNumber {
         case 1: try {
           var v: String?
+          if case .str(let _v) = _storage._newValue {v = _v}
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {
             if _storage._newValue != nil {try decoder.handleConflictingOneOf()}

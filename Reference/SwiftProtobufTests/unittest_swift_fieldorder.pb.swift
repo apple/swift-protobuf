@@ -389,6 +389,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
       case 1: try { try decoder.decodeSingularInt64Field(value: &self._myInt) }()
       case 9: try {
         var v: Bool?
+        if case .oneofBool(let _v) = self.options {v = _v}
         try decoder.decodeSingularBoolField(value: &v)
         if let v = v {
           if self.options != nil {try decoder.handleConflictingOneOf()}
@@ -397,6 +398,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
       }()
       case 10: try {
         var v: Int32?
+        if case .oneofInt32(let _v) = self.options {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.options != nil {try decoder.handleConflictingOneOf()}
@@ -406,6 +408,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
       case 11: try { try decoder.decodeSingularStringField(value: &self._myString) }()
       case 60: try {
         var v: Int64?
+        if case .oneofInt64(let _v) = self.options {v = _v}
         try decoder.decodeSingularInt64Field(value: &v)
         if let v = v {
           if self.options != nil {try decoder.handleConflictingOneOf()}
@@ -415,6 +418,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
       case 101: try { try decoder.decodeSingularFloatField(value: &self._myFloat) }()
       case 150: try {
         var v: String?
+        if case .oneofString(let _v) = self.options {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.options != nil {try decoder.handleConflictingOneOf()}
@@ -549,6 +553,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       switch fieldNumber {
       case 1: try {
         var v: Int32?
+        if case .a(let _v) = self.oGood {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oGood != nil {try decoder.handleConflictingOneOf()}
@@ -557,6 +562,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       }()
       case 26: try {
         var v: Int32?
+        if case .b(let _v) = self.oGood {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oGood != nil {try decoder.handleConflictingOneOf()}
@@ -565,6 +571,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       }()
       case 101: try {
         var v: Int32?
+        if case .a2(let _v) = self.oConflictField {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
@@ -574,6 +581,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       case 113: try { try decoder.decodeSingularInt32Field(value: &self._m) }()
       case 126: try {
         var v: Int32?
+        if case .b2(let _v) = self.oConflictField {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
@@ -582,6 +590,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       }()
       case 201: try {
         var v: Int32?
+        if case .a3(let _v) = self.oConflictExtensionsStart {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
@@ -590,6 +599,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       }()
       case 226: try {
         var v: Int32?
+        if case .b3(let _v) = self.oConflictExtensionsStart {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
@@ -598,6 +608,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       }()
       case 301: try {
         var v: Int32?
+        if case .a4(let _v) = self.oConflictExtensionsEnd {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
@@ -606,6 +617,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
       }()
       case 326: try {
         var v: Int32?
+        if case .b4(let _v) = self.oConflictExtensionsEnd {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}

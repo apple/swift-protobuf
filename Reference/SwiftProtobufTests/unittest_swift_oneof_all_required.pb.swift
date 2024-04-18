@@ -343,6 +343,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf
       }()
       case 6: try {
         var v: Int32?
+        if case .option4(let _v) = self.option {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.option != nil {try decoder.handleConflictingOneOf()}

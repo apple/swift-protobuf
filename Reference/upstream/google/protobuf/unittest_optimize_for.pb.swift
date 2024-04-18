@@ -253,6 +253,7 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftPro
       case 1: try { try decoder.decodeSingularInt32Field(value: &self._i) }()
       case 2: try {
         var v: Int32?
+        if case .integerField(let _v) = self.foo {v = _v}
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.foo != nil {try decoder.handleConflictingOneOf()}
@@ -261,6 +262,7 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftPro
       }()
       case 3: try {
         var v: String?
+        if case .stringField(let _v) = self.foo {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.foo != nil {try decoder.handleConflictingOneOf()}

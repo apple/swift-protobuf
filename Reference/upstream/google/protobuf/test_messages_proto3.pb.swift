@@ -1743,6 +1743,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         case 102: try { try decoder.decodeRepeatedEnumField(value: &_storage._unpackedNestedEnum) }()
         case 111: try {
           var v: UInt32?
+          if case .oneofUint32(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1764,6 +1765,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 113: try {
           var v: String?
+          if case .oneofString(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1772,6 +1774,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 114: try {
           var v: Data?
+          if case .oneofBytes(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1780,6 +1783,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 115: try {
           var v: Bool?
+          if case .oneofBool(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularBoolField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1788,6 +1792,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 116: try {
           var v: UInt64?
+          if case .oneofUint64(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularUInt64Field(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1796,6 +1801,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 117: try {
           var v: Float?
+          if case .oneofFloat(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularFloatField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1804,6 +1810,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 118: try {
           var v: Double?
+          if case .oneofDouble(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularDoubleField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1812,6 +1819,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 119: try {
           var v: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum?
+          if case .oneofEnum(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1820,6 +1828,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         }()
         case 120: try {
           var v: SwiftProtobuf.Google_Protobuf_NullValue?
+          if case .oneofNullValue(let _v) = _storage._oneofField {v = _v}
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}

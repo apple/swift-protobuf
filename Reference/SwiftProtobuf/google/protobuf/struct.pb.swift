@@ -273,6 +273,7 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
       switch fieldNumber {
       case 1: try {
         var v: Google_Protobuf_NullValue?
+        if case .nullValue(let _v) = self.kind {v = _v}
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.kind != nil {try decoder.handleConflictingOneOf()}
@@ -281,6 +282,7 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
       }()
       case 2: try {
         var v: Double?
+        if case .numberValue(let _v) = self.kind {v = _v}
         try decoder.decodeSingularDoubleField(value: &v)
         if let v = v {
           if self.kind != nil {try decoder.handleConflictingOneOf()}
@@ -289,6 +291,7 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
       }()
       case 3: try {
         var v: String?
+        if case .stringValue(let _v) = self.kind {v = _v}
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {
           if self.kind != nil {try decoder.handleConflictingOneOf()}
@@ -297,6 +300,7 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
       }()
       case 4: try {
         var v: Bool?
+        if case .boolValue(let _v) = self.kind {v = _v}
         try decoder.decodeSingularBoolField(value: &v)
         if let v = v {
           if self.kind != nil {try decoder.handleConflictingOneOf()}
