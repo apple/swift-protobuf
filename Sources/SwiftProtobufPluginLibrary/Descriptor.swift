@@ -88,6 +88,11 @@ public final class DescriptorSet {
                  "Attempt to use a FeatureSetDefault minimumEdition that isn't supported by the library.")
     precondition(Self.bundledEditionsSupport.contains(featureSetDefaults.maximumEdition),
                  "Attempt to use a FeatureSetDefault maximumEdition that isn't supported by the library.")
+    // If a protoc is too old ≤v26, it might have `features` instead of `overridable_features` and
+    // `fixed_features`, try to catch that.
+    precondition(
+        nil == featureSetDefaults.defaults.first(where: { !$0.hasOverridableFeatures && !$0.hasFixedFeatures }),
+        "These FeatureSetDefault don't appear valid, make sure you are using a new enough protoc to generate them. ")
     let registry = self.registry
     self.files = protos.map {
       return FileDescriptor(proto: $0,
