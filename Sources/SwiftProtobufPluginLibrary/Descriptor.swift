@@ -178,7 +178,7 @@ public final class FileDescriptor {
 
   /// The proto version of the descriptor that defines this File.
   ///
-  /// Thanks to Editions, thanks to Editions, this isn't likely to be exactly what
+  /// Thanks to Editions, this isn't likely to be exactly what
   /// folks want anymore, so wave any other plugins off it.
   @available(*, deprecated,
              message: "Use the properties directly or open a GitHub issue for something missing")
