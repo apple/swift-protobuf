@@ -524,23 +524,25 @@ update-proto-files: check-for-protobuf-checkout
 	@mkdir -p \
 	  Protos/upstream/conformance/test_protos \
 	  Protos/upstream/google/protobuf/compiler \
-	  Protos/upstream/google/protobuf/editions/golden
+	  Protos/upstream/editions/golden
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/upstream/conformance/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/test_protos/*.proto Protos/upstream/conformance/test_protos/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/upstream/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/upstream/google/protobuf/compiler/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/editions/golden/test_messages_proto?_editions.proto Protos/upstream/google/protobuf/editions/golden/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/editions/golden/test_messages_proto?_editions.proto Protos/upstream/editions/golden/
 	# Now copy into the Proto directories for the local targets.
 	@rm -rf Protos/Conformance/conformance/test_protos && mkdir -p Protos/Conformance/conformance/test_protos
 	@cp -v Protos/upstream/conformance/*.proto Protos/Conformance/conformance
 	@cp -v Protos/upstream/conformance/test_protos/*.proto Protos/Conformance/conformance/test_protos
-	@rm -rf Protos/Conformance/google && mkdir -p Protos/Conformance/google/protobuf
+	@rm -rf Protos/Conformance/google && mkdir -p Protos/Conformance/google/protobuf Protos/Conformance/editions
 	@cp -v \
 	  Protos/upstream/google/protobuf/test_messages_proto2.proto \
 	  Protos/upstream/google/protobuf/test_messages_proto3.proto \
-	  Protos/upstream/google/protobuf/editions/golden/test_messages_proto2_editions.proto \
-	  Protos/upstream/google/protobuf/editions/golden/test_messages_proto3_editions.proto \
 	  Protos/Conformance/google/protobuf/
+	@cp -v \
+	  Protos/upstream/editions/golden/test_messages_proto2_editions.proto \
+	  Protos/upstream/editions/golden/test_messages_proto3_editions.proto \
+	  Protos/Conformance/editions/
 	@rm -rf Protos/SwiftProtobuf/google && mkdir -p Protos/SwiftProtobuf/google/protobuf
 	@cp -v \
 	  Protos/upstream/google/protobuf/timestamp.proto \
