@@ -1,1 +1,4 @@
-
+API breakage: enumelement Google_Protobuf_Edition.legacy has been added as a new enum case
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.features has been renamed to var fixedFeatures
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.hasFeatures has been removed
+API breakage: func Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.clearFeatures() has been removed
