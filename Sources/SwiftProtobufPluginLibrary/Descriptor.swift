@@ -176,6 +176,15 @@ public final class FileDescriptor {
 
   private let sourceCodeInfo: Google_Protobuf_SourceCodeInfo
 
+  /// The proto version of the descriptor that defines this File.
+  ///
+  /// Thanks to Editions, thanks to Editions, this isn't likely to be exactly what
+  /// folks want anymore, so wave any other plugins off it.
+  @available(*, deprecated,
+             message: "Use the properties directly or open a GitHub issue for something missing")
+  public var proto: Google_Protobuf_FileDescriptorProto { return _proto }
+  private let _proto: Google_Protobuf_FileDescriptorProto
+
   fileprivate init(
     proto: Google_Protobuf_FileDescriptorProto,
     featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
@@ -256,6 +265,8 @@ public final class FileDescriptor {
     self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
 
     self.sourceCodeInfo = proto.sourceCodeInfo
+
+    self._proto = proto
 
     // Done initializing, register ourselves.
     registry.register(file: self)
