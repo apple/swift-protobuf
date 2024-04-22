@@ -25,7 +25,7 @@ internal struct TextFormatDecoder: Decoder {
     private var fieldCount = 0
     private var terminator: UInt8?
     private var fieldNameMap: _NameMap?
-    private var messageType: (any Message.Type)?
+    private var messageType: any Message.Type
 
     internal var complete: Bool {
         mutating get {
@@ -71,7 +71,7 @@ internal struct TextFormatDecoder: Decoder {
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
         }
-        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!, messageType: messageType!) {
+        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!, messageType: messageType) {
             fieldCount += 1
             return fieldNumber
         } else if terminator == nil {
