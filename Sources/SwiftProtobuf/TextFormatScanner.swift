@@ -334,40 +334,6 @@ internal struct TextFormatScanner {
         return s!
     }
 
-    /// Parse the rest of an [extension_field_name] in the input, assuming the
-    /// initial "[" character has already been read (and is in the prefix)
-    /// This is also used for AnyURL, so we include "/", "."
-    private mutating func parseExtensionKey() -> String? {
-        let start = p
-        if p == end {
-            return nil
-        }
-        let c = p[0]
-        switch c {
-        case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
-            p += 1
-        default:
-            return nil
-        }
-        while p != end {
-            let c = p[0]
-            switch c {
-            case asciiLowerA...asciiLowerZ,
-                 asciiUpperA...asciiUpperZ,
-                 asciiZero...asciiNine,
-                 asciiUnderscore,
-                 asciiPeriod,
-                 asciiForwardSlash:
-                p += 1
-            case asciiCloseSquareBracket: // ]
-                return utf8ToString(bytes: start, count: p - start)
-            default:
-                return nil
-            }
-        }
-        return nil
-    }
-
     /// Scan a string that encodes a byte field, return a count of
     /// the number of bytes that should be decoded from it
     private mutating func validateAndCountBytesFromString(terminator: UInt8, sawBackslash: inout Bool) throws -> Int {
@@ -1075,21 +1041,52 @@ internal struct TextFormatScanner {
         if p == end {
             return nil
         }
-        if p[0] == asciiOpenSquareBracket { // [
+        guard p[0] == asciiOpenSquareBracket else { // [
+            return nil
+        }
+        return try parseExtensionKey()
+    }
+
+    /// Parse the rest of an [extension_field_name] in the input, assuming the
+    /// initial "[" character has already been read (and is in the prefix)
+    /// This is also used for AnyURL, so we include "/".
+    private mutating func parseExtensionKey() throws -> String {
+        assert(p[0] == asciiOpenSquareBracket)
+        p += 1
+        if p == end {
+            throw TextFormatDecodingError.malformedText
+        }
+        let start = p
+        switch p[0] {
+        case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
             p += 1
-            if let s = parseExtensionKey() {
-                if p == end || p[0] != asciiCloseSquareBracket {
-                    throw TextFormatDecodingError.malformedText
-                }
-                // Skip ]
+        default:
+            throw TextFormatDecodingError.malformedText
+        }
+        loop: while p != end {
+            switch p[0] {
+            case asciiLowerA...asciiLowerZ,
+                 asciiUpperA...asciiUpperZ,
+                 asciiZero...asciiNine,
+                 asciiUnderscore,
+                 asciiPeriod,
+                 asciiForwardSlash:
                 p += 1
-                skipWhitespace()
-                return s
-            } else {
+            case asciiCloseSquareBracket: // ]
+                break loop
+            default:
                 throw TextFormatDecodingError.malformedText
             }
         }
-        return nil
+        if p == end || p[0] != asciiCloseSquareBracket {
+            throw TextFormatDecodingError.malformedText
+        }
+        guard let extensionName = utf8ToString(bytes: start, count: p - start) else {
+            throw TextFormatDecodingError.malformedText
+        }
+        p += 1  // Skip ]
+        skipWhitespace()
+        return extensionName
     }
 
     /// Returns text of next regular key or nil if end-of-input.
@@ -1127,7 +1124,8 @@ internal struct TextFormatScanner {
     ///
     /// This function accounts for as much as 2/3 of the total run
     /// time of the entire parse.
-    internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
+    internal mutating func nextFieldNumber(names: _NameMap, messageType: any Message.Type) throws -> Int? {
+        skipWhitespace()
         if p == end {
             return nil
         }
@@ -1137,6 +1135,13 @@ internal struct TextFormatScanner {
              asciiUpperA...asciiUpperZ: // a...z, A...Z
             let key = parseUTF8Identifier()
             if let fieldNumber = names.number(forProtoName: key) {
+                return fieldNumber
+            } else {
+                throw TextFormatDecodingError.unknownField
+            }
+        case asciiOpenSquareBracket: // Start of an extension field
+            let key = try parseExtensionKey()
+            if let fieldNumber = extensions?.fieldNumberForProto(messageType: messageType, protoFieldName: key) {
                 return fieldNumber
             } else {
                 throw TextFormatDecodingError.unknownField

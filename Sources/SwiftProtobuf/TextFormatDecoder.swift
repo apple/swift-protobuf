@@ -71,15 +71,7 @@ internal struct TextFormatDecoder: Decoder {
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
         }
-        if let key = try scanner.nextOptionalExtensionKey() {
-            // Extension key; look up in the extension registry
-            if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: messageType!, protoFieldName: key) {
-                fieldCount += 1
-                return fieldNumber
-            } else {
-                throw TextFormatDecodingError.unknownField
-            }
-        } else if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
+        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!, messageType: messageType!) {
             fieldCount += 1
             return fieldNumber
         } else if terminator == nil {
