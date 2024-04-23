@@ -21,5 +21,19 @@ public struct TextFormatDecodingOptions: Sendable {
   /// while parsing.
   public var messageDepthLimit: Int = 100
 
+  /// If unknown fields in the TextFormat should be ignored. If they aren't
+  /// ignored, an error will be raised if one is encountered.
+  ///
+  /// Note: This is a lossy option, enabling it means part of the TextFormat
+  /// is silently skipped.
+  public var ignoreUnknownFields: Bool = false
+
+  /// If unknown extension fields in the TextFormat should be ignored. If they
+  /// aren't ignored, an error will be raised if one is encountered.
+  ///
+  /// Note: This is a lossy option, enabling it means part of the TextFormat
+  /// is silently skipped.
+  public var ignoreUnknownExtensionFields: Bool = false
+
   public init() {}
 }

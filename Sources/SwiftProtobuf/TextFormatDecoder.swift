@@ -27,6 +27,10 @@ internal struct TextFormatDecoder: Decoder {
     private var fieldNameMap: _NameMap?
     private var messageType: any Message.Type
 
+    internal var options: TextFormatDecodingOptions {
+      return scanner.options
+    }
+
     internal var complete: Bool {
         mutating get {
             return scanner.complete
@@ -63,27 +67,17 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     mutating func nextFieldNumber() throws -> Int? {
-        // Per https://protobuf.dev/reference/protobuf/textformat-spec/#fields, every field can be
-        // followed by a field separator, so if we've seen a field, remove the separator before
-        // checking for the terminator.
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
         }
-        if let terminator = terminator,
-           scanner.skipOptionalObjectEnd(terminator) {
-            return nil
-        }
-        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!, messageType: messageType) {
+        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!,
+                                                         messageType: messageType,
+                                                         terminator: terminator) {
             fieldCount += 1
             return fieldNumber
-        } else if terminator == nil {
-            return nil
         } else {
-            // If this decoder is looking for at a terminator, then if the scanner failed to
-            // find a field number, something went wrong (end of stream).
-            throw TextFormatDecodingError.truncated
+            return nil
         }
-
     }
 
     mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -559,6 +553,7 @@ internal struct TextFormatDecoder: Decoder {
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
+        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -568,14 +563,20 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey() {
+            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
-                    throw TextFormatDecodingError.unknownField
+                    if ignoreExtensionFields && key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
                 scanner.skipOptionalSeparator()
             } else {
@@ -608,6 +609,7 @@ internal struct TextFormatDecoder: Decoder {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
+        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -617,14 +619,20 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey() {
+            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try decodeSingularEnumField(value: &valueField)
                 default:
-                    throw TextFormatDecodingError.unknownField
+                    if ignoreExtensionFields && key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
                 scanner.skipOptionalSeparator()
             } else {
@@ -657,6 +665,7 @@ internal struct TextFormatDecoder: Decoder {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
+        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -666,14 +675,20 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey() {
+            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try decodeSingularMessageField(value: &valueField)
                 default:
-                    throw TextFormatDecodingError.unknownField
+                    if ignoreExtensionFields && key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
                 scanner.skipOptionalSeparator()
             } else {
