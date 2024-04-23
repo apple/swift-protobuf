@@ -117,11 +117,70 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
+    func test_unknown_lengthDelimited_not_nested_message() throws {
+        let bytes: [UInt8] = [8, 1, 18, 6, 65, 66, 67, 68, 69, 70]
+        let msg = try MessageTestType(serializedBytes: bytes)
+        let text = msg.textFormatString()
+        XCTAssertEqual(text, "1: 1\n2: \"ABCDEF\"\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
+    }
+
+
+    func test_unknown_lengthDelimited_zero_length() throws {
+        let bytes: [UInt8] = [8, 1, 18, 0]
+        let msg = try MessageTestType(serializedBytes: bytes)
+        let text = msg.textFormatString()
+        XCTAssertEqual(text, "1: 1\n2: \"\"\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
+    }
+
+
     func test_unknown_lengthDelimited_nested_message() throws {
         let bytes: [UInt8] = [8, 1, 18, 6, 8, 2, 18, 2, 8, 3]
         let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  1: 2\n  2 {\n    1: 3\n  }\n}\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
+    }
+
+    func test_unknown_lengthDelimited_nested_message_zero_length() throws {
+        let bytes: [UInt8] = [8, 1, 18, 4, 8, 2, 18, 0]
+        let msg = try MessageTestType(serializedBytes: bytes)
+        let text = msg.textFormatString()
+        XCTAssertEqual(text, "1: 1\n2 {\n  1: 2\n  2: \"\"\n}\n")
 
         do {
             let _ = try MessageTestType(textFormatString: text)

@@ -143,10 +143,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
               encoder.emitFieldNumber(number: tag.fieldNumber)
               var bytes = Data()
               try decoder.decodeSingularBytesField(value: &bytes)
-              bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
-                  if let baseAddress = body.baseAddress, body.count > 0 {
-                      var encodeAsBytes: Bool
-                      if (recursionBudget > 0) {
+              var encodeAsBytes = true
+              if bytes.count > 0 && recursionBudget > 0 {
+                  bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
+                      if let baseAddress = body.baseAddress, body.count > 0 {
                           do {
                               // Walk all the fields to test if it looks like a message
                               var testDecoder = BinaryDecoder(forReadingFrom: baseAddress,
@@ -166,15 +166,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
                           } catch {
                               encodeAsBytes = true
                           }
-                      } else {
-                          encodeAsBytes = true
-                      }
-                      if (encodeAsBytes) {
-                        encoder.startRegularField()
-                        encoder.putBytesValue(value: bytes)
-                        encoder.endRegularField()
                       }
                   }
+              }
+              if (encodeAsBytes) {
+                encoder.startRegularField()
+                encoder.putBytesValue(value: bytes)
+                encoder.endRegularField()
               }
           case .startGroup:
               encoder.emitFieldNumber(number: tag.fieldNumber)
