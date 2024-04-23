@@ -1304,6 +1304,15 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("optional_nested_message {bb:7;};") {(o: MessageTestType) in
             return o.optionalNestedMessage.bb == 7
         }
+        // Make sure duplicate separators fail.
+        assertTextFormatDecodeFails("optional_int32:1,,")
+        assertTextFormatDecodeFails("optional_int32:1;;")
+        assertTextFormatDecodeFails("optional_int32:1,;")
+        assertTextFormatDecodeFails("optional_int32:1;,")
+        assertTextFormatDecodeFails("optional_nested_message {bb:7,,}")
+        assertTextFormatDecodeFails("optional_nested_message {bb:7;;}")
+        assertTextFormatDecodeFails("optional_nested_message {bb:7,;}")
+        assertTextFormatDecodeFails("optional_nested_message {bb:7;,}")
     }
 
     //
