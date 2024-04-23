@@ -268,9 +268,9 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertTextFormatDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
+    func assertTextFormatDecodeSucceeds(_ text: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
         do {
-            let decoded: MessageTestType = try MessageTestType(textFormatString: text)
+            let decoded: MessageTestType = try MessageTestType(textFormatString: text, options: options)
             do {
                 let r = try check(decoded)
                 XCTAssert(r, "Condition failed for \(decoded)", file: file, line: line)
@@ -279,7 +279,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             }
             let encoded = decoded.textFormatString()
             do {
-                let redecoded = try MessageTestType(textFormatString: text)
+                let redecoded = try MessageTestType(textFormatString: encoded)
                 do {
                     let r = try check(redecoded)
                     XCTAssert(r, "Condition failed for redecoded \(redecoded)", file: file, line: line)

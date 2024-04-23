@@ -348,9 +348,13 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.optionalFloat == 0.0 && o.optionalFloat.sign == .plus
         }
-        assertTextFormatDecodeSucceeds("optional_float: -1e-50\n") {
-            (o: MessageTestType) in
-            return o.optionalFloat == 0.0 && o.optionalFloat.sign == .minus
+        // The negative version won't really round trip, because -0.0 for proto3 counts as not set.
+        do {
+            let msg = try MessageTestType(textFormatString: "optional_float: -1e-50\n")
+            XCTAssertEqual(msg.optionalFloat, 0.0)
+            XCTAssertEqual(msg.optionalFloat.sign, .minus)
+        } catch {
+            XCTFail("Shouldn't have throws on decode: \(error)")
         }
         // protobuf conformance requires subnormals to be handled
         assertTextFormatDecodeSucceeds("optional_float: 1.17549e-39\n") {
