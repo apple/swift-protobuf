@@ -19,6 +19,12 @@ import XCTest
 final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestEmptyMessage
 
+    var encodeWithoutUnknowns: TextFormatEncodingOptions {
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        return options
+    }
+
     func test_unknown_varint() throws {
         let bytes: [UInt8] = [8, 0]
         let msg = try MessageTestType(serializedBytes: bytes)
@@ -32,9 +38,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -51,9 +55,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -70,9 +72,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -90,9 +90,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -111,9 +109,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -130,9 +126,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -150,9 +144,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -170,9 +162,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -189,9 +179,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -230,9 +218,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -249,9 +235,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -268,9 +252,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -318,9 +300,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
@@ -337,9 +317,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             // This is what should have happened.
         }
 
-        var options = TextFormatEncodingOptions()
-        options.printUnknownFields = false
-        let textWithoutUnknowns = msg.textFormatString(options: options)
+        let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 }
