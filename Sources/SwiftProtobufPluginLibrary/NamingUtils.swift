@@ -361,8 +361,6 @@ fileprivate enum CamelCaser {
   }
 }
 
-fileprivate let backtickCharacterSet = CharacterSet(charactersIn: "`")
-
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
 public enum NamingUtils {
@@ -574,7 +572,17 @@ public enum NamingUtils {
   }
 
   static func trimBackticks(_ s: String) -> String {
-    return s.trimmingCharacters(in: backtickCharacterSet)
+    // This only has to deal with the backticks added when computing relative names, so
+    // they are always matched and a single set.
+    let backtick = "`"
+    guard s.hasPrefix(backtick) else {
+        assert(!s.hasSuffix(backtick))
+        return s
+    }
+    assert(s.hasSuffix(backtick))
+    let result = s.dropFirst().dropLast()
+    assert(!result.hasPrefix(backtick) && !result.hasSuffix(backtick))
+    return String(result)
   }
 
   static func periodsToUnderscores(_ s: String) -> String {
