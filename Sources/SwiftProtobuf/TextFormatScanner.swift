@@ -839,10 +839,9 @@ internal struct TextFormatScanner {
                  asciiLowerE,
                  asciiUpperE: // 0...9, ., +, -, e, E
                 p += 1
-            case asciiLowerF: // f
-                // proto1 allowed floats to be suffixed with 'f'
+            case asciiLowerF, asciiUpperF: // f or F
                 let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start, count: p - start))
-                // Just skip the 'f'
+                // Just skip the 'f'/'F'
                 p += 1
                 skipWhitespace()
                 return d
