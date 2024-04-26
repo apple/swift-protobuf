@@ -1298,6 +1298,12 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("optional_int32:1;\n") {(o: MessageTestType) in
             return o.optionalInt32 == 1
         }
+        assertTextFormatDecodeSucceeds("optional_nested_message {bb:3,},") {(o: MessageTestType) in
+            return o.optionalNestedMessage.bb == 3
+        }
+        assertTextFormatDecodeSucceeds("optional_nested_message {bb:7;};") {(o: MessageTestType) in
+            return o.optionalNestedMessage.bb == 7
+        }
     }
 
     //

@@ -63,13 +63,15 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     mutating func nextFieldNumber() throws -> Int? {
-        if let terminator = terminator {
-            if scanner.skipOptionalObjectEnd(terminator) {
-                return nil
-            }
-        }
+        // Per https://protobuf.dev/reference/protobuf/textformat-spec/#fields, every field can be
+        // followed by a field separator, so if we've seen a field, remove the separator before
+        // checking for the terminator.
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
+        }
+        if let terminator = terminator,
+           scanner.skipOptionalObjectEnd(terminator) {
+            return nil
         }
         if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!, messageType: messageType) {
             fieldCount += 1
@@ -77,6 +79,8 @@ internal struct TextFormatDecoder: Decoder {
         } else if terminator == nil {
             return nil
         } else {
+            // If this decoder is looking for at a terminator, then if the scanner failed to
+            // find a field number, something went wrong (end of stream).
             throw TextFormatDecodingError.truncated
         }
 
