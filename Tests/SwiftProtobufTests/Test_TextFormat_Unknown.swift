@@ -144,7 +144,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.unknownField()) {
             // This is what should have happened.
         }
 
@@ -165,7 +165,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.unknownField()) {
             // This is what should have happened.
         }
 
@@ -206,7 +206,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as SwiftProtobufError where self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.unknownField()) {
             // This is what should have happened.
         }
 
