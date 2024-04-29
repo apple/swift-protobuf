@@ -609,10 +609,6 @@ internal struct TextFormatScanner {
                         val = UInt64(digit - asciiLowerA + 10)
                     case asciiUpperA...asciiUpperF:
                         val = UInt64(digit - asciiUpperA + 10)
-                    case asciiLowerU: // trailing 'u'
-                        p += 1
-                        skipWhitespace()
-                        return n
                     default:
                         skipWhitespace()
                         return n
@@ -629,11 +625,6 @@ internal struct TextFormatScanner {
                 var n: UInt64 = 0
                 while p != end {
                     let digit = p[0]
-                    if digit == asciiLowerU { // trailing 'u'
-                        p += 1
-                        skipWhitespace()
-                        return n
-                    }
                     if digit < asciiZero || digit > asciiSeven {
                         skipWhitespace()
                         return n // not octal digit
@@ -652,11 +643,6 @@ internal struct TextFormatScanner {
             var n = UInt64(c - asciiZero)
             while p != end {
                 let digit = p[0]
-                if digit == asciiLowerU { // trailing 'u'
-                    p += 1
-                    skipWhitespace()
-                    return n
-                }
                 if digit < asciiZero || digit > asciiNine {
                     skipWhitespace()
                     return n // not a digit

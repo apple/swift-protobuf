@@ -149,11 +149,11 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatEncode("optional_uint32: 3\n") {(o: inout MessageTestType) in
             o.optionalUint32 = 3
         }
-        assertTextFormatDecodeSucceeds("optional_uint32: 3u") {
+        assertTextFormatDecodeSucceeds("optional_uint32: 0x3") {
             (o: MessageTestType) in
             return o.optionalUint32 == 3
         }
-        assertTextFormatDecodeSucceeds("optional_uint32: 3u optional_int32: 1") {
+        assertTextFormatDecodeSucceeds("optional_uint32: 03 optional_int32: 1") {
             (o: MessageTestType) in
             return o.optionalUint32 == 3 && o.optionalInt32 == 1
         }
