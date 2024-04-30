@@ -15,6 +15,9 @@ fileprivate func asyncByteStream(bytes: UnsafeRawBufferPointer) -> AsyncStream<U
 
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
+  // No decoding options here, a leading zero is actually valid (zero length message),
+  // so we rely on the other Binary fuzz tester to test options, and just let this
+  // one focus on issue around framing of the messages on the stream.
   let bytes = UnsafeRawBufferPointer(start: start, count: count)
   let asyncBytes = asyncByteStream(bytes: bytes)
   let decoding = asyncBytes.binaryProtobufDelimitedMessages(
