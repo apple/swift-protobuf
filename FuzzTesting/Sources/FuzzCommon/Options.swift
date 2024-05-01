@@ -26,14 +26,19 @@ extension SupportsFuzzOptions {
         _ count: Int
     ) -> (Self, UnsafeRawBufferPointer)? {
         var start = start
+        let initialCount = count
         var count = count
         var options = Self()
+        let reportInfo = ProcessInfo.processInfo.environment["DUMP_DECODE_INFO"] == "1"
 
         // No format can start with zero (invalid tag, not really UTF-8), so use that to
         // indicate there are decoding options. The one case that can start with a zero
         // would be length delimited binary, but since that's a zero length message, we
         // can go ahead and use that one also.
         guard count >= 2, start.loadUnaligned(as: UInt8.self) == 0 else {
+            if reportInfo {
+                print("No options to decode")
+            }
             return (options, UnsafeRawBufferPointer(start: start, count: count))
         }
 
@@ -52,7 +57,8 @@ extension SupportsFuzzOptions {
                 // the future, use this bit to indicate reading another byte.
                 guard isSet else {
                     // No continuation, just return whatever we got.
-                    return (options, UnsafeRawBufferPointer(start: start, count: count))
+                    bit = 8
+                    break
                 }
                 guard count >= 1 else {
                     return nil  // No data left to read bits
@@ -89,6 +95,9 @@ extension SupportsFuzzOptions {
             bit += 1
         }
 
+        if reportInfo {
+            print("\(initialCount - count) bytes consumed off front for options: \(options)")
+        }
         return (options, UnsafeRawBufferPointer(start: start, count: count))
     }
 
