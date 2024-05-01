@@ -898,6 +898,7 @@ internal struct TextFormatScanner {
         if p == end {
             return nil
         }
+        let start = p
         let c = p[0]
         let negated: Bool
         if c == asciiMinus {
@@ -913,6 +914,7 @@ internal struct TextFormatScanner {
             || skipOptionalKeyword(bytes: infinity)) {
             return negated ? -Float.infinity : Float.infinity
         }
+        p = start
         return nil
     }
 
