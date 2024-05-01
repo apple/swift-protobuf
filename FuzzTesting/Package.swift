@@ -30,5 +30,8 @@ let package = Package(
         .target(
             name: "FuzzTextFormat",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]),
+        .testTarget(
+            name: "FuzzCommonTests",
+            dependencies: ["FuzzCommon"]),
     ]
 )
