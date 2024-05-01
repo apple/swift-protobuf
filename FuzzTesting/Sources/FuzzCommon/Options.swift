@@ -1,3 +1,11 @@
+// Copyright (c) 2014 - 2024 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+
 import Foundation
 
 import SwiftProtobuf
@@ -29,23 +37,33 @@ extension SupportsFuzzOptions {
             return (options, UnsafeRawBufferPointer(start: start, count: count))
         }
 
-        // Set over the zero
+        // Step over the zero
         start += 1
         count -= 1
 
-        var optionsBits: UInt8? = nil
+        var optionsBits = start.loadUnaligned(as: UInt8.self)
+        start += 1
+        count -= 1
         var bit = 0
         for opt in fuzzOptionsList {
-            if optionsBits == nil {
+            var isSet = optionsBits & (1 << bit) != 0
+            if bit == 7 {
+                // About the use the last bit of this byte, to allow more options in
+                // the future, use this bit to indicate reading another byte.
+                guard isSet else {
+                    // No continuation, just return whatever we got.
+                    return (options, UnsafeRawBufferPointer(start: start, count: count))
+                }
                 guard count >= 1 else {
                     return nil  // No data left to read bits
                 }
                 optionsBits = start.loadUnaligned(as: UInt8.self)
                 start += 1
                 count -= 1
+                bit = 0
+                isSet = optionsBits & (1 << bit) != 0
             }
 
-            let isSet = optionsBits! & (1 << bit) != 0
             switch opt {
             case .boolean(let keypath):
                 options[keyPath: keypath] = isSet
@@ -61,16 +79,11 @@ extension SupportsFuzzOptions {
                     options[keyPath: keypath] = Int(value % mod)
                 }
             }
-
             bit += 1
-            if bit == 8 {  // Rolled over, cause a new load next time through
-                bit = 0
-                optionsBits = nil
-            }
         }
         // Ensure the any remaining bits are zero so they can be used in the future
-        while optionsBits != nil && bit < 8 {
-            if optionsBits! & (1 << bit) != 0 {
+        while bit < 8 {
+            if optionsBits & (1 << bit) != 0 {
                 return nil
             }
             bit += 1

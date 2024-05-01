@@ -38,6 +38,7 @@ FUZZ_TESTS=(
   "FuzzJSON"
   "FuzzTextFormat"
 )
+RUN_TESTS="yes"
 CHECK_REGRESSIONS="no"
 # Default to both
 CMD_CONFIGS=("debug" "release")
@@ -60,6 +61,9 @@ while [[ $# != 0 ]]; do
     --run-regressions | --run )
       CHECK_REGRESSIONS="yes"
       ;;
+    --skip-tests )
+      RUN_TESTS="no"
+      ;;
     -*)
       echo "ERROR: Unknown option: ${1}" 1>&2
       printUsage
@@ -75,6 +79,12 @@ while [[ $# != 0 ]]; do
 done
 
 cd "${FuzzTestingDir}"
+
+if [[ "${RUN_TESTS}" == "yes" ]] ; then
+  echo "------------------------------------------------------------------------------------------"
+  echo "Testing: swift test"
+  swift test
+fi
 
 declare -a CMD_BASE
 if [ "$(uname)" == "Darwin" ]; then
