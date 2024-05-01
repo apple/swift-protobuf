@@ -1295,9 +1295,9 @@ internal struct TextFormatScanner {
             let _ = try nextDouble()
         } else {
             if c == asciiMinus {
-                let _ = try nextUInt()
-            } else {
                 let _ = try nextSInt()
+            } else {
+                let _ = try nextUInt()
             }
         }
     }
