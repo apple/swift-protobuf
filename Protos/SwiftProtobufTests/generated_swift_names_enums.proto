@@ -337,6 +337,7 @@ message GeneratedSwiftReservedEnums {
   enum FileOptions { NONE_FileOptions = 0; }
   enum filter { NONE_filter = 0; }
   enum final { NONE_final = 0; }
+  enum finiteOnly { NONE_finiteOnly = 0; }
   enum first { NONE_first = 0; }
   enum firstItem { NONE_firstItem = 0; }
   enum fixedFeatures { NONE_fixedFeatures = 0; }
@@ -519,6 +520,7 @@ message GeneratedSwiftReservedEnums {
   enum idempotencyLevel { NONE_idempotencyLevel = 0; }
   enum identifierValue { NONE_identifierValue = 0; }
   enum if { NONE_if = 0; }
+  enum ignoreUnknownExtensionFields { NONE_ignoreUnknownExtensionFields = 0; }
   enum ignoreUnknownFields { NONE_ignoreUnknownFields = 0; }
   enum index { NONE_index = 0; }
   enum init { NONE_init = 0; }
@@ -778,6 +780,7 @@ message GeneratedSwiftReservedEnums {
   enum sawBackslash { NONE_sawBackslash = 0; }
   enum sawSection4Characters { NONE_sawSection4Characters = 0; }
   enum sawSection5Characters { NONE_sawSection5Characters = 0; }
+  enum scan { NONE_scan = 0; }
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }
   enum self { NONE_self = 0; }
