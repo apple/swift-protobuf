@@ -386,4 +386,29 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
         XCTAssertEqual(textWithoutUnknowns, "")
     }
+
+    func test_unknown_fieldnum_too_big() {
+        // The max field number is 536,870,911, so anything that takes more digits, should
+        // fail as malformed.
+
+        var opts = TextFormatDecodingOptions()
+        opts.ignoreUnknownFields = true
+
+        // Max value, will pass becuase of ignoring unknowns.
+        do {
+            let _ = try MessageTestType(textFormatString: "536870911: 1", options: opts)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        // One more digit, should fail as malformed
+        do {
+            let _ = try MessageTestType(textFormatString: "1536870911: 1", options: opts)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.malformedText {
+            // This is what should have happened.
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
 }

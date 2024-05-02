@@ -68,6 +68,11 @@ private let asciiLowerY = UInt8(ascii: "y")
 private let asciiLowerZ = UInt8(ascii: "z")
 private let asciiUpperZ = UInt8(ascii: "Z")
 
+// https://protobuf.dev/programming-guides/proto2/#assigning
+// Fields can be between 1 and 536,870,911. So we can stop parsing
+// a raw number if we go over this (it also avoid rollover).
+private let maxFieldNumLength: Int = 9
+
 private func fromHexDigit(_ c: UInt8) -> UInt8? {
   if c >= asciiZero && c <= asciiNine {
     return c - asciiZero
@@ -1094,9 +1099,26 @@ internal struct TextFormatScanner {
             }
             throw TextFormatDecodingError.unknownField
         case asciiLowerA...asciiLowerZ,
-             asciiUpperA...asciiUpperZ,
-             asciiOne...asciiNine: // a...z, A...Z, 1...9
+             asciiUpperA...asciiUpperZ: // a...z, A...Z
             return parseIdentifier()
+        case asciiOne...asciiNine:  // 1...9 (field numbers are 123, not 0123)
+            let start = p
+            p += 1
+            while p != end {
+                let c = p[0]
+                if c < asciiZero || c > asciiNine {
+                    break
+                }
+                p += 1
+                if p - start > maxFieldNumLength {
+                    throw TextFormatDecodingError.malformedText
+                }
+            }
+            let buff = UnsafeRawBufferPointer(start: start, count: p - start)
+            skipWhitespace()
+            let s = utf8ToString(bytes: buff.baseAddress!, count: buff.count)
+            // Safe, can't be invalid UTF-8 given the input.
+            return s!
         default:
             throw TextFormatDecodingError.malformedText
         }
@@ -1151,6 +1173,7 @@ internal struct TextFormatScanner {
                 // Unknown field name
                 break
             case asciiOne...asciiNine:  // 1-9 (field numbers are 123, not 0123)
+                let start = p
                 var fieldNum = Int(c) - Int(asciiZero)
                 p += 1
                 while p != end {
@@ -1161,6 +1184,9 @@ internal struct TextFormatScanner {
                         break
                     }
                     p += 1
+                    if p - start > maxFieldNumLength {
+                        throw TextFormatDecodingError.malformedText
+                    }
                 }
                 skipWhitespace()
                 if names.names(for: fieldNum) != nil {
