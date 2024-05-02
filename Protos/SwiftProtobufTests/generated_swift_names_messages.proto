@@ -337,6 +337,7 @@ message GeneratedSwiftReservedMessages {
   message FileOptions { int32 FileOptions = 1; }
   message filter { int32 filter = 1; }
   message final { int32 final = 1; }
+  message finiteOnly { int32 finiteOnly = 1; }
   message first { int32 first = 1; }
   message firstItem { int32 firstItem = 1; }
   message fixedFeatures { int32 fixedFeatures = 1; }
@@ -519,6 +520,7 @@ message GeneratedSwiftReservedMessages {
   message idempotencyLevel { int32 idempotencyLevel = 1; }
   message identifierValue { int32 identifierValue = 1; }
   message if { int32 if = 1; }
+  message ignoreUnknownExtensionFields { int32 ignoreUnknownExtensionFields = 1; }
   message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message index { int32 index = 1; }
   message init { int32 init = 1; }
@@ -778,6 +780,7 @@ message GeneratedSwiftReservedMessages {
   message sawBackslash { int32 sawBackslash = 1; }
   message sawSection4Characters { int32 sawSection4Characters = 1; }
   message sawSection5Characters { int32 sawSection5Characters = 1; }
+  message scan { int32 scan = 1; }
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
   message self { int32 self = 1; }

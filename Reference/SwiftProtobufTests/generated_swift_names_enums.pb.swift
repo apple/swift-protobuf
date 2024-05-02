@@ -10021,6 +10021,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum finiteOnly: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneFiniteOnly // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFiniteOnly
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFiniteOnly
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFiniteOnly: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.finiteOnly] = [
+      .noneFiniteOnly,
+    ]
+
+  }
+
   enum first: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFirst // = 0
@@ -15477,6 +15507,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ifEnum] = [
       .noneIf,
+    ]
+
+  }
+
+  enum ignoreUnknownExtensionFields: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneIgnoreUnknownExtensionFields // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIgnoreUnknownExtensionFields
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIgnoreUnknownExtensionFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIgnoreUnknownExtensionFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignoreUnknownExtensionFields] = [
+      .noneIgnoreUnknownExtensionFields,
     ]
 
   }
@@ -23247,6 +23307,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection5Characters] = [
       .noneSawSection5Characters,
+    ]
+
+  }
+
+  enum scan: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneScan // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneScan
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneScan
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneScan: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scan] = [
+      .noneScan,
     ]
 
   }
@@ -31275,6 +31365,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.final: SwiftPr
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.finiteOnly: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_finiteOnly"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.first: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_first"),
@@ -32364,6 +32460,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.identifierValu
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ifEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_if"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignoreUnknownExtensionFields: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ignoreUnknownExtensionFields"),
   ]
 }
 
@@ -33918,6 +34020,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection4Cha
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection5Characters: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_sawSection5Characters"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scan: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_scan"),
   ]
 }
 
