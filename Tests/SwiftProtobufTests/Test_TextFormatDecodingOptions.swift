@@ -628,6 +628,53 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         XCTAssertEqual(expected, msg)
     }
 
+    func testIgnoreUnknown_fieldnumTooBig() {
+        let expected = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalInt32 = 1
+            $0.optionalUint32 = 2
+        }
+        var options = TextFormatDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        // The max field number is 536,870,911, so anything that takes more digits, should
+        // fail as malformed.
+
+        let testCases: [(field: String, parses: Bool)] = [
+            ("536870911", true),
+            ("1536870911", false)
+        ]
+
+        for testCase in testCases {
+            let text = """
+              optional_int32: 1  # !!! real field
+
+              # Unknown field that's a message to test parsing of field numbers
+              # nested within a unknown message.
+              does_not_exist {
+                \(testCase.field): 1
+              }
+
+              optional_uint32: 2  # !!! real field
+              """
+
+            do {
+                let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: text,
+                                                             options: options)
+                // If we get here, it should be the expected message.
+                XCTAssertTrue(testCase.parses)
+                XCTAssertEqual(msg, expected)
+            } catch TextFormatDecodingError.malformedText {
+                if testCase.parses {
+                    XCTFail("Unexpected malformedText - input: \(testCase.field)")
+                } else {
+                    // Nothing, was the expected error
+                }
+            } catch {
+                XCTFail("Unexpected error: \(error) - input: \(testCase.field)")
+            }
+        }
+    }
+
     func testIgnoreUnknownWithMessageDepthLimit() {
         let textInput = "a: { a: { i: 1 } }"
 
