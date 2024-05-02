@@ -37,7 +37,7 @@ internal class DoubleParser {
         return utf8ToDouble(bytes: UnsafeRawBufferPointer(rebasing: bytes[start..<end]))
     }
 
-    func utf8ToDouble(bytes: UnsafeRawBufferPointer) -> Double? {
+    func utf8ToDouble(bytes: UnsafeRawBufferPointer, finiteOnly: Bool = true) -> Double? {
         // Reject unreasonably long or short UTF8 number
         if work.count <= bytes.count || bytes.count < 1 {
             return nil
@@ -50,18 +50,23 @@ internal class DoubleParser {
         var e: UnsafeMutablePointer<Int8>? = work.baseAddress
         let d = strtod(work.baseAddress!, &e)
 
-        // Fail if strtod() did not consume everything we expected
-        // or if strtod() thought the number was out of range.
+        // Fail if strtod() did not consume everything we expected.
+        guard e == work.baseAddress! + bytes.count else {
+            return nil
+        }
+
+        // If strtod() thought the number was out of range, it will return
+        // a non-finite number...
         //
-        // NOTE: TextFormat specifically calls out handling for overflows
-        // for float/double fields:
+        // TextFormat specifically calls out handling for overflows for
+        // float/double fields:
         // https://protobuf.dev/reference/protobuf/textformat-spec/#value
         //
         // > Overflows are treated as infinity or -infinity.
         //
         // But the JSON protobuf spec doesn't mention anything:
         // https://protobuf.dev/programming-guides/proto3/#json
-        if e != work.baseAddress! + bytes.count || !d.isFinite {
+        if finiteOnly && !d.isFinite {
             return nil
         }
         return d
