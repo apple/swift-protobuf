@@ -826,7 +826,9 @@ internal struct TextFormatScanner {
                  asciiUpperE: // 0...9, ., +, -, e, E
                 p += 1
             case asciiLowerF, asciiUpperF: // f or F
-                let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start, count: p - start))
+                let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start,
+                                                                                count: p - start),
+                                                  finiteOnly: false)
                 // Just skip the 'f'/'F'
                 p += 1
                 skipWhitespace()
@@ -835,7 +837,9 @@ internal struct TextFormatScanner {
                 break loop
             }
         }
-        let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start, count: p - start))
+        let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start,
+                                                                        count: p - start),
+                                          finiteOnly: false)
         skipWhitespace()
         return d
     }

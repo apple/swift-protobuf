@@ -398,6 +398,16 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         // This would overload a int, but as a floating point value it will map to "inf".
         assertDecodeIgnoringUnknownsSucceeds("float", "999999999999999999999999999999999999")
 
+        // Things that round to infinity or zero, but should parse ok.
+        assertDecodeIgnoringUnknownsSucceeds("float", "1e50")
+        assertDecodeIgnoringUnknownsSucceeds("float", "-1e50")
+        assertDecodeIgnoringUnknownsSucceeds("float", "1e-50")
+        assertDecodeIgnoringUnknownsSucceeds("float", "-1e-50")
+        assertDecodeIgnoringUnknownsSucceeds("double", "1e9999")
+        assertDecodeIgnoringUnknownsSucceeds("double", "-1e9999")
+        assertDecodeIgnoringUnknownsSucceeds("double", "1e-9999")
+        assertDecodeIgnoringUnknownsSucceeds("double", "-1e-9999")
+
         assertDecodeIgnoringUnknownsSucceeds("float", "nan")
         assertDecodeIgnoringUnknownsSucceeds("float", "inf")
         assertDecodeIgnoringUnknownsSucceeds("float", "-inf")
