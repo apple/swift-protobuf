@@ -397,4 +397,203 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m9.subtract(m10).paths, ["a"])
     }
 
+    // Checks whether all field types could be merged.
+    func testMergeAllFields() throws {
+        var m1 = SwiftProtoTesting_Fuzz_Message()
+        let m2 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 1
+            m.singularInt64 = 1
+            m.singularUint32 = 1
+            m.singularUint64 = 1
+            m.singularSint32 = 1
+            m.singularSint64 = 1
+            m.singularFixed32 = 1
+            m.singularFixed64 = 1
+            m.singularSfixed32 = 1
+            m.singularSfixed64 = 1
+            m.singularFloat = 1
+            m.singularDouble = 1
+            m.singularBool = true
+            m.singularString = "str"
+            m.singularBytes = "str".data(using: .utf8) ?? .init()
+            m.singularEnum = .two
+            m.singularGroup = .with { $0.groupField = 1 }
+            m.singularMessage = .with { $0.singularInt32 = 1 }
+            m.repeatedInt32 = [1]
+            m.repeatedInt64 = [1]
+            m.repeatedUint32 = [1]
+            m.repeatedUint64 = [1]
+            m.repeatedSint32 = [1]
+            m.repeatedSint64 = [1]
+            m.repeatedFixed32 = [1]
+            m.repeatedFixed64 = [1]
+            m.repeatedSfixed32 = [1]
+            m.repeatedSfixed64 = [1]
+            m.repeatedFloat = [1]
+            m.repeatedDouble = [1]
+            m.repeatedBool = [true]
+            m.repeatedString = ["str"]
+            m.repeatedBytes = ["str".data(using: .utf8) ?? .init()]
+            m.repeatedEnum = [.two]
+            m.repeatedGroup = [.with { $0.groupField = 1 }]
+            m.repeatedMessage = [.with { $0.singularInt32 = 1 }]
+            m.o = .oneofInt32(1)
+            m.repeatedPackedInt32 = [1]
+            m.repeatedPackedInt64 = [1]
+            m.repeatedPackedUint32 = [1]
+            m.repeatedPackedUint64 = [1]
+            m.repeatedPackedSint32 = [1]
+            m.repeatedPackedSint64 = [1]
+            m.repeatedPackedFixed32 = [1]
+            m.repeatedPackedFixed64 = [1]
+            m.repeatedPackedSfixed32 = [1]
+            m.repeatedPackedSfixed64 = [1]
+            m.repeatedPackedFloat = [1]
+            m.repeatedPackedDouble = [1]
+            m.repeatedPackedBool = [true]
+            m.repeatedPackedEnum = [.two]
+            m.mapInt32Int32 = [1: 1]
+            m.mapInt32Int64 = [1: 1]
+            m.mapInt32Uint32 = [1: 1]
+            m.mapInt32Uint64 = [1: 1]
+            m.mapInt32Sint32 = [1: 1]
+            m.mapInt32Sint64 = [1: 1]
+            m.mapInt32Fixed32 = [1: 1]
+            m.mapInt32Fixed64 = [1: 1]
+            m.mapInt32AnEnum = [1: .one]
+            m.mapInt32Message = [1: .init()]
+        }
+        try m1.merge(with: m2, fieldMask: .init(allFieldsOf: SwiftProtoTesting_Fuzz_Message.self))
+        XCTAssertEqual(m1.singularInt32, m2.singularInt32)
+        XCTAssertEqual(m1.singularInt64, m2.singularInt64)
+        XCTAssertEqual(m1.singularUint32, m2.singularUint32)
+        XCTAssertEqual(m1.singularUint64, m2.singularUint64)
+        XCTAssertEqual(m1.singularSint32, m2.singularSint32)
+        XCTAssertEqual(m1.singularSint64, m2.singularSint64)
+        XCTAssertEqual(m1.singularFixed32, m2.singularFixed32)
+        XCTAssertEqual(m1.singularFixed64, m2.singularFixed64)
+        XCTAssertEqual(m1.singularSfixed32, m2.singularSfixed32)
+        XCTAssertEqual(m1.singularSfixed64, m2.singularSfixed64)
+        XCTAssertEqual(m1.singularFloat, m2.singularFloat)
+        XCTAssertEqual(m1.singularDouble, m2.singularDouble)
+        XCTAssertEqual(m1.singularBool, m2.singularBool)
+        XCTAssertEqual(m1.singularString, m2.singularString)
+        XCTAssertEqual(m1.singularBytes, m2.singularBytes)
+        XCTAssertEqual(m1.singularEnum, m2.singularEnum)
+        XCTAssertEqual(m1.singularGroup, m2.singularGroup)
+        XCTAssertEqual(m1.singularMessage, m2.singularMessage)
+        XCTAssertEqual(m1.repeatedInt32, m2.repeatedInt32)
+        XCTAssertEqual(m1.repeatedInt64, m2.repeatedInt64)
+        XCTAssertEqual(m1.repeatedUint32, m2.repeatedUint32)
+        XCTAssertEqual(m1.repeatedUint64, m2.repeatedUint64)
+        XCTAssertEqual(m1.repeatedSint32, m2.repeatedSint32)
+        XCTAssertEqual(m1.repeatedSint64, m2.repeatedSint64)
+        XCTAssertEqual(m1.repeatedFixed32, m2.repeatedFixed32)
+        XCTAssertEqual(m1.repeatedFixed64, m2.repeatedFixed64)
+        XCTAssertEqual(m1.repeatedSfixed32, m2.repeatedSfixed32)
+        XCTAssertEqual(m1.repeatedSfixed64, m2.repeatedSfixed64)
+        XCTAssertEqual(m1.repeatedFloat, m2.repeatedFloat)
+        XCTAssertEqual(m1.repeatedDouble, m2.repeatedDouble)
+        XCTAssertEqual(m1.repeatedBool, m2.repeatedBool)
+        XCTAssertEqual(m1.repeatedString, m2.repeatedString)
+        XCTAssertEqual(m1.repeatedBytes, m2.repeatedBytes)
+        XCTAssertEqual(m1.repeatedEnum, m2.repeatedEnum)
+        XCTAssertEqual(m1.repeatedGroup, m2.repeatedGroup)
+        XCTAssertEqual(m1.repeatedMessage, m2.repeatedMessage)
+        XCTAssertEqual(m1.o, m2.o)
+        XCTAssertEqual(m1.repeatedPackedInt32, m2.repeatedPackedInt32)
+        XCTAssertEqual(m1.repeatedPackedInt64, m2.repeatedPackedInt64)
+        XCTAssertEqual(m1.repeatedPackedUint32, m2.repeatedPackedUint32)
+        XCTAssertEqual(m1.repeatedPackedUint64, m2.repeatedPackedUint64)
+        XCTAssertEqual(m1.repeatedPackedSint32, m2.repeatedPackedSint32)
+        XCTAssertEqual(m1.repeatedPackedSint64, m2.repeatedPackedSint64)
+        XCTAssertEqual(m1.repeatedPackedFixed32, m2.repeatedPackedFixed32)
+        XCTAssertEqual(m1.repeatedPackedFixed64, m2.repeatedPackedFixed64)
+        XCTAssertEqual(m1.repeatedPackedSfixed32, m2.repeatedPackedSfixed32)
+        XCTAssertEqual(m1.repeatedPackedSfixed64, m2.repeatedPackedSfixed64)
+        XCTAssertEqual(m1.repeatedPackedFloat, m2.repeatedPackedFloat)
+        XCTAssertEqual(m1.repeatedPackedDouble, m2.repeatedPackedDouble)
+        XCTAssertEqual(m1.repeatedPackedBool, m2.repeatedPackedBool)
+        XCTAssertEqual(m1.repeatedPackedEnum, m2.repeatedPackedEnum)
+        XCTAssertEqual(m1.mapInt32Int32, m2.mapInt32Int32)
+        XCTAssertEqual(m1.mapInt32Int64, m2.mapInt32Int64)
+        XCTAssertEqual(m1.mapInt32Uint32, m2.mapInt32Uint32)
+        XCTAssertEqual(m1.mapInt32Uint64, m2.mapInt32Uint64)
+        XCTAssertEqual(m1.mapInt32Sint32, m2.mapInt32Sint32)
+        XCTAssertEqual(m1.mapInt32Sint64, m2.mapInt32Sint64)
+        XCTAssertEqual(m1.mapInt32Fixed32, m2.mapInt32Fixed32)
+        XCTAssertEqual(m1.mapInt32Fixed64, m2.mapInt32Fixed64)
+        XCTAssertEqual(m1.mapInt32AnEnum, m2.mapInt32AnEnum)
+        XCTAssertEqual(m1.mapInt32Message, m2.mapInt32Message)
+    }
+
+    // Checks merge could be done for an optional path with nil value.
+    func testMergeOptionalValue() throws {
+        var m1 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 1
+        }
+        let m2 = SwiftProtoTesting_Fuzz_Message()
+        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["singular_int32"]))
+        XCTAssertEqual(m1.singularInt32, m2.singularInt32)
+    }
+
+    // Checks merge could be done for an optional path with default value.
+    func testMergeDefaultValue() throws {
+        var m1 = SwiftProtoTesting_TestAllTypes.with { m in
+            m.defaultInt32 = 1
+        }
+        let m2 = SwiftProtoTesting_TestAllTypes()
+        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["default_int32"]))
+        XCTAssertEqual(m1.defaultInt32, m2.defaultInt32)
+    }
+
+    // Checks merge could be done for non-optional paths.
+    func testMergeNonOptionalValues() throws {
+        let mask = Google_Protobuf_FieldMask(protoPaths: ["value"])
+
+        var m1 = Google_Protobuf_DoubleValue(1)
+        let m2 = Google_Protobuf_DoubleValue()
+        try m1.merge(with: m2, fieldMask: mask)
+        XCTAssertEqual(m1.value, m2.value)
+
+        var m3 = Google_Protobuf_FloatValue(1)
+        let m4 = Google_Protobuf_FloatValue()
+        try m3.merge(with: m4, fieldMask: mask)
+        XCTAssertEqual(m3.value, m4.value)
+
+        var m5 = Google_Protobuf_Int64Value(1)
+        let m6 = Google_Protobuf_Int64Value()
+        try m5.merge(with: m6, fieldMask: mask)
+        XCTAssertEqual(m5.value, m6.value)
+
+        var m7 = Google_Protobuf_Int32Value(1)
+        let m8 = Google_Protobuf_Int32Value()
+        try m7.merge(with: m8, fieldMask: mask)
+        XCTAssertEqual(m7.value, m8.value)
+
+        var m9 = Google_Protobuf_UInt64Value(1)
+        let m10 = Google_Protobuf_UInt64Value()
+        try m9.merge(with: m10, fieldMask: mask)
+        XCTAssertEqual(m9.value, m10.value)
+
+        var m11 = Google_Protobuf_UInt32Value(1)
+        let m12 = Google_Protobuf_UInt32Value()
+        try m11.merge(with: m12, fieldMask: mask)
+        XCTAssertEqual(m11.value, m12.value)
+        
+        var m13 = Google_Protobuf_BoolValue(true)
+        let m14 = Google_Protobuf_BoolValue()
+        try m13.merge(with: m14, fieldMask: mask)
+        XCTAssertEqual(m13.value, m14.value)
+
+        var m15 = Google_Protobuf_StringValue("str")
+        let m16 = Google_Protobuf_StringValue()
+        try m15.merge(with: m16, fieldMask: mask)
+        XCTAssertEqual(m15.value, m16.value)
+
+        var m17 = Google_Protobuf_BytesValue("str".data(using: .utf8) ?? .init())
+        let m18 = Google_Protobuf_BytesValue()
+        try m17.merge(with: m18, fieldMask: mask)
+        XCTAssertEqual(m17.value, m18.value)
+    }
 }

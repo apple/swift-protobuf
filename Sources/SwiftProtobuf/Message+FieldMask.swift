@@ -27,6 +27,17 @@ extension Message {
     return message.hasPath(path: path)
   }
 
+  internal mutating func hasPath(path: String) -> Bool {
+    do {
+      try set(path: path, value: nil, mergeOption: .init())
+      return true
+    } catch let error as PathDecodingError {
+      return error != .pathNotFound
+    } catch {
+      return false
+    }
+  }
+
   internal mutating func isPathValid(
     _ path: String
   ) -> Bool {
@@ -54,22 +65,20 @@ extension Message {
   /// Merges fields specified in a FieldMask into another message.
   ///
   /// - Parameters:
-  ///   - source: Message should be merged to the original one.
+  ///   - source: Message that should be merged to the original one.
   ///   - fieldMask: FieldMask specifies which fields should be merged.
   public mutating func merge(
     with source: Self,
     fieldMask: Google_Protobuf_FieldMask,
     mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
   ) throws {
-    var source = source
-    var pathToValueMap: [String: Any?] = [:]
+    var visitor = PathVisitor<Self>()
+    try source.traverse(visitor: &visitor)
+    let values = visitor.values
     for path in fieldMask.paths {
-      pathToValueMap[path] = try source.get(path: path)
-    }
-    for (path, value) in pathToValueMap {
       try? set(
         path: path,
-        value: value,
+        value: values[path],
         mergeOption: mergeOption
       )
     }

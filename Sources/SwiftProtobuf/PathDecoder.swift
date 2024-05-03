@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/SetPathDecoder.swift - Path decoder (Setter)
+// Sources/SwiftProtobuf/PathDecoder.swift - Path decoder
 //
 // Copyright (c) 2014 - 2023 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -37,10 +37,17 @@ extension Message {
     }
     return type._protobuf_nameMap.number(forJSONName: field)
   }
+
+  static func name(for field: Int) -> String? {
+    guard let type = Self.self as? any _ProtoNameProviding.Type else {
+      return nil
+    }
+    return type._protobuf_nameMap.names(for: field)?.proto.description
+  }
 }
 
 // Decoder that set value of a message field by the given path
-struct SetPathDecoder<T: Message>: Decoder {
+struct PathDecoder<T: Message>: Decoder {
 
   // The value should be set to the path
   private let value: Any?
@@ -62,19 +69,26 @@ struct SetPathDecoder<T: Message>: Decoder {
     path: [String],
     value: Any?,
     mergeOption: Google_Protobuf_FieldMask.MergeOptions
-  ) {
+  ) throws {
     if let firstComponent = path.first,
        let number = T.number(for: firstComponent) {
       self.number = number
       self.nextPath = .init(path.dropFirst())
     } else {
-      self.nextPath = []
+      throw PathDecodingError.pathNotFound
     }
     self.value = value
     self.mergeOption = mergeOption
   }
 
-  private func setValue<V>(_ value: inout V) throws {
+  private func setValue<V>(_ value: inout V, defaultValue: V) throws {
+    if !nextPath.isEmpty {
+      throw PathDecodingError.pathNotFound
+    }
+    if self.value == nil {
+      value = defaultValue
+      return
+    }
     guard let castedValue = self.value as? V else {
       throw PathDecodingError.typeMismatch
     }
@@ -82,8 +96,15 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   private func setRepeatedValue<V>(_ value: inout [V]) throws {
-    guard let castedValue = self.value as? [V] else {
-      throw PathDecodingError.typeMismatch
+    if !nextPath.isEmpty {
+      throw PathDecodingError.pathNotFound
+    }
+    var castedValue: [V] = []
+    if self.value != nil {
+      guard let v = self.value as? [V] else {
+        throw PathDecodingError.typeMismatch
+      }
+      castedValue = v
     }
     if replaceRepeatedFields {
       value = castedValue
@@ -95,8 +116,12 @@ struct SetPathDecoder<T: Message>: Decoder {
   private func setMapValue<K, V>(
     _ value: inout Dictionary<K, V>
   ) throws {
-    guard let castedValue = self.value as? Dictionary<K, V> else {
-      throw PathDecodingError.typeMismatch
+    var castedValue: [K: V] = [:]
+    if self.value != nil {
+      guard let v = self.value as? Dictionary<K, V> else {
+        throw PathDecodingError.typeMismatch
+      }
+      castedValue = v
     }
     if replaceRepeatedFields {
       value = castedValue
@@ -115,11 +140,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularFloatField(value: inout Float) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularFloatField(value: inout Float?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
@@ -127,11 +152,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularDoubleField(value: inout Double) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularDoubleField(value: inout Double?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
@@ -139,11 +164,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularInt32Field(value: inout Int32) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularInt32Field(value: inout Int32?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
@@ -151,11 +176,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularInt64Field(value: inout Int64) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularInt64Field(value: inout Int64?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
@@ -163,11 +188,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
@@ -175,11 +200,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
@@ -187,11 +212,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularSInt32Field(value: inout Int32) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
@@ -199,11 +224,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularSInt64Field(value: inout Int64) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
@@ -211,11 +236,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
@@ -223,11 +248,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
@@ -235,11 +260,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
@@ -247,11 +272,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
@@ -259,11 +284,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularBoolField(value: inout Bool) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularBoolField(value: inout Bool?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
@@ -271,11 +296,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularStringField(value: inout String) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularStringField(value: inout String?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedStringField(value: inout [String]) throws {
@@ -283,11 +308,11 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularBytesField(value: inout Data) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularBytesField(value: inout Data?) throws {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
@@ -297,13 +322,13 @@ struct SetPathDecoder<T: Message>: Decoder {
   mutating func decodeSingularEnumField<E>(
     value: inout E
   ) throws where E : Enum, E.RawValue == Int {
-    try setValue(&value)
+    try setValue(&value, defaultValue: .init())
   }
 
   mutating func decodeSingularEnumField<E>(
     value: inout E?
   ) throws where E : Enum, E.RawValue == Int {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedEnumField<E>(
@@ -316,11 +341,11 @@ struct SetPathDecoder<T: Message>: Decoder {
     value: inout M?
   ) throws where M : Message {
     if nextPath.isEmpty {
-      try setValue(&value)
+      try setValue(&value, defaultValue: nil)
       return
     }
-    var decoder = SetPathDecoder<M>(
-        path: nextPath, 
+    var decoder = try PathDecoder<M>(
+        path: nextPath,
         value: self.value,
         mergeOption: mergeOption
     )
@@ -339,7 +364,7 @@ struct SetPathDecoder<T: Message>: Decoder {
   mutating func decodeSingularGroupField<G>(
     value: inout G?
   ) throws where G : Message {
-    try setValue(&value)
+    try setValue(&value, defaultValue: nil)
   }
 
   mutating func decodeRepeatedGroupField<G>(
@@ -388,7 +413,7 @@ extension Message {
     mergeOption: Google_Protobuf_FieldMask.MergeOptions
   ) throws {
     let _path = path.components(separatedBy: ".")
-    var decoder = SetPathDecoder<Self>(
+    var decoder = try PathDecoder<Self>(
       path: _path,
       value: value,
       mergeOption: mergeOption
