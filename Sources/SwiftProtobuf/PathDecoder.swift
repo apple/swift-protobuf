@@ -116,6 +116,9 @@ struct PathDecoder<T: Message>: Decoder {
   private func setMapValue<K, V>(
     _ value: inout Dictionary<K, V>
   ) throws {
+    if !nextPath.isEmpty {
+      throw PathDecodingError.pathNotFound
+    }
     var castedValue: [K: V] = [:]
     if self.value != nil {
       guard let v = self.value as? Dictionary<K, V> else {

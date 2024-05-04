@@ -20,7 +20,7 @@ struct PathVisitor<T: Message>: Visitor {
   // The path contains parent components
   private let prevPath: String?
 
-  // Captured value after decoding will be stored in this property
+  // Captured values after visiting will be stored in this property
   private(set) var values: [String: Any] = [:]
 
   internal init(prevPath: String? = nil) {
@@ -114,7 +114,9 @@ struct PathVisitor<T: Message>: Visitor {
     }
     var visitor = PathVisitor<M>(prevPath: path)
     try value.traverse(visitor: &visitor)
-    values.merge(visitor.values, uniquingKeysWith: { _, new in new })
+    values.merge(visitor.values, uniquingKeysWith: { _, new in
+      new
+    })
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {

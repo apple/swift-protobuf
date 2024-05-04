@@ -232,12 +232,15 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
     // 2. Valid nested path.
     // 3. Invalid primitive path.
     // 4, 5. Invalid nested path.
+    // 6, 7. Invalid path after map and repeated.
     func testIsPathValid() {
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int32"))
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bc"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb.a"))
+        XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("repeatedInt32.a"))
+        XCTAssertFalse(SwiftProtoTesting_Fuzz_Message.isPathValid("map_bool_int32.a"))
     }
 
     // Checks `isValid` func of FieldMask.
@@ -549,51 +552,73 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
 
     // Checks merge could be done for non-optional paths.
     func testMergeNonOptionalValues() throws {
-        let mask = Google_Protobuf_FieldMask(protoPaths: ["value"])
+        var m1 = try SwiftProtoTesting_Proto3_TestAllTypes.with { m in
+            m.optionalInt32 = 1
+            m.optionalInt64 = 1
+            m.optionalDouble = 1
+            m.optionalFloat = 1
+            m.optionalString = "str"
+            m.optionalBool = true
+            m.optionalBytes = try XCTUnwrap("str".data(using: .utf8))
+            m.optionalUint32 = 1
+            m.optionalUint64 = 1
+            m.optionalSint32 = 1
+            m.optionalSint64 = 1
+            m.optionalFixed32 = 1
+            m.optionalFixed64 = 1
+            m.optionalSfixed32 = 1
+            m.optionalSfixed64 = 1
+            m.optionalNestedEnum = .bar
+        }
+        let m2 = SwiftProtoTesting_Proto3_TestAllTypes()
+        try m1.merge(with: m2, fieldMask: .init(protoPaths: [
+            "optional_int32",
+            "optional_int64",
+            "optional_double",
+            "optional_float",
+            "optional_string",
+            "optional_bool",
+            "optional_bytes",
+            "optional_uint32",
+            "optional_uint64",
+            "optional_sint32",
+            "optional_sint64",
+            "optional_fixed32",
+            "optional_fixed64",
+            "optional_sfixed32",
+            "optional_sfixed64",
+            "optional_nested_enum"
+        ]))
+        XCTAssertEqual(m1.optionalInt32, m2.optionalInt32)
+        XCTAssertEqual(m1.optionalInt64, m2.optionalInt64)
+        XCTAssertEqual(m1.optionalDouble, m2.optionalDouble)
+        XCTAssertEqual(m1.optionalFloat, m2.optionalFloat)
+        XCTAssertEqual(m1.optionalString, m2.optionalString)
+        XCTAssertEqual(m1.optionalBool, m2.optionalBool)
+        XCTAssertEqual(m1.optionalBytes, m2.optionalBytes)
+        XCTAssertEqual(m1.optionalUint32, m2.optionalUint32)
+        XCTAssertEqual(m1.optionalUint64, m2.optionalUint64)
+        XCTAssertEqual(m1.optionalSint32, m2.optionalSint32)
+        XCTAssertEqual(m1.optionalSint64, m2.optionalSint64)
+        XCTAssertEqual(m1.optionalFixed32, m2.optionalFixed32)
+        XCTAssertEqual(m1.optionalFixed64, m2.optionalFixed64)
+        XCTAssertEqual(m1.optionalSfixed32, m2.optionalSfixed32)
+        XCTAssertEqual(m1.optionalSfixed64, m2.optionalSfixed64)
+        XCTAssertEqual(m1.optionalNestedEnum, m2.optionalNestedEnum)
+        XCTAssertEqual(m1.optionalSint32, m2.optionalSint32)
+    }
 
-        var m1 = Google_Protobuf_DoubleValue(1)
-        let m2 = Google_Protobuf_DoubleValue()
-        try m1.merge(with: m2, fieldMask: mask)
-        XCTAssertEqual(m1.value, m2.value)
-
-        var m3 = Google_Protobuf_FloatValue(1)
-        let m4 = Google_Protobuf_FloatValue()
-        try m3.merge(with: m4, fieldMask: mask)
-        XCTAssertEqual(m3.value, m4.value)
-
-        var m5 = Google_Protobuf_Int64Value(1)
-        let m6 = Google_Protobuf_Int64Value()
-        try m5.merge(with: m6, fieldMask: mask)
-        XCTAssertEqual(m5.value, m6.value)
-
-        var m7 = Google_Protobuf_Int32Value(1)
-        let m8 = Google_Protobuf_Int32Value()
-        try m7.merge(with: m8, fieldMask: mask)
-        XCTAssertEqual(m7.value, m8.value)
-
-        var m9 = Google_Protobuf_UInt64Value(1)
-        let m10 = Google_Protobuf_UInt64Value()
-        try m9.merge(with: m10, fieldMask: mask)
-        XCTAssertEqual(m9.value, m10.value)
-
-        var m11 = Google_Protobuf_UInt32Value(1)
-        let m12 = Google_Protobuf_UInt32Value()
-        try m11.merge(with: m12, fieldMask: mask)
-        XCTAssertEqual(m11.value, m12.value)
-        
-        var m13 = Google_Protobuf_BoolValue(true)
-        let m14 = Google_Protobuf_BoolValue()
-        try m13.merge(with: m14, fieldMask: mask)
-        XCTAssertEqual(m13.value, m14.value)
-
-        var m15 = Google_Protobuf_StringValue("str")
-        let m16 = Google_Protobuf_StringValue()
-        try m15.merge(with: m16, fieldMask: mask)
-        XCTAssertEqual(m15.value, m16.value)
-
-        var m17 = Google_Protobuf_BytesValue("str".data(using: .utf8) ?? .init())
-        let m18 = Google_Protobuf_BytesValue()
-        try m17.merge(with: m18, fieldMask: mask)
-        XCTAssertEqual(m17.value, m18.value)
+    // Checks if merge works with nested proto messages
+    func testMergeNestedMessages() throws {
+        var m1 = SwiftProtoTesting_Fuzz_Message()
+        let m2 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularMessage = .with { _m in
+                _m.singularMessage = .with { __m in
+                    __m.singularInt32 = 1
+                }
+            }
+        }
+        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["singular_message.singular_message.singular_int32"]))
+        XCTAssertEqual(m1.singularMessage.singularMessage.singularInt32, Int32(1))
     }
 }
