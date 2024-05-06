@@ -33,6 +33,9 @@ enum Proto3Unittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
+
+  /// Large enough to escape the Boxed Integer cache.
+  case foreignLarge // = 123456
   case UNRECOGNIZED(Int)
 
   init() {
@@ -45,6 +48,7 @@ enum Proto3Unittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 4: self = .foreignFoo
     case 5: self = .foreignBar
     case 6: self = .foreignBaz
+    case 123456: self = .foreignLarge
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -55,6 +59,7 @@ enum Proto3Unittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .foreignFoo: return 4
     case .foreignBar: return 5
     case .foreignBaz: return 6
+    case .foreignLarge: return 123456
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -65,6 +70,7 @@ enum Proto3Unittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     .foreignFoo,
     .foreignBar,
     .foreignBaz,
+    .foreignLarge,
   ]
 
 }
@@ -694,6 +700,7 @@ extension Proto3Unittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "FOREIGN_FOO"),
     5: .same(proto: "FOREIGN_BAR"),
     6: .same(proto: "FOREIGN_BAZ"),
+    123456: .same(proto: "FOREIGN_LARGE"),
   ]
 }
 
