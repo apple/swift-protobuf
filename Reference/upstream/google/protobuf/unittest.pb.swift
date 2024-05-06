@@ -44,6 +44,9 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   /// (1 << 32) to generate a 64b bitmask would be incorrect.
   case foreignBax // = 32
 
+  /// Large enough to escape the Boxed Integer cache.
+  case foreignLarge // = 123456
+
   init() {
     self = .foreignFoo
   }
@@ -54,6 +57,7 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 5: self = .foreignBar
     case 6: self = .foreignBaz
     case 32: self = .foreignBax
+    case 123456: self = .foreignLarge
     default: return nil
     }
   }
@@ -64,6 +68,7 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .foreignBar: return 5
     case .foreignBaz: return 6
     case .foreignBax: return 32
+    case .foreignLarge: return 123456
     }
   }
 
@@ -10527,6 +10532,7 @@ extension ProtobufUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "FOREIGN_BAR"),
     6: .same(proto: "FOREIGN_BAZ"),
     32: .same(proto: "FOREIGN_BAX"),
+    123456: .same(proto: "FOREIGN_LARGE"),
   ]
 }
 
