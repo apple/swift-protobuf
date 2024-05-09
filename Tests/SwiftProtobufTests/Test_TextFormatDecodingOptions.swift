@@ -409,8 +409,13 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         assertDecodeIgnoringUnknownsSucceeds("double", "-1e-9999")
 
         assertDecodeIgnoringUnknownsSucceeds("float", "nan")
+        assertDecodeIgnoringUnknownsSucceeds("float", "-nan")
         assertDecodeIgnoringUnknownsSucceeds("float", "inf")
         assertDecodeIgnoringUnknownsSucceeds("float", "-inf")
+        assertDecodeIgnoringUnknownsSucceeds("double", "nan")
+        assertDecodeIgnoringUnknownsSucceeds("double", "-nan")
+        assertDecodeIgnoringUnknownsSucceeds("double", "inf")
+        assertDecodeIgnoringUnknownsSucceeds("double", "-inf")
     }
 
     func testIgnoreUnknown_Messages() {
