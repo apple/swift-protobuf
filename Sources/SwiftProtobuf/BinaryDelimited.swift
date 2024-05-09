@@ -19,7 +19,6 @@ import Foundation
 /// Helper methods for reading/writing messages with a length prefix.
 public enum BinaryDelimited {
   /// Additional errors for delimited message handing.
-  @available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
   public enum Error: Swift.Error {
     /// If a read/write to the stream fails, but the stream's `streamError` is nil,
     /// this error will be throw instead since the stream didn't provide anything
@@ -79,9 +78,9 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw SwiftProtobufError.BinaryStreamDecoding.unknownStreamError()
+        throw BinaryDelimited.Error.unknownStreamError
       }
-      throw SwiftProtobufError.BinaryStreamDecoding.truncated()
+      throw BinaryDelimited.Error.truncated
     }
   }
 
@@ -186,11 +185,11 @@ public enum BinaryDelimited {
         if let streamError = stream.streamError {
           throw streamError
         }
-        throw SwiftProtobufError.BinaryStreamDecoding.unknownStreamError()
+        throw BinaryDelimited.Error.unknownStreamError
       }
       if bytesRead == 0 {
         // Hit the end of the stream
-        throw SwiftProtobufError.BinaryStreamDecoding.truncated()
+        throw BinaryDelimited.Error.truncated
       }
       if bytesRead < chunk.count {
         data += chunk[0..<bytesRead]
@@ -230,7 +229,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
       if let streamError = stream.streamError {
         throw streamError
       }
-      throw SwiftProtobufError.BinaryStreamDecoding.unknownStreamError()
+      throw BinaryDelimited.Error.unknownStreamError
     }
   }
 
@@ -241,7 +240,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
       if shift == 0 {
         throw SwiftProtobufError.BinaryStreamDecoding.noBytesAvailable()
       }
-      throw SwiftProtobufError.BinaryStreamDecoding.truncated()
+      throw BinaryDelimited.Error.truncated
     }
     value |= UInt64(c & 0x7f) << shift
     if c & 0x80 == 0 {

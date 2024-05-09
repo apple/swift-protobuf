@@ -84,12 +84,12 @@ extension Message {
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     if jsonString.isEmpty {
-      throw SwiftProtobufError.JSONDecoding.truncated()
+      throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
       try self.init(jsonUTF8Bytes: data, extensions: extensions, options: options)
     } else {
-      throw SwiftProtobufError.JSONDecoding.truncated()
+      throw JSONDecodingError.truncated
     }
   }
   
@@ -126,7 +126,7 @@ extension Message {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       // Empty input is valid for binary, but not for JSON.
       guard body.count > 0 else {
-        throw SwiftProtobufError.JSONDecoding.truncated()
+        throw JSONDecodingError.truncated
       }
       var decoder = JSONDecoder(source: body, options: options,
                                 messageType: Self.self, extensions: extensions)
@@ -135,13 +135,13 @@ extension Message {
            let message = try customCodable.decodedFromJSONNull() {
           self = message as! Self
         } else {
-          throw SwiftProtobufError.JSONDecoding.illegalNull()
+          throw JSONDecodingError.illegalNull
         }
       } else {
         try decoder.decodeFullObject(message: &self)
       }
       if !decoder.scanner.complete {
-        throw SwiftProtobufError.JSONDecoding.trailingGarbage()
+        throw JSONDecodingError.trailingGarbage
       }
     }
   }

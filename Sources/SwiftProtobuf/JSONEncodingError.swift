@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
 public enum JSONEncodingError: Error, Hashable {
     /// Any fields that were decoded from binary format cannot be
     /// re-encoded into JSON unless the object they hold is a

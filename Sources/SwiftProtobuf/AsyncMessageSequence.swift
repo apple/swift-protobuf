@@ -131,7 +131,7 @@ public struct AsyncMessageSequence<
       if (shift > 0) {
         // The stream has ended inside a varint.
         iterator = nil
-          throw SwiftProtobufError.BinaryStreamDecoding.truncated()
+          throw BinaryDelimited.Error.truncated
       }
       return nil // End of stream reached.
     }
@@ -153,7 +153,7 @@ public struct AsyncMessageSequence<
           guard let byte = try await iterator?.next() else {
             // The iterator hit the end, but the chunk wasn't filled, so the full
             // payload wasn't read.
-            throw SwiftProtobufError.BinaryStreamDecoding.truncated()
+            throw BinaryDelimited.Error.truncated
           }
           chunk[consumedBytes] = byte
           consumedBytes += 1

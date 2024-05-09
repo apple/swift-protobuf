@@ -47,7 +47,7 @@ final class Test_BinaryDelimited: XCTestCase {
   func assertParsing(failsWithTruncatedStream istream: InputStream) {
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.truncated()))
+      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.truncated)
     }
   }
 

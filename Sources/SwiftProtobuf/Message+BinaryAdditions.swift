@@ -34,7 +34,7 @@ extension Message {
     options: BinaryEncodingOptions = BinaryEncodingOptions()
   ) throws -> Bytes {
     if !partial && !isInitialized {
-      throw SwiftProtobufError.BinaryEncoding.missingRequiredFields()
+      throw BinaryEncodingError.missingRequiredFields
     }
 
     // Note that this assumes `options` will not change the required size.
@@ -149,7 +149,7 @@ extension Message {
       try decoder.decodeFullMessage(message: &self)
     }
     if !partial && !isInitialized {
-      throw SwiftProtobufError.BinaryDecoding.missingRequiredFields()
+      throw BinaryDecodingError.missingRequiredFields
     }
   }
 }

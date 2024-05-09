@@ -32,7 +32,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
     case "-":
       // Only accept '-' as very first character
       if total > 0 {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration()
+        throw JSONDecodingError.malformedDuration
       }
       digits.append(c)
       isNegative = true
@@ -41,14 +41,14 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
       digitCount += 1
     case ".":
       if let _ = seconds {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration()
+        throw JSONDecodingError.malformedDuration
       }
       let digitString = String(digits)
       if let s = Int64(digitString),
          s >= minDurationSeconds && s <= maxDurationSeconds {
         seconds = s
       } else {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration()
+        throw JSONDecodingError.malformedDuration
       }
       digits.removeAll()
       digitCount = 0
@@ -71,7 +71,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
             nanos = rawNanos
           }
         } else {
-          throw SwiftProtobufError.JSONDecoding.malformedDuration()
+          throw JSONDecodingError.malformedDuration
         }
       } else {
         // No fraction, we just have an integral number of seconds
@@ -80,20 +80,20 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
            s >= minDurationSeconds && s <= maxDurationSeconds {
           seconds = s
         } else {
-          throw SwiftProtobufError.JSONDecoding.malformedDuration()
+          throw JSONDecodingError.malformedDuration
         }
       }
       // Fail if there are characters after 's'
       if chars.next() != nil {
-        throw SwiftProtobufError.JSONDecoding.malformedDuration()
+        throw JSONDecodingError.malformedDuration
       }
       return (seconds!, nanos)
     default:
-      throw SwiftProtobufError.JSONDecoding.malformedDuration()
+      throw JSONDecodingError.malformedDuration
     }
     total += 1
   }
-  throw SwiftProtobufError.JSONDecoding.malformedDuration()
+  throw JSONDecodingError.malformedDuration
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
@@ -130,7 +130,7 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
     if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
       return "\"\(formatted)\""
     } else {
-      throw SwiftProtobufError.JSONEncoding.durationRange()
+      throw JSONEncodingError.durationRange
     }
   }
 }

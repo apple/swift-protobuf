@@ -26,7 +26,7 @@ internal struct JSONDecoder: Decoder {
   }
 
   mutating func handleConflictingOneOf() throws {
-    throw SwiftProtobufError.JSONDecoding.conflictingOneOf()
+    throw JSONDecodingError.conflictingOneOf
   }
 
   internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
@@ -133,7 +133,7 @@ internal struct JSONDecoder: Decoder {
     }
     let n = try scanner.nextSInt()
     if n > Int64(Int32.max) || n < Int64(Int32.min) {
-      throw SwiftProtobufError.JSONDecoding.numberRange()
+      throw JSONDecodingError.numberRange
     }
     value = Int32(truncatingIfNeeded: n)
   }
@@ -145,7 +145,7 @@ internal struct JSONDecoder: Decoder {
     }
     let n = try scanner.nextSInt()
     if n > Int64(Int32.max) || n < Int64(Int32.min) {
-      throw SwiftProtobufError.JSONDecoding.numberRange()
+      throw JSONDecodingError.numberRange
     }
     value = Int32(truncatingIfNeeded: n)
   }
@@ -161,7 +161,7 @@ internal struct JSONDecoder: Decoder {
     while true {
       let n = try scanner.nextSInt()
       if n > Int64(Int32.max) || n < Int64(Int32.min) {
-        throw SwiftProtobufError.JSONDecoding.numberRange()
+        throw JSONDecodingError.numberRange
       }
       value.append(Int32(truncatingIfNeeded: n))
       if scanner.skipOptionalArrayEnd() {
@@ -212,7 +212,7 @@ internal struct JSONDecoder: Decoder {
     }
     let n = try scanner.nextUInt()
     if n > UInt64(UInt32.max) {
-      throw SwiftProtobufError.JSONDecoding.numberRange()
+      throw JSONDecodingError.numberRange
     }
     value = UInt32(truncatingIfNeeded: n)
   }
@@ -224,7 +224,7 @@ internal struct JSONDecoder: Decoder {
     }
     let n = try scanner.nextUInt()
     if n > UInt64(UInt32.max) {
-      throw SwiftProtobufError.JSONDecoding.numberRange()
+      throw JSONDecodingError.numberRange
     }
     value = UInt32(truncatingIfNeeded: n)
   }
@@ -240,7 +240,7 @@ internal struct JSONDecoder: Decoder {
     while true {
       let n = try scanner.nextUInt()
       if n > UInt64(UInt32.max) {
-        throw SwiftProtobufError.JSONDecoding.numberRange()
+        throw JSONDecodingError.numberRange
       }
       value.append(UInt32(truncatingIfNeeded: n))
       if scanner.skipOptionalArrayEnd() {
@@ -514,7 +514,7 @@ internal struct JSONDecoder: Decoder {
           let e = try customDecodable.decodedFromJSONNull() as! E
           value.append(e)
         } else {
-          throw SwiftProtobufError.JSONDecoding.illegalNull()
+          throw JSONDecodingError.illegalNull
         }
       } else {
         if let e: E = try scanner.nextEnumValue() {
@@ -530,7 +530,7 @@ internal struct JSONDecoder: Decoder {
 
   internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
     guard let nameProviding = (M.self as? any _ProtoNameProviding.Type) else {
-      throw SwiftProtobufError.JSONDecoding.missingFieldNames()
+      throw JSONDecodingError.missingFieldNames
     }
     fieldNameMap = nameProviding._protobuf_nameMap
     if let m = message as? (any _CustomJSONCodable) {
@@ -587,7 +587,7 @@ internal struct JSONDecoder: Decoder {
           }
         }
         if !appended {
-          throw SwiftProtobufError.JSONDecoding.illegalNull()
+          throw JSONDecodingError.illegalNull
         }
       } else {
         var message = M()
@@ -628,7 +628,7 @@ internal struct JSONDecoder: Decoder {
       // map keys must always be quoted strings.
       let c = try scanner.peekOneCharacter()
       if c != "\"" {
-        throw SwiftProtobufError.JSONDecoding.unquotedMapKey()
+        throw JSONDecodingError.unquotedMapKey
       }
       isMapKey = true
       var keyField: KeyType.BaseType?
@@ -640,7 +640,7 @@ internal struct JSONDecoder: Decoder {
       if let keyField = keyField, let valueField = valueField {
         value[keyField] = valueField
       } else {
-        throw SwiftProtobufError.JSONDecoding.malformedMap()
+        throw JSONDecodingError.malformedMap
       }
       if scanner.skipOptionalObjectEnd() {
         return
@@ -665,13 +665,13 @@ internal struct JSONDecoder: Decoder {
       // map keys must always be quoted strings.
       let c = try scanner.peekOneCharacter()
       if c != "\"" {
-        throw SwiftProtobufError.JSONDecoding.unquotedMapKey()
+        throw JSONDecodingError.unquotedMapKey
       }
       isMapKey = true
       var keyFieldOpt: KeyType.BaseType?
       try KeyType.decodeSingular(value: &keyFieldOpt, from: &self)
       guard let keyField = keyFieldOpt else {
-        throw SwiftProtobufError.JSONDecoding.malformedMap()
+        throw JSONDecodingError.malformedMap
       }
       isMapKey = false
       try scanner.skipRequiredColon()
@@ -707,7 +707,7 @@ internal struct JSONDecoder: Decoder {
       // map keys must always be quoted strings.
       let c = try scanner.peekOneCharacter()
       if c != "\"" {
-        throw SwiftProtobufError.JSONDecoding.unquotedMapKey()
+        throw JSONDecodingError.unquotedMapKey
       }
       isMapKey = true
       var keyField: KeyType.BaseType?
@@ -719,7 +719,7 @@ internal struct JSONDecoder: Decoder {
       if let keyField = keyField, let valueField = valueField {
         value[keyField] = valueField
       } else {
-        throw SwiftProtobufError.JSONDecoding.malformedMap()
+        throw JSONDecodingError.malformedMap
       }
       if scanner.skipOptionalObjectEnd() {
         return

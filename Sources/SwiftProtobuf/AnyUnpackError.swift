@@ -21,7 +21,6 @@
 /// message.  At this time, any error can occur that might have occurred from a
 /// regular decoding operation.  There are also other errors that can occur due
 /// to problems with the `Any` value's structure.
-@available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
 public enum AnyUnpackError: Error {
   /// The `type_url` field in the `Google_Protobuf_Any` message did not match
   /// the message type provided to the `unpack()` method.

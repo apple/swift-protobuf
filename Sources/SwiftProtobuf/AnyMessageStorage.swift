@@ -76,7 +76,7 @@ fileprivate func unpack(contentJSON: [UInt8],
         }
         if !options.ignoreUnknownFields {
           // The only thing within a WKT should be "value".
-          throw SwiftProtobufError.AnyUnpack.malformedWellKnownTypeJSON()
+          throw AnyUnpackError.malformedWellKnownTypeJSON
         }
         let _ = try scanner.skip()
         try scanner.skipRequiredComma()
@@ -84,7 +84,7 @@ fileprivate func unpack(contentJSON: [UInt8],
       if !options.ignoreUnknownFields && !scanner.complete {
         // If that wasn't the end, then there was another key, and WKTs should
         // only have the one when not skipping unknowns.
-        throw SwiftProtobufError.AnyUnpack.malformedWellKnownTypeJSON()
+        throw AnyUnpackError.malformedWellKnownTypeJSON
       }
     }
   }
@@ -174,7 +174,7 @@ internal class AnyMessageStorage {
     options: BinaryDecodingOptions
   ) throws {
     guard isA(M.self) else {
-      throw SwiftProtobufError.AnyUnpack.typeMismatch()
+      throw AnyUnpackError.typeMismatch
     }
 
     switch state {
@@ -243,7 +243,7 @@ extension AnyMessageStorage {
     _typeURL = url
     guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
       // The type wasn't registered, can't parse it.
-      throw SwiftProtobufError.TextFormatDecoding.malformedText()
+      throw TextFormatDecodingError.malformedText
     }
     let terminator = try decoder.scanner.skipObjectStart()
     var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
@@ -259,7 +259,7 @@ extension AnyMessageStorage {
     decoder.scanner = subDecoder.scanner
     if try decoder.nextFieldNumber() != nil {
       // Verbose any can never have additional keys.
-      throw SwiftProtobufError.TextFormatDecoding.malformedText()
+      throw TextFormatDecodingError.malformedText
     }
   }
 

@@ -283,23 +283,26 @@ final class Test_JSON_Conformance: XCTestCase {
 
   func testValue_DoubleNonFinite() {
     XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
-        XCTAssertTrue(
-            self.isSwiftProtobufErrorEqual($0 as! SwiftProtobufError, .JSONEncoding.valueNumberNotFinite()),
-            "Wrong error? - \($0)"
+        XCTAssertEqual(
+            $0 as? JSONEncodingError,
+           JSONEncodingError.valueNumberNotFinite,
+           "Wrong error? - \($0)"
         )
     }
 
     XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
-        XCTAssertTrue(
-            self.isSwiftProtobufErrorEqual($0 as! SwiftProtobufError, .JSONEncoding.valueNumberNotFinite()),
-            "Wrong error? - \($0)"
+        XCTAssertEqual(
+            $0 as? JSONEncodingError,
+           JSONEncodingError.valueNumberNotFinite,
+           "Wrong error? - \($0)"
         )
     }
 
     XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
-        XCTAssertTrue(
-            self.isSwiftProtobufErrorEqual($0 as! SwiftProtobufError, .JSONEncoding.valueNumberNotFinite()),
-            "Wrong error? - \($0)"
+        XCTAssertEqual(
+            $0 as? JSONEncodingError,
+           JSONEncodingError.valueNumberNotFinite,
+           "Wrong error? - \($0)"
         )
     }
   }

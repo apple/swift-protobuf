@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-@available(*, deprecated, message: "This error type has been deprecated and won't be thrown anymore; it has been replaced by `SwiftProtobufError`.")
 public enum TextFormatDecodingError: Error {
     /// Text data could not be parsed
     case malformedText
