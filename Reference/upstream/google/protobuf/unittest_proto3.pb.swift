@@ -1023,10 +1023,10 @@ extension Proto3Unittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if _storage._optionalSfixed64 != 0 {
         try visitor.visitSingularSFixed64Field(value: _storage._optionalSfixed64, fieldNumber: 10)
       }
-      if _storage._optionalFloat != 0 {
+      if _storage._optionalFloat.bitPattern != 0 {
         try visitor.visitSingularFloatField(value: _storage._optionalFloat, fieldNumber: 11)
       }
-      if _storage._optionalDouble != 0 {
+      if _storage._optionalDouble.bitPattern != 0 {
         try visitor.visitSingularDoubleField(value: _storage._optionalDouble, fieldNumber: 12)
       }
       if _storage._optionalBool != false {

@@ -227,7 +227,7 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    if self.value.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -259,7 +259,7 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
+    if self.value.bitPattern != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
