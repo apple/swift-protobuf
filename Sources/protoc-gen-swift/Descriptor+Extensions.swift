@@ -352,6 +352,7 @@ extension FieldDescriptor {
         case "inf": return "Double.infinity"
         case "-inf": return "-Double.infinity"
         case "nan": return "Double.nan"
+        case "-nan": return "Double.nan"
         default: return defaultValue
         }
       case .float:
@@ -359,6 +360,7 @@ extension FieldDescriptor {
         case "inf": return "Float.infinity"
         case "-inf": return "-Float.infinity"
         case "nan": return "Float.nan"
+        case "-nan": return "Float.nan"
         default: return defaultValue
         }
       case .string:

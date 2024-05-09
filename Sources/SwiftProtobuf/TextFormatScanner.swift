@@ -897,8 +897,18 @@ internal struct TextFormatScanner {
 
     // If the next token is the identifier "nan", return true.
     private mutating func skipOptionalNaN() -> Bool {
-        return skipOptionalKeyword(bytes:
-                                  [asciiLowerN, asciiLowerA, asciiLowerN])
+        let start = p
+        // "-nan" doesn't mean anything, but upstream handles it, so skip
+        // over any leading minus when checking for "nan".
+        if p != end && p[0] == asciiMinus {
+            p += 1
+        }
+        if skipOptionalKeyword(bytes: [asciiLowerN, asciiLowerA, asciiLowerN]) {
+            return true
+        } else {
+            p = start  // It wasn't "nan", rewind incase we skipped a minus sign.
+            return false
+        }
     }
 
     // If the next token is a recognized spelling of "infinity",
@@ -1243,13 +1253,13 @@ internal struct TextFormatScanner {
 
     /// Helper to see if this could be the start of a hex or octal number so unknown field
     /// value parsing can decide how to parse/validate.
-    private func isNextNumberFloatingPoint() -> Bool {
-        // NOTE: If we run out of characters can can't tell, say it isn't and let
-        // the other code error handle.
+    private func mustParseNumberAsDecimal() -> Bool {
+        // NOTE: If we run out of characters/can't tell; then just say it doesn't have
+        // to be decimal, and let the other code error handle it.
         var scan = p
         var c = scan[0]
 
-        // Floats for decimals can have leading '-'
+        // Floats or decimals can have leading '-'
         if c == asciiMinus {
             scan += 1
             if scan == end { return false }
@@ -1257,26 +1267,26 @@ internal struct TextFormatScanner {
         }
 
         if c == asciiPeriod {
-            return true  // "(-)." : clearly a float
+            return false  // "(-)." : clearly a float
         }
 
         if c == asciiZero {
             scan += 1
-            if scan == end { return false }  // "(-)0[end]" : call it not a float
+            if scan == end { return true }  // "(-)0[end]" : parse it as decimal
             c = scan[0]
-            if c == asciiLowerX ||  // "(-)0x" : hex - not a float
-                (c >= asciiZero && c <= asciiSeven) {  // "(-)0[0-7]" : octal - not a float
-                return false
+            if c == asciiLowerX ||  // "(-)0x" : hex - must parse as decimal
+                (c >= asciiZero && c <= asciiSeven) {  // "(-)0[0-7]" : octal - must parse as decimal
+                return true
             }
             if c == asciiPeriod {
-                return true  // "(-)0." : clearly a float
+                return false  // "(-)0." : clearly a float
             }
         }
 
         // At this point, it doesn't realy matter what comes next. We'll call it a floating
         // point value since even if it was a decimal, it might be too large for a UInt64 but
         // would still be valid for a float/double field.
-        return true
+        return false
     }
 
     private mutating func skipUnknownPrimativeFieldValue() throws {
@@ -1311,24 +1321,22 @@ internal struct TextFormatScanner {
             }
         }
 
-        // This will also cover "true", "false" for booleans, "nan" for floats.
+        // NOTE: This will also cover "true", "false" for booleans, "nan"/"inf" for floats.
         if let _ = try nextOptionalEnumName() {
             skipWhitespace()  // `nextOptionalEnumName()` doesn't skip trailing whitespace
             return
         }
-        // The above will handing "inf", but this is needed for "-inf".
-        if let _ = skipOptionalInfinity() {
-            return
-        }
 
-        if isNextNumberFloatingPoint() {
-            let _ = try nextDouble()
-        } else {
+        // NOTE: We don't need to special case "-nan"/"-inf", as they won't be forced
+        // to parse as decimal, and `nextDouble()` already supports them.
+        if mustParseNumberAsDecimal() {
             if c == asciiMinus {
                 let _ = try nextSInt()
             } else {
                 let _ = try nextUInt()
             }
+        } else {
+            let _ = try nextDouble()
         }
     }
 
