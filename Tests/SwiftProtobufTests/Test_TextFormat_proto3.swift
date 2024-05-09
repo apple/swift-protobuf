@@ -367,13 +367,9 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.optionalFloat == 0.0 && o.optionalFloat.sign == .plus
         }
-        // The negative version won't really round trip, because -0.0 for proto3 counts as not set.
-        do {
-            let msg = try MessageTestType(textFormatString: "optional_float: -1e-50\n")
-            XCTAssertEqual(msg.optionalFloat, 0.0)
-            XCTAssertEqual(msg.optionalFloat.sign, .minus)
-        } catch {
-            XCTFail("Shouldn't have thrown on decode: \(error)")
+        assertTextFormatDecodeSucceeds("optional_float: -1e-50\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 0.0 && o.optionalFloat.sign == .minus
         }
         // protobuf conformance requires subnormals to be handled
         assertTextFormatDecodeSucceeds("optional_float: 1.17549e-39\n") {
@@ -512,13 +508,9 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.optionalDouble == 0.0 && o.optionalDouble.sign == .plus
         }
-        // The negative version won't really round trip, because -0.0 for proto3 counts as not set.
-        do {
-            let msg = try MessageTestType(textFormatString: "optional_double: -1e-9999\n")
-            XCTAssertEqual(msg.optionalDouble, 0.0)
-            XCTAssertEqual(msg.optionalDouble.sign, .minus)
-        } catch {
-            XCTFail("Shouldn't have thrown on decode: \(error)")
+        assertTextFormatDecodeSucceeds("optional_double: -1e-9999\n") {
+            (o: MessageTestType) in
+            return o.optionalDouble == 0.0 && o.optionalDouble.sign == .minus
         }
         assertTextFormatDecodeSucceeds("optional_double: INFINITY\n") {(o: MessageTestType) in
             return o.optionalDouble == Double.infinity
