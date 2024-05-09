@@ -208,9 +208,18 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             // be visted if it is the non default value.
             switch fieldDescriptor.type {
             case .string, .bytes:
-                conditional = ("!\(varName).isEmpty")
+                conditional = "!\(varName).isEmpty"
+            case .float, .double:
+                // https://protobuf.dev/programming-guides/proto3/#default ends with:
+                //    If a float or double value is set to +0 it will not be serialized,
+                //    but -0 is considered distinct and will be serialized.
+                // Editions still ensures that implicit presence doesn't get a default
+                // value so the hardcoded zero here is safe and mirrors the upstream
+                // C++ generator:
+                // https://github.com/protocolbuffers/protobuf/blob/1b06cefe337f73ca8c78c855c02f15caf6210c9b/src/google/protobuf/compiler/cpp/message.cc#L204-L209
+                conditional = "\(varName).bitPattern != 0"
             default:
-                conditional = ("\(varName) != \(swiftDefaultValue)")
+                conditional = "\(varName) != \(swiftDefaultValue)"
             }
         }
         assert(usesLocals == generateTraverseUsesLocals)
