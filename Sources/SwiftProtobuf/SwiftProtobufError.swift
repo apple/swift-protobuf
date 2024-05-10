@@ -93,15 +93,10 @@ extension SwiftProtobufError {
             case binaryDecodingError
             case binaryStreamDecodingError
             case jsonEncodingError
-            case jsonDecodingError
-            case textFormatDecodingError
-            case invalidArgument
-            case internalError
             
             // These are not domains, but rather specific errors for which we
             // want to have associated types, and thus require special treatment.
             case anyTypeURLNotRegistered(typeURL: String)
-            case unknownField(name: String)
 
             var description: String {
                 switch self {
@@ -113,18 +108,8 @@ extension SwiftProtobufError {
                     return "Stream decoding error"
                 case .jsonEncodingError:
                     return "JSON encoding error"
-                case .jsonDecodingError:
-                    return "JSON decoding error"
-                case .textFormatDecodingError:
-                    return "Text format decoding error"
-                case .invalidArgument:
-                    return "An argument provided by the user is invalid"
-                case .internalError:
-                    return "Other internal error"
                 case .anyTypeURLNotRegistered(let typeURL):
                     return "Type URL not registered: \(typeURL)"
-                case .unknownField(let name):
-                    return "Unknown field: \(name)"
                 }
             }
         }
@@ -160,26 +145,6 @@ extension SwiftProtobufError {
             Self(.jsonEncodingError)
         }
         
-        /// Errors arising from JSON decoding of data into protobufs.
-        public static var jsonDecodingError: Self {
-            Self(.jsonDecodingError)
-        }
-        
-        /// Errors arising from text format decoding of data into protobufs.
-        public static var textFormatDecodingError: Self {
-            Self(.textFormatDecodingError)
-        }
-        
-        /// Errors arising from an invalid argument being passed by the caller.
-        public static var invalidArgument: Self {
-            Self(.invalidArgument)
-        }
-        
-        /// Errors arising from some invalid internal state.
-        public static var internalError: Self {
-            Self(.internalError)
-        }
-        
         /// `Any` fields that were decoded from JSON cannot be re-encoded to binary
         /// unless the object they hold is a well-known type or a type registered via
         /// `Google_Protobuf_Any.register()`.
@@ -191,14 +156,6 @@ extension SwiftProtobufError {
             Self(.anyTypeURLNotRegistered(typeURL: typeURL))
         }
         
-        /// Errors arising from decoding JSON objects and encountering an unknown field.
-        ///
-        /// - Parameter name: The name of the encountered unknown field.
-        /// - Returns: A `SwiftProtobufError.Code`.
-        public static func unknownField(name: String) -> Self {
-            Self(.unknownField(name: name))
-        }
-        
         /// The unregistered type URL that caused the error, if any is associated with this `Code`.
         public var unregisteredTypeURL: String? {
             switch self.code {
@@ -207,30 +164,7 @@ extension SwiftProtobufError {
             case .binaryEncodingError,
                  .binaryDecodingError,
                  .binaryStreamDecodingError,
-                 .jsonEncodingError,
-                 .jsonDecodingError,
-                 .textFormatDecodingError,
-                 .invalidArgument,
-                 .internalError,
-                 .unknownField:
-                return nil
-            }
-        }
-        
-        /// The unknown field name that caused the error, if any is associated with this `Code`.
-        public var unknownFieldName: String? {
-            switch self.code {
-            case .unknownField(let name):
-                return name
-            case .binaryEncodingError,
-                 .binaryDecodingError,
-                 .binaryStreamDecodingError,
-                 .jsonEncodingError,
-                 .jsonDecodingError,
-                 .textFormatDecodingError,
-                 .invalidArgument,
-                 .internalError,
-                 .anyTypeURLNotRegistered:
+                 .jsonEncodingError:
                 return nil
             }
         }

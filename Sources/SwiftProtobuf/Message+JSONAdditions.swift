@@ -24,7 +24,7 @@ extension Message {
   /// - Returns: A string containing the JSON serialization of the message.
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
-  /// - Throws: ``SwiftProtobufError`` if encoding fails.
+  /// - Throws: ``JSONEncodingError`` if encoding fails.
   public func jsonString(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> String {
@@ -43,7 +43,7 @@ extension Message {
   /// - Returns: A `SwiftProtobufContiguousBytes` containing the JSON serialization of the message.
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
-  /// - Throws: ``SwiftProtobufError`` if encoding fails.
+  /// - Throws: ``JSONEncodingError`` if encoding fails.
   public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> Bytes {
@@ -63,7 +63,7 @@ extension Message {
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public init(
     jsonString: String,
     options: JSONDecodingOptions = JSONDecodingOptions()
@@ -77,7 +77,7 @@ extension Message {
   /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Parameter extensions: An ExtensionMap for looking up extensions by name
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public init(
     jsonString: String,
     extensions: (any ExtensionMap)? = nil,
@@ -100,7 +100,7 @@ extension Message {
   /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public init<Bytes: SwiftProtobufContiguousBytes>(
     jsonUTF8Bytes: Bytes,
     options: JSONDecodingOptions = JSONDecodingOptions()
@@ -116,7 +116,7 @@ extension Message {
   ///   as UTF-8 encoded text.
   /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public init<Bytes: SwiftProtobufContiguousBytes>(
     jsonUTF8Bytes: Bytes,
     extensions: (any ExtensionMap)? = nil,

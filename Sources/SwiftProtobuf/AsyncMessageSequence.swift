@@ -24,12 +24,9 @@ extension AsyncSequence where Element == UInt8 {
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
   ///   - partial: If `false` (the default),  after decoding a message, ``Message/isInitialized-6abgi`
-  ///     will be checked to ensure all fields are present. If any are missing,
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields`` will be thrown.
+  ///     will be checked to ensure all fields are present.
   ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: ``SwiftProtobufError`` for errors in the framing of the messages in the sequence
-  /// or while decoding messages.
   @inlinable
   public func binaryProtobufDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
@@ -70,12 +67,9 @@ public struct AsyncMessageSequence<
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
   ///   - partial: If `false` (the default), after decoding a message, ``Message/isInitialized-6abgi``
-  ///     will be checked to ensure all fields are present. If any are missing,
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields`` will be thrown.
+  ///     will be checked to ensure all fields are present.
   ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: ``SwiftProtobufError`` for errors in the framing of the messages in the sequence
-  /// or while decoding messages.
   public init(
     base: Base,
     extensions: (any ExtensionMap)? = nil,

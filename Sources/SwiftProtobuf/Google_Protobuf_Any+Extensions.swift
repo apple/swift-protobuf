@@ -32,10 +32,10 @@ extension Google_Protobuf_Any {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryEncoding/missingRequiredFields``.
+  ///     ``BinaryEncodingError/missingRequiredFields``.
   ///   - typePrefix: The prefix to be used when building the `type_url`.
   ///     Defaults to "type.googleapis.com".
-  /// - Throws: ``SwiftProtobufError/BinaryEncoding/missingRequiredFields`` if 
+  /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if 
   /// `partial` is false and `message` wasn't fully initialized.
   public init(
     message: any Message,
@@ -59,7 +59,7 @@ extension Google_Protobuf_Any {
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  /// - Throws: ``SwiftProtobufError`` on failure.
+  /// - Throws: ``TextFormatDecodingError`` on failure.
   public init(
     textFormatString: String,
     options: TextFormatDecodingOptions = TextFormatDecodingOptions(),

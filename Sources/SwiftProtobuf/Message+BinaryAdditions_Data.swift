@@ -27,9 +27,9 @@ extension Message {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
   ///   - options: The ``BinaryDecodingOptions`` to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public init(
     serializedData data: Data,
@@ -57,9 +57,9 @@ extension Message {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
   ///   - options: The ``BinaryDecodingOptions`` to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public mutating func merge(
     serializedData data: Data,
@@ -77,10 +77,10 @@ extension Message {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryEncoding/missingRequiredFields``.
+  ///     ``BinaryEncodingError/missingRequiredFields``.
   ///   - options: The `BinaryEncodingOptions` to use.
   /// - Returns: A `Data` instance containing the binary serialization of the message.
-  /// - Throws: ``SwiftProtobufError`` if encoding fails.
+  /// - Throws: ``BinaryEncodingError`` if encoding fails.
   public func serializedData(
     partial: Bool = false, 
     options: BinaryEncodingOptions = BinaryEncodingOptions()

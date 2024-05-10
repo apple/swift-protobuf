@@ -23,12 +23,12 @@ extension Message {
   ///   - partial: If `false` (the default), this method will check
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws.
-  ///     ``SwiftProtobufError/BinaryEncoding/missingRequiredFields``.
+  ///     ``BinaryEncodingError/missingRequiredFields``.
   ///   - options: The ``BinaryEncodingOptions`` to use.
   /// - Returns: A ``SwiftProtobufContiguousBytes`` instance containing the binary serialization
   /// of the message.
   ///
-  /// - Throws: ``SwiftProtobufError`` if encoding fails.
+  /// - Throws: ``SwiftProtobufError`` or ``BinaryEncodingError`` if encoding fails.
   public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
     partial: Bool = false,
     options: BinaryEncodingOptions = BinaryEncodingOptions()
@@ -85,9 +85,9 @@ extension Message {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
   ///   - options: The ``BinaryDecodingOptions`` to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public init<Bytes: SwiftProtobufContiguousBytes>(
     serializedBytes bytes: Bytes,
@@ -115,9 +115,9 @@ extension Message {
   ///   - partial: If `false` (the default), this method will check
   ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
   ///   - options: The ``BinaryDecodingOptions`` to use.
-  /// - Throws: ``SwiftProtobufError`` if decoding fails.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
     serializedBytes bytes: Bytes,

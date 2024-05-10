@@ -63,7 +63,7 @@ extension Message {
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  /// - Throws: ``SwiftProtobufError`` on failure.
+  /// - Throws: ``TextFormatDecodingError`` on failure.
   public init(
     textFormatString: String,
     options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
