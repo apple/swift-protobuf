@@ -256,7 +256,6 @@ final class Test_Required: XCTestCase, PBTestHelpers {
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
         } catch BinaryEncodingError.missingRequiredFields {
             // Correct error!
-            print("sdfdsf")
         } catch let e {
             XCTFail("Encoding got wrong error: \(e) for \(message)", file: file, line: line)
         }
