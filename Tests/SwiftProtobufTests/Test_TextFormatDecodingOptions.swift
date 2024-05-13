@@ -690,6 +690,42 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         }
     }
 
+    func testIgnoreUnknown_FailListWithinList() {
+        // The C++ TextFormat parse doesn't directly block this, but it calculates
+        // recusion depth differently (it counts each field as a +1/-1 while parsing
+        // it, that makes an array count as depth); so this got flagged by the fuzz
+        // testing as a way would could end up with stack overflow.
+
+        var options = TextFormatDecodingOptions()
+        options.ignoreUnknownFields = true
+        options.ignoreUnknownExtensionFields = true
+
+        let testCases: [String] = [
+            // fields
+            "f:[[]]",
+            "f:[1, [], 2]",
+            "f <g:[[]]>",
+            "f <g:[1, [], 2]]",
+            // extensions
+            "[e]:[[]]",
+            "[e]:[1, [], 2]",
+            "[e] <g:[[]]>",
+            "[e] <g:[1, [], 2]]",
+        ]
+
+        for testCase in testCases {
+            do {
+                let _ = try SwiftProtoTesting_TestEmptyMessage(textFormatString: testCase,
+                                                               options: options)
+                XCTFail("Should have failed - input: \(testCase)")
+            } catch TextFormatDecodingError.malformedText {
+                // Nothing, was the expected error
+            } catch {
+                XCTFail("Unexpected error: \(error) - input: \(testCase)")
+            }
+        }
+    }
+
     func testIgnoreUnknownWithMessageDepthLimit() {
         let textInput = "a: { a: { i: 1 } }"
 

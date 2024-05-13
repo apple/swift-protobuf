@@ -1289,7 +1289,7 @@ internal struct TextFormatScanner {
         return false
     }
 
-    private mutating func skipUnknownPrimativeFieldValue() throws {
+    private mutating func skipUnknownPrimativeFieldValue(canBeList: Bool = true) throws {
         // This is modeled after the C++ text_format.cpp `SkipFieldValue()`
         let c = p[0]
 
@@ -1301,6 +1301,10 @@ internal struct TextFormatScanner {
         }
 
         if skipOptionalBeginArray() {
+            guard canBeList else {
+                // Have encounted an array as an element in an array, that isn't legal.
+                throw TextFormatDecodingError.malformedText
+            }
             if skipOptionalEndArray() {
                 return
             }
@@ -1310,7 +1314,7 @@ internal struct TextFormatScanner {
                 }
                 let c = p[0]
                 if c != asciiOpenAngleBracket && c != asciiOpenCurlyBracket {
-                    try skipUnknownPrimativeFieldValue()
+                    try skipUnknownPrimativeFieldValue(canBeList: false)
                 } else {
                     try skipUnknownMessageFieldValue()
                 }
