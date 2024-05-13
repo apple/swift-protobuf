@@ -137,7 +137,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
 
     func test_unknown_lengthDelimited_not_nested_message() throws {
         let bytes: [UInt8] = [8, 1, 18, 6, 65, 66, 67, 68, 69, 70]
-        let msg = try MessageTestType(serializedBytes: bytes)
+        let msg = try MessageTestType(contiguousBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2: \"ABCDEF\"\n")
 
@@ -158,7 +158,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
 
     func test_unknown_lengthDelimited_zero_length() throws {
         let bytes: [UInt8] = [8, 1, 18, 0]
-        let msg = try MessageTestType(serializedBytes: bytes)
+        let msg = try MessageTestType(contiguousBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2: \"\"\n")
 
@@ -199,7 +199,7 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
 
     func test_unknown_lengthDelimited_nested_message_zero_length() throws {
         let bytes: [UInt8] = [8, 1, 18, 4, 8, 2, 18, 0]
-        let msg = try MessageTestType(serializedBytes: bytes)
+        let msg = try MessageTestType(contiguousBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  1: 2\n  2: \"\"\n}\n")
 

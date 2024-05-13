@@ -177,6 +177,7 @@ message GeneratedSwiftReservedMessages {
   message comma { int32 comma = 1; }
   message consumedBytes { int32 consumedBytes = 1; }
   message contentsOf { int32 contentsOf = 1; }
+  message ContiguousBytes { int32 ContiguousBytes = 1; }
   message copy { int32 copy = 1; }
   message count { int32 count = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
@@ -276,6 +277,7 @@ message GeneratedSwiftReservedMessages {
   message emitFieldName { int32 emitFieldName = 1; }
   message emitFieldNumber { int32 emitFieldNumber = 1; }
   message Empty { int32 Empty = 1; }
+  message emptyData { int32 emptyData = 1; }
   message encodeAsBytes { int32 encodeAsBytes = 1; }
   message encoded { int32 encoded = 1; }
   message encodedJSONString { int32 encodedJSONString = 1; }
@@ -694,6 +696,7 @@ message GeneratedSwiftReservedMessages {
   message padding { int32 padding = 1; }
   message parent { int32 parent = 1; }
   message parse { int32 parse = 1; }
+  message partial { int32 partial = 1; }
   message path { int32 path = 1; }
   message paths { int32 paths = 1; }
   message payload { int32 payload = 1; }
