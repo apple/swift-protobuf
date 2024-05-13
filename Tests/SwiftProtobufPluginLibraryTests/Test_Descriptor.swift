@@ -350,7 +350,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testIsGroupLike_GroupLikeDelimited() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
@@ -361,7 +361,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testIsGroupLike_GroupLikeNotDelimited() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
@@ -372,7 +372,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testIsGroupLike_GroupLikeMismatchedName() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
@@ -383,7 +383,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testIsGroupLike_GroupLikeMismatchedScope() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
@@ -394,7 +394,7 @@ final class Test_Descriptor: XCTestCase {
   }
 
   func testIsGroupLike_GroupLikeMismatchedFile() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
