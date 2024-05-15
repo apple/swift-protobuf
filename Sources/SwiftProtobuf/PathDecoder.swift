@@ -135,6 +135,24 @@ struct PathDecoder<T: Message>: Decoder {
     }
   }
 
+  private func setMessageValue<M: Message>(
+    _ value: inout M?
+  ) throws {
+    if nextPath.isEmpty {
+      try setValue(&value, defaultValue: nil)
+      return
+    }
+    var decoder = try PathDecoder<M>(
+        path: nextPath,
+        value: self.value,
+        mergeOption: mergeOption
+    )
+    if value == nil {
+      value = .init()
+    }
+    try value?.decodeMessage(decoder: &decoder)
+  }
+
   mutating func handleConflictingOneOf() throws {}
 
   mutating func nextFieldNumber() throws -> Int? {
@@ -343,19 +361,7 @@ struct PathDecoder<T: Message>: Decoder {
   mutating func decodeSingularMessageField<M>(
     value: inout M?
   ) throws where M : Message {
-    if nextPath.isEmpty {
-      try setValue(&value, defaultValue: nil)
-      return
-    }
-    var decoder = try PathDecoder<M>(
-        path: nextPath,
-        value: self.value,
-        mergeOption: mergeOption
-    )
-    if value == nil {
-      value = .init()
-    }
-    try value?.decodeMessage(decoder: &decoder)
+    try setMessageValue(&value)
   }
 
   mutating func decodeRepeatedMessageField<M>(
@@ -367,7 +373,7 @@ struct PathDecoder<T: Message>: Decoder {
   mutating func decodeSingularGroupField<G>(
     value: inout G?
   ) throws where G : Message {
-    try setValue(&value, defaultValue: nil)
+    try setMessageValue(&value)
   }
 
   mutating func decodeRepeatedGroupField<G>(
@@ -403,7 +409,7 @@ struct PathDecoder<T: Message>: Decoder {
     fieldNumber: Int
   ) throws {
     preconditionFailure(
-      "Path decoder should never decode an extension field"
+      "Internal Error: Path decoder should never decode an extension field"
     )
   }
 

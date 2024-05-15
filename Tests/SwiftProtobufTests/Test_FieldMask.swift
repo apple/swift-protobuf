@@ -229,18 +229,21 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
 
     // Checks `isPathValid` func
     // 1. Valid primitive path.
-    // 2. Valid nested path.
-    // 3. Invalid primitive path.
-    // 4, 5. Invalid nested path.
-    // 6, 7. Invalid path after map and repeated.
+    // 2, 3. Valid nested path. (for message and group)
+    // 4. Invalid primitive path.
+    // 5, 6. Invalid nested path.
+    // 7, 8. Invalid path after map and repeated.
+    // 9. Invalid path after group.
     func testIsPathValid() {
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int32"))
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb"))
+        XCTAssertTrue(SwiftProtoTesting_Fuzz_Message.isPathValid("SingularGroup.group_field"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bc"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb.a"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("repeatedInt32.a"))
         XCTAssertFalse(SwiftProtoTesting_Fuzz_Message.isPathValid("map_bool_int32.a"))
+        XCTAssertFalse(SwiftProtoTesting_Fuzz_Message.isPathValid("SingularGroup.a"))
     }
 
     // Checks `isValid` func of FieldMask.
@@ -530,6 +533,148 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m1.mapInt32Message, m2.mapInt32Message)
     }
 
+    // Checks whether a group of fields could be merged without merging the others.
+    func testMergeFieldsPartially() throws {
+        var m1 = SwiftProtoTesting_Fuzz_Message()
+        let m2 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularInt32 = 1
+            m.singularInt64 = 1
+            m.singularUint32 = 1
+            m.singularUint64 = 1
+            m.singularSint32 = 1
+            m.singularSint64 = 1
+            m.singularFixed32 = 1
+            m.singularFixed64 = 1
+            m.singularSfixed32 = 1
+            m.singularSfixed64 = 1
+            m.singularFloat = 1
+            m.singularDouble = 1
+            m.singularBool = true
+            m.singularString = "str"
+            m.singularBytes = "str".data(using: .utf8) ?? .init()
+            m.singularEnum = .two
+            m.singularGroup = .with { $0.groupField = 1 }
+            m.singularMessage = .with { $0.singularInt32 = 1 }
+            m.repeatedInt32 = [1]
+            m.repeatedInt64 = [1]
+            m.repeatedUint32 = [1]
+            m.repeatedUint64 = [1]
+            m.repeatedSint32 = [1]
+            m.repeatedSint64 = [1]
+            m.repeatedFixed32 = [1]
+            m.repeatedFixed64 = [1]
+            m.repeatedSfixed32 = [1]
+            m.repeatedSfixed64 = [1]
+            m.repeatedFloat = [1]
+            m.repeatedDouble = [1]
+            m.repeatedBool = [true]
+            m.repeatedString = ["str"]
+            m.repeatedBytes = ["str".data(using: .utf8) ?? .init()]
+            m.repeatedEnum = [.two]
+            m.repeatedGroup = [.with { $0.groupField = 1 }]
+            m.repeatedMessage = [.with { $0.singularInt32 = 1 }]
+            m.o = .oneofInt32(1)
+            m.repeatedPackedInt32 = [1]
+            m.repeatedPackedInt64 = [1]
+            m.repeatedPackedUint32 = [1]
+            m.repeatedPackedUint64 = [1]
+            m.repeatedPackedSint32 = [1]
+            m.repeatedPackedSint64 = [1]
+            m.repeatedPackedFixed32 = [1]
+            m.repeatedPackedFixed64 = [1]
+            m.repeatedPackedSfixed32 = [1]
+            m.repeatedPackedSfixed64 = [1]
+            m.repeatedPackedFloat = [1]
+            m.repeatedPackedDouble = [1]
+            m.repeatedPackedBool = [true]
+            m.repeatedPackedEnum = [.two]
+            m.mapInt32Int32 = [1: 1]
+            m.mapInt32Int64 = [1: 1]
+            m.mapInt32Uint32 = [1: 1]
+            m.mapInt32Uint64 = [1: 1]
+            m.mapInt32Sint32 = [1: 1]
+            m.mapInt32Sint64 = [1: 1]
+            m.mapInt32Fixed32 = [1: 1]
+            m.mapInt32Fixed64 = [1: 1]
+            m.mapInt32AnEnum = [1: .one]
+            m.mapInt32Message = [1: .init()]
+        }
+        let mask = Google_Protobuf_FieldMask(protoPaths: [
+            "singular_int32",
+            "singular_int64",
+            "singular_uint32",
+            "singular_uint64",
+            "singular_sint32",
+            "singular_sint64",
+            "singular_fixed32",
+            "singular_fixed64",
+            "singular_sfixed32",
+            "singular_sfixed64"
+        ])
+        try m1.merge(with: m2, fieldMask: mask)
+        XCTAssertEqual(m1.singularInt32, m2.singularInt32)
+        XCTAssertEqual(m1.singularInt64, m2.singularInt64)
+        XCTAssertEqual(m1.singularUint32, m2.singularUint32)
+        XCTAssertEqual(m1.singularUint64, m2.singularUint64)
+        XCTAssertEqual(m1.singularSint32, m2.singularSint32)
+        XCTAssertEqual(m1.singularSint64, m2.singularSint64)
+        XCTAssertEqual(m1.singularFixed32, m2.singularFixed32)
+        XCTAssertEqual(m1.singularFixed64, m2.singularFixed64)
+        XCTAssertEqual(m1.singularSfixed32, m2.singularSfixed32)
+        XCTAssertEqual(m1.singularSfixed64, m2.singularSfixed64)
+        XCTAssertNotEqual(m1.singularFloat, m2.singularFloat)
+        XCTAssertNotEqual(m1.singularDouble, m2.singularDouble)
+        XCTAssertNotEqual(m1.singularBool, m2.singularBool)
+        XCTAssertNotEqual(m1.singularString, m2.singularString)
+        XCTAssertNotEqual(m1.singularBytes, m2.singularBytes)
+        XCTAssertNotEqual(m1.singularEnum, m2.singularEnum)
+        XCTAssertNotEqual(m1.singularGroup, m2.singularGroup)
+        XCTAssertNotEqual(m1.singularMessage, m2.singularMessage)
+        XCTAssertNotEqual(m1.repeatedInt32, m2.repeatedInt32)
+        XCTAssertNotEqual(m1.repeatedInt64, m2.repeatedInt64)
+        XCTAssertNotEqual(m1.repeatedUint32, m2.repeatedUint32)
+        XCTAssertNotEqual(m1.repeatedUint64, m2.repeatedUint64)
+        XCTAssertNotEqual(m1.repeatedSint32, m2.repeatedSint32)
+        XCTAssertNotEqual(m1.repeatedSint64, m2.repeatedSint64)
+        XCTAssertNotEqual(m1.repeatedFixed32, m2.repeatedFixed32)
+        XCTAssertNotEqual(m1.repeatedFixed64, m2.repeatedFixed64)
+        XCTAssertNotEqual(m1.repeatedSfixed32, m2.repeatedSfixed32)
+        XCTAssertNotEqual(m1.repeatedSfixed64, m2.repeatedSfixed64)
+        XCTAssertNotEqual(m1.repeatedFloat, m2.repeatedFloat)
+        XCTAssertNotEqual(m1.repeatedDouble, m2.repeatedDouble)
+        XCTAssertNotEqual(m1.repeatedBool, m2.repeatedBool)
+        XCTAssertNotEqual(m1.repeatedString, m2.repeatedString)
+        XCTAssertNotEqual(m1.repeatedBytes, m2.repeatedBytes)
+        XCTAssertNotEqual(m1.repeatedEnum, m2.repeatedEnum)
+        XCTAssertNotEqual(m1.repeatedGroup, m2.repeatedGroup)
+        XCTAssertNotEqual(m1.repeatedMessage, m2.repeatedMessage)
+        XCTAssertNotEqual(m1.o, m2.o)
+        XCTAssertNotEqual(m1.repeatedPackedInt32, m2.repeatedPackedInt32)
+        XCTAssertNotEqual(m1.repeatedPackedInt64, m2.repeatedPackedInt64)
+        XCTAssertNotEqual(m1.repeatedPackedUint32, m2.repeatedPackedUint32)
+        XCTAssertNotEqual(m1.repeatedPackedUint64, m2.repeatedPackedUint64)
+        XCTAssertNotEqual(m1.repeatedPackedSint32, m2.repeatedPackedSint32)
+        XCTAssertNotEqual(m1.repeatedPackedSint64, m2.repeatedPackedSint64)
+        XCTAssertNotEqual(m1.repeatedPackedFixed32, m2.repeatedPackedFixed32)
+        XCTAssertNotEqual(m1.repeatedPackedFixed64, m2.repeatedPackedFixed64)
+        XCTAssertNotEqual(m1.repeatedPackedSfixed32, m2.repeatedPackedSfixed32)
+        XCTAssertNotEqual(m1.repeatedPackedSfixed64, m2.repeatedPackedSfixed64)
+        XCTAssertNotEqual(m1.repeatedPackedFloat, m2.repeatedPackedFloat)
+        XCTAssertNotEqual(m1.repeatedPackedDouble, m2.repeatedPackedDouble)
+        XCTAssertNotEqual(m1.repeatedPackedBool, m2.repeatedPackedBool)
+        XCTAssertNotEqual(m1.repeatedPackedEnum, m2.repeatedPackedEnum)
+        XCTAssertNotEqual(m1.mapInt32Int32, m2.mapInt32Int32)
+        XCTAssertNotEqual(m1.mapInt32Int64, m2.mapInt32Int64)
+        XCTAssertNotEqual(m1.mapInt32Uint32, m2.mapInt32Uint32)
+        XCTAssertNotEqual(m1.mapInt32Uint64, m2.mapInt32Uint64)
+        XCTAssertNotEqual(m1.mapInt32Sint32, m2.mapInt32Sint32)
+        XCTAssertNotEqual(m1.mapInt32Sint64, m2.mapInt32Sint64)
+        XCTAssertNotEqual(m1.mapInt32Fixed32, m2.mapInt32Fixed32)
+        XCTAssertNotEqual(m1.mapInt32Fixed64, m2.mapInt32Fixed64)
+        XCTAssertNotEqual(m1.mapInt32AnEnum, m2.mapInt32AnEnum)
+        XCTAssertNotEqual(m1.mapInt32Message, m2.mapInt32Message)
+    }
+
     // Checks merge could be done for an optional path with nil value.
     func testMergeOptionalValue() throws {
         var m1 = SwiftProtoTesting_Fuzz_Message.with { m in
@@ -618,7 +763,28 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
                 }
             }
         }
-        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["singular_message.singular_message.singular_int32"]))
+        let m3 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularMessage = .with { _m in
+                _m.singularMessage = .with { __m in
+                    __m.singularInt32 = 2
+                }
+            }
+        }
+        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["singular_message.singular_message"]))
         XCTAssertEqual(m1.singularMessage.singularMessage.singularInt32, Int32(1))
+        try m1.merge(with: m3, fieldMask: .init(protoPaths: ["singular_message.singular_message.singular_int32"]))
+        XCTAssertEqual(m1.singularMessage.singularMessage.singularInt32, Int32(2))
+    }
+
+    // Checks merging nested path inside groups
+    func testMergeNestedGroups() throws {
+        var m1 = SwiftProtoTesting_Fuzz_Message()
+        let m2 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularGroup = .with { _m in
+                _m.groupField = 1
+            }
+        }
+        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["SingularGroup.group_field"]))
+        XCTAssertEqual(m1.singularGroup.groupField, m2.singularGroup.groupField)
     }
 }

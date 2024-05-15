@@ -199,6 +199,8 @@ extension Google_Protobuf_FieldMask {
   ///   - messageType: Message type to get all paths from.
   ///   - fieldNumbers: Field numbers of paths to be included.
   /// - Returns: Field mask that include paths of corresponding field numbers.
+  /// - Throws: `FieldMaskError.invalidFieldNumber` if the field number
+  ///  is not on the message
   public init<M: Message & _ProtoNameProviding>(
     fieldNumbers: [Int],
     of messageType: M.Type

@@ -75,6 +75,7 @@ extension Message {
     var visitor = PathVisitor<Self>()
     try source.traverse(visitor: &visitor)
     let values = visitor.values
+    // TODO: setting all values with only one decoding
     for path in fieldMask.paths {
       try? set(
         path: path,
@@ -89,12 +90,12 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
 
   // TODO: Re-implement using clear fields instead of copying message
 
-  @discardableResult
   /// Removes from 'message' any field that is not represented in the given
   /// FieldMask. If the FieldMask is empty, does nothing.
   ///
   /// - Parameter fieldMask: FieldMask specifies which fields should be kept.
   /// - Returns: Boolean determines if the message is modified
+  @discardableResult
   public mutating func trim(
     fieldMask: Google_Protobuf_FieldMask
   ) -> Bool {

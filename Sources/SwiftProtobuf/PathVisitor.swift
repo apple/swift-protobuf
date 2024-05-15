@@ -38,6 +38,24 @@ struct PathVisitor<T: Message>: Visitor {
     }
   }
 
+  mutating private func visitMessageField<M: Message>(
+    _ value: M,
+    fieldNumber: Int
+  ) {
+    guard var path = T.name(for: fieldNumber) else {
+      return
+    }
+    if let prevPath {
+      path = "\(prevPath).\(path)"
+    }
+    values[path] = value
+    var visitor = PathVisitor<M>(prevPath: path)
+    try? value.traverse(visitor: &visitor)
+    values.merge(visitor.values) { _, new in
+      new
+    }
+  }
+
   mutating func visitUnknown(bytes: Data) throws {}
 
   mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
@@ -105,22 +123,11 @@ struct PathVisitor<T: Message>: Visitor {
   }
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
-    guard var path = T.name(for: fieldNumber) else {
-      return
-    }
-    values[path] = value
-    if let prevPath {
-      path = "\(prevPath).\(path)"
-    }
-    var visitor = PathVisitor<M>(prevPath: path)
-    try value.traverse(visitor: &visitor)
-    values.merge(visitor.values, uniquingKeysWith: { _, new in
-      new
-    })
+    visitMessageField(value, fieldNumber: fieldNumber)
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
-    visit(value, fieldNumber: fieldNumber)
+    visitMessageField(value, fieldNumber: fieldNumber)
   }
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
