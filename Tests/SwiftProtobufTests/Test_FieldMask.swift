@@ -334,6 +334,15 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertThrowsError(try Google_Protobuf_FieldMask(fieldNumbers: [10], of: SwiftProtoTesting_TestAny.self))
     }
 
+    // Checks that json names of paths should not be contained in mask field with allFieldsOf init.
+    func testFieldMaskAllPathsWithUniqueName() {
+        let mask = Google_Protobuf_FieldMask(allFieldsOf: SwiftProtoTesting_Fuzz_Message.self)
+        // proto name is included
+        XCTAssertTrue(mask.paths.contains("SingularGroup"))
+        // json name is not included
+        XCTAssertFalse(mask.paths.contains("singulargroup"))
+    }
+
     // Checks `union` func of fieldMask.
     func testUnionFieldMasks() throws {
         let m1 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
@@ -786,5 +795,22 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         }
         try m1.merge(with: m2, fieldMask: .init(protoPaths: ["SingularGroup.group_field"]))
         XCTAssertEqual(m1.singularGroup.groupField, m2.singularGroup.groupField)
+    }
+
+    // Checks that merging with json path should do nothing. Path should only be merged using proto names.
+    func testMergeFieldWithJSONName() throws {
+        var m1 = SwiftProtoTesting_Fuzz_Message()
+        let m2 = SwiftProtoTesting_Fuzz_Message.with { m in
+            m.singularGroup = .with { $0.groupField = 1 }
+        }
+        // should do nothing with json path (should not merge)
+        try m1.merge(with: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
+        XCTAssertNotEqual(m1.singularGroup, m2.singularGroup)
+        // should merge with proto path
+        try m1.merge(with: m2, fieldMask: .with({ $0.paths = ["SingularGroup"] }))
+        XCTAssertEqual(m1.singularGroup, m2.singularGroup)
+        // should do nothing with json path (do not clear field)
+        try m1.merge(with: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
+        XCTAssertEqual(m1.singularGroup, m2.singularGroup)
     }
 }

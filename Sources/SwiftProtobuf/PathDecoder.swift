@@ -35,9 +35,15 @@ extension Message {
     guard let type = Self.self as? any _ProtoNameProviding.Type else {
       return nil
     }
-    return Array(field.utf8).withUnsafeBytes { bytes in
+    guard let number = Array(field.utf8).withUnsafeBytes({ bytes in
       type._protobuf_nameMap.number(forProtoName: bytes)
+    }) else {
+      return nil
     }
+    if type._protobuf_nameMap.names(for: number)?.proto.description != field {
+      return nil
+    }
+    return number
   }
 
   static func name(for field: Int) -> String? {
