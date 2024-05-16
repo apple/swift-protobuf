@@ -213,7 +213,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         var message = SwiftProtoTesting_Fuzz_Message()
         message.singularInt32 = 1
         message.SwiftProtoTesting_Fuzz_singularInt32Ext = 1
-        let mask = Google_Protobuf_FieldMask(protoPaths: ["singularString"])
+        let mask = Google_Protobuf_FieldMask(protoPaths: ["singular_string"])
 
         // Checks trim should retain extensions while removes other fields.
         let r1 = message.trim(fieldMask: mask)
