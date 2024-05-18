@@ -88,17 +88,18 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
   // Verify that the UTF-8 is valid.
   var p = sourceEncoding.ForwardParser()
   var i = codeUnits.makeIterator()
-  Loop:
-  while true {
+  var repeatLoop: Bool
+  repeat {
+    repeatLoop = false
     switch p.parseScalar(from: &i) {
     case .valid(_):
       break
     case .error:
       return nil
     case .emptyInput:
-      break Loop
+      repeatLoop = true
     }
-  }
+  } while repeatLoop
 
   // This initializer is fast but does not reject broken
   // UTF-8 (which is why we validate the UTF-8 above).
