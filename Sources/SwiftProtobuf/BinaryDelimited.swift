@@ -158,7 +158,8 @@ public enum BinaryDelimited {
       return
     }
     guard unsignedLength <= 0x7fffffff else {
-      throw SwiftProtobufError.BinaryStreamDecoding.tooLarge()
+      // Adding a new case is a breaking change, reuse malformedProtobuf.
+      throw BinaryDecodingError.malformedProtobuf
     }
     let length = Int(unsignedLength)
 
@@ -248,7 +249,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
     shift += 7
     if shift > 63 {
-      throw SwiftProtobufError.BinaryStreamDecoding.malformedLength()
+      throw BinaryDecodingError.malformedProtobuf
     }
   }
 }

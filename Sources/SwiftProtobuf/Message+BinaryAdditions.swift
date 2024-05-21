@@ -48,7 +48,8 @@ extension Message {
     // the places that encode message fields (or strings/bytes fields), keeping
     // the overhead of the check to a minimum.
     guard requiredSize < 0x7fffffff else {
-      throw SwiftProtobufError.BinaryEncoding.tooLarge()
+      // Adding a new error is a breaking change.
+      throw BinaryEncodingError.missingRequiredFields
     }
 
     var data = Bytes(repeating: 0, count: requiredSize)

@@ -1424,7 +1424,8 @@ internal struct BinaryDecoder: Decoder {
         // that is length delimited on the wire, so the spec would imply
         // the limit still applies.
         guard length < 0x7fffffff else {
-            throw SwiftProtobufError.BinaryDecoding.tooLarge()
+            // Reuse existing error to avoid breaking change of changing thrown error
+            throw BinaryDecodingError.malformedProtobuf
         }
 
         guard length <= UInt64(available) else {

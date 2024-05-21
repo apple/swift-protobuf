@@ -89,27 +89,15 @@ extension SwiftProtobufError {
     /// A high level indication of the kind of error being thrown.
     public struct Code: Hashable, Sendable, CustomStringConvertible {
         private enum Wrapped: Hashable, Sendable, CustomStringConvertible {
-            case binaryEncodingError
             case binaryDecodingError
             case binaryStreamDecodingError
-            case jsonEncodingError
-            
-            // These are not domains, but rather specific errors for which we
-            // want to have associated types, and thus require special treatment.
-            case anyTypeURLNotRegistered(typeURL: String)
 
             var description: String {
                 switch self {
-                case .binaryEncodingError:
-                    return "Binary encoding error"
                 case .binaryDecodingError:
                     return "Binary decoding error"
                 case .binaryStreamDecodingError:
                     return "Stream decoding error"
-                case .jsonEncodingError:
-                    return "JSON encoding error"
-                case .anyTypeURLNotRegistered(let typeURL):
-                    return "Type URL not registered: \(typeURL)"
                 }
             }
         }
@@ -123,11 +111,6 @@ extension SwiftProtobufError {
         private init(_ code: Wrapped) {
             self.code = code
         }
-
-        /// Errors arising from encoding protobufs into binary data.
-        public static var binaryEncodingError: Self {
-            Self(.binaryEncodingError)
-        }
         
         /// Errors arising from binary decoding of data into protobufs.
         public static var binaryDecodingError: Self {
@@ -138,35 +121,6 @@ extension SwiftProtobufError {
         /// of the messages in the stream, or the stream as a whole.
         public static var binaryStreamDecodingError: Self {
             Self(.binaryStreamDecodingError)
-        }
-        
-        /// Errors arising from encoding protobufs into JSON.
-        public static var jsonEncodingError: Self {
-            Self(.jsonEncodingError)
-        }
-        
-        /// `Any` fields that were decoded from JSON cannot be re-encoded to binary
-        /// unless the object they hold is a well-known type or a type registered via
-        /// `Google_Protobuf_Any.register()`.
-        /// This Code refers to errors that arise from this scenario.
-        ///
-        /// - Parameter typeURL: The URL for the unregistered type.
-        /// - Returns: A `SwiftProtobufError.Code`.
-        public static func anyTypeURLNotRegistered(typeURL: String) -> Self {
-            Self(.anyTypeURLNotRegistered(typeURL: typeURL))
-        }
-        
-        /// The unregistered type URL that caused the error, if any is associated with this `Code`.
-        public var unregisteredTypeURL: String? {
-            switch self.code {
-            case .anyTypeURLNotRegistered(let typeURL):
-                return typeURL
-            case .binaryEncodingError,
-                 .binaryDecodingError,
-                 .binaryStreamDecodingError,
-                 .jsonEncodingError:
-                return nil
-            }
         }
     }
 
@@ -213,42 +167,6 @@ extension SwiftProtobufError: CustomDebugStringConvertible {
 // - MARK: Common errors
 
 extension SwiftProtobufError {
-    /// Errors arising from encoding protobufs into binary data.
-    public enum BinaryEncoding {
-        /// Messages are limited to a maximum of 2GB in encoded size.
-        public static func tooLarge(
-            function: String = #function,
-            file: String = #fileID,
-            line: Int = #line
-        ) -> SwiftProtobufError {
-            SwiftProtobufError(
-                code: .binaryEncodingError,
-                message: "Messages are limited to a maximum of 2GB in encoded size.",
-                location: SourceLocation(function: function, file: file, line: line)
-            )
-        }
-        
-        /// `Any` fields that were decoded from JSON cannot be re-encoded to binary
-        /// unless the object they hold is a well-known type or a type registered via
-        /// `Google_Protobuf_Any.register()`.
-        public static func anyTypeURLNotRegistered(
-            typeURL: String,
-            function: String = #function,
-            file: String = #fileID,
-            line: Int = #line
-        ) -> SwiftProtobufError {
-          SwiftProtobufError(
-            code: .anyTypeURLNotRegistered(typeURL: typeURL),
-            message: """
-                Any fields that were decoded from JSON format cannot be re-encoded to binary \
-                unless the object they hold is a well-known type or a type registered via \
-                `Google_Protobuf_Any.register()`. Type URL is \(typeURL).
-            """,
-            location: SourceLocation(function: function, file: file, line: line)
-          )
-        }
-    }
-
     /// Errors arising from binary decoding of data into protobufs.
     public enum BinaryDecoding {
         /// Message is too large. Bytes and Strings have a max size of 2GB.
@@ -319,27 +237,5 @@ extension SwiftProtobufError {
           location: .init(function: function, file: file, line: line)
         )
       }
-    }
-    
-    /// Errors arising from encoding protobufs into JSON.
-    public enum JSONEncoding {
-        /// Any fields that were decoded from binary format cannot be re-encoded into JSON unless the
-        /// object they hold is a well-known type or a type registered via `Google_Protobuf_Any.register()`.
-        public static func anyTypeURLNotRegistered(
-            typeURL: String,
-            function: String = #function,
-            file: String = #fileID,
-            line: Int = #line
-        ) -> SwiftProtobufError {
-            SwiftProtobufError(
-                code: .anyTypeURLNotRegistered(typeURL: typeURL),
-                message: """
-                    Any fields that were decoded from binary format cannot be re-encoded into JSON \
-                    unless the object they hold is a well-known type or a type registered via \
-                    `Google_Protobuf_Any.register()`. Type URL is \(typeURL).
-                """,
-                location: SourceLocation(function: function, file: file, line: line)
-            )
-        }
     }
 }
