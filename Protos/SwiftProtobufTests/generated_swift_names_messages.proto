@@ -15,7 +15,6 @@ message GeneratedSwiftReservedMessages {
   message AnyExtensionField { int32 AnyExtensionField = 1; }
   message AnyMessageExtension { int32 AnyMessageExtension = 1; }
   message AnyMessageStorage { int32 AnyMessageStorage = 1; }
-  message anyTypeURLNotRegistered { int32 anyTypeURLNotRegistered = 1; }
   message AnyUnpackError { int32 AnyUnpackError = 1; }
   message Api { int32 Api = 1; }
   message appended { int32 appended = 1; }
@@ -47,7 +46,6 @@ message GeneratedSwiftReservedMessages {
   message BinaryDecodingOptions { int32 BinaryDecodingOptions = 1; }
   message BinaryDelimited { int32 BinaryDelimited = 1; }
   message BinaryEncoder { int32 BinaryEncoder = 1; }
-  message BinaryEncoding { int32 BinaryEncoding = 1; }
   message BinaryEncodingError { int32 BinaryEncodingError = 1; }
   message BinaryEncodingMessageSetSizeVisitor { int32 BinaryEncodingMessageSetSizeVisitor = 1; }
   message BinaryEncodingMessageSetVisitor { int32 BinaryEncodingMessageSetVisitor = 1; }
@@ -567,7 +565,6 @@ message GeneratedSwiftReservedMessages {
   message JSONDecodingError { int32 JSONDecodingError = 1; }
   message JSONDecodingOptions { int32 JSONDecodingOptions = 1; }
   message jsonEncoder { int32 jsonEncoder = 1; }
-  message JSONEncoding { int32 JSONEncoding = 1; }
   message JSONEncodingError { int32 JSONEncodingError = 1; }
   message JSONEncodingOptions { int32 JSONEncodingOptions = 1; }
   message JSONEncodingVisitor { int32 JSONEncodingVisitor = 1; }
@@ -901,7 +898,6 @@ message GeneratedSwiftReservedMessages {
   message unknownFields { int32 unknownFields = 1; }
   message UnknownStorage { int32 UnknownStorage = 1; }
   message unpackTo { int32 unpackTo = 1; }
-  message unregisteredTypeURL { int32 unregisteredTypeURL = 1; }
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }

@@ -15,7 +15,6 @@ message GeneratedSwiftReservedEnums {
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
   enum AnyMessageExtension { NONE_AnyMessageExtension = 0; }
   enum AnyMessageStorage { NONE_AnyMessageStorage = 0; }
-  enum anyTypeURLNotRegistered { NONE_anyTypeURLNotRegistered = 0; }
   enum AnyUnpackError { NONE_AnyUnpackError = 0; }
   enum Api { NONE_Api = 0; }
   enum appended { NONE_appended = 0; }
@@ -47,7 +46,6 @@ message GeneratedSwiftReservedEnums {
   enum BinaryDecodingOptions { NONE_BinaryDecodingOptions = 0; }
   enum BinaryDelimited { NONE_BinaryDelimited = 0; }
   enum BinaryEncoder { NONE_BinaryEncoder = 0; }
-  enum BinaryEncoding { NONE_BinaryEncoding = 0; }
   enum BinaryEncodingError { NONE_BinaryEncodingError = 0; }
   enum BinaryEncodingMessageSetSizeVisitor { NONE_BinaryEncodingMessageSetSizeVisitor = 0; }
   enum BinaryEncodingMessageSetVisitor { NONE_BinaryEncodingMessageSetVisitor = 0; }
@@ -567,7 +565,6 @@ message GeneratedSwiftReservedEnums {
   enum JSONDecodingError { NONE_JSONDecodingError = 0; }
   enum JSONDecodingOptions { NONE_JSONDecodingOptions = 0; }
   enum jsonEncoder { NONE_jsonEncoder = 0; }
-  enum JSONEncoding { NONE_JSONEncoding = 0; }
   enum JSONEncodingError { NONE_JSONEncodingError = 0; }
   enum JSONEncodingOptions { NONE_JSONEncodingOptions = 0; }
   enum JSONEncodingVisitor { NONE_JSONEncodingVisitor = 0; }
@@ -901,7 +898,6 @@ message GeneratedSwiftReservedEnums {
   enum unknownFields { NONE_unknownFields = 0; }
   enum UnknownStorage { NONE_UnknownStorage = 0; }
   enum unpackTo { NONE_unpackTo = 0; }
-  enum unregisteredTypeURL { NONE_unregisteredTypeURL = 0; }
   enum UnsafeBufferPointer { NONE_UnsafeBufferPointer = 0; }
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
   enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }

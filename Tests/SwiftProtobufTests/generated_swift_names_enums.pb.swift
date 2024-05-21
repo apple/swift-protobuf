@@ -361,36 +361,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum anyTypeURLNotRegistered: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneAnyTypeUrlnotRegistered // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneAnyTypeUrlnotRegistered
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneAnyTypeUrlnotRegistered
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneAnyTypeUrlnotRegistered: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.anyTypeURLNotRegistered] = [
-      .noneAnyTypeUrlnotRegistered,
-    ]
-
-  }
-
   enum AnyUnpackError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAnyUnpackError // = 0
@@ -1317,36 +1287,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoder] = [
       .noneBinaryEncoder,
-    ]
-
-  }
-
-  enum BinaryEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneBinaryEncoding // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneBinaryEncoding
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneBinaryEncoding
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneBinaryEncoding: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoding] = [
-      .noneBinaryEncoding,
     ]
 
   }
@@ -16921,36 +16861,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum JSONEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneJsonencoding // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneJsonencoding
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneJsonencoding
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneJsonencoding: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncoding] = [
-      .noneJsonencoding,
-    ]
-
-  }
-
   enum JSONEncodingError: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneJsonencodingError // = 0
@@ -26941,36 +26851,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum unregisteredTypeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneUnregisteredTypeURL // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneUnregisteredTypeURL
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneUnregisteredTypeURL
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneUnregisteredTypeURL: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unregisteredTypeURL] = [
-      .noneUnregisteredTypeURL,
-    ]
-
-  }
-
   enum UnsafeBufferPointer: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnsafeBufferPointer // = 0
@@ -29943,12 +29823,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyMessageStor
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.anyTypeURLNotRegistered: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_anyTypeURLNotRegistered"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyUnpackError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_AnyUnpackError"),
@@ -30132,12 +30006,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryDelimite
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncoder"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoding: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_BinaryEncoding"),
   ]
 }
 
@@ -33255,12 +33123,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonEncoder: S
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncoding: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_JSONEncoding"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONEncodingError"),
@@ -35256,12 +35118,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnknownStorage
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unpackTo: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unpackTo"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unregisteredTypeURL: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_unregisteredTypeURL"),
   ]
 }
 
