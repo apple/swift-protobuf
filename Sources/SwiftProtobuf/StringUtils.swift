@@ -78,6 +78,12 @@ internal func utf8ToString(
 // On Linux, the Foundation initializer is much
 // slower than on macOS, so this is a much bigger
 // win there.
+// https://github.com/llvm/llvm-project/issues/93110.
+// The LLVM loop optimizer seems having a bug in LICM that hoists
+// a load out of the loop. This is a workaround to avoid the bug by explicitly
+// checking the next element, ensuring the loop isn't optimized out.
+// It would be simpler if Swift's iterator protocol supports `hasNext()`.
+// Instead, we use `AnyIterator` to simulate this functionality.
 internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
   if count == 0 {
     return String()
@@ -88,18 +94,19 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
   // Verify that the UTF-8 is valid.
   var p = sourceEncoding.ForwardParser()
   var i = codeUnits.makeIterator()
-  var repeatLoop: Bool
-  repeat {
-    repeatLoop = false
-    switch p.parseScalar(from: &i) {
+  Loop:
+  while let next = i.next() {
+    var first = CollectionOfOne(next).makeIterator()
+    var j = AnyIterator { first.next() ?? i.next() }
+    switch p.parseScalar(from: &j) {
     case .valid(_):
       break
     case .error:
       return nil
     case .emptyInput:
-      repeatLoop = true
+      break Loop
     }
-  } while repeatLoop
+  }
 
   // This initializer is fast but does not reject broken
   // UTF-8 (which is why we validate the UTF-8 above).
