@@ -2121,6 +2121,16 @@ struct Google_Protobuf_EnumValueOptions: ExtensibleMessage, Sendable {
   /// Clears the value of `debugRedact`. Subsequent reads from it will return its default value.
   mutating func clearDebugRedact() {self._debugRedact = nil}
 
+  /// Information about the support window of a feature value.
+  var featureSupport: Google_Protobuf_FieldOptions.FeatureSupport {
+    get {return _featureSupport ?? Google_Protobuf_FieldOptions.FeatureSupport()}
+    set {_featureSupport = newValue}
+  }
+  /// Returns true if `featureSupport` has been explicitly set.
+  var hasFeatureSupport: Bool {return self._featureSupport != nil}
+  /// Clears the value of `featureSupport`. Subsequent reads from it will return its default value.
+  mutating func clearFeatureSupport() {self._featureSupport = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -2132,6 +2142,7 @@ struct Google_Protobuf_EnumValueOptions: ExtensibleMessage, Sendable {
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _features: Google_Protobuf_FeatureSet? = nil
   fileprivate var _debugRedact: Bool? = nil
+  fileprivate var _featureSupport: Google_Protobuf_FieldOptions.FeatureSupport? = nil
 }
 
 struct Google_Protobuf_ServiceOptions: ExtensibleMessage, Sendable {
@@ -4830,6 +4841,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
     1: .same(proto: "deprecated"),
     2: .same(proto: "features"),
     3: .standard(proto: "debug_redact"),
+    4: .standard(proto: "feature_support"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -4849,6 +4861,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
       case 1: try { try decoder.decodeSingularBoolField(value: &self._deprecated) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._featureSupport) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber) }()
@@ -4871,6 +4884,9 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
     try { if let v = self._debugRedact {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
     } }()
+    try { if let v = self._featureSupport {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4882,6 +4898,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
     if lhs._deprecated != rhs._deprecated {return false}
     if lhs._features != rhs._features {return false}
     if lhs._debugRedact != rhs._debugRedact {return false}
+    if lhs._featureSupport != rhs._featureSupport {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -5174,7 +5191,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
       case 4: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self._messageEncoding) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jsonFormat) }()
-      case 1000..<1003, 9990, 9995..<10001:
+      case 1000..<10001:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FeatureSet.self, fieldNumber: fieldNumber) }()
       default: break
       }

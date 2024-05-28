@@ -65,6 +65,27 @@ enum ProtobufTestMessages_Editions_ForeignEnumEdition2023: SwiftProtobuf.Enum, S
 
 }
 
+struct ProtobufTestMessages_Editions_ComplexMessage: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var d: Int32 {
+    get {return _d ?? 0}
+    set {_d = newValue}
+  }
+  /// Returns true if `d` has been explicitly set.
+  var hasD: Bool {return self._d != nil}
+  /// Clears the value of `d`. Subsequent reads from it will return its default value.
+  mutating func clearD() {self._d = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _d: Int32? = nil
+}
+
 struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -981,6 +1002,42 @@ extension ProtobufTestMessages_Editions_ForeignEnumEdition2023: SwiftProtobuf._P
     1: .same(proto: "FOREIGN_BAR"),
     2: .same(proto: "FOREIGN_BAZ"),
   ]
+}
+
+extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ComplexMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "d"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._d) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._d {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Editions_ComplexMessage, rhs: ProtobufTestMessages_Editions_ComplexMessage) -> Bool {
+    if lhs._d != rhs._d {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

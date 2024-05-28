@@ -45,6 +45,8 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   case value13 // = 13
   case value14 // = 14
   case value15 // = 15
+  case valueEmptySupport // = 98
+  case valueFuture // = 99
 
   init() {
     self = .testEnumFeatureUnknown
@@ -68,6 +70,8 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 13: self = .value13
     case 14: self = .value14
     case 15: self = .value15
+    case 98: self = .valueEmptySupport
+    case 99: self = .valueFuture
     default: return nil
     }
   }
@@ -90,6 +94,8 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .value13: return 13
     case .value14: return 14
     case .value15: return 15
+    case .valueEmptySupport: return 98
+    case .valueFuture: return 99
     }
   }
 
@@ -405,6 +411,8 @@ extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
     13: .same(proto: "VALUE13"),
     14: .same(proto: "VALUE14"),
     15: .same(proto: "VALUE15"),
+    98: .same(proto: "VALUE_EMPTY_SUPPORT"),
+    99: .same(proto: "VALUE_FUTURE"),
   ]
 }
 

@@ -7535,7 +7535,7 @@ struct ProtobufUnittest_TestNestedMessageRedaction: Sendable {
   fileprivate var _optionalRedactedNestedString: String? = nil
 }
 
-struct ProtobufUnittest_RedactedFields: Sendable {
+struct ProtobufUnittest_RedactedFields: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7588,14 +7588,25 @@ struct ProtobufUnittest_RedactedFields: Sendable {
 
   var mapUnredactedString: Dictionary<String,String> = [:]
 
+  var optionalRedactedFalseString: String {
+    get {return _optionalRedactedFalseString ?? String()}
+    set {_optionalRedactedFalseString = newValue}
+  }
+  /// Returns true if `optionalRedactedFalseString` has been explicitly set.
+  var hasOptionalRedactedFalseString: Bool {return self._optionalRedactedFalseString != nil}
+  /// Clears the value of `optionalRedactedFalseString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRedactedFalseString() {self._optionalRedactedFalseString = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _optionalRedactedString: String? = nil
   fileprivate var _optionalUnredactedString: String? = nil
   fileprivate var _optionalRedactedMessage: ProtobufUnittest_TestNestedMessageRedaction? = nil
   fileprivate var _optionalUnredactedMessage: ProtobufUnittest_TestNestedMessageRedaction? = nil
+  fileprivate var _optionalRedactedFalseString: String? = nil
 }
 
 struct ProtobufUnittest_TestCord: @unchecked Sendable {
@@ -8178,6 +8189,24 @@ extension ProtobufUnittest_Int64ParseTester {
   var ProtobufUnittest_Int64ParseTester_packedInt64Ext: [Int64] {
     get {return getExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.packed_int64_ext) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.packed_int64_ext, value: newValue)}
+  }
+}
+
+extension ProtobufUnittest_RedactedFields {
+
+  var ProtobufUnittest_redactedExtension: String {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_redacted_extension) ?? String()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_redacted_extension, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_redacted_extension`
+  /// has been explicitly set.
+  var hasProtobufUnittest_redactedExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_redacted_extension)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_redacted_extension`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_redactedExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_redacted_extension)
   }
 }
 
@@ -9713,6 +9742,7 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_test_all_types,
   ProtobufUnittest_Extensions_test_extension_inside_table_extension,
   ProtobufUnittest_Extensions_inner,
+  ProtobufUnittest_Extensions_redacted_extension,
   ProtobufUnittest_TestMixedFieldsAndExtensions.Extensions.c,
   ProtobufUnittest_TestMixedFieldsAndExtensions.Extensions.d,
   ProtobufUnittest_TestNestedExtension.Extensions.test,
@@ -10304,6 +10334,11 @@ let ProtobufUnittest_Extensions_test_extension_inside_table_extension = SwiftPro
 let ProtobufUnittest_Extensions_inner = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestNestedGroupExtensionInnerExtension>, ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup>(
   _protobuf_fieldNumber: 3,
   fieldName: "protobuf_unittest.inner"
+)
+
+let ProtobufUnittest_Extensions_redacted_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_RedactedFields>(
+  _protobuf_fieldNumber: 20,
+  fieldName: "protobuf_unittest.redacted_extension"
 )
 
 extension ProtobufUnittest_TestMixedFieldsAndExtensions {
@@ -20213,7 +20248,13 @@ extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf.
     8: .standard(proto: "repeated_unredacted_message"),
     9: .standard(proto: "map_redacted_string"),
     10: .standard(proto: "map_unredacted_string"),
+    11: .standard(proto: "optional_redacted_false_string"),
   ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20231,6 +20272,9 @@ extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf.
       case 8: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedUnredactedMessage) }()
       case 9: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.mapRedactedString) }()
       case 10: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.mapUnredactedString) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self._optionalRedactedFalseString) }()
+      case 20..<31:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_RedactedFields.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -20271,6 +20315,10 @@ extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.mapUnredactedString.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.mapUnredactedString, fieldNumber: 10)
     }
+    try { if let v = self._optionalRedactedFalseString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 11)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 20, end: 31)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -20285,7 +20333,9 @@ extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.repeatedUnredactedMessage != rhs.repeatedUnredactedMessage {return false}
     if lhs.mapRedactedString != rhs.mapRedactedString {return false}
     if lhs.mapUnredactedString != rhs.mapUnredactedString {return false}
+    if lhs._optionalRedactedFalseString != rhs._optionalRedactedFalseString {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
