@@ -690,6 +690,375 @@ struct Proto3Unittest_TestOneof2: Sendable {
   init() {}
 }
 
+/// If bool fields are incorrectly assumed to have hasbits, InternalSwap would
+/// result in swapping N more 32bit hasbits incorrectly. Considering padding, we
+/// need many bool fields to stress this.
+struct Proto3Unittest_TestHasbits: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var b1: Bool {
+    get {return _storage._b1}
+    set {_uniqueStorage()._b1 = newValue}
+  }
+
+  var b2: Bool {
+    get {return _storage._b2}
+    set {_uniqueStorage()._b2 = newValue}
+  }
+
+  var b3: Bool {
+    get {return _storage._b3}
+    set {_uniqueStorage()._b3 = newValue}
+  }
+
+  var b4: Bool {
+    get {return _storage._b4}
+    set {_uniqueStorage()._b4 = newValue}
+  }
+
+  var b5: Bool {
+    get {return _storage._b5}
+    set {_uniqueStorage()._b5 = newValue}
+  }
+
+  var b6: Bool {
+    get {return _storage._b6}
+    set {_uniqueStorage()._b6 = newValue}
+  }
+
+  var b7: Bool {
+    get {return _storage._b7}
+    set {_uniqueStorage()._b7 = newValue}
+  }
+
+  var b8: Bool {
+    get {return _storage._b8}
+    set {_uniqueStorage()._b8 = newValue}
+  }
+
+  var b9: Bool {
+    get {return _storage._b9}
+    set {_uniqueStorage()._b9 = newValue}
+  }
+
+  var b10: Bool {
+    get {return _storage._b10}
+    set {_uniqueStorage()._b10 = newValue}
+  }
+
+  var b11: Bool {
+    get {return _storage._b11}
+    set {_uniqueStorage()._b11 = newValue}
+  }
+
+  var b12: Bool {
+    get {return _storage._b12}
+    set {_uniqueStorage()._b12 = newValue}
+  }
+
+  var b13: Bool {
+    get {return _storage._b13}
+    set {_uniqueStorage()._b13 = newValue}
+  }
+
+  var b14: Bool {
+    get {return _storage._b14}
+    set {_uniqueStorage()._b14 = newValue}
+  }
+
+  var b15: Bool {
+    get {return _storage._b15}
+    set {_uniqueStorage()._b15 = newValue}
+  }
+
+  var b16: Bool {
+    get {return _storage._b16}
+    set {_uniqueStorage()._b16 = newValue}
+  }
+
+  var b17: Bool {
+    get {return _storage._b17}
+    set {_uniqueStorage()._b17 = newValue}
+  }
+
+  var b18: Bool {
+    get {return _storage._b18}
+    set {_uniqueStorage()._b18 = newValue}
+  }
+
+  var b19: Bool {
+    get {return _storage._b19}
+    set {_uniqueStorage()._b19 = newValue}
+  }
+
+  var b20: Bool {
+    get {return _storage._b20}
+    set {_uniqueStorage()._b20 = newValue}
+  }
+
+  var b21: Bool {
+    get {return _storage._b21}
+    set {_uniqueStorage()._b21 = newValue}
+  }
+
+  var b22: Bool {
+    get {return _storage._b22}
+    set {_uniqueStorage()._b22 = newValue}
+  }
+
+  var b23: Bool {
+    get {return _storage._b23}
+    set {_uniqueStorage()._b23 = newValue}
+  }
+
+  var b24: Bool {
+    get {return _storage._b24}
+    set {_uniqueStorage()._b24 = newValue}
+  }
+
+  var b25: Bool {
+    get {return _storage._b25}
+    set {_uniqueStorage()._b25 = newValue}
+  }
+
+  var b26: Bool {
+    get {return _storage._b26}
+    set {_uniqueStorage()._b26 = newValue}
+  }
+
+  var b27: Bool {
+    get {return _storage._b27}
+    set {_uniqueStorage()._b27 = newValue}
+  }
+
+  var b28: Bool {
+    get {return _storage._b28}
+    set {_uniqueStorage()._b28 = newValue}
+  }
+
+  var b29: Bool {
+    get {return _storage._b29}
+    set {_uniqueStorage()._b29 = newValue}
+  }
+
+  var b30: Bool {
+    get {return _storage._b30}
+    set {_uniqueStorage()._b30 = newValue}
+  }
+
+  var b31: Bool {
+    get {return _storage._b31}
+    set {_uniqueStorage()._b31 = newValue}
+  }
+
+  var b32: Bool {
+    get {return _storage._b32}
+    set {_uniqueStorage()._b32 = newValue}
+  }
+
+  var b33: Bool {
+    get {return _storage._b33}
+    set {_uniqueStorage()._b33 = newValue}
+  }
+
+  var b34: Bool {
+    get {return _storage._b34}
+    set {_uniqueStorage()._b34 = newValue}
+  }
+
+  var b35: Bool {
+    get {return _storage._b35}
+    set {_uniqueStorage()._b35 = newValue}
+  }
+
+  var b36: Bool {
+    get {return _storage._b36}
+    set {_uniqueStorage()._b36 = newValue}
+  }
+
+  var b37: Bool {
+    get {return _storage._b37}
+    set {_uniqueStorage()._b37 = newValue}
+  }
+
+  var b38: Bool {
+    get {return _storage._b38}
+    set {_uniqueStorage()._b38 = newValue}
+  }
+
+  var b39: Bool {
+    get {return _storage._b39}
+    set {_uniqueStorage()._b39 = newValue}
+  }
+
+  var b40: Bool {
+    get {return _storage._b40}
+    set {_uniqueStorage()._b40 = newValue}
+  }
+
+  var b41: Bool {
+    get {return _storage._b41}
+    set {_uniqueStorage()._b41 = newValue}
+  }
+
+  var b42: Bool {
+    get {return _storage._b42}
+    set {_uniqueStorage()._b42 = newValue}
+  }
+
+  var b43: Bool {
+    get {return _storage._b43}
+    set {_uniqueStorage()._b43 = newValue}
+  }
+
+  var b44: Bool {
+    get {return _storage._b44}
+    set {_uniqueStorage()._b44 = newValue}
+  }
+
+  var b45: Bool {
+    get {return _storage._b45}
+    set {_uniqueStorage()._b45 = newValue}
+  }
+
+  var b46: Bool {
+    get {return _storage._b46}
+    set {_uniqueStorage()._b46 = newValue}
+  }
+
+  var b47: Bool {
+    get {return _storage._b47}
+    set {_uniqueStorage()._b47 = newValue}
+  }
+
+  var b48: Bool {
+    get {return _storage._b48}
+    set {_uniqueStorage()._b48 = newValue}
+  }
+
+  var b49: Bool {
+    get {return _storage._b49}
+    set {_uniqueStorage()._b49 = newValue}
+  }
+
+  var b50: Bool {
+    get {return _storage._b50}
+    set {_uniqueStorage()._b50 = newValue}
+  }
+
+  var b51: Bool {
+    get {return _storage._b51}
+    set {_uniqueStorage()._b51 = newValue}
+  }
+
+  var b52: Bool {
+    get {return _storage._b52}
+    set {_uniqueStorage()._b52 = newValue}
+  }
+
+  var b53: Bool {
+    get {return _storage._b53}
+    set {_uniqueStorage()._b53 = newValue}
+  }
+
+  var b54: Bool {
+    get {return _storage._b54}
+    set {_uniqueStorage()._b54 = newValue}
+  }
+
+  var b55: Bool {
+    get {return _storage._b55}
+    set {_uniqueStorage()._b55 = newValue}
+  }
+
+  var b56: Bool {
+    get {return _storage._b56}
+    set {_uniqueStorage()._b56 = newValue}
+  }
+
+  var b57: Bool {
+    get {return _storage._b57}
+    set {_uniqueStorage()._b57 = newValue}
+  }
+
+  var b58: Bool {
+    get {return _storage._b58}
+    set {_uniqueStorage()._b58 = newValue}
+  }
+
+  var b59: Bool {
+    get {return _storage._b59}
+    set {_uniqueStorage()._b59 = newValue}
+  }
+
+  var b60: Bool {
+    get {return _storage._b60}
+    set {_uniqueStorage()._b60 = newValue}
+  }
+
+  var b61: Bool {
+    get {return _storage._b61}
+    set {_uniqueStorage()._b61 = newValue}
+  }
+
+  var b62: Bool {
+    get {return _storage._b62}
+    set {_uniqueStorage()._b62 = newValue}
+  }
+
+  var b63: Bool {
+    get {return _storage._b63}
+    set {_uniqueStorage()._b63 = newValue}
+  }
+
+  var b64: Bool {
+    get {return _storage._b64}
+    set {_uniqueStorage()._b64 = newValue}
+  }
+
+  var b65: Bool {
+    get {return _storage._b65}
+    set {_uniqueStorage()._b65 = newValue}
+  }
+
+  var b66: Bool {
+    get {return _storage._b66}
+    set {_uniqueStorage()._b66 = newValue}
+  }
+
+  var b67: Bool {
+    get {return _storage._b67}
+    set {_uniqueStorage()._b67 = newValue}
+  }
+
+  var b68: Bool {
+    get {return _storage._b68}
+    set {_uniqueStorage()._b68 = newValue}
+  }
+
+  var b69: Bool {
+    get {return _storage._b69}
+    set {_uniqueStorage()._b69 = newValue}
+  }
+
+  var child: Proto3Unittest_TestAllTypes {
+    get {return _storage._child ?? Proto3Unittest_TestAllTypes()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return _storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto3_unittest"
@@ -1706,4 +2075,632 @@ extension Proto3Unittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProvidin
     2: .same(proto: "BAR"),
     3: .same(proto: "BAZ"),
   ]
+}
+
+extension Proto3Unittest_TestHasbits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestHasbits"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "b1"),
+    2: .same(proto: "b2"),
+    3: .same(proto: "b3"),
+    4: .same(proto: "b4"),
+    5: .same(proto: "b5"),
+    6: .same(proto: "b6"),
+    7: .same(proto: "b7"),
+    8: .same(proto: "b8"),
+    9: .same(proto: "b9"),
+    10: .same(proto: "b10"),
+    11: .same(proto: "b11"),
+    12: .same(proto: "b12"),
+    13: .same(proto: "b13"),
+    14: .same(proto: "b14"),
+    15: .same(proto: "b15"),
+    16: .same(proto: "b16"),
+    17: .same(proto: "b17"),
+    18: .same(proto: "b18"),
+    19: .same(proto: "b19"),
+    20: .same(proto: "b20"),
+    21: .same(proto: "b21"),
+    22: .same(proto: "b22"),
+    23: .same(proto: "b23"),
+    24: .same(proto: "b24"),
+    25: .same(proto: "b25"),
+    26: .same(proto: "b26"),
+    27: .same(proto: "b27"),
+    28: .same(proto: "b28"),
+    29: .same(proto: "b29"),
+    30: .same(proto: "b30"),
+    31: .same(proto: "b31"),
+    32: .same(proto: "b32"),
+    33: .same(proto: "b33"),
+    34: .same(proto: "b34"),
+    35: .same(proto: "b35"),
+    36: .same(proto: "b36"),
+    37: .same(proto: "b37"),
+    38: .same(proto: "b38"),
+    39: .same(proto: "b39"),
+    40: .same(proto: "b40"),
+    41: .same(proto: "b41"),
+    42: .same(proto: "b42"),
+    43: .same(proto: "b43"),
+    44: .same(proto: "b44"),
+    45: .same(proto: "b45"),
+    46: .same(proto: "b46"),
+    47: .same(proto: "b47"),
+    48: .same(proto: "b48"),
+    49: .same(proto: "b49"),
+    50: .same(proto: "b50"),
+    51: .same(proto: "b51"),
+    52: .same(proto: "b52"),
+    53: .same(proto: "b53"),
+    54: .same(proto: "b54"),
+    55: .same(proto: "b55"),
+    56: .same(proto: "b56"),
+    57: .same(proto: "b57"),
+    58: .same(proto: "b58"),
+    59: .same(proto: "b59"),
+    60: .same(proto: "b60"),
+    61: .same(proto: "b61"),
+    62: .same(proto: "b62"),
+    63: .same(proto: "b63"),
+    64: .same(proto: "b64"),
+    65: .same(proto: "b65"),
+    66: .same(proto: "b66"),
+    67: .same(proto: "b67"),
+    68: .same(proto: "b68"),
+    69: .same(proto: "b69"),
+    100: .same(proto: "child"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _b1: Bool = false
+    var _b2: Bool = false
+    var _b3: Bool = false
+    var _b4: Bool = false
+    var _b5: Bool = false
+    var _b6: Bool = false
+    var _b7: Bool = false
+    var _b8: Bool = false
+    var _b9: Bool = false
+    var _b10: Bool = false
+    var _b11: Bool = false
+    var _b12: Bool = false
+    var _b13: Bool = false
+    var _b14: Bool = false
+    var _b15: Bool = false
+    var _b16: Bool = false
+    var _b17: Bool = false
+    var _b18: Bool = false
+    var _b19: Bool = false
+    var _b20: Bool = false
+    var _b21: Bool = false
+    var _b22: Bool = false
+    var _b23: Bool = false
+    var _b24: Bool = false
+    var _b25: Bool = false
+    var _b26: Bool = false
+    var _b27: Bool = false
+    var _b28: Bool = false
+    var _b29: Bool = false
+    var _b30: Bool = false
+    var _b31: Bool = false
+    var _b32: Bool = false
+    var _b33: Bool = false
+    var _b34: Bool = false
+    var _b35: Bool = false
+    var _b36: Bool = false
+    var _b37: Bool = false
+    var _b38: Bool = false
+    var _b39: Bool = false
+    var _b40: Bool = false
+    var _b41: Bool = false
+    var _b42: Bool = false
+    var _b43: Bool = false
+    var _b44: Bool = false
+    var _b45: Bool = false
+    var _b46: Bool = false
+    var _b47: Bool = false
+    var _b48: Bool = false
+    var _b49: Bool = false
+    var _b50: Bool = false
+    var _b51: Bool = false
+    var _b52: Bool = false
+    var _b53: Bool = false
+    var _b54: Bool = false
+    var _b55: Bool = false
+    var _b56: Bool = false
+    var _b57: Bool = false
+    var _b58: Bool = false
+    var _b59: Bool = false
+    var _b60: Bool = false
+    var _b61: Bool = false
+    var _b62: Bool = false
+    var _b63: Bool = false
+    var _b64: Bool = false
+    var _b65: Bool = false
+    var _b66: Bool = false
+    var _b67: Bool = false
+    var _b68: Bool = false
+    var _b69: Bool = false
+    var _child: Proto3Unittest_TestAllTypes? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _b1 = source._b1
+      _b2 = source._b2
+      _b3 = source._b3
+      _b4 = source._b4
+      _b5 = source._b5
+      _b6 = source._b6
+      _b7 = source._b7
+      _b8 = source._b8
+      _b9 = source._b9
+      _b10 = source._b10
+      _b11 = source._b11
+      _b12 = source._b12
+      _b13 = source._b13
+      _b14 = source._b14
+      _b15 = source._b15
+      _b16 = source._b16
+      _b17 = source._b17
+      _b18 = source._b18
+      _b19 = source._b19
+      _b20 = source._b20
+      _b21 = source._b21
+      _b22 = source._b22
+      _b23 = source._b23
+      _b24 = source._b24
+      _b25 = source._b25
+      _b26 = source._b26
+      _b27 = source._b27
+      _b28 = source._b28
+      _b29 = source._b29
+      _b30 = source._b30
+      _b31 = source._b31
+      _b32 = source._b32
+      _b33 = source._b33
+      _b34 = source._b34
+      _b35 = source._b35
+      _b36 = source._b36
+      _b37 = source._b37
+      _b38 = source._b38
+      _b39 = source._b39
+      _b40 = source._b40
+      _b41 = source._b41
+      _b42 = source._b42
+      _b43 = source._b43
+      _b44 = source._b44
+      _b45 = source._b45
+      _b46 = source._b46
+      _b47 = source._b47
+      _b48 = source._b48
+      _b49 = source._b49
+      _b50 = source._b50
+      _b51 = source._b51
+      _b52 = source._b52
+      _b53 = source._b53
+      _b54 = source._b54
+      _b55 = source._b55
+      _b56 = source._b56
+      _b57 = source._b57
+      _b58 = source._b58
+      _b59 = source._b59
+      _b60 = source._b60
+      _b61 = source._b61
+      _b62 = source._b62
+      _b63 = source._b63
+      _b64 = source._b64
+      _b65 = source._b65
+      _b66 = source._b66
+      _b67 = source._b67
+      _b68 = source._b68
+      _b69 = source._b69
+      _child = source._child
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularBoolField(value: &_storage._b1) }()
+        case 2: try { try decoder.decodeSingularBoolField(value: &_storage._b2) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._b3) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._b4) }()
+        case 5: try { try decoder.decodeSingularBoolField(value: &_storage._b5) }()
+        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._b6) }()
+        case 7: try { try decoder.decodeSingularBoolField(value: &_storage._b7) }()
+        case 8: try { try decoder.decodeSingularBoolField(value: &_storage._b8) }()
+        case 9: try { try decoder.decodeSingularBoolField(value: &_storage._b9) }()
+        case 10: try { try decoder.decodeSingularBoolField(value: &_storage._b10) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._b11) }()
+        case 12: try { try decoder.decodeSingularBoolField(value: &_storage._b12) }()
+        case 13: try { try decoder.decodeSingularBoolField(value: &_storage._b13) }()
+        case 14: try { try decoder.decodeSingularBoolField(value: &_storage._b14) }()
+        case 15: try { try decoder.decodeSingularBoolField(value: &_storage._b15) }()
+        case 16: try { try decoder.decodeSingularBoolField(value: &_storage._b16) }()
+        case 17: try { try decoder.decodeSingularBoolField(value: &_storage._b17) }()
+        case 18: try { try decoder.decodeSingularBoolField(value: &_storage._b18) }()
+        case 19: try { try decoder.decodeSingularBoolField(value: &_storage._b19) }()
+        case 20: try { try decoder.decodeSingularBoolField(value: &_storage._b20) }()
+        case 21: try { try decoder.decodeSingularBoolField(value: &_storage._b21) }()
+        case 22: try { try decoder.decodeSingularBoolField(value: &_storage._b22) }()
+        case 23: try { try decoder.decodeSingularBoolField(value: &_storage._b23) }()
+        case 24: try { try decoder.decodeSingularBoolField(value: &_storage._b24) }()
+        case 25: try { try decoder.decodeSingularBoolField(value: &_storage._b25) }()
+        case 26: try { try decoder.decodeSingularBoolField(value: &_storage._b26) }()
+        case 27: try { try decoder.decodeSingularBoolField(value: &_storage._b27) }()
+        case 28: try { try decoder.decodeSingularBoolField(value: &_storage._b28) }()
+        case 29: try { try decoder.decodeSingularBoolField(value: &_storage._b29) }()
+        case 30: try { try decoder.decodeSingularBoolField(value: &_storage._b30) }()
+        case 31: try { try decoder.decodeSingularBoolField(value: &_storage._b31) }()
+        case 32: try { try decoder.decodeSingularBoolField(value: &_storage._b32) }()
+        case 33: try { try decoder.decodeSingularBoolField(value: &_storage._b33) }()
+        case 34: try { try decoder.decodeSingularBoolField(value: &_storage._b34) }()
+        case 35: try { try decoder.decodeSingularBoolField(value: &_storage._b35) }()
+        case 36: try { try decoder.decodeSingularBoolField(value: &_storage._b36) }()
+        case 37: try { try decoder.decodeSingularBoolField(value: &_storage._b37) }()
+        case 38: try { try decoder.decodeSingularBoolField(value: &_storage._b38) }()
+        case 39: try { try decoder.decodeSingularBoolField(value: &_storage._b39) }()
+        case 40: try { try decoder.decodeSingularBoolField(value: &_storage._b40) }()
+        case 41: try { try decoder.decodeSingularBoolField(value: &_storage._b41) }()
+        case 42: try { try decoder.decodeSingularBoolField(value: &_storage._b42) }()
+        case 43: try { try decoder.decodeSingularBoolField(value: &_storage._b43) }()
+        case 44: try { try decoder.decodeSingularBoolField(value: &_storage._b44) }()
+        case 45: try { try decoder.decodeSingularBoolField(value: &_storage._b45) }()
+        case 46: try { try decoder.decodeSingularBoolField(value: &_storage._b46) }()
+        case 47: try { try decoder.decodeSingularBoolField(value: &_storage._b47) }()
+        case 48: try { try decoder.decodeSingularBoolField(value: &_storage._b48) }()
+        case 49: try { try decoder.decodeSingularBoolField(value: &_storage._b49) }()
+        case 50: try { try decoder.decodeSingularBoolField(value: &_storage._b50) }()
+        case 51: try { try decoder.decodeSingularBoolField(value: &_storage._b51) }()
+        case 52: try { try decoder.decodeSingularBoolField(value: &_storage._b52) }()
+        case 53: try { try decoder.decodeSingularBoolField(value: &_storage._b53) }()
+        case 54: try { try decoder.decodeSingularBoolField(value: &_storage._b54) }()
+        case 55: try { try decoder.decodeSingularBoolField(value: &_storage._b55) }()
+        case 56: try { try decoder.decodeSingularBoolField(value: &_storage._b56) }()
+        case 57: try { try decoder.decodeSingularBoolField(value: &_storage._b57) }()
+        case 58: try { try decoder.decodeSingularBoolField(value: &_storage._b58) }()
+        case 59: try { try decoder.decodeSingularBoolField(value: &_storage._b59) }()
+        case 60: try { try decoder.decodeSingularBoolField(value: &_storage._b60) }()
+        case 61: try { try decoder.decodeSingularBoolField(value: &_storage._b61) }()
+        case 62: try { try decoder.decodeSingularBoolField(value: &_storage._b62) }()
+        case 63: try { try decoder.decodeSingularBoolField(value: &_storage._b63) }()
+        case 64: try { try decoder.decodeSingularBoolField(value: &_storage._b64) }()
+        case 65: try { try decoder.decodeSingularBoolField(value: &_storage._b65) }()
+        case 66: try { try decoder.decodeSingularBoolField(value: &_storage._b66) }()
+        case 67: try { try decoder.decodeSingularBoolField(value: &_storage._b67) }()
+        case 68: try { try decoder.decodeSingularBoolField(value: &_storage._b68) }()
+        case 69: try { try decoder.decodeSingularBoolField(value: &_storage._b69) }()
+        case 100: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if _storage._b1 != false {
+        try visitor.visitSingularBoolField(value: _storage._b1, fieldNumber: 1)
+      }
+      if _storage._b2 != false {
+        try visitor.visitSingularBoolField(value: _storage._b2, fieldNumber: 2)
+      }
+      if _storage._b3 != false {
+        try visitor.visitSingularBoolField(value: _storage._b3, fieldNumber: 3)
+      }
+      if _storage._b4 != false {
+        try visitor.visitSingularBoolField(value: _storage._b4, fieldNumber: 4)
+      }
+      if _storage._b5 != false {
+        try visitor.visitSingularBoolField(value: _storage._b5, fieldNumber: 5)
+      }
+      if _storage._b6 != false {
+        try visitor.visitSingularBoolField(value: _storage._b6, fieldNumber: 6)
+      }
+      if _storage._b7 != false {
+        try visitor.visitSingularBoolField(value: _storage._b7, fieldNumber: 7)
+      }
+      if _storage._b8 != false {
+        try visitor.visitSingularBoolField(value: _storage._b8, fieldNumber: 8)
+      }
+      if _storage._b9 != false {
+        try visitor.visitSingularBoolField(value: _storage._b9, fieldNumber: 9)
+      }
+      if _storage._b10 != false {
+        try visitor.visitSingularBoolField(value: _storage._b10, fieldNumber: 10)
+      }
+      if _storage._b11 != false {
+        try visitor.visitSingularBoolField(value: _storage._b11, fieldNumber: 11)
+      }
+      if _storage._b12 != false {
+        try visitor.visitSingularBoolField(value: _storage._b12, fieldNumber: 12)
+      }
+      if _storage._b13 != false {
+        try visitor.visitSingularBoolField(value: _storage._b13, fieldNumber: 13)
+      }
+      if _storage._b14 != false {
+        try visitor.visitSingularBoolField(value: _storage._b14, fieldNumber: 14)
+      }
+      if _storage._b15 != false {
+        try visitor.visitSingularBoolField(value: _storage._b15, fieldNumber: 15)
+      }
+      if _storage._b16 != false {
+        try visitor.visitSingularBoolField(value: _storage._b16, fieldNumber: 16)
+      }
+      if _storage._b17 != false {
+        try visitor.visitSingularBoolField(value: _storage._b17, fieldNumber: 17)
+      }
+      if _storage._b18 != false {
+        try visitor.visitSingularBoolField(value: _storage._b18, fieldNumber: 18)
+      }
+      if _storage._b19 != false {
+        try visitor.visitSingularBoolField(value: _storage._b19, fieldNumber: 19)
+      }
+      if _storage._b20 != false {
+        try visitor.visitSingularBoolField(value: _storage._b20, fieldNumber: 20)
+      }
+      if _storage._b21 != false {
+        try visitor.visitSingularBoolField(value: _storage._b21, fieldNumber: 21)
+      }
+      if _storage._b22 != false {
+        try visitor.visitSingularBoolField(value: _storage._b22, fieldNumber: 22)
+      }
+      if _storage._b23 != false {
+        try visitor.visitSingularBoolField(value: _storage._b23, fieldNumber: 23)
+      }
+      if _storage._b24 != false {
+        try visitor.visitSingularBoolField(value: _storage._b24, fieldNumber: 24)
+      }
+      if _storage._b25 != false {
+        try visitor.visitSingularBoolField(value: _storage._b25, fieldNumber: 25)
+      }
+      if _storage._b26 != false {
+        try visitor.visitSingularBoolField(value: _storage._b26, fieldNumber: 26)
+      }
+      if _storage._b27 != false {
+        try visitor.visitSingularBoolField(value: _storage._b27, fieldNumber: 27)
+      }
+      if _storage._b28 != false {
+        try visitor.visitSingularBoolField(value: _storage._b28, fieldNumber: 28)
+      }
+      if _storage._b29 != false {
+        try visitor.visitSingularBoolField(value: _storage._b29, fieldNumber: 29)
+      }
+      if _storage._b30 != false {
+        try visitor.visitSingularBoolField(value: _storage._b30, fieldNumber: 30)
+      }
+      if _storage._b31 != false {
+        try visitor.visitSingularBoolField(value: _storage._b31, fieldNumber: 31)
+      }
+      if _storage._b32 != false {
+        try visitor.visitSingularBoolField(value: _storage._b32, fieldNumber: 32)
+      }
+      if _storage._b33 != false {
+        try visitor.visitSingularBoolField(value: _storage._b33, fieldNumber: 33)
+      }
+      if _storage._b34 != false {
+        try visitor.visitSingularBoolField(value: _storage._b34, fieldNumber: 34)
+      }
+      if _storage._b35 != false {
+        try visitor.visitSingularBoolField(value: _storage._b35, fieldNumber: 35)
+      }
+      if _storage._b36 != false {
+        try visitor.visitSingularBoolField(value: _storage._b36, fieldNumber: 36)
+      }
+      if _storage._b37 != false {
+        try visitor.visitSingularBoolField(value: _storage._b37, fieldNumber: 37)
+      }
+      if _storage._b38 != false {
+        try visitor.visitSingularBoolField(value: _storage._b38, fieldNumber: 38)
+      }
+      if _storage._b39 != false {
+        try visitor.visitSingularBoolField(value: _storage._b39, fieldNumber: 39)
+      }
+      if _storage._b40 != false {
+        try visitor.visitSingularBoolField(value: _storage._b40, fieldNumber: 40)
+      }
+      if _storage._b41 != false {
+        try visitor.visitSingularBoolField(value: _storage._b41, fieldNumber: 41)
+      }
+      if _storage._b42 != false {
+        try visitor.visitSingularBoolField(value: _storage._b42, fieldNumber: 42)
+      }
+      if _storage._b43 != false {
+        try visitor.visitSingularBoolField(value: _storage._b43, fieldNumber: 43)
+      }
+      if _storage._b44 != false {
+        try visitor.visitSingularBoolField(value: _storage._b44, fieldNumber: 44)
+      }
+      if _storage._b45 != false {
+        try visitor.visitSingularBoolField(value: _storage._b45, fieldNumber: 45)
+      }
+      if _storage._b46 != false {
+        try visitor.visitSingularBoolField(value: _storage._b46, fieldNumber: 46)
+      }
+      if _storage._b47 != false {
+        try visitor.visitSingularBoolField(value: _storage._b47, fieldNumber: 47)
+      }
+      if _storage._b48 != false {
+        try visitor.visitSingularBoolField(value: _storage._b48, fieldNumber: 48)
+      }
+      if _storage._b49 != false {
+        try visitor.visitSingularBoolField(value: _storage._b49, fieldNumber: 49)
+      }
+      if _storage._b50 != false {
+        try visitor.visitSingularBoolField(value: _storage._b50, fieldNumber: 50)
+      }
+      if _storage._b51 != false {
+        try visitor.visitSingularBoolField(value: _storage._b51, fieldNumber: 51)
+      }
+      if _storage._b52 != false {
+        try visitor.visitSingularBoolField(value: _storage._b52, fieldNumber: 52)
+      }
+      if _storage._b53 != false {
+        try visitor.visitSingularBoolField(value: _storage._b53, fieldNumber: 53)
+      }
+      if _storage._b54 != false {
+        try visitor.visitSingularBoolField(value: _storage._b54, fieldNumber: 54)
+      }
+      if _storage._b55 != false {
+        try visitor.visitSingularBoolField(value: _storage._b55, fieldNumber: 55)
+      }
+      if _storage._b56 != false {
+        try visitor.visitSingularBoolField(value: _storage._b56, fieldNumber: 56)
+      }
+      if _storage._b57 != false {
+        try visitor.visitSingularBoolField(value: _storage._b57, fieldNumber: 57)
+      }
+      if _storage._b58 != false {
+        try visitor.visitSingularBoolField(value: _storage._b58, fieldNumber: 58)
+      }
+      if _storage._b59 != false {
+        try visitor.visitSingularBoolField(value: _storage._b59, fieldNumber: 59)
+      }
+      if _storage._b60 != false {
+        try visitor.visitSingularBoolField(value: _storage._b60, fieldNumber: 60)
+      }
+      if _storage._b61 != false {
+        try visitor.visitSingularBoolField(value: _storage._b61, fieldNumber: 61)
+      }
+      if _storage._b62 != false {
+        try visitor.visitSingularBoolField(value: _storage._b62, fieldNumber: 62)
+      }
+      if _storage._b63 != false {
+        try visitor.visitSingularBoolField(value: _storage._b63, fieldNumber: 63)
+      }
+      if _storage._b64 != false {
+        try visitor.visitSingularBoolField(value: _storage._b64, fieldNumber: 64)
+      }
+      if _storage._b65 != false {
+        try visitor.visitSingularBoolField(value: _storage._b65, fieldNumber: 65)
+      }
+      if _storage._b66 != false {
+        try visitor.visitSingularBoolField(value: _storage._b66, fieldNumber: 66)
+      }
+      if _storage._b67 != false {
+        try visitor.visitSingularBoolField(value: _storage._b67, fieldNumber: 67)
+      }
+      if _storage._b68 != false {
+        try visitor.visitSingularBoolField(value: _storage._b68, fieldNumber: 68)
+      }
+      if _storage._b69 != false {
+        try visitor.visitSingularBoolField(value: _storage._b69, fieldNumber: 69)
+      }
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 100)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3Unittest_TestHasbits, rhs: Proto3Unittest_TestHasbits) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._b1 != rhs_storage._b1 {return false}
+        if _storage._b2 != rhs_storage._b2 {return false}
+        if _storage._b3 != rhs_storage._b3 {return false}
+        if _storage._b4 != rhs_storage._b4 {return false}
+        if _storage._b5 != rhs_storage._b5 {return false}
+        if _storage._b6 != rhs_storage._b6 {return false}
+        if _storage._b7 != rhs_storage._b7 {return false}
+        if _storage._b8 != rhs_storage._b8 {return false}
+        if _storage._b9 != rhs_storage._b9 {return false}
+        if _storage._b10 != rhs_storage._b10 {return false}
+        if _storage._b11 != rhs_storage._b11 {return false}
+        if _storage._b12 != rhs_storage._b12 {return false}
+        if _storage._b13 != rhs_storage._b13 {return false}
+        if _storage._b14 != rhs_storage._b14 {return false}
+        if _storage._b15 != rhs_storage._b15 {return false}
+        if _storage._b16 != rhs_storage._b16 {return false}
+        if _storage._b17 != rhs_storage._b17 {return false}
+        if _storage._b18 != rhs_storage._b18 {return false}
+        if _storage._b19 != rhs_storage._b19 {return false}
+        if _storage._b20 != rhs_storage._b20 {return false}
+        if _storage._b21 != rhs_storage._b21 {return false}
+        if _storage._b22 != rhs_storage._b22 {return false}
+        if _storage._b23 != rhs_storage._b23 {return false}
+        if _storage._b24 != rhs_storage._b24 {return false}
+        if _storage._b25 != rhs_storage._b25 {return false}
+        if _storage._b26 != rhs_storage._b26 {return false}
+        if _storage._b27 != rhs_storage._b27 {return false}
+        if _storage._b28 != rhs_storage._b28 {return false}
+        if _storage._b29 != rhs_storage._b29 {return false}
+        if _storage._b30 != rhs_storage._b30 {return false}
+        if _storage._b31 != rhs_storage._b31 {return false}
+        if _storage._b32 != rhs_storage._b32 {return false}
+        if _storage._b33 != rhs_storage._b33 {return false}
+        if _storage._b34 != rhs_storage._b34 {return false}
+        if _storage._b35 != rhs_storage._b35 {return false}
+        if _storage._b36 != rhs_storage._b36 {return false}
+        if _storage._b37 != rhs_storage._b37 {return false}
+        if _storage._b38 != rhs_storage._b38 {return false}
+        if _storage._b39 != rhs_storage._b39 {return false}
+        if _storage._b40 != rhs_storage._b40 {return false}
+        if _storage._b41 != rhs_storage._b41 {return false}
+        if _storage._b42 != rhs_storage._b42 {return false}
+        if _storage._b43 != rhs_storage._b43 {return false}
+        if _storage._b44 != rhs_storage._b44 {return false}
+        if _storage._b45 != rhs_storage._b45 {return false}
+        if _storage._b46 != rhs_storage._b46 {return false}
+        if _storage._b47 != rhs_storage._b47 {return false}
+        if _storage._b48 != rhs_storage._b48 {return false}
+        if _storage._b49 != rhs_storage._b49 {return false}
+        if _storage._b50 != rhs_storage._b50 {return false}
+        if _storage._b51 != rhs_storage._b51 {return false}
+        if _storage._b52 != rhs_storage._b52 {return false}
+        if _storage._b53 != rhs_storage._b53 {return false}
+        if _storage._b54 != rhs_storage._b54 {return false}
+        if _storage._b55 != rhs_storage._b55 {return false}
+        if _storage._b56 != rhs_storage._b56 {return false}
+        if _storage._b57 != rhs_storage._b57 {return false}
+        if _storage._b58 != rhs_storage._b58 {return false}
+        if _storage._b59 != rhs_storage._b59 {return false}
+        if _storage._b60 != rhs_storage._b60 {return false}
+        if _storage._b61 != rhs_storage._b61 {return false}
+        if _storage._b62 != rhs_storage._b62 {return false}
+        if _storage._b63 != rhs_storage._b63 {return false}
+        if _storage._b64 != rhs_storage._b64 {return false}
+        if _storage._b65 != rhs_storage._b65 {return false}
+        if _storage._b66 != rhs_storage._b66 {return false}
+        if _storage._b67 != rhs_storage._b67 {return false}
+        if _storage._b68 != rhs_storage._b68 {return false}
+        if _storage._b69 != rhs_storage._b69 {return false}
+        if _storage._child != rhs_storage._child {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
