@@ -270,7 +270,7 @@ internal struct TextFormatScanner {
     private mutating func incrementRecursionDepth() throws {
         recursionBudget -= 1
         if recursionBudget < 0 {
-          throw TextFormatDecodingError.messageDepthLimit
+            throw TextFormatDecodingError.messageDepthLimit
         }
     }
 
@@ -431,7 +431,7 @@ internal struct TextFormatScanner {
                    asciiBackslash: // \\
                 count += 1
               default:
-              throw TextFormatDecodingError.malformedText // Unrecognized escape
+                throw TextFormatDecodingError.malformedText // Unrecognized escape
             }
           }
         default:
@@ -592,7 +592,7 @@ internal struct TextFormatScanner {
 
     internal mutating func nextUInt() throws -> UInt64 {
         if p == end {
-          throw TextFormatDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         let c = p[0]
         p += 1
@@ -619,7 +619,7 @@ internal struct TextFormatScanner {
                         return n
                     }
                     if n > UInt64.max / 16 {
-                      throw TextFormatDecodingError.malformedNumber
+                        throw TextFormatDecodingError.malformedNumber
                     }
                     p += 1
                     n = n * 16 + val
@@ -636,7 +636,7 @@ internal struct TextFormatScanner {
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
-                      throw TextFormatDecodingError.malformedNumber
+                        throw TextFormatDecodingError.malformedNumber
                     }
                     p += 1
                     n = n * 8 + val
@@ -654,7 +654,7 @@ internal struct TextFormatScanner {
                 }
                 let val = UInt64(digit - asciiZero)
                 if n > UInt64.max / 10 || n * 10 > UInt64.max - val {
-                  throw TextFormatDecodingError.malformedNumber
+                    throw TextFormatDecodingError.malformedNumber
                 }
                 p += 1
                 n = n * 10 + val
@@ -662,30 +662,30 @@ internal struct TextFormatScanner {
             skipWhitespace()
             return n
         }
-      throw TextFormatDecodingError.malformedNumber
+        throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextSInt() throws -> Int64 {
         if p == end {
-          throw TextFormatDecodingError.malformedNumber
+            throw TextFormatDecodingError.malformedNumber
         }
         let c = p[0]
         if c == asciiMinus { // -
             p += 1
             if p == end {
-              throw TextFormatDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             // character after '-' must be digit
             let digit = p[0]
             if digit < asciiZero || digit > asciiNine {
-              throw TextFormatDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             let n = try nextUInt()
             let limit: UInt64 = 0x8000000000000000 // -Int64.min
             if n >= limit {
                 if n > limit {
                     // Too large negative number
-                  throw TextFormatDecodingError.malformedNumber
+                    throw TextFormatDecodingError.malformedNumber
                 } else {
                     return Int64.min // Special case for Int64.min
                 }
@@ -694,7 +694,7 @@ internal struct TextFormatScanner {
         } else {
             let n = try nextUInt()
             if n > UInt64(bitPattern: Int64.max) {
-              throw TextFormatDecodingError.malformedNumber
+                throw TextFormatDecodingError.malformedNumber
             }
             return Int64(bitPattern: n)
         }
@@ -704,17 +704,17 @@ internal struct TextFormatScanner {
         var result: String
         skipWhitespace()
         if p == end {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = p[0]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         p += 1
         if let s = parseStringSegment(terminator: c) {
             result = s
         } else {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
 
         while true {
@@ -729,7 +729,7 @@ internal struct TextFormatScanner {
             if let s = parseStringSegment(terminator: c) {
                 result.append(s)
             } else {
-              throw TextFormatDecodingError.malformedText
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -744,11 +744,11 @@ internal struct TextFormatScanner {
         var result: Data
         skipWhitespace()
         if p == end {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = p[0]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         p += 1
         var sawBackslash = false
@@ -947,7 +947,7 @@ internal struct TextFormatScanner {
         if let inf = skipOptionalInfinity() {
             return inf
         }
-      throw TextFormatDecodingError.malformedNumber
+        throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextDouble() throws -> Double {
@@ -960,13 +960,13 @@ internal struct TextFormatScanner {
         if let inf = skipOptionalInfinity() {
             return Double(inf)
         }
-      throw TextFormatDecodingError.malformedNumber
+        throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextBool() throws -> Bool {
         skipWhitespace()
         if p == end {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         let c = p[0]
         p += 1
@@ -989,7 +989,7 @@ internal struct TextFormatScanner {
             }
             result = true
         default:
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         if p == end {
             return result
@@ -1008,14 +1008,14 @@ internal struct TextFormatScanner {
             skipWhitespace()
             return result
         default:
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
     }
 
     internal mutating func nextOptionalEnumName() throws -> UnsafeRawBufferPointer? {
         skipWhitespace()
         if p == end {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
         switch p[0] {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
@@ -1130,7 +1130,7 @@ internal struct TextFormatScanner {
             // Safe, can't be invalid UTF-8 given the input.
             return s!
         default:
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
     }
 
@@ -1368,7 +1368,7 @@ internal struct TextFormatScanner {
             p += 1
             skipWhitespace()
         } else {
-          throw TextFormatDecodingError.malformedText
+            throw TextFormatDecodingError.malformedText
         }
     }
 
@@ -1436,6 +1436,6 @@ internal struct TextFormatScanner {
                 break
             }
         }
-      throw TextFormatDecodingError.malformedText
+        throw TextFormatDecodingError.malformedText
     }
 }

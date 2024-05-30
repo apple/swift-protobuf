@@ -45,7 +45,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
       }
       let digitString = String(digits)
       if let s = Int64(digitString),
-         s >= minDurationSeconds && s <= maxDurationSeconds {
+        s >= minDurationSeconds && s <= maxDurationSeconds {
         seconds = s
       } else {
         throw JSONDecodingError.malformedDuration
@@ -77,7 +77,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
         // No fraction, we just have an integral number of seconds
         let digitString = String(digits)
         if let s = Int64(digitString),
-           s >= minDurationSeconds && s <= maxDurationSeconds {
+          s >= minDurationSeconds && s <= maxDurationSeconds {
           seconds = s
         } else {
           throw JSONDecodingError.malformedDuration
@@ -137,7 +137,7 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
 
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = Double
-  
+
   /// Creates a new `Google_Protobuf_Duration` from a floating point literal
   /// that is interpreted as a duration in seconds, rounded to the nearest
   /// nanosecond.
@@ -160,11 +160,10 @@ extension Google_Protobuf_Duration {
     let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
     self.init(seconds: s, nanos: n)
   }
-  
+
   /// The `TimeInterval` (measured in seconds) equal to this duration.
   public var timeInterval: TimeInterval {
-    return TimeInterval(self.seconds) +
-    TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
+    return TimeInterval(self.seconds) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
   }
 }
 
@@ -174,14 +173,14 @@ private func normalizeForDuration(
 ) -> (seconds: Int64, nanos: Int32) {
   var s = seconds
   var n = nanos
-  
+
   // If the magnitude of n exceeds a second then
   // we need to factor it into s instead.
   if n >= nanosPerSecond || n <= -nanosPerSecond {
     s += Int64(n / nanosPerSecond)
     n = n % nanosPerSecond
   }
-  
+
   // The Duration spec says that when s != 0, s and
   // n must have the same sign.
   if s > 0 && n < 0 {
@@ -191,7 +190,7 @@ private func normalizeForDuration(
     n -= nanosPerSecond
     s += 1
   }
-  
+
   return (seconds: s, nanos: n)
 }
 

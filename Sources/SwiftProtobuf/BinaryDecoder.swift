@@ -890,7 +890,7 @@ internal struct BinaryDecoder: Decoder {
       try message.decodeMessage(decoder: &self)
       decrementRecursionDepth()
       guard complete else {
-          throw BinaryDecodingError.trailingGarbage
+        throw BinaryDecodingError.trailingGarbage
       }
       if let unknownData = unknownData {
         message.unknownFields.append(protobufData: unknownData)
@@ -1125,7 +1125,7 @@ internal struct BinaryDecoder: Decoder {
               break
 
             case .malformed:
-                throw BinaryDecodingError.malformedProtobuf
+              throw BinaryDecodingError.malformedProtobuf
             }
 
             assert(recursionBudget == subDecoder.recursionBudget)
@@ -1424,12 +1424,12 @@ internal struct BinaryDecoder: Decoder {
         // that is length delimited on the wire, so the spec would imply
         // the limit still applies.
         guard length < 0x7fffffff else {
-            // Reuse existing error to avoid breaking change of changing thrown error
-            throw BinaryDecodingError.malformedProtobuf
+          // Reuse existing error to avoid breaking change of changing thrown error
+          throw BinaryDecodingError.malformedProtobuf
         }
 
         guard length <= UInt64(available) else {
-            throw BinaryDecodingError.truncated
+          throw BinaryDecodingError.truncated
         }
 
         count = Int(length)

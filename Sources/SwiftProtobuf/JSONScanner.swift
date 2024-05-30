@@ -122,7 +122,7 @@ private func parseBytes(
 ) throws -> Data {
     let c = source[index]
     if c != asciiDoubleQuote {
-      throw JSONDecodingError.malformedString
+        throw JSONDecodingError.malformedString
     }
     source.formIndex(after: &index)
 
@@ -142,7 +142,7 @@ private func parseBytes(
         if digit == asciiBackslash {
             source.formIndex(after: &index)
             if index == end {
-              throw JSONDecodingError.malformedString
+                throw JSONDecodingError.malformedString
             }
             let escaped = source[index]
             switch escaped {
@@ -150,12 +150,12 @@ private func parseBytes(
                 // TODO: Parse hex escapes such as \u0041.  Note that
                 // such escapes are going to be extremely rare, so
                 // there's little point in optimizing for them.
-              throw JSONDecodingError.malformedString
+                throw JSONDecodingError.malformedString
             case asciiForwardSlash:
                 digit = escaped
             default:
                 // Reject \b \f \n \r \t \" or \\ and all illegal escapes
-              throw JSONDecodingError.malformedString
+                throw JSONDecodingError.malformedString
             }
         }
 
@@ -173,11 +173,11 @@ private func parseBytes(
 
     // We reached the end without seeing the close quote
     if index == end {
-      throw JSONDecodingError.malformedString
+        throw JSONDecodingError.malformedString
     }
     // Reject mixed encodings.
     if sawSection4Characters && sawSection5Characters {
-      throw JSONDecodingError.malformedString
+        throw JSONDecodingError.malformedString
     }
 
     // Allocate a Data object of exactly the right size
@@ -671,7 +671,7 @@ internal struct JSONScanner {
         return nil
       }
       if c >= asciiZero && c <= asciiNine {
-          throw JSONDecodingError.leadingZero
+        throw JSONDecodingError.leadingZero
       }
     case asciiOne...asciiNine:
       while c >= asciiZero && c <= asciiNine {
@@ -1209,7 +1209,7 @@ internal struct JSONScanner {
       default: break
       }
     }
-      throw JSONDecodingError.malformedBool
+    throw JSONDecodingError.malformedBool
   }
 
   /// Returns pointer/count spanning the UTF8 bytes of the next regular
@@ -1309,7 +1309,7 @@ internal struct JSONScanner {
     }
     skipWhitespace()
     guard hasMoreContent else {
-      throw JSONDecodingError.truncated
+        throw JSONDecodingError.truncated
     }
     if currentByte == asciiDoubleQuote {
       if let name = try nextOptionalKey() {
@@ -1446,7 +1446,7 @@ internal struct JSONScanner {
             try skipObject()
         case asciiCloseSquareBracket: // ] ends an empty array
             if arrayDepth == 0 {
-              throw JSONDecodingError.failure
+                throw JSONDecodingError.failure
             }
             // We also close out [[]] or [[[]]] here
             while arrayDepth > 0 && skipOptionalArrayEnd() {
@@ -1456,19 +1456,19 @@ internal struct JSONScanner {
             if !skipOptionalKeyword(bytes: [
                 asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
             ]) {
-              throw JSONDecodingError.truncated
+                throw JSONDecodingError.truncated
             }
         case asciiLowerF: // f must be false
             if !skipOptionalKeyword(bytes: [
                 asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
             ]) {
-              throw JSONDecodingError.truncated
+                throw JSONDecodingError.truncated
             }
         case asciiLowerT: // t must be true
             if !skipOptionalKeyword(bytes: [
                 asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
             ]) {
-              throw JSONDecodingError.truncated
+                throw JSONDecodingError.truncated
             }
         default: // everything else is a number token
             _ = try nextDouble()

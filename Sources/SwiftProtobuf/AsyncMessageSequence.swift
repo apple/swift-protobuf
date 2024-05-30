@@ -125,7 +125,7 @@ public struct AsyncMessageSequence<
       if (shift > 0) {
         // The stream has ended inside a varint.
         iterator = nil
-          throw BinaryDelimited.Error.truncated
+        throw BinaryDelimited.Error.truncated
       }
       return nil // End of stream reached.
     }
@@ -175,7 +175,7 @@ public struct AsyncMessageSequence<
       }
       guard messageSize <= UInt64(0x7fffffff) else {
         iterator = nil
-          throw SwiftProtobufError.BinaryDecoding.tooLarge()
+        throw SwiftProtobufError.BinaryDecoding.tooLarge()
       }
       if messageSize == 0 {
         return try M(

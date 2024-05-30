@@ -34,7 +34,7 @@ extension Message {
     let data: [UInt8] = try jsonUTF8Bytes(options: options)
     return String(bytes: data, encoding: .utf8)!
   }
-  
+
   /// Returns a `SwiftProtobufContiguousBytes` containing the UTF-8 JSON serialization of the message.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
@@ -57,7 +57,7 @@ extension Message {
     visitor.endObject()
     return Bytes(visitor.dataResult)
   }
-  
+
   /// Creates a new message by decoding the given string containing a
   /// serialized message in JSON format.
   ///
@@ -70,7 +70,7 @@ extension Message {
   ) throws {
     try self.init(jsonString: jsonString, extensions: nil, options: options)
   }
-  
+
   /// Creates a new message by decoding the given string containing a
   /// serialized message in JSON format.
   ///
@@ -92,7 +92,7 @@ extension Message {
       throw JSONDecodingError.truncated
     }
   }
-  
+
   /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes`
   /// containing a serialized message in JSON format, interpreting the data as UTF-8 encoded
   /// text.
@@ -107,7 +107,7 @@ extension Message {
   ) throws {
     try self.init(jsonUTF8Bytes: jsonUTF8Bytes, extensions: nil, options: options)
   }
-  
+
   /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes`
   /// containing a serialized message in JSON format, interpreting the data as UTF-8 encoded
   /// text.
