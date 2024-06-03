@@ -1289,7 +1289,7 @@ internal struct BinaryDecoder: Decoder {
                 }
             }
         case .endGroup:
-            throw BinaryDecodingError.malformedProtobuf
+            throw BinaryDecodingError.truncated
         case .fixed32:
             if available < 4 {
                 throw BinaryDecodingError.truncated
@@ -1424,7 +1424,8 @@ internal struct BinaryDecoder: Decoder {
         // that is length delimited on the wire, so the spec would imply
         // the limit still applies.
         guard length < 0x7fffffff else {
-          throw BinaryDecodingError.tooLarge
+          // Reuse existing error to avoid breaking change of changing thrown error
+          throw BinaryDecodingError.malformedProtobuf
         }
 
         guard length <= UInt64(available) else {

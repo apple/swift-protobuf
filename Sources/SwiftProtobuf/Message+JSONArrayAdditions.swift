@@ -25,7 +25,7 @@ extension Message {
   /// - Parameters:
   ///   - collection: The list of messages to encode.
   ///   - options: The JSONEncodingOptions to use.
-  /// - Throws: `JSONEncodingError` if encoding fails.
+  /// - Throws: ``JSONEncodingError`` if encoding fails.
   public static func jsonString<C: Collection>(
     from collection: C,
     options: JSONEncodingOptions = JSONEncodingOptions()
@@ -43,7 +43,7 @@ extension Message {
   /// - Parameters:
   ///   - collection: The list of messages to encode.
   ///   - options: The JSONEncodingOptions to use.
-  /// - Throws: `JSONEncodingError` if encoding fails.
+  /// - Throws: ``JSONEncodingError`` if encoding fails.
   public static func jsonUTF8Bytes<C: Collection, Bytes: SwiftProtobufContiguousBytes>(
     from collection: C,
     options: JSONEncodingOptions = JSONEncodingOptions()
@@ -64,7 +64,7 @@ extension Message {
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: `JSONDecodingError` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
     options: JSONDecodingOptions = JSONDecodingOptions()
@@ -80,7 +80,7 @@ extension Message {
   /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: `JSONDecodingError` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
     extensions: any ExtensionMap = SimpleExtensionMap(),
@@ -96,14 +96,14 @@ extension Message {
     }
   }
 
-  /// Creates a new array of messages by decoding the given `SwiftProtobufContiguousBytes`
+  /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
   /// containing a serialized array of messages in JSON format, interpreting the data as
   /// UTF-8 encoded text.
   ///
   /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: `JSONDecodingError` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public static func array<Bytes: SwiftProtobufContiguousBytes>(
     fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
     options: JSONDecodingOptions = JSONDecodingOptions()
@@ -113,7 +113,7 @@ extension Message {
                           options: options)
   }
 
-  /// Creates a new array of messages by decoding the given `SwiftProtobufContiguousBytes`
+  /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
   /// containing a serialized array of messages in JSON format, interpreting the data as
   /// UTF-8 encoded text.
   ///
@@ -121,7 +121,7 @@ extension Message {
   ///   as UTF-8 encoded text.
   /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
-  /// - Throws: `JSONDecodingError` if decoding fails.
+  /// - Throws: ``JSONDecodingError`` if decoding fails.
   public static func array<Bytes: SwiftProtobufContiguousBytes>(
     fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
     extensions: any ExtensionMap = SimpleExtensionMap(),

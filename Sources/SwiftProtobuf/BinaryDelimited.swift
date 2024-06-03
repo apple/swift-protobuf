@@ -29,23 +29,6 @@ public enum BinaryDelimited {
     /// While reading/writing to the stream, less than the expected bytes was
     /// read/written.
     case truncated
-
-    /// Messages are limited by the protobuf spec to 2GB; when decoding, if the
-    /// length says the payload is over 2GB, this error is raised.
-    case tooLarge
-
-    /// While attempting to read the length of a message on the stream, the
-    /// bytes were malformed for the protobuf format.
-    case malformedLength
-
-    /// This isn't really an "error". `InputStream` documents that
-    /// `hasBytesAvailable` _may_ return `True` if a read is needed to
-    /// determine if there really are bytes available. So this "error" is throw
-    /// when a `parse` or `merge` fails because there were no bytes available.
-    /// If this is rasied, the callers should decides via what ever other means
-    /// are correct if the stream has completely ended or if more bytes might
-    /// eventually show up.
-    case noBytesAvailable
   }
 
 #if !os(WASI)
@@ -60,12 +43,11 @@ public enum BinaryDelimited {
   ///   - to: The `OutputStream` to write the message to.  The stream is
   ///     is assumed to be ready to be written to.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  /// - Throws: `BinaryEncodingError` if encoding fails, throws
-  ///           `BinaryDelimited.Error` for some writing errors, or the
-  ///           underlying `OutputStream.streamError` for a stream error.
+  ///     ``BinaryDelimited/Error/missingRequiredFields``.
+  /// - Throws: ``BinaryDelimited/Error`` if encoding fails or some writing errors occur; or the
+  /// underlying `OutputStream.streamError` for a stream error.
   public static func serialize(
     message: any Message,
     to stream: OutputStream,
@@ -112,18 +94,17 @@ public enum BinaryDelimited {
   ///   - messageType: The type of message to read.
   ///   - from: The `InputStream` to read the data from.  The stream is assumed
   ///     to be ready to read from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: The message read.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors, and the
-  ///           underlying `InputStream.streamError` for a stream error.
+  /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
+  /// some reading errors; or the underlying `InputStream.streamError` for a stream error.
   public static func parse<M: Message>(
     messageType: M.Type,
     from stream: InputStream,
@@ -154,17 +135,16 @@ public enum BinaryDelimited {
   ///   - mergingTo: The message to merge the data into.
   ///   - from: The `InputStream` to read the data from.  The stream is assumed
   ///     to be ready to read from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
+  ///     ``BinaryDelimited/Error/missingRequiredFields``.
   ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors, and the
-  ///           underlying `InputStream.streamError` for a stream error.
+  /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
+  /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.
   public static func merge<M: Message>(
     into message: inout M,
     from stream: InputStream,
@@ -178,7 +158,8 @@ public enum BinaryDelimited {
       return
     }
     guard unsignedLength <= 0x7fffffff else {
-      throw BinaryDelimited.Error.tooLarge
+      // Adding a new case is a breaking change, reuse malformedProtobuf.
+      throw BinaryDecodingError.malformedProtobuf
     }
     let length = Int(unsignedLength)
 
@@ -258,7 +239,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
   while true {
     guard let c = try nextByte() else {
       if shift == 0 {
-        throw BinaryDelimited.Error.noBytesAvailable
+        throw SwiftProtobufError.BinaryStreamDecoding.noBytesAvailable()
       }
       throw BinaryDelimited.Error.truncated
     }
@@ -268,7 +249,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
     shift += 7
     if shift > 63 {
-      throw BinaryDelimited.Error.malformedLength
+      throw BinaryDecodingError.malformedProtobuf
     }
   }
 }

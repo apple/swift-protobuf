@@ -16,19 +16,19 @@ import Foundation
 
 /// Binary encoding and decoding methods for messages.
 extension Message {
-  /// Returns a `SwiftProtobufContiguousBytes` instance containing the Protocol Buffer binary
+  /// Returns a ``SwiftProtobufContiguousBytes`` instance containing the Protocol Buffer binary
   /// format serialization of the message.
   ///
   /// - Parameters:
   ///   - partial: If `false` (the default), this method will check
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws.
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  ///   - options: The `BinaryEncodingOptions` to use.
-  /// - Returns: A `SwiftProtobufContiguousBytes` instance containing the binary serialization
+  ///     ``BinaryEncodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryEncodingOptions`` to use.
+  /// - Returns: A ``SwiftProtobufContiguousBytes`` instance containing the binary serialization
   /// of the message.
   ///
-  /// - Throws: `BinaryEncodingError` if encoding fails.
+  /// - Throws: ``SwiftProtobufError`` or ``BinaryEncodingError`` if encoding fails.
   public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
     partial: Bool = false,
     options: BinaryEncodingOptions = BinaryEncodingOptions()
@@ -48,7 +48,8 @@ extension Message {
     // the places that encode message fields (or strings/bytes fields), keeping
     // the overhead of the check to a minimum.
     guard requiredSize < 0x7fffffff else {
-      throw BinaryEncodingError.tooLarge
+      // Adding a new error is a breaking change.
+      throw BinaryEncodingError.missingRequiredFields
     }
 
     var data = Bytes(repeating: 0, count: requiredSize)
@@ -79,15 +80,15 @@ extension Message {
   ///
   /// - Parameters:
   ///   - serializedBytes: The binary-encoded message data to decode.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public init<Bytes: SwiftProtobufContiguousBytes>(
     serializedBytes bytes: Bytes,
@@ -109,15 +110,15 @@ extension Message {
   ///
   /// - Parameters:
   ///   - serializedBytes: The binary-encoded message data to decode.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
     serializedBytes bytes: Bytes,

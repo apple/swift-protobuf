@@ -14,7 +14,7 @@
 
 import XCTest
 import Foundation
-import SwiftProtobuf
+@testable import SwiftProtobuf
 
 typealias XCTestFileArgType = StaticString
 
@@ -398,6 +398,10 @@ extension XCTestCase {
         let actual = m.debugDescription
         XCTAssertTrue(actual.hasSuffix(expectedSuffix), fmt ?? "debugDescription did not match", file: file, line: line)
 #endif
+    }
+    
+    func isSwiftProtobufErrorEqual(_ actual: SwiftProtobufError, _ expected: SwiftProtobufError) -> Bool {
+        (actual.code == expected.code) && (actual.message == expected.message)
     }
 }
 

@@ -41,6 +41,7 @@ message GeneratedSwiftReservedMessages {
   message begin { int32 begin = 1; }
   message binary { int32 binary = 1; }
   message BinaryDecoder { int32 BinaryDecoder = 1; }
+  message BinaryDecoding { int32 BinaryDecoding = 1; }
   message BinaryDecodingError { int32 BinaryDecodingError = 1; }
   message BinaryDecodingOptions { int32 BinaryDecodingOptions = 1; }
   message BinaryDelimited { int32 BinaryDelimited = 1; }
@@ -53,6 +54,8 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
   message binaryOptions { int32 binaryOptions = 1; }
   message binaryProtobufDelimitedMessages { int32 binaryProtobufDelimitedMessages = 1; }
+  message BinaryStreamDecoding { int32 BinaryStreamDecoding = 1; }
+  message binaryStreamDecodingError { int32 binaryStreamDecodingError = 1; }
   message bitPattern { int32 bitPattern = 1; }
   message body { int32 body = 1; }
   message Bool { int32 Bool = 1; }
@@ -166,6 +169,7 @@ message GeneratedSwiftReservedMessages {
   message clearVerification { int32 clearVerification = 1; }
   message clearWeak { int32 clearWeak = 1; }
   message clientStreaming { int32 clientStreaming = 1; }
+  message code { int32 code = 1; }
   message codePoint { int32 codePoint = 1; }
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
@@ -173,12 +177,14 @@ message GeneratedSwiftReservedMessages {
   message comma { int32 comma = 1; }
   message consumedBytes { int32 consumedBytes = 1; }
   message contentsOf { int32 contentsOf = 1; }
+  message copy { int32 copy = 1; }
   message count { int32 count = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message csharpNamespace { int32 csharpNamespace = 1; }
   message ctype { int32 ctype = 1; }
   message customCodable { int32 customCodable = 1; }
   message CustomDebugStringConvertible { int32 CustomDebugStringConvertible = 1; }
+  message CustomStringConvertible { int32 CustomStringConvertible = 1; }
   message d { int32 d = 1; }
   message Data { int32 Data = 1; }
   message dataResult { int32 dataResult = 1; }
@@ -358,6 +364,7 @@ message GeneratedSwiftReservedMessages {
   message fromHexDigit { int32 fromHexDigit = 1; }
   message fullName { int32 fullName = 1; }
   message func { int32 func = 1; }
+  message function { int32 function = 1; }
   message G { int32 G = 1; }
   message GeneratedCodeInfo { int32 GeneratedCodeInfo = 1; }
   message get { int32 get = 1; }
@@ -588,6 +595,7 @@ message GeneratedSwiftReservedMessages {
   message lessThan { int32 lessThan = 1; }
   message let { int32 let = 1; }
   message lhs { int32 lhs = 1; }
+  message line { int32 line = 1; }
   message list { int32 list = 1; }
   message listOfMessages { int32 listOfMessages = 1; }
   message listValue { int32 listValue = 1; }
@@ -599,6 +607,7 @@ message GeneratedSwiftReservedMessages {
   message major { int32 major = 1; }
   message makeAsyncIterator { int32 makeAsyncIterator = 1; }
   message makeIterator { int32 makeIterator = 1; }
+  message malformedLength { int32 malformedLength = 1; }
   message mapEntry { int32 mapEntry = 1; }
   message MapKeyType { int32 MapKeyType = 1; }
   message mapToMessages { int32 mapToMessages = 1; }
@@ -649,6 +658,7 @@ message GeneratedSwiftReservedMessages {
   message nextVarInt { int32 nextVarInt = 1; }
   message nil { int32 nil = 1; }
   message nilLiteral { int32 nilLiteral = 1; }
+  message noBytesAvailable { int32 noBytesAvailable = 1; }
   message noStandardDescriptorAccessor { int32 noStandardDescriptorAccessor = 1; }
   message nullValue { int32 nullValue = 1; }
   message number { int32 number = 1; }
@@ -806,6 +816,7 @@ message GeneratedSwiftReservedMessages {
   message sourceContext { int32 sourceContext = 1; }
   message sourceEncoding { int32 sourceEncoding = 1; }
   message sourceFile { int32 sourceFile = 1; }
+  message SourceLocation { int32 SourceLocation = 1; }
   message span { int32 span = 1; }
   message split { int32 split = 1; }
   message start { int32 start = 1; }
@@ -833,6 +844,7 @@ message GeneratedSwiftReservedMessages {
   message Swift { int32 Swift = 1; }
   message swiftPrefix { int32 swiftPrefix = 1; }
   message SwiftProtobufContiguousBytes { int32 SwiftProtobufContiguousBytes = 1; }
+  message SwiftProtobufError { int32 SwiftProtobufError = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }
@@ -853,6 +865,7 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
+  message tooLarge { int32 tooLarge = 1; }
   message total { int32 total = 1; }
   message totalArrayDepth { int32 totalArrayDepth = 1; }
   message totalSize { int32 totalSize = 1; }

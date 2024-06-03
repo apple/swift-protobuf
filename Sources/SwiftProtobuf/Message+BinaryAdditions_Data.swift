@@ -21,15 +21,15 @@ extension Message {
   ///
   /// - Parameters:
   ///   - serializedData: The binary-encoded message data to decode.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public init(
     serializedData data: Data,
@@ -51,15 +51,15 @@ extension Message {
   ///
   /// - Parameters:
   ///   - serializedData: The binary-encoded message data to decode.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` after decoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The `BinaryDecodingOptions` to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails.
+  ///     ``BinaryDecodingError/missingRequiredFields``.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
+  /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public mutating func merge(
     serializedData data: Data,
@@ -75,12 +75,12 @@ extension Message {
   ///
   /// - Parameters:
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
+  ///     ``BinaryEncodingError/missingRequiredFields``.
   ///   - options: The `BinaryEncodingOptions` to use.
   /// - Returns: A `Data` instance containing the binary serialization of the message.
-  /// - Throws: `BinaryEncodingError` if encoding fails.
+  /// - Throws: ``BinaryEncodingError`` if encoding fails.
   public func serializedData(
     partial: Bool = false, 
     options: BinaryEncodingOptions = BinaryEncodingOptions()

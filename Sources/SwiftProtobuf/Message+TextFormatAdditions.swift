@@ -34,7 +34,7 @@ extension Message {
   /// of the message.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
-  /// serializing to JSON.
+  /// serializing to text format.
   ///
   /// - Returns: A string containing the text format serialization of the message.
   /// - Parameters:
@@ -59,11 +59,11 @@ extension Message {
   ///
   /// - Parameters:
   ///   - textFormatString: The text format string to decode.
-  ///   - options: The `TextFormatDencodingOptions` to use.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///   - options: The ``TextFormatDecodingOptions`` to use.
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  /// - Throws: an instance of `TextFormatDecodingError` on failure.
+  /// - Throws: ``TextFormatDecodingError`` on failure.
   public init(
     textFormatString: String,
     options: TextFormatDecodingOptions = TextFormatDecodingOptions(),

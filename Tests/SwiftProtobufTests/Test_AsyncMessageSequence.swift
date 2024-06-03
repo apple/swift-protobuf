@@ -130,24 +130,20 @@ final class Test_AsyncMessageSequence: XCTestCase {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryStreamDecoding.truncated")
   }
   
   // Single varint describing a 2GB message
   func testTooLarge() async throws {
     let asyncBytes = asyncByteStream(bytes: [128, 128, 128, 128, 8])
-    var tooLargeThrown = false
     let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an invalid stream.")
       }
     } catch {
-      if error as! BinaryDecodingError == .tooLarge {
-        tooLargeThrown = true
-      }
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.tooLarge()))
     }
-    XCTAssertTrue(tooLargeThrown, "Should throw a BinaryDecodingError.tooLarge")
   }
   
   // Stream with truncated varint
@@ -165,7 +161,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryStreamDecoding.truncated")
   }
   
   // Stream with a valid varint and message, but the following varint is truncated
@@ -197,7 +193,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobuf.BinaryStreamDecoding.truncated")
   }
 
   // Slow test case found by oss-fuzz: 1 million zero-sized messages

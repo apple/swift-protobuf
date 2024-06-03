@@ -421,7 +421,7 @@ internal struct JSONEncodingVisitor: Visitor {
     } else if let name = extensions?[number]?.protobufExtension.fieldName {
         encoder.startExtensionField(name: name)
     } else {
-        throw JSONEncodingError.missingFieldNames
+      throw JSONEncodingError.missingFieldNames
     }
   }
 }

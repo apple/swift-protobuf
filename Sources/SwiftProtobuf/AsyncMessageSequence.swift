@@ -21,16 +21,12 @@ extension AsyncSequence where Element == UInt8 {
   ///
   /// - Parameters:
   ///   - messageType: The type of message to read.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
-  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
-  ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
-  ///   - options: The BinaryDecodingOptions to use.
+  ///   - partial: If `false` (the default),  after decoding a message, ``Message/isInitialized-6abgi`
+  ///     will be checked to ensure all fields are present.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDelimited.Error` for errors in the framing of the messages
-  ///           in the sequence, `BinaryDecodingError` for errors while decoding
-  ///           messages.
   @inlinable
   public func binaryProtobufDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
@@ -68,16 +64,12 @@ public struct AsyncMessageSequence<
   ///
   /// - Parameters:
   ///   - baseSequence: The `AsyncSequence` to read messages from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
-  ///   - partial: If `false` (the default), after decoding a message, `Message.isInitialized`
-  ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
-  ///   - options: The BinaryDecodingOptions to use.
+  ///   - partial: If `false` (the default), after decoding a message, ``Message/isInitialized-6abgi``
+  ///     will be checked to ensure all fields are present.
+  ///   - options: The ``BinaryDecodingOptions`` to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDelimited.Error` for errors in the framing of the messages
-  ///           in the sequence, `BinaryDecodingError` for errors while decoding
-  ///           messages.
   public init(
     base: Base,
     extensions: (any ExtensionMap)? = nil,
@@ -124,7 +116,7 @@ public struct AsyncMessageSequence<
         shift += UInt64(7)
         if shift > 35 {
           iterator = nil
-          throw BinaryDelimited.Error.malformedLength
+          throw SwiftProtobufError.BinaryStreamDecoding.malformedLength()
         }
         if (byte & 0x80 == 0) {
           return messageSize
@@ -183,7 +175,7 @@ public struct AsyncMessageSequence<
       }
       guard messageSize <= UInt64(0x7fffffff) else {
         iterator = nil
-        throw BinaryDecodingError.tooLarge
+        throw SwiftProtobufError.BinaryDecoding.tooLarge()
       }
       if messageSize == 0 {
         return try M(

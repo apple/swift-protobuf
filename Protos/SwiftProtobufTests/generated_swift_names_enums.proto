@@ -41,6 +41,7 @@ message GeneratedSwiftReservedEnums {
   enum begin { NONE_begin = 0; }
   enum binary { NONE_binary = 0; }
   enum BinaryDecoder { NONE_BinaryDecoder = 0; }
+  enum BinaryDecoding { NONE_BinaryDecoding = 0; }
   enum BinaryDecodingError { NONE_BinaryDecodingError = 0; }
   enum BinaryDecodingOptions { NONE_BinaryDecodingOptions = 0; }
   enum BinaryDelimited { NONE_BinaryDelimited = 0; }
@@ -53,6 +54,8 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
   enum binaryOptions { NONE_binaryOptions = 0; }
   enum binaryProtobufDelimitedMessages { NONE_binaryProtobufDelimitedMessages = 0; }
+  enum BinaryStreamDecoding { NONE_BinaryStreamDecoding = 0; }
+  enum binaryStreamDecodingError { NONE_binaryStreamDecodingError = 0; }
   enum bitPattern { NONE_bitPattern = 0; }
   enum body { NONE_body = 0; }
   enum Bool { NONE_Bool = 0; }
@@ -166,6 +169,7 @@ message GeneratedSwiftReservedEnums {
   enum clearVerification { NONE_clearVerification = 0; }
   enum clearWeak { NONE_clearWeak = 0; }
   enum clientStreaming { NONE_clientStreaming = 0; }
+  enum code { NONE_code = 0; }
   enum codePoint { NONE_codePoint = 0; }
   enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
@@ -173,12 +177,14 @@ message GeneratedSwiftReservedEnums {
   enum comma { NONE_comma = 0; }
   enum consumedBytes { NONE_consumedBytes = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
+  enum copy { NONE_copy = 0; }
   enum count { NONE_count = 0; }
   enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
   enum csharpNamespace { NONE_csharpNamespace = 0; }
   enum ctype { NONE_ctype = 0; }
   enum customCodable { NONE_customCodable = 0; }
   enum CustomDebugStringConvertible { NONE_CustomDebugStringConvertible = 0; }
+  enum CustomStringConvertible { NONE_CustomStringConvertible = 0; }
   enum d { NONE_d = 0; }
   enum Data { NONE_Data = 0; }
   enum dataResult { NONE_dataResult = 0; }
@@ -358,6 +364,7 @@ message GeneratedSwiftReservedEnums {
   enum fromHexDigit { NONE_fromHexDigit = 0; }
   enum fullName { NONE_fullName = 0; }
   enum func { NONE_func = 0; }
+  enum function { NONE_function = 0; }
   enum G { NONE_G = 0; }
   enum GeneratedCodeInfo { NONE_GeneratedCodeInfo = 0; }
   enum get { NONE_get = 0; }
@@ -588,6 +595,7 @@ message GeneratedSwiftReservedEnums {
   enum lessThan { NONE_lessThan = 0; }
   enum let { NONE_let = 0; }
   enum lhs { NONE_lhs = 0; }
+  enum line { NONE_line = 0; }
   enum list { NONE_list = 0; }
   enum listOfMessages { NONE_listOfMessages = 0; }
   enum listValue { NONE_listValue = 0; }
@@ -599,6 +607,7 @@ message GeneratedSwiftReservedEnums {
   enum major { NONE_major = 0; }
   enum makeAsyncIterator { NONE_makeAsyncIterator = 0; }
   enum makeIterator { NONE_makeIterator = 0; }
+  enum malformedLength { NONE_malformedLength = 0; }
   enum mapEntry { NONE_mapEntry = 0; }
   enum MapKeyType { NONE_MapKeyType = 0; }
   enum mapToMessages { NONE_mapToMessages = 0; }
@@ -649,6 +658,7 @@ message GeneratedSwiftReservedEnums {
   enum nextVarInt { NONE_nextVarInt = 0; }
   enum nil { NONE_nil = 0; }
   enum nilLiteral { NONE_nilLiteral = 0; }
+  enum noBytesAvailable { NONE_noBytesAvailable = 0; }
   enum noStandardDescriptorAccessor { NONE_noStandardDescriptorAccessor = 0; }
   enum nullValue { NONE_nullValue = 0; }
   enum number { NONE_number = 0; }
@@ -806,6 +816,7 @@ message GeneratedSwiftReservedEnums {
   enum sourceContext { NONE_sourceContext = 0; }
   enum sourceEncoding { NONE_sourceEncoding = 0; }
   enum sourceFile { NONE_sourceFile = 0; }
+  enum SourceLocation { NONE_SourceLocation = 0; }
   enum span { NONE_span = 0; }
   enum split { NONE_split = 0; }
   enum start { NONE_start = 0; }
@@ -833,6 +844,7 @@ message GeneratedSwiftReservedEnums {
   enum Swift { NONE_Swift = 0; }
   enum swiftPrefix { NONE_swiftPrefix = 0; }
   enum SwiftProtobufContiguousBytes { NONE_SwiftProtobufContiguousBytes = 0; }
+  enum SwiftProtobufError { NONE_SwiftProtobufError = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }
@@ -853,6 +865,7 @@ message GeneratedSwiftReservedEnums {
   enum timeIntervalSince1970 { NONE_timeIntervalSince1970 = 0; }
   enum timeIntervalSinceReferenceDate { NONE_timeIntervalSinceReferenceDate = 0; }
   enum Timestamp { NONE_Timestamp = 0; }
+  enum tooLarge { NONE_tooLarge = 0; }
   enum total { NONE_total = 0; }
   enum totalArrayDepth { NONE_totalArrayDepth = 0; }
   enum totalSize { NONE_totalSize = 0; }

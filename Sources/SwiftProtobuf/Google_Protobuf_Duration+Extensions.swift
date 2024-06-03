@@ -163,8 +163,7 @@ extension Google_Protobuf_Duration {
 
   /// The `TimeInterval` (measured in seconds) equal to this duration.
   public var timeInterval: TimeInterval {
-    return TimeInterval(self.seconds) +
-      TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
+    return TimeInterval(self.seconds) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
   }
 }
 

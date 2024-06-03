@@ -40,7 +40,7 @@ final class Test_BinaryDelimited: XCTestCase {
   func assertParseFails(atEndOfStream istream: InputStream) {
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.noBytesAvailable)
+      XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.noBytesAvailable()))
     }
   }
 
@@ -90,7 +90,7 @@ final class Test_BinaryDelimited: XCTestCase {
 
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.tooLarge)
+      XCTAssertEqual(error as! BinaryDecodingError, .malformedProtobuf)
     }
   }
 
@@ -99,7 +99,7 @@ final class Test_BinaryDelimited: XCTestCase {
 
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.malformedLength)
+      XCTAssertEqual(error as! BinaryDecodingError, .malformedProtobuf)
     }
   }
 
