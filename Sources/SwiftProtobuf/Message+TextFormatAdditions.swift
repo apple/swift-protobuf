@@ -63,6 +63,7 @@ extension Message {
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   /// - Throws: ``SwiftProtobufError`` on failure.
+  // TODO: delete this (and keep the one with the extra param instead) when we break API
   public init(
     textFormatString: String,
     extensions: (any ExtensionMap)? = nil

@@ -75,8 +75,6 @@ extension Message {
     return visitor.serializedSize
   }
 
-
-
   /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
   /// containing a serialized message in Protocol Buffer binary format.
   ///
