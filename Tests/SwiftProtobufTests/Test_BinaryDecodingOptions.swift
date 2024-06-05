@@ -199,14 +199,14 @@ final class Test_BinaryDecodingOptions: XCTestCase {
         //   }
         do {
             let msg1 = try SwiftProtoTesting_TestAllExtensions(
-                serializedBytes: inputSubMessage,
+              serializedBytes: inputSubMessage,
               extensions: SwiftProtoTesting_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.SwiftProtoTesting_optionalNestedMessageExtension.unknownFields.data),
                            inputCurrentLevel)
 
             let msg2 = try SwiftProtoTesting_TestAllExtensions(
-                serializedBytes: inputSubMessage,
+              serializedBytes: inputSubMessage,
               extensions: SwiftProtoTesting_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
@@ -232,14 +232,14 @@ final class Test_BinaryDecodingOptions: XCTestCase {
         ]
         do {
             let msg1 = try SwiftProtoTesting_TestAllExtensions(
-                serializedBytes: inputGroup,
+              serializedBytes: inputGroup,
               extensions: SwiftProtoTesting_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.SwiftProtoTesting_optionalGroupExtension.unknownFields.data),
                            inputCurrentLevel)
 
             let msg2 = try SwiftProtoTesting_TestAllExtensions(
-                serializedBytes: inputGroup,
+              serializedBytes: inputGroup,
               extensions: SwiftProtoTesting_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
