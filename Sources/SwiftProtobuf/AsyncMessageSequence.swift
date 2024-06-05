@@ -179,7 +179,7 @@ public struct AsyncMessageSequence<
       }
       if messageSize == 0 {
         return try M(
-            contiguousBytes: [],
+          contiguousBytes: [],
           extensions: extensions,
           partial: partial,
           options: options
