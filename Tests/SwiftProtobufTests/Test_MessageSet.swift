@@ -45,7 +45,7 @@ final class Test_MessageSet: XCTestCase {
 
     let raw: SwiftProtoTesting_RawMessageSet
     do {
-      raw = try SwiftProtoTesting_RawMessageSet(contiguousBytes: serialized)
+      raw = try SwiftProtoTesting_RawMessageSet(serializedBytes: serialized)
     } catch let e {
       XCTFail("Failed to parse: \(e)")
       return
@@ -60,10 +60,10 @@ final class Test_MessageSet: XCTestCase {
     XCTAssertEqual(Int(raw.item[1].typeID),
                    SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
 
-    let extMsg1 = try SwiftProtoTesting_TestMessageSetExtension1(contiguousBytes: raw.item[0].message)
+    let extMsg1 = try SwiftProtoTesting_TestMessageSetExtension1(serializedBytes: raw.item[0].message)
     XCTAssertEqual(extMsg1.i, 123)
     XCTAssertTrue(extMsg1.unknownFields.data.isEmpty)
-    let extMsg2 = try SwiftProtoTesting_TestMessageSetExtension2(contiguousBytes: raw.item[1].message)
+    let extMsg2 = try SwiftProtoTesting_TestMessageSetExtension2(serializedBytes: raw.item[1].message)
     XCTAssertEqual(extMsg2.str, "foo")
     XCTAssertTrue(extMsg2.unknownFields.data.isEmpty)
   }
@@ -98,7 +98,7 @@ final class Test_MessageSet: XCTestCase {
     let msg: SwiftProtoTesting_WireFormat_TestMessageSet
     do {
       msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
-        contiguousBytes: serialized,
+        serializedBytes: serialized,
         extensions: SwiftProtoTesting_UnittestMset_Extensions)
     } catch let e {
       XCTFail("Failed to parse: \(e)")
@@ -153,7 +153,7 @@ final class Test_MessageSet: XCTestCase {
     let msg: SwiftProtoTesting_WireFormat_TestMessageSet
     do {
       msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
-        contiguousBytes: serialized,
+        serializedBytes: serialized,
         extensions: SwiftProtoTesting_UnittestMset_Extensions)
     } catch let e {
       XCTFail("Failed to parse: \(e)")
@@ -172,7 +172,7 @@ final class Test_MessageSet: XCTestCase {
     let msg: SwiftProtoTesting_WireFormat_TestMessageSet
     do {
       msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
-        contiguousBytes: serialized,
+        serializedBytes: serialized,
         extensions: SwiftProtoTesting_UnittestMset_Extensions)
     } catch let e {
       XCTFail("Failed to parse: \(e)")

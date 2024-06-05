@@ -62,7 +62,7 @@ final class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
         }
 
         let origSerialized: [UInt8] = try orig.serializedBytes()
-        let msg = try SwiftProtoTesting_UnknownEnum_Proto2_MyMessage(contiguousBytes: origSerialized)
+        let msg = try SwiftProtoTesting_UnknownEnum_Proto2_MyMessage(serializedBytes: origSerialized)
 
         // Nothing should be set, should all be in unknowns.
         XCTAssertFalse(msg.hasE)
@@ -72,7 +72,7 @@ final class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
         XCTAssertFalse(msg.unknownFields.data.isEmpty)
 
         let msgSerialized: [UInt8] = try msg.serializedBytes()
-        let msgPrime = try SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra(contiguousBytes: msgSerialized)
+        let msgPrime = try SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra(serializedBytes: msgSerialized)
 
         // They should be back in the right fields.
         XCTAssertEqual(msgPrime.e, .eExtra)

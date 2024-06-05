@@ -107,7 +107,7 @@ final class Test_BinaryDecodingOptions: XCTestCase {
                 do {
                     var options = BinaryDecodingOptions()
                     options.messageDepthLimit = limit
-                    let _ = try messageType.init(contiguousBytes: binaryInput,
+                    let _ = try messageType.init(serializedBytes: binaryInput,
                                                  extensions: extensions,
                                                  options: options)
                     if !expectSuccess {
@@ -154,10 +154,10 @@ final class Test_BinaryDecodingOptions: XCTestCase {
             53, 5, 0, 0, 0,
         ]
         do {
-            let msg1 = try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: inputCurrentLevel)
+            let msg1 = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: inputCurrentLevel)
             XCTAssertEqual(Array(msg1.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: inputCurrentLevel,
+            let msg2 = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: inputCurrentLevel,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
         }
@@ -177,11 +177,11 @@ final class Test_BinaryDecodingOptions: XCTestCase {
             146, 1, UInt8(inputCurrentLevel.count),
         ] + inputCurrentLevel
         do {
-            let msg1 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: inputSubMessage)
+            let msg1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputSubMessage)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.optionalNestedMessage.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: inputSubMessage,
+            let msg2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputSubMessage,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
             XCTAssertTrue(msg2.optionalNestedMessage.unknownFields.data.isEmpty)
@@ -199,14 +199,14 @@ final class Test_BinaryDecodingOptions: XCTestCase {
         //   }
         do {
             let msg1 = try SwiftProtoTesting_TestAllExtensions(
-                contiguousBytes: inputSubMessage,
+                serializedBytes: inputSubMessage,
               extensions: SwiftProtoTesting_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.SwiftProtoTesting_optionalNestedMessageExtension.unknownFields.data),
                            inputCurrentLevel)
 
             let msg2 = try SwiftProtoTesting_TestAllExtensions(
-              contiguousBytes: inputSubMessage,
+                serializedBytes: inputSubMessage,
               extensions: SwiftProtoTesting_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
@@ -232,14 +232,14 @@ final class Test_BinaryDecodingOptions: XCTestCase {
         ]
         do {
             let msg1 = try SwiftProtoTesting_TestAllExtensions(
-                contiguousBytes: inputGroup,
+                serializedBytes: inputGroup,
               extensions: SwiftProtoTesting_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.SwiftProtoTesting_optionalGroupExtension.unknownFields.data),
                            inputCurrentLevel)
 
             let msg2 = try SwiftProtoTesting_TestAllExtensions(
-                contiguousBytes: inputGroup,
+                serializedBytes: inputGroup,
               extensions: SwiftProtoTesting_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
@@ -257,11 +257,11 @@ final class Test_BinaryDecodingOptions: XCTestCase {
         //     6: 0x00000005
         //   }
         do {
-            let msg1 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: inputGroup)
+            let msg1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputGroup)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.optionalGroup.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: inputGroup,
+            let msg2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputGroup,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
             XCTAssertTrue(msg2.optionalGroup.unknownFields.data.isEmpty)
@@ -276,10 +276,10 @@ final class Test_BinaryDecodingOptions: XCTestCase {
             168, 1, 13
         ]
         do {
-            let msg1 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: inputUnknownEnum)
+            let msg1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputUnknownEnum)
             XCTAssertEqual(Array(msg1.unknownFields.data), inputUnknownEnum)
 
-            let msg2 = try SwiftProtoTesting_TestAllTypes(contiguousBytes: inputUnknownEnum,
+            let msg2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputUnknownEnum,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
         }

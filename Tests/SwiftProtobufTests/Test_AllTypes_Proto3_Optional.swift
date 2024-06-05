@@ -27,7 +27,7 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
         do {
             // Make sure unknown fields are preserved by empty message decode/encode
-            let empty = try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: bytes)
+            let empty = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: bytes)
             do {
                 let newBytes: [UInt8] = try empty.serializedBytes()
                 XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match", file: file, line: line)

@@ -44,7 +44,7 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     func testBinaryPB() {
         func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: protobufBytes)
+                let empty = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: protobufBytes)
                 do {
                     let pb: [UInt8] = try empty.serializedBytes()
                     XCTAssertEqual(protobufBytes, pb, file: file, line: line)
@@ -56,7 +56,7 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: protobufBytes), file: file, line: line)
+            XCTAssertThrowsError(try SwiftProtoTesting_TestEmptyMessage(serializedBytes: protobufBytes), file: file, line: line)
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode
         assertFails([0]) // Invalid field number
@@ -167,18 +167,18 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         var msg1 = SwiftProtoTesting_Msg2NoStorage()
         assertUnknownFields(msg1, [])
 
-        try msg1.merge(contiguousBytes: [24, 1])  // Field 3, varint
+        try msg1.merge(serializedBytes: [24, 1])  // Field 3, varint
         assertUnknownFields(msg1, [24, 1])
 
         var msg2 = msg1
         assertUnknownFields(msg2, [24, 1])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg2.merge(contiguousBytes: [34, 1, 52])   // Field 4, length delimited
+        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimited
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg1.merge(contiguousBytes: [61, 7, 0, 0, 0])  // Field 7, 32-bit value
+        try msg1.merge(serializedBytes: [61, 7, 0, 0, 0])  // Field 7, 32-bit value
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }
@@ -187,18 +187,18 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         var msg1 = SwiftProtoTesting_Msg2UsesStorage()
         assertUnknownFields(msg1, [])
 
-        try msg1.merge(contiguousBytes: [24, 1])  // Field 3, varint
+        try msg1.merge(serializedBytes: [24, 1])  // Field 3, varint
         assertUnknownFields(msg1, [24, 1])
 
         var msg2 = msg1
         assertUnknownFields(msg2, [24, 1])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg2.merge(contiguousBytes: [34, 1, 52])   // Field 4, length delimited
+        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimited
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg1.merge(contiguousBytes: [61, 7, 0, 0, 0])  // Field 7, 32-bit value
+        try msg1.merge(serializedBytes: [61, 7, 0, 0, 0])  // Field 7, 32-bit value
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }

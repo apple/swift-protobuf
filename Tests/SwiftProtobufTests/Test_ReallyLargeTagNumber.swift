@@ -27,7 +27,7 @@ final class Test_ReallyLargeTagNumber: XCTestCase {
             XCTAssertEqual(encoded, [8, 1, 248, 255, 255, 255, 7, 2])
 
             do {
-                let decoded = try SwiftProtoTesting_TestReallyLargeTagNumber(contiguousBytes: encoded)
+                let decoded = try SwiftProtoTesting_TestReallyLargeTagNumber(serializedBytes: encoded)
                 XCTAssertEqual(2, decoded.bb)
                 XCTAssertEqual(1, decoded.a)
                 XCTAssertEqual(m, decoded)

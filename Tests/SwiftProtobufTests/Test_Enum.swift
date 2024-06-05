@@ -72,7 +72,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
         }
 
         let origSerialized: [UInt8] = try orig.serializedBytes()
-        let msg = try SwiftProtoTesting_UnknownEnum_Proto3_MyMessage(contiguousBytes: origSerialized)
+        let msg = try SwiftProtoTesting_UnknownEnum_Proto3_MyMessage(serializedBytes: origSerialized)
 
         // Nothing in unknowns, they should just be unrecognized.
         XCTAssertEqual(msg.e, .UNRECOGNIZED(3))

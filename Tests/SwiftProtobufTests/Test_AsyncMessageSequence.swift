@@ -48,7 +48,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
       // Field 2, string "testing"
       0x12, 0x07, 0x74, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x67
     ]
-    let message = try SwiftProtoTesting_TestEmptyMessage(contiguousBytes: unknownFields)
+    let message = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: unknownFields)
     let serialized = try serializedMessageData(messages: [message])
     var asyncBytes = asyncByteStream(bytes: serialized)
     var decodingOptions = BinaryDecodingOptions()

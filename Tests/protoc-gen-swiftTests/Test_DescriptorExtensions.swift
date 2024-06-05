@@ -18,7 +18,7 @@ fileprivate typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
 final class Test_DescriptorExtensions: XCTestCase {
 
   func testExtensionRanges() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(contiguousBytes: fileDescriptorSetBytes)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
