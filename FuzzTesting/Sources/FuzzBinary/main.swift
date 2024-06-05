@@ -18,7 +18,7 @@ public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   var msg: SwiftProtoTesting_Fuzz_Message?
   do {
     msg = try SwiftProtoTesting_Fuzz_Message(
-      contiguousBytes: Array(bytes),
+      serializedBytes: Array(bytes),
       extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions,
       options: options)
   } catch {

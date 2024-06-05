@@ -47,7 +47,7 @@ public final class DescriptorSet {
   /// the plugin library can support.
   private static let bundledFeatureSetDefaults =
     // Decoding the bundle defaults better never fail
-    try! Google_Protobuf_FeatureSetDefaults(contiguousBytes: bundledFeatureSetDefaultBytes)
+    try! Google_Protobuf_FeatureSetDefaults(serializedBytes: bundledFeatureSetDefaultBytes)
 
   /// The range of Editions that the library can support.
   ///

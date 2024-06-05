@@ -270,7 +270,7 @@ let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
 let decodedInfo = try BookInfo(serializedData: binaryData)
 
 // Deserialize a received [UInt8] object from `binaryDataAsBytes`
-let decodedInfo = try BookInfo(contiguousBytes: binaryDataAsBytes)
+let decodedInfo = try BookInfo(serializedBytes: binaryDataAsBytes)
 
 // Serialize to JSON format as a Data object, or as any other type conforming to
 // SwiftProtobufContiguousBytes. For example:

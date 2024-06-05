@@ -179,7 +179,7 @@ public struct AsyncMessageSequence<
       }
       if messageSize == 0 {
         return try M(
-          contiguousBytes: [],
+          serializedBytes: [],
           extensions: extensions,
           partial: partial,
           options: options
@@ -187,7 +187,7 @@ public struct AsyncMessageSequence<
       }
       let buffer = try await readBytes(Int(messageSize))
       return try M(
-        contiguousBytes: buffer,
+        serializedBytes: buffer,
         extensions: extensions,
         partial: partial,
         options: options

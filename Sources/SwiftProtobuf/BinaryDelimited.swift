@@ -200,7 +200,7 @@ public enum BinaryDelimited {
       bytesNeeded -= bytesRead
     }
 
-    try message.merge(contiguousBytes: data,
+    try message.merge(serializedBytes: data,
                       extensions: extensions,
                       partial: partial,
                       options: options)

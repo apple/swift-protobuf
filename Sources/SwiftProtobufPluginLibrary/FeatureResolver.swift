@@ -107,7 +107,7 @@ class FeatureResolver {
     var features = found.fixedFeatures
     // Don't yet have a message level merge, so bounce through serialization.
     let bytes: [UInt8] = try! found.overridableFeatures.serializedBytes()
-    try! features.merge(contiguousBytes: bytes, extensions: extensionMap)
+    try! features.merge(serializedBytes: bytes, extensions: extensionMap)
     defaultFeatureSet = features
   }
 
@@ -169,7 +169,7 @@ class FeatureResolver {
     if let features = features {
       // Don't yet have a message level merge, so bounce through serialization.
       let bytes: [UInt8] = try! features.serializedBytes()
-      try! result.merge(contiguousBytes: bytes, extensions: extensionMap)
+      try! result.merge(serializedBytes: bytes, extensions: extensionMap)
     }
     return result
   }

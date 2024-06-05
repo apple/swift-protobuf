@@ -75,11 +75,13 @@ extension Message {
     return visitor.serializedSize
   }
 
+
+
   /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
   /// containing a serialized message in Protocol Buffer binary format.
   ///
   /// - Parameters:
-  ///   - contiguousBytes: The binary-encoded message data to decode.
+  ///   - serializedBytes: The binary-encoded message data to decode.
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
@@ -91,13 +93,13 @@ extension Message {
   /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public init<Bytes: SwiftProtobufContiguousBytes>(
-    contiguousBytes bytes: Bytes,
+    serializedBytes bytes: Bytes,
     extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
-    try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
+    try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
   }
 
   /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
@@ -109,7 +111,7 @@ extension Message {
   ///   occurred.
   ///
   /// - Parameters:
-  ///   - contiguousBytes: The binary-encoded message data to decode.
+  ///   - serializedBytes: The binary-encoded message data to decode.
   ///   - extensions: An ``ExtensionMap`` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
@@ -121,7 +123,7 @@ extension Message {
   /// - Throws: ``BinaryDecodingError`` if decoding fails.
   @inlinable
   public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
-    contiguousBytes bytes: Bytes,
+    serializedBytes bytes: Bytes,
     extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
