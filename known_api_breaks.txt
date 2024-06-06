@@ -1,9 +1,11 @@
 API breakage: protocol Enum is now with @preconcurrency
 API breakage: protocol Enum has added inherited protocol Sendable
+API breakage: protocol Enum has generic signature change from <Self : Swift.Hashable, Self : Swift.RawRepresentable> to <Self : Swift.Hashable, Self : Swift.RawRepresentable, Self : Swift.Sendable>
 API breakage: protocol ExtensibleMessage is now with @preconcurrency
 API breakage: protocol ExtensibleMessage has added inherited protocol Sendable
 API breakage: protocol AnyExtensionField is now with @preconcurrency
 API breakage: protocol AnyExtensionField has added inherited protocol Sendable
+API breakage: protocol AnyExtensionField has generic signature change from <Self : Swift.CustomDebugStringConvertible> to <Self : Swift.CustomDebugStringConvertible, Self : Swift.Sendable>
 API breakage: protocol ExtensionField is now with @preconcurrency
 API breakage: protocol ExtensionField has added inherited protocol Sendable
 API breakage: protocol ExtensionField has removed inherited protocol CustomDebugStringConvertible
