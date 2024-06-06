@@ -714,7 +714,7 @@ message GeneratedSwiftReservedMessages {
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
   message proto3Optional { int32 proto3Optional = 1; }
   message ProtobufAPIVersionCheck { int32 ProtobufAPIVersionCheck = 1; }
-  message ProtobufAPIVersion_3 { int32 ProtobufAPIVersion_3 = 1; }
+  message ProtobufAPIVersion_2 { int32 ProtobufAPIVersion_2 = 1; }
   message ProtobufBool { int32 ProtobufBool = 1; }
   message ProtobufBytes { int32 ProtobufBytes = 1; }
   message ProtobufDouble { int32 ProtobufDouble = 1; }

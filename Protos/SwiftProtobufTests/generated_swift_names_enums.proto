@@ -714,7 +714,7 @@ message GeneratedSwiftReservedEnums {
   enum proto3DefaultValue { NONE_proto3DefaultValue = 0; }
   enum proto3Optional { NONE_proto3Optional = 0; }
   enum ProtobufAPIVersionCheck { NONE_ProtobufAPIVersionCheck = 0; }
-  enum ProtobufAPIVersion_3 { NONE_ProtobufAPIVersion_3 = 0; }
+  enum ProtobufAPIVersion_2 { NONE_ProtobufAPIVersion_2 = 0; }
   enum ProtobufBool { NONE_ProtobufBool = 0; }
   enum ProtobufBytes { NONE_ProtobufBytes = 0; }
   enum ProtobufDouble { NONE_ProtobufDouble = 0; }

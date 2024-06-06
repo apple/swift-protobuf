@@ -20,8 +20,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
-  typealias Version = _3
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -737,7 +737,7 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
   case proto3DefaultValue // = 708
   case proto3Optional // = 709
   case protobufApiversionCheck // = 710
-  case protobufApiversion3 // = 711
+  case protobufApiversion2 // = 711
   case protobufBool // = 712
   case protobufBytes // = 713
   case protobufDouble // = 714
@@ -1739,7 +1739,7 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case 708: self = .proto3DefaultValue
     case 709: self = .proto3Optional
     case 710: self = .protobufApiversionCheck
-    case 711: self = .protobufApiversion3
+    case 711: self = .protobufApiversion2
     case 712: self = .protobufBool
     case 713: self = .protobufBytes
     case 714: self = .protobufDouble
@@ -2742,7 +2742,7 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case .proto3DefaultValue: return 708
     case .proto3Optional: return 709
     case .protobufApiversionCheck: return 710
-    case .protobufApiversion3: return 711
+    case .protobufApiversion2: return 711
     case .protobufBool: return 712
     case .protobufBytes: return 713
     case .protobufDouble: return 714
@@ -3747,7 +3747,7 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .proto3DefaultValue,
     .proto3Optional,
     .protobufApiversionCheck,
-    .protobufApiversion3,
+    .protobufApiversion2,
     .protobufBool,
     .protobufBytes,
     .protobufDouble,
@@ -4749,7 +4749,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     708: .same(proto: "proto3DefaultValue"),
     709: .same(proto: "proto3Optional"),
     710: .same(proto: "ProtobufAPIVersionCheck"),
-    711: .same(proto: "ProtobufAPIVersion_3"),
+    711: .same(proto: "ProtobufAPIVersion_2"),
     712: .same(proto: "ProtobufBool"),
     713: .same(proto: "ProtobufBytes"),
     714: .same(proto: "ProtobufDouble"),

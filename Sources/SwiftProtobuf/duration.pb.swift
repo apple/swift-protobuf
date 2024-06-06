@@ -46,8 +46,8 @@ import Foundation
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
-  struct _3: ProtobufAPIVersion_3 {}
-  typealias Version = _3
+  struct _2: ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 /// A Duration represents a signed, fixed-length span of time represented

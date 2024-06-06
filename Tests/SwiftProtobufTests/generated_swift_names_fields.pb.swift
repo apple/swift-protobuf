@@ -20,8 +20,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
-  typealias Version = _3
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Sendable {
@@ -3579,9 +3579,9 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
     set {_uniqueStorage()._protobufApiversionCheck = newValue}
   }
 
-  var protobufApiversion3: Int32 {
-    get {return _storage._protobufApiversion3}
-    set {_uniqueStorage()._protobufApiversion3 = newValue}
+  var protobufApiversion2: Int32 {
+    get {return _storage._protobufApiversion2}
+    set {_uniqueStorage()._protobufApiversion2 = newValue}
   }
 
   var protobufBool: Int32 {
@@ -5718,7 +5718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     708: .same(proto: "proto3DefaultValue"),
     709: .same(proto: "proto3Optional"),
     710: .same(proto: "ProtobufAPIVersionCheck"),
-    711: .standard(proto: "ProtobufAPIVersion_3"),
+    711: .standard(proto: "ProtobufAPIVersion_2"),
     712: .same(proto: "ProtobufBool"),
     713: .same(proto: "ProtobufBytes"),
     714: .same(proto: "ProtobufDouble"),
@@ -6714,7 +6714,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _proto3DefaultValue: Int32 = 0
     var _proto3Optional: Int32 = 0
     var _protobufApiversionCheck: Int32 = 0
-    var _protobufApiversion3: Int32 = 0
+    var _protobufApiversion2: Int32 = 0
     var _protobufBool: Int32 = 0
     var _protobufBytes: Int32 = 0
     var _protobufDouble: Int32 = 0
@@ -7721,7 +7721,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _proto3DefaultValue = source._proto3DefaultValue
       _proto3Optional = source._proto3Optional
       _protobufApiversionCheck = source._protobufApiversionCheck
-      _protobufApiversion3 = source._protobufApiversion3
+      _protobufApiversion2 = source._protobufApiversion2
       _protobufBool = source._protobufBool
       _protobufBytes = source._protobufBytes
       _protobufDouble = source._protobufDouble
@@ -8732,7 +8732,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         case 708: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3DefaultValue) }()
         case 709: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3Optional) }()
         case 710: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversionCheck) }()
-        case 711: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversion3) }()
+        case 711: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversion2) }()
         case 712: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBool) }()
         case 713: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBytes) }()
         case 714: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufDouble) }()
@@ -11153,8 +11153,8 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       if _storage._protobufApiversionCheck != 0 {
         try visitor.visitSingularInt32Field(value: _storage._protobufApiversionCheck, fieldNumber: 710)
       }
-      if _storage._protobufApiversion3 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufApiversion3, fieldNumber: 711)
+      if _storage._protobufApiversion2 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufApiversion2, fieldNumber: 711)
       }
       if _storage._protobufBool != 0 {
         try visitor.visitSingularInt32Field(value: _storage._protobufBool, fieldNumber: 712)
@@ -12721,7 +12721,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._proto3DefaultValue != rhs_storage._proto3DefaultValue {return false}
         if _storage._proto3Optional != rhs_storage._proto3Optional {return false}
         if _storage._protobufApiversionCheck != rhs_storage._protobufApiversionCheck {return false}
-        if _storage._protobufApiversion3 != rhs_storage._protobufApiversion3 {return false}
+        if _storage._protobufApiversion2 != rhs_storage._protobufApiversion2 {return false}
         if _storage._protobufBool != rhs_storage._protobufBool {return false}
         if _storage._protobufBytes != rhs_storage._protobufBytes {return false}
         if _storage._protobufDouble != rhs_storage._protobufDouble {return false}

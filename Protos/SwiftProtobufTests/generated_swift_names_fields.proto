@@ -714,7 +714,7 @@ message GeneratedSwiftReservedFields {
   int32 proto3DefaultValue = 708;
   int32 proto3Optional = 709;
   int32 ProtobufAPIVersionCheck = 710;
-  int32 ProtobufAPIVersion_3 = 711;
+  int32 ProtobufAPIVersion_2 = 711;
   int32 ProtobufBool = 712;
   int32 ProtobufBytes = 713;
   int32 ProtobufDouble = 714;

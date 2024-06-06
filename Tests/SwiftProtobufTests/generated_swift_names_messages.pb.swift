@@ -20,8 +20,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
-  typealias Version = _3
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
@@ -8551,12 +8551,12 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct ProtobufAPIVersion_3: Sendable {
+  struct ProtobufAPIVersion_2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var protobufApiversion3: Int32 = 0
+    var protobufApiversion2: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -34693,10 +34693,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPI
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufAPIVersion_3"
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufAPIVersion_2"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "ProtobufAPIVersion_3"),
+    1: .standard(proto: "ProtobufAPIVersion_2"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -34705,21 +34705,21 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPI
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.protobufApiversion3) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.protobufApiversion2) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.protobufApiversion3 != 0 {
-      try visitor.visitSingularInt32Field(value: self.protobufApiversion3, fieldNumber: 1)
+    if self.protobufApiversion2 != 0 {
+      try visitor.visitSingularInt32Field(value: self.protobufApiversion2, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_3, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_3) -> Bool {
-    if lhs.protobufApiversion3 != rhs.protobufApiversion3 {return false}
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_2, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_2) -> Bool {
+    if lhs.protobufApiversion2 != rhs.protobufApiversion2 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -20,8 +20,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
-  typealias Version = _3
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
@@ -21331,32 +21331,32 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum ProtobufAPIVersion_3: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum ProtobufAPIVersion_2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
-    case noneProtobufApiversion3 // = 0
+    case noneProtobufApiversion2 // = 0
     case UNRECOGNIZED(Int)
 
     init() {
-      self = .noneProtobufApiversion3
+      self = .noneProtobufApiversion2
     }
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 0: self = .noneProtobufApiversion3
+      case 0: self = .noneProtobufApiversion2
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Int {
       switch self {
-      case .noneProtobufApiversion3: return 0
+      case .noneProtobufApiversion2: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_3] = [
-      .noneProtobufApiversion3,
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2] = [
+      .noneProtobufApiversion2,
     ]
 
   }
@@ -34107,9 +34107,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVer
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_3: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_ProtobufAPIVersion_3"),
+    0: .same(proto: "NONE_ProtobufAPIVersion_2"),
   ]
 }
 

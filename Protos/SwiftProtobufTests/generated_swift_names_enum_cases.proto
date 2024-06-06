@@ -715,7 +715,7 @@ enum GeneratedSwiftReservedEnum {
   proto3DefaultValue = 708;
   proto3Optional = 709;
   ProtobufAPIVersionCheck = 710;
-  ProtobufAPIVersion_3 = 711;
+  ProtobufAPIVersion_2 = 711;
   ProtobufBool = 712;
   ProtobufBytes = 713;
   ProtobufDouble = 714;
