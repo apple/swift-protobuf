@@ -944,7 +944,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Ensure bytes over 2GB fail to decode according to spec.
         XCTAssertThrowsError(try MessageTestType(serializedBytes: [
-        122, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+          122, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
           // Don't need all the bytes, want some to let the length issue trigger.
           0x01, 0x02, 0x03,
         ])) {

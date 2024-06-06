@@ -37,7 +37,7 @@ systems:
   value semantics.
 * Efficient binary serialization: The `.serializedBytes()`
   method returns a bag of bytes with a compact binary form of your data.
-  You can deserialize the data using the `init(serializedBytes:)`
+  You can deserialize the data using the `init(contiguousBytes:)`
   initializer.
 * Standard JSON serialization: The `.jsonUTF8Bytes()` method returns a JSON
   form of your data that can be parsed with the `init(jsonUTF8Bytes:)`

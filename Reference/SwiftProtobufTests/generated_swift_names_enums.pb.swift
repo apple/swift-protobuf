@@ -5221,6 +5221,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum ContiguousBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneContiguousBytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneContiguousBytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneContiguousBytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneContiguousBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ContiguousBytes] = [
+      .noneContiguousBytes,
+    ]
+
+  }
+
   enum copy: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneCopy // = 0
@@ -8187,6 +8217,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Empty] = [
       .noneEmpty,
+    ]
+
+  }
+
+  enum emptyData: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneEmptyData // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEmptyData
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEmptyData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEmptyData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emptyData] = [
+      .noneEmptyData,
     ]
 
   }
@@ -20731,6 +20791,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum partial: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case nonePartial // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePartial
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePartial
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePartial: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.partial] = [
+      .nonePartial,
+    ]
+
+  }
+
   enum path: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case nonePath // = 0
@@ -30795,6 +30885,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.contentsOf: Sw
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ContiguousBytes: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ContiguousBytes"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.copy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_copy"),
@@ -31386,6 +31482,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emitFieldNumbe
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Empty: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Empty"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emptyData: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_emptyData"),
   ]
 }
 
@@ -33894,6 +33996,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parent: SwiftP
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_parse"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.partial: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_partial"),
   ]
 }
 
