@@ -1,0 +1,31 @@
+// Protos/pluginlib_descriptor_test.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2024 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test proto for Tests/SwiftProtobufPluginLibraryTests/Test_Descriptor.swift
+///
+// -----------------------------------------------------------------------------
+
+edition = "2023";
+
+package swift_descriptor_test;
+
+option features.message_encoding = DELIMITED;
+
+message EditionsMessageForDelimited {
+  int32 scalar_field = 1;
+  map<int32, string> map_field = 2;
+  map<int32, EditionsMessageForDelimited> message_map_field = 3;
+  EditionsMessageForDelimited delimited_field = 4;
+  EditionsMessageForDelimited length_prefixed_field = 5 [
+    features.message_encoding = LENGTH_PREFIXED
+  ];
+}
