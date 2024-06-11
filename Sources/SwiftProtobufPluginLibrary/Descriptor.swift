@@ -791,8 +791,7 @@ public final class FieldDescriptor {
   static let kLastReservedNumber: Int = 19999
 
   /// Declared type of this field.
-  public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum { return _type }
-  private var _type: Google_Protobuf_FieldDescriptorProto.TypeEnum
+  public private(set) var type: Google_Protobuf_FieldDescriptorProto.TypeEnum
 
   /// optional/required/repeated
   public let label: Google_Protobuf_FieldDescriptorProto.Label
@@ -1003,9 +1002,9 @@ public final class FieldDescriptor {
     // help ensure basic transforms from .proto2 to .edition2023 generate the
     // same code/behaviors.
     if proto.type == .message && self.features.messageEncoding == .delimited {
-      self._type = .group
+      self.type = .group
     } else {
-      self._type = proto.type
+      self.type = proto.type
     }
     // This remapping is based follow part of what upstream
     // `DescriptorBuilder::PostProcessFieldFeatures()` does. If generators use
@@ -1054,7 +1053,7 @@ public final class FieldDescriptor {
           msgtype.options.mapEntry ||
           (_containingType != nil && _containingType!.options.mapEntry)
         ) {
-          _type = .message
+          type = .message
         }
       }
     }
