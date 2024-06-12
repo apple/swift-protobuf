@@ -29,16 +29,17 @@ final class Test_Descriptor: XCTestCase {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
-    XCTAssertEqual(descriptorSet.files.count, 7)
+    XCTAssertEqual(descriptorSet.files.count, 8)
     // descriptor.proto documents the protoc will order the files based on the import
     // from plugin on descriptor.
     XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
     XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
     XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
-    XCTAssertEqual(descriptorSet.files[4].name, "google/protobuf/unittest_delimited_import.proto")
-    XCTAssertEqual(descriptorSet.files[5].name, "google/protobuf/unittest_delimited.proto")
-    XCTAssertEqual(descriptorSet.files[6].name, "swift_protobuf_module_mappings.proto")
+    XCTAssertEqual(descriptorSet.files[4].name, "pluginlib_descriptor_delimited.proto")
+    XCTAssertEqual(descriptorSet.files[5].name, "google/protobuf/unittest_delimited_import.proto")
+    XCTAssertEqual(descriptorSet.files[6].name, "google/protobuf/unittest_delimited.proto")
+    XCTAssertEqual(descriptorSet.files[7].name, "swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
 
@@ -347,6 +348,19 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertTrue(topLevelExt.file === descriptorTestFile)
     XCTAssertTrue(nestedExt1.file === descriptorTestFile)
     XCTAssertTrue(nestedExt2.file === descriptorTestFile)
+  }
+
+  func testDelimited() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msg = try XCTUnwrap(descriptorSet.descriptor(named: SwiftDescriptorTest_EditionsMessageForDelimited.protoMessageName))
+
+    XCTAssertEqual(try XCTUnwrap(msg.field(named: "scalar_field")).type, .int32)
+    XCTAssertEqual(try XCTUnwrap(msg.field(named: "map_field")).type, .message)
+    XCTAssertEqual(try XCTUnwrap(msg.field(named: "message_map_field")).type, .message)
+    XCTAssertEqual(try XCTUnwrap(msg.field(named: "delimited_field")).type, .group)
+    XCTAssertEqual(try XCTUnwrap(msg.field(named: "length_prefixed_field")).type, .message)
   }
 
   func testIsGroupLike_GroupLikeDelimited() throws {
