@@ -209,7 +209,10 @@ struct Conformance_ConformanceRequest: @unchecked Sendable {
 
   /// The full name for the test message to use; for the moment, either:
   /// protobuf_test_messages.proto3.TestAllTypesProto3 or
-  /// protobuf_test_messages.google.protobuf.TestAllTypesProto2.
+  /// protobuf_test_messages.google.protobuf.TestAllTypesProto2 or
+  /// protobuf_test_messages.editions.google.protobuf.TestAllTypesProto2 or
+  /// protobuf_test_messages.editions.proto3.TestAllTypesProto3 or
+  /// protobuf_test_messages.editions.TestAllTypesEdition2023.
   var messageType: String = String()
 
   /// Each test is given a specific test category. Some category may need
