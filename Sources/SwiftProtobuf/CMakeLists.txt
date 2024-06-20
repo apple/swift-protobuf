@@ -50,12 +50,15 @@ add_library(SwiftProtobuf
   MathUtils.swift
   Message+AnyAdditions.swift
   Message+BinaryAdditions.swift
+  Message+FieldMask.swift
   Message+JSONAdditions.swift
   Message+JSONArrayAdditions.swift
   Message+TextFormatAdditions.swift
   Message.swift
   MessageExtension.swift
   NameMap.swift
+  PathDecoder.swift
+  PathVisitor.swift
   ProtobufAPIVersionCheck.swift
   ProtobufMap.swift
   ProtoNameProviding.swift
