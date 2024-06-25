@@ -219,11 +219,7 @@ public final class FileDescriptor {
 
   /// The `Google_Protobuf_FileOptions` set on this file.
   @available(*, deprecated, renamed: "options")
-  public var fileOptions: Google_Protobuf_FileOptions {
-    get {
-      self.options
-    }
-  }
+  public var fileOptions: Google_Protobuf_FileOptions { self.options }
 
   /// The `Google_Protobuf_FileOptions` set on this file.
   public let options: Google_Protobuf_FileOptions
@@ -528,6 +524,9 @@ public final class Descriptor {
     if ordered.count > 1 {
       for i in (0..<(ordered.count - 1)).reversed() {
         if ordered[i].end == ordered[i+1].start {
+          // This is why we need `end`'s setter to be `fileprivate` instead of
+          // having it be a `let`.
+          // We should turn it back into a let once we get rid of this prop.
           ordered[i].end = ordered[i+1].end
           ordered.remove(at: i + 1)
         }
@@ -577,8 +576,8 @@ public final class Descriptor {
   public let reservedNames: [String]
 
   /// True/False if this Message is just for a `map<>` entry.
-  @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
-  public var isMapEntry: Bool { return proto.options.mapEntry }
+  @available(*, deprecated, renamed: "options.mapyEntry")
+  public var isMapEntry: Bool { return options.mapEntry }
 
   /// Returns the `FieldDescriptor`s for the "key" and "value" fields. If
   /// this isn't a map entry field, returns nil.
@@ -593,8 +592,8 @@ public final class Descriptor {
   // Storage for `file`, will be set by bind()
   private unowned var _file: FileDescriptor?
 
-  @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
-  public var useMessageSetWireFormat: Bool { return proto.options.messageSetWireFormat }
+  @available(*, deprecated, renamed: "options.messageSetWireFormat")
+  public var useMessageSetWireFormat: Bool { return options.messageSetWireFormat }
 
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,

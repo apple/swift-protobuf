@@ -89,7 +89,7 @@ class FieldGeneratorBase {
         result = ".standard(proto: \"\(protoName)\")"
       } else {
         /// The library's generation didn't match, so specify this explicitly.
-        result = ".unique(proto: \"\(protoName)\", json: \"\(String(describing: jsonName))\")"
+        result = ".unique(proto: \"\(protoName)\", json: \"\(jsonName ?? "")\")"
       }
     }
 
@@ -105,7 +105,7 @@ class FieldGeneratorBase {
       if nameLowercase == jsonName {
         return [".same(proto: \"\(nameLowercase)\")", result]
       } else {
-        return [".unique(proto: \"\(nameLowercase)\", json: \"\(String(describing: jsonName))\")", result]
+        return [".unique(proto: \"\(nameLowercase)\", json: \"\(jsonName ?? "")\")", result]
       }
     } else {
       return [result]
