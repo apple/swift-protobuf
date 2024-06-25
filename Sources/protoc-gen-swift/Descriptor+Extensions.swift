@@ -184,7 +184,7 @@ extension Descriptor {
 
       // If it can support extensions, then return true as an extension could
       // have a required field.
-      if !descriptor.extensionRanges.isEmpty {
+      if !descriptor.protoExtensionRanges.isEmpty {
         return true
       }
 
@@ -209,8 +209,8 @@ extension Descriptor {
   ///
   /// This also uses Range<> since the options that could be on
   /// `extensionRanges` no longer can apply as the things have been merged.
-  var normalizedExtensionRanges: [Range<Int32>] {
-    var ordered: [Range<Int32>] = self.extensionRanges.sorted(by: {
+  var _normalizedExtensionRanges: [Range<Int32>] {
+    var ordered: [Range<Int32>] = self.protoExtensionRanges.sorted(by: {
       return $0.start < $1.start }).map { return $0.start ..< $0.end
     }
     if ordered.count > 1 {
@@ -231,8 +231,8 @@ extension Descriptor {
   ///
   /// This also uses Range<> since the options that could be on
   /// `extensionRanges` no longer can apply as the things have been merged.
-  var ambitiousExtensionRanges: [Range<Int32>] {
-    var merged = self.normalizedExtensionRanges
+  var _ambitiousExtensionRanges: [Range<Int32>] {
+    var merged = self._normalizedExtensionRanges
     if merged.count > 1 {
       var fieldNumbersReversedIterator =
       self.fields.map({ Int($0.number) }).sorted(by: { $0 > $1 }).makeIterator()

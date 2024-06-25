@@ -14,7 +14,8 @@ import SwiftProtobufTestHelpers
 @testable import SwiftProtobufPluginLibrary
 
 // Support equality to simplify testing of getting the correct errors.
-extension ProtoFileToModuleMappings.LoadError: Equatable {
+// We mark it as `@retroactive` because we're only using this for testing.
+extension ProtoFileToModuleMappings.LoadError: @retroactive Equatable {
   public static func ==(lhs: ProtoFileToModuleMappings.LoadError, rhs: ProtoFileToModuleMappings.LoadError) -> Bool {
     switch (lhs, rhs) {
     case (.entryMissingModuleName(let l), .entryMissingModuleName(let r)): return l == r
