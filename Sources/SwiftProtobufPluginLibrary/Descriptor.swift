@@ -506,7 +506,7 @@ public final class Descriptor {
 
   /// The extension ranges declared for this message. They are returned in
   /// the order they are defined in the .proto file.
-  public let protoExtensionRanges: [ExtensionRange]
+  public let messageExtensionRanges: [ExtensionRange]
 
   /// The extension ranges declared for this message. They are returned in
   /// the order they are defined in the .proto file.
@@ -619,7 +619,7 @@ public final class Descriptor {
       return featureResolver.resolve($0.options, resolvedParent: resolvedFeatures)
     }
 
-    self.protoExtensionRanges = proto.extensionRange.enumerated().map {
+    self.messageExtensionRanges = proto.extensionRange.enumerated().map {
       return ExtensionRange(proto: $0.element,
                             index: $0.offset,
                             features: featureResolver.resolve($0.element.options,
@@ -673,7 +673,7 @@ public final class Descriptor {
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
     _file = file
     self.containingType = containingType
-    protoExtensionRanges.forEach { $0.bind(containingType: self, registry: registry) }
+    messageExtensionRanges.forEach { $0.bind(containingType: self, registry: registry) }
     enums.forEach { $0.bind(file: file, registry: registry, containingType: self) }
     messages.forEach { $0.bind(file: file, registry: registry, containingType: self) }
     fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }

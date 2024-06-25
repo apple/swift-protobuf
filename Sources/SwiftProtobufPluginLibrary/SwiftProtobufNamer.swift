@@ -113,7 +113,8 @@ public final class SwiftProtobufNamer {
     for (camelCased, enumValues) in candidates {
       // If there is only one, sanitize and cache it.
       guard enumValues.count > 1 else {
-        enumValueRelativeNameCache[enumValues.first!.fullName] = NamingUtils.sanitize(enumCaseName: camelCased)
+        let fullName = enumValues.first!.fullName
+        enumValueRelativeNameCache[fullName] = NamingUtils.sanitize(enumCaseName: camelCased)
         continue
       }
 
@@ -134,7 +135,8 @@ public final class SwiftProtobufNamer {
         // to the same name.
         let name = NamingUtils.sanitize(enumCaseName: camelCased)
         for e in enumValues {
-          enumValueRelativeNameCache[e.fullName] = name
+          let fullName = e.fullName
+          enumValueRelativeNameCache[fullName] = name
         }
         continue
       }
@@ -143,7 +145,8 @@ public final class SwiftProtobufNamer {
         // Can't put a negative size, so use "n" and make the number
         // positive.
         let suffix = e.number >= 0 ? "_\(e.number)" : "_n\(-e.number)"
-        enumValueRelativeNameCache[e.fullName] = NamingUtils.sanitize(enumCaseName: camelCased + suffix)
+        let fullName = e.fullName
+        enumValueRelativeNameCache[fullName] = NamingUtils.sanitize(enumCaseName: camelCased + suffix)
       }
     }
   }

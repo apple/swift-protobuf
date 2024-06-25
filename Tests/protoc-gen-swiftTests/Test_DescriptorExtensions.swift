@@ -24,16 +24,16 @@ final class Test_DescriptorExtensions: XCTestCase {
 
     let msgDescriptor = descriptorSet.descriptor(named: "swift_descriptor_test.MsgExtensionRangeOrdering")!
     // Quick check of what should be in the proto file
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges.count, 9)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[0].start, 1)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[1].start, 3)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[2].start, 2)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[3].start, 4)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[4].start, 7)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[5].start, 9)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[6].start, 100)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[7].start, 126)
-    XCTAssertEqual(msgDescriptor.protoExtensionRanges[8].start, 111)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges.count, 9)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[0].start, 1)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[1].start, 3)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[2].start, 2)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[3].start, 4)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[4].start, 7)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[5].start, 9)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[6].start, 100)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[7].start, 126)
+    XCTAssertEqual(msgDescriptor.messageExtensionRanges[8].start, 111)
 
     // Check sorting/merging
     XCTAssertEqual(msgDescriptor._normalizedExtensionRanges.count, 5)
@@ -56,16 +56,16 @@ final class Test_DescriptorExtensions: XCTestCase {
 
     let msgDescriptor2 = descriptorSet.descriptor(named: "swift_descriptor_test.MsgExtensionRangeOrderingWithFields")!
     // Quick check of what should be in the proto file
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges.count, 9)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[0].start, 1)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[1].start, 3)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[2].start, 2)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[3].start, 4)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[4].start, 7)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[5].start, 9)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[6].start, 100)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[7].start, 126)
-    XCTAssertEqual(msgDescriptor2.protoExtensionRanges[8].start, 111)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges.count, 9)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[0].start, 1)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[1].start, 3)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[2].start, 2)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[3].start, 4)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[4].start, 7)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[5].start, 9)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[6].start, 100)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[7].start, 126)
+    XCTAssertEqual(msgDescriptor2.messageExtensionRanges[8].start, 111)
 
     // Check sorting/merging
     XCTAssertEqual(msgDescriptor2._normalizedExtensionRanges.count, 5)
@@ -92,10 +92,10 @@ final class Test_DescriptorExtensions: XCTestCase {
 
     let msgDescriptor3 = descriptorSet.descriptor(named: "swift_descriptor_test.MsgExtensionRangeOrderingNoMerging")!
     // Quick check of what should be in the proto file
-    XCTAssertEqual(msgDescriptor3.protoExtensionRanges.count, 3)
-    XCTAssertEqual(msgDescriptor3.protoExtensionRanges[0].start, 3)
-    XCTAssertEqual(msgDescriptor3.protoExtensionRanges[1].start, 7)
-    XCTAssertEqual(msgDescriptor3.protoExtensionRanges[2].start, 16)
+    XCTAssertEqual(msgDescriptor3.messageExtensionRanges.count, 3)
+    XCTAssertEqual(msgDescriptor3.messageExtensionRanges[0].start, 3)
+    XCTAssertEqual(msgDescriptor3.messageExtensionRanges[1].start, 7)
+    XCTAssertEqual(msgDescriptor3.messageExtensionRanges[2].start, 16)
 
     // Check sorting/merging
     XCTAssertEqual(msgDescriptor3._normalizedExtensionRanges.count, 3)

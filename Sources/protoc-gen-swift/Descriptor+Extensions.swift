@@ -184,7 +184,7 @@ extension Descriptor {
 
       // If it can support extensions, then return true as an extension could
       // have a required field.
-      if !descriptor.protoExtensionRanges.isEmpty {
+      if !descriptor.messageExtensionRanges.isEmpty {
         return true
       }
 
@@ -210,7 +210,7 @@ extension Descriptor {
   /// This also uses Range<> since the options that could be on
   /// `extensionRanges` no longer can apply as the things have been merged.
   var _normalizedExtensionRanges: [Range<Int32>] {
-    var ordered: [Range<Int32>] = self.protoExtensionRanges.sorted(by: {
+    var ordered: [Range<Int32>] = self.messageExtensionRanges.sorted(by: {
       return $0.start < $1.start }).map { return $0.start ..< $0.end
     }
     if ordered.count > 1 {

@@ -44,7 +44,7 @@ class MessageGenerator {
     self.namer = namer
 
     visibility = generatorOptions.visibilitySourceSnippet
-    isExtensible = !descriptor.protoExtensionRanges.isEmpty
+    isExtensible = !descriptor.messageExtensionRanges.isEmpty
     swiftRelativeName = namer.relativeName(message: descriptor)
     swiftFullName = namer.fullName(message: descriptor)
 
