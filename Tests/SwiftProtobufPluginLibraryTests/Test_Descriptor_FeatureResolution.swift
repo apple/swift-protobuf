@@ -265,7 +265,7 @@ final class Test_Descriptor_FeatureResolution: XCTestCase {
       }
       """)
 
-    let features = context.file.messages.first!.extensionRanges.first!.features
+    let features = context.file.messages.first!.messageExtensionRanges.first!.features
     XCTAssertTrue(features.hasSwiftFeatureTest_test)
     XCTAssertEqual(features.SwiftFeatureTest_test.feature1, .value1)
     XCTAssertEqual(features.SwiftFeatureTest_test.feature2, .value1)
@@ -300,7 +300,7 @@ final class Test_Descriptor_FeatureResolution: XCTestCase {
       }
       """)
 
-    let features = context.file.messages.first!.extensionRanges.first!.features
+    let features = context.file.messages.first!.messageExtensionRanges.first!.features
     XCTAssertTrue(features.hasSwiftFeatureTest_test)
     XCTAssertEqual(features.SwiftFeatureTest_test.feature1, .value2)  //  File override
     XCTAssertEqual(features.SwiftFeatureTest_test.feature2, .value3)  //  Message override

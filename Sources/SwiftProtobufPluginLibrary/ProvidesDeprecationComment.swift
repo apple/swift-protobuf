@@ -40,7 +40,7 @@ public protocol TypeOrFileProvidesDeprecationComment: ProvidesDeprecationComment
   /// If the type is deprecated.
   var isDeprecated: Bool { get }
   /// Returns the File this conforming object is in.
-  var file: FileDescriptor { get }
+  var file: FileDescriptor! { get }
 }
 
 extension TypeOrFileProvidesDeprecationComment {

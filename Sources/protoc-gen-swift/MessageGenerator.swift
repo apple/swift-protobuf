@@ -44,7 +44,7 @@ class MessageGenerator {
     self.namer = namer
 
     visibility = generatorOptions.visibilitySourceSnippet
-    isExtensible = !descriptor.extensionRanges.isEmpty
+    isExtensible = !descriptor.messageExtensionRanges.isEmpty
     swiftRelativeName = namer.relativeName(message: descriptor)
     swiftFullName = namer.fullName(message: descriptor)
 
@@ -284,7 +284,7 @@ class MessageGenerator {
               // code. This also avoids typechecking performance issues if there are
               // dozens of ranges because we aren't constructing a single large
               // expression containing untyped integer literals.
-              let normalizedExtensionRanges = descriptor.normalizedExtensionRanges
+              let normalizedExtensionRanges = descriptor._normalizedExtensionRanges
               if !fields.isEmpty || normalizedExtensionRanges.count > 3 {
                 p.print("""
                     // The use of inline closures is to circumvent an issue where the compiler
@@ -346,7 +346,7 @@ class MessageGenerator {
         // Use the "ambitious" ranges because for visit because subranges with no
         // intermixed fields can be merged to reduce the number of calls for
         // extension visitation.
-        var ranges = descriptor.ambitiousExtensionRanges.makeIterator()
+        var ranges = descriptor._ambitiousExtensionRanges.makeIterator()
         var nextRange = ranges.next()
         for f in fieldsSortedByNumber {
           while nextRange != nil && Int(nextRange!.lowerBound) < f.number {

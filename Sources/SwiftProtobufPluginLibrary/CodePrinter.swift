@@ -48,6 +48,12 @@ public struct CodePrinter {
   /// print apis.
   private let newlines: Bool
 
+  public init(indent: String.UnicodeScalarView = "  ".unicodeScalars) {
+    contentScalars.reserveCapacity(CodePrinter.initialBufferSize)
+    singleIndent = indent
+    newlines = false
+  }
+
   /// Initialize the printer for use.
   ///
   /// - Parameters:
@@ -56,7 +62,7 @@ public struct CodePrinter {
   ///       should automatically add newlines to the end of the strings.
   public init(
     indent: String.UnicodeScalarView = "  ".unicodeScalars,
-    addNewlines newlines: Bool = false
+    addNewlines newlines: Bool
   ) {
     contentScalars.reserveCapacity(CodePrinter.initialBufferSize)
     singleIndent = indent
