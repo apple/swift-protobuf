@@ -109,13 +109,11 @@ jobs:
       working-directory: main
       run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
 
-  api-breakage-since-last-release:
-    name: Api Breakage Compared to Last Release
+  api-breakage:
+    name: Api Breakage Compared to main branch
     # Only on pull requests
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    # Don't fail since we're actively revisit breaking changes on `main`
-    continue-on-error: true
     container:
       # Test on the latest Swift release. This could run on all the support
       # Swift versions, but that doesn't seem worth it until there are Swift
@@ -130,13 +128,7 @@ jobs:
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
     - name: Check for API breaking changes
-      # Since descriptor.proto is generated and exposed, any changes upstream
-      # can result in things that would count as breaking changes, the allowlist
-      # is used to those won't count in this test.
-      run: |
-        LAST_TAG=$(git describe --abbrev=0 --tags)
-        echo "Checking for breaks against the tag: ${LAST_TAG}"
-        swift package diagnose-api-breaking-changes "${LAST_TAG}" --breakage-allowlist-path known_api_breaks.txt
+      run: swift package diagnose-api-breaking-changes origin/main
 
   sanitizer_testing:
     # Using older ubuntu image due to issue with newer linux kernel images. When
