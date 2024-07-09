@@ -510,7 +510,7 @@ public final class Descriptor {
 
   /// The extension ranges declared for this message. They are returned in
   /// the order they are defined in the .proto file.
-  @available(*, deprecated, message: "This property is now deprecated: please use protoExtensionRanges instead.")
+  @available(*, deprecated, message: "This property is now deprecated: please use proto.extensionRange instead.")
   public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
     proto.extensionRange
   }
@@ -576,7 +576,7 @@ public final class Descriptor {
   public let reservedNames: [String]
 
   /// True/False if this Message is just for a `map<>` entry.
-  @available(*, deprecated, renamed: "options.mapyEntry")
+  @available(*, deprecated, renamed: "options.mapEntry")
   public var isMapEntry: Bool { return options.mapEntry }
 
   /// Returns the `FieldDescriptor`s for the "key" and "value" fields. If
