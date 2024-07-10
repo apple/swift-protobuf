@@ -11,6 +11,8 @@ add_library(SwiftProtobuf
   BinaryEncodingError.swift
   BinaryEncodingSizeVisitor.swift
   BinaryEncodingVisitor.swift
+  BinaryReverseEncoder.swift
+  BinaryReverseEncodingVisitor.swift
   CustomJSONCodable.swift
   Data+Extensions.swift
   Decoder.swift
