@@ -52,6 +52,11 @@ public protocol CodeGenerator {
   /// error.
   var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> { get }
 
+  /// A list of extensions that define Custom Options
+  /// (https://protobuf.dev/programming-guides/proto2/#customoptions) for this generator so
+  /// they will be exposed on the `Descriptor` options.
+  var customOptionExtensions: [any AnyMessageExtension] { get }
+
   /// If provided, the argument parsing will support `--version` and report
   /// this value.
   var version: String? { get }
@@ -110,10 +115,29 @@ extension CodeGenerator {
       return
     }
 
+    var extensionMap = SimpleExtensionMap()
+    if !customOptionExtensions.isEmpty {
+      for e in customOptionExtensions {
+        // Don't include Google_Protobuf_FeatureSet, that will be handing via custom features.
+        precondition(e.messageType == Google_Protobuf_EnumOptions.self ||
+                     e.messageType == Google_Protobuf_EnumValueOptions.self ||
+                     e.messageType == Google_Protobuf_ExtensionRangeOptions.self ||
+                     e.messageType == Google_Protobuf_FieldOptions.self ||
+                     e.messageType == Google_Protobuf_FileOptions.self ||
+                     e.messageType == Google_Protobuf_MessageOptions.self ||
+                     e.messageType == Google_Protobuf_MethodOptions.self ||
+                     e.messageType == Google_Protobuf_OneofOptions.self ||
+                     e.messageType == Google_Protobuf_ServiceOptions.self,
+                     "CodeGenerator `customOptionExtensions` must only extend the descriptor.proto 'Options' messages \(e.messageType).")
+      }
+      extensionMap.insert(contentsOf: customOptionExtensions)
+    }
+
     let response: Google_Protobuf_Compiler_CodeGeneratorResponse
     do {
       let request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
-        serializedBytes: FileHandle.standardInput.readDataToEndOfFile()
+        serializedBytes: FileHandle.standardInput.readDataToEndOfFile(),
+        extensions: extensionMap
       )
       response = generateCode(request: request, generator: self)
     } catch let e {
@@ -150,6 +174,7 @@ extension CodeGenerator {
     // they support editions.
     return Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
   }
+  public var customOptionExtensions: [any AnyMessageExtension] { return [] }
   public var version: String? { return nil }
   public var projectURL: String? { return nil }
   public var copyrightLine: String? { return nil }
