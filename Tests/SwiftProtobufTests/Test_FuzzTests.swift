@@ -55,7 +55,12 @@ final class Test_FuzzTests: XCTestCase {
 
   func assertTextFormatFails(_ asBytes: [UInt8], options: TextFormatDecodingOptions = TextFormatDecodingOptions(), file: XCTestFileArgType = #file, line: UInt = #line) {
     guard let str = String(data: Data(asBytes), encoding: .utf8) else {
-      XCTFail("Failed to make a string", file: file, line: line)
+      print(
+        """
+        Failed to make string (at \(file):\(line)): nothing to try and decode.
+        The fuzzer does not fail in this case and neither should we, skipping test.
+        """
+      )
       return
     }
     XCTAssertThrowsError(
@@ -75,7 +80,12 @@ final class Test_FuzzTests: XCTestCase {
 
   func assertTextFormatSucceeds(_ asBytes: [UInt8], options: TextFormatDecodingOptions = TextFormatDecodingOptions(), file: XCTestFileArgType = #file, line: UInt = #line) {
     guard let str = String(data: Data(asBytes), encoding: .utf8) else {
-      XCTFail("Failed to make a string", file: file, line: line)
+      print(
+        """
+        Failed to make string (at \(file):\(line)): nothing to try and decode.
+        The fuzzer does not fail in this case and neither should we, skipping test.
+        """
+      )
       return
     }
     XCTAssertNoThrow(
