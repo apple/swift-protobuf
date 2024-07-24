@@ -100,14 +100,13 @@ class FileGenerator {
         if fileDescriptor.isBundledProto {
             p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
         } else {
-            let directive = self.generatorOptions.implementationOnlyImports ? "@_implementationOnly import" : "import"
-            p.print("\(directive) \(namer.swiftProtobufModuleName)")
+            p.print("\(generatorOptions.importDirective.snippet) \(namer.swiftProtobufModuleName)")
         }
 
         let neededImports = fileDescriptor.computeImports(
           namer: namer,
-          reexportPublicImports: self.generatorOptions.visibility != .internal,
-          asImplementationOnly: self.generatorOptions.implementationOnlyImports)
+          directive: generatorOptions.importDirective,
+          reexportPublicImports: generatorOptions.visibility != .internal)
         if !neededImports.isEmpty {
             p.print()
             p.print(neededImports)
