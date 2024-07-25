@@ -82,7 +82,7 @@ public struct AsyncMessageSequence<
     self.options = options
   }
 
-  /// An asynchronous iterator that produces the messages of this asynchronous sequence
+  /// An asynchronous iterator that produces the messages of this asynchronous sequence.
   public struct AsyncIterator: AsyncIteratorProtocol {
     @usableFromInline
     var iterator: Base.AsyncIterator?
@@ -105,7 +105,7 @@ public struct AsyncMessageSequence<
       self.options = options
     }
 
-    /// Asynchronously reads the next varint
+    /// Asynchronously reads the next varint.
     @inlinable
     mutating func nextVarInt() async throws -> UInt64? {
       var messageSize: UInt64 = 0
