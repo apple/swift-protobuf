@@ -430,7 +430,7 @@ internal struct JSONScanner {
     source.formIndex(after: &index)
   }
 
-  /// Skip whitespace
+  /// Skip whitespace.
   private mutating func skipWhitespace() {
     while hasMoreContent {
       let u = currentByte
@@ -842,7 +842,7 @@ internal struct JSONScanner {
       } else {
         // Couldn't parse because it had a "\" in the string,
         // so parse out the quoted string and then reparse
-        // the result to get a UInt
+        // the result to get a UInt.
         index = start
         let s = try nextQuotedString()
         let raw = s.data(using: String.Encoding.utf8)!
@@ -902,7 +902,7 @@ internal struct JSONScanner {
       } else {
         // Couldn't parse because it had a "\" in the string,
         // so parse out the quoted string and then reparse
-        // the result as an SInt
+        // the result as an SInt.
         index = start
         let s = try nextQuotedString()
         let raw = s.data(using: String.Encoding.utf8)!
@@ -1353,28 +1353,28 @@ internal struct JSONScanner {
     throw JSONDecodingError.failure
   }
 
-  /// Skip "{", throw if that's not the next character
+  /// Skip "{", throw if that's not the next character.
   internal mutating func skipRequiredObjectStart() throws {
     try skipRequiredCharacter(asciiOpenCurlyBracket) // {
     try incrementRecursionDepth()
   }
 
-  /// Skip ",", throw if that's not the next character
+  /// Skip ",", throw if that's not the next character.
   internal mutating func skipRequiredComma() throws {
     try skipRequiredCharacter(asciiComma)
   }
 
-  /// Skip ":", throw if that's not the next character
+  /// Skip ":", throw if that's not the next character.
   internal mutating func skipRequiredColon() throws {
     try skipRequiredCharacter(asciiColon)
   }
 
-  /// Skip "[", throw if that's not the next character
+  /// Skip "[", throw if that's not the next character.
   internal mutating func skipRequiredArrayStart() throws {
     try skipRequiredCharacter(asciiOpenSquareBracket) // [
   }
 
-  /// Helper for skipping optional single-character tokens
+  /// Helper for skipping optional single-character tokens.
   private mutating func skipOptionalCharacter(_ c: UInt8) -> Bool {
     skipWhitespace()
     if hasMoreContent && currentByte == c {
