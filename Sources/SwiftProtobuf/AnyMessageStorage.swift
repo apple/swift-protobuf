@@ -216,7 +216,7 @@ internal class AnyMessageStorage {
       break
 
     case .contentJSON(let contentJSON, let options):
-      // contentJSON requires we have the type available for decoding
+      // contentJSON requires we have the type available for decoding.
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
         throw BinaryEncodingError.anyTranscodeFailure
       }
