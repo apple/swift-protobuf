@@ -343,6 +343,20 @@ message AMessageSetMessage {
   extensions 4 to max;
 }
 
+// Two extensions to go with the message_set_wire_format testing.
+message AMessageSetMessageExtension1 {
+  extend AMessageSetMessage {
+    optional AMessageSetMessageExtension1 message_set_extension = 1547769;
+  }
+  optional string a_string = 10;
+}
+message AMessageSetMessageExtension2 {
+  extend AMessageSetMessage {
+    optional AMessageSetMessageExtension2 message_set_extension = 4135312;
+  }
+  optional int32 an_int32 = 20;
+}
+
 extend Message {
   // Singular
   optional    int32 singular_int32_ext    = 1001;
