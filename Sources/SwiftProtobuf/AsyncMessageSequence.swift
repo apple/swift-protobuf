@@ -135,7 +135,7 @@ public struct AsyncMessageSequence<
     mutating func readBytes(_ size: Int) async throws -> [UInt8] {
       // Even though the bytes are read in chunks, things can still hard fail if
       // there isn't enough memory to append to have all the bytes at once for
-      // parsing; but this atleast catches some possible OOM attacks.
+      // parsing; but this at least catches some possible OOM attacks.
       var bytesNeeded = size
       var buffer = [UInt8]()
       let kChunkSize = 16 * 1024 * 1024
