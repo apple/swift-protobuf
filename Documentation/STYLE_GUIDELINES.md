@@ -17,7 +17,7 @@ a method with a large number of generic types and/or arguments), we suggest
 two pieces of advice:
 
 1. Look to the
-   [Swift standard library](https://github.com/apple/swift/tree/main/stdlib/public/core)
+   [Swift standard library](https://github.com/swiftlang/swift/tree/main/stdlib/public/core)
    for guidance.
 1. Don't fight Xcode's auto-indenting unless doing so would make the
    formatting look horrible. Xcode has some baked-in assumptions about how

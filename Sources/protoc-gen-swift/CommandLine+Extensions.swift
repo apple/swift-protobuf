@@ -14,7 +14,7 @@ extension CommandLine {
 
   static var programName: String {
     // Get the command-line arguments passed to this process in a non mutable
-    // form. Idea from https://github.com/apple/swift/issues/66213
+    // form. Idea from https://github.com/swiftlang/swift/issues/66213
     let safeArgs: [String] =
       UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).compactMap {
         String(validatingUTF8: $0!)
