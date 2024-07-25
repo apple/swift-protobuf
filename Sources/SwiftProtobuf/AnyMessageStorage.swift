@@ -276,7 +276,7 @@ extension AnyMessageStorage {
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
-          // Fall through to just print the type and raw binary data
+          // Fall through to just print the type and raw binary data.
         }
       }
       if !_typeURL.isEmpty {
