@@ -1510,7 +1510,7 @@ internal struct JSONScanner {
   //
   // It would be nice to do better, but I don't think it's critical,
   // since there are many reasons that strings (and other tokens for
-  // that matter) may be skippable but not parseable.  For example:
+  // that matter) may be skippable but not parsable.  For example:
   // Old clients that don't know new field types will skip fields
   // they don't know; newer clients may reject the same input due to
   // schema mismatches or other issues.
