@@ -105,7 +105,7 @@ public struct AsyncMessageSequence<
       self.options = options
     }
 
-    /// Aysnchronously reads the next varint
+    /// Asynchronously reads the next varint
     @inlinable
     mutating func nextVarInt() async throws -> UInt64? {
       var messageSize: UInt64 = 0
