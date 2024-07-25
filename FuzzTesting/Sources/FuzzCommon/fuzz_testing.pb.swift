@@ -1772,6 +1772,49 @@ public struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Extensibl
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
+/// Two extensions to go with the message_set_wire_format testing.
+public struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var aString: String {
+    get {return _aString ?? String()}
+    set {_aString = newValue}
+  }
+  /// Returns true if `aString` has been explicitly set.
+  public var hasAString: Bool {return self._aString != nil}
+  /// Clears the value of `aString`. Subsequent reads from it will return its default value.
+  public mutating func clearAString() {self._aString = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _aString: String? = nil
+}
+
+public struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var anInt32: Int32 {
+    get {return _anInt32 ?? 0}
+    set {_anInt32 = newValue}
+  }
+  /// Returns true if `anInt32` has been explicitly set.
+  public var hasAnInt32: Bool {return self._anInt32 != nil}
+  /// Clears the value of `anInt32`. Subsequent reads from it will return its default value.
+  public mutating func clearAnInt32() {self._anInt32 = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _anInt32: Int32? = nil
+}
+
 public struct SwiftProtoTesting_Fuzz_SingularGroup_ext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1822,6 +1865,39 @@ public struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: Sendable {
 // extension fields. The names are based on the extension field name from the proto
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
+
+extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
+
+  public var SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension) ?? SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension`
+  /// has been explicitly set.
+  public var hasSwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension`.
+  /// Subsequent reads from it will return its default value.
+  public mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension() {
+    clearExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension)
+  }
+
+  public var SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension) ?? SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension`
+  /// has been explicitly set.
+  public var hasSwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension`.
+  /// Subsequent reads from it will return its default value.
+  public mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension() {
+    clearExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension)
+  }
+}
 
 extension SwiftProtoTesting_Fuzz_Message {
 
@@ -2316,7 +2392,9 @@ public let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.SimpleEx
   SwiftProtoTesting_Fuzz_Extensions_repeated_packed_float_ext,
   SwiftProtoTesting_Fuzz_Extensions_repeated_packed_double_ext,
   SwiftProtoTesting_Fuzz_Extensions_repeated_packed_bool_ext,
-  SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext
+  SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext,
+  SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension,
+  SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -2575,6 +2653,24 @@ public let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext = SwiftPro
   _protobuf_fieldNumber: 1074,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_enum_ext"
 )
+
+extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
+  public enum Extensions {
+    public static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1>, SwiftProtoTesting_Fuzz_AMessageSetMessage>(
+      _protobuf_fieldNumber: 1547769,
+      fieldName: "swift_proto_testing.fuzz.AMessageSetMessageExtension1"
+    )
+  }
+}
+
+extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
+  public enum Extensions {
+    public static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2>, SwiftProtoTesting_Fuzz_AMessageSetMessage>(
+      _protobuf_fieldNumber: 4135312,
+      fieldName: "swift_proto_testing.fuzz.AMessageSetMessageExtension2"
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -5122,6 +5218,78 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message, Swif
   public static func ==(lhs: SwiftProtoTesting_Fuzz_AMessageSetMessage, rhs: SwiftProtoTesting_Fuzz_AMessageSetMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AMessageSetMessageExtension1"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    10: .standard(proto: "a_string"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 10: try { try decoder.decodeSingularStringField(value: &self._aString) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._aString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 10)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1, rhs: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1) -> Bool {
+    if lhs._aString != rhs._aString {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AMessageSetMessageExtension2"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    20: .standard(proto: "an_int32"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 20: try { try decoder.decodeSingularInt32Field(value: &self._anInt32) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._anInt32 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 20)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2, rhs: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2) -> Bool {
+    if lhs._anInt32 != rhs._anInt32 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
