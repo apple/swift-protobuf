@@ -1,5 +1,5 @@
 # To generate the data set.
-#   FuzzTesting/make_FuzzBinary_dict Protos/fuzz_testing.proto
+#   FuzzTesting/make_FuzzBinary_dict Protos/SwiftProtobufTests/fuzz_testing.proto
 
 # Tags for all the fields
 "\x51"
@@ -302,6 +302,10 @@
 "\xaa\x20"
 "\xc2\x25"
 "\xca\x25"
+"\xca\xdf\xf3\x05"
+"\x52"
+"\x82\x99\xe3\x0f"
+"\xa0\x01"
 "\xc8\x3e"
 "\xd0\x3e"
 "\xd8\x3e"
