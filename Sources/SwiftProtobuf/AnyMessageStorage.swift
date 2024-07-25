@@ -216,7 +216,7 @@ internal class AnyMessageStorage {
       break
 
     case .contentJSON(let contentJSON, let options):
-      // contentJSON requires we have the type available for decoding
+      // contentJSON requires we have the type available for decoding.
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
         throw BinaryEncodingError.anyTranscodeFailure
       }
@@ -276,7 +276,7 @@ extension AnyMessageStorage {
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
-          // Fall through to just print the type and raw binary data
+          // Fall through to just print the type and raw binary data.
         }
       }
       if !_typeURL.isEmpty {

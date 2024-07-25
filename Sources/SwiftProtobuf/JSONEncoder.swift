@@ -112,7 +112,7 @@ internal struct JSONEncoder {
         data.append(contentsOf: utf8Bytes)
     }
 
-    /// Begin a new field whose name is given as a `_NameMap.Name`
+    /// Begin a new field whose name is given as a `_NameMap.Name`.
     internal mutating func startField(name: _NameMap.Name) {
         if let s = separator {
             data.append(s)
@@ -135,7 +135,7 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
-    /// Begin a new extension field
+    /// Begin a new extension field.
     internal mutating func startExtensionField(name: String) {
         if let s = separator {
             data.append(s)
@@ -245,7 +245,7 @@ internal struct JSONEncoder {
         }
     }
 
-    /// Write an Enum as an int.
+    /// Write an Enum as an Int.
     internal mutating func putEnumInt(value: Int) {
         appendInt(value: Int64(value))
     }
