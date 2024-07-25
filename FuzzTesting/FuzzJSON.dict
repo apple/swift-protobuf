@@ -1,14 +1,17 @@
 # To generate the descriptor set.
-#   ../protobuf/src/protoc -o ~/fuzz.bin -I Protos Protos/fuzz_testing.proto
+#   ../protobuf/bazel-bin/protoc -o ~/fuzz.bin -I Protos -I Protos/upstream \
+#       SwiftProtobufTests/fuzz_testing.proto
 
 # Collect the json_names and make them keys:
 #   cat ~/fuzz.bin \
-#     | ../protobuf/src/protoc \
+#     | ../protobuf/bazel-bin/protoc \
 #         --decode=google.protobuf.FileDescriptorSet \
 #         -I ../protobuf/src \
 #         ../protobuf/src/google/protobuf/descriptor.proto \
 #     | sed -n -E 's/ *json_name: "(.*)"/"\\"\1\\":"/p' \
 #     | sort -u
+"\"aString\":"
+"\"anInt32\":"
 "\"groupField\":"
 "\"key\":"
 "\"mapBoolAnEnum\":"
@@ -198,6 +201,7 @@
 "\"mapUint64String\":"
 "\"mapUint64Uint32\":"
 "\"mapUint64Uint64\":"
+"\"messageSetExtension\":"
 "\"oneofBool\":"
 "\"oneofBytes\":"
 "\"oneofDouble\":"
