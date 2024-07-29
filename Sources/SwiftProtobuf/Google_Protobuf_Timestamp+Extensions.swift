@@ -167,9 +167,6 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
       adjusted += Int64(hourOffset) * Int64(3600)
       adjusted += Int64(minuteOffset) * Int64(60)
     }
-    if adjusted < minTimestampSeconds || adjusted > maxTimestampSeconds {
-      throw JSONDecodingError.malformedTimestamp
-    }
     seconds = adjusted
     pos += 6
   } else if value[pos] == letterZ { // "Z" indicator for UTC
@@ -179,6 +176,9 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     throw JSONDecodingError.malformedTimestamp
   }
   if pos != value.count {
+    throw JSONDecodingError.malformedTimestamp
+  }
+  guard seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds else {
     throw JSONDecodingError.malformedTimestamp
   }
   return (seconds, nanos)
