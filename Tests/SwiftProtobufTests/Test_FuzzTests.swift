@@ -121,6 +121,9 @@ final class Test_FuzzTests: XCTestCase {
     // This actually fails when the fuzzer was trying to write it back out again.
     let msg = try! SwiftProtoTesting_Fuzz_Message(jsonString: "   {\"wktAny\":  {}}  ")
     XCTAssertEqual(try! msg.jsonString(), "{\"wktAny\":{}}")
+
+    // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_debug-6286338012282880
+    assertJSONFails("{\"wktTimestamp\":\"9999-12-31T23:59:60Z\"}")
   }
 
   func test_TextFormat() {
