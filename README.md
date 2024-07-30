@@ -109,7 +109,7 @@ protoc compiler and the SwiftProtobuf code generator plugin.
 
 Building the plugin should be simple on any supported Swift platform:
 
-```
+```bash
 git clone https://github.com/apple/swift-protobuf.git
 cd swift-protobuf
 ```
@@ -117,14 +117,14 @@ cd swift-protobuf
 Pick what released version of SwiftProtobuf you are going to use.  You can get
 a list of tags with:
 
-```
+```bash
 git tag -l
 ```
 
 Once you pick the version you will use, set your local state to match, and
 build the protoc plugin:
 
-```
+```bash
 git checkout tags/[tag_name]
 swift build -c release
 ```
@@ -143,7 +143,7 @@ to use also use `--static-swift-stdlib` with `swift build`.
 
 If you prefer using [Homebrew](https://brew.sh):
 
-```
+```bash
 brew install swift-protobuf
 ```
 
@@ -154,7 +154,7 @@ This will install `protoc` compiler and Swift code generator plugin.
 To generate Swift output for your .proto files, you run the `protoc` command as
 usual, using the `--swift_out=<directory>` option:
 
-```
+```bash
 protoc --swift_out=. my.proto
 ```
 
@@ -240,7 +240,7 @@ message BookInfo {
 ```
 
 Then generate Swift code using:
-```
+```bash
 protoc --swift_out=. DataModel.proto
 ```
 
