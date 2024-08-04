@@ -79,7 +79,11 @@ class GeneratorOptions {
     var visibility: Visibility = .internal
     var swiftProtobufModuleName: String? = nil
     var implementationOnlyImports: Bool = false
+#if swift(>=6.0)
+    var useAccessLevelOnImports = true
+#else
     var useAccessLevelOnImports = false
+#endif
     var experimentalStripNonfunctionalCodegen: Bool = false
 
     for pair in parameter.parsedPairs {

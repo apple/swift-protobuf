@@ -190,8 +190,9 @@ this will only work if the `Visibility` is set to `internal`.
 
 ##### Generation Option: `UseAccessLevelOnImports` - imports preceded by a visibility modifier (`public`, `package`, `internal`)
 
-By default, the code generator does not precede any imports with a visibility modifier.
-You can change this with the `UseAccessLevelOnImports` option:
+The default behavior depends on the Swift version the plugin is compiled with. 
+For Swift versions below 6.0 the default is `false` and the code generator does not precede any imports with a visibility modifier. 
+You can change this by explicitly setting the `UseAccessLevelOnImports` option:
 
 ```
 $ protoc --swift_opt=UseAccessLevelOnImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
@@ -199,9 +200,12 @@ $ protoc --swift_opt=UseAccessLevelOnImports=[value] --swift_out=. foo/bar/*.pro
 
 The possible values for `UseAccessLevelOnImports` are:
 
-* `false` (default): Generates plain import directives without a visibility modifier.
+* `false`: Generates plain import directives without a visibility modifier.
 * `true`: Imports of internal dependencies and any modules defined in the module
 mappings will be preceded by a visibility modifier corresponding to the visibility of the generated types - see `Visibility` option. 
+
+**Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports. 
+Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
 
 
 ### Building your project
