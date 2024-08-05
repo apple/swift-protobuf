@@ -47,19 +47,19 @@ class GeneratorOptions {
 
     var isAccessLevel: Bool {
         switch self {
-        case .accessLevel: true
-        default: false
+        case .accessLevel: return true
+        default: return false
         }
     }
 
     var snippet: String {
       switch self {
       case let .accessLevel(visibility):
-        "\(visibility) import"
+        return "\(visibility) import"
       case .plain:
-        "import"
+        return "import"
       case .implementationOnly:
-        "@_implementationOnly import"
+        return "@_implementationOnly import"
       }
     }
   }
@@ -169,10 +169,10 @@ class GeneratorOptions {
 
     self.experimentalStripNonfunctionalCodegen = experimentalStripNonfunctionalCodegen
 
-    self.importDirective = switch (implementationOnlyImports, useAccessLevelOnImports) {
-    case (false, false): .plain
-    case (false, true): .accessLevel(visibility)
-    case (true, false): .implementationOnly
+    switch (implementationOnlyImports, useAccessLevelOnImports) {
+    case (false, false): self.importDirective = .plain
+    case (false, true): self.importDirective = .accessLevel(visibility)
+    case (true, false): self.importDirective = .implementationOnly
     case (true, true): throw GenerationError.message(message: """
       When using access levels on imports the @_implementationOnly option is unnecessary.
       Disable @_implementationOnly imports.
