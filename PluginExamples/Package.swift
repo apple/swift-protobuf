@@ -1,4 +1,4 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.8
 
 import PackageDescription
 
@@ -14,6 +14,7 @@ let package = Package(
                 .target(name: "Simple"),
                 .target(name: "Nested"),
                 .target(name: "Import"),
+                .target(name: "AccessLevelOnImport"),
             ]
         ),
         .target(
@@ -43,5 +44,17 @@ let package = Package(
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
             ]
         ),
+        .target(
+            name: "AccessLevelOnImport",
+            dependencies: [
+                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("AccessLevelOnImport"),
+            ],
+            plugins: [
+                .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
+            ]
+        )
     ]
 )
