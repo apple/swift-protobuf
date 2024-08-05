@@ -47,19 +47,19 @@ class GeneratorOptions {
 
     var isAccessLevel: Bool {
         switch self {
-        case .accessLevel: true
-        default: false
+        case .accessLevel: return true
+        default: return false
         }
     }
 
     var snippet: String {
       switch self {
       case let .accessLevel(visibility):
-        "\(visibility) import"
+        return "\(visibility) import"
       case .plain:
-        "import"
+        return "import"
       case .implementationOnly:
-        "@_implementationOnly import"
+        return "@_implementationOnly import"
       }
     }
   }
