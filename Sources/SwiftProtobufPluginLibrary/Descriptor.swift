@@ -163,6 +163,25 @@ public final class DescriptorSet {
   }
 }
 
+/// Options for collected a proto object from a Descriptor.
+public struct ExtractProtoOptions {
+
+  /// If the `SourceCodeInfo` should also be included in the proto file.
+  ///
+  /// If embedding the descriptor in a binary for some reason, normally the `SourceCodeInfo`
+  /// isn't needed and would just be an increas in binary size.
+  public var includeSourceCodeInfo: Bool = false
+
+  /// Copy on the _header_ for the descriptor. This mainly means leave out any of the nested
+  /// descriptors (messages, enums, etc.).
+  public var headerOnly: Bool = false
+
+  // NOTE: in the future maybe add toggles to model the behavior of the *Descriptor::Copy*To()
+  // apis.
+
+  public init() {}
+}
+
 /// Models a .proto file. `FileDescriptor`s are not directly created,
 /// instead they are constructed/fetched via the `DescriptorSet` or
 /// they are directly accessed via a `file` property on all the other
@@ -226,12 +245,41 @@ public final class FileDescriptor {
 
   private let sourceCodeInfo: Google_Protobuf_SourceCodeInfo
 
-  /// The proto version of the descriptor that defines this File.
+  /// Extract contents of this descriptor in Proto form.
   ///
-  /// Thanks to Editions, this isn't likely to be exactly what
-  /// folks want anymore, so wave any other plugins off it.
-  @available(*, deprecated,
-             message: "Use the properties directly or open a GitHub issue for something missing")
+  /// - Parameters:
+  ///   - options: Controls what information is include/excluded when creating the Proto version.
+  ///
+  /// - Returns: A `Google_Protobuf_FileDescriptorProto`.
+  public func extractProto(
+    options: ExtractProtoOptions = ExtractProtoOptions()
+  ) -> Google_Protobuf_FileDescriptorProto {
+    // In the future it might make sense to model this like the C++, where the protos is built up
+    // on demand instead of keeping the object around.
+    var result = _proto
+
+    if !options.includeSourceCodeInfo {
+      result.clearSourceCodeInfo()
+    }
+
+    if options.headerOnly {
+      // For FileDescriptor, make `headerOnly` mean the same things as C++
+      // `FileDescriptor::CopyHeaderTo()`.
+      result.dependency = []
+      result.publicDependency = []
+      result.weakDependency = []
+      result.messageType = []
+      result.enumType = []
+      result.messageType = []
+      result.service = []
+      result.extension = []
+    }
+
+    return result
+  }
+
+  /// The proto version of the descriptor that defines this File.
+  @available(*, deprecated, renamed: "extractProto()")
   public var proto: Google_Protobuf_FileDescriptorProto { return _proto }
   private let _proto: Google_Protobuf_FileDescriptorProto
 

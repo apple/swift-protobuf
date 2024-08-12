@@ -417,4 +417,64 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertFalse(try XCTUnwrap(msg.field(named: "messageimport")).internal_isGroupLike)
     XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "messageimport")).internal_isGroupLike)
   }
+
+  func testExtractProto_Options() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let fileDescriptor = descriptorSet.fileDescriptor(named: "pluginlib_descriptor_test.proto")!
+
+    // NOTE: There should be a full tests for ExtractProto that validates all the sub descriptor
+    // protos. But for now, given the function's implementation, just test that the options are
+    // honored correctly.
+
+    // Default:
+    // - includeSourceCodeInfo = false
+    // - headerOnly = false
+    do {
+      let extract = fileDescriptor.extractProto()
+      XCTAssertFalse(extract.hasSourceCodeInfo, "Included SourceCodeInfo?")
+      XCTAssertFalse(extract.messageType.isEmpty, "Missing messages?")
+      XCTAssertFalse(extract.enumType.isEmpty, "Missing enums?")
+      XCTAssertFalse(extract.extension.isEmpty, "Missing extensions?")
+      XCTAssertFalse(extract.service.isEmpty, "Missing services?")
+    }
+
+    var options = ExtractProtoOptions()
+    options.includeSourceCodeInfo = true
+    // - includeSourceCodeInfo = true
+    // - headerOnly = false
+    do {
+      let extract = fileDescriptor.extractProto(options: options)
+      XCTAssertTrue(extract.hasSourceCodeInfo, "Missing SourceCodeInfo?")
+      XCTAssertFalse(extract.messageType.isEmpty, "Missing messages?")
+      XCTAssertFalse(extract.enumType.isEmpty, "Missing enums?")
+      XCTAssertFalse(extract.extension.isEmpty, "Missing extensions?")
+      XCTAssertFalse(extract.service.isEmpty, "Missing services?")
+    }
+
+    options.headerOnly = true
+    // - includeSourceCodeInfo = true
+    // - headerOnly = true
+    do {
+      let extract = fileDescriptor.extractProto(options: options)
+      XCTAssertTrue(extract.hasSourceCodeInfo, "Missing SourceCodeInfo?")
+      XCTAssertTrue(extract.messageType.isEmpty, "Incuded messages?")
+      XCTAssertTrue(extract.enumType.isEmpty, "Incuded enums?")
+      XCTAssertTrue(extract.extension.isEmpty, "Missing extensions?")
+      XCTAssertTrue(extract.service.isEmpty, "Missing services?")
+    }
+
+    options.includeSourceCodeInfo = false
+    // - includeSourceCodeInfo = false
+    // - headerOnly = false
+    do {
+      let extract = fileDescriptor.extractProto(options: options)
+      XCTAssertFalse(extract.hasSourceCodeInfo, "Included SourceCodeInfo?")
+      XCTAssertTrue(extract.messageType.isEmpty, "Incuded messages?")
+      XCTAssertTrue(extract.enumType.isEmpty, "Incuded enums?")
+      XCTAssertTrue(extract.extension.isEmpty, "Missing extensions?")
+      XCTAssertTrue(extract.service.isEmpty, "Missing services?")
+    }
+  }
 }
