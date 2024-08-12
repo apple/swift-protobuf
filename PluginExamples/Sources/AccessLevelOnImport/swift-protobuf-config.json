@@ -1,0 +1,12 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "AccessLevelOnImport/AccessLevelOnImport.proto",
+                "Dependency/Dependency.proto",
+            ],
+            "visibility": "public",
+            "useAccessLevelOnImports": true
+        }
+    ]
+}
