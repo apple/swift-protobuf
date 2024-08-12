@@ -43,7 +43,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: main
+        path: swift-protobuf
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
@@ -62,10 +62,10 @@ jobs:
           ;;
         esac
     - name: Build
-      working-directory: main
+      working-directory: swift-protobuf
       run: make build ${{ matrix.swift.hook }}
     - name: Test runtime
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-runtime ${{ matrix.swift.hook }}
     - name: Cache protobuf
       id: cache-protobuf
@@ -97,16 +97,16 @@ jobs:
         NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
         make -j "${NUM_CPUS}" protoc conformance_test_runner
     - name: Test plugin
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-plugin PROTOC=../protobuf/cmake_build/protoc
     - name: Test conformance
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
     - name: Test SPM plugin
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
     - name: Compilation Tests
-      working-directory: main
+      working-directory: swift-protobuf
       run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
 
   api-breakage:
