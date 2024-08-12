@@ -1,11 +1,11 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.8
 
 import PackageDescription
 
 let package = Package(
     name: "PluginExamples",
     dependencies: [
-        .package(name: "swift-protobuf", path: "../")
+        .package(path: "../")
     ],
     targets: [
         .testTarget(
