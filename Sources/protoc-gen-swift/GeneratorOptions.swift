@@ -30,21 +30,36 @@ class GeneratorOptions {
     }
   }
 
-  enum Visibility {
+  enum Visibility: String {
     case `internal`
     case `public`
     case `package`
 
     init?(flag: String) {
-      switch flag.lowercased() {
-      case "internal":
-        self = .internal
-      case "public":
-        self = .public
-      case "package":
-        self = .package
-      default:
-        return nil
+      self.init(rawValue: flag.lowercased())
+    }
+  }
+
+  enum ImportDirective: Equatable {
+    case accessLevel(Visibility)
+    case plain
+    case implementationOnly
+
+    var isAccessLevel: Bool {
+        switch self {
+        case .accessLevel: return true
+        default: return false
+        }
+    }
+
+    var snippet: String {
+      switch self {
+      case let .accessLevel(visibility):
+        return "\(visibility) import"
+      case .plain:
+        return "import"
+      case .implementationOnly:
+        return "@_implementationOnly import"
       }
     }
   }
@@ -52,7 +67,7 @@ class GeneratorOptions {
   let outputNaming: OutputNaming
   let protoToModuleMappings: ProtoFileToModuleMappings
   let visibility: Visibility
-  let implementationOnlyImports: Bool
+  let importDirective: ImportDirective
   let experimentalStripNonfunctionalCodegen: Bool
 
   /// A string snippet to insert for the visibility
@@ -64,6 +79,11 @@ class GeneratorOptions {
     var visibility: Visibility = .internal
     var swiftProtobufModuleName: String? = nil
     var implementationOnlyImports: Bool = false
+#if swift(>=6.0)
+    var useAccessLevelOnImports = true
+#else
+    var useAccessLevelOnImports = false
+#endif
     var experimentalStripNonfunctionalCodegen: Bool = false
 
     for pair in parameter.parsedPairs {
@@ -98,6 +118,13 @@ class GeneratorOptions {
       case "ImplementationOnlyImports":
         if let value = Bool(pair.value) {
           implementationOnlyImports = value
+        } else {
+          throw GenerationError.invalidParameterValue(name: pair.key,
+                                                      value: pair.value)
+        }
+      case "UseAccessLevelOnImports":
+        if let value = Bool(pair.value) {
+          useAccessLevelOnImports = value
         } else {
           throw GenerationError.invalidParameterValue(name: pair.key,
                                                       value: pair.value)
@@ -140,13 +167,22 @@ class GeneratorOptions {
       visibilitySourceSnippet = "package "
     }
 
-    self.implementationOnlyImports = implementationOnlyImports
     self.experimentalStripNonfunctionalCodegen = experimentalStripNonfunctionalCodegen
+
+    switch (implementationOnlyImports, useAccessLevelOnImports) {
+    case (false, false): self.importDirective = .plain
+    case (false, true): self.importDirective = .accessLevel(visibility)
+    case (true, false): self.importDirective = .implementationOnly
+    case (true, true): throw GenerationError.message(message: """
+      When using access levels on imports the @_implementationOnly option is unnecessary.
+      Disable @_implementationOnly imports.
+      """)
+    }
 
     // ------------------------------------------------------------------------
     // Now do "cross option" validations.
 
-    if self.implementationOnlyImports && self.visibility != .internal {
+    if implementationOnlyImports && self.visibility != .internal {
       throw GenerationError.message(message: """
         Cannot use @_implementationOnly imports when the proto visibility is public or package.
         Either change the visibility to internal, or disable @_implementationOnly imports.

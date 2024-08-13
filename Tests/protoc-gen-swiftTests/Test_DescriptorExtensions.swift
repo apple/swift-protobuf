@@ -217,38 +217,24 @@ final class Test_DescriptorExtensions: XCTestCase {
     ]
     let descSet = DescriptorSet(protos: fileProtos)
 
-    // ( filename, imports, implOnly imports )
-    let tests: [(String, String, String)] = [
-      ( "file", "", "" ),
-      ( "dir1/file", "import foo", "@_implementationOnly import foo" ),
-      ( "dir2/file", "", "" ),
-      ( "file4", "import bar\nimport foo", "@_implementationOnly import bar\n@_implementationOnly import foo" ),
-      ( "file5", "", "" ),
+    // (filename, symbols)
+    let tests: [(String, [String])] = [
+      ("file", []),
+      ("dir1/file", ["foo"]),
+      ("dir2/file", []),
+      ("file4", ["bar", "foo"]),
+      ("file5", []),
     ]
 
-    for (name, expected, expectedImplOnly) in tests {
+    for (name, symbols) in tests {
       let fileDesc = descSet.files.filter{ $0.name == name }.first!
-      do {  // reexportPublicImports: false, asImplementationOnly: false
-        let namer =
-          SwiftProtobufNamer(currentFile: fileDesc,
-                             protoFileToModuleMappings: mapper)
-        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: false)
-        XCTAssertEqual(result, expected, "Looking for \(name)")
-      }
-      do {  // reexportPublicImports: true, asImplementationOnly: false - No `import publc`, same as previous
-        let namer =
-          SwiftProtobufNamer(currentFile: fileDesc,
-                             protoFileToModuleMappings: mapper)
-        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: true, asImplementationOnly: false)
-        XCTAssertEqual(result, expected, "Looking for \(name)")
-      }
-      do {  // reexportPublicImports: false, asImplementationOnly: true
-        let namer =
-          SwiftProtobufNamer(currentFile: fileDesc,
-                             protoFileToModuleMappings: mapper)
-        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: true)
-        XCTAssertEqual(result, expectedImplOnly, "Looking for \(name)")
-      }
+      assertImports(
+        for: fileDesc,
+        mappings: mapper,
+        symbols: symbols,
+        symbolsPerSection: (symbols, []),
+        message: "Looking for \(name)"
+      )
     }
   }
 
@@ -415,52 +401,101 @@ final class Test_DescriptorExtensions: XCTestCase {
     ]
     let descSet = DescriptorSet(protos: fileProtos)
 
-    // ( filename, imports, reExportPublicImports imports, implOnly imports )
-    let tests: [(String, String, String, String)] = [
-      ( "a.proto",
-        "", "", "" ),
-      ( "imports_a_publicly.proto",
-        "import A",
-        "// Use of 'import public' causes re-exports:\n@_exported import enum A.E\n@_exported import struct A.A",
-        "@_implementationOnly import A" ),
-      ( "imports_imports_a_publicly.proto",
-        "import ImportsAPublicly",
-        "// Use of 'import public' causes re-exports:\n@_exported import enum A.E\n@_exported import struct A.A\n@_exported import struct ImportsAPublicly.ImportsAPublicly",
-        "@_implementationOnly import ImportsAPublicly" ),
-      ( "uses_a_transitively.proto",
-        "import ImportsAPublicly",  // this reexports A, so we don't directly pull in A.
-        "import ImportsAPublicly",  // just a plain `import`, nothing to re-export.
-        "@_implementationOnly import ImportsAPublicly" ),
-      ( "uses_a_transitively2.proto",
-        "import ImportsImportsAPublicly",  // this chain reexports A, so we don't directly pull in A.
-        "import ImportsImportsAPublicly",  // just a plain `import`, nothing to re-export.
-        "@_implementationOnly import ImportsImportsAPublicly" ),
+    // (filename, symbols, symbolsPerSection)
+    let tests: [(String, [String], (imported: [String], exported: [String]))] = [
+      ("a.proto", [], ([], [])),
+      ("imports_a_publicly.proto", ["A"], ( [], ["enum A.E", "struct A.A"])),
+      ("imports_imports_a_publicly.proto",
+       ["ImportsAPublicly"],
+       ([], ["enum A.E", "struct A.A", "struct ImportsAPublicly.ImportsAPublicly"])
+      ),
+      // this reexports A, so we don't directly pull in A.
+      // just a plain `import`, nothing to re-export.
+      ("uses_a_transitively.proto", ["ImportsAPublicly"], (["ImportsAPublicly"], [])),
+      // this chain reexports A, so we don't directly pull in A.
+      // just a plain `import`, nothing to re-export.
+      ("uses_a_transitively2.proto", ["ImportsImportsAPublicly"], (["ImportsImportsAPublicly"], [])),
     ]
 
-    for (name, expected, expectedReExport, expectedImplOnly) in tests {
+    for (name, symbols, symbolsPerSection) in tests {
       let fileDesc = descSet.files.filter{ $0.name == name }.first!
-      do {  // reexportPublicImports: false, asImplementationOnly: false
-        let namer =
-          SwiftProtobufNamer(currentFile: fileDesc,
-                             protoFileToModuleMappings: mapper)
-        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: false)
-        XCTAssertEqual(result, expected, "Looking for \(name)")
-      }
-      do {  // reexportPublicImports: true, asImplementationOnly: false
-        let namer =
-          SwiftProtobufNamer(currentFile: fileDesc,
-                             protoFileToModuleMappings: mapper)
-        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: true, asImplementationOnly: false)
-        XCTAssertEqual(result, expectedReExport, "Looking for \(name)")
-      }
-      do {  // reexportPublicImports: false, asImplementationOnly: true
-        let namer =
-          SwiftProtobufNamer(currentFile: fileDesc,
-                             protoFileToModuleMappings: mapper)
-        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: true)
-        XCTAssertEqual(result, expectedImplOnly, "Looking for \(name)")
-      }
+      assertImports(
+        for: fileDesc,
+        mappings: mapper,
+        symbols: symbols,
+        symbolsPerSection: symbolsPerSection,
+        message: "Looking for \(name)"
+      )
     }
   }
 
+  private func assertImports(
+    for fileDesc: FileDescriptor,
+    mappings: ProtoFileToModuleMappings,
+    symbols: [String],
+    symbolsPerSection: (imported: [String], exported: [String]),
+    message: String,
+    file: StaticString = #filePath,
+    line: UInt = #line
+  ) {
+    func symbolsSections(importDirective: String, exportedImportDirective: String) -> String {
+      let expectedExported = symbolsPerSection.exported.isEmpty ? "" : """
+        // Use of 'import public' causes re-exports:
+        \(symbolsPerSection.exported.map { "@_exported \(exportedImportDirective) \($0)" }.joined(separator: "\n"))
+        """
+      var expectedLines = symbolsPerSection.imported.map { "\(importDirective) \($0)" }
+      if !expectedExported.isEmpty {
+        expectedLines.append(expectedExported)
+      }
+      return expectedLines.joined(separator: "\n")
+    }
+    do {
+      let result = fileDesc.computeImports(mappings: mappings, directive: .plain)
+      let expected = symbols.map { "import \($0)" }.joined(separator: "\n")
+      XCTAssertEqual(expected, result, message, file: file, line: line)
+    }
+    do {
+      let result = fileDesc.computeImports(mappings: mappings, directive: .plain, reexport: true)
+      let expected = symbolsSections(importDirective: "import", exportedImportDirective: "import")
+      XCTAssertEqual(expected, result, message, file: file, line: line)
+    }
+    do {
+      let result = fileDesc.computeImports(mappings: mappings, directive: .accessLevel(.internal))
+      let expected = symbols.map { "internal import \($0)" }.joined(separator: "\n")
+      XCTAssertEqual(expected, result, message, file: file, line: line)
+    }
+    do {
+      let result = fileDesc.computeImports(mappings: mappings, directive: .accessLevel(.package), reexport: true)
+      let expected = symbolsSections(importDirective: "package import", exportedImportDirective: "public import")
+      XCTAssertEqual(expected, result, message, file: file, line: line)
+    }
+    do {
+      let result = fileDesc.computeImports(mappings: mappings, directive: .accessLevel(.public), reexport: true)
+      let expected = symbolsSections(importDirective: "public import", exportedImportDirective: "public import")
+      XCTAssertEqual(expected, result, message, file: file, line: line)
+    }
+    do {
+      let result = fileDesc.computeImports(mappings: mappings, directive: .implementationOnly)
+      let expected = symbols.map { "@_implementationOnly import \($0)" }.joined(separator: "\n")
+      XCTAssertEqual(expected, result, message, file: file, line: line)
+    }
+  }
+}
+
+private extension FileDescriptor {
+  func computeImports(
+    mappings: ProtoFileToModuleMappings,
+    directive: GeneratorOptions.ImportDirective,
+    reexport: Bool = false
+  ) -> String {
+    let namer = SwiftProtobufNamer(
+        currentFile: self,
+        protoFileToModuleMappings: mappings
+    )
+    return computeImports(
+        namer: namer,
+        directive: directive,
+        reexportPublicImports: reexport
+    )
+  }
 }

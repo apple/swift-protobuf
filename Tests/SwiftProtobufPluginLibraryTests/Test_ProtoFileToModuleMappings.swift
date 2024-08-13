@@ -13,19 +13,6 @@ import SwiftProtobuf
 import SwiftProtobufTestHelpers
 @testable import SwiftProtobufPluginLibrary
 
-// Support equality to simplify testing of getting the correct errors.
-extension ProtoFileToModuleMappings.LoadError: Equatable {
-  public static func ==(lhs: ProtoFileToModuleMappings.LoadError, rhs: ProtoFileToModuleMappings.LoadError) -> Bool {
-    switch (lhs, rhs) {
-    case (.entryMissingModuleName(let l), .entryMissingModuleName(let r)): return l == r
-    case (.entryHasNoProtoPaths(let l), .entryHasNoProtoPaths(let r)): return l == r
-    case (.duplicateProtoPathMapping(let l1, let l2, let l3),
-          .duplicateProtoPathMapping(let r1, let r2, let r3)): return l1 == r1 && l2 == r2 && l3 == r3
-    default: return false
-    }
-  }
-}
-
 // Helpers to make test cases.
 
 fileprivate typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto

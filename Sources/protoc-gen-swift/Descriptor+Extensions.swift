@@ -49,17 +49,15 @@ extension FileDescriptor {
   // Aside: This could be moved into the plugin library, but it doesn't seem
   // like anyone else would need the logic. Swift GRPC support probably stick
   // with the support for the module mappings.
-  public func computeImports(
+  func computeImports(
     namer: SwiftProtobufNamer,
-    reexportPublicImports: Bool,
-    asImplementationOnly: Bool
+    directive: GeneratorOptions.ImportDirective,
+    reexportPublicImports: Bool
   ) -> String {
     // The namer should be configured with the module this file generated for.
     assert(namer.targetModule == (namer.mappings.moduleName(forFile: self) ?? ""))
     // Both options can't be enabled.
-    assert(!reexportPublicImports ||
-           !asImplementationOnly ||
-           reexportPublicImports != asImplementationOnly)
+    assert(!reexportPublicImports || directive != .implementationOnly)
 
     guard namer.mappings.hasMappings else {
       // No module mappings? Everything must be the same module, so no Swift
@@ -72,7 +70,7 @@ extension FileDescriptor {
       return ""
     }
 
-    let directive = asImplementationOnly ? "@_implementationOnly import" : "import"
+    let importSnippet = directive.snippet
     var imports = Set<String>()
     for dependency in dependencies {
       if SwiftProtobufInfo.isBundledProto(file: dependency) {
@@ -86,7 +84,7 @@ extension FileDescriptor {
       if let depModule = namer.mappings.moduleName(forFile: dependency),
          depModule != namer.targetModule {
         // Different module, import it.
-        imports.insert("\(directive) \(depModule)")
+        imports.insert("\(importSnippet) \(depModule)")
       }
     }
 
@@ -94,8 +92,11 @@ extension FileDescriptor {
     // `import public` files, as any transitive `import public` directives
     // would have already re-exported the types, so everything this file needs
     // will be covered by the above imports.
-    let exportingImports: [String] =
-      reexportPublicImports ? computeSymbolReExports(namer: namer) : [String]()
+    let exportingImports: [String] = reexportPublicImports
+      ? computeSymbolReExports(
+        namer: namer,
+        useAccessLevelOnImports: directive.isAccessLevel)
+      : [String]()
 
     var result = imports.sorted().joined(separator: "\n")
     if !exportingImports.isEmpty {
@@ -109,7 +110,7 @@ extension FileDescriptor {
   }
 
   // Internal helper to `computeImports(...)`.
-  private func computeSymbolReExports(namer: SwiftProtobufNamer) -> [String] {
+  private func computeSymbolReExports(namer: SwiftProtobufNamer, useAccessLevelOnImports: Bool) -> [String] {
     var result = [String]()
 
     // To handle re-exporting, recursively walk all the `import public` files
@@ -119,6 +120,7 @@ extension FileDescriptor {
     // authored code.
     var toScan = publicDependencies
     var visited = Set<String>()
+    let exportedImportDirective = "@_exported\(useAccessLevelOnImports ? " public" : "") import"
     while let dependency = toScan.popLast() {
       let dependencyName = dependency.name
       if visited.contains(dependencyName) { continue }
@@ -144,16 +146,16 @@ extension FileDescriptor {
       // chained imports.
 
       for m in dependency.messages {
-        result.append("@_exported import struct \(namer.fullName(message: m))")
+        result.append("\(exportedImportDirective) struct \(namer.fullName(message: m))")
       }
       for e in dependency.enums {
-        result.append("@_exported import enum \(namer.fullName(enum: e))")
+        result.append("\(exportedImportDirective) enum \(namer.fullName(enum: e))")
       }
       // There is nothing we can do for the Swift extensions declared on the
       // extended Messages, best we can do is expose the raw extensions
       // themselves.
       for e in dependency.extensions {
-        result.append("@_exported import let \(namer.fullName(extensionField: e))")
+        result.append("\(exportedImportDirective) let \(namer.fullName(extensionField: e))")
       }
     }
     return result

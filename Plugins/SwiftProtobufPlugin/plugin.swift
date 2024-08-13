@@ -85,6 +85,8 @@ struct SwiftProtobufPlugin {
             var fileNaming: FileNaming?
             /// Whether internal imports should be annotated as `@_implementationOnly`.
             var implementationOnlyImports: Bool?
+            /// Whether import statements should be preceded with visibility.
+            var useAccessLevelOnImports: Bool?
         }
 
         /// The path to the `protoc` binary.
@@ -186,6 +188,11 @@ struct SwiftProtobufPlugin {
         // Add the implementation only imports flag if it was set
         if let implementationOnlyImports = invocation.implementationOnlyImports {
             protocArgs.append("--swift_opt=ImplementationOnlyImports=\(implementationOnlyImports)")
+        }
+
+        // Add the useAccessLevelOnImports only imports flag if it was set
+        if let useAccessLevelOnImports = invocation.useAccessLevelOnImports {
+            protocArgs.append("--swift_opt=UseAccessLevelOnImports=\(useAccessLevelOnImports)")
         }
 
         var inputFiles = [Path]()

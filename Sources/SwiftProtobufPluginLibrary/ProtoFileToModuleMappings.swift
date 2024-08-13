@@ -20,7 +20,7 @@ private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
 public struct ProtoFileToModuleMappings {
 
   /// Errors raised from parsing mappings
-  public enum LoadError: Error {
+  public enum LoadError: Error, Equatable {
     /// Raised if the path wasn't found.
     case failToOpen(path: String)
     /// Raised if an mapping entry in the protobuf doesn't have a module name.
