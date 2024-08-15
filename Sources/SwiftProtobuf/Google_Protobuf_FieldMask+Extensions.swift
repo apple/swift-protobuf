@@ -282,7 +282,7 @@ extension Google_Protobuf_FieldMask {
   public func intersect(
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
-    let set = mask.pathsSet
+    let set = Set<String>(mask.paths)
     var paths: [String] = []
     var buffer = Set<String>()
     for path in self.paths where set.contains(path) && !buffer.contains(path) {
@@ -302,7 +302,7 @@ extension Google_Protobuf_FieldMask {
   public func subtract(
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
-    let set = mask.pathsSet
+    let set = Set<String>(mask.paths)
     var paths: [String] = []
     var buffer = Set<String>()
     for path in self.paths where !set.contains(path) && !buffer.contains(path) {
@@ -328,11 +328,6 @@ extension Google_Protobuf_FieldMask {
       }
     }
     return false
-  }
-
-  // Set containing paths of FieldMask
-  private var pathsSet: Set<String> {
-    .init(paths)
   }
 }
 

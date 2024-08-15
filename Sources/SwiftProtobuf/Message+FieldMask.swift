@@ -68,7 +68,7 @@ extension Message {
   ///   - source: Message that should be merged to the original one.
   ///   - fieldMask: FieldMask specifies which fields should be merged.
   public mutating func merge(
-    with source: Self,
+    from source: Self,
     fieldMask: Google_Protobuf_FieldMask,
     mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
   ) throws {
@@ -97,7 +97,7 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
   /// - Returns: Boolean determines if the message is modified
   @discardableResult
   public mutating func trim(
-    fieldMask: Google_Protobuf_FieldMask
+    keeping fieldMask: Google_Protobuf_FieldMask
   ) -> Bool {
     if !fieldMask.isValid(for: Self.self) {
       return false
@@ -107,7 +107,7 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
     }
     var tmp = Self(removingAllFieldsOf: self)
     do {
-      try tmp.merge(with: self, fieldMask: fieldMask)
+      try tmp.merge(from: self, fieldMask: fieldMask)
       let changed = tmp != self
       self = tmp
       return changed
@@ -119,19 +119,14 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
 
 private extension Message {
   init(removingAllFieldsOf message: Self) {
-    if let type = Self.self as? any ExtensibleMessage.Type,
+    let newMessage: Self = .init()
+    if var newExtensible = newMessage as? any ExtensibleMessage,
        let extensible = message as? any ExtensibleMessage {
-      self = type.init(extensionsOf: extensible) as? Self ?? .init()
+      newExtensible._protobuf_extensionFieldValues = extensible._protobuf_extensionFieldValues
+      self = newExtensible as? Self ?? newMessage
     } else {
-      self = .init()
+      self = newMessage
     }
     self.unknownFields = message.unknownFields
-  }
-}
-
-private extension Message where Self: ExtensibleMessage {
-  init(extensionsOf message: any ExtensibleMessage) {
-    self.init()
-    _protobuf_extensionFieldValues = message._protobuf_extensionFieldValues
   }
 }

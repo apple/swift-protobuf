@@ -124,12 +124,12 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         }
 
         // Checks nested message merge
-        try message.merge(with: secondMessage, fieldMask: .init(protoPaths: "optional_nested_message.bb"))
+        try message.merge(from: secondMessage, fieldMask: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertEqual(message.optionalInt32, 1)
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
 
         // Checks primitive type merge
-        try message.merge(with: secondMessage, fieldMask: .init(protoPaths: "optional_int32"))
+        try message.merge(from: secondMessage, fieldMask: .init(protoPaths: "optional_int32"))
         XCTAssertEqual(message.optionalInt32, 2)
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
     }
@@ -147,13 +147,13 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let fieldMask = Google_Protobuf_FieldMask(protoPaths: ["repeated_int32"])
 
         // Checks without replacing repeated fields
-        try message.merge(with: secondMessage, fieldMask: fieldMask)
+        try message.merge(from: secondMessage, fieldMask: fieldMask)
         XCTAssertEqual(message.repeatedInt32, [1, 2, 3, 4])
 
         // Checks with replacing repeated fields
         var options = Google_Protobuf_FieldMask.MergeOptions()
         options.replaceRepeatedFields = true
-        try message.merge(with: secondMessage, fieldMask: fieldMask, mergeOption: options)
+        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: options)
         XCTAssertEqual(message.repeatedInt32, [3, 4])
     }
 
@@ -170,13 +170,13 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let fieldMask = Google_Protobuf_FieldMask(protoPaths: ["map_int32_string"])
 
         // Checks without replacing repeated fields
-        try message.merge(with: secondMessage, fieldMask: fieldMask)
+        try message.merge(from: secondMessage, fieldMask: fieldMask)
         XCTAssertEqual(message.mapInt32String, [1: "a", 2: "b"])
 
         // Checks with replacing repeated fields
         var options = Google_Protobuf_FieldMask.MergeOptions()
         options.replaceRepeatedFields = true
-        try message.merge(with: secondMessage, fieldMask: fieldMask, mergeOption: options)
+        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: options)
         XCTAssertEqual(message.mapInt32String, [2: "b"])
     }
 
@@ -190,21 +190,21 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         }
 
         // Checks trim to be successful.
-        let r1 = message.trim(fieldMask: .init(protoPaths: "optional_nested_message.bb"))
+        let r1 = message.trim(keeping: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertTrue(r1)
         XCTAssertEqual(message.optionalInt32, 0)
         XCTAssertEqual(message.optionalNestedMessage.bb, 2)
 
         // Checks trim should do nothing with an empty fieldMask.
-        let r2 = message.trim(fieldMask: .init())
+        let r2 = message.trim(keeping: .init())
         XCTAssertFalse(r2)
 
         // Checks trim should return false if nothing has been changed.
-        let r3 = message.trim(fieldMask: .init(protoPaths: "optional_nested_message.bb"))
+        let r3 = message.trim(keeping: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertFalse(r3)
 
         // Checks trim to be unsuccessful with an invalid fieldMask.
-        let r4 = message.trim(fieldMask: .init(protoPaths: "invalid_path"))
+        let r4 = message.trim(keeping: .init(protoPaths: "invalid_path"))
         XCTAssertFalse(r4)
     }
 
@@ -216,13 +216,13 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let mask = Google_Protobuf_FieldMask(protoPaths: ["singular_string"])
 
         // Checks trim should retain extensions while removes other fields.
-        let r1 = message.trim(fieldMask: mask)
+        let r1 = message.trim(keeping: mask)
         XCTAssertTrue(r1)
         XCTAssertEqual(message.SwiftProtoTesting_Fuzz_singularInt32Ext, .init(1))
         XCTAssertEqual(message.singularInt32, .init(0))
 
         // Checks trim should do nothing (fields are already removed) and still retain extension fields.
-        let r2 = message.trim(fieldMask: mask)
+        let r2 = message.trim(keeping: mask)
         XCTAssertFalse(r2)
         XCTAssertEqual(message.SwiftProtoTesting_Fuzz_singularInt32Ext, .init(1))
     }
@@ -478,7 +478,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             m.mapInt32AnEnum = [1: .one]
             m.mapInt32Message = [1: .init()]
         }
-        try m1.merge(with: m2, fieldMask: .init(allFieldsOf: SwiftProtoTesting_Fuzz_Message.self))
+        try m1.merge(from: m2, fieldMask: .init(allFieldsOf: SwiftProtoTesting_Fuzz_Message.self))
         XCTAssertEqual(m1.singularInt32, m2.singularInt32)
         XCTAssertEqual(m1.singularInt64, m2.singularInt64)
         XCTAssertEqual(m1.singularUint32, m2.singularUint32)
@@ -620,7 +620,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             "singular_sfixed32",
             "singular_sfixed64"
         ])
-        try m1.merge(with: m2, fieldMask: mask)
+        try m1.merge(from: m2, fieldMask: mask)
         XCTAssertEqual(m1.singularInt32, m2.singularInt32)
         XCTAssertEqual(m1.singularInt64, m2.singularInt64)
         XCTAssertEqual(m1.singularUint32, m2.singularUint32)
@@ -690,7 +690,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             m.singularInt32 = 1
         }
         let m2 = SwiftProtoTesting_Fuzz_Message()
-        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["singular_int32"]))
+        try m1.merge(from: m2, fieldMask: .init(protoPaths: ["singular_int32"]))
         XCTAssertEqual(m1.singularInt32, m2.singularInt32)
     }
 
@@ -700,7 +700,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             m.defaultInt32 = 1
         }
         let m2 = SwiftProtoTesting_TestAllTypes()
-        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["default_int32"]))
+        try m1.merge(from: m2, fieldMask: .init(protoPaths: ["default_int32"]))
         XCTAssertEqual(m1.defaultInt32, m2.defaultInt32)
     }
 
@@ -725,7 +725,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             m.optionalNestedEnum = .bar
         }
         let m2 = SwiftProtoTesting_Proto3_TestAllTypes()
-        try m1.merge(with: m2, fieldMask: .init(protoPaths: [
+        try m1.merge(from: m2, fieldMask: .init(protoPaths: [
             "optional_int32",
             "optional_int64",
             "optional_double",
@@ -779,9 +779,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
                 }
             }
         }
-        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["singular_message.singular_message"]))
+        try m1.merge(from: m2, fieldMask: .init(protoPaths: ["singular_message.singular_message"]))
         XCTAssertEqual(m1.singularMessage.singularMessage.singularInt32, Int32(1))
-        try m1.merge(with: m3, fieldMask: .init(protoPaths: ["singular_message.singular_message.singular_int32"]))
+        try m1.merge(from: m3, fieldMask: .init(protoPaths: ["singular_message.singular_message.singular_int32"]))
         XCTAssertEqual(m1.singularMessage.singularMessage.singularInt32, Int32(2))
     }
 
@@ -793,7 +793,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
                 _m.groupField = 1
             }
         }
-        try m1.merge(with: m2, fieldMask: .init(protoPaths: ["SingularGroup.group_field"]))
+        try m1.merge(from: m2, fieldMask: .init(protoPaths: ["SingularGroup.group_field"]))
         XCTAssertEqual(m1.singularGroup.groupField, m2.singularGroup.groupField)
     }
 
@@ -804,13 +804,13 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             m.singularGroup = .with { $0.groupField = 1 }
         }
         // should do nothing with json path (should not merge)
-        try m1.merge(with: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
+        try m1.merge(from: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
         XCTAssertNotEqual(m1.singularGroup, m2.singularGroup)
         // should merge with proto path
-        try m1.merge(with: m2, fieldMask: .with({ $0.paths = ["SingularGroup"] }))
+        try m1.merge(from: m2, fieldMask: .with({ $0.paths = ["SingularGroup"] }))
         XCTAssertEqual(m1.singularGroup, m2.singularGroup)
         // should do nothing with json path (do not clear field)
-        try m1.merge(with: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
+        try m1.merge(from: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
         XCTAssertEqual(m1.singularGroup, m2.singularGroup)
     }
 }
