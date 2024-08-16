@@ -13,11 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: We should have utilities to apply a fieldmask to an arbitrary
-// message, intersect two fieldmasks, etc.
-// Google's C++ implementation does this by having utilities
-// to build a tree of field paths that can be easily intersected,
-// unioned, traversed to apply to submessages, etc.
 
 // True if the string only contains printable (non-control)
 // ASCII characters.  Note: This follows the ASCII standard;
@@ -182,5 +177,192 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
       }
     }
     return "\"" + jsonPaths.joined(separator: ",") + "\""
+  }
+}
+
+extension Google_Protobuf_FieldMask {
+
+  /// Initiates a field mask with all fields of the message type.
+  ///
+  /// - Parameter messageType: Message type to get all paths from.
+  public init<M: Message & _ProtoNameProviding>(
+    allFieldsOf messageType: M.Type
+  ) {
+    self = .with { mask in
+      mask.paths = M.allProtoNames
+    }
+  }
+
+  /// Initiates a field mask from some particular field numbers of a message
+  ///
+  /// - Parameters:
+  ///   - messageType: Message type to get all paths from.
+  ///   - fieldNumbers: Field numbers of paths to be included.
+  /// - Returns: Field mask that include paths of corresponding field numbers.
+  /// - Throws: `FieldMaskError.invalidFieldNumber` if the field number
+  ///  is not on the message
+  public init<M: Message & _ProtoNameProviding>(
+    fieldNumbers: [Int],
+    of messageType: M.Type
+  ) throws {
+    var paths: [String] = []
+    for number in fieldNumbers {
+      guard let name = M.protoName(for: number) else {
+        throw FieldMaskError.invalidFieldNumber
+      }
+      paths.append(name)
+    }
+    self = .with { mask in
+      mask.paths = paths
+    }
+  }
+}
+
+extension Google_Protobuf_FieldMask {
+
+  /// Adds a path to FieldMask after checking whether the given path is valid.
+  /// This method check-fails if the path is not a valid path for Message type.
+  ///
+  /// - Parameters:
+  ///   - path: Path to be added to FieldMask.
+  ///   - messageType: Message type to check validity.
+  public mutating func addPath<M: Message>(
+    _ path: String,
+    of messageType: M.Type
+  ) throws {
+    guard M.isPathValid(path) else {
+      throw FieldMaskError.invalidPath
+    }
+    paths.append(path)
+  }
+
+  /// Converts a FieldMask to the canonical form. It will:
+  ///   1. Remove paths that are covered by another path. For example,
+  ///      "foo.bar" is covered by "foo" and will be removed if "foo"
+  ///      is also in the FieldMask.
+  ///   2. Sort all paths in alphabetical order.
+  public var canonical: Google_Protobuf_FieldMask {
+    var mask = Google_Protobuf_FieldMask()
+    let sortedPaths = self.paths.sorted()
+    for path in sortedPaths {
+      if let lastPath = mask.paths.last {
+        if path != lastPath, !path.hasPrefix("\(lastPath).") {
+          mask.paths.append(path)
+        }
+      } else {
+        mask.paths.append(path)
+      }
+    }
+    return mask
+  }
+
+  /// Creates an union of two FieldMasks.
+  ///
+  /// - Parameter mask: FieldMask to union with.
+  /// - Returns: FieldMask with union of two path sets.
+  public func union(
+    _ mask: Google_Protobuf_FieldMask
+  ) -> Google_Protobuf_FieldMask {
+    var buffer: Set<String> = .init()
+    var paths: [String] = []
+    let allPaths = self.paths + mask.paths
+    for path in allPaths where !buffer.contains(path) {
+      buffer.insert(path)
+      paths.append(path)
+    }
+    return .with { mask in
+      mask.paths = paths
+    }
+  }
+
+  /// Creates an intersection of two FieldMasks.
+  ///
+  /// - Parameter mask: FieldMask to intersect with.
+  /// - Returns: FieldMask with intersection of two path sets.
+  public func intersect(
+    _ mask: Google_Protobuf_FieldMask
+  ) -> Google_Protobuf_FieldMask {
+    let set = Set<String>(mask.paths)
+    var paths: [String] = []
+    var buffer = Set<String>()
+    for path in self.paths where set.contains(path) && !buffer.contains(path) {
+      buffer.insert(path)
+      paths.append(path)
+    }
+    return .with { mask in
+      mask.paths = paths
+    }
+  }
+
+  /// Creates a FieldMasks with paths of the original FieldMask
+  /// that does not included in mask.
+  ///
+  /// - Parameter mask: FieldMask with paths should be substracted.
+  /// - Returns: FieldMask with all paths does not included in mask.
+  public func subtract(
+    _ mask: Google_Protobuf_FieldMask
+  ) -> Google_Protobuf_FieldMask {
+    let set = Set<String>(mask.paths)
+    var paths: [String] = []
+    var buffer = Set<String>()
+    for path in self.paths where !set.contains(path) && !buffer.contains(path) {
+      buffer.insert(path)
+      paths.append(path)
+    }
+    return .with { mask in
+      mask.paths = paths
+    }
+  }
+
+  /// Returns true if path is covered by the given FieldMask. Note that path
+  /// "foo.bar" covers all paths like "foo.bar.baz", "foo.bar.quz.x", etc.
+  /// Also note that parent paths are not covered by explicit child path, i.e.
+  /// "foo.bar" does NOT cover "foo", even if "bar" is the only child.
+  ///
+  /// - Parameter path: Path to be checked.
+  /// - Returns: Boolean determines is path covered.
+  public func contains(_ path: String) -> Bool {
+    for fieldMaskPath in paths {
+      if path.hasPrefix("\(fieldMaskPath).") || fieldMaskPath == path {
+        return true
+      }
+    }
+    return false
+  }
+}
+
+extension Google_Protobuf_FieldMask {
+
+  /// Checks whether the given FieldMask is valid for type M.
+  ///
+  /// - Parameter messageType: Message type to paths check with.
+  /// - Returns: Boolean determines FieldMask is valid.
+  public func isValid<M: Message & _ProtoNameProviding>(
+    for messageType: M.Type
+  ) -> Bool {
+    var message = M()
+    return paths.allSatisfy { path in
+      message.isPathValid(path)
+    }
+  }
+}
+
+/// Describes errors could happen during FieldMask utilities.
+public enum FieldMaskError: Error {
+
+  /// Describes a path is invalid for a Message type.
+  case invalidPath
+
+  /// Describes a fieldNumber is invalid for a Message type.
+  case invalidFieldNumber
+}
+
+private extension Message where Self: _ProtoNameProviding {
+  static func protoName(for number: Int) -> String? {
+    Self._protobuf_nameMap.names(for: number)?.proto.description
+  }
+
+  static var allProtoNames: [String] {
+    Self._protobuf_nameMap.names.map(\.description)
   }
 }
