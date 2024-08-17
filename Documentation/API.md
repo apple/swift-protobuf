@@ -617,14 +617,40 @@ public func +(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> 
 
 ### Google_Protobuf_FieldMask
 
-The `Google_Protobuf_FieldMask` contains a list of field paths, where each path is a string that identifies a particular field or nested field in the message. This is particularly useful for selectively updating or trimming messages.
+`Google_Protobuf_FieldMask` is used to specify which fields in 
+a protocol buffer message should be included in operations such as updates or merges. 
+It allows precise control over which parts of the message 
+are affected by defining a list of field paths.
+
+For example, consider a protocol buffer message with nested fields:
 
 ```protobuf
-message FieldMask {
-  // The set of field mask paths.
-  repeated string paths = 1;
+message ParentMessage {
+  string name = 1;
+  ChildMessage child = 2;
+
+  message ChildMessage {
+    string childName = 1;
+    int32 age = 2;
+  }
 }
 ```
+
+If you want to update only the `name` field of `ParentMessage` 
+and the `childName` field within `ChildMessage`, 
+you would define a `FieldMask` as follows:
+
+```swift
+let fieldMask = Google_Protobuf_FieldMask.with { 
+  $0.paths = ["name", "child.childName"] 
+}
+```
+
+In this example, the `paths` list includes `"name"` to target 
+the `name` field in `ParentMessage` and `"child.childName"` 
+to target the `childName` field inside the nested `ChildMessage`. 
+This setup allows you to perform operations that affect 
+only these specified fields while leaving others unchanged.
 
 ## Extensions
 
@@ -710,7 +736,13 @@ concern because of Swift's common use for mobile applications.
 
 ### Merging Two Messages
 
-The `merge(from:fieldMask:)` function in Swift Protobuf enables developers to selectively merge fields from one message into another, guided by a `Google_Protobuf_FieldMask`. This method is particularly useful when you need to update only specific fields in a message without affecting others. The `merge` function is available as a method on `Message` types and requires two parameters: the source message (`from`) containing the data to merge and the `fieldMask` that specifies which fields should be updated.
+The `merge(from:fieldMask:)` function in Swift Protobuf enables developers 
+to selectively merge fields from one message into another, guided by a `Google_Protobuf_FieldMask`. 
+This method is particularly useful when you need to update only specific 
+fields in a message without affecting others. 
+The `merge` function is available as a method on `Message` types and requires two parameters: 
+the source message (`from`) containing the data to merge 
+and the `fieldMask` that specifies which fields should be updated.
 
 For example, consider a message with the following structure:
 
@@ -728,7 +760,8 @@ let message1: ExampleMessage = .with { $0.foo = "foo1" }
 let message2: ExampleMessage = .with { $0.bar = "bar2" }
 ```
 
-To merge `message2` into `message1` but only update the `bar` field, you can define a `Google_Protobuf_FieldMask` like this:
+To merge `message2` into `message1` but only update the `bar` field, 
+you can define a `Google_Protobuf_FieldMask` like this:
 
 ```swift
 let fieldMask = Google_Protobuf_FieldMask.with { $0.paths = ["bar"] }
@@ -740,13 +773,28 @@ Then, you apply the merge:
 try message1.merge(from: message2, fieldMask: fieldMask)
 ```
 
-After this operation, `message1.bar` will have the value `"bar2"` from `message2`, while `message1.foo` remains `"foo1"`. The `merge` function operates in-place, meaning it directly modifies `message1`. This targeted approach is beneficial when handling partial updates, as it prevents unintended changes to other fields. Proper configuration of the `fieldMask` is essential to ensure that only the desired fields are updated. Additionally, since the `merge` function may throw errors if the operation fails, it's important to handle these exceptions appropriately. This API is a powerful tool for managing partial updates in protocol buffer messages, providing developers with precise control over the merging process.
+After this operation, `message1.bar` will have the value `"bar2"` from `message2`, 
+while `message1.foo` remains `"foo1"`. The `merge` function operates in-place, 
+meaning it directly modifies `message1`. 
+This targeted approach is beneficial when handling partial updates, 
+as it prevents unintended changes to other fields. 
+Proper configuration of the `fieldMask` is essential to ensure that only the desired 
+fields are updated. 
+Additionally, since the `merge` function may throw errors if the operation fails, 
+it's important to handle these exceptions appropriately. 
+This API is a powerful tool for managing partial updates in protocol buffer messages, 
+providing developers with precise control over the merging process.
 
 ### Trimming a Message
 
-The `trim(keeping:)` function allows developers to retain only specific fields in a protocol buffer message while clearing the rest. This function is particularly useful when you want to ensure that only certain fields are preserved in a message, effectively "trimming" the message to contain just the necessary data.
+The `trim(keeping:)` function allows developers to retain only specific 
+fields in a protocol buffer message while clearing the rest. 
+This function is particularly useful when you want to ensure that only certain 
+fields are preserved in a message, effectively "trimming" the message 
+to contain just the necessary data.
 
-Consider the `ExampleMessage` structure from the previous example. Suppose you have an instance of `ExampleMessage` initialized as follows:
+Consider the `ExampleMessage` structure from the previous example. 
+Suppose you have an instance of `ExampleMessage` initialized as follows:
 
 ```swift
 let message = ExampleMessage.with {
@@ -755,7 +803,8 @@ let message = ExampleMessage.with {
 }
 ```
 
-If you want to trim this message so that only the `bar` field retains its value, you can define a `Google_Protobuf_FieldMask` like this:
+If you want to trim this message so that only the `bar` field retains its value,
+you can define a `Google_Protobuf_FieldMask` like this:
 
 ```swift
 let fieldMask = Google_Protobuf_FieldMask.with { $0.paths = ["bar"] }
@@ -767,7 +816,17 @@ Then, you apply the `trim` function:
 message.trim(keeping: fieldMask)
 ```
 
-After this operation, the `bar` field in `message` will still have the value `"bar"`, while the `foo` field will be cleared, resetting to its default value (an empty string, in this case). The `trim(keeping:)` function is performed in-place, meaning it directly modifies the original message. This function is ideal for scenarios where it's necessary to remove all but a few specified fields, ensuring that the resulting message contains only the data you want to keep. This precise control over the message structure can be essential when working with large or complex messages, where only a subset of the data is relevant for a particular operation or transmission. The `trim` function enhances the flexibility of message management in Swift Protobuf, making it easier to handle scenarios where selective field retention is required.
+After this operation, the `bar` field in `message` will still have the value `"bar"`, 
+while the `foo` field will be cleared, resetting to its default value (an empty string, 
+in this case). The `trim(keeping:)` function is performed in-place, meaning it directly 
+modifies the original message. 
+This function is ideal for scenarios where it's necessary to remove all but a few 
+specified fields, ensuring that the resulting message contains only the data you want to keep. 
+This precise control over the message structure can be essential when working with 
+large or complex messages, where only a subset of the data is relevant for a 
+particular operation or transmission. The `trim` function enhances the flexibility 
+of message management in Swift Protobuf, making it easier to handle scenarios 
+where selective field retention is required.
 
 ## Aside:  proto2 vs. proto3
 
