@@ -615,7 +615,7 @@ public func -(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> 
 public func +(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> Google_Protobuf_Timestamp
 ```
 
-## Google_Protobuf_FieldMask
+### Google_Protobuf_FieldMask
 
 The `Google_Protobuf_FieldMask` contains a list of field paths, where each path is a string that identifies a particular field or nested field in the message. This is particularly useful for selectively updating or trimming messages.
 
