@@ -354,8 +354,8 @@ SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
 	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test.proto \
 	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test2.proto \
 	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_delimited.proto \
-	Protos/SwiftProtobufPluginLibraryTests/google/protobuf/unittest_delimited.proto \
-	Protos/SwiftProtobufPluginLibraryTests/google/protobuf/unittest_delimited_import.proto \
+	Protos/SwiftProtobufPluginLibraryTests/unittest_delimited.proto \
+	Protos/SwiftProtobufPluginLibraryTests/unittest_delimited_import.proto \
 	Protos/SwiftProtobufPluginLibrary/google/protobuf/compiler/plugin.proto \
 	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
 

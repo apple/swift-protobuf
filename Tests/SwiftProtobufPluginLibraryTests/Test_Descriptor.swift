@@ -37,8 +37,8 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
     XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
     XCTAssertEqual(descriptorSet.files[4].name, "pluginlib_descriptor_delimited.proto")
-    XCTAssertEqual(descriptorSet.files[5].name, "google/protobuf/unittest_delimited_import.proto")
-    XCTAssertEqual(descriptorSet.files[6].name, "google/protobuf/unittest_delimited.proto")
+    XCTAssertEqual(descriptorSet.files[5].name, "unittest_delimited_import.proto")
+    XCTAssertEqual(descriptorSet.files[6].name, "unittest_delimited.proto")
     XCTAssertEqual(descriptorSet.files[7].name, "swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
