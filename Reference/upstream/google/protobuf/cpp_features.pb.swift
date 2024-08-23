@@ -55,6 +55,15 @@ struct Pb_CppFeatures: Sendable {
   /// Clears the value of `stringType`. Subsequent reads from it will return its default value.
   mutating func clearStringType() {self._stringType = nil}
 
+  var enumNameUsesStringView: Bool {
+    get {return _enumNameUsesStringView ?? false}
+    set {_enumNameUsesStringView = newValue}
+  }
+  /// Returns true if `enumNameUsesStringView` has been explicitly set.
+  var hasEnumNameUsesStringView: Bool {return self._enumNameUsesStringView != nil}
+  /// Clears the value of `enumNameUsesStringView`. Subsequent reads from it will return its default value.
+  mutating func clearEnumNameUsesStringView() {self._enumNameUsesStringView = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum StringType: SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -93,6 +102,7 @@ struct Pb_CppFeatures: Sendable {
 
   fileprivate var _legacyClosedEnum: Bool? = nil
   fileprivate var _stringType: Pb_CppFeatures.StringType? = nil
+  fileprivate var _enumNameUsesStringView: Bool? = nil
 }
 
 // MARK: - Extension support defined in cpp_features.proto.
@@ -151,6 +161,7 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "legacy_closed_enum"),
     2: .standard(proto: "string_type"),
+    3: .standard(proto: "enum_name_uses_string_view"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -161,6 +172,7 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self._legacyClosedEnum) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self._stringType) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self._enumNameUsesStringView) }()
       default: break
       }
     }
@@ -177,12 +189,16 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try { if let v = self._stringType {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
     } }()
+    try { if let v = self._enumNameUsesStringView {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_CppFeatures, rhs: Pb_CppFeatures) -> Bool {
     if lhs._legacyClosedEnum != rhs._legacyClosedEnum {return false}
     if lhs._stringType != rhs._stringType {return false}
+    if lhs._enumNameUsesStringView != rhs._enumNameUsesStringView {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
