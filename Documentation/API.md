@@ -736,8 +736,8 @@ concern because of Swift's common use for mobile applications.
 
 ### Merging Two Messages
 
-The `merge(from:fieldMask:)` function in Swift Protobuf enables developers 
-to selectively merge fields from one message into another, guided by a `Google_Protobuf_FieldMask`. 
+The `merge(from:fieldMask:)` function in Swift Protobuf selectively merges 
+fields from one message into another, guided by a `Google_Protobuf_FieldMask`. 
 This method is particularly useful when you need to update only specific 
 fields in a message without affecting others. 
 The `merge` function is available as a method on `Message` types and requires two parameters: 
@@ -801,7 +801,7 @@ The `merge` function operates in-place, meaning it directly modifies `message1`.
 
 ### Trimming a Message
 
-The `trim(keeping:)` function allows developers to retain only specific 
+The `trim(keeping:)` function retains only specific 
 fields in a protocol buffer message while clearing the rest.
 
 Consider the `ExampleMessage` structure from the previous example. 
