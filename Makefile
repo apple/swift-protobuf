@@ -335,7 +335,6 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/SwiftProtobufTests/gene
 		-I Protos/SwiftProtobufPluginLibrary \
 		-I Protos/SwiftProtobufPluginLibraryTests \
 		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/SwiftProtobufPluginLibraryTests/module_mappings.pbascii \
 		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
 		`find Protos/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
 
@@ -353,10 +352,10 @@ regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT}
 SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
 	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test.proto \
 	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test2.proto \
+	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test_import.proto \
 	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_delimited.proto \
 	Protos/SwiftProtobufPluginLibraryTests/unittest_delimited.proto \
 	Protos/SwiftProtobufPluginLibraryTests/unittest_delimited_import.proto \
-	Protos/SwiftProtobufPluginLibrary/google/protobuf/compiler/plugin.proto \
 	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
 
 Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
