@@ -142,6 +142,27 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+/// Meant to encapsulate all types of tests: successes, skips, failures, etc.
+/// Therefore, this may or may not have a failure message. Failure messages
+/// may be truncated for our failure lists.
+struct Conformance_TestStatus: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var name: String = String()
+
+  var failureMessage: String = String()
+
+  /// What an actual test name matched to in a failure list. Can be wildcarded or
+  /// an exact match without wildcards.
+  var matchedName: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 /// The conformance runner will request a list of failures as the first request.
 /// This will be known by message_type == "conformance.FailureSet", a conformance
 /// test should return a serialized FailureSet in protobuf_payload.
@@ -150,7 +171,7 @@ struct Conformance_FailureSet: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var failure: [String] = []
+  var test: [Conformance_TestStatus] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -441,10 +462,12 @@ extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FailureSet"
+extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestStatus"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "failure"),
+    1: .same(proto: "name"),
+    2: .standard(proto: "failure_message"),
+    3: .standard(proto: "matched_name"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -453,21 +476,63 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedStringField(value: &self.failure) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.failureMessage) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.matchedName) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.failure.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.failure, fieldNumber: 1)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.failureMessage.isEmpty {
+      try visitor.visitSingularStringField(value: self.failureMessage, fieldNumber: 2)
+    }
+    if !self.matchedName.isEmpty {
+      try visitor.visitSingularStringField(value: self.matchedName, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Conformance_TestStatus, rhs: Conformance_TestStatus) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.failureMessage != rhs.failureMessage {return false}
+    if lhs.matchedName != rhs.matchedName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FailureSet"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2: .same(proto: "test"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.test) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.test.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.test, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Conformance_FailureSet, rhs: Conformance_FailureSet) -> Bool {
-    if lhs.failure != rhs.failure {return false}
+    if lhs.test != rhs.test {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
