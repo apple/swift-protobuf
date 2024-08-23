@@ -22,7 +22,7 @@ package swift_descriptor_test;
 option swift_prefix = "SDT";
 
 import "google/protobuf/descriptor.proto";
-import "google/protobuf/compiler/plugin.proto";
+import "pluginlib_descriptor_test_import.proto";
 
 enum TopLevelEnum {
   VALUE_ZERO = 0;
@@ -62,7 +62,7 @@ message TopLevelMessage2 {
 
 message ExternalRefs {
   optional google.protobuf.DescriptorProto desc = 1;
-  optional google.protobuf.compiler.Version ver = 2;
+  optional swift_descriptor_test.import.Version ver = 2;
 }
 
 extend google.protobuf.FieldOptions {
@@ -77,7 +77,7 @@ message ScoperForExt {
 }
 
 service SomeService {
-  rpc Foo(google.protobuf.DescriptorProto) returns (google.protobuf.compiler.Version);
+  rpc Foo(google.protobuf.DescriptorProto) returns (swift_descriptor_test.import.Version);
   rpc Bar(TopLevelMessage) returns (TopLevelMessage2);
 }
 

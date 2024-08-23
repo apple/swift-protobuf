@@ -33,28 +33,13 @@ final class Test_Descriptor: XCTestCase {
     // descriptor.proto documents the protoc will order the files based on the import
     // from plugin on descriptor.
     XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
-    XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
+    XCTAssertEqual(descriptorSet.files[1].name, "pluginlib_descriptor_test_import.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
     XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
     XCTAssertEqual(descriptorSet.files[4].name, "pluginlib_descriptor_delimited.proto")
     XCTAssertEqual(descriptorSet.files[5].name, "unittest_delimited_import.proto")
     XCTAssertEqual(descriptorSet.files[6].name, "unittest_delimited.proto")
     XCTAssertEqual(descriptorSet.files[7].name, "swift_protobuf_module_mappings.proto")
-
-    let pluginFileDescriptor = descriptorSet.files[1]
-
-    XCTAssertEqual(pluginFileDescriptor.messages.count, 3)
-    XCTAssertEqual(pluginFileDescriptor.messages[0].fullName, "google.protobuf.compiler.Version")
-    XCTAssertNil(pluginFileDescriptor.messages[0].containingType)
-    XCTAssertEqual(pluginFileDescriptor.messages[0].messages.count, 0)
-    XCTAssertEqual(pluginFileDescriptor.messages[1].fullName, "google.protobuf.compiler.CodeGeneratorRequest")
-    XCTAssertNil(pluginFileDescriptor.messages[1].containingType)
-    XCTAssertEqual(pluginFileDescriptor.messages[1].messages.count, 0)
-    XCTAssertEqual(pluginFileDescriptor.messages[2].fullName, "google.protobuf.compiler.CodeGeneratorResponse")
-    XCTAssertNil(pluginFileDescriptor.messages[2].containingType)
-    XCTAssertEqual(pluginFileDescriptor.messages[2].messages.count, 1)
-    XCTAssertEqual(pluginFileDescriptor.messages[2].messages[0].fullName, "google.protobuf.compiler.CodeGeneratorResponse.File")
-    XCTAssertTrue(pluginFileDescriptor.messages[2].messages[0].containingType === pluginFileDescriptor.messages[2])
 
     let descriptorFileDescriptor = descriptorSet.files[0]
 
@@ -66,6 +51,15 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[0].containingType === descriptorFileDescriptor.messages[4])
     XCTAssertEqual(descriptorFileDescriptor.messages[4].enums[1].fullName, "google.protobuf.FieldDescriptorProto.Label")
     XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[1].containingType === descriptorFileDescriptor.messages[4])
+
+    let importFileDescriptor = descriptorSet.files[1]
+
+    XCTAssertEqual(importFileDescriptor.messages.count, 1)
+    XCTAssertEqual(importFileDescriptor.messages[0].fullName, "swift_descriptor_test.import.Version")
+    XCTAssertNil(importFileDescriptor.messages[0].containingType)
+    XCTAssertEqual(importFileDescriptor.messages[0].messages.count, 0)
+    XCTAssertEqual(importFileDescriptor.enums.count, 0)
+    XCTAssertEqual(importFileDescriptor.extensions.count, 0)
 
     let testFileDesciptor = descriptorSet.files[2]
 
@@ -96,9 +90,9 @@ final class Test_Descriptor: XCTestCase {
     let descriptorSet = DescriptorSet(proto: fileSet)
 
     XCTAssertTrue(descriptorSet.fileDescriptor(named: "google/protobuf/descriptor.proto") === descriptorSet.files[0])
-    XCTAssertTrue(descriptorSet.fileDescriptor(named: "google/protobuf/compiler/plugin.proto") === descriptorSet.files[1])
+    XCTAssertTrue(descriptorSet.fileDescriptor(named: "pluginlib_descriptor_test_import.proto") === descriptorSet.files[1])
 
-    XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.compiler.CodeGeneratorRequest") === descriptorSet.files[1].messages[1])
+    XCTAssertTrue(descriptorSet.descriptor(named: "swift_descriptor_test.import.Version") === descriptorSet.files[1].messages[0])
     XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.DescriptorProto") === descriptorSet.files[0].messages[2])
     XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.DescriptorProto.ExtensionRange") === descriptorSet.files[0].messages[2].messages[0])
 
@@ -113,10 +107,8 @@ final class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    let codeGenResponse = descriptorSet.descriptor(named: "google.protobuf.compiler.CodeGeneratorResponse")!
-    XCTAssertTrue(codeGenResponse.containingType == nil)
-    let codeGenResponseFile = descriptorSet.descriptor(named: "google.protobuf.compiler.CodeGeneratorResponse.File")!
-    XCTAssertTrue(codeGenResponseFile.containingType === codeGenResponse)
+    let importVersion = descriptorSet.descriptor(named: "swift_descriptor_test.import.Version")!
+    XCTAssertTrue(importVersion.containingType == nil)
 
     let fieldDescProto = descriptorSet.descriptor(named: "google.protobuf.FieldDescriptorProto")!
     let fieldDescType = descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Type")!
@@ -131,11 +123,10 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertTrue(barMethod.service === serviceDescProto)
 
     let descriptorFile = descriptorSet.files[0]
-    let pluginFile = descriptorSet.files[1]
+    let importFile = descriptorSet.files[1]
     let descriptorTestFile = descriptorSet.files[2]
 
-    XCTAssertTrue(codeGenResponse.file === pluginFile)
-    XCTAssertTrue(codeGenResponseFile.file === pluginFile)
+    XCTAssertTrue(importVersion.file === importFile)
 
     XCTAssertTrue(fieldDescProto.file === descriptorFile)
     XCTAssertTrue(fieldDescType.file === descriptorFile)
@@ -183,13 +174,13 @@ final class Test_Descriptor: XCTestCase {
 
     let externalRefs = descriptorSet.descriptor(named: "swift_descriptor_test.ExternalRefs")!
     let googleProtobufDescriptorProto = descriptorSet.descriptor(named: "google.protobuf.DescriptorProto")!
-    let googleProtobufCompilerVersion = descriptorSet.descriptor(named: "google.protobuf.compiler.Version")!
+    let testImportVersion = descriptorSet.descriptor(named: "swift_descriptor_test.import.Version")!
 
     XCTAssertEqual(externalRefs.fields.count, 2)
     XCTAssertEqual(externalRefs.fields[0].name, "desc")
     XCTAssertEqual(externalRefs.fields[1].name, "ver")
     XCTAssertTrue(externalRefs.fields[0].messageType === googleProtobufDescriptorProto)
-    XCTAssertTrue(externalRefs.fields[1].messageType === googleProtobufCompilerVersion)
+    XCTAssertTrue(externalRefs.fields[1].messageType === testImportVersion)
 
     // Proto2 Presence
 

@@ -253,8 +253,8 @@ struct SDTExternalRefs: Sendable {
   /// Clears the value of `desc`. Subsequent reads from it will return its default value.
   mutating func clearDesc() {self._desc = nil}
 
-  var ver: Google_Protobuf_Compiler_Version {
-    get {return _ver ?? Google_Protobuf_Compiler_Version()}
+  var ver: SwiftDescriptorTest_Import_Version {
+    get {return _ver ?? SwiftDescriptorTest_Import_Version()}
     set {_ver = newValue}
   }
   /// Returns true if `ver` has been explicitly set.
@@ -267,7 +267,7 @@ struct SDTExternalRefs: Sendable {
   init() {}
 
   fileprivate var _desc: SwiftProtobuf.Google_Protobuf_DescriptorProto? = nil
-  fileprivate var _ver: Google_Protobuf_Compiler_Version? = nil
+  fileprivate var _ver: SwiftDescriptorTest_Import_Version? = nil
 }
 
 struct SDTScoperForExt: Sendable {
