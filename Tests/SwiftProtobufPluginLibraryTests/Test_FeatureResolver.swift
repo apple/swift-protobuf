@@ -153,7 +153,7 @@ final class Test_FeatureResolver: XCTestCase {
                                              featureExtensions: [SwiftFeatureTest_Extensions_test,
                                                                  SDTExtensions_ext_str])) { e in
       XCTAssertEqual(e as! FeatureResolver.Error,
-                     FeatureResolver.Error.invalidExtension(type: "google.protobuf.FieldOptions"))
+                     FeatureResolver.Error.invalidExtension(type: "swift_descriptor_test.import.ExtendableOne"))
     }
   }
 

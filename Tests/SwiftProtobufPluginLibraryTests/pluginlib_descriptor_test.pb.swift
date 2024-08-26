@@ -244,14 +244,14 @@ struct SDTExternalRefs: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var desc: SwiftProtobuf.Google_Protobuf_DescriptorProto {
-    get {return _desc ?? SwiftProtobuf.Google_Protobuf_DescriptorProto()}
-    set {_desc = newValue}
+  var one: SwiftDescriptorTest_Import_ExtendableOne {
+    get {return _one ?? SwiftDescriptorTest_Import_ExtendableOne()}
+    set {_one = newValue}
   }
-  /// Returns true if `desc` has been explicitly set.
-  var hasDesc: Bool {return self._desc != nil}
-  /// Clears the value of `desc`. Subsequent reads from it will return its default value.
-  mutating func clearDesc() {self._desc = nil}
+  /// Returns true if `one` has been explicitly set.
+  var hasOne: Bool {return self._one != nil}
+  /// Clears the value of `one`. Subsequent reads from it will return its default value.
+  mutating func clearOne() {self._one = nil}
 
   var ver: SwiftDescriptorTest_Import_Version {
     get {return _ver ?? SwiftDescriptorTest_Import_Version()}
@@ -266,7 +266,7 @@ struct SDTExternalRefs: Sendable {
 
   init() {}
 
-  fileprivate var _desc: SwiftProtobuf.Google_Protobuf_DescriptorProto? = nil
+  fileprivate var _one: SwiftDescriptorTest_Import_ExtendableOne? = nil
   fileprivate var _ver: SwiftDescriptorTest_Import_Version? = nil
 }
 
@@ -430,7 +430,7 @@ struct SDTProto2MessageForPresence: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FieldOptions {
+extension SwiftDescriptorTest_Import_ExtendableOne {
 
   var SDTextStr: String {
     get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
@@ -448,7 +448,7 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
 
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
     get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
@@ -498,19 +498,19 @@ let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftDescriptorTest_Import_ExtendableOne>(
   _protobuf_fieldNumber: 90000,
   fieldName: "swift_descriptor_test.ext_str"
 )
 
 extension SDTScoperForExt {
   enum Extensions {
-    static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+    static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo>(
       _protobuf_fieldNumber: 99001,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_enum"
     )
 
-    static let ext_msg = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SDTTopLevelMessage2>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+    static let ext_msg = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SDTTopLevelMessage2>, SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo>(
       _protobuf_fieldNumber: 99002,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_msg"
     )
@@ -868,12 +868,12 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "desc"),
+    1: .same(proto: "one"),
     2: .same(proto: "ver"),
   ]
 
   public var isInitialized: Bool {
-    if let v = self._desc, !v.isInitialized {return false}
+    if let v = self._one, !v.isInitialized {return false}
     return true
   }
 
@@ -883,7 +883,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._desc) }()
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._one) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._ver) }()
       default: break
       }
@@ -895,7 +895,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._desc {
+    try { if let v = self._one {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
     try { if let v = self._ver {
@@ -905,7 +905,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 
   static func ==(lhs: SDTExternalRefs, rhs: SDTExternalRefs) -> Bool {
-    if lhs._desc != rhs._desc {return false}
+    if lhs._one != rhs._one {return false}
     if lhs._ver != rhs._ver {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

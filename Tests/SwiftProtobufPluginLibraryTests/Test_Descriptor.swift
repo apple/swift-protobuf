@@ -29,43 +29,42 @@ final class Test_Descriptor: XCTestCase {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
-    XCTAssertEqual(descriptorSet.files.count, 8)
+    XCTAssertEqual(descriptorSet.files.count, 7)
     // descriptor.proto documents the protoc will order the files based on the import
     // from plugin on descriptor.
-    XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
-    XCTAssertEqual(descriptorSet.files[1].name, "pluginlib_descriptor_test_import.proto")
-    XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
-    XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
-    XCTAssertEqual(descriptorSet.files[4].name, "pluginlib_descriptor_delimited.proto")
-    XCTAssertEqual(descriptorSet.files[5].name, "unittest_delimited_import.proto")
-    XCTAssertEqual(descriptorSet.files[6].name, "unittest_delimited.proto")
-    XCTAssertEqual(descriptorSet.files[7].name, "swift_protobuf_module_mappings.proto")
+    XCTAssertEqual(descriptorSet.files[0].name, "pluginlib_descriptor_test_import.proto")
+    XCTAssertEqual(descriptorSet.files[1].name, "pluginlib_descriptor_test.proto")
+    XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test2.proto")
+    XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_delimited.proto")
+    XCTAssertEqual(descriptorSet.files[4].name, "unittest_delimited_import.proto")
+    XCTAssertEqual(descriptorSet.files[5].name, "unittest_delimited.proto")
+    XCTAssertEqual(descriptorSet.files[6].name, "swift_protobuf_module_mappings.proto")
 
-    let descriptorFileDescriptor = descriptorSet.files[0]
+    let importFileDescriptor = descriptorSet.files[0]
 
-    XCTAssertEqual(descriptorFileDescriptor.enums.count, 1)
-    XCTAssertEqual(descriptorFileDescriptor.enums[0].fullName, "google.protobuf.Edition")
-    XCTAssertNil(descriptorFileDescriptor.enums[0].containingType)
-    XCTAssertEqual(descriptorFileDescriptor.messages[4].enums.count, 2)
-    XCTAssertEqual(descriptorFileDescriptor.messages[4].enums[0].fullName, "google.protobuf.FieldDescriptorProto.Type")
-    XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[0].containingType === descriptorFileDescriptor.messages[4])
-    XCTAssertEqual(descriptorFileDescriptor.messages[4].enums[1].fullName, "google.protobuf.FieldDescriptorProto.Label")
-    XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[1].containingType === descriptorFileDescriptor.messages[4])
-
-    let importFileDescriptor = descriptorSet.files[1]
-
-    XCTAssertEqual(importFileDescriptor.messages.count, 1)
+    XCTAssertEqual(importFileDescriptor.messages.count, 2)
     XCTAssertEqual(importFileDescriptor.messages[0].fullName, "swift_descriptor_test.import.Version")
     XCTAssertNil(importFileDescriptor.messages[0].containingType)
     XCTAssertEqual(importFileDescriptor.messages[0].messages.count, 0)
     XCTAssertEqual(importFileDescriptor.enums.count, 0)
     XCTAssertEqual(importFileDescriptor.extensions.count, 0)
 
-    let testFileDesciptor = descriptorSet.files[2]
+    XCTAssertEqual(importFileDescriptor.messages[1].fullName, "swift_descriptor_test.import.ExtendableOne")
+    XCTAssertNil(importFileDescriptor.messages[1].containingType)
+    XCTAssertEqual(importFileDescriptor.messages[1].messages.count, 1)
+
+    XCTAssertEqual(importFileDescriptor.messages[1].messages[0].fullName, "swift_descriptor_test.import.ExtendableOne.ExtendableTwo")
+    XCTAssertEqual(importFileDescriptor.messages[1].messages[0].messages.count, 0)
+
+    let testFileDesciptor = descriptorSet.files[1]
 
     XCTAssertEqual(testFileDesciptor.enums.count, 1)
     XCTAssertEqual(testFileDesciptor.enums[0].fullName, "swift_descriptor_test.TopLevelEnum")
     XCTAssertNil(testFileDesciptor.enums[0].containingType)
+
+    XCTAssertEqual(testFileDesciptor.messages[0].enums.count, 1)
+    XCTAssertEqual(testFileDesciptor.messages[0].enums[0].fullName, "swift_descriptor_test.TopLevelMessage.SubEnum")
+    XCTAssertTrue(testFileDesciptor.messages[0].enums[0].containingType === testFileDesciptor.messages[0])
 
     XCTAssertEqual(testFileDesciptor.messages[0].oneofs.count, 1)
     XCTAssertEqual(testFileDesciptor.messages[0].oneofs[0].name, "o")
@@ -89,17 +88,16 @@ final class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    XCTAssertTrue(descriptorSet.fileDescriptor(named: "google/protobuf/descriptor.proto") === descriptorSet.files[0])
-    XCTAssertTrue(descriptorSet.fileDescriptor(named: "pluginlib_descriptor_test_import.proto") === descriptorSet.files[1])
+    XCTAssertTrue(descriptorSet.fileDescriptor(named: "pluginlib_descriptor_test_import.proto") === descriptorSet.files[0])
 
-    XCTAssertTrue(descriptorSet.descriptor(named: "swift_descriptor_test.import.Version") === descriptorSet.files[1].messages[0])
-    XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.DescriptorProto") === descriptorSet.files[0].messages[2])
-    XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.DescriptorProto.ExtensionRange") === descriptorSet.files[0].messages[2].messages[0])
+    XCTAssertTrue(descriptorSet.descriptor(named: "swift_descriptor_test.import.Version") === descriptorSet.files[0].messages[0])
+    XCTAssertTrue(descriptorSet.descriptor(named: "swift_descriptor_test.TopLevelMessage") === descriptorSet.files[1].messages[0])
+    XCTAssertTrue(descriptorSet.descriptor(named: "swift_descriptor_test.TopLevelMessage.SubMessage") === descriptorSet.files[1].messages[0].messages[0])
 
-    XCTAssertTrue(descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Type") === descriptorSet.files[0].messages[4].enums[0])
-    XCTAssertTrue(descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Label") === descriptorSet.files[0].messages[4].enums[1])
+    XCTAssertTrue(descriptorSet.enumDescriptor(named: "swift_descriptor_test.TopLevelEnum") === descriptorSet.files[1].enums[0])
+    XCTAssertTrue(descriptorSet.enumDescriptor(named: "swift_descriptor_test.TopLevelMessage.SubEnum") === descriptorSet.files[1].messages[0].enums[0])
 
-    XCTAssertTrue(descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService") === descriptorSet.files[2].services[0])
+    XCTAssertTrue(descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService") === descriptorSet.files[1].services[0])
   }
 
   func testParents() throws {
@@ -110,11 +108,13 @@ final class Test_Descriptor: XCTestCase {
     let importVersion = descriptorSet.descriptor(named: "swift_descriptor_test.import.Version")!
     XCTAssertTrue(importVersion.containingType == nil)
 
-    let fieldDescProto = descriptorSet.descriptor(named: "google.protobuf.FieldDescriptorProto")!
-    let fieldDescType = descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Type")!
-    XCTAssertTrue(fieldDescType.containingType === fieldDescProto)
-    let fieldDescLabel = descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Label")!
-    XCTAssertTrue(fieldDescLabel.containingType === fieldDescProto)
+    let importExtendOne = descriptorSet.descriptor(named: "swift_descriptor_test.import.ExtendableOne")!
+    let importExtendTwo = descriptorSet.descriptor(named: "swift_descriptor_test.import.ExtendableOne.ExtendableTwo")!
+    XCTAssertTrue(importExtendTwo.containingType === importExtendOne)
+
+    let testDescriptor = descriptorSet.descriptor(named: "swift_descriptor_test.TopLevelMessage")!
+    let testEnum = descriptorSet.enumDescriptor(named: "swift_descriptor_test.TopLevelMessage.SubEnum")!
+    XCTAssertTrue(testEnum.containingType === testDescriptor)
 
     let serviceDescProto = descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService")!
     let fooMethod = serviceDescProto.methods[0]
@@ -122,17 +122,17 @@ final class Test_Descriptor: XCTestCase {
     let barMethod = serviceDescProto.methods[1]
     XCTAssertTrue(barMethod.service === serviceDescProto)
 
-    let descriptorFile = descriptorSet.files[0]
-    let importFile = descriptorSet.files[1]
-    let descriptorTestFile = descriptorSet.files[2]
+    let importFile = descriptorSet.files[0]
+    let testFile = descriptorSet.files[1]
 
     XCTAssertTrue(importVersion.file === importFile)
 
-    XCTAssertTrue(fieldDescProto.file === descriptorFile)
-    XCTAssertTrue(fieldDescType.file === descriptorFile)
-    XCTAssertTrue(fieldDescLabel.file === descriptorFile)
+    XCTAssertTrue(importExtendOne.file === importFile)
+    XCTAssertTrue(importExtendTwo.file === importFile)
 
-    XCTAssertTrue(serviceDescProto.file === descriptorTestFile)
+    XCTAssertTrue(testDescriptor.file === testFile)
+    XCTAssertTrue(testEnum.file === testFile)
+    XCTAssertTrue(serviceDescProto.file === testFile)
   }
 
   func testFields() throws {
@@ -173,13 +173,13 @@ final class Test_Descriptor: XCTestCase {
     XCTAssertTrue(topLevelMessage2.fields[1].messageType === topLevelMessage2)
 
     let externalRefs = descriptorSet.descriptor(named: "swift_descriptor_test.ExternalRefs")!
-    let googleProtobufDescriptorProto = descriptorSet.descriptor(named: "google.protobuf.DescriptorProto")!
+    let extendOne = descriptorSet.descriptor(named: "swift_descriptor_test.import.ExtendableOne")!
     let testImportVersion = descriptorSet.descriptor(named: "swift_descriptor_test.import.Version")!
 
     XCTAssertEqual(externalRefs.fields.count, 2)
-    XCTAssertEqual(externalRefs.fields[0].name, "desc")
+    XCTAssertEqual(externalRefs.fields[0].name, "one")
     XCTAssertEqual(externalRefs.fields[1].name, "ver")
-    XCTAssertTrue(externalRefs.fields[0].messageType === googleProtobufDescriptorProto)
+    XCTAssertTrue(externalRefs.fields[0].messageType === extendOne)
     XCTAssertTrue(externalRefs.fields[1].messageType === testImportVersion)
 
     // Proto2 Presence
@@ -316,22 +316,22 @@ final class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    let googleProtobufFieldOptions = descriptorSet.descriptor(named: "google.protobuf.FieldOptions")!
-    let googleProtobufMessageOptions = descriptorSet.descriptor(named: "google.protobuf.MessageOptions")!
+    let extendOne = descriptorSet.descriptor(named: "swift_descriptor_test.import.ExtendableOne")!
+    let extendTwo = descriptorSet.descriptor(named: "swift_descriptor_test.import.ExtendableOne.ExtendableTwo")!
 
-    let descriptorTestFile = descriptorSet.files[2]
+    let descriptorTestFile = descriptorSet.files[1]
 
     let topLevelExt = descriptorTestFile.extensions[0]
     XCTAssertNil(topLevelExt.extensionScope)
-    XCTAssertTrue(topLevelExt.containingType === googleProtobufFieldOptions)
+    XCTAssertTrue(topLevelExt.containingType === extendOne)
 
     let extScoper = descriptorSet.descriptor(named: "swift_descriptor_test.ScoperForExt")!
     let nestedExt1 = descriptorTestFile.messages[3].extensions[0]
     let nestedExt2 = descriptorTestFile.messages[3].extensions[1]
     XCTAssertTrue(nestedExt1.extensionScope === extScoper)
-    XCTAssertTrue(nestedExt1.containingType === googleProtobufMessageOptions)
+    XCTAssertTrue(nestedExt1.containingType === extendTwo)
     XCTAssertTrue(nestedExt2.extensionScope === extScoper)
-    XCTAssertTrue(nestedExt2.containingType === googleProtobufMessageOptions)
+    XCTAssertTrue(nestedExt2.containingType === extendTwo)
 
     XCTAssertTrue(nestedExt1.enumType === descriptorTestFile.enums[0])
     XCTAssertTrue(nestedExt2.messageType === descriptorTestFile.messages[1])
