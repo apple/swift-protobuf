@@ -24,3 +24,14 @@ message Version {
   optional int32 patch = 3;
   optional string suffix = 4;
 }
+
+message ExtendableOne {
+
+  message ExtendableTwo {
+    extensions 1000 to max;
+  }
+
+  optional ExtendableTwo sub_msg_field = 1;
+
+  extensions 1000 to max;
+}

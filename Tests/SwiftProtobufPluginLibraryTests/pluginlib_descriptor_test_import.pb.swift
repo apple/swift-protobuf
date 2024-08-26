@@ -88,6 +88,40 @@ struct SwiftDescriptorTest_Import_Version: Sendable {
   fileprivate var _suffix: String? = nil
 }
 
+struct SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.ExtensibleMessage, Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var subMsgField: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
+    get {return _subMsgField ?? SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo()}
+    set {_subMsgField = newValue}
+  }
+  /// Returns true if `subMsgField` has been explicitly set.
+  var hasSubMsgField: Bool {return self._subMsgField != nil}
+  /// Clears the value of `subMsgField`. Subsequent reads from it will return its default value.
+  mutating func clearSubMsgField() {self._subMsgField = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct ExtendableTwo: SwiftProtobuf.ExtensibleMessage, Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  }
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _subMsgField: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "swift_descriptor_test.import"
@@ -142,6 +176,81 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message, SwiftProtob
     if lhs._patch != rhs._patch {return false}
     if lhs._suffix != rhs._suffix {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ExtendableOne"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sub_msg_field"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    if let v = self._subMsgField, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._subMsgField) }()
+      case 1000..<536870912:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftDescriptorTest_Import_ExtendableOne.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._subMsgField {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftDescriptorTest_Import_ExtendableOne, rhs: SwiftDescriptorTest_Import_ExtendableOne) -> Bool {
+    if lhs._subMsgField != rhs._subMsgField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1000 <= fieldNumber && fieldNumber < 536870912) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo, rhs: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
