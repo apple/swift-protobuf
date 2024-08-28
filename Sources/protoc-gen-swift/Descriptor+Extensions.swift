@@ -15,6 +15,22 @@ extension FileDescriptor {
     return SwiftProtobufInfo.isBundledProto(file: self)
   }
 
+  // Returns true if the file will beed to import Foundation.
+  //
+  // `bytes` fields are modeled as `Data`, that is currently the only reason
+  // why the generated sources need to `import Foundation`.
+  var needsFoundationImport: Bool {
+    if extensions.contains(where: { $0.type == .bytes }) {
+      return true
+    }
+
+    if messages.contains(where: { $0.needsFoundationImport }) {
+      return true
+    }
+
+    return false
+  }
+
   // Returns a string of any import lines for the give file based on the file's
   // imports. The string may include multiple lines.
   //
@@ -165,6 +181,22 @@ extension FileDescriptor {
 extension Descriptor {
   /// Returns true if the message should use the message set wireformat.
   var useMessageSetWireFormat: Bool { return options.messageSetWireFormat }
+
+  var needsFoundationImport: Bool {
+    if fields.contains(where: { $0.type == .bytes }) {
+      return true
+    }
+    if extensions.contains(where: { $0.type == .bytes }) {
+      return true
+    }
+
+    // Now recurse through sub-messages.
+    if messages.contains(where: { $0.needsFoundationImport }) {
+      return true
+    }
+
+    return false
+  }
 
   /// Returns True if this message recursively contains a required field.
   /// This is a helper for generating isInitialized methods.
