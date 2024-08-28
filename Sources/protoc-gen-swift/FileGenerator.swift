@@ -85,18 +85,25 @@ class FileGenerator {
         } else if let location = fileDescriptor.sourceCodeInfoLocation(path: syntaxPath) {
             commentLocation = location
         }
-        var comments = String()
         if let commentLocation = commentLocation {
-          comments = commentLocation.asSourceComment(commentPrefix: "///",
-                                                     leadingDetachedPrefix: "//")
-          // If the was a leading or tailing comment it won't have a blank
-          // line, after it, so ensure there is one.
-          if !comments.isEmpty && !comments.hasSuffix("\n\n") {
-            comments.append("\n")
+          let comments = commentLocation.asSourceComment(commentPrefix: "///",
+                                                         leadingDetachedPrefix: "//")
+          if !comments.isEmpty {
+              // If the was a leading or tailing comment it won't have a blank
+              // line, after it, so ensure there is one.
+              p.print(comments, newlines: !comments.hasSuffix("\n\n"))
           }
         }
 
-        p.print("\(comments)\(generatorOptions.importDirective.snippet) Foundation")
+        // If there is nothing to generate, then just record that and be done (usually means
+        // there just was one or more services).
+        let generateEmpty = fileDescriptor.enums.isEmpty && fileDescriptor.messages.isEmpty && fileDescriptor.extensions.isEmpty
+        guard !generateEmpty else {
+            p.print("// This file contained no messages, enums, or extensions.")
+            return
+        }
+
+        p.print("\(generatorOptions.importDirective.snippet) Foundation")
 
         if fileDescriptor.isBundledProto {
             p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
