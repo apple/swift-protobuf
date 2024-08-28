@@ -44,7 +44,6 @@
 //
 // This file contains messages for testing message_set_wire_format.
 
-import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

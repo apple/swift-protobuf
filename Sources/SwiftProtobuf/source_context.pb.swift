@@ -38,7 +38,6 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
 // 'import SwiftProtobuf' suppressed, this proto file is meant to be bundled in the runtime.
 
 // If the compiler emits an error on this type, it is because this file
