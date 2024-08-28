@@ -26,7 +26,6 @@
 
 /// proto2 syntax is used so the has*/clear* names also get generated.
 
-import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

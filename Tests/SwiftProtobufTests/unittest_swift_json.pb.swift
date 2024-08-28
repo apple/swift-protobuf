@@ -17,7 +17,6 @@
 // See http://swift.org/LICENSE.txt for license information
 // See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
 
-import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

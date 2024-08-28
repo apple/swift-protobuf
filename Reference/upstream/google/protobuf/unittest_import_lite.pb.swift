@@ -19,7 +19,6 @@
 //
 // This is like unittest_import.proto but with optimize_for = LITE_RUNTIME.
 
-import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

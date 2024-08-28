@@ -12,7 +12,6 @@
 /// Protoc errors imply this file is being generated incorrectly
 /// Swift compile errors are probably bugs in protoc-gen-swift
 
-import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
