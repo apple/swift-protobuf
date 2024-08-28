@@ -96,7 +96,7 @@ class FileGenerator {
           }
         }
 
-        p.print("\(comments)import Foundation")
+        p.print("\(comments)\(generatorOptions.importDirective.snippet) Foundation")
 
         if fileDescriptor.isBundledProto {
             p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
