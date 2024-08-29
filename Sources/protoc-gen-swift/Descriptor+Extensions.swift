@@ -15,7 +15,7 @@ extension FileDescriptor {
     return SwiftProtobufInfo.isBundledProto(file: self)
   }
 
-  // Returns true if the file will beed to import Foundation.
+  // Returns true if the file will need to import Foundation.
   //
   // `bytes` fields are modeled as `Data`, that is currently the only reason
   // why the generated sources need to `import Foundation`.
@@ -182,6 +182,10 @@ extension Descriptor {
   /// Returns true if the message should use the message set wireformat.
   var useMessageSetWireFormat: Bool { return options.messageSetWireFormat }
 
+  /// Returns true if the file will need to import Foundation.
+  ///
+  /// `bytes` fields are modeled as `Data`, that is currently the only reason
+  /// why the generated sources need to `import Foundation`.
   var needsFoundationImport: Bool {
     if fields.contains(where: { $0.type == .bytes }) {
       return true
