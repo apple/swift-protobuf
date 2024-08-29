@@ -95,22 +95,20 @@ class FileGenerator {
           }
         }
 
-        // If there is nothing to generate, then just record that and be done (usually means
-        // there just was one or more services).
-        let generateEmpty = fileDescriptor.enums.isEmpty && fileDescriptor.messages.isEmpty && fileDescriptor.extensions.isEmpty
-        guard !generateEmpty else {
-            p.print("// This file contained no messages, enums, or extensions.")
-            return
-        }
+        let fileDefinesTypes = !fileDescriptor.enums.isEmpty || !fileDescriptor.messages.isEmpty || !fileDescriptor.extensions.isEmpty
 
+        var hasImports = false
         if fileDescriptor.needsFoundationImport {
             p.print("\(generatorOptions.importDirective.snippet) Foundation")
+          hasImports = true
         }
 
         if fileDescriptor.isBundledProto {
             p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
-        } else {
+            hasImports = true
+        } else if fileDefinesTypes {
             p.print("\(generatorOptions.importDirective.snippet) \(namer.swiftProtobufModuleName)")
+            hasImports = true
         }
 
         let neededImports = fileDescriptor.computeImports(
@@ -118,8 +116,21 @@ class FileGenerator {
           directive: generatorOptions.importDirective,
           reexportPublicImports: generatorOptions.visibility != .internal)
         if !neededImports.isEmpty {
-            p.print()
+            if hasImports {
+                p.print()
+            }
             p.print(neededImports)
+          hasImports = true
+        }
+
+        // If there is nothing to generate, then just record that and be done (usually means
+        // there just was one or more services).
+        guard fileDefinesTypes else {
+            if hasImports {
+                p.print()
+            }
+            p.print("// This file contained no messages, enums, or extensions.")
+            return
         }
 
         p.print()

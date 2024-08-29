@@ -10,3 +10,7 @@ mapping {
   module_name: "ImportsImportsAPublicly"
   proto_file_path: "Sources/ImportsImportsAPublicly/imports_imports_a_publicly.proto"
 }
+mapping {
+  module_name: "ReExportAOnly"
+  proto_file_path: "Sources/ReExportAOnly/reexport_a_only.proto"
+}
