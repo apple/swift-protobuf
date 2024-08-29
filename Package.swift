@@ -32,10 +32,7 @@ let package = Package(
     ),
   ],
   dependencies: [
-     // Don't allow 1.4.x for now, appears to break with Swift 5.8 on Linux.
-     // https://github.com/swiftlang/swift-docc-plugin/issues/92
-    .package(url: "https://github.com/swiftlang/swift-docc-plugin", .upToNextMinor(from: "1.3.0")),
-    // .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.0.0"),
+    .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.0.0"),
   ],
   targets: [
     .target(
