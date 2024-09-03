@@ -262,9 +262,18 @@ let info2 = BookInfo.with {
   }
 
 // Serialize to binary protobuf format: you can choose to serialize into
-// any type conforming to SwiftProtobufContiguousBytes. For example:
+// any type conforming to `SwiftProtobufContiguousBytes`. For example:
+// Resolve the `SwiftProtobufContiguousBytes` return value to `Data`
 let binaryData: Data = try info.serializedBytes()
+// Resolve the `SwiftProtobufContiguousBytes` return value to `[UInt8]`
 let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
+
+// Note that while the `serializedBytes()` spelling is generally preferred,
+// you may also use `serializedData()` to get the bytes as an instance of 
+// `Data` where required.
+// This means that the following two statements are equivalent:
+// let binaryData: Data = try info.serializedBytes()
+// let binaryData: Data = try info.serializedData()
 
 // Deserialize a received Data object from `binaryData`
 let decodedInfo = try BookInfo(serializedData: binaryData)
