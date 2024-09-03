@@ -200,6 +200,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/InternalImportsByDefault \
 		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
 	diff -ru _test Reference
@@ -259,6 +260,7 @@ reference: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/InternalImportsByDefault \
 		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=Reference/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
 
