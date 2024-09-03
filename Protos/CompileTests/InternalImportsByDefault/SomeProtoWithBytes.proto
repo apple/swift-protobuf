@@ -1,0 +1,12 @@
+// This proto will generate a Swift file that imports Foundation, because it
+// defines a bytes field.
+// Because InternalImportsByDefault is enabled on this module and we generate
+// protos with public visibility, the build will fail if the access level
+// modifier is missing (or wrong) since it will default the import to `internal`
+// and cause a conflict of access levels, since the `someBytes` property defined
+// on the message will be public.
+
+message SomeProtoWithBytes {
+  optional bytes someBytes = 2;
+  optional string ext_str = 100;
+}
