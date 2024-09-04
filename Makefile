@@ -221,7 +221,7 @@ compile-tests-multimodule:
 # Test that ensures that using access level modifiers on imports yields code that's buildable
 # when `InternalImportsByDefault` is enabled on the module.
 compile-tests-internalimportsbydefault:
-	${SWIFT} build --package-path CompileTests/InternalImportsByDefault
+	env PROTOC_PATH=$(shell realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
