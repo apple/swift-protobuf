@@ -22,7 +22,8 @@ let package = Package(
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
             ],
             swiftSettings: [
-                .enableUpcomingFeature("InternalImportsByDefault"),
+                .enableExperimentalFeature("InternalImportsByDefault"),
+                .enableExperimentalFeature("AccessLevelOnImport"),
                 // Enable warnings as errors so the build fails if warnings are
                 // present in generated code.
                 .unsafeFlags(["-warnings-as-errors"])
