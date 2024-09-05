@@ -10,6 +10,7 @@
 
 import PackageDescription
 
+#if compiler(>=5.9)
 let package = Package(
     name: "CompileTests",
     dependencies: [
@@ -21,12 +22,16 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
             ],
+            exclude: [
+                "Protos/SomeProtoWithBytes.proto",
+                "Protos/ServiceOnly.proto"
+            ],
             swiftSettings: [
                 .enableExperimentalFeature("InternalImportsByDefault"),
                 .enableExperimentalFeature("AccessLevelOnImport"),
                 // Enable warnings as errors so the build fails if warnings are
                 // present in generated code.
-                .unsafeFlags(["-warnings-as-errors"])
+                    .unsafeFlags(["-warnings-as-errors"])
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
@@ -34,3 +39,18 @@ let package = Package(
         ),
     ]
 )
+#else
+let package = Package(
+    name: "CompileTests",
+    targets: [
+        .executableTarget(
+            name: "InternalImportsByDefault",
+            exclude: [
+                "swift-protobuf-config.json",
+                "Protos/SomeProtoWithBytes.proto",
+                "Protos/ServiceOnly.proto"
+            ]
+        )
+    ]
+)
+#endif
