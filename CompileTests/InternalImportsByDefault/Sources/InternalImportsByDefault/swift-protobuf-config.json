@@ -1,0 +1,12 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "Protos/SomeProtoWithBytes.proto",
+                "Protos/ServiceOnly.proto",
+            ],
+            "visibility": "public",
+            "useAccessLevelOnImports": true
+        }
+    ]
+}

@@ -79,6 +79,7 @@ PROTOS_DIRS=Conformance protoc-gen-swiftTests SwiftProtobuf SwiftProtobufPluginL
 	clean \
 	compile-tests \
 	compile-tests-multimodule \
+	compile-tests-internalimportsbydefault \
 	default \
 	docs \
 	install \
@@ -86,6 +87,7 @@ PROTOS_DIRS=Conformance protoc-gen-swiftTests SwiftProtobuf SwiftProtobufPluginL
 	reference \
 	regenerate \
 	regenerate-compiletests-multimodule-protos \
+	copy-compiletests-internalimportsbydefault-protos \
 	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
 	regenerate-fuzz-protos \
@@ -194,18 +196,32 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
 		--tfiws_out=_test/CompileTests/MultiModule \
 		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
+	@mkdir -p _test/CompileTests/InternalImportsByDefault
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/InternalImportsByDefault \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=UseAccessLevelOnImports=true \
+		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
+		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
 	diff -ru _test Reference
 
 # Test the SPM plugin.
 test-spm-plugin:
 	env PROTOC_PATH=$(shell realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples
 
-compile-tests: compile-tests-multimodule
+compile-tests: \
+	compile-tests-multimodule \
+	compile-tests-internalimportsbydefault
 
-# Test that ensure generating public into multiple modules with `import public`
+# Test that ensures generating public into multiple modules with `import public`
 # yields buildable code.
 compile-tests-multimodule:
 	${SWIFT} test --package-path CompileTests/MultiModule
+
+# Test that ensures that using access level modifiers on imports yields code that's buildable
+# when `InternalImportsByDefault` is enabled on the module.
+compile-tests-internalimportsbydefault:
+	env PROTOC_PATH=$(shell realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
@@ -240,6 +256,13 @@ reference: build ${PROTOC_GEN_SWIFT}
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
 		--tfiws_out=Reference/CompileTests/MultiModule \
 		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
+	@mkdir -p Reference/CompileTests/InternalImportsByDefault
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/InternalImportsByDefault \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=UseAccessLevelOnImports=true \
+		--tfiws_out=Reference/CompileTests/InternalImportsByDefault \
+		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
 
 #
 # Rebuild the generated .pb.swift test files by running
@@ -494,10 +517,12 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
 		`find Protos/Conformance -type f -name "*.proto"`
 
 # Rebuild just the protos used by the CompileTests.
-regenerate-compiletests-protos: regenerate-compiletests-multimodule-protos
+regenerate-compiletests-protos: \
+	regenerate-compiletests-multimodule-protos \
+	copy-compiletests-internalimportsbydefault-protos
 
 # Update the CompileTests/MultiModule files.
-# NOTE: Any changes here must be done of the "test-plugin" target so it
+# NOTE: Any changes here must also be done on the "test-plugin" target so it
 # generates in the same way.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT}
 	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
@@ -507,6 +532,12 @@ regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT}
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
 		--tfiws_out=CompileTests/MultiModule \
 		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
+
+# We use the plugin for the InternalImportsByDefault test, so we don't actually need to regenerate
+# anything. However, to keep the protos centralised in a single place (the Protos directory),
+# this simply copies those files to the InternalImportsByDefault package in case they change.
+copy-compiletests-internalimportsbydefault-protos: 
+	@cp Protos/CompileTests/InternalImportsByDefault/* CompileTests/InternalImportsByDefault/Sources/InternalImportsByDefault/Protos
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:
