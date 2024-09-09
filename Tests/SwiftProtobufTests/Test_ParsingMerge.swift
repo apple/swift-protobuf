@@ -29,7 +29,7 @@ final class Test_ParsingMerge: XCTestCase {
         t1.optionalInt32 = 1
         t1.optionalString = "abc"
         var t2 = SwiftProtoTesting_TestAllTypes()
-        t2.optionalInt32 = 2 // Should override t1.optionalInt32
+        t2.optionalInt32 = 2  // Should override t1.optionalInt32
         t2.optionalInt64 = 3
         m.field1 = [t1, t2]
 
@@ -122,7 +122,7 @@ final class Test_ParsingMerge: XCTestCase {
 
                 // repeated_message <== field2 without merging
                 XCTAssertEqual(decoded.repeatedMessage, [t1, t2])
-                            } catch {
+            } catch {
                 XCTFail("Decoding failed \(encoded)")
             }
         } catch let e {
@@ -154,13 +154,12 @@ final class Test_ParsingMerge: XCTestCase {
 
                 // repeated_message <== field2 without merging
                 XCTAssertEqual(decoded.repeatedMessage, [t1, t2, t3])
-                            } catch {
+            } catch {
                 XCTFail("Decoding failed \(encoded)")
             }
         } catch let e {
             XCTFail("Encoding failed for \(m) with error \(e)")
         }
-
 
         // But, if the oneofs are set to the message field without chaning between, just like
         // a normal opitional/required message field, the data should be merged.
@@ -184,7 +183,7 @@ final class Test_ParsingMerge: XCTestCase {
 
                 // repeated_message <== field2 without merging
                 XCTAssertEqual(decoded.repeatedMessage, [t1, t3])
-                            } catch {
+            } catch {
                 XCTFail("Decoding failed \(encoded)")
             }
         } catch let e {

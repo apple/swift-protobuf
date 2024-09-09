@@ -16,17 +16,17 @@ import Foundation
 
 /// Abstract interface for receiving generation outputs.
 public protocol GeneratorOutputs {
-  /// Add the a file with the given `name` and `contents` to the outputs.
-  ///
-  /// - Parameters:
-  ///   - fileName: The name of the file.
-  ///   - contents: The body of the file.
-  ///
-  /// - Throws May throw errors for duplicate file names or any other problem.
-  ///     Generally `CodeGenerator`s do *not* need to catch these, and instead
-  ///     they are ripple all the way out to the code calling the
-  ///     `CodeGenerator`.
-  func add(fileName: String, contents: String) throws
+    /// Add the a file with the given `name` and `contents` to the outputs.
+    ///
+    /// - Parameters:
+    ///   - fileName: The name of the file.
+    ///   - contents: The body of the file.
+    ///
+    /// - Throws May throw errors for duplicate file names or any other problem.
+    ///     Generally `CodeGenerator`s do *not* need to catch these, and instead
+    ///     they are ripple all the way out to the code calling the
+    ///     `CodeGenerator`.
+    func add(fileName: String, contents: String) throws
 
-  // TODO: Consider adding apis to stream things like C++ protobuf does?
+    // TODO: Consider adding apis to stream things like C++ protobuf does?
 }

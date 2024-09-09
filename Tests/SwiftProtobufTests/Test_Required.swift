@@ -28,9 +28,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
-
 import SwiftProtobuf
+import XCTest
 
 final class Test_Required: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllRequiredTypes
@@ -73,7 +72,6 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         msg2.option3.a = 1
         XCTAssertTrue(msg2.isInitialized)
     }
-
 
     func test_NestedInProto2_IsInitialized() {
         // message declared in proto2 syntax file, with fields that are another message that has
@@ -153,7 +151,11 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert decoding fails with a not initialized error.
-    fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertDecodeFailsNotInitialized(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
@@ -165,7 +167,12 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert decoding partial succeeds.
-    fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialDecodeSucceeds(
+        _ bytes: [UInt8],
+        _ expectedTextFormat: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let msg = try MessageTestType(serializedBytes: bytes, partial: true)
             var expected = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
@@ -241,16 +248,20 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         var allBytes: [UInt8] = []
         var allTextFormattedField = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytes.append(contentsOf: bytes)
-          allTextFormattedField.append(textFormattedField)
-          allTextFormattedField.append("\n")
+            allBytes.append(contentsOf: bytes)
+            allTextFormattedField.append(textFormattedField)
+            allTextFormattedField.append("\n")
         }
         let fullMsg = try SwiftProtoTesting_TestAllRequiredTypes(serializedBytes: allBytes)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
-    fileprivate func assertEncodeFailsNotInitialized(_ message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertEncodeFailsNotInitialized(
+        _ message: MessageTestType,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _: [UInt8] = try message.serializedBytes()
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
@@ -262,7 +273,12 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert encoding partial succeeds.
-    fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialEncodeSucceeds(
+        _ message: MessageTestType,
+        _ expectedBytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let data: [UInt8] = try message.serializedBytes(partial: true)
             XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)
@@ -353,7 +369,11 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Check behavior of a small message (non-heap-stored) with required fields
 
     // Helper to assert decoding fails with a not initialized error.
-    fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertDecodeFailsNotInitialized(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
@@ -365,7 +385,12 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert decoding partial succeeds.
-    fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialDecodeSucceeds(
+        _ bytes: [UInt8],
+        _ expectedTextFormat: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let msg = try MessageTestType(serializedBytes: bytes, partial: true)
             var expected = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
@@ -401,16 +426,20 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
         var allBytes: [UInt8] = []
         var allTextFormattedField = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytes.append(contentsOf: bytes)
-          allTextFormattedField.append(textFormattedField)
-          allTextFormattedField.append("\n")
+            allBytes.append(contentsOf: bytes)
+            allTextFormattedField.append(textFormattedField)
+            allTextFormattedField.append("\n")
         }
         let fullMsg = try SwiftProtoTesting_TestSomeRequiredTypes(serializedBytes: allBytes)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
-    fileprivate func assertEncodeFailsNotInitialized(_ message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertEncodeFailsNotInitialized(
+        _ message: MessageTestType,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _: [UInt8] = try message.serializedBytes()
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
@@ -422,7 +451,12 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert encoding partial succeeds.
-    fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialEncodeSucceeds(
+        _ message: MessageTestType,
+        _ expectedBytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let data: [UInt8] = try message.serializedBytes(partial: true)
             XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)

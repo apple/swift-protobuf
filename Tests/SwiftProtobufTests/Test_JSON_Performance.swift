@@ -12,8 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_JSON_Performance: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Fuzz_Message
@@ -24,28 +24,27 @@ final class Test_JSON_Performance: XCTestCase, PBTestHelpers {
     // may be amiss.
 
     func testEncoding_manyIntMapsEncoding_shouldBeUnder1s() {
-        let rawPadding = Array<Int32>(repeating: 1000000000, count: 150000)
+        let rawPadding = [Int32](repeating: 1_000_000_000, count: 150000)
         let mapRepeats = 60000
 
-        let pad = rawPadding.map({$0.description}).joined(separator: ",")
+        let pad = rawPadding.map({ $0.description }).joined(separator: ",")
         let child = "{\"mapFixed64Sint64\":{\"30\":\"4\"}}"
-        let children = Array<String>(repeating: child, count: mapRepeats).joined(separator: ",")
-        let expected = (
-            "{"
-            + "\"repeatedInt32\":["
-            + pad
-            + "],"
-            + "\"repeatedMessage\":["
-            + children
-            + "]}"
-        )
+        let children = [String](repeating: child, count: mapRepeats).joined(separator: ",")
+        let expected =
+            ("{"
+                + "\"repeatedInt32\":["
+                + pad
+                + "],"
+                + "\"repeatedMessage\":["
+                + children
+                + "]}")
 
         let msg = MessageTestType.with {
             $0.repeatedInt32 = rawPadding
             let child = MessageTestType.with {
-               $0.mapFixed64Sint64[30] = 4
+                $0.mapFixed64Sint64[30] = 4
             }
-            let array = Array<MessageTestType>(repeating: child, count: mapRepeats)
+            let array = [MessageTestType](repeating: child, count: mapRepeats)
             $0.repeatedMessage = array
         }
 
@@ -60,28 +59,27 @@ final class Test_JSON_Performance: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_manyEnumMapsEncoding_shouldBeUnder1s() {
-        let rawPadding = Array<Int32>(repeating: 1000000000, count: 150000)
+        let rawPadding = [Int32](repeating: 1_000_000_000, count: 150000)
         let mapRepeats = 60000
 
-        let pad = rawPadding.map({$0.description}).joined(separator: ",")
+        let pad = rawPadding.map({ $0.description }).joined(separator: ",")
         let child = "{\"mapInt32AnEnum\":{\"30\":\"TWO\"}}"
-        let children = Array<String>(repeating: child, count: mapRepeats).joined(separator: ",")
-        let expected = (
-            "{"
-            + "\"repeatedInt32\":["
-            + pad
-            + "],"
-            + "\"repeatedMessage\":["
-            + children
-            + "]}"
-        )
+        let children = [String](repeating: child, count: mapRepeats).joined(separator: ",")
+        let expected =
+            ("{"
+                + "\"repeatedInt32\":["
+                + pad
+                + "],"
+                + "\"repeatedMessage\":["
+                + children
+                + "]}")
 
         let msg = MessageTestType.with {
             $0.repeatedInt32 = rawPadding
             let child = MessageTestType.with {
-               $0.mapInt32AnEnum[30] = SwiftProtoTesting_Fuzz_AnEnum.two
+                $0.mapInt32AnEnum[30] = SwiftProtoTesting_Fuzz_AnEnum.two
             }
-            let array = Array<MessageTestType>(repeating: child, count: mapRepeats)
+            let array = [MessageTestType](repeating: child, count: mapRepeats)
             $0.repeatedMessage = array
         }
 
@@ -95,33 +93,31 @@ final class Test_JSON_Performance: XCTestCase, PBTestHelpers {
         XCTAssertEqual(expected, encoded)
     }
 
-
     func testEncoding_manyMessageMapsEncoding_shouldBeUnder1s() {
-        let rawPadding = Array<Int32>(repeating: 1000000000, count: 150000)
+        let rawPadding = [Int32](repeating: 1_000_000_000, count: 150000)
         let mapRepeats = 50000
 
-        let pad = rawPadding.map({$0.description}).joined(separator: ",")
+        let pad = rawPadding.map({ $0.description }).joined(separator: ",")
         let child = "{\"mapInt32Message\":{\"30\":{\"singularInt32\":8}}}"
-        let children = Array<String>(repeating: child, count: mapRepeats).joined(separator: ",")
-        let expected = (
-            "{"
-            + "\"repeatedInt32\":["
-            + pad
-            + "],"
-            + "\"repeatedMessage\":["
-            + children
-            + "]}"
-        )
+        let children = [String](repeating: child, count: mapRepeats).joined(separator: ",")
+        let expected =
+            ("{"
+                + "\"repeatedInt32\":["
+                + pad
+                + "],"
+                + "\"repeatedMessage\":["
+                + children
+                + "]}")
 
         let msg = MessageTestType.with {
             $0.repeatedInt32 = rawPadding
             let child = MessageTestType.with {
-               let grandchild = MessageTestType.with {
-                   $0.singularInt32 = 8
-               }
-               $0.mapInt32Message[30] = grandchild
+                let grandchild = MessageTestType.with {
+                    $0.singularInt32 = 8
+                }
+                $0.mapInt32Message[30] = grandchild
             }
-            let array = Array<MessageTestType>(repeating: child, count: mapRepeats)
+            let array = [MessageTestType](repeating: child, count: mapRepeats)
             $0.repeatedMessage = array
         }
 

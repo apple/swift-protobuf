@@ -9,21 +9,22 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-
 import SwiftProtobufPluginLibrary
 
 extension ProvidesSourceCodeLocation {
-  func protoSourceComments(
-    generatorOptions: GeneratorOptions,
-    commentPrefix: String = "///",
-    leadingDetachedPrefix: String? = nil
-  ) -> String {
-    if generatorOptions.experimentalStripNonfunctionalCodegen {
-      // Comments are inherently non-functional, and may change subtly on
-      // transformations.
-      return String()
+    func protoSourceComments(
+        generatorOptions: GeneratorOptions,
+        commentPrefix: String = "///",
+        leadingDetachedPrefix: String? = nil
+    ) -> String {
+        if generatorOptions.experimentalStripNonfunctionalCodegen {
+            // Comments are inherently non-functional, and may change subtly on
+            // transformations.
+            return String()
+        }
+        return protoSourceComments(
+            commentPrefix: commentPrefix,
+            leadingDetachedPrefix: leadingDetachedPrefix
+        )
     }
-    return protoSourceComments(commentPrefix: commentPrefix,
-                               leadingDetachedPrefix: leadingDetachedPrefix)
-  }
 }

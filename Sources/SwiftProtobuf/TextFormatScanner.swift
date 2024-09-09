@@ -74,23 +74,23 @@ private let asciiUpperZ = UInt8(ascii: "Z")
 private let maxFieldNumLength: Int = 9
 
 private func fromHexDigit(_ c: UInt8) -> UInt8? {
-  if c >= asciiZero && c <= asciiNine {
-    return c - asciiZero
-  }
-  if c >= asciiUpperA && c <= asciiUpperF {
-      return c - asciiUpperA + UInt8(10)
-  }
-  if c >= asciiLowerA && c <= asciiLowerF {
-      return c - asciiLowerA + UInt8(10)
-  }
-  return nil
+    if c >= asciiZero && c <= asciiNine {
+        return c - asciiZero
+    }
+    if c >= asciiUpperA && c <= asciiUpperF {
+        return c - asciiUpperA + UInt8(10)
+    }
+    if c >= asciiLowerA && c <= asciiLowerF {
+        return c - asciiLowerA + UInt8(10)
+    }
+    return nil
 }
 
 private func uint32FromHexDigit(_ c: UInt8) -> UInt32? {
-  guard let u8 = fromHexDigit(c) else {
-    return nil
-  }
-  return UInt32(u8)
+    guard let u8 = fromHexDigit(c) else {
+        return nil
+    }
+    return UInt32(u8)
 }
 
 // Protobuf Text encoding assumes that you're working directly
@@ -99,138 +99,141 @@ private func uint32FromHexDigit(_ c: UInt8) -> UInt32? {
 // it back into a string.
 private func decodeString(_ s: String) -> String? {
 
-  // Helper to read 4 hex digits as a UInt32
-  func read4HexDigits(_ i: inout String.UTF8View.Iterator) -> UInt32? {
-    if let digit1 = i.next(),
-        let d1 = uint32FromHexDigit(digit1),
-        let digit2 = i.next(),
-        let d2 = uint32FromHexDigit(digit2),
-        let digit3 = i.next(),
-        let d3 = uint32FromHexDigit(digit3),
-        let digit4 = i.next(),
-        let d4 = uint32FromHexDigit(digit4) {
-      return (d1 << 12) + (d2 << 8) + (d3 << 4) + d4
-    }
-    return nil
-  }
-
-  var out = [UInt8]()
-  var bytes = s.utf8.makeIterator()
-  while let byte = bytes.next() {
-    switch byte {
-    case asciiBackslash: // backslash
-      if let escaped = bytes.next() {
-        switch escaped {
-        case asciiZero...asciiSeven: // 0...7
-          // C standard allows 1, 2, or 3 octal digits.
-          let savedPosition = bytes
-          let digit1 = escaped
-          let digit1Value = digit1 - asciiZero
-          if let digit2 = bytes.next(),
-            digit2 >= asciiZero && digit2 <= asciiSeven {
-            let digit2Value = digit2 - asciiZero
-            let innerSavedPosition = bytes
-            if let digit3 = bytes.next(),
-              digit3 >= asciiZero && digit3 <= asciiSeven {
-              let digit3Value = digit3 - asciiZero
-              // The max octal digit is actually \377, but looking at the C++
-              // protobuf code in strutil.cc:UnescapeCEscapeSequences(), it
-              // decodes with rollover, so just duplicate that behavior for
-              // consistency between languages.
-              let n = digit1Value &* 64 &+ digit2Value &* 8 &+ digit3Value
-              out.append(n)
-            } else {
-              let n = digit1Value * 8 + digit2Value
-              out.append(n)
-              bytes = innerSavedPosition
-            }
-          } else {
-            let n = digit1Value
-            out.append(n)
-            bytes = savedPosition
-          }
-        case asciiLowerU, asciiUpperU: // "u"
-          // \u - 4 hex digits, \U 8 hex digits:
-          guard let first = read4HexDigits(&bytes) else { return nil }
-          var codePoint = first
-          if escaped == asciiUpperU {
-            guard let second = read4HexDigits(&bytes) else { return nil }
-            codePoint = (codePoint << 16) + second
-          }
-          switch codePoint {
-          case 0...0x7f:
-            // 1 byte encoding
-            out.append(UInt8(truncatingIfNeeded: codePoint))
-          case 0x80...0x7ff:
-            // 2 byte encoding
-            out.append(0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6))
-            out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
-          case 0x800...0xffff:
-            // 3 byte encoding
-            out.append(0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12))
-            out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
-            out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
-          case 0x10000...0x10FFFF:
-            // 4 byte encoding
-            out.append(0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18))
-            out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F))
-            out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
-            out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
-          default:
-            return nil
-          }
-        case asciiLowerX: // "x"
-          // Unlike C/C++, protobuf only allows 1 or 2 digits here:
-          if let byte = bytes.next(), let digit = fromHexDigit(byte) {
-            var n = digit
-            let savedPosition = bytes
-            if let byte = bytes.next(), let digit = fromHexDigit(byte) {
-              n = n &* 16 + digit
-            } else {
-              // No second digit; reset the iterator
-              bytes = savedPosition
-            }
-            out.append(n)
-          } else {
-            return nil // Hex escape must have at least 1 digit
-          }
-        case asciiLowerA: // \a
-          out.append(asciiBell)
-        case asciiLowerB: // \b
-          out.append(asciiBackspace)
-        case asciiLowerF: // \f
-          out.append(asciiFormFeed)
-        case asciiLowerN: // \n
-          out.append(asciiNewLine)
-        case asciiLowerR: // \r
-          out.append(asciiCarriageReturn)
-        case asciiLowerT: // \t
-          out.append(asciiTab)
-        case asciiLowerV: // \v
-          out.append(asciiVerticalTab)
-        case asciiDoubleQuote,
-             asciiSingleQuote,
-             asciiQuestionMark,
-             asciiBackslash: // " ' ? \
-          out.append(escaped)
-        default:
-          return nil // Unrecognized escape
+    // Helper to read 4 hex digits as a UInt32
+    func read4HexDigits(_ i: inout String.UTF8View.Iterator) -> UInt32? {
+        if let digit1 = i.next(),
+            let d1 = uint32FromHexDigit(digit1),
+            let digit2 = i.next(),
+            let d2 = uint32FromHexDigit(digit2),
+            let digit3 = i.next(),
+            let d3 = uint32FromHexDigit(digit3),
+            let digit4 = i.next(),
+            let d4 = uint32FromHexDigit(digit4)
+        {
+            return (d1 << 12) + (d2 << 8) + (d3 << 4) + d4
         }
-      } else {
-        return nil // Input ends with backslash
-      }
-    default:
-      out.append(byte)
+        return nil
     }
-  }
-  // There has got to be an easier way to convert a [UInt8] into a String.
-  return out.withUnsafeBufferPointer { ptr in
-    if let addr = ptr.baseAddress {
-        return utf8ToString(bytes: addr, count: ptr.count)
-    } else {
-      return String()
+
+    var out = [UInt8]()
+    var bytes = s.utf8.makeIterator()
+    while let byte = bytes.next() {
+        switch byte {
+        case asciiBackslash:  // backslash
+            if let escaped = bytes.next() {
+                switch escaped {
+                case asciiZero...asciiSeven:  // 0...7
+                    // C standard allows 1, 2, or 3 octal digits.
+                    let savedPosition = bytes
+                    let digit1 = escaped
+                    let digit1Value = digit1 - asciiZero
+                    if let digit2 = bytes.next(),
+                        digit2 >= asciiZero && digit2 <= asciiSeven
+                    {
+                        let digit2Value = digit2 - asciiZero
+                        let innerSavedPosition = bytes
+                        if let digit3 = bytes.next(),
+                            digit3 >= asciiZero && digit3 <= asciiSeven
+                        {
+                            let digit3Value = digit3 - asciiZero
+                            // The max octal digit is actually \377, but looking at the C++
+                            // protobuf code in strutil.cc:UnescapeCEscapeSequences(), it
+                            // decodes with rollover, so just duplicate that behavior for
+                            // consistency between languages.
+                            let n = digit1Value &* 64 &+ digit2Value &* 8 &+ digit3Value
+                            out.append(n)
+                        } else {
+                            let n = digit1Value * 8 + digit2Value
+                            out.append(n)
+                            bytes = innerSavedPosition
+                        }
+                    } else {
+                        let n = digit1Value
+                        out.append(n)
+                        bytes = savedPosition
+                    }
+                case asciiLowerU, asciiUpperU:  // "u"
+                    // \u - 4 hex digits, \U 8 hex digits:
+                    guard let first = read4HexDigits(&bytes) else { return nil }
+                    var codePoint = first
+                    if escaped == asciiUpperU {
+                        guard let second = read4HexDigits(&bytes) else { return nil }
+                        codePoint = (codePoint << 16) + second
+                    }
+                    switch codePoint {
+                    case 0...0x7f:
+                        // 1 byte encoding
+                        out.append(UInt8(truncatingIfNeeded: codePoint))
+                    case 0x80...0x7ff:
+                        // 2 byte encoding
+                        out.append(0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6))
+                        out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+                    case 0x800...0xffff:
+                        // 3 byte encoding
+                        out.append(0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12))
+                        out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
+                        out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+                    case 0x10000...0x10FFFF:
+                        // 4 byte encoding
+                        out.append(0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18))
+                        out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F))
+                        out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
+                        out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+                    default:
+                        return nil
+                    }
+                case asciiLowerX:  // "x"
+                    // Unlike C/C++, protobuf only allows 1 or 2 digits here:
+                    if let byte = bytes.next(), let digit = fromHexDigit(byte) {
+                        var n = digit
+                        let savedPosition = bytes
+                        if let byte = bytes.next(), let digit = fromHexDigit(byte) {
+                            n = n &* 16 + digit
+                        } else {
+                            // No second digit; reset the iterator
+                            bytes = savedPosition
+                        }
+                        out.append(n)
+                    } else {
+                        return nil  // Hex escape must have at least 1 digit
+                    }
+                case asciiLowerA:  // \a
+                    out.append(asciiBell)
+                case asciiLowerB:  // \b
+                    out.append(asciiBackspace)
+                case asciiLowerF:  // \f
+                    out.append(asciiFormFeed)
+                case asciiLowerN:  // \n
+                    out.append(asciiNewLine)
+                case asciiLowerR:  // \r
+                    out.append(asciiCarriageReturn)
+                case asciiLowerT:  // \t
+                    out.append(asciiTab)
+                case asciiLowerV:  // \v
+                    out.append(asciiVerticalTab)
+                case asciiDoubleQuote,
+                    asciiSingleQuote,
+                    asciiQuestionMark,
+                    asciiBackslash:  // " ' ? \
+                    out.append(escaped)
+                default:
+                    return nil  // Unrecognized escape
+                }
+            } else {
+                return nil  // Input ends with backslash
+            }
+        default:
+            out.append(byte)
+        }
     }
-  }
+    // There has got to be an easier way to convert a [UInt8] into a String.
+    return out.withUnsafeBufferPointer { ptr in
+        if let addr = ptr.baseAddress {
+            return utf8ToString(bytes: addr, count: ptr.count)
+        } else {
+            return String()
+        }
+    }
 }
 
 ///
@@ -247,15 +250,15 @@ internal struct TextFormatScanner {
 
     internal var complete: Bool {
         mutating get {
-            return p == end
+            p == end
         }
     }
 
     internal init(
-      utf8Pointer: UnsafeRawPointer,
-      count: Int,
-      options: TextFormatDecodingOptions,
-      extensions: (any ExtensionMap)? = nil
+        utf8Pointer: UnsafeRawPointer,
+        count: Int,
+        options: TextFormatDecodingOptions,
+        extensions: (any ExtensionMap)? = nil
     ) {
         p = utf8Pointer
         end = p + count
@@ -289,11 +292,11 @@ internal struct TextFormatScanner {
             let u = p[0]
             switch u {
             case asciiSpace,
-                 asciiTab,
-                 asciiNewLine,
-                 asciiCarriageReturn: // space, tab, NL, CR
+                asciiTab,
+                asciiNewLine,
+                asciiCarriageReturn:  // space, tab, NL, CR
                 p += 1
-            case asciiHash: // # comment
+            case asciiHash:  // # comment
                 p += 1
                 while p != end {
                     // Skip until end of line
@@ -318,9 +321,9 @@ internal struct TextFormatScanner {
             let c = p[0]
             switch c {
             case asciiLowerA...asciiLowerZ,
-                 asciiUpperA...asciiUpperZ,
-                 asciiZero...asciiNine,
-                 asciiUnderscore:
+                asciiUpperA...asciiUpperZ,
+                asciiZero...asciiNine,
+                asciiUnderscore:
                 p += 1
             default:
                 break loop
@@ -342,103 +345,103 @@ internal struct TextFormatScanner {
     /// Scan a string that encodes a byte field, return a count of
     /// the number of bytes that should be decoded from it
     private mutating func validateAndCountBytesFromString(terminator: UInt8, sawBackslash: inout Bool) throws -> Int {
-      var count = 0
-      let start = p
-      sawBackslash = false
-      while p != end {
-        let byte = p[0]
-        p += 1
-        if byte == terminator {
-          p = start
-          return count
-        }
-        switch byte {
-        case asciiNewLine, asciiCarriageReturn:
-          // Can't have a newline in the middle of a bytes string.
-          throw TextFormatDecodingError.malformedText
-        case asciiBackslash: //  "\\"
-          sawBackslash = true
-          if p != end {
-            let escaped = p[0]
+        var count = 0
+        let start = p
+        sawBackslash = false
+        while p != end {
+            let byte = p[0]
             p += 1
-            switch escaped {
-              case asciiZero...asciiSeven: // '0'...'7'
-                // C standard allows 1, 2, or 3 octal digits.
-                if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
-                  p += 1
-                  if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
-                    if escaped > asciiThree {
-                       // Out of range octal: three digits and first digit is greater than 3
-                      throw TextFormatDecodingError.malformedText
-                    }
-                    p += 1
-                  }
-                }
-                count += 1
-              case asciiLowerU, asciiUpperU: // 'u' or 'U' unicode escape
-                let numDigits = (escaped == asciiLowerU) ? 4 : 8
-                guard (end - p) >= numDigits else {
-                  throw TextFormatDecodingError.malformedText // unicode escape must 4/8 digits
-                }
-                var codePoint: UInt32 = 0
-                for i in 0..<numDigits {
-                  if let digit = uint32FromHexDigit(p[i]) {
-                    codePoint = (codePoint << 4) + digit
-                  } else {
-                    throw TextFormatDecodingError.malformedText // wasn't a hex digit
-                  }
-                }
-                p += numDigits
-                switch codePoint {
-                case 0...0x7f:
-                  // 1 byte encoding
-                  count += 1
-                case 0x80...0x7ff:
-                  // 2 byte encoding
-                  count += 2
-                case 0xD800...0xDFFF:
-                  // Surrogate pair (low or high), shouldn't get a unicode literal of those.
-                  throw TextFormatDecodingError.malformedText
-                case 0x800...0xffff:
-                  // 3 byte encoding
-                  count += 3
-                case 0x10000...0x10FFFF:
-                  // 4 byte encoding
-                  count += 4
-                default:
-                  throw TextFormatDecodingError.malformedText // Isn't a valid unicode character
-                }
-              case asciiLowerX: // 'x' hexadecimal escape
-                if p != end && fromHexDigit(p[0]) != nil {
-                  p += 1
-                  if p != end && fromHexDigit(p[0]) != nil {
-                    p += 1
-                  }
-                } else {
-                  throw TextFormatDecodingError.malformedText // Hex escape must have at least 1 digit
-                }
-                count += 1
-              case asciiLowerA, // \a ("alert")
-                   asciiLowerB, // \b
-                   asciiLowerF, // \f
-                   asciiLowerN, // \n
-                   asciiLowerR, // \r
-                   asciiLowerT, // \t
-                   asciiLowerV, // \v
-                   asciiSingleQuote, // \'
-                   asciiDoubleQuote, // \"
-                   asciiQuestionMark, // \?
-                   asciiBackslash: // \\
-                count += 1
-              default:
-                throw TextFormatDecodingError.malformedText // Unrecognized escape
+            if byte == terminator {
+                p = start
+                return count
             }
-          }
-        default:
-          count += 1
+            switch byte {
+            case asciiNewLine, asciiCarriageReturn:
+                // Can't have a newline in the middle of a bytes string.
+                throw TextFormatDecodingError.malformedText
+            case asciiBackslash:  //  "\\"
+                sawBackslash = true
+                if p != end {
+                    let escaped = p[0]
+                    p += 1
+                    switch escaped {
+                    case asciiZero...asciiSeven:  // '0'...'7'
+                        // C standard allows 1, 2, or 3 octal digits.
+                        if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
+                            p += 1
+                            if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
+                                if escaped > asciiThree {
+                                    // Out of range octal: three digits and first digit is greater than 3
+                                    throw TextFormatDecodingError.malformedText
+                                }
+                                p += 1
+                            }
+                        }
+                        count += 1
+                    case asciiLowerU, asciiUpperU:  // 'u' or 'U' unicode escape
+                        let numDigits = (escaped == asciiLowerU) ? 4 : 8
+                        guard (end - p) >= numDigits else {
+                            throw TextFormatDecodingError.malformedText  // unicode escape must 4/8 digits
+                        }
+                        var codePoint: UInt32 = 0
+                        for i in 0..<numDigits {
+                            if let digit = uint32FromHexDigit(p[i]) {
+                                codePoint = (codePoint << 4) + digit
+                            } else {
+                                throw TextFormatDecodingError.malformedText  // wasn't a hex digit
+                            }
+                        }
+                        p += numDigits
+                        switch codePoint {
+                        case 0...0x7f:
+                            // 1 byte encoding
+                            count += 1
+                        case 0x80...0x7ff:
+                            // 2 byte encoding
+                            count += 2
+                        case 0xD800...0xDFFF:
+                            // Surrogate pair (low or high), shouldn't get a unicode literal of those.
+                            throw TextFormatDecodingError.malformedText
+                        case 0x800...0xffff:
+                            // 3 byte encoding
+                            count += 3
+                        case 0x10000...0x10FFFF:
+                            // 4 byte encoding
+                            count += 4
+                        default:
+                            throw TextFormatDecodingError.malformedText  // Isn't a valid unicode character
+                        }
+                    case asciiLowerX:  // 'x' hexadecimal escape
+                        if p != end && fromHexDigit(p[0]) != nil {
+                            p += 1
+                            if p != end && fromHexDigit(p[0]) != nil {
+                                p += 1
+                            }
+                        } else {
+                            throw TextFormatDecodingError.malformedText  // Hex escape must have at least 1 digit
+                        }
+                        count += 1
+                    case asciiLowerA,  // \a ("alert")
+                        asciiLowerB,  // \b
+                        asciiLowerF,  // \f
+                        asciiLowerN,  // \n
+                        asciiLowerR,  // \r
+                        asciiLowerT,  // \t
+                        asciiLowerV,  // \v
+                        asciiSingleQuote,  // \'
+                        asciiDoubleQuote,  // \"
+                        asciiQuestionMark,  // \?
+                        asciiBackslash:  // \\
+                        count += 1
+                    default:
+                        throw TextFormatDecodingError.malformedText  // Unrecognized escape
+                    }
+                }
+            default:
+                count += 1
+            }
         }
-      }
-      throw TextFormatDecodingError.malformedText
+        throw TextFormatDecodingError.malformedText
     }
 
     /// Protobuf Text format uses C ASCII conventions for
@@ -448,114 +451,114 @@ internal struct TextFormatScanner {
     /// Assumes that validateAndCountBytesFromString() has already
     /// verified the correctness.  So we get to avoid error checks here.
     private mutating func parseBytesFromString(terminator: UInt8, into data: inout Data) {
-      data.withUnsafeMutableBytes {
-        (body: UnsafeMutableRawBufferPointer) in
-        if var out = body.baseAddress, body.count > 0 {
-          while p[0] != terminator {
-            let byte = p[0]
-            p += 1
-            switch byte {
-            case asciiBackslash: //  "\\"
-              let escaped = p[0]
-              p += 1
-              switch escaped {
-              case asciiZero...asciiSeven: // '0'...'7'
-                // C standard allows 1, 2, or 3 octal digits.
-                let digit1Value = escaped - asciiZero
-                let digit2 = p[0]
-                if digit2 >= asciiZero, digit2 <= asciiSeven {
-                  p += 1
-                  let digit2Value = digit2 - asciiZero
-                  let digit3 = p[0]
-                  if digit3 >= asciiZero, digit3 <= asciiSeven {
+        data.withUnsafeMutableBytes {
+            (body: UnsafeMutableRawBufferPointer) in
+            if var out = body.baseAddress, body.count > 0 {
+                while p[0] != terminator {
+                    let byte = p[0]
                     p += 1
-                    let digit3Value = digit3 - asciiZero
-                    out[0] = digit1Value &* 64 + digit2Value * 8 + digit3Value
-                    out += 1
-                  } else {
-                    out[0] = digit1Value * 8 + digit2Value
-                    out += 1
-                  }
-                } else {
-                  out[0] = digit1Value
-                  out += 1
+                    switch byte {
+                    case asciiBackslash:  //  "\\"
+                        let escaped = p[0]
+                        p += 1
+                        switch escaped {
+                        case asciiZero...asciiSeven:  // '0'...'7'
+                            // C standard allows 1, 2, or 3 octal digits.
+                            let digit1Value = escaped - asciiZero
+                            let digit2 = p[0]
+                            if digit2 >= asciiZero, digit2 <= asciiSeven {
+                                p += 1
+                                let digit2Value = digit2 - asciiZero
+                                let digit3 = p[0]
+                                if digit3 >= asciiZero, digit3 <= asciiSeven {
+                                    p += 1
+                                    let digit3Value = digit3 - asciiZero
+                                    out[0] = digit1Value &* 64 + digit2Value * 8 + digit3Value
+                                    out += 1
+                                } else {
+                                    out[0] = digit1Value * 8 + digit2Value
+                                    out += 1
+                                }
+                            } else {
+                                out[0] = digit1Value
+                                out += 1
+                            }
+                        case asciiLowerU, asciiUpperU:
+                            let numDigits = (escaped == asciiLowerU) ? 4 : 8
+                            var codePoint: UInt32 = 0
+                            for i in 0..<numDigits {
+                                codePoint = (codePoint << 4) + uint32FromHexDigit(p[i])!
+                            }
+                            p += numDigits
+                            switch codePoint {
+                            case 0...0x7f:
+                                // 1 byte encoding
+                                out[0] = UInt8(truncatingIfNeeded: codePoint)
+                                out += 1
+                            case 0x80...0x7ff:
+                                // 2 byte encoding
+                                out[0] = 0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6)
+                                out[1] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
+                                out += 2
+                            case 0x800...0xffff:
+                                // 3 byte encoding
+                                out[0] = 0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12)
+                                out[1] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F)
+                                out[2] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
+                                out += 3
+                            case 0x10000...0x10FFFF:
+                                // 4 byte encoding
+                                out[0] = 0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18)
+                                out[1] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F)
+                                out[2] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F)
+                                out[3] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
+                                out += 4
+                            default:
+                                preconditionFailure()  // Already validated, can't happen
+                            }
+                        case asciiLowerX:  // 'x' hexadecimal escape
+                            // We already validated, so we know there's at least one digit:
+                            var n = fromHexDigit(p[0])!
+                            p += 1
+                            if let digit = fromHexDigit(p[0]) {
+                                n = n &* 16 &+ digit
+                                p += 1
+                            }
+                            out[0] = n
+                            out += 1
+                        case asciiLowerA:  // \a ("alert")
+                            out[0] = asciiBell
+                            out += 1
+                        case asciiLowerB:  // \b
+                            out[0] = asciiBackspace
+                            out += 1
+                        case asciiLowerF:  // \f
+                            out[0] = asciiFormFeed
+                            out += 1
+                        case asciiLowerN:  // \n
+                            out[0] = asciiNewLine
+                            out += 1
+                        case asciiLowerR:  // \r
+                            out[0] = asciiCarriageReturn
+                            out += 1
+                        case asciiLowerT:  // \t
+                            out[0] = asciiTab
+                            out += 1
+                        case asciiLowerV:  // \v
+                            out[0] = asciiVerticalTab
+                            out += 1
+                        default:
+                            out[0] = escaped
+                            out += 1
+                        }
+                    default:
+                        out[0] = byte
+                        out += 1
+                    }
                 }
-              case asciiLowerU, asciiUpperU:
-                let numDigits = (escaped == asciiLowerU) ? 4 : 8
-                var codePoint: UInt32 = 0
-                for i in 0..<numDigits {
-                  codePoint = (codePoint << 4) + uint32FromHexDigit(p[i])!
-                }
-                p += numDigits
-                switch codePoint {
-                case 0...0x7f:
-                  // 1 byte encoding
-                  out[0] = UInt8(truncatingIfNeeded: codePoint)
-                  out += 1
-                case 0x80...0x7ff:
-                  // 2 byte encoding
-                  out[0] = 0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6)
-                  out[1] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
-                  out += 2
-                case 0x800...0xffff:
-                  // 3 byte encoding
-                  out[0] = 0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12)
-                  out[1] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F)
-                  out[2] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
-                  out += 3
-                case 0x10000...0x10FFFF:
-                  // 4 byte encoding
-                  out[0] = 0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18)
-                  out[1] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F)
-                  out[2] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F)
-                  out[3] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
-                  out += 4
-                default:
-                  preconditionFailure() // Already validated, can't happen
-                }
-              case asciiLowerX: // 'x' hexadecimal escape
-                // We already validated, so we know there's at least one digit:
-                var n = fromHexDigit(p[0])!
-                p += 1
-                if let digit = fromHexDigit(p[0]) {
-                  n = n &* 16 &+ digit
-                  p += 1
-                }
-                out[0] = n
-                out += 1
-              case asciiLowerA: // \a ("alert")
-                out[0] = asciiBell
-                out += 1
-              case asciiLowerB: // \b
-                out[0] = asciiBackspace
-                out += 1
-              case asciiLowerF: // \f
-                out[0] = asciiFormFeed
-                out += 1
-              case asciiLowerN: // \n
-                out[0] = asciiNewLine
-                out += 1
-              case asciiLowerR: // \r
-                out[0] = asciiCarriageReturn
-                out += 1
-              case asciiLowerT: // \t
-                out[0] = asciiTab
-                out += 1
-              case asciiLowerV: // \v
-                out[0] = asciiVerticalTab
-                out += 1
-              default:
-                out[0] = escaped
-                out += 1
-              }
-            default:
-              out[0] = byte
-              out += 1
+                p += 1  // Consume terminator
             }
-          }
-          p += 1 // Consume terminator
         }
-      }
     }
 
     /// Assumes the leading quote has already been consumed
@@ -575,7 +578,7 @@ internal struct TextFormatScanner {
                 }
             }
             p += 1
-            if c == asciiBackslash { //  \
+            if c == asciiBackslash {  //  \
                 if p == end {
                     return nil
                 }
@@ -587,7 +590,7 @@ internal struct TextFormatScanner {
                 return nil
             }
         }
-        return nil // Unterminated quoted string
+        return nil  // Unterminated quoted string
     }
 
     internal mutating func nextUInt() throws -> UInt64 {
@@ -596,21 +599,21 @@ internal struct TextFormatScanner {
         }
         let c = p[0]
         p += 1
-        if c == asciiZero { // leading '0' precedes octal or hex
+        if c == asciiZero {  // leading '0' precedes octal or hex
             if p == end {
                 // The TextFormat ended with a field value of zero.
                 return 0
             }
-            if p[0] == asciiLowerX { // 'x' => hex
+            if p[0] == asciiLowerX {  // 'x' => hex
                 p += 1
                 var n: UInt64 = 0
                 while p != end {
                     let digit = p[0]
                     let val: UInt64
                     switch digit {
-                    case asciiZero...asciiNine: // 0...9
+                    case asciiZero...asciiNine:  // 0...9
                         val = UInt64(digit - asciiZero)
-                    case asciiLowerA...asciiLowerF: // a...f
+                    case asciiLowerA...asciiLowerF:  // a...f
                         val = UInt64(digit - asciiLowerA + 10)
                     case asciiUpperA...asciiUpperF:
                         val = UInt64(digit - asciiUpperA + 10)
@@ -626,13 +629,13 @@ internal struct TextFormatScanner {
                 }
                 skipWhitespace()
                 return n
-            } else { // octal
+            } else {  // octal
                 var n: UInt64 = 0
                 while p != end {
                     let digit = p[0]
                     if digit < asciiZero || digit > asciiSeven {
                         skipWhitespace()
-                        return n // not octal digit
+                        return n  // not octal digit
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
@@ -644,13 +647,13 @@ internal struct TextFormatScanner {
                 skipWhitespace()
                 return n
             }
-        } else if c > asciiZero && c <= asciiNine { // 1...9
+        } else if c > asciiZero && c <= asciiNine {  // 1...9
             var n = UInt64(c - asciiZero)
             while p != end {
                 let digit = p[0]
                 if digit < asciiZero || digit > asciiNine {
                     skipWhitespace()
-                    return n // not a digit
+                    return n  // not a digit
                 }
                 let val = UInt64(digit - asciiZero)
                 if n > UInt64.max / 10 || n * 10 > UInt64.max - val {
@@ -670,7 +673,7 @@ internal struct TextFormatScanner {
             throw TextFormatDecodingError.malformedNumber
         }
         let c = p[0]
-        if c == asciiMinus { // -
+        if c == asciiMinus {  // -
             p += 1
             if p == end {
                 throw TextFormatDecodingError.malformedNumber
@@ -681,13 +684,13 @@ internal struct TextFormatScanner {
                 throw TextFormatDecodingError.malformedNumber
             }
             let n = try nextUInt()
-            let limit: UInt64 = 0x8000000000000000 // -Int64.min
+            let limit: UInt64 = 0x8000_0000_0000_0000  // -Int64.min
             if n >= limit {
                 if n > limit {
                     // Too large negative number
                     throw TextFormatDecodingError.malformedNumber
                 } else {
-                    return Int64.min // Special case for Int64.min
+                    return Int64.min  // Special case for Int64.min
                 }
             }
             return -Int64(bitPattern: n)
@@ -754,11 +757,11 @@ internal struct TextFormatScanner {
         var sawBackslash = false
         let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
         if sawBackslash {
-          result = Data(count: n)
-          parseBytesFromString(terminator: c, into: &result)
+            result = Data(count: n)
+            parseBytesFromString(terminator: c, into: &result)
         } else {
-          result = Data(bytes: p, count: n)
-          p += n + 1 // Skip string body + close quote
+            result = Data(bytes: p, count: n)
+            p += n + 1  // Skip string body + close quote
         }
 
         // If there are more strings, decode them
@@ -776,12 +779,12 @@ internal struct TextFormatScanner {
             var sawBackslash = false
             let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
             if sawBackslash {
-              var b = Data(count: n)
-              parseBytesFromString(terminator: c, into: &b)
-              result.append(b)
+                var b = Data(count: n)
+                parseBytesFromString(terminator: c, into: &b)
+                result.append(b)
             } else {
-              result.append(Data(bytes: p, count: n))
-              p += n + 1 // Skip string body + close quote
+                result.append(Data(bytes: p, count: n))
+                p += n + 1  // Skip string body + close quote
             }
         }
     }
@@ -789,26 +792,32 @@ internal struct TextFormatScanner {
     // Tries to identify a sequence of UTF8 characters
     // that represent a numeric floating-point value.
     private mutating func tryParseFloatString() -> Double? {
-        guard p != end else {return nil}
+        guard p != end else { return nil }
         let start = p
         var c = p[0]
         if c == asciiMinus {
             p += 1
-            guard p != end else {p = start; return nil}
+            guard p != end else {
+                p = start
+                return nil
+            }
             c = p[0]
         }
         switch c {
-        case asciiZero: // '0' as first character is not allowed followed by digit
+        case asciiZero:  // '0' as first character is not allowed followed by digit
             p += 1
-            guard p != end else {break}
+            guard p != end else { break }
             c = p[0]
             if c >= asciiZero && c <= asciiNine {
                 p = start
                 return nil
             }
-        case asciiPeriod: // '.' as first char only if followed by digit
+        case asciiPeriod:  // '.' as first char only if followed by digit
             p += 1
-            guard p != end else {p = start; return nil}
+            guard p != end else {
+                p = start
+                return nil
+            }
             c = p[0]
             if c < asciiZero || c > asciiNine {
                 p = start
@@ -824,16 +833,20 @@ internal struct TextFormatScanner {
             let c = p[0]
             switch c {
             case asciiZero...asciiNine,
-                 asciiPeriod,
-                 asciiPlus,
-                 asciiMinus,
-                 asciiLowerE,
-                 asciiUpperE: // 0...9, ., +, -, e, E
+                asciiPeriod,
+                asciiPlus,
+                asciiMinus,
+                asciiLowerE,
+                asciiUpperE:  // 0...9, ., +, -, e, E
                 p += 1
-            case asciiLowerF, asciiUpperF: // f or F
-                let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start,
-                                                                                count: p - start),
-                                                  finiteOnly: false)
+            case asciiLowerF, asciiUpperF:  // f or F
+                let d = doubleParser.utf8ToDouble(
+                    bytes: UnsafeRawBufferPointer(
+                        start: start,
+                        count: p - start
+                    ),
+                    finiteOnly: false
+                )
                 // Just skip the 'f'/'F'
                 p += 1
                 skipWhitespace()
@@ -842,9 +855,13 @@ internal struct TextFormatScanner {
                 break loop
             }
         }
-        let d = doubleParser.utf8ToDouble(bytes: UnsafeRawBufferPointer(start: start,
-                                                                        count: p - start),
-                                          finiteOnly: false)
+        let d = doubleParser.utf8ToDouble(
+            bytes: UnsafeRawBufferPointer(
+                start: start,
+                count: p - start
+            ),
+            finiteOnly: false
+        )
         skipWhitespace()
         return d
     }
@@ -886,8 +903,9 @@ internal struct TextFormatScanner {
             return true
         }
         let c = p[0]
-        if ((c >= asciiUpperA && c <= asciiUpperZ)
-            || (c >= asciiLowerA && c <= asciiLowerZ)) {
+        if (c >= asciiUpperA && c <= asciiUpperZ)
+            || (c >= asciiLowerA && c <= asciiLowerZ)
+        {
             p = start
             return false
         }
@@ -927,10 +945,13 @@ internal struct TextFormatScanner {
             negated = false
         }
         let inf = [asciiLowerI, asciiLowerN, asciiLowerF]
-        let infinity = [asciiLowerI, asciiLowerN, asciiLowerF, asciiLowerI,
-                        asciiLowerN, asciiLowerI, asciiLowerT, asciiLowerY]
-        if (skipOptionalKeyword(bytes: inf)
-            || skipOptionalKeyword(bytes: infinity)) {
+        let infinity = [
+            asciiLowerI, asciiLowerN, asciiLowerF, asciiLowerI,
+            asciiLowerN, asciiLowerI, asciiLowerT, asciiLowerY,
+        ]
+        if skipOptionalKeyword(bytes: inf)
+            || skipOptionalKeyword(bytes: infinity)
+        {
             return negated ? -Float.infinity : Float.infinity
         }
         p = start
@@ -996,15 +1017,15 @@ internal struct TextFormatScanner {
         }
         switch p[0] {
         case asciiSpace,
-             asciiTab,
-             asciiNewLine,
-             asciiCarriageReturn,
-             asciiHash,
-             asciiComma,
-             asciiSemicolon,
-             asciiCloseSquareBracket,
-             asciiCloseCurlyBracket,
-             asciiCloseAngleBracket:
+            asciiTab,
+            asciiNewLine,
+            asciiCarriageReturn,
+            asciiHash,
+            asciiComma,
+            asciiSemicolon,
+            asciiCloseSquareBracket,
+            asciiCloseCurlyBracket,
+            asciiCloseAngleBracket:
             skipWhitespace()
             return result
         default:
@@ -1028,7 +1049,7 @@ internal struct TextFormatScanner {
     /// Any URLs are syntactically (almost) identical to extension
     /// keys, so we share the code for those.
     internal mutating func nextOptionalAnyURL() throws -> String? {
-        return try nextOptionalExtensionKey()
+        try nextOptionalExtensionKey()
     }
 
     /// Returns next extension key or nil if end-of-input or
@@ -1047,7 +1068,7 @@ internal struct TextFormatScanner {
         if p == end {
             return nil
         }
-        guard p[0] == asciiOpenSquareBracket else { // [
+        guard p[0] == asciiOpenSquareBracket else {  // [
             return nil
         }
         return try parseExtensionKey()
@@ -1072,13 +1093,13 @@ internal struct TextFormatScanner {
         loop: while p != end {
             switch p[0] {
             case asciiLowerA...asciiLowerZ,
-                 asciiUpperA...asciiUpperZ,
-                 asciiZero...asciiNine,
-                 asciiUnderscore,
-                 asciiPeriod,
-                 asciiForwardSlash:
+                asciiUpperA...asciiUpperZ,
+                asciiZero...asciiNine,
+                asciiUnderscore,
+                asciiPeriod,
+                asciiForwardSlash:
                 p += 1
-            case asciiCloseSquareBracket: // ]
+            case asciiCloseSquareBracket:  // ]
                 break loop
             default:
                 throw TextFormatDecodingError.malformedText
@@ -1103,13 +1124,13 @@ internal struct TextFormatScanner {
         }
         let c = p[0]
         switch c {
-        case asciiOpenSquareBracket: // [
+        case asciiOpenSquareBracket:  // [
             if allowExtensions {
                 return "[\(try parseExtensionKey())]"
             }
             throw TextFormatDecodingError.unknownField
         case asciiLowerA...asciiLowerZ,
-             asciiUpperA...asciiUpperZ: // a...z, A...Z
+            asciiUpperA...asciiUpperZ:  // a...z, A...Z
             return parseIdentifier()
         case asciiOne...asciiNine:  // 1...9 (field numbers are 123, not 0123)
             let start = p
@@ -1162,7 +1183,7 @@ internal struct TextFormatScanner {
             let c = p[0]
             switch c {
             case asciiLowerA...asciiLowerZ,
-                asciiUpperA...asciiUpperZ: // a...z, A...Z
+                asciiUpperA...asciiUpperZ:  // a...z, A...Z
                 let key = parseUTF8Identifier()
                 if let fieldNumber = names.number(forProtoName: key) {
                     return fieldNumber
@@ -1172,7 +1193,7 @@ internal struct TextFormatScanner {
                 }
                 // Unknown field name
                 break
-            case asciiOpenSquareBracket: // Start of an extension field
+            case asciiOpenSquareBracket:  // Start of an extension field
                 let key = try parseExtensionKey()
                 if let fieldNumber = extensions?.fieldNumberForProto(messageType: messageType, protoFieldName: key) {
                     return fieldNumber
@@ -1235,7 +1256,7 @@ internal struct TextFormatScanner {
         //   to be a message or the input is ill-formed.
 
         skipWhitespace()
-        if (skipOptionalColon()) {
+        if skipOptionalColon() {
             if p == end {
                 // Nothing after the ':'?
                 throw TextFormatDecodingError.malformedText
@@ -1274,8 +1295,9 @@ internal struct TextFormatScanner {
             scan += 1
             if scan == end { return true }  // "(-)0[end]" : parse it as decimal
             c = scan[0]
-            if c == asciiLowerX ||  // "(-)0x" : hex - must parse as decimal
-                (c >= asciiZero && c <= asciiSeven) {  // "(-)0[0-7]" : octal - must parse as decimal
+            if c == asciiLowerX  // "(-)0x" : hex - must parse as decimal
+                || (c >= asciiZero && c <= asciiSeven)
+            {  // "(-)0[0-7]" : octal - must parse as decimal
                 return true
             }
             if c == asciiPeriod {
@@ -1390,15 +1412,15 @@ internal struct TextFormatScanner {
     }
 
     internal mutating func skipOptionalColon() -> Bool {
-        return skipOptionalCharacter(asciiColon)
+        skipOptionalCharacter(asciiColon)
     }
 
     internal mutating func skipOptionalEndArray() -> Bool {
-        return skipOptionalCharacter(asciiCloseSquareBracket)
+        skipOptionalCharacter(asciiCloseSquareBracket)
     }
 
     internal mutating func skipOptionalBeginArray() -> Bool {
-        return skipOptionalCharacter(asciiOpenSquareBracket)
+        skipOptionalCharacter(asciiOpenSquareBracket)
     }
 
     internal mutating func skipOptionalObjectEnd(_ c: UInt8) -> Bool {
@@ -1412,7 +1434,7 @@ internal struct TextFormatScanner {
     internal mutating func skipOptionalSeparator() {
         if p != end {
             let c = p[0]
-            if c == asciiComma || c == asciiSemicolon { // comma or semicolon
+            if c == asciiComma || c == asciiSemicolon {  // comma or semicolon
                 p += 1
                 skipWhitespace()
             }
@@ -1428,10 +1450,10 @@ internal struct TextFormatScanner {
             p += 1
             skipWhitespace()
             switch c {
-            case asciiOpenCurlyBracket: // {
-                return asciiCloseCurlyBracket // }
-            case asciiOpenAngleBracket: // <
-                return asciiCloseAngleBracket // >
+            case asciiOpenCurlyBracket:  // {
+                return asciiCloseCurlyBracket  // }
+            case asciiOpenAngleBracket:  // <
+                return asciiCloseAngleBracket  // >
             default:
                 break
             }

@@ -37,6 +37,6 @@ public final class MessageExtension<FieldType: ExtensionField, MessageType: Mess
         self.messageType = MessageType.self
     }
     public func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> (any AnyExtensionField)? {
-        return try FieldType(protobufExtension: self, decoder: &decoder)
+        try FieldType(protobufExtension: self, decoder: &decoder)
     }
 }

@@ -14,14 +14,20 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_JSON_Conformance: XCTestCase {
-    func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) -> () {
+    func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
-            XCTAssertEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3(), "Decoded object should be equal to empty object: \(decoded)", file: file, line: line)
+            XCTAssertEqual(
+                decoded,
+                SwiftProtoTesting_Test3_TestAllTypesProto3(),
+                "Decoded object should be equal to empty object: \(decoded)",
+                file: file,
+                line: line
+            )
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{}", file: file, line: line)
             let protobuf: [UInt8] = try decoded.serializedBytes()
@@ -240,7 +246,10 @@ final class Test_JSON_Conformance: XCTestCase {
         do {
             decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: repeatedValueWithNull)
             XCTAssertNotEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
-            XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), nil as Google_Protobuf_Value])
+            XCTAssertEqual(
+                decoded.repeatedValue,
+                [Google_Protobuf_Value(numberValue: 1), nil as Google_Protobuf_Value]
+            )
         } catch {
             XCTFail("Decode failed with error \(error): \(repeatedValueWithNull)")
             return
@@ -260,7 +269,8 @@ final class Test_JSON_Conformance: XCTestCase {
     }
 
     func testNullConformance() {
-        let start = "{\n        \"optionalBoolWrapper\": null,\n        \"optionalInt32Wrapper\": null,\n        \"optionalUint32Wrapper\": null,\n        \"optionalInt64Wrapper\": null,\n        \"optionalUint64Wrapper\": null,\n        \"optionalFloatWrapper\": null,\n        \"optionalDoubleWrapper\": null,\n        \"optionalStringWrapper\": null,\n        \"optionalBytesWrapper\": null,\n        \"repeatedBoolWrapper\": null,\n        \"repeatedInt32Wrapper\": null,\n        \"repeatedUint32Wrapper\": null,\n        \"repeatedInt64Wrapper\": null,\n        \"repeatedUint64Wrapper\": null,\n        \"repeatedFloatWrapper\": null,\n        \"repeatedDoubleWrapper\": null,\n        \"repeatedStringWrapper\": null,\n        \"repeatedBytesWrapper\": null\n      }"
+        let start =
+            "{\n        \"optionalBoolWrapper\": null,\n        \"optionalInt32Wrapper\": null,\n        \"optionalUint32Wrapper\": null,\n        \"optionalInt64Wrapper\": null,\n        \"optionalUint64Wrapper\": null,\n        \"optionalFloatWrapper\": null,\n        \"optionalDoubleWrapper\": null,\n        \"optionalStringWrapper\": null,\n        \"optionalBytesWrapper\": null,\n        \"repeatedBoolWrapper\": null,\n        \"repeatedInt32Wrapper\": null,\n        \"repeatedUint32Wrapper\": null,\n        \"repeatedInt64Wrapper\": null,\n        \"repeatedUint64Wrapper\": null,\n        \"repeatedFloatWrapper\": null,\n        \"repeatedDoubleWrapper\": null,\n        \"repeatedStringWrapper\": null,\n        \"repeatedBytesWrapper\": null\n      }"
         do {
             let t = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
             XCTAssertEqual(try t.jsonString(), "{}")
@@ -281,42 +291,43 @@ final class Test_JSON_Conformance: XCTestCase {
         XCTAssertEqual(try t.jsonString(), start)
     }
 
-  func testValue_DoubleNonFinite() {
-    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
-        XCTAssertEqual(
-            $0 as? JSONEncodingError,
-           JSONEncodingError.valueNumberNotFinite,
-           "Wrong error? - \($0)"
-        )
-    }
+    func testValue_DoubleNonFinite() {
+        XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
+            XCTAssertEqual(
+                $0 as? JSONEncodingError,
+                JSONEncodingError.valueNumberNotFinite,
+                "Wrong error? - \($0)"
+            )
+        }
 
-    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
-        XCTAssertEqual(
-            $0 as? JSONEncodingError,
-           JSONEncodingError.valueNumberNotFinite,
-           "Wrong error? - \($0)"
-        )
-    }
+        XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
+            XCTAssertEqual(
+                $0 as? JSONEncodingError,
+                JSONEncodingError.valueNumberNotFinite,
+                "Wrong error? - \($0)"
+            )
+        }
 
-    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
-        XCTAssertEqual(
-            $0 as? JSONEncodingError,
-           JSONEncodingError.valueNumberNotFinite,
-           "Wrong error? - \($0)"
-        )
+        XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
+            XCTAssertEqual(
+                $0 as? JSONEncodingError,
+                JSONEncodingError.valueNumberNotFinite,
+                "Wrong error? - \($0)"
+            )
+        }
     }
-  }
 
     func testNestedAny() {
-        let start = ("{\n"
-                     + "        \"optionalAny\": {\n"
-                     + "          \"@type\": \"type.googleapis.com/google.protobuf.Any\",\n"
-                     + "          \"value\": {\n"
-                     + "            \"@type\": \"type.googleapis.com/swift_proto_testing.test3.TestAllTypes\",\n"
-                     + "            \"optionalInt32\": 12345\n"
-                     + "          }\n"
-                     + "        }\n"
-                     + "      }")
+        let start =
+            ("{\n"
+                + "        \"optionalAny\": {\n"
+                + "          \"@type\": \"type.googleapis.com/google.protobuf.Any\",\n"
+                + "          \"value\": {\n"
+                + "            \"@type\": \"type.googleapis.com/swift_proto_testing.test3.TestAllTypes\",\n"
+                + "            \"optionalInt32\": 12345\n"
+                + "          }\n"
+                + "        }\n"
+                + "      }")
         do {
             _ = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
         } catch {

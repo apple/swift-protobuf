@@ -16,29 +16,29 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-
 import SwiftProtobuf
 
 extension FileHandle {
-  fileprivate func _read(count: Int) -> Data? {
-    if #available(macOS 10.15.4, *) {
-      do {
-        guard let result = try read(upToCount: count),
-              result.count == count else {
-          return nil
+    fileprivate func _read(count: Int) -> Data? {
+        if #available(macOS 10.15.4, *) {
+            do {
+                guard let result = try read(upToCount: count),
+                    result.count == count
+                else {
+                    return nil
+                }
+                return result
+            } catch {
+                return nil
+            }
+        } else {
+            let result = readData(ofLength: count)
+            guard result.count == count else {
+                return nil
+            }
+            return result
         }
-        return result
-      } catch {
-        return nil
-      }
-    } else {
-      let result = readData(ofLength: count)
-      guard result.count == count else {
-        return nil
-      }
-      return result
     }
-  }
 }
 
 func readRequest() -> Data? {
@@ -51,7 +51,8 @@ func readRequest() -> Data? {
     }
     let count = UInt32(littleEndian: countLE)
     guard count < Int.max,
-          let result = stdIn._read(count: Int(count)) else {
+        let result = stdIn._read(count: Int(count))
+    else {
         return nil
     }
     return result
@@ -96,8 +97,8 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         return response
     case .UNRECOGNIZED(let x):
         response.runtimeError =
-          "ConformanceRequest had a new testCategory (\(x)); regenerate conformance.pb.swift"
-          + " and see what support needs to be added."
+            "ConformanceRequest had a new testCategory (\(x)); regenerate conformance.pb.swift"
+            + " and see what support needs to be added."
         return response
     }
 
@@ -141,9 +142,11 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         var options = JSONDecodingOptions()
         options.ignoreUnknownFields = (request.testCategory == .jsonIgnoreUnknownParsingTest)
         do {
-            testMessage = try msgType.init(jsonString: json,
-                                           extensions: extensions,
-                                           options: options)
+            testMessage = try msgType.init(
+                jsonString: json,
+                extensions: extensions,
+                options: options
+            )
         } catch let e {
             response.parseError = "JSON failed to parse: \(e)"
             return response
@@ -195,14 +198,14 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
 }
 
 func singleTest() throws -> Bool {
-   if let indata = readRequest() {
-       let response = buildResponse(serializedData: indata)
-       let outdata: Data = try response.serializedData()
-       writeResponse(data: outdata)
-       return true
-   } else {
-       return false
-   }
+    if let indata = readRequest() {
+        let response = buildResponse(serializedData: indata)
+        let outdata: Data = try response.serializedData()
+        writeResponse(data: outdata)
+        return true
+    } else {
+        return false
+    }
 }
 
 Google_Protobuf_Any.register(messageType: ProtobufTestMessages_Proto3_TestAllTypesProto3.self)
@@ -210,4 +213,3 @@ Google_Protobuf_Any.register(messageType: ProtobufTestMessages_Editions_Proto3_T
 
 while try singleTest() {
 }
-

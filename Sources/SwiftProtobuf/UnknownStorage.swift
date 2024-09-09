@@ -22,22 +22,22 @@ import Foundation
 /// formats (for example, a field encoded as a varint when a fixed32 integer
 /// was expected).
 public struct UnknownStorage: Equatable, @unchecked Sendable {
-  // Once swift(>=5.9) the '@unchecked' can be removed, it is needed for Data in
-  // linux builds.
+    // Once swift(>=5.9) the '@unchecked' can be removed, it is needed for Data in
+    // linux builds.
 
-  /// The raw protocol buffer binary-encoded bytes that represent the unknown
-  /// fields of a decoded message.
-  public private(set) var data = Data()
+    /// The raw protocol buffer binary-encoded bytes that represent the unknown
+    /// fields of a decoded message.
+    public private(set) var data = Data()
 
-  public init() {}
+    public init() {}
 
-  internal mutating func append(protobufData: Data) {
-    data.append(protobufData)
-  }
-
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !data.isEmpty {
-      try visitor.visitUnknown(bytes: data)
+    internal mutating func append(protobufData: Data) {
+        data.append(protobufData)
     }
-  }
+
+    public func traverse<V: Visitor>(visitor: inout V) throws {
+        if !data.isEmpty {
+            try visitor.visitUnknown(bytes: data)
+        }
+    }
 }

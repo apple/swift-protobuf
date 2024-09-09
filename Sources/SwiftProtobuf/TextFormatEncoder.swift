@@ -37,7 +37,7 @@ internal struct TextFormatEncoder {
     private var indentString: [UInt8] = []
     var stringResult: String {
         get {
-            return String(bytes: data, encoding: String.Encoding.utf8)!
+            String(bytes: data, encoding: String.Encoding.utf8)!
         }
     }
 
@@ -231,7 +231,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "\\\"")
             case 92:
                 append(staticText: "\\\\")
-            case 0...31, 127: // Octal form for C0 control chars
+            case 0...31, 127:  // Octal form for C0 control chars
                 data.append(asciiBackslash)
                 data.append(asciiZero + UInt8(c.value / 64))
                 data.append(asciiZero + UInt8(c.value / 8 % 8))
@@ -258,39 +258,38 @@ internal struct TextFormatEncoder {
     mutating func putBytesValue(value: Data) {
         data.append(asciiDoubleQuote)
         value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-          if let p = body.baseAddress, body.count > 0 {
-            for i in 0..<body.count {
-              let c = p[i]
-              switch c {
-              // Special two-byte escapes
-              case 8:
-                append(staticText: "\\b")
-              case 9:
-                append(staticText: "\\t")
-              case 10:
-                append(staticText: "\\n")
-              case 11:
-                append(staticText: "\\v")
-              case 12:
-                append(staticText: "\\f")
-              case 13:
-                append(staticText: "\\r")
-              case 34:
-                append(staticText: "\\\"")
-              case 92:
-                append(staticText: "\\\\")
-              case 32...126:  // printable ASCII
-                data.append(c)
-              default: // Octal form for non-printable chars
-                data.append(asciiBackslash)
-                data.append(asciiZero + UInt8(c / 64))
-                data.append(asciiZero + UInt8(c / 8 % 8))
-                data.append(asciiZero + UInt8(c % 8))
-              }
+            if let p = body.baseAddress, body.count > 0 {
+                for i in 0..<body.count {
+                    let c = p[i]
+                    switch c {
+                    // Special two-byte escapes
+                    case 8:
+                        append(staticText: "\\b")
+                    case 9:
+                        append(staticText: "\\t")
+                    case 10:
+                        append(staticText: "\\n")
+                    case 11:
+                        append(staticText: "\\v")
+                    case 12:
+                        append(staticText: "\\f")
+                    case 13:
+                        append(staticText: "\\r")
+                    case 34:
+                        append(staticText: "\\\"")
+                    case 92:
+                        append(staticText: "\\\\")
+                    case 32...126:  // printable ASCII
+                        data.append(c)
+                    default:  // Octal form for non-printable chars
+                        data.append(asciiBackslash)
+                        data.append(asciiZero + UInt8(c / 64))
+                        data.append(asciiZero + UInt8(c / 8 % 8))
+                        data.append(asciiZero + UInt8(c % 8))
+                    }
+                }
             }
-          }
         }
         data.append(asciiDoubleQuote)
     }
 }
-

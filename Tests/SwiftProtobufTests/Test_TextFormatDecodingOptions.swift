@@ -13,8 +13,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_TextFormatDecodingOptions: XCTestCase {
 
@@ -23,11 +23,11 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
 
         let tests: [(Int, Bool)] = [
             // Limit, success/failure
-            ( 10, true ),
-            ( 4, true ),
-            ( 3, true ),
-            ( 2, false ),
-            ( 1, false ),
+            (10, true),
+            (4, true),
+            (3, true),
+            (2, false),
+            (1, false),
         ]
 
         for (limit, expectSuccess) in tests {
@@ -44,7 +44,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 } else {
                     // Nothing, this is what was expected.
                 }
-            } catch let e  {
+            } catch let e {
                 XCTFail("Decode failed (limit: \(limit) with unexpected error: \(e)")
             }
         }
@@ -59,7 +59,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         var options = TextFormatDecodingOptions()
         options.ignoreUnknownFields = true
 
-        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputField, options: options) // Shouldn't fail
+        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputField, options: options)  // Shouldn't fail
         XCTAssertEqual(msg.textFormatString(), "optional_int32: 2\n")
 
         do {
@@ -84,7 +84,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
             // This is what should have happened.
         }
 
-        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options) // Shouldn't fail
+        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)  // Shouldn't fail
         XCTAssertEqual(msg.textFormatString(), "optional_int32: 2\n")
     }
 
@@ -95,7 +95,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         options.ignoreUnknownFields = true
         options.ignoreUnknownExtensionFields = true
 
-        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInput, options: options) // Shouldn't fail
+        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInput, options: options)  // Shouldn't fail
         XCTAssertEqual(msg.textFormatString(), "optional_int32: 2\n")
     }
 
@@ -314,7 +314,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\x&\"\n")
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\xg\"\n")
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\q\"\n")
-        assertDecodeIgnoringUnknownsFails("bytes", "\"\\777\"\n") // Out-of-range octal
+        assertDecodeIgnoringUnknownsFails("bytes", "\"\\777\"\n")  // Out-of-range octal
         assertDecodeIgnoringUnknownsFails("bytes", "\"")
         assertDecodeIgnoringUnknownsFails("bytes", "\"abcde")
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\")
@@ -486,32 +486,32 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         // start and end of each scope along the way.
 
         let text = """
-          unknown_first_outer: "first",
-          child {
-            repeated_child {
-              unknown_first_inner: [0],
-              payload {
-                unknown_first_inner_inner: "test",
-                optional_int32: 1,
-                unknown_inner_inner: 2f,
+            unknown_first_outer: "first",
+            child {
+              repeated_child {
+                unknown_first_inner: [0],
+                payload {
+                  unknown_first_inner_inner: "test",
+                  optional_int32: 1,
+                  unknown_inner_inner: 2f,
+                },
+                unknown_inner: 3.0,
               },
-              unknown_inner: 3.0,
+              repeated_child {
+                unknown_first_inner: 0;
+                payload {
+                  unknown_first_inner_inner: "test";
+                  optional_int32: 1;
+                  unknown_inner_inner: 2f;
+                },
+                unknown_inner: [3.0];
+              };
+              unknown: "nope",
+              unknown: 12;
             },
-            repeated_child {
-              unknown_first_inner: 0;
-              payload {
-                unknown_first_inner_inner: "test";
-                optional_int32: 1;
-                unknown_inner_inner: 2f;
-              },
-              unknown_inner: [3.0];
-            };
-            unknown: "nope",
-            unknown: 12;
-          },
-          unknown_outer: [END];
-          unknown_outer_final: "last";
-          """
+            unknown_outer: [END];
+            unknown_outer_final: "last";
+            """
 
         var options = TextFormatDecodingOptions()
         options.ignoreUnknownFields = true
@@ -539,49 +539,49 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
     func testIgnoreUnknown_Comments() throws {
         // Stress test to unknown field parsing deals with comments correctly.
         let text = """
-          does_not_exist: true # comment
-          something_else {  # comment
-            # comment
-            optional_string: "still unknown"
-          } # comment
-
-          optional_int32: 1  # !!! real field
-
-          does_not_exist: true # comment
-          something_else {  # comment
-            # comment
-            optional_string: "still unknown" # comment
-            optional_string: "still unknown" # comment
+            does_not_exist: true # comment
+            something_else {  # comment
               # comment
-              "continued" # comment
-            # comment
-            some_int : 0x12  # comment
-            a_float: #comment
-               0.2 # comment
-            repeat: [
-               # comment
-               -123 # comment
-               # comment
-               , # comment
-               # comment
-               0222 # comment
-               # comment
-               , # comment
-               # comment
-               012  # comment
-               # comment
-            ] # comment
-          } # comment
+              optional_string: "still unknown"
+            } # comment
 
-          optional_uint32: 2  # !!! real field
+            optional_int32: 1  # !!! real field
 
-          does_not_exist: true # comment
-          something_else {  # comment
-            # comment
-            optional_string: "still unknown"
-          } # comment
+            does_not_exist: true # comment
+            something_else {  # comment
+              # comment
+              optional_string: "still unknown" # comment
+              optional_string: "still unknown" # comment
+                # comment
+                "continued" # comment
+              # comment
+              some_int : 0x12  # comment
+              a_float: #comment
+                 0.2 # comment
+              repeat: [
+                 # comment
+                 -123 # comment
+                 # comment
+                 , # comment
+                 # comment
+                 0222 # comment
+                 # comment
+                 , # comment
+                 # comment
+                 012  # comment
+                 # comment
+              ] # comment
+            } # comment
 
-          """
+            optional_uint32: 2  # !!! real field
+
+            does_not_exist: true # comment
+            something_else {  # comment
+              # comment
+              optional_string: "still unknown"
+            } # comment
+
+            """
 
         let expected = SwiftProtoTesting_TestAllTypes.with {
             $0.optionalInt32 = 1
@@ -598,38 +598,38 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
     func testIgnoreUnknown_Whitespace() throws {
         // Blanket test to unknown field parsing deals with comments correctly.
         let text = """
-          optional_int32: 1  # !!! real field
+            optional_int32: 1  # !!! real field
 
-          does_not_exist
-            :
-              1
+            does_not_exist
+              :
+                1
 
-          something_else          {
+            something_else          {
 
-            optional_string: "still unknown"
+              optional_string: "still unknown"
 
-              " continued value"
+                " continued value"
 
-            repeated:   [
-              1   ,
-                0x1
-            ,
-              3,  012
-            ]
+              repeated:   [
+                1   ,
+                  0x1
+              ,
+                3,  012
+              ]
 
-          }
+            }
 
-          repeated_strs:   [
-              "ab"  "cd" ,
-                "de"
-            ,
-              "xyz"
-            ]
+            repeated_strs:   [
+                "ab"  "cd" ,
+                  "de"
+              ,
+                "xyz"
+              ]
 
-          an_int:1some_bytes:"abc"msg_field:{a:true}repeated:[1]another_int:3
+            an_int:1some_bytes:"abc"msg_field:{a:true}repeated:[1]another_int:3
 
-          optional_uint32: 2  # !!! real field
-          """
+            optional_uint32: 2  # !!! real field
+            """
 
         let expected = SwiftProtoTesting_TestAllTypes.with {
             $0.optionalInt32 = 1
@@ -656,25 +656,27 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
 
         let testCases: [(field: String, parses: Bool)] = [
             ("536870911", true),
-            ("1536870911", false)
+            ("1536870911", false),
         ]
 
         for testCase in testCases {
             let text = """
-              optional_int32: 1  # !!! real field
+                optional_int32: 1  # !!! real field
 
-              # Unknown field that's a message to test parsing of field numbers
-              # nested within a unknown message.
-              does_not_exist {
-                \(testCase.field): 1
-              }
+                # Unknown field that's a message to test parsing of field numbers
+                # nested within a unknown message.
+                does_not_exist {
+                  \(testCase.field): 1
+                }
 
-              optional_uint32: 2  # !!! real field
-              """
+                optional_uint32: 2  # !!! real field
+                """
 
             do {
-                let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: text,
-                                                             options: options)
+                let msg = try SwiftProtoTesting_TestAllTypes(
+                    textFormatString: text,
+                    options: options
+                )
                 // If we get here, it should be the expected message.
                 XCTAssertTrue(testCase.parses)
                 XCTAssertEqual(msg, expected)
@@ -715,8 +717,10 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
 
         for testCase in testCases {
             do {
-                let _ = try SwiftProtoTesting_TestEmptyMessage(textFormatString: testCase,
-                                                               options: options)
+                let _ = try SwiftProtoTesting_TestEmptyMessage(
+                    textFormatString: testCase,
+                    options: options
+                )
                 XCTFail("Should have failed - input: \(testCase)")
             } catch TextFormatDecodingError.malformedText {
                 // Nothing, was the expected error
@@ -731,11 +735,11 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
 
         let tests: [(Int, Bool)] = [
             // Limit, success/failure
-            ( 10, true ),
-            ( 4, true ),
-            ( 3, true ),
-            ( 2, false ),
-            ( 1, false ),
+            (10, true),
+            (4, true),
+            (3, true),
+            (2, false),
+            (1, false),
         ]
 
         for (limit, expectSuccess) in tests {
@@ -753,7 +757,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 } else {
                     // Nothing, this is what was expected.
                 }
-            } catch let e  {
+            } catch let e {
                 XCTFail("Decode failed (limit: \(limit) with unexpected error: \(e)")
             }
         }

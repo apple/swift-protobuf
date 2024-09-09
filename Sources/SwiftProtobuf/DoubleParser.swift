@@ -25,16 +25,18 @@ internal class DoubleParser {
     // parse if someone crafts something really long (especially for
     // TextFormat due to overflows (see below)).
     private var work =
-      UnsafeMutableBufferPointer<Int8>.allocate(capacity: 128)
+        UnsafeMutableBufferPointer<Int8>.allocate(capacity: 128)
 
     deinit {
         work.deallocate()
     }
 
-    func utf8ToDouble(bytes: UnsafeRawBufferPointer,
-                      start: UnsafeRawBufferPointer.Index,
-                      end: UnsafeRawBufferPointer.Index) -> Double? {
-        return utf8ToDouble(bytes: UnsafeRawBufferPointer(rebasing: bytes[start..<end]))
+    func utf8ToDouble(
+        bytes: UnsafeRawBufferPointer,
+        start: UnsafeRawBufferPointer.Index,
+        end: UnsafeRawBufferPointer.Index
+    ) -> Double? {
+        utf8ToDouble(bytes: UnsafeRawBufferPointer(rebasing: bytes[start..<end]))
     }
 
     func utf8ToDouble(bytes: UnsafeRawBufferPointer, finiteOnly: Bool = true) -> Double? {

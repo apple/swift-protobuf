@@ -14,8 +14,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 // Verify that unknown fields are correctly preserved by
 // proto2 messages.
@@ -56,23 +56,27 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try SwiftProtoTesting_TestEmptyMessage(serializedBytes: protobufBytes), file: file, line: line)
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_TestEmptyMessage(serializedBytes: protobufBytes),
+                file: file,
+                line: line
+            )
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode
-        assertFails([0]) // Invalid field number
+        assertFails([0])  // Invalid field number
         assertFails([0, 0])
-        assertFails([1]) // Invalid field number
-        assertFails([2]) // Invalid field number
-        assertFails([3]) // Invalid field number
-        assertFails([4]) // Invalid field number
-        assertFails([5]) // Invalid field number
-        assertFails([6]) // Invalid field number
-        assertFails([7]) // Invalid field number
-        assertFails([8]) // Varint field #1 but no varint body
+        assertFails([1])  // Invalid field number
+        assertFails([2])  // Invalid field number
+        assertFails([3])  // Invalid field number
+        assertFails([4])  // Invalid field number
+        assertFails([5])  // Invalid field number
+        assertFails([6])  // Invalid field number
+        assertFails([7])  // Invalid field number
+        assertFails([8])  // Varint field #1 but no varint body
         assertRecodes([8, 0])
-        assertFails([8, 128]) // Truncated varint
+        assertFails([8, 128])  // Truncated varint
         assertRecodes([9, 0, 0, 0, 0, 0, 0, 0, 0])
-        assertFails([9, 0, 0, 0, 0, 0, 0, 0]) // Truncated 64-bit field
+        assertFails([9, 0, 0, 0, 0, 0, 0, 0])  // Truncated 64-bit field
         assertFails([9, 0, 0, 0, 0, 0, 0])
         assertFails([9, 0, 0, 0, 0, 0])
         assertFails([9, 0, 0, 0, 0])
@@ -80,14 +84,14 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertFails([9, 0, 0])
         assertFails([9, 0])
         assertFails([9])
-        assertFails([10]) // Length-delimited field but no length
-        assertRecodes([10, 0]) // Valid 0-length field
-        assertFails([10, 1]) // Length 1 but truncated
-        assertRecodes([10, 1, 2]) // Length 1 with 1 byte
-        assertFails([10, 2, 1]) // Length 2 truncated
-        assertFails([11]) // Start group #1 but no end group
-        assertRecodes([11, 12]) // Start/end group #1
-        assertFails([12]) // Bare end group
+        assertFails([10])  // Length-delimited field but no length
+        assertRecodes([10, 0])  // Valid 0-length field
+        assertFails([10, 1])  // Length 1 but truncated
+        assertRecodes([10, 1, 2])  // Length 1 with 1 byte
+        assertFails([10, 2, 1])  // Length 2 truncated
+        assertFails([11])  // Start group #1 but no end group
+        assertRecodes([11, 12])  // Start/end group #1
+        assertFails([12])  // Bare end group
         assertRecodes([13, 0, 0, 0, 0])
         assertFails([13, 0, 0, 0])
         assertFails([13, 0, 0])
@@ -95,9 +99,9 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertFails([13])
         assertFails([14])
         assertFails([15])
-        assertRecodes([248, 255, 255, 255, 15, 0]) // Maximum field number
-        assertFails([128, 128, 128, 128, 16, 0]) // Out-of-range field number
-        assertFails([248, 255, 255, 255, 127, 0]) // Out-of-range field number
+        assertRecodes([248, 255, 255, 255, 15, 0])  // Maximum field number
+        assertFails([128, 128, 128, 128, 16, 0])  // Out-of-range field number
+        assertFails([248, 255, 255, 255, 127, 0])  // Out-of-range field number
     }
 
     // JSON coding drops unknown fields for both proto2 and proto3
@@ -119,7 +123,7 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertJSONIgnores("{\"unknown\": {}}")
         assertJSONIgnores("{\"unknown\": {\"foo\": 1}}")
         assertJSONIgnores("{\"unknown\": 7, \"also_unknown\": 8}")
-        assertJSONIgnores("{\"unknown\": 7, \"unknown\": 8}") // ???
+        assertJSONIgnores("{\"unknown\": 7, \"unknown\": 8}")  // ???
 
         // Badly formed JSON should fail to decode, even in unknown sections
         var options = JSONDecodingOptions()
@@ -158,7 +162,6 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"unknown\", \"a\": 1}", options: options)
     }
 
-
     func assertUnknownFields(_ message: any Message, _ bytes: [UInt8], line: UInt = #line) {
         XCTAssertEqual(message.unknownFields.data, Data(bytes), line: line)
     }
@@ -174,7 +177,7 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertUnknownFields(msg2, [24, 1])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimited
+        try msg2.merge(serializedBytes: [34, 1, 52])  // Field 4, length delimited
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1])
 
@@ -194,7 +197,7 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertUnknownFields(msg2, [24, 1])
         assertUnknownFields(msg1, [24, 1])
 
-        try msg2.merge(serializedBytes: [34, 1, 52])   // Field 4, length delimited
+        try msg2.merge(serializedBytes: [34, 1, 52])  // Field 4, length delimited
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1])
 

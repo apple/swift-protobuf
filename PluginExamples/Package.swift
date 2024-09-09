@@ -16,9 +16,9 @@ private func targets() -> [Target] {
         .target(name: "Nested"),
         .target(name: "Import"),
     ]
-#if compiler(>=5.9)
+    #if compiler(>=5.9)
     testDependencies.append(.target(name: "AccessLevelOnImport"))
-#endif
+    #endif
     var targets: [Target] = [
         .testTarget(
             name: "ExampleTests",
@@ -27,7 +27,7 @@ private func targets() -> [Target] {
         .target(
             name: "Simple",
             dependencies: [
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
@@ -36,7 +36,7 @@ private func targets() -> [Target] {
         .target(
             name: "Nested",
             dependencies: [
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
@@ -45,28 +45,28 @@ private func targets() -> [Target] {
         .target(
             name: "Import",
             dependencies: [
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
             ]
         ),
     ]
-#if compiler(>=5.9)
+    #if compiler(>=5.9)
     targets.append(
         .target(
             name: "AccessLevelOnImport",
             dependencies: [
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             swiftSettings: [
-                .enableExperimentalFeature("AccessLevelOnImport"),
+                .enableExperimentalFeature("AccessLevelOnImport")
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
             ]
         )
     )
-#endif
+    #endif
     return targets
 }

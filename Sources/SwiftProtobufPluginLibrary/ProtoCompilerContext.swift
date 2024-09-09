@@ -18,7 +18,7 @@ import Foundation
 /// Abstact interface to get information about the protocol buffer compiler
 /// being used for generation.
 public protocol ProtoCompilerContext {
-  /// The version of the protocol buffer compiler (if it was provided in the
-  /// generation request).
-  var version: Google_Protobuf_Compiler_Version? { get }
+    /// The version of the protocol buffer compiler (if it was provided in the
+    /// generation request).
+    var version: Google_Protobuf_Compiler_Version? { get }
 }

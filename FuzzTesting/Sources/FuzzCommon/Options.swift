@@ -7,7 +7,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-
 import SwiftProtobuf
 
 public enum FuzzOption<T: SupportsFuzzOptions> {
@@ -105,7 +104,7 @@ extension SupportsFuzzOptions {
 
 extension BinaryDecodingOptions: SupportsFuzzOptions {
     public static var fuzzOptionsList: [FuzzOption<Self>] {
-        return [
+        [
             // NOTE: Do not reorder these in the future as it invalidates all
             // existing cases.
 
@@ -119,7 +118,7 @@ extension BinaryDecodingOptions: SupportsFuzzOptions {
 
 extension JSONDecodingOptions: SupportsFuzzOptions {
     public static var fuzzOptionsList: [FuzzOption<Self>] {
-        return [
+        [
             // NOTE: Do not reorder these in the future as it invalidates all
             // existing cases.
 
@@ -133,7 +132,7 @@ extension JSONDecodingOptions: SupportsFuzzOptions {
 
 extension TextFormatDecodingOptions: SupportsFuzzOptions {
     public static var fuzzOptionsList: [FuzzOption<Self>] {
-        return [
+        [
             // NOTE: Do not reorder these in the future as it invalidates all
             // existing cases.
 

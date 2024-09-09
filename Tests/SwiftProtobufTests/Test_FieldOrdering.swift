@@ -37,10 +37,22 @@ final class Test_FieldOrdering: XCTestCase {
         m.oneofInt32 = 7
 
         let encoded1: [UInt8] = try m.serializedBytes()
-        XCTAssertEqual([8, 1, 40, 12, 80, 7, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 173, 6, 0, 0, 128, 63, 194, 12, 4, 8, 2, 16, 1], encoded1)
+        XCTAssertEqual(
+            [
+                8, 1, 40, 12, 80, 7, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 173, 6, 0, 0, 128, 63, 194, 12, 4, 8,
+                2, 16, 1,
+            ],
+            encoded1
+        )
 
         m.oneofInt64 = 8
         let encoded2: [UInt8] = try m.serializedBytes()
-        XCTAssertEqual([8, 1, 40, 12, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 224, 3, 8, 173, 6, 0, 0, 128, 63, 194, 12, 4, 8, 2, 16, 1], encoded2)
+        XCTAssertEqual(
+            [
+                8, 1, 40, 12, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 224, 3, 8, 173, 6, 0, 0, 128, 63, 194, 12, 4,
+                8, 2, 16, 1,
+            ],
+            encoded2
+        )
     }
 }

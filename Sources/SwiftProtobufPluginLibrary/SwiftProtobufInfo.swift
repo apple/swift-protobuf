@@ -17,32 +17,32 @@ import SwiftProtobuf
 
 /// Helpers about the library.
 public enum SwiftProtobufInfo {
-  /// Proto Files that ship with the library.
-  public static let bundledProtoFiles: Set<String> = [
-    "google/protobuf/any.proto",
-    "google/protobuf/api.proto",
-    // Even though descriptor.proto is *not* a WKT, it is included in the
-    // library so developers trying to compile .proto files with message,
-    // field, or file extensions don't have to generate it.
-    "google/protobuf/descriptor.proto",
-    "google/protobuf/duration.proto",
-    "google/protobuf/empty.proto",
-    "google/protobuf/field_mask.proto",
-    "google/protobuf/source_context.proto",
-    "google/protobuf/struct.proto",
-    "google/protobuf/timestamp.proto",
-    "google/protobuf/type.proto",
-    "google/protobuf/wrappers.proto",
-  ]
+    /// Proto Files that ship with the library.
+    public static let bundledProtoFiles: Set<String> = [
+        "google/protobuf/any.proto",
+        "google/protobuf/api.proto",
+        // Even though descriptor.proto is *not* a WKT, it is included in the
+        // library so developers trying to compile .proto files with message,
+        // field, or file extensions don't have to generate it.
+        "google/protobuf/descriptor.proto",
+        "google/protobuf/duration.proto",
+        "google/protobuf/empty.proto",
+        "google/protobuf/field_mask.proto",
+        "google/protobuf/source_context.proto",
+        "google/protobuf/struct.proto",
+        "google/protobuf/timestamp.proto",
+        "google/protobuf/type.proto",
+        "google/protobuf/wrappers.proto",
+    ]
 
-  /// Checks if a `Google_Protobuf_FileDescriptorProto` is a library bundled proto file.
-  @available(*, deprecated, message: "Use the version that takes a FileDescriptor instead.")
-  public static func isBundledProto(file: Google_Protobuf_FileDescriptorProto) -> Bool {
-    return file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
-  }
+    /// Checks if a `Google_Protobuf_FileDescriptorProto` is a library bundled proto file.
+    @available(*, deprecated, message: "Use the version that takes a FileDescriptor instead.")
+    public static func isBundledProto(file: Google_Protobuf_FileDescriptorProto) -> Bool {
+        file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
+    }
 
-  /// Checks if a `FileDescriptor` is a library bundled proto file.
-  public static func isBundledProto(file: FileDescriptor) -> Bool {
-    return file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
-  }
+    /// Checks if a `FileDescriptor` is a library bundled proto file.
+    public static func isBundledProto(file: FileDescriptor) -> Bool {
+        file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
+    }
 }

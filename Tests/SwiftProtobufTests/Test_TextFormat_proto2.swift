@@ -13,15 +13,15 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_TextFormat_proto2: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     func test_group() {
-        assertTextFormatEncode("OptionalGroup {\n  a: 17\n}\n") {(o: inout MessageTestType) in
-            o.optionalGroup = SwiftProtoTesting_TestAllTypes.OptionalGroup.with {$0.a = 17}
+        assertTextFormatEncode("OptionalGroup {\n  a: 17\n}\n") { (o: inout MessageTestType) in
+            o.optionalGroup = SwiftProtoTesting_TestAllTypes.OptionalGroup.with { $0.a = 17 }
         }
     }
 
@@ -32,31 +32,32 @@ final class Test_TextFormat_proto2: XCTestCase, PBTestHelpers {
     }
 
     func test_group_numbers() {
-        assertTextFormatDecodeSucceeds("16 {\n  17: 17\n}\n") {(o: MessageTestType) in
-            o.optionalGroup == SwiftProtoTesting_TestAllTypes.OptionalGroup.with {$0.a = 17}
+        assertTextFormatDecodeSucceeds("16 {\n  17: 17\n}\n") { (o: MessageTestType) in
+            o.optionalGroup == SwiftProtoTesting_TestAllTypes.OptionalGroup.with { $0.a = 17 }
         }
     }
 
     func test_repeatedGroup() {
-        assertTextFormatEncode("RepeatedGroup {\n  a: 17\n}\nRepeatedGroup {\n  a: 18\n}\n") {(o: inout MessageTestType) in
-            let group17 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {$0.a = 17}
-            let group18 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {$0.a = 18}
+        assertTextFormatEncode("RepeatedGroup {\n  a: 17\n}\nRepeatedGroup {\n  a: 18\n}\n") {
+            (o: inout MessageTestType) in
+            let group17 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with { $0.a = 17 }
+            let group18 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with { $0.a = 18 }
             o.repeatedGroup = [group17, group18]
         }
     }
 
     func test_repeatedGroup_altName() throws {
         let msg = try MessageTestType(textFormatString: "repeatedgroup {a: 17}\nrepeatedgroup {a: 18}")
-        let group17 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {$0.a = 17}
-        let group18 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {$0.a = 18}
+        let group17 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with { $0.a = 17 }
+        let group18 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with { $0.a = 18 }
         XCTAssertEqual(msg.repeatedGroup, [group17, group18])
         XCTAssertEqual(msg.textFormatString(), "RepeatedGroup {\n  a: 17\n}\nRepeatedGroup {\n  a: 18\n}\n")
     }
 
     func test_repeatedGroup_numbers() {
-        assertTextFormatDecodeSucceeds("46 {\n  47: 17\n}\n46 {\n  47: 18\n}\n") {(o: MessageTestType) in
-            let group17 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {$0.a = 17}
-            let group18 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {$0.a = 18}
+        assertTextFormatDecodeSucceeds("46 {\n  47: 17\n}\n46 {\n  47: 18\n}\n") { (o: MessageTestType) in
+            let group17 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with { $0.a = 17 }
+            let group18 = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with { $0.a = 18 }
             return o.repeatedGroup == [group17, group18]
         }
     }

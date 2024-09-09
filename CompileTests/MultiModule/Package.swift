@@ -19,7 +19,7 @@ let package = Package(
         .target(
             name: "ModuleA",
             dependencies: [
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ]
         ),
         .target(

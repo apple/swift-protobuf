@@ -15,8 +15,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_Enum: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
@@ -57,7 +57,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
             m.optionalNestedEnum == .zero
         }
         assertJSONDecodeSucceeds(json_with_unknown_enum_repeated, options: options) { (m: MessageTestType) -> Bool in
-          m.repeatedNestedEnum == [.foo, .bar]
+            m.repeatedNestedEnum == [.foo, .bar]
         }
 
         // SwiftProtoTesting_Proto3_TestAllTypes doesn't have a map<>, Test_Map_JSON covers this case.
@@ -106,7 +106,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
     func testEnumPrefixStripping_TextFormat() throws {
         var txt = "values1: [ENUM_TEST_1_FIRST_VALUE, ENUM_TEST_1_SECOND_VALUE]\n"
         var msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values1 = [ .firstValue, .secondValue ]
+            $0.values1 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
         var msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
@@ -114,7 +114,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
 
         txt = "values2: [ENUM_TEST_2_FIRST_VALUE, SECOND_VALUE]\n"
         msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values2 = [ .firstValue, .secondValue ]
+            $0.values2 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
         msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
@@ -122,7 +122,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
 
         txt = "values3: [ENUM_TEST_NO_STEM_1, ENUM_TEST_NO_STEM_2]\n"
         msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values3 = [ .enumTestNoStem1, .enumTestNoStem2 ]
+            $0.values3 = [.enumTestNoStem1, .enumTestNoStem2]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
         msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
@@ -130,7 +130,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
 
         txt = "values4: [ENUM_TEST_RESERVED_WORD_VAR, ENUM_TEST_RESERVED_WORD_NOT_RESERVED]\n"
         msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values4 = [ .var, .notReserved ]
+            $0.values4 = [.var, .notReserved]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
         msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
@@ -140,7 +140,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
     func testEnumPrefixStripping_JSON() throws {
         var json = "{\"values1\":[\"ENUM_TEST_1_FIRST_VALUE\",\"ENUM_TEST_1_SECOND_VALUE\"]}"
         var msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values1 = [ .firstValue, .secondValue ]
+            $0.values1 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(try msg.jsonString(), json)
         var msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
@@ -148,7 +148,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
 
         json = "{\"values2\":[\"ENUM_TEST_2_FIRST_VALUE\",\"SECOND_VALUE\"]}"
         msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values2 = [ .firstValue, .secondValue ]
+            $0.values2 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(try msg.jsonString(), json)
         msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
@@ -156,7 +156,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
 
         json = "{\"values3\":[\"ENUM_TEST_NO_STEM_1\",\"ENUM_TEST_NO_STEM_2\"]}"
         msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values3 = [ .enumTestNoStem1, .enumTestNoStem2 ]
+            $0.values3 = [.enumTestNoStem1, .enumTestNoStem2]
         }
         XCTAssertEqual(try msg.jsonString(), json)
         msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
@@ -164,7 +164,7 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
 
         json = "{\"values4\":[\"ENUM_TEST_RESERVED_WORD_VAR\",\"ENUM_TEST_RESERVED_WORD_NOT_RESERVED\"]}"
         msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
-            $0.values4 = [ .var, .notReserved ]
+            $0.values4 = [.var, .notReserved]
         }
         XCTAssertEqual(try msg.jsonString(), json)
         msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
@@ -172,26 +172,26 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
     }
 
     func testCaseIterable() {
-      // Open enums require the generator to create allCases,
-      // ensure it is works as expected (order of the file, no aliases).
-      var i = SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias.allCases.makeIterator()
-      guard let e1 = i.next() else {
-          XCTFail("Couldn't get first value")
-          return
-      }
-      guard let e2 = i.next() else {
-          XCTFail("Couldn't get second value")
-          return
-      }
-      guard let e3 = i.next() else {
-          XCTFail("Couldn't get third value")
-          return
-      }
-      // Should be the end.
-      XCTAssertNil(i.next())
+        // Open enums require the generator to create allCases,
+        // ensure it is works as expected (order of the file, no aliases).
+        var i = SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias.allCases.makeIterator()
+        guard let e1 = i.next() else {
+            XCTFail("Couldn't get first value")
+            return
+        }
+        guard let e2 = i.next() else {
+            XCTFail("Couldn't get second value")
+            return
+        }
+        guard let e3 = i.next() else {
+            XCTFail("Couldn't get third value")
+            return
+        }
+        // Should be the end.
+        XCTAssertNil(i.next())
 
-      XCTAssertEqual(e1, .foo1)
-      XCTAssertEqual(e2, .baz1)
-      XCTAssertEqual(e3, .bar1)
+        XCTAssertEqual(e1, .foo1)
+        XCTAssertEqual(e2, .baz1)
+        XCTAssertEqual(e3, .bar1)
     }
 }
