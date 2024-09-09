@@ -30,37 +30,37 @@ final class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_largeUint32() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.largeUint32, 0xFFFFFFFF)
+        XCTAssertEqual(m.largeUint32, 0xFFFF_FFFF)
     }
 
     func test_largeUint64() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.largeUint64, 0xFFFFFFFFFFFFFFFF)
+        XCTAssertEqual(m.largeUint64, 0xFFFF_FFFF_FFFF_FFFF)
     }
 
     func test_smallInt32() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.smallInt32, -0x7fffffff)
+        XCTAssertEqual(m.smallInt32, -0x7fff_ffff)
     }
 
     func test_smallInt64() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.smallInt64, -0x7fffffffffffffff)
+        XCTAssertEqual(m.smallInt64, -0x7fff_ffff_ffff_ffff)
     }
 
     func test_reallySmallInt32() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.reallySmallInt32, -0x80000000)
+        XCTAssertEqual(m.reallySmallInt32, -0x8000_0000)
     }
 
     func test_reallySmallInt64() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.reallySmallInt64, -0x8000000000000000)
+        XCTAssertEqual(m.reallySmallInt64, -0x8000_0000_0000_0000)
     }
 
     func test_utf8String() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.utf8String, "ሴ") // Unicode u1234
+        XCTAssertEqual(m.utf8String, "ሴ")  // Unicode u1234
         XCTAssertEqual(m.utf8String, "\u{1234}")
     }
 

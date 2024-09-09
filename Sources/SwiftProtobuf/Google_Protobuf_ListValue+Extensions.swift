@@ -14,72 +14,72 @@
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
-  // TODO: Give this a direct array interface by proxying the interesting
-  // bits down to values
-  public typealias Element = Google_Protobuf_Value
+    // TODO: Give this a direct array interface by proxying the interesting
+    // bits down to values
+    public typealias Element = Google_Protobuf_Value
 
-  /// Creates a new `Google_Protobuf_ListValue` from an array literal containing
-  /// `Google_Protobuf_Value` elements.
-  public init(arrayLiteral elements: Element...) {
-    self.init(values: elements)
-  }
+    /// Creates a new `Google_Protobuf_ListValue` from an array literal containing
+    /// `Google_Protobuf_Value` elements.
+    public init(arrayLiteral elements: Element...) {
+        self.init(values: elements)
+    }
 }
 
 extension Google_Protobuf_ListValue: _CustomJSONCodable {
-  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var jsonEncoder = JSONEncoder()
-    jsonEncoder.append(text: "[")
-    var separator: StaticString = ""
-    for v in values {
-      jsonEncoder.append(staticText: separator)
-      try v.serializeJSONValue(to: &jsonEncoder, options: options)
-      separator = ","
+    internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
+        var jsonEncoder = JSONEncoder()
+        jsonEncoder.append(text: "[")
+        var separator: StaticString = ""
+        for v in values {
+            jsonEncoder.append(staticText: separator)
+            try v.serializeJSONValue(to: &jsonEncoder, options: options)
+            separator = ","
+        }
+        jsonEncoder.append(text: "]")
+        return jsonEncoder.stringResult
     }
-    jsonEncoder.append(text: "]")
-    return jsonEncoder.stringResult
-  }
 
-  internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    if decoder.scanner.skipOptionalNull() {
-      return
+    internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        if decoder.scanner.skipOptionalNull() {
+            return
+        }
+        try decoder.scanner.skipRequiredArrayStart()
+        // Since we override the JSON decoding, we can't rely
+        // on the default recursion depth tracking.
+        try decoder.scanner.incrementRecursionDepth()
+        if decoder.scanner.skipOptionalArrayEnd() {
+            decoder.scanner.decrementRecursionDepth()
+            return
+        }
+        while true {
+            var v = Google_Protobuf_Value()
+            try v.decodeJSON(from: &decoder)
+            values.append(v)
+            if decoder.scanner.skipOptionalArrayEnd() {
+                decoder.scanner.decrementRecursionDepth()
+                return
+            }
+            try decoder.scanner.skipRequiredComma()
+        }
     }
-    try decoder.scanner.skipRequiredArrayStart()
-    // Since we override the JSON decoding, we can't rely
-    // on the default recursion depth tracking.
-    try decoder.scanner.incrementRecursionDepth()
-    if decoder.scanner.skipOptionalArrayEnd() {
-      decoder.scanner.decrementRecursionDepth()
-      return
-    }
-    while true {
-      var v = Google_Protobuf_Value()
-      try v.decodeJSON(from: &decoder)
-      values.append(v)
-      if decoder.scanner.skipOptionalArrayEnd() {
-        decoder.scanner.decrementRecursionDepth()
-        return
-      }
-      try decoder.scanner.skipRequiredComma()
-    }
-  }
 }
 
 extension Google_Protobuf_ListValue {
-  /// Creates a new `Google_Protobuf_ListValue` from the given array of
-  /// `Google_Protobuf_Value` elements.
-  ///
-  /// - Parameter values: The list of `Google_Protobuf_Value` messages from
-  ///   which to create the `Google_Protobuf_ListValue`.
-  public init(values: [Google_Protobuf_Value]) {
-    self.init()
-    self.values = values
-  }
+    /// Creates a new `Google_Protobuf_ListValue` from the given array of
+    /// `Google_Protobuf_Value` elements.
+    ///
+    /// - Parameter values: The list of `Google_Protobuf_Value` messages from
+    ///   which to create the `Google_Protobuf_ListValue`.
+    public init(values: [Google_Protobuf_Value]) {
+        self.init()
+        self.values = values
+    }
 
-  /// Accesses the `Google_Protobuf_Value` at the specified position.
-  ///
-  /// - Parameter index: The position of the element to access.
-  public subscript(index: Int) -> Google_Protobuf_Value {
-    get {return values[index]}
-    set(newValue) {values[index] = newValue}
-  }
+    /// Accesses the `Google_Protobuf_Value` at the specified position.
+    ///
+    /// - Parameter index: The position of the element to access.
+    public subscript(index: Int) -> Google_Protobuf_Value {
+        get { values[index] }
+        set(newValue) { values[index] = newValue }
+    }
 }

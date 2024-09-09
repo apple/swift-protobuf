@@ -15,8 +15,7 @@
 import Foundation
 
 let args = CommandLine.arguments
-let resultsFile = args.count > 1 ?
-    FileHandle(forWritingAtPath: args[1]) : nil
+let resultsFile = args.count > 1 ? FileHandle(forWritingAtPath: args[1]) : nil
 resultsFile?.seekToEndOfFile()
 
 let harness = Harness(resultsFile: resultsFile)

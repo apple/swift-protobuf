@@ -17,6 +17,7 @@
 
 import Foundation
 import XCTest
+
 @testable import SwiftProtobuf
 
 final class Test_Reserved: XCTestCase {
@@ -36,9 +37,18 @@ final class Test_Reserved: XCTestCase {
     }
 
     func testMessageNames() {
-        XCTAssertEqual(SwiftProtoTesting_SwiftReservedTest.classMessage.protoMessageName, "swift_proto_testing.SwiftReservedTest.class")
-        XCTAssertEqual(SwiftProtoTesting_SwiftReservedTest.isEqual.protoMessageName, "swift_proto_testing.SwiftReservedTest.isEqual")
-        XCTAssertEqual(SwiftProtoTesting_SwiftReservedTest.TypeMessage.protoMessageName, "swift_proto_testing.SwiftReservedTest.Type")
+        XCTAssertEqual(
+            SwiftProtoTesting_SwiftReservedTest.classMessage.protoMessageName,
+            "swift_proto_testing.SwiftReservedTest.class"
+        )
+        XCTAssertEqual(
+            SwiftProtoTesting_SwiftReservedTest.isEqual.protoMessageName,
+            "swift_proto_testing.SwiftReservedTest.isEqual"
+        )
+        XCTAssertEqual(
+            SwiftProtoTesting_SwiftReservedTest.TypeMessage.protoMessageName,
+            "swift_proto_testing.SwiftReservedTest.Type"
+        )
     }
 
     func testFieldNamesMatchingMetadata() {
@@ -56,7 +66,10 @@ final class Test_Reserved: XCTestCase {
         msg.hashValue_p = "bar"
         msg.debugDescription_p = 5
 
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nany_type_url: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n", msg)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nany_type_url: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n",
+            msg
+        )
 
         msg.clearIsInitialized_p()
         msg.clearHashValue_p()

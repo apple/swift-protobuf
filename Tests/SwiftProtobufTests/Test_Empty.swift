@@ -15,8 +15,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_Empty: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Empty

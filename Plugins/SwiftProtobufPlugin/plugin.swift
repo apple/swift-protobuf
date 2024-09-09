@@ -112,11 +112,13 @@ struct SwiftProtobufPlugin {
         sourceFiles: FileList,
         tool: (String) throws -> PackagePlugin.PluginContext.Tool
     ) throws -> [Command] {
-        guard let configurationFilePath = sourceFiles.first(
-            where: {
-                $0.path.lastComponent == Self.configurationFileName
-            }
-        )?.path else {
+        guard
+            let configurationFilePath = sourceFiles.first(
+                where: {
+                    $0.path.lastComponent == Self.configurationFileName
+                }
+            )?.path
+        else {
             throw PluginError.noConfigFound(Self.configurationFileName)
         }
         let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
@@ -262,7 +264,7 @@ extension SwiftProtobufPlugin: XcodeBuildToolPlugin {
         context: XcodePluginContext,
         target: XcodeTarget
     ) throws -> [Command] {
-        return try createBuildCommands(
+        try createBuildCommands(
             pluginWorkDirectory: context.pluginWorkDirectory,
             sourceFiles: target.inputFiles,
             tool: context.tool

@@ -14,8 +14,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_FieldMask: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_FieldMask
@@ -41,8 +41,8 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"foo,,bar\"")
         assertJSONDecodeFails("\"foo,bar")
         assertJSONDecodeFails("foo,bar\"")
-        assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"") // Reject non-ASCII
-        assertJSONDecodeFails("abc_def") // Reject underscores
+        assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"")  // Reject non-ASCII
+        assertJSONDecodeFails("abc_def")  // Reject underscores
     }
 
     func testProtobuf() {
@@ -79,7 +79,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
     // Make sure field mask works correctly when stored in a field
     func testJSON_field() throws {
         do {
-            let valid = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
+            let valid = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}"
+            )
             XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
         } catch {
             XCTFail("Should have decoded correctly")
@@ -94,7 +96,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             XCTFail("Should have decoded correctly")
         }
 
-        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}")
+        )
     }
 
     func testSerializationFailure() {
@@ -106,7 +110,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             XCTAssertThrowsError(try m.jsonString())
         }
     }
-    
+
     // Checks merge functionality for field masks.
     func testMergeFieldsOfMessage() throws {
         var message = SwiftProtoTesting_TestAllTypes.with { model in
@@ -254,19 +258,19 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let m1 = Google_Protobuf_FieldMask()
         let m2 = Google_Protobuf_FieldMask(protoPaths: [
             "optional_int32",
-            "optional_nested_message.bb"
+            "optional_nested_message.bb",
         ])
         let m3 = Google_Protobuf_FieldMask(protoPaths: [
             "optional_int32",
-            "optional_nested_message"
+            "optional_nested_message",
         ])
         let m4 = Google_Protobuf_FieldMask(protoPaths: [
             "optional_int32",
-            "optional_nested_message.bc"
+            "optional_nested_message.bc",
         ])
         let m5 = Google_Protobuf_FieldMask(protoPaths: [
             "optional_int",
-            "optional_nested_message.bb"
+            "optional_nested_message.bb",
         ])
         XCTAssertTrue(m1.isValid(for: SwiftProtoTesting_TestAllTypes.self))
         XCTAssertTrue(m2.isValid(for: SwiftProtoTesting_TestAllTypes.self))
@@ -618,7 +622,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             "singular_fixed32",
             "singular_fixed64",
             "singular_sfixed32",
-            "singular_sfixed64"
+            "singular_sfixed64",
         ])
         try m1.merge(from: m2, fieldMask: mask)
         XCTAssertEqual(m1.singularInt32, m2.singularInt32)
@@ -725,24 +729,27 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             m.optionalNestedEnum = .bar
         }
         let m2 = SwiftProtoTesting_Proto3_TestAllTypes()
-        try m1.merge(from: m2, fieldMask: .init(protoPaths: [
-            "optional_int32",
-            "optional_int64",
-            "optional_double",
-            "optional_float",
-            "optional_string",
-            "optional_bool",
-            "optional_bytes",
-            "optional_uint32",
-            "optional_uint64",
-            "optional_sint32",
-            "optional_sint64",
-            "optional_fixed32",
-            "optional_fixed64",
-            "optional_sfixed32",
-            "optional_sfixed64",
-            "optional_nested_enum"
-        ]))
+        try m1.merge(
+            from: m2,
+            fieldMask: .init(protoPaths: [
+                "optional_int32",
+                "optional_int64",
+                "optional_double",
+                "optional_float",
+                "optional_string",
+                "optional_bool",
+                "optional_bytes",
+                "optional_uint32",
+                "optional_uint64",
+                "optional_sint32",
+                "optional_sint64",
+                "optional_fixed32",
+                "optional_fixed64",
+                "optional_sfixed32",
+                "optional_sfixed64",
+                "optional_nested_enum",
+            ])
+        )
         XCTAssertEqual(m1.optionalInt32, m2.optionalInt32)
         XCTAssertEqual(m1.optionalInt64, m2.optionalInt64)
         XCTAssertEqual(m1.optionalDouble, m2.optionalDouble)

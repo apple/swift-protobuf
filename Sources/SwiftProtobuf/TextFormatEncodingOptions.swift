@@ -15,8 +15,8 @@
 /// Options for TextFormatEncoding.
 public struct TextFormatEncodingOptions: Sendable {
 
-  /// Default: Do print unknown fields using numeric notation
-  public var printUnknownFields: Bool = true
+    /// Default: Do print unknown fields using numeric notation
+    public var printUnknownFields: Bool = true
 
-  public init() {}
+    public init() {}
 }

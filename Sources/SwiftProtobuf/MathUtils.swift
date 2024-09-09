@@ -21,7 +21,7 @@ import Foundation
 ///   - a: The dividend. Can be positive, 0 or negative.
 ///   - b: The divisor. This must be positive, and is an error if 0 or negative.
 /// - Returns: The unique value r such that 0 <= r < b and b * q + r = a for some q.
-internal func mod<T : SignedInteger>(_ a: T, _ b: T) -> T {
+internal func mod<T: SignedInteger>(_ a: T, _ b: T) -> T {
     assert(b > 0)
     let r = a % b
     return r >= 0 ? r : r + b
@@ -34,7 +34,7 @@ internal func mod<T : SignedInteger>(_ a: T, _ b: T) -> T {
 ///   - a: The dividend. Can be positive, 0 or negative.
 ///   - b: The divisor. This must be positive, and is an error if 0 or negative.
 /// - Returns: The unique value q such that for some 0 <= r < b, b * q + r = a.
-internal func div<T : SignedInteger>(_ a: T, _ b: T) -> T {
+internal func div<T: SignedInteger>(_ a: T, _ b: T) -> T {
     assert(b > 0)
     return a >= 0 ? a / b : (a + 1) / b - 1
 }

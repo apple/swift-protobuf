@@ -13,23 +13,27 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_TextFormat_proto2_extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
 
     func test_file_level_extension() {
-        assertTextFormatEncode("[swift_proto_testing.optional_int32_extension]: 789\n",
-                         extensions: SwiftProtoTesting_Unittest_Extensions) {
+        assertTextFormatEncode(
+            "[swift_proto_testing.optional_int32_extension]: 789\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
             (o: inout MessageTestType) in
             o.SwiftProtoTesting_optionalInt32Extension = 789
         }
         // Fails if we don't provide the extensions to the decoder:
         assertTextFormatDecodeFails("[swift_proto_testing.optional_int32_extension]: 789\n")
 
-        assertTextFormatEncode("[swift_proto_testing.optionalgroup_extension] {\n  a: 789\n}\n",
-                         extensions: SwiftProtoTesting_Unittest_Extensions) {
+        assertTextFormatEncode(
+            "[swift_proto_testing.optionalgroup_extension] {\n  a: 789\n}\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
             (o: inout MessageTestType) in
             o.SwiftProtoTesting_optionalGroupExtension.a = 789
         }
@@ -38,8 +42,10 @@ final class Test_TextFormat_proto2_extensions: XCTestCase, PBTestHelpers {
     }
 
     func test_nested_extension() {
-        assertTextFormatEncode("[swift_proto_testing.TestNestedExtension.test]: \"foo\"\n",
-                         extensions: SwiftProtoTesting_Unittest_Extensions) {
+        assertTextFormatEncode(
+            "[swift_proto_testing.TestNestedExtension.test]: \"foo\"\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
             (o: inout MessageTestType) in
             o.SwiftProtoTesting_TestNestedExtension_test = "foo"
         }

@@ -9,22 +9,23 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-
 import SwiftProtobufPluginLibrary
 
 extension ProvidesDeprecationComment where Self: ProvidesSourceCodeLocation {
-  func protoSourceCommentsWithDeprecation(
-    generatorOptions: GeneratorOptions,
-    commentPrefix: String = "///",
-    leadingDetachedPrefix: String? = nil
-  ) -> String {
-    if generatorOptions.experimentalStripNonfunctionalCodegen {
-      // Comments are inherently non-functional, and may change subtly on
-      // transformations.
-      return deprecationComment(commentPrefix: commentPrefix)
-    }
+    func protoSourceCommentsWithDeprecation(
+        generatorOptions: GeneratorOptions,
+        commentPrefix: String = "///",
+        leadingDetachedPrefix: String? = nil
+    ) -> String {
+        if generatorOptions.experimentalStripNonfunctionalCodegen {
+            // Comments are inherently non-functional, and may change subtly on
+            // transformations.
+            return deprecationComment(commentPrefix: commentPrefix)
+        }
 
-    return protoSourceCommentsWithDeprecation(commentPrefix: commentPrefix,
-                                              leadingDetachedPrefix: leadingDetachedPrefix)
-  }
+        return protoSourceCommentsWithDeprecation(
+            commentPrefix: commentPrefix,
+            leadingDetachedPrefix: leadingDetachedPrefix
+        )
+    }
 }

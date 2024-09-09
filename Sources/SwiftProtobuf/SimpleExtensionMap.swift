@@ -12,13 +12,12 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 // Note: The generated code only relies on ExpressibleByArrayLiteral
 public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
     public typealias Element = AnyMessageExtension
 
     // Since type objects aren't Hashable, we can't do much better than this...
-    internal var fields = [Int: Array<any AnyMessageExtension>]()
+    internal var fields = [Int: [any AnyMessageExtension]]()
 
     public init() {}
 
@@ -27,9 +26,9 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
     }
 
     public init(_ others: SimpleExtensionMap...) {
-      for other in others {
-        formUnion(other)
-      }
+        for other in others {
+            formUnion(other)
+        }
     }
 
     public subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? {

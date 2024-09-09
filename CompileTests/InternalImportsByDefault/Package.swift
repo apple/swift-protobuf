@@ -20,23 +20,23 @@ let package = Package(
         .executableTarget(
             name: "InternalImportsByDefault",
             dependencies: [
-                .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             exclude: [
                 "Protos/SomeProtoWithBytes.proto",
-                "Protos/ServiceOnly.proto"
+                "Protos/ServiceOnly.proto",
             ],
             swiftSettings: [
                 .enableExperimentalFeature("InternalImportsByDefault"),
                 .enableExperimentalFeature("AccessLevelOnImport"),
                 // Enable warnings as errors so the build fails if warnings are
                 // present in generated code.
-                    .unsafeFlags(["-warnings-as-errors"])
+                .unsafeFlags(["-warnings-as-errors"]),
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
             ]
-        ),
+        )
     ]
 )
 #else
@@ -48,7 +48,7 @@ let package = Package(
             exclude: [
                 "swift-protobuf-config.json",
                 "Protos/SomeProtoWithBytes.proto",
-                "Protos/ServiceOnly.proto"
+                "Protos/ServiceOnly.proto",
             ]
         )
     ]

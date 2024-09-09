@@ -22,16 +22,16 @@
 /// regular decoding operation.  There are also other errors that can occur due
 /// to problems with the `Any` value's structure.
 public enum AnyUnpackError: Error {
-  /// The `type_url` field in the `Google_Protobuf_Any` message did not match
-  /// the message type provided to the `unpack()` method.
-  case typeMismatch
+    /// The `type_url` field in the `Google_Protobuf_Any` message did not match
+    /// the message type provided to the `unpack()` method.
+    case typeMismatch
 
-  /// Well-known types being decoded from JSON must have only two fields: the
-  /// `@type` field and a `value` field containing the specialized JSON coding
-  /// of the well-known type.
-  case malformedWellKnownTypeJSON
+    /// Well-known types being decoded from JSON must have only two fields: the
+    /// `@type` field and a `value` field containing the specialized JSON coding
+    /// of the well-known type.
+    case malformedWellKnownTypeJSON
 
-  /// The `Google_Protobuf_Any` message was malformed in some other way not
-  /// covered by the other error cases.
-  case malformedAnyField
+    /// The `Google_Protobuf_Any` message was malformed in some other way not
+    /// covered by the other error cases.
+    case malformedAnyField
 }

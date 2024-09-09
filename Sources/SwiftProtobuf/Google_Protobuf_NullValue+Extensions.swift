@@ -14,15 +14,15 @@
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_NullValue: _CustomJSONCodable {
-  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return "null"
-  }
-  internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    if decoder.scanner.skipOptionalNull() {
-      return
+    internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
+        "null"
     }
-  }
-  static func decodedFromJSONNull() -> Google_Protobuf_NullValue? {
-    return .nullValue
-  }
+    internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        if decoder.scanner.skipOptionalNull() {
+            return
+        }
+    }
+    static func decodedFromJSONNull() -> Google_Protobuf_NullValue? {
+        .nullValue
+    }
 }

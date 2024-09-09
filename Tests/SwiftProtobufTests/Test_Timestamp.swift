@@ -19,70 +19,71 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_Timestamp: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Timestamp
 
     func testJSON() throws {
-        XCTAssertEqual("\"1970-01-01T00:00:00Z\"",
-                       try Google_Protobuf_Timestamp().jsonString())
+        XCTAssertEqual(
+            "\"1970-01-01T00:00:00Z\"",
+            try Google_Protobuf_Timestamp().jsonString()
+        )
 
         assertJSONEncode("\"1970-01-01T00:00:01.000000001Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 1 // 1 second
+            o.seconds = 1  // 1 second
             o.nanos = 1
         }
 
         assertJSONEncode("\"1970-01-01T00:01:00.000000010Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 60 // 1 minute
+            o.seconds = 60  // 1 minute
             o.nanos = 10
         }
 
         assertJSONEncode("\"1970-01-01T01:00:00.000000100Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 3600 // 1 hour
+            o.seconds = 3600  // 1 hour
             o.nanos = 100
         }
 
         assertJSONEncode("\"1970-01-02T00:00:00.000001Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 86400 // 1 day
+            o.seconds = 86400  // 1 day
             o.nanos = 1000
         }
 
         assertJSONEncode("\"1970-02-01T00:00:00.000010Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 2678400 // 1 month
+            o.seconds = 2_678_400  // 1 month
             o.nanos = 10000
         }
 
         assertJSONEncode("\"1971-01-01T00:00:00.000100Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 31536000 // 1 year
+            o.seconds = 31_536_000  // 1 year
             o.nanos = 100000
         }
 
         assertJSONEncode("\"1970-01-01T00:00:01.001Z\"") {
             (o: inout MessageTestType) in
             o.seconds = 1
-            o.nanos = 1000000
+            o.nanos = 1_000_000
         }
 
         assertJSONEncode("\"1970-01-01T00:00:01.010Z\"") {
             (o: inout MessageTestType) in
             o.seconds = 1
-            o.nanos = 10000000
+            o.nanos = 10_000_000
         }
 
         assertJSONEncode("\"1970-01-01T00:00:01.100Z\"") {
             (o: inout MessageTestType) in
             o.seconds = 1
-            o.nanos = 100000000
+            o.nanos = 100_000_000
         }
 
         assertJSONEncode("\"1970-01-01T00:00:01Z\"") {
@@ -94,28 +95,28 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         // Largest representable date
         assertJSONEncode("\"9999-12-31T23:59:59.999999999Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 253402300799
-            o.nanos = 999999999
+            o.seconds = 253_402_300_799
+            o.nanos = 999_999_999
         }
 
         // 10 billion seconds after Epoch
         assertJSONEncode("\"2286-11-20T17:46:40Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 10000000000
+            o.seconds = 10_000_000_000
             o.nanos = 0
         }
 
         // 1 billion seconds after Epoch
         assertJSONEncode("\"2001-09-09T01:46:40Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 1000000000
+            o.seconds = 1_000_000_000
             o.nanos = 0
         }
 
         // 1 million seconds after Epoch
         assertJSONEncode("\"1970-01-12T13:46:40Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = 1000000
+            o.seconds = 1_000_000
             o.nanos = 0
         }
 
@@ -136,35 +137,35 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         // 1 million seconds before Epoch
         assertJSONEncode("\"1969-12-20T10:13:20Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = -1000000
+            o.seconds = -1_000_000
             o.nanos = 0
         }
 
         // 1 billion seconds before Epoch
         assertJSONEncode("\"1938-04-24T22:13:20Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = -1000000000
+            o.seconds = -1_000_000_000
             o.nanos = 0
         }
 
         // 10 billion seconds before Epoch
         assertJSONEncode("\"1653-02-10T06:13:20Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = -10000000000
+            o.seconds = -10_000_000_000
             o.nanos = 0
         }
 
         // Earliest leap year
         assertJSONEncode("\"0004-02-19T02:50:24Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = -62036744976
+            o.seconds = -62_036_744_976
             o.nanos = 0
         }
 
         // Earliest representable date
         assertJSONEncode("\"0001-01-01T00:00:00Z\"") {
             (o: inout MessageTestType) in
-            o.seconds = -62135596800
+            o.seconds = -62_135_596_800
             o.nanos = 0
         }
 
@@ -181,21 +182,20 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"9999-12-31T00:00:00\"")
     }
 
-
     func testJSON_range() throws {
         // Check that JSON timestamps round-trip correctly over a wide range.
         // This checks about 15,000 dates scattered over a 10,000 year period
         // to verify that our JSON encoder and decoder agree with each other.
         // Combined with the above checks of specific known dates, this gives a
         // pretty high confidence that our date calculations are correct.
-        let earliest: Int64 = -62135596800
-        let latest: Int64 = 253402300799
+        let earliest: Int64 = -62_135_596_800
+        let latest: Int64 = 253_402_300_799
         // Use a smaller increment to get more exhaustive testing.  An
         // increment of 12345 will test every single day in the entire
         // 10,000 year range and require about 15 minutes to run.
         // An increment of 12345678 will pick about one day out of
         // every 5 months and require only a few seconds to run.
-        let increment: Int64 = 12345678
+        let increment: Int64 = 12_345_678
         var t: Int64 = earliest
         // If things are broken, this test can easily generate >10,000 failures.
         // That many failures can break a lot of tools (Xcode, for example), so
@@ -213,7 +213,11 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
                     if decoded.seconds != t {
                         if roundTripFailures == 0 {
                             // Only the first round-trip failure will be reported here
-                            XCTAssertEqual(decoded.seconds, t, "Round-trip failed for \(encoded): \(t) != \(decoded.seconds)")
+                            XCTAssertEqual(
+                                decoded.seconds,
+                                t,
+                                "Round-trip failed for \(encoded): \(t) != \(decoded.seconds)"
+                            )
                         }
                         roundTripFailures += 1
                     }
@@ -240,31 +244,52 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
     }
 
     func testJSON_timezones() {
-        assertJSONDecodeSucceeds("\"1970-01-01T08:00:00+08:00\"") {$0.seconds == 0}
-        assertJSONDecodeSucceeds("\"1969-12-31T16:00:00-08:00\"") {$0.seconds == 0}
+        assertJSONDecodeSucceeds("\"1970-01-01T08:00:00+08:00\"") { $0.seconds == 0 }
+        assertJSONDecodeSucceeds("\"1969-12-31T16:00:00-08:00\"") { $0.seconds == 0 }
         assertJSONDecodeFails("\"0001-01-01T00:00:00+23:59\"")
         assertJSONDecodeFails("\"9999-12-31T23:59:59-23:59\"")
     }
 
     func testJSON_timestampField() throws {
         do {
-            let valid = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}")
-            XCTAssertEqual(valid.optionalTimestamp, Google_Protobuf_Timestamp(seconds: -62135596800))
+            let valid = try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}"
+            )
+            XCTAssertEqual(valid.optionalTimestamp, Google_Protobuf_Timestamp(seconds: -62_135_596_800))
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
-
-        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"10000-01-01T00:00:00Z\"}"))
-        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00\"}"))
-        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01 00:00:00Z\"}"))
-        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00z\"}"))
-        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01t00:00:00Z\"}"))
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalTimestamp\": \"10000-01-01T00:00:00Z\"}"
+            )
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00\"}"
+            )
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalTimestamp\": \"0001-01-01 00:00:00Z\"}"
+            )
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00z\"}"
+            )
+        )
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                jsonString: "{\"optionalTimestamp\": \"0001-01-01t00:00:00Z\"}"
+            )
+        )
     }
 
     // A couple more test cases transcribed from conformance test
     func testJSON_conformance() throws {
-        let t1 = Google_Protobuf_Timestamp(seconds: 0, nanos: 10000000)
+        let t1 = Google_Protobuf_Timestamp(seconds: 0, nanos: 10_000_000)
         var m1 = SwiftProtoTesting_Test3_TestAllTypesProto3()
         m1.optionalTimestamp = t1
         let expected1 = "{\"optionalTimestamp\":\"1970-01-01T00:00:00.010Z\"}"
@@ -287,24 +312,26 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         // Extra spaces around all the tokens.
         let json3 = " { \"repeatedTimestamp\" : [ \"0001-01-01T00:00:00Z\" , \"9999-12-31T23:59:59.999999999Z\" ] } "
         let m3 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json3)
-        let expected3 = [Google_Protobuf_Timestamp(seconds: -62135596800),
-                Google_Protobuf_Timestamp(seconds: 253402300799, nanos: 999999999)]
+        let expected3 = [
+            Google_Protobuf_Timestamp(seconds: -62_135_596_800),
+            Google_Protobuf_Timestamp(seconds: 253_402_300_799, nanos: 999_999_999),
+        ]
         XCTAssertEqual(m3.repeatedTimestamp, expected3)
     }
 
     func testSerializationFailure() throws {
-        let maxOutOfRange = Google_Protobuf_Timestamp(seconds:-62135596800, nanos: -1)
+        let maxOutOfRange = Google_Protobuf_Timestamp(seconds: -62_135_596_800, nanos: -1)
         XCTAssertThrowsError(try maxOutOfRange.jsonString())
-        let minInRange = Google_Protobuf_Timestamp(seconds:-62135596800)
+        let minInRange = Google_Protobuf_Timestamp(seconds: -62_135_596_800)
         XCTAssertNotNil(try minInRange.jsonString())
-        let maxInRange = Google_Protobuf_Timestamp(seconds:253402300799, nanos: 999999999)
+        let maxInRange = Google_Protobuf_Timestamp(seconds: 253_402_300_799, nanos: 999_999_999)
         XCTAssertNotNil(try maxInRange.jsonString())
-        let minOutOfRange = Google_Protobuf_Timestamp(seconds:253402300800)
+        let minOutOfRange = Google_Protobuf_Timestamp(seconds: 253_402_300_800)
         XCTAssertThrowsError(try minOutOfRange.jsonString())
     }
 
     func testBasicArithmetic() throws {
-        let tn1_n1 = Google_Protobuf_Timestamp(seconds: -2, nanos: 999999999)
+        let tn1_n1 = Google_Protobuf_Timestamp(seconds: -2, nanos: 999_999_999)
         let t0 = Google_Protobuf_Timestamp()
         let t1_1 = Google_Protobuf_Timestamp(seconds: 1, nanos: 1)
         let t2_2 = Google_Protobuf_Timestamp(seconds: 2, nanos: 2)
@@ -334,35 +361,42 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testArithmeticNormalizes() throws {
         // Addition normalizes the result
-        let r1: Google_Protobuf_Timestamp = Google_Protobuf_Timestamp() + Google_Protobuf_Duration(seconds: 0, nanos: 2000000001)
+        let r1: Google_Protobuf_Timestamp =
+            Google_Protobuf_Timestamp() + Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001)
         XCTAssertEqual(r1.seconds, 2)
         XCTAssertEqual(r1.nanos, 1)
 
         // Subtraction normalizes the result
-        let r2: Google_Protobuf_Timestamp = Google_Protobuf_Timestamp() - Google_Protobuf_Duration(seconds: 0, nanos: 2000000001)
+        let r2: Google_Protobuf_Timestamp =
+            Google_Protobuf_Timestamp() - Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001)
         XCTAssertEqual(r2.seconds, -3)
-        XCTAssertEqual(r2.nanos, 999999999)
+        XCTAssertEqual(r2.nanos, 999_999_999)
 
         // Subtraction normalizes the result
-        let r3: Google_Protobuf_Duration = Google_Protobuf_Timestamp() - Google_Protobuf_Timestamp(seconds: 0, nanos: 2000000001)
+        let r3: Google_Protobuf_Duration =
+            Google_Protobuf_Timestamp() - Google_Protobuf_Timestamp(seconds: 0, nanos: 2_000_000_001)
         XCTAssertEqual(r3.seconds, -2)
         XCTAssertEqual(r3.nanos, -1)
 
-        let r4: Google_Protobuf_Duration = Google_Protobuf_Timestamp(seconds: 1) - Google_Protobuf_Timestamp(nanos: 2000000001)
+        let r4: Google_Protobuf_Duration =
+            Google_Protobuf_Timestamp(seconds: 1) - Google_Protobuf_Timestamp(nanos: 2_000_000_001)
         XCTAssertEqual(r4.seconds, -1)
         XCTAssertEqual(r4.nanos, -1)
 
-        let r5: Google_Protobuf_Duration = Google_Protobuf_Timestamp(seconds: -1) - Google_Protobuf_Timestamp(nanos: -2000000001)
+        let r5: Google_Protobuf_Duration =
+            Google_Protobuf_Timestamp(seconds: -1) - Google_Protobuf_Timestamp(nanos: -2_000_000_001)
         XCTAssertEqual(r5.seconds, 1)
         XCTAssertEqual(r5.nanos, 1)
 
-        let r6: Google_Protobuf_Duration = Google_Protobuf_Timestamp(seconds: -10) - Google_Protobuf_Timestamp(nanos: -2000000001)
+        let r6: Google_Protobuf_Duration =
+            Google_Protobuf_Timestamp(seconds: -10) - Google_Protobuf_Timestamp(nanos: -2_000_000_001)
         XCTAssertEqual(r6.seconds, -7)
-        XCTAssertEqual(r6.nanos, -999999999)
+        XCTAssertEqual(r6.nanos, -999_999_999)
 
-        let r7: Google_Protobuf_Duration = Google_Protobuf_Timestamp(seconds: 10) - Google_Protobuf_Timestamp(nanos: 2000000001)
+        let r7: Google_Protobuf_Duration =
+            Google_Protobuf_Timestamp(seconds: 10) - Google_Protobuf_Timestamp(nanos: 2_000_000_001)
         XCTAssertEqual(r7.seconds, 7)
-        XCTAssertEqual(r7.nanos, 999999999)
+        XCTAssertEqual(r7.nanos, 999_999_999)
     }
 
     // TODO: Should setter correct for out-of-range
@@ -372,7 +406,7 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         // Negative timestamp
         let t1 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.456)
         XCTAssertEqual(t1.seconds, -124)
-        XCTAssertEqual(t1.nanos, 544000000)
+        XCTAssertEqual(t1.nanos, 544_000_000)
 
         // Full precision
         let t2 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.999999999)
@@ -396,17 +430,17 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         // Positive timestamp
         let t6 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.456)
         XCTAssertEqual(t6.seconds, 123)
-        XCTAssertEqual(t6.nanos, 456000000)
+        XCTAssertEqual(t6.nanos, 456_000_000)
 
         // Full precision
         let t7 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.999999999)
         XCTAssertEqual(t7.seconds, 123)
-        XCTAssertEqual(t7.nanos, 999999999)
+        XCTAssertEqual(t7.nanos, 999_999_999)
 
         // Round down
         let t8 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999994)
         XCTAssertEqual(t8.seconds, 123)
-        XCTAssertEqual(t8.nanos, 999999999)
+        XCTAssertEqual(t8.nanos, 999_999_999)
 
         // Round up
         let t9 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999996)
@@ -416,20 +450,20 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testInitializationByReferenceTimestamp() throws {
         let t1 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: 123.456)
-        XCTAssertEqual(t1.seconds, 978307323)
-        XCTAssertEqual(t1.nanos, 456000000)
+        XCTAssertEqual(t1.seconds, 978_307_323)
+        XCTAssertEqual(t1.nanos, 456_000_000)
     }
 
     func testInitializationByDates() throws {
         let t1 = Google_Protobuf_Timestamp(date: Date(timeIntervalSinceReferenceDate: 123.456))
-        XCTAssertEqual(t1.seconds, 978307323)
-        XCTAssertEqual(t1.nanos, 456000000)
+        XCTAssertEqual(t1.seconds, 978_307_323)
+        XCTAssertEqual(t1.nanos, 456_000_000)
     }
 
     func testTimestampGetters() throws {
-        let t1 = Google_Protobuf_Timestamp(seconds: 12345678, nanos: 12345678)
-        XCTAssertEqual(t1.seconds, 12345678)
-        XCTAssertEqual(t1.nanos, 12345678)
+        let t1 = Google_Protobuf_Timestamp(seconds: 12_345_678, nanos: 12_345_678)
+        XCTAssertEqual(t1.seconds, 12_345_678)
+        XCTAssertEqual(t1.nanos, 12_345_678)
         XCTAssertEqual(t1.timeIntervalSince1970, 12345678.012345678)
         XCTAssertEqual(t1.timeIntervalSinceReferenceDate, -965961521.987654322)
         let d = t1.date

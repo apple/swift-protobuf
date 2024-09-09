@@ -19,7 +19,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 /// An empty protocol that encodes the version of the runtime library.
 ///
 /// This protocol will be replaced with one containing a different version
@@ -39,5 +38,5 @@ public protocol ProtobufAPIVersion_2 {}
 /// causing a compile-time error (with reasonable diagnostics) if they are
 /// incompatible.
 public protocol ProtobufAPIVersionCheck {
-  associatedtype Version: ProtobufAPIVersion_2
+    associatedtype Version: ProtobufAPIVersion_2
 }

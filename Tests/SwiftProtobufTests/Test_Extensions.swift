@@ -13,8 +13,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 // Exercise the support for Proto2 extensions.
 
@@ -22,7 +22,12 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
     var extensions = SwiftProtobuf.SimpleExtensionMap()
 
-    func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertEncode(
+        _ expected: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -32,7 +37,12 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(serializedBytes: encoded, extensions: extensions)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
             } catch {
                 XCTFail("Failed to decode protobuf: \(encoded)", file: file, line: line)
             }
@@ -41,7 +51,12 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
-    func assertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertDecodeSucceeds(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
         do {
             let decoded = try MessageTestType(serializedBytes: bytes, extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
@@ -69,18 +84,16 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
 
     }
 
-
     override func setUp() {
         // Start with all the extensions from the unittest.proto file:
         extensions = SwiftProtoTesting_Unittest_Extensions
         // Append another file's worth:
         extensions.formUnion(SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions)
         // Append an array of extensions
-        extensions.insert(contentsOf:
-            [
-                Extensions_RepeatedExtensionGroup,
-                Extensions_ExtensionGroup
-            ]
+        extensions.insert(contentsOf: [
+            Extensions_RepeatedExtensionGroup,
+            Extensions_ExtensionGroup,
+        ]
         )
     }
 
@@ -88,7 +101,7 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         assertEncode([8, 17]) { (o: inout MessageTestType) in
             o.SwiftProtoTesting_optionalInt32Extension = 17
         }
-        assertDecodeSucceeds([8, 99]) {$0.SwiftProtoTesting_optionalInt32Extension == 99}
+        assertDecodeSucceeds([8, 99]) { $0.SwiftProtoTesting_optionalInt32Extension == 99 }
         assertDecodeFails([9])
         assertDecodeFails([9, 0])
         assertDecodesAsUnknownFields([9, 0, 0, 0, 0, 0, 0, 0, 0])  // Wrong wire type (fixed64), valid as an unknown field
@@ -115,7 +128,10 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         m2.SwiftProtoTesting_optionalInt32Extension = 18
         XCTAssertNotEqual(m1, m2)
 
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_int32_extension]: 18\n", m2)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_int32_extension]: 18\n",
+            m2
+        )
         XCTAssertNotEqual(m1.hashValue, m2.hashValue)
     }
 
@@ -139,20 +155,23 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         assertEncode([114, 5, 104, 101, 108, 108, 111]) { (o: inout MessageTestType) in
             o.SwiftProtoTesting_optionalStringExtension = "hello"
         }
-        assertDecodeSucceeds([114, 2, 97, 98]) {$0.SwiftProtoTesting_optionalStringExtension == "ab"}
+        assertDecodeSucceeds([114, 2, 97, 98]) { $0.SwiftProtoTesting_optionalStringExtension == "ab" }
 
         var m1 = SwiftProtoTesting_TestAllExtensions()
         m1.SwiftProtoTesting_optionalStringExtension = "ab"
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_string_extension]: \"ab\"\n", m1)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_string_extension]: \"ab\"\n",
+            m1
+        )
     }
 
     func test_repeatedInt32Extension() throws {
         assertEncode([248, 1, 7, 248, 1, 8]) { (o: inout MessageTestType) in
             o.SwiftProtoTesting_repeatedInt32Extension = [7, 8]
         }
-        assertDecodeSucceeds([248, 1, 7]) {$0.SwiftProtoTesting_repeatedInt32Extension == [7]}
-        assertDecodeSucceeds([248, 1, 7, 248, 1, 8]) {$0.SwiftProtoTesting_repeatedInt32Extension == [7, 8]}
-        assertDecodeSucceeds([250, 1, 2, 7, 8]) {$0.SwiftProtoTesting_repeatedInt32Extension == [7, 8]}
+        assertDecodeSucceeds([248, 1, 7]) { $0.SwiftProtoTesting_repeatedInt32Extension == [7] }
+        assertDecodeSucceeds([248, 1, 7, 248, 1, 8]) { $0.SwiftProtoTesting_repeatedInt32Extension == [7, 8] }
+        assertDecodeSucceeds([250, 1, 2, 7, 8]) { $0.SwiftProtoTesting_repeatedInt32Extension == [7, 8] }
 
         // Verify that the usual array access/modification operations work correctly
         var m = SwiftProtoTesting_TestAllExtensions()
@@ -164,7 +183,10 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 8])
         XCTAssertEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 9])
 
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.repeated_int32_extension]: 7\n[swift_proto_testing.repeated_int32_extension]: 9\n", m)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.repeated_int32_extension]: 7\n[swift_proto_testing.repeated_int32_extension]: 9\n",
+            m
+        )
 
         XCTAssertFalse(m.SwiftProtoTesting_repeatedInt32Extension.isEmpty)
         m.SwiftProtoTesting_repeatedInt32Extension = []
@@ -178,13 +200,19 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n", m)
         m.SwiftProtoTesting_defaultInt32Extension = 100
         XCTAssertEqual(try m.serializedBytes(), [232, 3, 100])
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 100\n", m)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 100\n",
+            m
+        )
         m.clearSwiftProtoTesting_defaultInt32Extension()
         XCTAssertEqual(try m.serializedBytes(), [])
         assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n", m)
-        m.SwiftProtoTesting_defaultInt32Extension = 41 // Default value
+        m.SwiftProtoTesting_defaultInt32Extension = 41  // Default value
         XCTAssertEqual(try m.serializedBytes(), [232, 3, 41])
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 41\n", m)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 41\n",
+            m
+        )
 
         assertEncode([232, 3, 17]) { (o: inout MessageTestType) in
             o.SwiftProtoTesting_defaultInt32Extension = 17
@@ -219,7 +247,6 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTFail("Decoding into unextended message failed for \(coded)")
         }
     }
-
 
     func test_repeatedGroupExtension() throws {
         var m = SwiftTestGroupExtensions()

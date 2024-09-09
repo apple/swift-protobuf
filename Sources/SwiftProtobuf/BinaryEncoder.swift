@@ -40,12 +40,14 @@ internal struct BinaryEncoder {
     }
 
     internal var used: Int {
-        return buffer.baseAddress!.distance(to: pointer)
+        buffer.baseAddress!.distance(to: pointer)
     }
 
     internal var remainder: UnsafeMutableRawBufferPointer {
-        return UnsafeMutableRawBufferPointer(start: pointer,
-	    count: buffer.count - used)
+        UnsafeMutableRawBufferPointer(
+            start: pointer,
+            count: buffer.count - used
+        )
     }
 
     internal mutating func advance(_ bytes: Int) {

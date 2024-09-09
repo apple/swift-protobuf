@@ -13,8 +13,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_JSONDecodingOptions: XCTestCase {
 
@@ -29,11 +29,11 @@ final class Test_JSONDecodingOptions: XCTestCase {
 
         let tests: [(Int, Bool)] = [
             // Limit, success/failure
-            ( 10, true ),
-            ( 4, true ),
-            ( 3, true ),
-            ( 2, false ),
-            ( 1, false ),
+            (10, true),
+            (4, true),
+            (3, true),
+            (2, false),
+            (1, false),
         ]
 
         for (i, jsonInput) in jsonInputs.enumerated() {
@@ -52,7 +52,7 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     } else {
                         // Nothing, this is what was expected.
                     }
-                } catch let e  {
+                } catch let e {
                     XCTFail("Decode failed (pass: \(i), limit: \(limit) with unexpected error: \(e)")
                 }
             }
@@ -144,15 +144,21 @@ final class Test_JSONDecodingOptions: XCTestCase {
 
             // Ignoring unknown fields
             do {
-                let _ = try SwiftProtoTesting_TestEmptyMessage(jsonString: jsonInput,
-                                                              options:options)
-                XCTAssertTrue(isValidJSON,
-                              "Input \(i): Should not have been able to parse: \(jsonInput)")
+                let _ = try SwiftProtoTesting_TestEmptyMessage(
+                    jsonString: jsonInput,
+                    options: options
+                )
+                XCTAssertTrue(
+                    isValidJSON,
+                    "Input \(i): Should not have been able to parse: \(jsonInput)"
+                )
             } catch JSONDecodingError.unknownField(let field) {
                 XCTFail("Input \(i): should not have gotten unknown field \(field), input \(jsonInput)")
             } catch let e {
-                XCTAssertFalse(isValidJSON,
-                               "Input \(i): Error \(e): Should have been able to parse: \(jsonInput)")
+                XCTAssertFalse(
+                    isValidJSON,
+                    "Input \(i): Error \(e): Should have been able to parse: \(jsonInput)"
+                )
             }
         }
     }

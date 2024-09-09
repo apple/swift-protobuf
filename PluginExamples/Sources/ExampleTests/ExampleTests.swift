@@ -1,7 +1,6 @@
-import Simple
-import Nested
 import Import
-
+import Nested
+import Simple
 import XCTest
 
 final class ExampleTests: XCTestCase {

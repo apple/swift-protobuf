@@ -28,21 +28,21 @@ internal struct TextFormatDecoder: Decoder {
     private var messageType: any Message.Type
 
     internal var options: TextFormatDecodingOptions {
-      return scanner.options
+        scanner.options
     }
 
     internal var complete: Bool {
         mutating get {
-            return scanner.complete
+            scanner.complete
         }
     }
 
     internal init(
-      messageType: any Message.Type,
-      utf8Pointer: UnsafeRawPointer,
-      count: Int,
-      options: TextFormatDecodingOptions,
-      extensions: (any ExtensionMap)?
+        messageType: any Message.Type,
+        utf8Pointer: UnsafeRawPointer,
+        count: Int,
+        options: TextFormatDecodingOptions,
+        extensions: (any ExtensionMap)?
     ) throws {
         scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, options: options, extensions: extensions)
         guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
@@ -70,9 +70,11 @@ internal struct TextFormatDecoder: Decoder {
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
         }
-        if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!,
-                                                         messageType: messageType,
-                                                         terminator: terminator) {
+        if let fieldNumber = try scanner.nextFieldNumber(
+            names: fieldNameMap!,
+            messageType: messageType,
+            terminator: terminator
+        ) {
             fieldCount += 1
             return fieldNumber
         } else {
@@ -549,7 +551,10 @@ internal struct TextFormatDecoder: Decoder {
         try decodeRepeatedMessageField(value: &value)
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType: MapValueType>(mapType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType, ValueType: MapValueType>(
+        mapType: _ProtobufMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMap<KeyType, ValueType>.BaseType
+    ) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
@@ -585,7 +590,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    mutating func decodeMapField<KeyType, ValueType: MapValueType>(
+        fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMap<KeyType, ValueType>.BaseType
+    ) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -605,7 +613,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType>(mapType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    private mutating func decodeMapEntry<KeyType, ValueType>(
+        mapType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
+    ) throws where ValueType.RawValue == Int {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -641,7 +652,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    mutating func decodeMapField<KeyType, ValueType>(
+        fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
+    ) throws where ValueType.RawValue == Int {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -661,7 +675,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType>(mapType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType, ValueType>(
+        mapType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
+    ) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -697,7 +714,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    mutating func decodeMapField<KeyType, ValueType>(
+        fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
+    ) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -717,7 +737,11 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: any Message.Type, fieldNumber: Int) throws {
+    mutating func decodeExtensionField(
+        values: inout ExtensionFieldValueSet,
+        messageType: any Message.Type,
+        fieldNumber: Int
+    ) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
             try values.modify(index: fieldNumber) { fieldValue in
                 if fieldValue != nil {

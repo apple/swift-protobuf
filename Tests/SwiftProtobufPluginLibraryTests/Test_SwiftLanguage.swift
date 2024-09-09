@@ -12,8 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-import XCTest
 import SwiftProtobufPluginLibrary
+import XCTest
 
 final class Test_SwiftLanguage: XCTestCase {
     func testIsValidSwiftIdentifier() {
@@ -22,17 +22,23 @@ final class Test_SwiftLanguage: XCTestCase {
             "\u{1f436}\u{1f431}",
         ]
         for identifier in cases {
-            XCTAssertTrue(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                          "Should be valid: \(identifier)")
+            XCTAssertTrue(
+                isValidSwiftIdentifier(identifier, allowQuoted: false),
+                "Should be valid: \(identifier)"
+            )
         }
-        let quotedCases = cases.map {return "`\($0)`"}
+        let quotedCases = cases.map { return "`\($0)`" }
         for identifier in quotedCases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                          "Should NOT be valid: \(identifier)")
+            XCTAssertFalse(
+                isValidSwiftIdentifier(identifier, allowQuoted: false),
+                "Should NOT be valid: \(identifier)"
+            )
         }
         for identifier in cases + quotedCases {
-            XCTAssertTrue(isValidSwiftIdentifier(identifier, allowQuoted: true),
-                          "Should be valid: \(identifier)")
+            XCTAssertTrue(
+                isValidSwiftIdentifier(identifier, allowQuoted: true),
+                "Should be valid: \(identifier)"
+            )
         }
     }
 
@@ -45,17 +51,23 @@ final class Test_SwiftLanguage: XCTestCase {
             "This is bad",
         ]
         for identifier in cases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                           "Should NOT be valid: \(identifier)")
+            XCTAssertFalse(
+                isValidSwiftIdentifier(identifier, allowQuoted: false),
+                "Should NOT be valid: \(identifier)"
+            )
         }
-        let quotedCases = cases.map {return "`\($0)`"}
+        let quotedCases = cases.map { return "`\($0)`" }
         for identifier in cases + quotedCases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                           "Should NOT be valid: \(identifier)")
+            XCTAssertFalse(
+                isValidSwiftIdentifier(identifier, allowQuoted: false),
+                "Should NOT be valid: \(identifier)"
+            )
         }
         for identifier in cases + quotedCases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: true),
-                           "Should NOT be valid: \(identifier)")
+            XCTAssertFalse(
+                isValidSwiftIdentifier(identifier, allowQuoted: true),
+                "Should NOT be valid: \(identifier)"
+            )
         }
 
         let badQuotes = [
@@ -67,8 +79,10 @@ final class Test_SwiftLanguage: XCTestCase {
             "``H9000``",
         ]
         for identifier in badQuotes {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: true),
-                           "Should NOT be valid: \(identifier)")
+            XCTAssertFalse(
+                isValidSwiftIdentifier(identifier, allowQuoted: true),
+                "Should NOT be valid: \(identifier)"
+            )
         }
     }
 }

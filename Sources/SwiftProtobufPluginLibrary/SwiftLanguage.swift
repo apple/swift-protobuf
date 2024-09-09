@@ -12,8 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Swift
 import Foundation
+import Swift
 
 /// Used to check if a character is a valid identifier head character.
 ///
@@ -125,24 +125,27 @@ public let swiftKeywordsUsedInDeclarations: Set<String> = [
     "associatedtype", "class", "deinit", "enum", "extension",
     "fileprivate", "func", "import", "init", "inout", "internal",
     "let", "open", "operator", "private", "protocol", "public",
-    "static", "struct", "subscript", "typealias", "var"
+    "static", "struct", "subscript", "typealias", "var",
 ]
 
-public let swiftKeywordsUsedInStatements: Set<String> = [ "break", "case",
+public let swiftKeywordsUsedInStatements: Set<String> = [
+    "break", "case",
     "continue", "default", "defer", "do", "else", "fallthrough",
     "for", "guard", "if", "in", "repeat", "return", "switch", "where",
-    "while"
+    "while",
 ]
 
-public let swiftKeywordsUsedInExpressionsAndTypes: Set<String> = [ "as",
+public let swiftKeywordsUsedInExpressionsAndTypes: Set<String> = [
+    "as",
     "Any", "catch", "false", "is", "nil", "rethrows", "super", "self",
-    "Self", "throw", "throws", "true", "try"
+    "Self", "throw", "throws", "true", "try",
 ]
 
-public let swiftKeywordsWithNumberSign: Set<String> = [ "#available",
+public let swiftKeywordsWithNumberSign: Set<String> = [
+    "#available",
     "#colorLiteral", "#column", "#else", "#elseif", "#endif", "#file",
     "#fileLiteral", "#function", "#if", "#imageLiteral", "#line",
-    "#selector", "#sourceLocation"
+    "#selector", "#sourceLocation",
 ]
 
 public let swiftKeywordsReservedInParticularContexts: Set<String> = [
@@ -150,18 +153,20 @@ public let swiftKeywordsReservedInParticularContexts: Set<String> = [
     "get", "infix", "indirect", "lazy", "left", "mutating", "none",
     "nonmutating", "optional", "override", "postfix", "precedence",
     "prefix", "Protocol", "required", "right", "set", "Type",
-    "unowned", "weak", "willSet"
+    "unowned", "weak", "willSet",
 ]
 
 /// These are standard Swift types that are heavily used, although
 /// they are not technically reserved.  Defining fields or structs
 /// with these names would break our generated code quite badly:
-public let swiftCommonTypes: Set<String> = [ "Bool", "Data", "Double", "Float", "Int",
+public let swiftCommonTypes: Set<String> = [
+    "Bool", "Data", "Double", "Float", "Int",
     "Int32", "Int64", "String", "UInt", "UInt32", "UInt64",
 ]
 
 /// Special magic variables defined by the compiler that we don't
 /// really want to interfere with:
-public let swiftSpecialVariables: Set<String> = [ "__COLUMN__",
+public let swiftSpecialVariables: Set<String> = [
+    "__COLUMN__",
     "__FILE__", "__FUNCTION__", "__LINE__",
 ]
