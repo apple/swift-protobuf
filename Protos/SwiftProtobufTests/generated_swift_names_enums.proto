@@ -9,7 +9,6 @@ message GeneratedSwiftReservedEnums {
   enum aggregateValue { NONE_aggregateValue = 0; }
   enum allCases { NONE_allCases = 0; }
   enum allowAlias { NONE_allowAlias = 0; }
-  enum allProtoNames { NONE_allProtoNames = 0; }
   enum alwaysPrintEnumsAsInts { NONE_alwaysPrintEnumsAsInts = 0; }
   enum alwaysPrintInt64sAsNumbers { NONE_alwaysPrintInt64sAsNumbers = 0; }
   enum annotation { NONE_annotation = 0; }
@@ -344,7 +343,7 @@ message GeneratedSwiftReservedEnums {
   enum fields { NONE_fields = 0; }
   enum fieldSize { NONE_fieldSize = 0; }
   enum FieldTag { NONE_FieldTag = 0; }
-  enum fieldType { NONE_fieldType = 0; }
+  enum FieldType { NONE_FieldType = 0; }
   enum file { NONE_file = 0; }
   enum FileDescriptorProto { NONE_FileDescriptorProto = 0; }
   enum FileDescriptorSet { NONE_FileDescriptorSet = 0; }
@@ -651,7 +650,6 @@ message GeneratedSwiftReservedEnums {
   enum minor { NONE_minor = 0; }
   enum Mixin { NONE_Mixin = 0; }
   enum mixins { NONE_mixins = 0; }
-  enum modifier { NONE_modifier = 0; }
   enum modify { NONE_modify = 0; }
   enum month { NONE_month = 0; }
   enum msgExtension { NONE_msgExtension = 0; }
@@ -763,7 +761,6 @@ message GeneratedSwiftReservedEnums {
   enum protocol { NONE_protocol = 0; }
   enum protoFieldName { NONE_protoFieldName = 0; }
   enum protoMessageName { NONE_protoMessageName = 0; }
-  enum protoName { NONE_protoName = 0; }
   enum ProtoNameProviding { NONE_ProtoNameProviding = 0; }
   enum protoPaths { NONE_protoPaths = 0; }
   enum public { NONE_public = 0; }

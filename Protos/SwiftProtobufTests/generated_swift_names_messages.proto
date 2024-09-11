@@ -9,7 +9,6 @@ message GeneratedSwiftReservedMessages {
   message aggregateValue { int32 aggregateValue = 1; }
   message allCases { int32 allCases = 1; }
   message allowAlias { int32 allowAlias = 1; }
-  message allProtoNames { int32 allProtoNames = 1; }
   message alwaysPrintEnumsAsInts { int32 alwaysPrintEnumsAsInts = 1; }
   message alwaysPrintInt64sAsNumbers { int32 alwaysPrintInt64sAsNumbers = 1; }
   message annotation { int32 annotation = 1; }
@@ -344,7 +343,7 @@ message GeneratedSwiftReservedMessages {
   message fields { int32 fields = 1; }
   message fieldSize { int32 fieldSize = 1; }
   message FieldTag { int32 FieldTag = 1; }
-  message fieldType { int32 fieldType = 1; }
+  message FieldType { int32 FieldType = 1; }
   message file { int32 file = 1; }
   message FileDescriptorProto { int32 FileDescriptorProto = 1; }
   message FileDescriptorSet { int32 FileDescriptorSet = 1; }
@@ -651,7 +650,6 @@ message GeneratedSwiftReservedMessages {
   message minor { int32 minor = 1; }
   message Mixin { int32 Mixin = 1; }
   message mixins { int32 mixins = 1; }
-  message modifier { int32 modifier = 1; }
   message modify { int32 modify = 1; }
   message month { int32 month = 1; }
   message msgExtension { int32 msgExtension = 1; }
@@ -763,7 +761,6 @@ message GeneratedSwiftReservedMessages {
   message protocol { int32 protocol = 1; }
   message protoFieldName { int32 protoFieldName = 1; }
   message protoMessageName { int32 protoMessageName = 1; }
-  message protoName { int32 protoName = 1; }
   message ProtoNameProviding { int32 ProtoNameProviding = 1; }
   message protoPaths { int32 protoPaths = 1; }
   message public { int32 public = 1; }
