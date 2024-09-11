@@ -75,6 +75,36 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+/// NOTE: This enum was marked as deprecated in the .proto file.
+enum ProtobufUnittest_TestDeprecatedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case value1 // = 1
+  case value2 // = 2
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .value1
+    case 2: self = .value2
+    default: return nil
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .value1: return 1
+    case .value2: return 2
+    }
+  }
+
+}
+
 enum ProtobufUnittest_TestReservedEnumFields: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unknown // = 0
@@ -8072,6 +8102,152 @@ struct ProtobufUnittest_TestMessageWithManyRepeatedPtrFields: @unchecked Sendabl
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct ProtobufUnittest_MessageCreatorZeroInit: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var i: Int32 {
+    get {return _storage._i ?? 0}
+    set {_uniqueStorage()._i = newValue}
+  }
+  /// Returns true if `i` has been explicitly set.
+  var hasI: Bool {return _storage._i != nil}
+  /// Clears the value of `i`. Subsequent reads from it will return its default value.
+  mutating func clearI() {_uniqueStorage()._i = nil}
+
+  var d: Double {
+    get {return _storage._d ?? 0}
+    set {_uniqueStorage()._d = newValue}
+  }
+  /// Returns true if `d` has been explicitly set.
+  var hasD: Bool {return _storage._d != nil}
+  /// Clears the value of `d`. Subsequent reads from it will return its default value.
+  mutating func clearD() {_uniqueStorage()._d = nil}
+
+  var m: ProtobufUnittest_MessageCreatorZeroInit {
+    get {return _storage._m ?? ProtobufUnittest_MessageCreatorZeroInit()}
+    set {_uniqueStorage()._m = newValue}
+  }
+  /// Returns true if `m` has been explicitly set.
+  var hasM: Bool {return _storage._m != nil}
+  /// Clears the value of `m`. Subsequent reads from it will return its default value.
+  mutating func clearM() {_uniqueStorage()._m = nil}
+
+  var one: OneOf_One? {
+    get {return _storage._one}
+    set {_uniqueStorage()._one = newValue}
+  }
+
+  var os: String {
+    get {
+      if case .os(let v)? = _storage._one {return v}
+      return String()
+    }
+    set {_uniqueStorage()._one = .os(newValue)}
+  }
+
+  var oc: String {
+    get {
+      if case .oc(let v)? = _storage._one {return v}
+      return String()
+    }
+    set {_uniqueStorage()._one = .oc(newValue)}
+  }
+
+  var of: UInt64 {
+    get {
+      if case .of(let v)? = _storage._one {return v}
+      return 0
+    }
+    set {_uniqueStorage()._one = .of(newValue)}
+  }
+
+  var ol: ProtobufUnittest_MessageCreatorZeroInit {
+    get {
+      if case .ol(let v)? = _storage._one {return v}
+      return ProtobufUnittest_MessageCreatorZeroInit()
+    }
+    set {_uniqueStorage()._one = .ol(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_One: Equatable, Sendable {
+    case os(String)
+    case oc(String)
+    case of(UInt64)
+    case ol(ProtobufUnittest_MessageCreatorZeroInit)
+
+  }
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct ProtobufUnittest_MessageCreatorMemcpy: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var s: String {
+    get {return _storage._s ?? String()}
+    set {_uniqueStorage()._s = newValue}
+  }
+  /// Returns true if `s` has been explicitly set.
+  var hasS: Bool {return _storage._s != nil}
+  /// Clears the value of `s`. Subsequent reads from it will return its default value.
+  mutating func clearS() {_uniqueStorage()._s = nil}
+
+  var i: [Int32] {
+    get {return _storage._i}
+    set {_uniqueStorage()._i = newValue}
+  }
+
+  var m: ProtobufUnittest_MessageCreatorMemcpy {
+    get {return _storage._m ?? ProtobufUnittest_MessageCreatorMemcpy()}
+    set {_uniqueStorage()._m = newValue}
+  }
+  /// Returns true if `m` has been explicitly set.
+  var hasM: Bool {return _storage._m != nil}
+  /// Clears the value of `m`. Subsequent reads from it will return its default value.
+  mutating func clearM() {_uniqueStorage()._m = nil}
+
+  var m2: Dictionary<Int32,Int32> {
+    get {return _storage._m2}
+    set {_uniqueStorage()._m2 = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct ProtobufUnittest_MessageCreatorFunc: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// This one is ArenaDtorNeeds::kRequired so we must run the constructor.
+  var c: String {
+    get {return _c ?? String()}
+    set {_c = newValue}
+  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _c: String? = nil
+}
+
 // MARK: - Extension support defined in unittest.proto.
 
 // MARK: - Extension Properties
@@ -10569,6 +10745,14 @@ extension ProtobufUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
     6: .same(proto: "FOREIGN_BAZ"),
     32: .same(proto: "FOREIGN_BAX"),
     123456: .same(proto: "FOREIGN_LARGE"),
+  ]
+}
+
+extension ProtobufUnittest_TestDeprecatedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TEST_DEPRECATED_ENUM_UNSPECIFIED"),
+    1: .same(proto: "TEST_DEPRECATED_ENUM_VALUE1"),
+    2: .same(proto: "TEST_DEPRECATED_ENUM_VALUE2"),
   ]
 }
 
@@ -20821,6 +21005,297 @@ extension ProtobufUnittest_TestMessageWithManyRepeatedPtrFields: SwiftProtobuf.M
       }
       if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_MessageCreatorZeroInit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MessageCreatorZeroInit"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "i"),
+    2: .same(proto: "d"),
+    3: .same(proto: "m"),
+    10: .same(proto: "os"),
+    11: .same(proto: "oc"),
+    12: .same(proto: "of"),
+    13: .same(proto: "ol"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _i: Int32? = nil
+    var _d: Double? = nil
+    var _m: ProtobufUnittest_MessageCreatorZeroInit? = nil
+    var _one: ProtobufUnittest_MessageCreatorZeroInit.OneOf_One?
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _i = source._i
+      _d = source._d
+      _m = source._m
+      _one = source._one
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._i) }()
+        case 2: try { try decoder.decodeSingularDoubleField(value: &_storage._d) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._m) }()
+        case 10: try {
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {
+            if _storage._one != nil {try decoder.handleConflictingOneOf()}
+            _storage._one = .os(v)
+          }
+        }()
+        case 11: try {
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {
+            if _storage._one != nil {try decoder.handleConflictingOneOf()}
+            _storage._one = .oc(v)
+          }
+        }()
+        case 12: try {
+          var v: UInt64?
+          try decoder.decodeSingularFixed64Field(value: &v)
+          if let v = v {
+            if _storage._one != nil {try decoder.handleConflictingOneOf()}
+            _storage._one = .of(v)
+          }
+        }()
+        case 13: try {
+          var v: ProtobufUnittest_MessageCreatorZeroInit?
+          var hadOneofValue = false
+          if let current = _storage._one {
+            hadOneofValue = true
+            if case .ol(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._one = .ol(v)
+          }
+        }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._i {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._d {
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._m {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      switch _storage._one {
+      case .os?: try {
+        guard case .os(let v)? = _storage._one else { preconditionFailure() }
+        try visitor.visitSingularStringField(value: v, fieldNumber: 10)
+      }()
+      case .oc?: try {
+        guard case .oc(let v)? = _storage._one else { preconditionFailure() }
+        try visitor.visitSingularStringField(value: v, fieldNumber: 11)
+      }()
+      case .of?: try {
+        guard case .of(let v)? = _storage._one else { preconditionFailure() }
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 12)
+      }()
+      case .ol?: try {
+        guard case .ol(let v)? = _storage._one else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+      }()
+      case nil: break
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_MessageCreatorZeroInit, rhs: ProtobufUnittest_MessageCreatorZeroInit) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._i != rhs_storage._i {return false}
+        if _storage._d != rhs_storage._d {return false}
+        if _storage._m != rhs_storage._m {return false}
+        if _storage._one != rhs_storage._one {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_MessageCreatorMemcpy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MessageCreatorMemcpy"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "s"),
+    2: .same(proto: "i"),
+    3: .same(proto: "m"),
+    4: .same(proto: "m2"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _s: String? = nil
+    var _i: [Int32] = []
+    var _m: ProtobufUnittest_MessageCreatorMemcpy? = nil
+    var _m2: Dictionary<Int32,Int32> = [:]
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _s = source._s
+      _i = source._i
+      _m = source._m
+      _m2 = source._m2
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._s) }()
+        case 2: try { try decoder.decodeRepeatedInt32Field(value: &_storage._i) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._m) }()
+        case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._m2) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._s {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      } }()
+      if !_storage._i.isEmpty {
+        try visitor.visitPackedInt32Field(value: _storage._i, fieldNumber: 2)
+      }
+      try { if let v = _storage._m {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      if !_storage._m2.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._m2, fieldNumber: 4)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_MessageCreatorMemcpy, rhs: ProtobufUnittest_MessageCreatorMemcpy) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._s != rhs_storage._s {return false}
+        if _storage._i != rhs_storage._i {return false}
+        if _storage._m != rhs_storage._m {return false}
+        if _storage._m2 != rhs_storage._m2 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_MessageCreatorFunc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MessageCreatorFunc"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    3: .same(proto: "c"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 3: try { try decoder.decodeSingularStringField(value: &self._c) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._c {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_MessageCreatorFunc, rhs: ProtobufUnittest_MessageCreatorFunc) -> Bool {
+    if lhs._c != rhs._c {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
