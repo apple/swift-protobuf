@@ -1802,8 +1802,6 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
   }
 
   /// If set to RETENTION_SOURCE, the option will be omitted from the binary.
-  /// Note: as of January 2023, support for this is in progress and does not yet
-  /// have an effect (b/264593489).
   public enum OptionRetention: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case retentionUnknown // = 0
@@ -1835,8 +1833,7 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
 
   /// This indicates the types of entities that the field may apply to when used
   /// as an option. If it is unset, then the field may be freely used as an
-  /// option on any kind of entity. Note: as of January 2023, support for this is
-  /// in progress and does not yet have an effect (b/264593489).
+  /// option on any kind of entity.
   public enum OptionTargetType: Enum, Swift.CaseIterable {
     public typealias RawValue = Int
     case targetTypeUnknown // = 0

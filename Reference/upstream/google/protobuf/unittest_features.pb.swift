@@ -45,8 +45,7 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   case value13 // = 13
   case value14 // = 14
   case value15 // = 15
-  case valueEmptySupport // = 98
-  case valueFuture // = 99
+  case UNRECOGNIZED(Int)
 
   init() {
     self = .testEnumFeatureUnknown
@@ -70,9 +69,7 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
     case 13: self = .value13
     case 14: self = .value14
     case 15: self = .value15
-    case 98: self = .valueEmptySupport
-    case 99: self = .valueFuture
-    default: return nil
+    default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
@@ -94,10 +91,83 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
     case .value13: return 13
     case .value14: return 14
     case .value15: return 15
-    case .valueEmptySupport: return 98
-    case .valueFuture: return 99
+    case .UNRECOGNIZED(let i): return i
     }
   }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Pb_EnumFeature] = [
+    .testEnumFeatureUnknown,
+    .value1,
+    .value2,
+    .value3,
+    .value4,
+    .value5,
+    .value6,
+    .value7,
+    .value8,
+    .value9,
+    .value10,
+    .value11,
+    .value12,
+    .value13,
+    .value14,
+    .value15,
+  ]
+
+}
+
+enum Pb_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case testValueLifetimeUnknown // = 0
+  case valueLifetimeInherited // = 1
+  case valueLifetimeSupport // = 2
+  case valueLifetimeEmptySupport // = 3
+  case valueLifetimeFuture // = 4
+  case valueLifetimeDeprecated // = 5
+  case valueLifetimeRemoved // = 6
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .testValueLifetimeUnknown
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .testValueLifetimeUnknown
+    case 1: self = .valueLifetimeInherited
+    case 2: self = .valueLifetimeSupport
+    case 3: self = .valueLifetimeEmptySupport
+    case 4: self = .valueLifetimeFuture
+    case 5: self = .valueLifetimeDeprecated
+    case 6: self = .valueLifetimeRemoved
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .testValueLifetimeUnknown: return 0
+    case .valueLifetimeInherited: return 1
+    case .valueLifetimeSupport: return 2
+    case .valueLifetimeEmptySupport: return 3
+    case .valueLifetimeFuture: return 4
+    case .valueLifetimeDeprecated: return 5
+    case .valueLifetimeRemoved: return 6
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Pb_ValueLifetimeFeature] = [
+    .testValueLifetimeUnknown,
+    .valueLifetimeInherited,
+    .valueLifetimeSupport,
+    .valueLifetimeEmptySupport,
+    .valueLifetimeFuture,
+    .valueLifetimeDeprecated,
+    .valueLifetimeRemoved,
+  ]
 
 }
 
@@ -121,175 +191,169 @@ struct Pb_TestMessage: Sendable {
   init() {}
 }
 
-struct Pb_TestFeatures: Sendable {
+struct Pb_TestFeatures: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var fileFeature: Pb_EnumFeature {
-    get {return _fileFeature ?? .testEnumFeatureUnknown}
-    set {_fileFeature = newValue}
+    get {return _storage._fileFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._fileFeature = newValue}
   }
   /// Returns true if `fileFeature` has been explicitly set.
-  var hasFileFeature: Bool {return self._fileFeature != nil}
+  var hasFileFeature: Bool {return _storage._fileFeature != nil}
   /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFileFeature() {self._fileFeature = nil}
+  mutating func clearFileFeature() {_uniqueStorage()._fileFeature = nil}
 
   var extensionRangeFeature: Pb_EnumFeature {
-    get {return _extensionRangeFeature ?? .testEnumFeatureUnknown}
-    set {_extensionRangeFeature = newValue}
+    get {return _storage._extensionRangeFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._extensionRangeFeature = newValue}
   }
   /// Returns true if `extensionRangeFeature` has been explicitly set.
-  var hasExtensionRangeFeature: Bool {return self._extensionRangeFeature != nil}
+  var hasExtensionRangeFeature: Bool {return _storage._extensionRangeFeature != nil}
   /// Clears the value of `extensionRangeFeature`. Subsequent reads from it will return its default value.
-  mutating func clearExtensionRangeFeature() {self._extensionRangeFeature = nil}
+  mutating func clearExtensionRangeFeature() {_uniqueStorage()._extensionRangeFeature = nil}
 
   var messageFeature: Pb_EnumFeature {
-    get {return _messageFeature ?? .testEnumFeatureUnknown}
-    set {_messageFeature = newValue}
+    get {return _storage._messageFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._messageFeature = newValue}
   }
   /// Returns true if `messageFeature` has been explicitly set.
-  var hasMessageFeature: Bool {return self._messageFeature != nil}
+  var hasMessageFeature: Bool {return _storage._messageFeature != nil}
   /// Clears the value of `messageFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMessageFeature() {self._messageFeature = nil}
+  mutating func clearMessageFeature() {_uniqueStorage()._messageFeature = nil}
 
   var fieldFeature: Pb_EnumFeature {
-    get {return _fieldFeature ?? .testEnumFeatureUnknown}
-    set {_fieldFeature = newValue}
+    get {return _storage._fieldFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._fieldFeature = newValue}
   }
   /// Returns true if `fieldFeature` has been explicitly set.
-  var hasFieldFeature: Bool {return self._fieldFeature != nil}
+  var hasFieldFeature: Bool {return _storage._fieldFeature != nil}
   /// Clears the value of `fieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFieldFeature() {self._fieldFeature = nil}
+  mutating func clearFieldFeature() {_uniqueStorage()._fieldFeature = nil}
 
   var oneofFeature: Pb_EnumFeature {
-    get {return _oneofFeature ?? .testEnumFeatureUnknown}
-    set {_oneofFeature = newValue}
+    get {return _storage._oneofFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._oneofFeature = newValue}
   }
   /// Returns true if `oneofFeature` has been explicitly set.
-  var hasOneofFeature: Bool {return self._oneofFeature != nil}
+  var hasOneofFeature: Bool {return _storage._oneofFeature != nil}
   /// Clears the value of `oneofFeature`. Subsequent reads from it will return its default value.
-  mutating func clearOneofFeature() {self._oneofFeature = nil}
+  mutating func clearOneofFeature() {_uniqueStorage()._oneofFeature = nil}
 
   var enumFeature: Pb_EnumFeature {
-    get {return _enumFeature ?? .testEnumFeatureUnknown}
-    set {_enumFeature = newValue}
+    get {return _storage._enumFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._enumFeature = newValue}
   }
   /// Returns true if `enumFeature` has been explicitly set.
-  var hasEnumFeature: Bool {return self._enumFeature != nil}
+  var hasEnumFeature: Bool {return _storage._enumFeature != nil}
   /// Clears the value of `enumFeature`. Subsequent reads from it will return its default value.
-  mutating func clearEnumFeature() {self._enumFeature = nil}
+  mutating func clearEnumFeature() {_uniqueStorage()._enumFeature = nil}
 
   var enumEntryFeature: Pb_EnumFeature {
-    get {return _enumEntryFeature ?? .testEnumFeatureUnknown}
-    set {_enumEntryFeature = newValue}
+    get {return _storage._enumEntryFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._enumEntryFeature = newValue}
   }
   /// Returns true if `enumEntryFeature` has been explicitly set.
-  var hasEnumEntryFeature: Bool {return self._enumEntryFeature != nil}
+  var hasEnumEntryFeature: Bool {return _storage._enumEntryFeature != nil}
   /// Clears the value of `enumEntryFeature`. Subsequent reads from it will return its default value.
-  mutating func clearEnumEntryFeature() {self._enumEntryFeature = nil}
+  mutating func clearEnumEntryFeature() {_uniqueStorage()._enumEntryFeature = nil}
 
   var serviceFeature: Pb_EnumFeature {
-    get {return _serviceFeature ?? .testEnumFeatureUnknown}
-    set {_serviceFeature = newValue}
+    get {return _storage._serviceFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._serviceFeature = newValue}
   }
   /// Returns true if `serviceFeature` has been explicitly set.
-  var hasServiceFeature: Bool {return self._serviceFeature != nil}
+  var hasServiceFeature: Bool {return _storage._serviceFeature != nil}
   /// Clears the value of `serviceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearServiceFeature() {self._serviceFeature = nil}
+  mutating func clearServiceFeature() {_uniqueStorage()._serviceFeature = nil}
 
   var methodFeature: Pb_EnumFeature {
-    get {return _methodFeature ?? .testEnumFeatureUnknown}
-    set {_methodFeature = newValue}
+    get {return _storage._methodFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._methodFeature = newValue}
   }
   /// Returns true if `methodFeature` has been explicitly set.
-  var hasMethodFeature: Bool {return self._methodFeature != nil}
+  var hasMethodFeature: Bool {return _storage._methodFeature != nil}
   /// Clears the value of `methodFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMethodFeature() {self._methodFeature = nil}
+  mutating func clearMethodFeature() {_uniqueStorage()._methodFeature = nil}
 
   var multipleFeature: Pb_EnumFeature {
-    get {return _multipleFeature ?? .testEnumFeatureUnknown}
-    set {_multipleFeature = newValue}
+    get {return _storage._multipleFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._multipleFeature = newValue}
   }
   /// Returns true if `multipleFeature` has been explicitly set.
-  var hasMultipleFeature: Bool {return self._multipleFeature != nil}
+  var hasMultipleFeature: Bool {return _storage._multipleFeature != nil}
   /// Clears the value of `multipleFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMultipleFeature() {self._multipleFeature = nil}
+  mutating func clearMultipleFeature() {_uniqueStorage()._multipleFeature = nil}
 
   var boolFieldFeature: Bool {
-    get {return _boolFieldFeature ?? false}
-    set {_boolFieldFeature = newValue}
+    get {return _storage._boolFieldFeature ?? false}
+    set {_uniqueStorage()._boolFieldFeature = newValue}
   }
   /// Returns true if `boolFieldFeature` has been explicitly set.
-  var hasBoolFieldFeature: Bool {return self._boolFieldFeature != nil}
+  var hasBoolFieldFeature: Bool {return _storage._boolFieldFeature != nil}
   /// Clears the value of `boolFieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearBoolFieldFeature() {self._boolFieldFeature = nil}
+  mutating func clearBoolFieldFeature() {_uniqueStorage()._boolFieldFeature = nil}
 
   var sourceFeature: Pb_EnumFeature {
-    get {return _sourceFeature ?? .testEnumFeatureUnknown}
-    set {_sourceFeature = newValue}
+    get {return _storage._sourceFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._sourceFeature = newValue}
   }
   /// Returns true if `sourceFeature` has been explicitly set.
-  var hasSourceFeature: Bool {return self._sourceFeature != nil}
+  var hasSourceFeature: Bool {return _storage._sourceFeature != nil}
   /// Clears the value of `sourceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearSourceFeature() {self._sourceFeature = nil}
+  mutating func clearSourceFeature() {_uniqueStorage()._sourceFeature = nil}
 
   var sourceFeature2: Pb_EnumFeature {
-    get {return _sourceFeature2 ?? .testEnumFeatureUnknown}
-    set {_sourceFeature2 = newValue}
+    get {return _storage._sourceFeature2 ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._sourceFeature2 = newValue}
   }
   /// Returns true if `sourceFeature2` has been explicitly set.
-  var hasSourceFeature2: Bool {return self._sourceFeature2 != nil}
+  var hasSourceFeature2: Bool {return _storage._sourceFeature2 != nil}
   /// Clears the value of `sourceFeature2`. Subsequent reads from it will return its default value.
-  mutating func clearSourceFeature2() {self._sourceFeature2 = nil}
+  mutating func clearSourceFeature2() {_uniqueStorage()._sourceFeature2 = nil}
 
   var removedFeature: Pb_EnumFeature {
-    get {return _removedFeature ?? .testEnumFeatureUnknown}
-    set {_removedFeature = newValue}
+    get {return _storage._removedFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._removedFeature = newValue}
   }
   /// Returns true if `removedFeature` has been explicitly set.
-  var hasRemovedFeature: Bool {return self._removedFeature != nil}
+  var hasRemovedFeature: Bool {return _storage._removedFeature != nil}
   /// Clears the value of `removedFeature`. Subsequent reads from it will return its default value.
-  mutating func clearRemovedFeature() {self._removedFeature = nil}
+  mutating func clearRemovedFeature() {_uniqueStorage()._removedFeature = nil}
 
   var futureFeature: Pb_EnumFeature {
-    get {return _futureFeature ?? .testEnumFeatureUnknown}
-    set {_futureFeature = newValue}
+    get {return _storage._futureFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._futureFeature = newValue}
   }
   /// Returns true if `futureFeature` has been explicitly set.
-  var hasFutureFeature: Bool {return self._futureFeature != nil}
+  var hasFutureFeature: Bool {return _storage._futureFeature != nil}
   /// Clears the value of `futureFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFutureFeature() {self._futureFeature = nil}
+  mutating func clearFutureFeature() {_uniqueStorage()._futureFeature = nil}
 
   var legacyFeature: Pb_EnumFeature {
-    get {return _legacyFeature ?? .testEnumFeatureUnknown}
-    set {_legacyFeature = newValue}
+    get {return _storage._legacyFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._legacyFeature = newValue}
   }
   /// Returns true if `legacyFeature` has been explicitly set.
-  var hasLegacyFeature: Bool {return self._legacyFeature != nil}
+  var hasLegacyFeature: Bool {return _storage._legacyFeature != nil}
   /// Clears the value of `legacyFeature`. Subsequent reads from it will return its default value.
-  mutating func clearLegacyFeature() {self._legacyFeature = nil}
+  mutating func clearLegacyFeature() {_uniqueStorage()._legacyFeature = nil}
+
+  var valueLifetimeFeature: Pb_ValueLifetimeFeature {
+    get {return _storage._valueLifetimeFeature ?? .testValueLifetimeUnknown}
+    set {_uniqueStorage()._valueLifetimeFeature = newValue}
+  }
+  /// Returns true if `valueLifetimeFeature` has been explicitly set.
+  var hasValueLifetimeFeature: Bool {return _storage._valueLifetimeFeature != nil}
+  /// Clears the value of `valueLifetimeFeature`. Subsequent reads from it will return its default value.
+  mutating func clearValueLifetimeFeature() {_uniqueStorage()._valueLifetimeFeature = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _fileFeature: Pb_EnumFeature? = nil
-  fileprivate var _extensionRangeFeature: Pb_EnumFeature? = nil
-  fileprivate var _messageFeature: Pb_EnumFeature? = nil
-  fileprivate var _fieldFeature: Pb_EnumFeature? = nil
-  fileprivate var _oneofFeature: Pb_EnumFeature? = nil
-  fileprivate var _enumFeature: Pb_EnumFeature? = nil
-  fileprivate var _enumEntryFeature: Pb_EnumFeature? = nil
-  fileprivate var _serviceFeature: Pb_EnumFeature? = nil
-  fileprivate var _methodFeature: Pb_EnumFeature? = nil
-  fileprivate var _multipleFeature: Pb_EnumFeature? = nil
-  fileprivate var _boolFieldFeature: Bool? = nil
-  fileprivate var _sourceFeature: Pb_EnumFeature? = nil
-  fileprivate var _sourceFeature2: Pb_EnumFeature? = nil
-  fileprivate var _removedFeature: Pb_EnumFeature? = nil
-  fileprivate var _futureFeature: Pb_EnumFeature? = nil
-  fileprivate var _legacyFeature: Pb_EnumFeature? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_features.proto.
@@ -411,8 +475,18 @@ extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
     13: .same(proto: "VALUE13"),
     14: .same(proto: "VALUE14"),
     15: .same(proto: "VALUE15"),
-    98: .same(proto: "VALUE_EMPTY_SUPPORT"),
-    99: .same(proto: "VALUE_FUTURE"),
+  ]
+}
+
+extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TEST_VALUE_LIFETIME_UNKNOWN"),
+    1: .same(proto: "VALUE_LIFETIME_INHERITED"),
+    2: .same(proto: "VALUE_LIFETIME_SUPPORT"),
+    3: .same(proto: "VALUE_LIFETIME_EMPTY_SUPPORT"),
+    4: .same(proto: "VALUE_LIFETIME_FUTURE"),
+    5: .same(proto: "VALUE_LIFETIME_DEPRECATED"),
+    6: .same(proto: "VALUE_LIFETIME_REMOVED"),
   ]
 }
 
@@ -473,108 +547,186 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     17: .standard(proto: "removed_feature"),
     18: .standard(proto: "future_feature"),
     19: .standard(proto: "legacy_feature"),
+    20: .standard(proto: "value_lifetime_feature"),
   ]
 
+  fileprivate class _StorageClass {
+    var _fileFeature: Pb_EnumFeature? = nil
+    var _extensionRangeFeature: Pb_EnumFeature? = nil
+    var _messageFeature: Pb_EnumFeature? = nil
+    var _fieldFeature: Pb_EnumFeature? = nil
+    var _oneofFeature: Pb_EnumFeature? = nil
+    var _enumFeature: Pb_EnumFeature? = nil
+    var _enumEntryFeature: Pb_EnumFeature? = nil
+    var _serviceFeature: Pb_EnumFeature? = nil
+    var _methodFeature: Pb_EnumFeature? = nil
+    var _multipleFeature: Pb_EnumFeature? = nil
+    var _boolFieldFeature: Bool? = nil
+    var _sourceFeature: Pb_EnumFeature? = nil
+    var _sourceFeature2: Pb_EnumFeature? = nil
+    var _removedFeature: Pb_EnumFeature? = nil
+    var _futureFeature: Pb_EnumFeature? = nil
+    var _legacyFeature: Pb_EnumFeature? = nil
+    var _valueLifetimeFeature: Pb_ValueLifetimeFeature? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _fileFeature = source._fileFeature
+      _extensionRangeFeature = source._extensionRangeFeature
+      _messageFeature = source._messageFeature
+      _fieldFeature = source._fieldFeature
+      _oneofFeature = source._oneofFeature
+      _enumFeature = source._enumFeature
+      _enumEntryFeature = source._enumEntryFeature
+      _serviceFeature = source._serviceFeature
+      _methodFeature = source._methodFeature
+      _multipleFeature = source._multipleFeature
+      _boolFieldFeature = source._boolFieldFeature
+      _sourceFeature = source._sourceFeature
+      _sourceFeature2 = source._sourceFeature2
+      _removedFeature = source._removedFeature
+      _futureFeature = source._futureFeature
+      _legacyFeature = source._legacyFeature
+      _valueLifetimeFeature = source._valueLifetimeFeature
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self._fileFeature) }()
-      case 2: try { try decoder.decodeSingularEnumField(value: &self._extensionRangeFeature) }()
-      case 3: try { try decoder.decodeSingularEnumField(value: &self._messageFeature) }()
-      case 4: try { try decoder.decodeSingularEnumField(value: &self._fieldFeature) }()
-      case 5: try { try decoder.decodeSingularEnumField(value: &self._oneofFeature) }()
-      case 6: try { try decoder.decodeSingularEnumField(value: &self._enumFeature) }()
-      case 7: try { try decoder.decodeSingularEnumField(value: &self._enumEntryFeature) }()
-      case 8: try { try decoder.decodeSingularEnumField(value: &self._serviceFeature) }()
-      case 9: try { try decoder.decodeSingularEnumField(value: &self._methodFeature) }()
-      case 10: try { try decoder.decodeSingularEnumField(value: &self._multipleFeature) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self._boolFieldFeature) }()
-      case 15: try { try decoder.decodeSingularEnumField(value: &self._sourceFeature) }()
-      case 16: try { try decoder.decodeSingularEnumField(value: &self._sourceFeature2) }()
-      case 17: try { try decoder.decodeSingularEnumField(value: &self._removedFeature) }()
-      case 18: try { try decoder.decodeSingularEnumField(value: &self._futureFeature) }()
-      case 19: try { try decoder.decodeSingularEnumField(value: &self._legacyFeature) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._fileFeature) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._extensionRangeFeature) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._messageFeature) }()
+        case 4: try { try decoder.decodeSingularEnumField(value: &_storage._fieldFeature) }()
+        case 5: try { try decoder.decodeSingularEnumField(value: &_storage._oneofFeature) }()
+        case 6: try { try decoder.decodeSingularEnumField(value: &_storage._enumFeature) }()
+        case 7: try { try decoder.decodeSingularEnumField(value: &_storage._enumEntryFeature) }()
+        case 8: try { try decoder.decodeSingularEnumField(value: &_storage._serviceFeature) }()
+        case 9: try { try decoder.decodeSingularEnumField(value: &_storage._methodFeature) }()
+        case 10: try { try decoder.decodeSingularEnumField(value: &_storage._multipleFeature) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._boolFieldFeature) }()
+        case 15: try { try decoder.decodeSingularEnumField(value: &_storage._sourceFeature) }()
+        case 16: try { try decoder.decodeSingularEnumField(value: &_storage._sourceFeature2) }()
+        case 17: try { try decoder.decodeSingularEnumField(value: &_storage._removedFeature) }()
+        case 18: try { try decoder.decodeSingularEnumField(value: &_storage._futureFeature) }()
+        case 19: try { try decoder.decodeSingularEnumField(value: &_storage._legacyFeature) }()
+        case 20: try { try decoder.decodeSingularEnumField(value: &_storage._valueLifetimeFeature) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._fileFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._extensionRangeFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._messageFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._fieldFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-    } }()
-    try { if let v = self._oneofFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    } }()
-    try { if let v = self._enumFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    } }()
-    try { if let v = self._enumEntryFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
-    } }()
-    try { if let v = self._serviceFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 8)
-    } }()
-    try { if let v = self._methodFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
-    } }()
-    try { if let v = self._multipleFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 10)
-    } }()
-    try { if let v = self._boolFieldFeature {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
-    } }()
-    try { if let v = self._sourceFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 15)
-    } }()
-    try { if let v = self._sourceFeature2 {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 16)
-    } }()
-    try { if let v = self._removedFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-    } }()
-    try { if let v = self._futureFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 18)
-    } }()
-    try { if let v = self._legacyFeature {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 19)
-    } }()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._fileFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._extensionRangeFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._messageFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._fieldFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._oneofFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      } }()
+      try { if let v = _storage._enumFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._enumEntryFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
+      } }()
+      try { if let v = _storage._serviceFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 8)
+      } }()
+      try { if let v = _storage._methodFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
+      } }()
+      try { if let v = _storage._multipleFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 10)
+      } }()
+      try { if let v = _storage._boolFieldFeature {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
+      } }()
+      try { if let v = _storage._sourceFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 15)
+      } }()
+      try { if let v = _storage._sourceFeature2 {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 16)
+      } }()
+      try { if let v = _storage._removedFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+      } }()
+      try { if let v = _storage._futureFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 18)
+      } }()
+      try { if let v = _storage._legacyFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 19)
+      } }()
+      try { if let v = _storage._valueLifetimeFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 20)
+      } }()
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_TestFeatures, rhs: Pb_TestFeatures) -> Bool {
-    if lhs._fileFeature != rhs._fileFeature {return false}
-    if lhs._extensionRangeFeature != rhs._extensionRangeFeature {return false}
-    if lhs._messageFeature != rhs._messageFeature {return false}
-    if lhs._fieldFeature != rhs._fieldFeature {return false}
-    if lhs._oneofFeature != rhs._oneofFeature {return false}
-    if lhs._enumFeature != rhs._enumFeature {return false}
-    if lhs._enumEntryFeature != rhs._enumEntryFeature {return false}
-    if lhs._serviceFeature != rhs._serviceFeature {return false}
-    if lhs._methodFeature != rhs._methodFeature {return false}
-    if lhs._multipleFeature != rhs._multipleFeature {return false}
-    if lhs._boolFieldFeature != rhs._boolFieldFeature {return false}
-    if lhs._sourceFeature != rhs._sourceFeature {return false}
-    if lhs._sourceFeature2 != rhs._sourceFeature2 {return false}
-    if lhs._removedFeature != rhs._removedFeature {return false}
-    if lhs._futureFeature != rhs._futureFeature {return false}
-    if lhs._legacyFeature != rhs._legacyFeature {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._fileFeature != rhs_storage._fileFeature {return false}
+        if _storage._extensionRangeFeature != rhs_storage._extensionRangeFeature {return false}
+        if _storage._messageFeature != rhs_storage._messageFeature {return false}
+        if _storage._fieldFeature != rhs_storage._fieldFeature {return false}
+        if _storage._oneofFeature != rhs_storage._oneofFeature {return false}
+        if _storage._enumFeature != rhs_storage._enumFeature {return false}
+        if _storage._enumEntryFeature != rhs_storage._enumEntryFeature {return false}
+        if _storage._serviceFeature != rhs_storage._serviceFeature {return false}
+        if _storage._methodFeature != rhs_storage._methodFeature {return false}
+        if _storage._multipleFeature != rhs_storage._multipleFeature {return false}
+        if _storage._boolFieldFeature != rhs_storage._boolFieldFeature {return false}
+        if _storage._sourceFeature != rhs_storage._sourceFeature {return false}
+        if _storage._sourceFeature2 != rhs_storage._sourceFeature2 {return false}
+        if _storage._removedFeature != rhs_storage._removedFeature {return false}
+        if _storage._futureFeature != rhs_storage._futureFeature {return false}
+        if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
+        if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
