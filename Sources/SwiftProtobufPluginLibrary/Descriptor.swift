@@ -394,10 +394,10 @@ public final class FileDescriptor {
 
         // descriptor.proto documents the files will be in deps order. That means we
         // any external reference will have been in the previous files in the set.
-        self.enums.forEach { $0.bind(file: self, registry: registry, containingType: nil) }
-        self.messages.forEach { $0.bind(file: self, registry: registry, containingType: nil) }
-        self.extensions.forEach { $0.bind(file: self, registry: registry, containingType: nil) }
-        self.services.forEach { $0.bind(file: self, registry: registry) }
+        for e in enums { e.bind(file: self, registry: registry, containingType: nil) }
+        for m in messages { m.bind(file: self, registry: registry, containingType: nil) }
+        for e in extensions { e.bind(file: self, registry: registry, containingType: nil) }
+        for s in services { s.bind(file: self, registry: registry) }
     }
 
     /// Fetch the source information for a give path. For more details on the paths
@@ -759,12 +759,12 @@ public final class Descriptor {
     fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
         _file = file
         self.containingType = containingType
-        messageExtensionRanges.forEach { $0.bind(containingType: self, registry: registry) }
-        enums.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-        messages.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-        fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-        oneofs.forEach { $0.bind(registry: registry, containingType: self) }
-        extensions.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+        for e in messageExtensionRanges { e.bind(containingType: self, registry: registry) }
+        for e in enums { e.bind(file: file, registry: registry, containingType: self) }
+        for m in messages { m.bind(file: file, registry: registry, containingType: self) }
+        for f in fields { f.bind(file: file, registry: registry, containingType: self) }
+        for o in oneofs { o.bind(registry: registry, containingType: self) }
+        for e in extensions { e.bind(file: file, registry: registry, containingType: self) }
 
         // Synthetic oneofs come after normal oneofs. The C++ Descriptor enforces this, only
         // here as a secondary validation because other code can rely on it.
@@ -878,7 +878,7 @@ public final class EnumDescriptor {
         // Done initializing, register ourselves.
         registry.register(enum: self)
 
-        values.forEach { $0.bind(enumType: self) }
+        for v in values { v.bind(enumType: self) }
     }
 
     fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
@@ -1461,7 +1461,7 @@ public final class ServiceDescriptor {
 
     fileprivate func bind(file: FileDescriptor, registry: Registry) {
         _file = file
-        methods.forEach { $0.bind(service: self, registry: registry) }
+        for m in methods { m.bind(service: self, registry: registry) }
     }
 }
 
