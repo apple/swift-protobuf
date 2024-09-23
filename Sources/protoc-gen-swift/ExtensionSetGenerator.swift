@@ -182,7 +182,7 @@ class ExtensionSetGenerator {
         }.map {
             // Now strip off the original index to just get the list of ExtensionGenerators
             // again.
-            return $0.element
+            $0.element
         }
 
         // Loop through the group list and each time a new containing type is hit,

@@ -27,7 +27,7 @@ final class Test_SwiftLanguage: XCTestCase {
                 "Should be valid: \(identifier)"
             )
         }
-        let quotedCases = cases.map { return "`\($0)`" }
+        let quotedCases = cases.map { "`\($0)`" }
         for identifier in quotedCases {
             XCTAssertFalse(
                 isValidSwiftIdentifier(identifier, allowQuoted: false),
@@ -56,7 +56,7 @@ final class Test_SwiftLanguage: XCTestCase {
                 "Should NOT be valid: \(identifier)"
             )
         }
-        let quotedCases = cases.map { return "`\($0)`" }
+        let quotedCases = cases.map { "`\($0)`" }
         for identifier in cases + quotedCases {
             XCTAssertFalse(
                 isValidSwiftIdentifier(identifier, allowQuoted: false),

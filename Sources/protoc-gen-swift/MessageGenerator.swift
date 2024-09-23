@@ -135,9 +135,7 @@ class MessageGenerator {
         // Messages that have a storage class will always need @unchecked.
         let needsUnchecked =
             storage != nil
-            || descriptor.fields.contains {
-                return $0.type == .bytes
-            }
+            || descriptor.fields.contains { $0.type == .bytes }
         conformances.append(needsUnchecked ? "@unchecked Sendable" : "Sendable")
 
         p.print(

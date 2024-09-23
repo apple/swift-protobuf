@@ -215,9 +215,7 @@ class OneofGenerator {
         // Data isn't marked as Sendable on linux until Swift 5.9, so until
         // then all oneof enums with Data fields need to be manually marked as
         // @unchecked.
-        let hasBytesField = oneofDescriptor.fields.contains {
-            return $0.type == .bytes
-        }
+        let hasBytesField = oneofDescriptor.fields.contains { $0.type == .bytes }
         let sendableConformance = hasBytesField ? "@unchecked Sendable" : "Sendable"
 
         // Repeat the comment from the oneof to provide some context
