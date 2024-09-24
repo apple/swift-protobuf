@@ -85,6 +85,7 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
 // known as "base64url" or the "URL-safe alphabet".
 // Note that both "-" and "+" decode to 62 and "/" and "_" both
 // decode as 63.
+// swift-format-ignore: NoBlockComments
 let base64Values: [Int] = [
     /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
     /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
