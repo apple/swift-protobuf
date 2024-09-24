@@ -131,7 +131,7 @@ public final class SwiftProtobufNamer {
             // the names to help make the different Swift versions clear
             // which they are.
             let firstValue = enumValues.first!.number
-            let hasMultipleValues = enumValues.contains(where: { return $0.number != firstValue })
+            let hasMultipleValues = enumValues.contains(where: { $0.number != firstValue })
 
             guard hasMultipleValues else {
                 // Was the first case, all one value, just aliases that mapped

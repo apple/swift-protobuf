@@ -380,7 +380,7 @@ public final class FileDescriptor {
         // The compiler ensures there aren't cycles between a file and dependencies, so
         // this doesn't run the risk of creating any retain cycles that would force these
         // to have to be weak.
-        let dependencies = proto.dependency.map { return registry.fileDescriptor(named: $0)! }
+        let dependencies = proto.dependency.map { registry.fileDescriptor(named: $0)! }
         self.dependencies = dependencies
         self.publicDependencies = proto.publicDependency.map { dependencies[Int($0)] }
         self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
@@ -394,10 +394,10 @@ public final class FileDescriptor {
 
         // descriptor.proto documents the files will be in deps order. That means we
         // any external reference will have been in the previous files in the set.
-        self.enums.forEach { $0.bind(file: self, registry: registry, containingType: nil) }
-        self.messages.forEach { $0.bind(file: self, registry: registry, containingType: nil) }
-        self.extensions.forEach { $0.bind(file: self, registry: registry, containingType: nil) }
-        self.services.forEach { $0.bind(file: self, registry: registry) }
+        for e in enums { e.bind(file: self, registry: registry, containingType: nil) }
+        for m in messages { m.bind(file: self, registry: registry, containingType: nil) }
+        for e in extensions { e.bind(file: self, registry: registry, containingType: nil) }
+        for s in services { s.bind(file: self, registry: registry) }
     }
 
     /// Fetch the source information for a give path. For more details on the paths
@@ -418,7 +418,7 @@ public final class FileDescriptor {
     private lazy var locationMap: [IndexPath: Google_Protobuf_SourceCodeInfo.Location] = {
         var result: [IndexPath: Google_Protobuf_SourceCodeInfo.Location] = [:]
         for loc in sourceCodeInfo.location {
-            let intList = loc.path.map { return Int($0) }
+            let intList = loc.path.map { Int($0) }
             result[IndexPath(indexes: intList)] = loc
         }
         return result
@@ -569,7 +569,7 @@ public final class Descriptor {
     /// leading subset of `oneofs` (or the same if there are no synthetic entries).
     public private(set) lazy var realOneofs: [OneofDescriptor] = {
         // Lazy because `isSynthetic` can't be called until after `bind()`.
-        return self.oneofs.filter { !$0._isSynthetic }
+        self.oneofs.filter { !$0._isSynthetic }
     }()
     /// The extension field defintions under this message.
     public let extensions: [FieldDescriptor]
@@ -590,7 +590,7 @@ public final class Descriptor {
     /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public private(set) lazy var normalizedExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
-        var ordered = self.extensionRanges.sorted(by: { return $0.start < $1.start })
+        var ordered = self.extensionRanges.sorted(by: { $0.start < $1.start })
         if ordered.count > 1 {
             for i in (0..<(ordered.count - 1)).reversed() {
                 if ordered[i].end == ordered[i + 1].start {
@@ -688,7 +688,7 @@ public final class Descriptor {
         // TODO: This can skip the synthetic oneofs as no features can be set on
         // them to inherrit things.
         let oneofFeatures = proto.oneofDecl.map {
-            return featureResolver.resolve($0.options, resolvedParent: resolvedFeatures)
+            featureResolver.resolve($0.options, resolvedParent: resolvedFeatures)
         }
 
         self.messageExtensionRanges = proto.extensionRange.enumerated().map {
@@ -759,12 +759,12 @@ public final class Descriptor {
     fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
         _file = file
         self.containingType = containingType
-        messageExtensionRanges.forEach { $0.bind(containingType: self, registry: registry) }
-        enums.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-        messages.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-        fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-        oneofs.forEach { $0.bind(registry: registry, containingType: self) }
-        extensions.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+        for e in messageExtensionRanges { e.bind(containingType: self, registry: registry) }
+        for e in enums { e.bind(file: file, registry: registry, containingType: self) }
+        for m in messages { m.bind(file: file, registry: registry, containingType: self) }
+        for f in fields { f.bind(file: file, registry: registry, containingType: self) }
+        for o in oneofs { o.bind(registry: registry, containingType: self) }
+        for e in extensions { e.bind(file: file, registry: registry, containingType: self) }
 
         // Synthetic oneofs come after normal oneofs. The C++ Descriptor enforces this, only
         // here as a secondary validation because other code can rely on it.
@@ -878,7 +878,7 @@ public final class EnumDescriptor {
         // Done initializing, register ourselves.
         registry.register(enum: self)
 
-        values.forEach { $0.bind(enumType: self) }
+        for v in values { v.bind(enumType: self) }
     }
 
     fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
@@ -1461,7 +1461,7 @@ public final class ServiceDescriptor {
 
     fileprivate func bind(file: FileDescriptor, registry: Registry) {
         _file = file
-        methods.forEach { $0.bind(service: self, registry: registry) }
+        for m in methods { m.bind(service: self, registry: registry) }
     }
 }
 

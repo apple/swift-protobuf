@@ -60,7 +60,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
         let fieldNumber = newValue.fieldNumber
         if let l = fields[fieldNumber] {
             let messageType = newValue.messageType
-            var newL = l.filter { return $0.messageType != messageType }
+            var newL = l.filter { $0.messageType != messageType }
             newL.append(newValue)
             fields[fieldNumber] = newL
         } else {

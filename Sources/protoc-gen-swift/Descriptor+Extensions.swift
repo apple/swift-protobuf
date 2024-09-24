@@ -252,9 +252,9 @@ extension Descriptor {
     /// `extensionRanges` no longer can apply as the things have been merged.
     var _normalizedExtensionRanges: [Range<Int32>] {
         var ordered: [Range<Int32>] = self.messageExtensionRanges.sorted(by: {
-            return $0.start < $1.start
+            $0.start < $1.start
         }).map {
-            return $0.start..<$0.end
+            $0.start..<$0.end
         }
         if ordered.count > 1 {
             for i in (0..<(ordered.count - 1)).reversed() {

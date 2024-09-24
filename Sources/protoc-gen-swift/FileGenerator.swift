@@ -162,11 +162,11 @@ class FileGenerator {
         extensionSet.add(extensionFields: fileDescriptor.extensions)
 
         let enums = fileDescriptor.enums.map {
-            return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
+            EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
         }
 
         let messages = fileDescriptor.messages.map {
-            return MessageGenerator(
+            MessageGenerator(
                 descriptor: $0,
                 generatorOptions: generatorOptions,
                 namer: namer,
