@@ -84,7 +84,7 @@ enum Google_Protobuf_Edition: Enum, Swift.CaseIterable {
   case edition2024 // = 1001
 
   /// Placeholder editions for testing feature resolution.  These should not be
-  /// used or relyed on outside of tests.
+  /// used or relied on outside of tests.
   case edition1TestOnly // = 1
   case edition2TestOnly // = 2
   case edition99997TestOnly // = 99997

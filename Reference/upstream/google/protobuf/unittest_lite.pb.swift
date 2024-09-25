@@ -333,6 +333,15 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
   mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
 
+  var optionalBytesCord: Data {
+    get {return _storage._optionalBytesCord ?? Data()}
+    set {_uniqueStorage()._optionalBytesCord = newValue}
+  }
+  /// Returns true if `optionalBytesCord` has been explicitly set.
+  var hasOptionalBytesCord: Bool {return _storage._optionalBytesCord != nil}
+  /// Clears the value of `optionalBytesCord`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBytesCord() {_uniqueStorage()._optionalBytesCord = nil}
+
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessageLite()}
@@ -2107,6 +2116,21 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite)
   }
 
+  var ProtobufUnittest_optionalBytesCordExtensionLite: Data {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite) ?? Data()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite`
+  /// has been explicitly set.
+  var hasProtobufUnittest_optionalBytesCordExtensionLite: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_optionalBytesCordExtensionLite() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite)
+  }
+
   var ProtobufUnittest_optionalPublicImportMessageExtensionLite: ProtobufUnittestImport_PublicImportMessageLite {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension_lite) ?? ProtobufUnittestImport_PublicImportMessageLite()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension_lite, value: newValue)}
@@ -2806,6 +2830,7 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_Extensions_optional_import_enum_extension_lite,
   ProtobufUnittest_Extensions_optional_string_piece_extension_lite,
   ProtobufUnittest_Extensions_optional_cord_extension_lite,
+  ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite,
   ProtobufUnittest_Extensions_optional_public_import_message_extension_lite,
   ProtobufUnittest_Extensions_optional_lazy_message_extension_lite,
   ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite,
@@ -3003,6 +3028,11 @@ let ProtobufUnittest_Extensions_optional_string_piece_extension_lite = SwiftProt
 let ProtobufUnittest_Extensions_optional_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 25,
   fieldName: "protobuf_unittest.optional_cord_extension_lite"
+)
+
+let ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
+  _protobuf_fieldNumber: 86,
+  fieldName: "protobuf_unittest.optional_bytes_cord_extension_lite"
 )
 
 let ProtobufUnittest_Extensions_optional_public_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
@@ -3423,6 +3453,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     23: .standard(proto: "optional_import_enum"),
     24: .standard(proto: "optional_string_piece"),
     25: .standard(proto: "optional_cord"),
+    86: .standard(proto: "optional_bytes_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
     28: .standard(proto: "optional_unverified_lazy_message"),
@@ -3506,6 +3537,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _optionalImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil
     var _optionalStringPiece: String? = nil
     var _optionalCord: String? = nil
+    var _optionalBytesCord: Data? = nil
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite? = nil
     var _optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
     var _optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
@@ -3594,6 +3626,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       _optionalImportEnum = source._optionalImportEnum
       _optionalStringPiece = source._optionalStringPiece
       _optionalCord = source._optionalCord
+      _optionalBytesCord = source._optionalBytesCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
       _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
@@ -3734,6 +3767,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         case 83: try { try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum) }()
         case 84: try { try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece) }()
         case 85: try { try decoder.decodeSingularStringField(value: &_storage._defaultCord) }()
+        case 86: try { try decoder.decodeSingularBytesField(value: &_storage._optionalBytesCord) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -4026,6 +4060,9 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       try { if let v = _storage._defaultCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       } }()
+      try { if let v = _storage._optionalBytesCord {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 86)
+      } }()
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -4088,6 +4125,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         if _storage._optionalImportEnum != rhs_storage._optionalImportEnum {return false}
         if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
+        if _storage._optionalBytesCord != rhs_storage._optionalBytesCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
         if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}

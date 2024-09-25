@@ -128,6 +128,55 @@ enum ProtobufUnittest_TestReservedEnumFields: SwiftProtobuf.Enum, Swift.CaseIter
 
 }
 
+/// Required and open enum accepts invalid enum values.
+enum ProtobufUnittest_ForeignOpenEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case foreignOpenUnknown // = 0
+  case foreignOpenFoo // = 4
+  case foreignOpenBar // = 5
+  case foreignOpenBaz // = 6
+
+  /// (1 << 32) to generate a 64b bitmask would be
+  case foreignOpenBax // = 32
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .foreignOpenUnknown
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .foreignOpenUnknown
+    case 4: self = .foreignOpenFoo
+    case 5: self = .foreignOpenBar
+    case 6: self = .foreignOpenBaz
+    case 32: self = .foreignOpenBax
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .foreignOpenUnknown: return 0
+    case .foreignOpenFoo: return 4
+    case .foreignOpenBar: return 5
+    case .foreignOpenBaz: return 6
+    case .foreignOpenBax: return 32
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufUnittest_ForeignOpenEnum] = [
+    .foreignOpenUnknown,
+    .foreignOpenFoo,
+    .foreignOpenBar,
+    .foreignOpenBaz,
+    .foreignOpenBax,
+  ]
+
+}
+
 /// Test an enum that has multiple values with the same number.
 enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
@@ -748,6 +797,15 @@ struct ProtobufUnittest_TestAllTypes: @unchecked Sendable {
   var hasOptionalCord: Bool {return _storage._optionalCord != nil}
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
   mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
+
+  var optionalBytesCord: Data {
+    get {return _storage._optionalBytesCord ?? Data()}
+    set {_uniqueStorage()._optionalBytesCord = newValue}
+  }
+  /// Returns true if `optionalBytesCord` has been explicitly set.
+  var hasOptionalBytesCord: Bool {return _storage._optionalBytesCord != nil}
+  /// Clears the value of `optionalBytesCord`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBytesCord() {_uniqueStorage()._optionalBytesCord = nil}
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
@@ -1855,6 +1913,38 @@ struct ProtobufUnittest_TestRequiredEnum: Sendable {
   init() {}
 
   fileprivate var _requiredEnum: ProtobufUnittest_ForeignEnum? = nil
+  fileprivate var _a: Int32? = nil
+}
+
+struct ProtobufUnittest_TestRequiredOpenEnum: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var requiredEnum: ProtobufUnittest_ForeignOpenEnum {
+    get {return _requiredEnum ?? .foreignOpenUnknown}
+    set {_requiredEnum = newValue}
+  }
+  /// Returns true if `requiredEnum` has been explicitly set.
+  var hasRequiredEnum: Bool {return self._requiredEnum != nil}
+  /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum() {self._requiredEnum = nil}
+
+  /// A dummy optional field.
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _requiredEnum: ProtobufUnittest_ForeignOpenEnum? = nil
   fileprivate var _a: Int32? = nil
 }
 
@@ -3002,6 +3092,7 @@ struct ProtobufUnittest_TestDupFieldNumber: Sendable {
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
+  /// NO_PROTO1
   var foo: ProtobufUnittest_TestDupFieldNumber.Foo {
     get {return _foo ?? ProtobufUnittest_TestDupFieldNumber.Foo()}
     set {_foo = newValue}
@@ -3011,6 +3102,7 @@ struct ProtobufUnittest_TestDupFieldNumber: Sendable {
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
   mutating func clearFoo() {self._foo = nil}
 
+  /// NO_PROTO1
   var bar: ProtobufUnittest_TestDupFieldNumber.Bar {
     get {return _bar ?? ProtobufUnittest_TestDupFieldNumber.Bar()}
     set {_bar = newValue}
@@ -3022,11 +3114,13 @@ struct ProtobufUnittest_TestDupFieldNumber: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  /// NO_PROTO1
   struct Foo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// NO_PROTO1
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -3043,11 +3137,13 @@ struct ProtobufUnittest_TestDupFieldNumber: Sendable {
     fileprivate var _a: Int32? = nil
   }
 
+  /// NO_PROTO1
   struct Bar: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// NO_PROTO1
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -5338,6 +5434,83 @@ struct ProtobufUnittest_TestMessageSize: Sendable {
   fileprivate var _m4: String? = nil
   fileprivate var _m5: Int32? = nil
   fileprivate var _m6: Int64? = nil
+}
+
+struct ProtobufUnittest_OpenEnumMessage: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optOpen: ProtobufUnittest_OpenEnumMessage.TestEnum {
+    get {return _optOpen ?? .unknown}
+    set {_optOpen = newValue}
+  }
+  /// Returns true if `optOpen` has been explicitly set.
+  var hasOptOpen: Bool {return self._optOpen != nil}
+  /// Clears the value of `optOpen`. Subsequent reads from it will return its default value.
+  mutating func clearOptOpen() {self._optOpen = nil}
+
+  var optClosed: ProtobufUnittest_ForeignEnum {
+    get {return _optClosed ?? .foreignFoo}
+    set {_optClosed = newValue}
+  }
+  /// Returns true if `optClosed` has been explicitly set.
+  var hasOptClosed: Bool {return self._optClosed != nil}
+  /// Clears the value of `optClosed`. Subsequent reads from it will return its default value.
+  mutating func clearOptClosed() {self._optClosed = nil}
+
+  var repeatedOpen: [ProtobufUnittest_OpenEnumMessage.TestEnum] = []
+
+  var repeatedClosed: [ProtobufUnittest_ForeignEnum] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case unknown // = 0
+    case foo // = 1
+    case bar // = 2
+    case baz // = 3
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .unknown
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unknown
+      case 1: self = .foo
+      case 2: self = .bar
+      case 3: self = .baz
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unknown: return 0
+      case .foo: return 1
+      case .bar: return 2
+      case .baz: return 3
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittest_OpenEnumMessage.TestEnum] = [
+      .unknown,
+      .foo,
+      .bar,
+      .baz,
+    ]
+
+  }
+
+  init() {}
+
+  fileprivate var _optOpen: ProtobufUnittest_OpenEnumMessage.TestEnum? = nil
+  fileprivate var _optClosed: ProtobufUnittest_ForeignEnum? = nil
 }
 
 /// Test that RPC services work.
@@ -8775,6 +8948,21 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension)
   }
 
+  var ProtobufUnittest_optionalBytesCordExtension: Data {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension) ?? Data()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_cord_extension`
+  /// has been explicitly set.
+  var hasProtobufUnittest_optionalBytesCordExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bytes_cord_extension`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_optionalBytesCordExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension)
+  }
+
   var ProtobufUnittest_optionalPublicImportMessageExtension: ProtobufUnittestImport_PublicImportMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension) ?? ProtobufUnittestImport_PublicImportMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension, value: newValue)}
@@ -9834,6 +10022,7 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_optional_import_enum_extension,
   ProtobufUnittest_Extensions_optional_string_piece_extension,
   ProtobufUnittest_Extensions_optional_cord_extension,
+  ProtobufUnittest_Extensions_optional_bytes_cord_extension,
   ProtobufUnittest_Extensions_optional_public_import_message_extension,
   ProtobufUnittest_Extensions_optional_lazy_message_extension,
   ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension,
@@ -10079,6 +10268,11 @@ let ProtobufUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.
 let ProtobufUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 25,
   fieldName: "protobuf_unittest.optional_cord_extension"
+)
+
+let ProtobufUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensions>(
+  _protobuf_fieldNumber: 86,
+  fieldName: "protobuf_unittest.optional_bytes_cord_extension"
 )
 
 let ProtobufUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessage>, ProtobufUnittest_TestAllExtensions>(
@@ -10762,6 +10956,16 @@ extension ProtobufUnittest_TestReservedEnumFields: SwiftProtobuf._ProtoNameProvi
   ]
 }
 
+extension ProtobufUnittest_ForeignOpenEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOREIGN_OPEN_UNKNOWN"),
+    4: .same(proto: "FOREIGN_OPEN_FOO"),
+    5: .same(proto: "FOREIGN_OPEN_BAR"),
+    6: .same(proto: "FOREIGN_OPEN_BAZ"),
+    32: .same(proto: "FOREIGN_OPEN_BAX"),
+  ]
+}
+
 extension ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
@@ -10916,6 +11120,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     23: .standard(proto: "optional_import_enum"),
     24: .standard(proto: "optional_string_piece"),
     25: .standard(proto: "optional_cord"),
+    86: .standard(proto: "optional_bytes_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
     28: .standard(proto: "optional_unverified_lazy_message"),
@@ -10999,6 +11204,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     var _optionalImportEnum: ProtobufUnittestImport_ImportEnum? = nil
     var _optionalStringPiece: String? = nil
     var _optionalCord: String? = nil
+    var _optionalBytesCord: Data? = nil
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
@@ -11086,6 +11292,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
       _optionalImportEnum = source._optionalImportEnum
       _optionalStringPiece = source._optionalStringPiece
       _optionalCord = source._optionalCord
+      _optionalBytesCord = source._optionalBytesCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
       _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
@@ -11225,6 +11432,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
         case 83: try { try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum) }()
         case 84: try { try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece) }()
         case 85: try { try decoder.decodeSingularStringField(value: &_storage._defaultCord) }()
+        case 86: try { try decoder.decodeSingularBytesField(value: &_storage._optionalBytesCord) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -11519,6 +11727,9 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
       try { if let v = _storage._defaultCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       } }()
+      try { if let v = _storage._optionalBytesCord {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 86)
+      } }()
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -11583,6 +11794,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
         if _storage._optionalImportEnum != rhs_storage._optionalImportEnum {return false}
         if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
+        if _storage._optionalBytesCord != rhs_storage._optionalBytesCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
         if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}
@@ -12691,6 +12903,53 @@ extension ProtobufUnittest_TestRequiredEnum: SwiftProtobuf.Message, SwiftProtobu
   }
 
   static func ==(lhs: ProtobufUnittest_TestRequiredEnum, rhs: ProtobufUnittest_TestRequiredEnum) -> Bool {
+    if lhs._requiredEnum != rhs._requiredEnum {return false}
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredOpenEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredOpenEnum"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "required_enum"),
+    2: .same(proto: "a"),
+  ]
+
+  public var isInitialized: Bool {
+    if self._requiredEnum == nil {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._requiredEnum {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestRequiredOpenEnum, rhs: ProtobufUnittest_TestRequiredOpenEnum) -> Bool {
     if lhs._requiredEnum != rhs._requiredEnum {return false}
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17785,6 +18044,69 @@ extension ProtobufUnittest_TestMessageSize: SwiftProtobuf.Message, SwiftProtobuf
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_OpenEnumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".OpenEnumMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "opt_open"),
+    2: .standard(proto: "opt_closed"),
+    3: .standard(proto: "repeated_open"),
+    4: .standard(proto: "repeated_closed"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._optOpen) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._optClosed) }()
+      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedOpen) }()
+      case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedClosed) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optOpen {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optClosed {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
+    if !self.repeatedOpen.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.repeatedOpen, fieldNumber: 3)
+    }
+    if !self.repeatedClosed.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.repeatedClosed, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_OpenEnumMessage, rhs: ProtobufUnittest_OpenEnumMessage) -> Bool {
+    if lhs._optOpen != rhs._optOpen {return false}
+    if lhs._optClosed != rhs._optClosed {return false}
+    if lhs.repeatedOpen != rhs.repeatedOpen {return false}
+    if lhs.repeatedClosed != rhs.repeatedClosed {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_OpenEnumMessage.TestEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNKNOWN"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
 
 extension ProtobufUnittest_FooRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
