@@ -104,7 +104,10 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([8, 99]) { $0.SwiftProtoTesting_optionalInt32Extension == 99 }
         assertDecodeFails([9])
         assertDecodeFails([9, 0])
-        assertDecodesAsUnknownFields([9, 0, 0, 0, 0, 0, 0, 0, 0])  // Wrong wire type (fixed64), valid as an unknown field
+        assertDecodesAsUnknownFields([
+            9,  // Wrong wire type (fixed64), valid as an unknown field
+            0, 0, 0, 0, 0, 0, 0, 0,
+        ])
         assertDecodeFails([10])
         assertDecodesAsUnknownFields([10, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([11])

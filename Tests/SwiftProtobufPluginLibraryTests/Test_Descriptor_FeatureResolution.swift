@@ -611,7 +611,10 @@ final class Test_Descriptor_FeatureResolution: XCTestCase {
         XCTAssertEqual(oneofFieldFeatures.SwiftFeatureTest_test.feature2, .value3)  // Message override
         XCTAssertEqual(oneofFieldFeatures.SwiftFeatureTest_test.feature3, .value4)  // Oneof override
         XCTAssertEqual(oneofFieldFeatures.SwiftFeatureTest_test.feature4, .value5)  // "oneof_field" Field override
-        XCTAssertEqual(oneofFieldFeatures.SwiftFeatureTest_test.feature5, .value1)  // default ("not_oneof_field" Field override)
+        XCTAssertEqual(
+            oneofFieldFeatures.SwiftFeatureTest_test.feature5,  // default ("not_oneof_field" Field override)
+            .value1
+        )
         let field = context.file.messages.first!.fields[1]
         XCTAssertEqual(field.name, "not_oneof_field")
         let fieldFeatures = field.features
@@ -619,7 +622,10 @@ final class Test_Descriptor_FeatureResolution: XCTestCase {
         XCTAssertEqual(fieldFeatures.SwiftFeatureTest_test.feature1, .value2)  // File override
         XCTAssertEqual(fieldFeatures.SwiftFeatureTest_test.feature2, .value3)  // Message override
         XCTAssertEqual(fieldFeatures.SwiftFeatureTest_test.feature3, .value1)  // default (Oneof override)
-        XCTAssertEqual(fieldFeatures.SwiftFeatureTest_test.feature4, .value1)  // default ("oneof_field" Field override)
+        XCTAssertEqual(
+            fieldFeatures.SwiftFeatureTest_test.feature4,  // default ("oneof_field" Field override)
+            .value1
+        )
         XCTAssertEqual(fieldFeatures.SwiftFeatureTest_test.feature5, .value6)  // "not_oneof_field" Field override
     }
 
