@@ -1196,10 +1196,16 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodesAsUnknownFields([152, 1, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([153, 1])  // Wire type 1
         assertDecodeFails([153, 1, 0])
-        assertDecodesAsUnknownFields([153, 1, 0, 0, 0, 0, 0, 0, 0, 0])  // Wrong wire type (fixed64), valid as an unknown field
+        assertDecodesAsUnknownFields([
+            153, 1,  // Wrong wire type (fixed64), valid as an unknown field
+            0, 0, 0, 0, 0, 0, 0, 0,
+        ])
         assertDecodeFails([155, 1])  // Wire type 3
         assertDecodeFails([155, 1, 0])
-        assertDecodesAsUnknownFields([155, 1, 156, 1])  // Wrong wire type (start group, end group), valid as an unknown field
+        assertDecodesAsUnknownFields([
+            155, 1,  // Wrong wire type (start group, end group), valid as an unknown field
+            156, 1,
+        ])
         assertDecodeFails([156, 1])  // Wire type 4
         assertDecodeFails([156, 1, 0])
         assertDecodeFails([157, 1])  // Wire type 5
@@ -2600,7 +2606,10 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertMergesAsUnknownFields([136, 7, 1], inTo: initialMsg) {
             $0.oneofUint32 == 123  // Shouldn't have gotten cleared.
         }
-        assertDecodesAsUnknownFields([137, 7, 1, 1, 1, 1, 1, 1, 1, 1]) {  // Wrong wire type (fixed64), valid as an unknown field
+        assertDecodesAsUnknownFields([
+            137, 7,  // Wrong wire type (fixed64), valid as an unknown field
+            1, 1, 1, 1, 1, 1, 1, 1,
+        ]) {
             $0.oneofField == nil  // oneof doesn't get set.
         }
         assertMergesAsUnknownFields([137, 7, 1, 1, 1, 1, 1, 1, 1, 1], inTo: initialMsg) {
@@ -2790,7 +2799,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             ([197, 12, 30, 0, 0, 0], "200: 0x0000001E"),  // fixed32.
 
             ([192, 12, 129, 1], "200: 129"),  //  varint of 129 (two bytes on wire).
-            ([195, 12, 11, 8, 1, 12, 196, 12], "200 {\n  1 {\n    1: 1\n  }\n}"),  // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup, EndGroup.
+            // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup, EndGroup.
+            ([195, 12, 11, 8, 1, 12, 196, 12], "200 {\n  1 {\n    1: 1\n  }\n}"),
         ]
 
         // Fields at the top level of the message.
@@ -2862,7 +2872,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
             [195, 12, 11],  // StartGroup, Field 1: StartGroup.
             [195, 12, 11, 8, 1, 12],  // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup.
-            [195, 12, 11, 8, 1, 196, 12],  // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup (but wrong group).
+            // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup (but wrong group).
+            [195, 12, 11, 8, 1, 196, 12],
         ]
 
         // Fields at the top level of the message.

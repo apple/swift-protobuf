@@ -59,7 +59,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         var options = TextFormatDecodingOptions()
         options.ignoreUnknownFields = true
 
-        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputField, options: options)  // Shouldn't fail
+        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputField, options: options)
         XCTAssertEqual(msg.textFormatString(), "optional_int32: 2\n")
 
         do {
@@ -84,7 +84,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
             // This is what should have happened.
         }
 
-        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)  // Shouldn't fail
+        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)
         XCTAssertEqual(msg.textFormatString(), "optional_int32: 2\n")
     }
 
@@ -95,7 +95,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         options.ignoreUnknownFields = true
         options.ignoreUnknownExtensionFields = true
 
-        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInput, options: options)  // Shouldn't fail
+        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInput, options: options)
         XCTAssertEqual(msg.textFormatString(), "optional_int32: 2\n")
     }
 
