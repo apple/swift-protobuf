@@ -206,6 +206,11 @@ struct Proto3ArenaUnittest_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
+  var optionalBytesCord: Data {
+    get {return _storage._optionalBytesCord}
+    set {_uniqueStorage()._optionalBytesCord = newValue}
+  }
+
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
@@ -831,6 +836,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     22: .standard(proto: "optional_foreign_enum"),
     24: .standard(proto: "optional_string_piece"),
     25: .standard(proto: "optional_cord"),
+    86: .standard(proto: "optional_bytes_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
     28: .standard(proto: "optional_unverified_lazy_message"),
@@ -902,6 +908,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _optionalForeignEnum: Proto3ArenaUnittest_ForeignEnum = .foreignZero
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
+    var _optionalBytesCord: Data = Data()
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalUnverifiedLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
@@ -981,6 +988,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       _optionalForeignEnum = source._optionalForeignEnum
       _optionalStringPiece = source._optionalStringPiece
       _optionalCord = source._optionalCord
+      _optionalBytesCord = source._optionalBytesCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
       _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
@@ -1090,6 +1098,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
         case 54: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece) }()
         case 55: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord) }()
         case 57: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage) }()
+        case 86: try { try decoder.decodeSingularBytesField(value: &_storage._optionalBytesCord) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -1299,6 +1308,9 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       if !_storage._repeatedLazyMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
+      if !_storage._optionalBytesCord.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._optionalBytesCord, fieldNumber: 86)
+      }
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -1397,6 +1409,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._optionalForeignEnum != rhs_storage._optionalForeignEnum {return false}
         if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
+        if _storage._optionalBytesCord != rhs_storage._optionalBytesCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
         if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}

@@ -431,6 +431,24 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct Proto2NofieldpresenceUnittest_TestAllMapTypes: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var mapInt32Bytes: Dictionary<Int32,Data> = [:]
+
+  var mapInt32ForeignEnum: Dictionary<Int32,Proto2NofieldpresenceUnittest_ForeignEnum> = [:]
+
+  var mapInt32ForeignMessage: Dictionary<Int32,Proto2NofieldpresenceUnittest_ForeignMessage> = [:]
+
+  var mapInt32ExplicitForeignMessage: Dictionary<Int32,Proto2NofieldpresenceUnittest_ExplicitForeignMessage> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct Proto2NofieldpresenceUnittest_TestProto2Required: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1035,6 +1053,56 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobu
 
   static func ==(lhs: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage, rhs: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage) -> Bool {
     if lhs.bb != rhs.bb {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2NofieldpresenceUnittest_TestAllMapTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestAllMapTypes"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "map_int32_bytes"),
+    2: .standard(proto: "map_int32_foreign_enum"),
+    3: .standard(proto: "map_int32_foreign_message"),
+    4: .standard(proto: "map_int32_explicit_foreign_message"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: &self.mapInt32Bytes) }()
+      case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,Proto2NofieldpresenceUnittest_ForeignEnum>.self, value: &self.mapInt32ForeignEnum) }()
+      case 3: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto2NofieldpresenceUnittest_ForeignMessage>.self, value: &self.mapInt32ForeignMessage) }()
+      case 4: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto2NofieldpresenceUnittest_ExplicitForeignMessage>.self, value: &self.mapInt32ExplicitForeignMessage) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.mapInt32Bytes.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: self.mapInt32Bytes, fieldNumber: 1)
+    }
+    if !self.mapInt32ForeignEnum.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,Proto2NofieldpresenceUnittest_ForeignEnum>.self, value: self.mapInt32ForeignEnum, fieldNumber: 2)
+    }
+    if !self.mapInt32ForeignMessage.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto2NofieldpresenceUnittest_ForeignMessage>.self, value: self.mapInt32ForeignMessage, fieldNumber: 3)
+    }
+    if !self.mapInt32ExplicitForeignMessage.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto2NofieldpresenceUnittest_ExplicitForeignMessage>.self, value: self.mapInt32ExplicitForeignMessage, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2NofieldpresenceUnittest_TestAllMapTypes, rhs: Proto2NofieldpresenceUnittest_TestAllMapTypes) -> Bool {
+    if lhs.mapInt32Bytes != rhs.mapInt32Bytes {return false}
+    if lhs.mapInt32ForeignEnum != rhs.mapInt32ForeignEnum {return false}
+    if lhs.mapInt32ForeignMessage != rhs.mapInt32ForeignMessage {return false}
+    if lhs.mapInt32ExplicitForeignMessage != rhs.mapInt32ExplicitForeignMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
