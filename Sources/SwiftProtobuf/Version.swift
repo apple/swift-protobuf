@@ -21,7 +21,7 @@ public struct Version {
     /// Minor version.
     public static let minor = 28
     /// Revision number.
-    public static let revision = 1
+    public static let revision = 2
 
     /// String form of the version number.
     public static let versionString = "\(major).\(minor).\(revision)"
