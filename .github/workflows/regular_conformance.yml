@@ -83,10 +83,12 @@ jobs:
     - name: Build protobuf
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       working-directory: protobuf
+      # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
       run: |
         mkdir cmake_build
         cd cmake_build
         cmake \
+          -DCMAKE_CXX_STANDARD=17 \
           -DCMAKE_BUILD_TYPE=Release \
           -Dprotobuf_BUILD_TESTS=OFF \
           -Dprotobuf_INSTALL=OFF \
