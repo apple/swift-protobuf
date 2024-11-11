@@ -73,7 +73,7 @@ internal struct JSONEncoder {
 
     internal var stringResult: String {
         get {
-            String(bytes: data, encoding: String.Encoding.utf8)!
+            String(decoding: data, as: UTF8.self)
         }
     }
 

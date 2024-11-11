@@ -373,7 +373,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
             do {
                 let encoded: [UInt8] = try decoded.jsonUTF8Bytes()
-                let encodedString = String(bytes: encoded, encoding: String.Encoding.utf8)!
+                let encodedString = String(decoding: encoded, as: UTF8.self)
                 do {
                     let redecoded = try MessageTestType(
                         jsonUTF8Bytes: encoded,

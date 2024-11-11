@@ -32,7 +32,7 @@ extension Message {
             return try m.encodedJSONString(options: options)
         }
         let data: [UInt8] = try jsonUTF8Bytes(options: options)
-        return String(bytes: data, encoding: .utf8)!
+        return String(decoding: data, as: UTF8.self)
     }
 
     /// Returns a `SwiftProtobufContiguousBytes` containing the UTF-8 JSON serialization of the message.
