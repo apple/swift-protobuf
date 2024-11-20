@@ -93,11 +93,10 @@ class FileGenerator {
         if !self.generatorOptions.experimentalStripNonfunctionalCodegen {
             // Comments are inherently non-functional, and may change subtly on
             // transformations.
-            if let location = fileDescriptor.sourceCodeInfoLocation(path: editionPath) {
-                commentLocation = location
-            } else if let location = fileDescriptor.sourceCodeInfoLocation(path: syntaxPath) {
-                commentLocation = location
-            }
+        } else if let location = fileDescriptor.sourceCodeInfoLocation(path: editionPath) {
+            commentLocation = location
+        } else if let location = fileDescriptor.sourceCodeInfoLocation(path: syntaxPath) {
+            commentLocation = location
         }
         if let commentLocation = commentLocation {
             let comments = commentLocation.asSourceComment(
