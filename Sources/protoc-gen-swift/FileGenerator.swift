@@ -90,7 +90,7 @@ class FileGenerator {
         let editionPath = IndexPath(index: Google_Protobuf_FileDescriptorProto.FieldNumbers.edition)
         let syntaxPath = IndexPath(index: Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax)
         var commentLocation: Google_Protobuf_SourceCodeInfo.Location? = nil
-        if !self.generatorOptions.experimentalStripNonfunctionalCodegen {
+        if self.generatorOptions.experimentalStripNonfunctionalCodegen {
             // Comments are inherently non-functional, and may change subtly on
             // transformations.
         } else if let location = fileDescriptor.sourceCodeInfoLocation(path: editionPath) {
