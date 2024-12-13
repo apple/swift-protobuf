@@ -112,6 +112,17 @@ jobs:
     - name: Compilation Tests
       working-directory: swift-protobuf
       run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
+    - name: Test SPM plugin in Swift 6 mode
+      # This is a temporary step that basically allows us to test compiling the
+      # generated code in Swift 6 mode to keep an eye on the work needed.
+      if: startsWith(matrix.swift.version, '6.')
+      # This will fail until things are fixed, so don't break for it.
+      continue-on-error: true
+      working-directory: swift-protobuf
+      run: |
+        swift package tools-version --package-path PluginExamples --set 6.0
+        git diff
+        make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
 
   api-breakage:
     name: Api Breakage Compared to main branch
