@@ -121,7 +121,6 @@ jobs:
       working-directory: swift-protobuf
       run: |
         swift package tools-version --package-path PluginExamples --set 6.0
-        git diff
         make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
 
   api-breakage:
