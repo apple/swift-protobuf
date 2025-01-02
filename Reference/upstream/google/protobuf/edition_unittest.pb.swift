@@ -5312,6 +5312,49 @@ struct EditionUnittest_TestMessageSize: Sendable {
   fileprivate var _m6: Int64? = nil
 }
 
+/// Tests eager verification of a lazy message field.
+struct EditionUnittest_TestEagerlyVerifiedLazyMessage: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var lazyMessage: EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage {
+    get {return _lazyMessage ?? EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage()}
+    set {_lazyMessage = newValue}
+  }
+  /// Returns true if `lazyMessage` has been explicitly set.
+  var hasLazyMessage: Bool {return self._lazyMessage != nil}
+  /// Clears the value of `lazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearLazyMessage() {self._lazyMessage = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct LazyMessage: @unchecked Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var bytesField: Data {
+      get {return _bytesField ?? Data()}
+      set {_bytesField = newValue}
+    }
+    /// Returns true if `bytesField` has been explicitly set.
+    var hasBytesField: Bool {return self._bytesField != nil}
+    /// Clears the value of `bytesField`. Subsequent reads from it will return its default value.
+    mutating func clearBytesField() {self._bytesField = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _bytesField: Data? = nil
+  }
+
+  init() {}
+
+  fileprivate var _lazyMessage: EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage? = nil
+}
+
 /// Test that RPC services work.
 struct EditionUnittest_FooRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -17552,6 +17595,78 @@ extension EditionUnittest_TestMessageSize: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs._m4 != rhs._m4 {return false}
     if lhs._m5 != rhs._m5 {return false}
     if lhs._m6 != rhs._m6 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension EditionUnittest_TestEagerlyVerifiedLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestEagerlyVerifiedLazyMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "lazy_message"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._lazyMessage) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._lazyMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: EditionUnittest_TestEagerlyVerifiedLazyMessage, rhs: EditionUnittest_TestEagerlyVerifiedLazyMessage) -> Bool {
+    if lhs._lazyMessage != rhs._lazyMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = EditionUnittest_TestEagerlyVerifiedLazyMessage.protoMessageName + ".LazyMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "bytes_field"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self._bytesField) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._bytesField {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage, rhs: EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage) -> Bool {
+    if lhs._bytesField != rhs._bytesField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
