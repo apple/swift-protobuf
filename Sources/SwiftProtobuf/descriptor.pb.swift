@@ -139,7 +139,7 @@ public enum Google_Protobuf_Edition: Enum, Swift.CaseIterable {
 
 /// The protocol compiler can output a FileDescriptorSet containing the .proto
 /// files it parses.
-public struct Google_Protobuf_FileDescriptorSet: Sendable {
+public struct Google_Protobuf_FileDescriptorSet: ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -149,6 +149,8 @@ public struct Google_Protobuf_FileDescriptorSet: Sendable {
   public var unknownFields = UnknownStorage()
 
   public init() {}
+
+  public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
 }
 
 /// Describes a complete .proto file.
@@ -222,6 +224,9 @@ public struct Google_Protobuf_FileDescriptorProto: Sendable {
   /// The supported values are "proto2", "proto3", and "editions".
   ///
   /// If `edition` is present, this value must be "editions".
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var syntax: String {
     get {return _syntax ?? String()}
     set {_syntax = newValue}
@@ -232,6 +237,9 @@ public struct Google_Protobuf_FileDescriptorProto: Sendable {
   public mutating func clearSyntax() {self._syntax = nil}
 
   /// The edition of the proto file.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var edition: Google_Protobuf_Edition {
     get {return _edition ?? .unknown}
     set {_edition = newValue}
@@ -1354,6 +1362,9 @@ public struct Google_Protobuf_FileOptions: ExtensibleMessage, @unchecked Sendabl
   public mutating func clearRubyPackage() {_uniqueStorage()._rubyPackage = nil}
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _storage._features ?? Google_Protobuf_FeatureSet()}
     set {_uniqueStorage()._features = newValue}
@@ -1523,6 +1534,9 @@ public struct Google_Protobuf_MessageOptions: ExtensibleMessage, Sendable {
   public mutating func clearDeprecatedLegacyJsonFieldConflicts() {self._deprecatedLegacyJsonFieldConflicts = nil}
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _features ?? Google_Protobuf_FeatureSet()}
     set {_features = newValue}
@@ -1702,6 +1716,9 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
   }
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _storage._features ?? Google_Protobuf_FeatureSet()}
     set {_uniqueStorage()._features = newValue}
@@ -1990,6 +2007,9 @@ public struct Google_Protobuf_OneofOptions: ExtensibleMessage, Sendable {
   // methods supported on all messages.
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _features ?? Google_Protobuf_FeatureSet()}
     set {_features = newValue}
@@ -2057,6 +2077,9 @@ public struct Google_Protobuf_EnumOptions: ExtensibleMessage, Sendable {
   public mutating func clearDeprecatedLegacyJsonFieldConflicts() {self._deprecatedLegacyJsonFieldConflicts = nil}
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _features ?? Google_Protobuf_FeatureSet()}
     set {_features = newValue}
@@ -2099,6 +2122,9 @@ public struct Google_Protobuf_EnumValueOptions: ExtensibleMessage, Sendable {
   public mutating func clearDeprecated() {self._deprecated = nil}
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _features ?? Google_Protobuf_FeatureSet()}
     set {_features = newValue}
@@ -2150,6 +2176,9 @@ public struct Google_Protobuf_ServiceOptions: ExtensibleMessage, Sendable {
   // methods supported on all messages.
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _features ?? Google_Protobuf_FeatureSet()}
     set {_features = newValue}
@@ -2212,6 +2241,9 @@ public struct Google_Protobuf_MethodOptions: ExtensibleMessage, Sendable {
   public mutating func clearIdempotencyLevel() {self._idempotencyLevel = nil}
 
   /// Any features defined in the specific edition.
+  /// WARNING: This field should only be used by protobuf plugins or special
+  /// cases like the proto compiler. Other uses are discouraged and
+  /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
     get {return _features ?? Google_Protobuf_FeatureSet()}
     set {_features = newValue}
@@ -2732,7 +2764,7 @@ public struct Google_Protobuf_FeatureSetDefaults: Sendable {
 
 /// Encapsulates information about the original source file from which a
 /// FileDescriptorProto was generated.
-public struct Google_Protobuf_SourceCodeInfo: Sendable {
+public struct Google_Protobuf_SourceCodeInfo: ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2897,6 +2929,8 @@ public struct Google_Protobuf_SourceCodeInfo: Sendable {
   }
 
   public init() {}
+
+  public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
 }
 
 /// Describes the relationship between generated code and its original source
@@ -3042,6 +3076,7 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
   ]
 
   public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !Internal.areAllInitialized(self.file) {return false}
     return true
   }
@@ -3053,6 +3088,8 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.file) }()
+      case 536000000:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileDescriptorSet.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -3062,12 +3099,14 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
     if !self.file.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 1)
     }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 536000000, end: 536000001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_FileDescriptorSet, rhs: Google_Protobuf_FileDescriptorSet) -> Bool {
     if lhs.file != rhs.file {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3096,6 +3135,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     if !Internal.areAllInitialized(self.service) {return false}
     if !Internal.areAllInitialized(self.`extension`) {return false}
     if let v = self._options, !v.isInitialized {return false}
+    if let v = self._sourceCodeInfo, !v.isInitialized {return false}
     return true
   }
 
@@ -5399,6 +5439,11 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
     1: .same(proto: "location"),
   ]
 
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
@@ -5406,6 +5451,8 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.location) }()
+      case 536000000:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_SourceCodeInfo.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -5415,12 +5462,14 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
     if !self.location.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.location, fieldNumber: 1)
     }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 536000000, end: 536000001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_SourceCodeInfo, rhs: Google_Protobuf_SourceCodeInfo) -> Bool {
     if lhs.location != rhs.location {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
