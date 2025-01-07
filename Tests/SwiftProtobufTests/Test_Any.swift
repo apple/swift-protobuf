@@ -873,6 +873,36 @@ final class Test_Any: XCTestCase {
         XCTAssertEqual(rejson, start)
     }
 
+    func test_Any_invalid() throws {
+        // These come from the upstream conformace tests.
+
+        // AnyWktRepresentationWithEmptyTypeAndValue
+        let emptyType = "{\"optional_any\":{\"@type\":\"\",\"value\":\"\"}}"
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: emptyType)
+        ) { error in
+            XCTAssertTrue(
+                self.isSwiftProtobufErrorEqual(
+                    error as! SwiftProtobufError,
+                    .JSONDecoding.invalidAnyTypeURL(type_url: "")
+                )
+            )
+        }
+
+        // AnyWktRepresentationWithBadType
+        let notAType = "{\"optional_any\":{\"@type\":\"not_a_url\",\"value\":\"\"}}"
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: notAType)
+        ) { error in
+            XCTAssertTrue(
+                self.isSwiftProtobufErrorEqual(
+                    error as! SwiftProtobufError,
+                    .JSONDecoding.invalidAnyTypeURL(type_url: "not_a_url")
+                )
+            )
+        }
+    }
+
     func test_Any_nestedList() throws {
         var start = "{\"optionalAny\":{\"x\":"
         for _ in 0...10000 {

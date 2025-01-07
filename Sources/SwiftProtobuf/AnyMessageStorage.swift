@@ -488,6 +488,13 @@ extension AnyMessageStorage {
             try decoder.scanner.skipRequiredColon()
             if key == "@type" {
                 _typeURL = try decoder.scanner.nextQuotedString()
+                // Spec for Any says this should contain atleast one slash. Looking at
+                // upstream languages, most actually look up the value in their runtime
+                // registries, but since we do deferred parsing, just do this minimal
+                // validation check.
+                guard _typeURL.contains("/") else {
+                    throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: _typeURL)
+                }
             } else {
                 jsonEncoder.startField(name: key)
                 let keyValueJSON = try decoder.scanner.skip()
