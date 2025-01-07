@@ -1,1 +1,4 @@
-# No known failures.
+Required.Editions_Proto3.JsonInput.AnyWktRepresentationWithBadType # Should have failed to parse, but didn't.
+Required.Editions_Proto3.JsonInput.AnyWktRepresentationWithEmptyTypeAndValue # Should have failed to parse, but didn't.
+Required.Proto3.JsonInput.AnyWktRepresentationWithBadType # Should have failed to parse, but didn't.
+Required.Proto3.JsonInput.AnyWktRepresentationWithEmptyTypeAndValue # Should have failed to parse, but didn't.
