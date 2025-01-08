@@ -54,7 +54,7 @@ extension Message {
     /// - Returns: A Data containing the JSON serialization of the message.
     /// - Parameters:
     ///   - options: The JSONEncodingOptions to use.
-    /// - Throws: ``JSONEncodingError`` if encoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
     public func jsonUTF8Data(
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> Data {

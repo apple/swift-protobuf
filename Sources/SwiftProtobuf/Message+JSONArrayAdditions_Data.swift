@@ -65,7 +65,7 @@ extension Message {
     /// - Parameters:
     ///   - collection: The list of messages to encode.
     ///   - options: The JSONEncodingOptions to use.
-    /// - Throws: ``JSONEncodingError`` if encoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
     public static func jsonUTF8Data<C: Collection>(
         from collection: C,
         options: JSONEncodingOptions = JSONEncodingOptions()

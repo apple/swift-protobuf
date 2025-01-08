@@ -24,7 +24,7 @@ extension Message {
     /// - Returns: A string containing the JSON serialization of the message.
     /// - Parameters:
     ///   - options: The JSONEncodingOptions to use.
-    /// - Throws: ``JSONEncodingError`` if encoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
     public func jsonString(
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> String {
@@ -43,7 +43,7 @@ extension Message {
     /// - Returns: A `SwiftProtobufContiguousBytes` containing the JSON serialization of the message.
     /// - Parameters:
     ///   - options: The JSONEncodingOptions to use.
-    /// - Throws: ``JSONEncodingError`` if encoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
     public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> Bytes {

@@ -92,6 +92,7 @@ extension SwiftProtobufError {
             case binaryDecodingError
             case binaryStreamDecodingError
             case jsonDecodingError
+            case jsonEncodingError
 
             var description: String {
                 switch self {
@@ -101,6 +102,8 @@ extension SwiftProtobufError {
                     return "Stream decoding error"
                 case .jsonDecodingError:
                     return "JSON decoding error"
+                case .jsonEncodingError:
+                    return "JSON encoding error"
                 }
             }
         }
@@ -131,6 +134,10 @@ extension SwiftProtobufError {
             Self(.jsonDecodingError)
         }
 
+        /// Errors arising from JSON encoding of messages.
+        public static var jsonEncodingError: Self {
+            Self(.jsonEncodingError)
+        }
     }
 
     /// A location within source code.
@@ -264,6 +271,48 @@ extension SwiftProtobufError {
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
+
+        /// While decoding a `google.protobuf.Any` no `@type` field but the message had other fields.
+        public static func emptyAnyTypeURL(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonDecodingError,
+                message: "google.protobuf.Any '@type' was must be present if if the object is not empty.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
     }
 
+    /// Errors arising from JSON encoding of messages.
+    public enum JSONEncoding {
+        /// While encoding a `google.protobuf.Any` encountered a malformed `type_url` field.
+        public static func invalidAnyTypeURL(
+            type_url: String,
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonEncodingError,
+                message: "google.protobuf.Any 'type_url' was invalid: \(type_url).",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+
+        /// While encoding a `google.protobuf.Any` encountered an empty `type_url` field.
+        public static func emptyAnyTypeURL(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonEncodingError,
+                message: "google.protobuf.Any 'type_url' was empty, only allowed for empty objects.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+    }
 }

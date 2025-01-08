@@ -873,38 +873,287 @@ final class Test_Any: XCTestCase {
         XCTAssertEqual(rejson, start)
     }
 
-    func test_Any_invalid() throws {
-        // These come from the upstream conformace tests.
+    func test_Any_typeURLValidations() throws {
+        // Upstream most langauges end up validating the type_url during encoding as well
+        // as during decoding. Basically to do things, they end up looking up the type
+        // in their global registries to use reflection to do things. SwiftProtobuf doesn't
+        // have a registry we can reply on being complete. So instead during encoding we
+        // do the most basic of checks. These tests help ensure those checks are working as
+        // expected.
+        //
+        // The inspiration for the tests and the errors comes from editing upstream's
+        // json_test.cc and observing a few things:
+        //
+        // TEST_P(JsonTest, HackingTypeURLs) {
+        //   google::protobuf::Any any;
+        //   any.set_type_url("not_valid");
+        //   // INVALID_ARGUMENT: @type must contain at least one / and a nonempty host; got: not_valid
+        //   EXPECT_THAT(ToJson(any), StatusIs(absl::StatusCode::kInvalidArgument));
+        //
+        //   // This works because the message counts as empty
+        //   any.set_type_url("type.googleapis.com/proto3.TestMessage");
+        //   EXPECT_THAT(ToJson(any),
+        //               IsOkAndHolds(R"({"@type":"type.googleapis.com/proto3.TestMessage"})"));
+        //   INVALID_ARGUMENT: @type must contain at least one / and a nonempty host; got:
+        //
+        //   EXPECT_THAT(ToProto<google::protobuf::Any>(R"json(
+        //     {
+        //       "@type": ""
+        //     }
+        //   )json"),
+        //               StatusIs(absl::StatusCode::kInvalidArgument));
+        // }
+        //
+        // TEST_P(JsonTest, HackingValues) {
+        //   google::protobuf::Any any;
+        //   any.set_value("abc");
+        //   std::string blob = any.SerializeAsString();
+        //   EXPECT_FALSE(blob.empty());  // It didn't fail to serialize
+        //   // INVALID_ARGUMENT: broken Any: missing type URL
+        //   EXPECT_THAT(ToJson(any), StatusIs(absl::StatusCode::kInvalidArgument));
+        //
+        //   // INVALID_ARGUMENT: invalid JSON  in  google.protobuf.Any,  near 2:5 (offset 5):   in legacy   mode,   missing @type in Any  is  only  allowed for an   empty object
+        //   EXPECT_THAT(ToProto<google::protobuf::Any>(R"json(
+        //     {
+        //       "value": "abc"
+        //     }
+        //   )json"),
+        //               StatusIs(absl::StatusCode::kInvalidArgument));
+        // }
 
-        // AnyWktRepresentationWithEmptyTypeAndValue
-        let emptyType = "{\"optional_any\":{\"@type\":\"\",\"value\":\"\"}}"
-        XCTAssertThrowsError(
-            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: emptyType)
-        ) { error in
-            XCTAssertTrue(
-                self.isSwiftProtobufErrorEqual(
-                    error as! SwiftProtobufError,
-                    .JSONDecoding.invalidAnyTypeURL(type_url: "")
-                )
+        // ---- With a binary protobuf data in the backing store:
+
+        do {
+            // No payload, no type_url
+            var any = Google_Protobuf_Any()
+            any.value = Data()
+            XCTAssertEqual(try any.jsonString(), "{}")
+            // No payload, valid type_url
+            any.typeURL = "type.googleapis.com/SomeMessage"
+            XCTAssertEqual(
+                try any.jsonString(),
+                "{\"@type\":\"type.googleapis.com/SomeMessage\"}"
             )
+            // No payload, invalid type url.
+            any.typeURL = "not_valid"
+            XCTAssertThrowsError(
+                try any.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+
+            // Has payload, no type_url
+            any = Google_Protobuf_Any()
+            any.value = Data([8, 1])  // SwiftProtoTesting_TestAllTypes.optionalInt32 = 1
+            XCTAssertThrowsError(
+                try any.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.emptyAnyTypeURL()
+                    )
+                )
+            }
+            // Has payload, valid type_url (gets lazy decoded)
+            Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+            any.typeURL = "type.googleapis.com/swift_proto_testing.TestAllTypes"
+            XCTAssertEqual(
+                try any.jsonString(),
+                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":1}"
+            )
+            // Has payload, invalid type url.
+            any.typeURL = "not_valid"
+            XCTAssertThrowsError(
+                try any.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
         }
 
-        // AnyWktRepresentationWithBadType
-        let notAType = "{\"optional_any\":{\"@type\":\"not_a_url\",\"value\":\"\"}}"
-        XCTAssertThrowsError(
-            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: notAType)
-        ) { error in
-            XCTAssertTrue(
-                self.isSwiftProtobufErrorEqual(
-                    error as! SwiftProtobufError,
-                    .JSONDecoding.invalidAnyTypeURL(type_url: "not_a_url")
-                )
+        // ---- With a message in the backing store:
+
+        do {
+            var content = SwiftProtoTesting_TestAllTypes()
+            var anyEmpty = try Google_Protobuf_Any(message: content)
+            content.optionalInt32 = 17
+            var anyNonEmpty = try Google_Protobuf_Any(message: content)
+
+            // Valid
+            XCTAssertEqual(
+                try anyEmpty.jsonString(),
+                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\"}"
             )
+            XCTAssertEqual(
+                try anyNonEmpty.jsonString(),
+                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":17}"
+            )
+            // Blank type url, will get defaulted again.
+            anyEmpty.typeURL = ""
+            anyNonEmpty.typeURL = ""
+            XCTAssertEqual(
+                try anyEmpty.jsonString(),
+                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\"}"
+            )
+            XCTAssertEqual(
+                try anyNonEmpty.jsonString(),
+                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":17}"
+            )
+            // Invalid type url, will error
+            anyEmpty.typeURL = "not_valid"
+            anyNonEmpty.typeURL = "not_valid"
+            XCTAssertThrowsError(
+                try anyEmpty.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+            XCTAssertThrowsError(
+                try anyNonEmpty.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+        }
+
+        // ---- With json data in the backing store:
+
+        do {
+            // Empty, round trips.
+            var json = "{}"
+            var any = try Google_Protobuf_Any(jsonString: json)
+            XCTAssertEqual(json, try any.jsonString())
+            // Empty with valid type_url, round trips
+            json = "{\"@type\":\"type.googleapis.com/SomeMessage\"}"
+            any = try Google_Protobuf_Any(jsonString: json)
+            XCTAssertEqual(json, try any.jsonString())
+            // Empty with invalid type_url
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(jsonString: "{\"@type\":\"not_valid\"}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+            // Empty, override with valid type_url, round trips
+            json = "{\"@type\":\"type.googleapis.com/SomeMessage\"}"
+            any = try Google_Protobuf_Any(jsonString: json)
+            any.typeURL = "type.googleapis.com/AnotherMessage"
+            XCTAssertEqual("{\"@type\":\"type.googleapis.com/AnotherMessage\"}", try any.jsonString())
+            // Empty, override with invalid type_url
+            any = try Google_Protobuf_Any(jsonString: json)
+            any.typeURL = "not_valid"
+            XCTAssertThrowsError(
+                try any.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+            // Field but no type_url won't even decode.
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(jsonString: "{\"value\":1}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.emptyAnyTypeURL()
+                    )
+                )
+            }
+            // Non empty and a type_url round trips.
+            json = "{\"@type\":\"type.googleapis.com/SomeMessage\",\"value\":1}"
+            any = try Google_Protobuf_Any(jsonString: json)
+            XCTAssertEqual(json, try any.jsonString())
+            // Non empty and override of the type_url still works
+            any = try Google_Protobuf_Any(jsonString: json)
+            any.typeURL = "type.googleapis.com/AnotherMessage"
+            XCTAssertEqual("{\"@type\":\"type.googleapis.com/AnotherMessage\",\"value\":1}", try any.jsonString())
+            // Non empty, override with invalid type_url
+            any = try Google_Protobuf_Any(jsonString: json)
+            any.typeURL = "not_valid"
+            XCTAssertThrowsError(
+                try any.jsonString()
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+        }
+
+        // ---- These come from the upstream conformace tests:
+
+        do {
+            // AnyWktRepresentationWithEmptyTypeAndValue
+            let emptyTypeAndValue = "{\"optional_any\":{\"@type\":\"\",\"value\":\"\"}}"
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: emptyTypeAndValue)
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.invalidAnyTypeURL(type_url: "")
+                    )
+                )
+            }
+
+            // AnyWktRepresentationWithBadType
+            let notAType = "{\"optional_any\":{\"@type\":\"not_a_url\",\"value\":\"\"}}"
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: notAType)
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.invalidAnyTypeURL(type_url: "not_a_url")
+                    )
+                )
+            }
+
+            // ---- Variant of AnyWktRepresentationWithEmptyTypeAndValue above with no value.
+            let emptyType = "{\"optional_any\":{\"@type\":\"\"}}"
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: emptyType)
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.invalidAnyTypeURL(type_url: "")
+                    )
+                )
+            }
         }
     }
 
     func test_Any_nestedList() throws {
-        var start = "{\"optionalAny\":{\"x\":"
+        var start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/Someting\",\"x\":"
         for _ in 0...10000 {
             start.append("[")
         }
