@@ -64,7 +64,7 @@ extension Message {
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONString jsonString: String,
         options: JSONDecodingOptions = JSONDecodingOptions()
@@ -82,7 +82,7 @@ extension Message {
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter extensions: The extension map to use with this decode
     /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONString jsonString: String,
         extensions: any ExtensionMap = SimpleExtensionMap(),
@@ -105,7 +105,7 @@ extension Message {
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
     /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array<Bytes: SwiftProtobufContiguousBytes>(
         fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
         options: JSONDecodingOptions = JSONDecodingOptions()
@@ -125,7 +125,7 @@ extension Message {
     ///   as UTF-8 encoded text.
     /// - Parameter extensions: The extension map to use with this decode
     /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array<Bytes: SwiftProtobufContiguousBytes>(
         fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
         extensions: any ExtensionMap = SimpleExtensionMap(),

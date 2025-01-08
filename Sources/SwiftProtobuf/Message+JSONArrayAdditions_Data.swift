@@ -23,7 +23,7 @@ extension Message {
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
     /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONUTF8Data jsonUTF8Data: Data,
         options: JSONDecodingOptions = JSONDecodingOptions()
@@ -43,7 +43,7 @@ extension Message {
     ///   as UTF-8 encoded text.
     /// - Parameter extensions: The extension map to use with this decode
     /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
+    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONUTF8Data jsonUTF8Data: Data,
         extensions: any ExtensionMap = SimpleExtensionMap(),

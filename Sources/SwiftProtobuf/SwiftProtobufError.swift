@@ -91,6 +91,7 @@ extension SwiftProtobufError {
         private enum Wrapped: Hashable, Sendable, CustomStringConvertible {
             case binaryDecodingError
             case binaryStreamDecodingError
+            case jsonDecodingError
 
             var description: String {
                 switch self {
@@ -98,6 +99,8 @@ extension SwiftProtobufError {
                     return "Binary decoding error"
                 case .binaryStreamDecodingError:
                     return "Stream decoding error"
+                case .jsonDecodingError:
+                    return "JSON decoding error"
                 }
             }
         }
@@ -122,6 +125,12 @@ extension SwiftProtobufError {
         public static var binaryStreamDecodingError: Self {
             Self(.binaryStreamDecodingError)
         }
+
+        /// Errors arising from JSON decoding of data into protobufs.
+        public static var jsonDecodingError: Self {
+            Self(.jsonDecodingError)
+        }
+
     }
 
     /// A location within source code.
@@ -238,4 +247,23 @@ extension SwiftProtobufError {
             )
         }
     }
+
+    /// Errors arising from JSON decoding of data into protobufs.
+    public enum JSONDecoding {
+        /// While decoding a `google.protobuf.Any` encountered a malformed `@type` key for
+        /// the `type_url` field.
+        public static func invalidAnyTypeURL(
+            type_url: String,
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonDecodingError,
+                message: "google.protobuf.Any '@type' was invalid: \(type_url).",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+    }
+
 }
