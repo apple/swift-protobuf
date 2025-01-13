@@ -1153,7 +1153,7 @@ final class Test_Any: XCTestCase {
     }
 
     func test_Any_nestedList() throws {
-        var start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/Someting\",\"x\":"
+        var start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/Something\",\"x\":"
         for _ in 0...10000 {
             start.append("[")
         }
