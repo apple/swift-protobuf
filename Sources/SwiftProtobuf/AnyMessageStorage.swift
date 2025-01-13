@@ -411,6 +411,13 @@ extension AnyMessageStorage {
 
 // _CustomJSONCodable support for Google_Protobuf_Any
 extension AnyMessageStorage {
+    // Spec for Any says this should contain atleast one slash. Looking at upstream languages, most
+    // actually look up the value in their runtime registries, but since we do deferred parsing
+    // we can't assume the registry is complete, thus just do this minimal validation check.
+    fileprivate func isTypeURLValid() -> Bool {
+        _typeURL.contains("/")
+    }
+
     // Override the traversal-based JSON encoding
     // This builds an Any JSON representation from one of:
     //  * The message we were initialized with,
@@ -423,11 +430,18 @@ extension AnyMessageStorage {
         case .binary(let valueData):
             // Follow the C++ protostream_objectsource.cc's
             // ProtoStreamObjectSource::RenderAny() special casing of an empty value.
-            guard !valueData.isEmpty else {
+            if valueData.isEmpty && _typeURL.isEmpty {
+                return "{}"
+            }
+            guard isTypeURLValid() else {
                 if _typeURL.isEmpty {
-                    return "{}"
+                    throw SwiftProtobufError.JSONEncoding.emptyAnyTypeURL()
                 }
+                throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: _typeURL)
+            }
+            if valueData.isEmpty {
                 var jsonEncoder = JSONEncoder()
+                jsonEncoder.startObject()
                 jsonEncoder.startField(name: "@type")
                 jsonEncoder.putStringValue(value: _typeURL)
                 jsonEncoder.endObject()
@@ -446,12 +460,21 @@ extension AnyMessageStorage {
             return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)
 
         case .message(let msg):
-            // We should have been initialized with a typeURL, but
-            // ensure it wasn't cleared.
+            // We should have been initialized with a typeURL, make sure it is valid.
+            if !_typeURL.isEmpty && !isTypeURLValid() {
+                throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: _typeURL)
+            }
+            // If it was cleared, default it.
             let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix)
             return try serializeAnyJSON(for: msg, typeURL: url, options: options)
 
         case .contentJSON(let contentJSON, _):
+            guard isTypeURLValid() else {
+                if _typeURL.isEmpty {
+                    throw SwiftProtobufError.JSONEncoding.emptyAnyTypeURL()
+                }
+                throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: _typeURL)
+            }
             var jsonEncoder = JSONEncoder()
             jsonEncoder.startObject()
             jsonEncoder.startField(name: "@type")
@@ -488,11 +511,7 @@ extension AnyMessageStorage {
             try decoder.scanner.skipRequiredColon()
             if key == "@type" {
                 _typeURL = try decoder.scanner.nextQuotedString()
-                // Spec for Any says this should contain atleast one slash. Looking at
-                // upstream languages, most actually look up the value in their runtime
-                // registries, but since we do deferred parsing, just do this minimal
-                // validation check.
-                guard _typeURL.contains("/") else {
+                guard isTypeURLValid() else {
                     throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: _typeURL)
                 }
             } else {
@@ -501,6 +520,9 @@ extension AnyMessageStorage {
                 jsonEncoder.append(text: keyValueJSON)
             }
             if decoder.scanner.skipOptionalObjectEnd() {
+                if _typeURL.isEmpty {
+                    throw SwiftProtobufError.JSONDecoding.emptyAnyTypeURL()
+                }
                 // Capture the options, but set the messageDepthLimit to be what
                 // was left right now, as that is the limit when the JSON is finally
                 // parsed.
