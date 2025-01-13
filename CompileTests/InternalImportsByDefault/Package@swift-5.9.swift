@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 5.9
 
 // Package.swift
 //
@@ -36,6 +36,5 @@ let package = Package(
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
             ]
         )
-    ],
-    swiftLanguageModes: [.v6]
+    ]
 )
