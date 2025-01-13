@@ -877,7 +877,7 @@ final class Test_Any: XCTestCase {
         // Upstream most langauges end up validating the type_url during encoding as well
         // as during decoding. Basically to do things, they end up looking up the type
         // in their global registries to use reflection to do things. SwiftProtobuf doesn't
-        // have a registry we can reply on being complete. So instead during encoding we
+        // have a registry we can rely on being complete. So instead during encoding we
         // do the most basic of checks. These tests help ensure those checks are working as
         // expected.
         //
