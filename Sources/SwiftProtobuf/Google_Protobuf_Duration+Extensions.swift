@@ -169,6 +169,46 @@ extension Google_Protobuf_Duration {
     }
 }
 
+@available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *)
+extension Google_Protobuf_Duration {
+    /// Creates a new `Google_Protobuf_Duration` by rounding a `Duration` to
+    /// the nearest nanosecond according to the given rounding rule.
+    ///
+    /// - Parameters:
+    ///   - duration: The `Duration`.
+    ///   - rule: The rounding rule to use.
+    public init(
+        rounding duration: Duration,
+        rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero
+    ) {
+        let secs = duration.components.seconds
+        let attos = duration.components.attoseconds
+        let fracNanos =
+            (Double(attos % attosPerNanosecond) / Double(attosPerNanosecond)).rounded(rule)
+        let nanos = Int32(attos / attosPerNanosecond) + Int32(fracNanos)
+        let (s, n) = normalizeForDuration(seconds: secs, nanos: nanos)
+        self.init(seconds: s, nanos: n)
+    }
+}
+
+@available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *)
+extension Duration {
+    /// Creates a new `Duration` that is equal to the given duration.
+    ///
+    /// Swift `Duration` has a strictly higher precision than `Google_Protobuf_Duration`
+    /// (attoseconds vs. nanoseconds, respectively), so this conversion is always
+    /// value-preserving.
+    ///
+    /// - Parameters:
+    ///   - duration: The `Google_Protobuf_Duration`.
+    public init(_ duration: Google_Protobuf_Duration) {
+        self.init(
+            secondsComponent: duration.seconds,
+            attosecondsComponent: Int64(duration.nanos) * attosPerNanosecond
+        )
+    }
+}
+
 private func normalizeForDuration(
     seconds: Int64,
     nanos: Int32
