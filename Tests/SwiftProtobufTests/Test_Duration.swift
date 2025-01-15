@@ -312,4 +312,76 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
         let t2 = Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789)
         XCTAssertEqual(t2.timeInterval, 123.123456789)
     }
+
+    func testConvertFromStdlibDuration() throws {
+        // Full precision
+        do {
+            let sd = Duration.seconds(123) + .nanoseconds(123_456_789)
+            let pd = Google_Protobuf_Duration(rounding: sd)
+            XCTAssertEqual(pd.seconds, 123)
+            XCTAssertEqual(pd.nanos, 123_456_789)
+        }
+
+        // Default rounding (toNearestAwayFromZero)
+        do {
+            let sd = Duration(secondsComponent: 123, attosecondsComponent: 123_456_789_499_999_999)
+            let pd = Google_Protobuf_Duration(rounding: sd)
+            XCTAssertEqual(pd.seconds, 123)
+            XCTAssertEqual(pd.nanos, 123_456_789)
+        }
+        do {
+            let sd = Duration(secondsComponent: 123, attosecondsComponent: 123_456_789_500_000_000)
+            let pd = Google_Protobuf_Duration(rounding: sd)
+            XCTAssertEqual(pd.seconds, 123)
+            XCTAssertEqual(pd.nanos, 123_456_790)
+        }
+
+        // Other rounding rules
+        do {
+            let sd = Duration(secondsComponent: 123, attosecondsComponent: 123_456_789_499_999_999)
+            let pd = Google_Protobuf_Duration(rounding: sd, rule: .awayFromZero)
+            XCTAssertEqual(pd.seconds, 123)
+            XCTAssertEqual(pd.nanos, 123_456_790)
+        }
+        do {
+            let sd = Duration(secondsComponent: 123, attosecondsComponent: 123_456_789_999_999_999)
+            let pd = Google_Protobuf_Duration(rounding: sd, rule: .towardZero)
+            XCTAssertEqual(pd.seconds, 123)
+            XCTAssertEqual(pd.nanos, 123_456_789)
+        }
+
+        // Negative duration
+        do {
+            let sd = Duration.zero - .seconds(123) - .nanoseconds(123_456_789)
+            let pd = Google_Protobuf_Duration(rounding: sd)
+            XCTAssertEqual(pd.seconds, -123)
+            XCTAssertEqual(pd.nanos, -123_456_789)
+        }
+        do {
+            let sd = .zero - Duration(secondsComponent: 123, attosecondsComponent: 123_456_789_000_000_001)
+            let pd = Google_Protobuf_Duration(rounding: sd, rule: .towardZero)
+            XCTAssertEqual(pd.seconds, -123)
+            XCTAssertEqual(pd.nanos, -123_456_789)
+        }
+        do {
+            let sd = .zero - Duration(secondsComponent: 123, attosecondsComponent: 123_456_789_000_000_001)
+            let pd = Google_Protobuf_Duration(rounding: sd, rule: .awayFromZero)
+            XCTAssertEqual(pd.seconds, -123)
+            XCTAssertEqual(pd.nanos, -123_456_790)
+        }
+    }
+
+    func testConvertToStdlibDuration() throws {
+        do {
+            let pd = Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789)
+            let sd = Duration(pd)
+            XCTAssertEqual(sd, .seconds(123) + .nanoseconds(123_456_789))
+        }
+        // Negative duration
+        do {
+            let pd = Google_Protobuf_Duration(seconds: -123, nanos: -123_456_789)
+            let sd = Duration(pd)
+            XCTAssertEqual(sd, .zero - (.seconds(123) + .nanoseconds(123_456_789)))
+        }
+    }
 }

@@ -18,6 +18,7 @@ let secondsPerDay: Int32 = 86400
 let secondsPerHour: Int32 = 3600
 let secondsPerMinute: Int32 = 60
 let nanosPerSecond: Int32 = 1_000_000_000
+let attosPerNanosecond: Int64 = 1_000_000_000
 
 internal func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: Int32, ss: Int32) {
     let secondsSinceMidnight = Int32(mod(seconds, Int64(secondsPerDay)))
