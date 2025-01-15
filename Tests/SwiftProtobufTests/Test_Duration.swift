@@ -314,6 +314,10 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
     }
 
     func testConvertFromStdlibDuration() throws {
+        guard #available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *) else {
+            throw XCTSkip("Duration is not supported on this platform")
+        }
+
         // Full precision
         do {
             let sd = Duration.seconds(123) + .nanoseconds(123_456_789)
@@ -372,6 +376,10 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
     }
 
     func testConvertToStdlibDuration() throws {
+        guard #available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *) else {
+            throw XCTSkip("Duration is not supported on this platform")
+        }
+
         do {
             let pd = Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789)
             let sd = Duration(pd)
