@@ -144,10 +144,7 @@ extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     /// that is interpreted as a duration in seconds, rounded to the nearest
     /// nanosecond.
     public init(floatLiteral value: Double) {
-        let sd = trunc(value)
-        let nd = round((value - sd) * TimeInterval(nanosPerSecond))
-        let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
-        self.init(seconds: s, nanos: n)
+        self.init(rounding: value, rule: .toNearestOrAwayFromZero)
     }
 }
 
@@ -157,9 +154,23 @@ extension Google_Protobuf_Duration {
     ///
     /// - Parameter timeInterval: The `TimeInterval`.
     public init(timeInterval: TimeInterval) {
-        let sd = trunc(timeInterval)
-        let nd = round((timeInterval - sd) * TimeInterval(nanosPerSecond))
-        let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
+        self.init(rounding: timeInterval, rule: .toNearestOrAwayFromZero)
+    }
+
+    /// Creates a new `Google_Protobuf_Duration` that is equal to the given
+    /// `TimeInterval` (measured in seconds), rounded to the nearest nanosecond
+    /// according to the given rounding rule.
+    ///
+    /// - Parameters:
+    ///   - timeInterval: The `TimeInterval`.
+    ///   - rule: The rounding rule to use.
+    public init(
+        rounding timeInterval: TimeInterval,
+        rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero
+    ) {
+        let sd = Int64(timeInterval)
+        let nd = ((timeInterval - Double(sd)) * TimeInterval(nanosPerSecond)).rounded(rule)
+        let (s, n) = normalizeForDuration(seconds: sd, nanos: Int32(nd))
         self.init(seconds: s, nanos: n)
     }
 
