@@ -153,6 +153,7 @@ extension Google_Protobuf_Duration {
     /// `TimeInterval` (measured in seconds), rounded to the nearest nanosecond.
     ///
     /// - Parameter timeInterval: The `TimeInterval`.
+    @available(*, deprecated, renamed: "init(rounding:rule:)")
     public init(timeInterval: TimeInterval) {
         self.init(rounding: timeInterval, rule: .toNearestOrAwayFromZero)
     }

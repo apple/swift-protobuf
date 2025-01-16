@@ -259,52 +259,6 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
         XCTAssertEqual("{\"optionalDuration\":\"100.000000001s\"}", try c.jsonString())
     }
 
-    func testInitializationByTimeIntervals() throws {
-        // Negative interval
-        let t1 = Google_Protobuf_Duration(timeInterval: -123.456)
-        XCTAssertEqual(t1.seconds, -123)
-        XCTAssertEqual(t1.nanos, -456_000_000)
-
-        // Full precision
-        let t2 = Google_Protobuf_Duration(timeInterval: -123.999999999)
-        XCTAssertEqual(t2.seconds, -123)
-        XCTAssertEqual(t2.nanos, -999_999_999)
-
-        // Round up
-        let t3 = Google_Protobuf_Duration(timeInterval: -123.9999999994)
-        XCTAssertEqual(t3.seconds, -123)
-        XCTAssertEqual(t3.nanos, -999_999_999)
-
-        // Round down
-        let t4 = Google_Protobuf_Duration(timeInterval: -123.9999999996)
-        XCTAssertEqual(t4.seconds, -124)
-        XCTAssertEqual(t4.nanos, 0)
-
-        let t5 = Google_Protobuf_Duration(timeInterval: 0)
-        XCTAssertEqual(t5.seconds, 0)
-        XCTAssertEqual(t5.nanos, 0)
-
-        // Positive interval
-        let t6 = Google_Protobuf_Duration(timeInterval: 123.456)
-        XCTAssertEqual(t6.seconds, 123)
-        XCTAssertEqual(t6.nanos, 456_000_000)
-
-        // Full precision
-        let t7 = Google_Protobuf_Duration(timeInterval: 123.999999999)
-        XCTAssertEqual(t7.seconds, 123)
-        XCTAssertEqual(t7.nanos, 999_999_999)
-
-        // Round down
-        let t8 = Google_Protobuf_Duration(timeInterval: 123.9999999994)
-        XCTAssertEqual(t8.seconds, 123)
-        XCTAssertEqual(t8.nanos, 999_999_999)
-
-        // Round up
-        let t9 = Google_Protobuf_Duration(timeInterval: 123.9999999996)
-        XCTAssertEqual(t9.seconds, 124)
-        XCTAssertEqual(t9.nanos, 0)
-    }
-
     func testInitializationRoundingTimeIntervals() throws {
         // Negative interval
         let t1 = Google_Protobuf_Duration(rounding: -123.456)
