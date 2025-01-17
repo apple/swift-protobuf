@@ -331,8 +331,13 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
     }
 
     func testBasicArithmetic() throws {
+        // One second and one nano second before epoch
         let tn1_n1 = Google_Protobuf_Timestamp(seconds: -2, nanos: 999_999_999)
-        let t0 = Google_Protobuf_Timestamp()
+        // Half a second before the epoc
+        let tn1_n500000000 = Google_Protobuf_Timestamp(seconds: -1, nanos: 500_000_000)
+        let t0 = Google_Protobuf_Timestamp()  // epoc
+        // Times after the epoch
+        let t0_500000000 = Google_Protobuf_Timestamp(seconds: 0, nanos: 500_000_000)
         let t1_1 = Google_Protobuf_Timestamp(seconds: 1, nanos: 1)
         let t2_2 = Google_Protobuf_Timestamp(seconds: 2, nanos: 2)
         let t3_3 = Google_Protobuf_Timestamp(seconds: 3, nanos: 3)
@@ -357,6 +362,12 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         // Difference of two timestamps is a duration
         XCTAssertEqual(d1_1, t4_4 - t3_3)
         XCTAssertEqual(dn1_n1, t3_3 - t4_4)
+        XCTAssertEqual(d2_2, t1_1 - tn1_n1)
+        XCTAssertEqual(dn1_n1, t0 - t1_1)
+
+        // Test within nanos space rolling past zero
+        XCTAssertEqual(tn1_n500000000, t0_500000000 - Google_Protobuf_Duration(seconds: 1))
+        XCTAssertEqual(t0_500000000,  tn1_n500000000 + Google_Protobuf_Duration(seconds: 1))
     }
 
     func testArithmeticNormalizes() throws {
@@ -446,12 +457,48 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         let t9 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999996)
         XCTAssertEqual(t9.seconds, 124)
         XCTAssertEqual(t9.nanos, 0)
+
+        // Small Positive Value
+        let t10 = Google_Protobuf_Timestamp(timeIntervalSince1970: 0.999999999)
+        XCTAssertEqual(t10.seconds, 0)
+        XCTAssertEqual(t10.nanos, 999_999_999)
+
+        // Small Negative Value
+        let t11 = Google_Protobuf_Timestamp(timeIntervalSince1970: -0.000000001)
+        XCTAssertEqual(t11.seconds, -1)
+        XCTAssertEqual(t11.nanos, 999_999_999)
     }
 
     func testInitializationByReferenceTimestamp() throws {
         let t1 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: 123.456)
         XCTAssertEqual(t1.seconds, 978_307_323)
         XCTAssertEqual(t1.nanos, 456_000_000)
+
+        let t2 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: 0.0)
+        XCTAssertEqual(t2.seconds, 978_307_200)
+        XCTAssertEqual(t2.nanos, 0)
+
+        let t3 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -0.1)
+        XCTAssertEqual(t3.seconds, 978_307_199)
+        XCTAssertEqual(t3.nanos, 900_000_000)
+
+        let t4 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -1.0)
+        XCTAssertEqual(t4.seconds, 978_307_199)
+        XCTAssertEqual(t4.nanos, 0)
+
+        let t5 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -978307200.0)
+        XCTAssertEqual(t5.seconds, 0)
+        XCTAssertEqual(t5.nanos, 0)
+
+        let t6 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -978307201.0)
+        XCTAssertEqual(t6.seconds, -1)
+        XCTAssertEqual(t6.nanos, 0)
+
+        // At this point we're in double percision issues, so this doesn't come out as
+        // one might expect.
+        let t7 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -978307200.1)
+        XCTAssertEqual(t7.seconds, -1)
+        XCTAssertEqual(t7.nanos, 899_999_976)
     }
 
     func testInitializationByDates() throws {
