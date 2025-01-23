@@ -367,7 +367,7 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
 
         // Test within nanos space rolling past zero
         XCTAssertEqual(tn1_n500000000, t0_500000000 - Google_Protobuf_Duration(seconds: 1))
-        XCTAssertEqual(t0_500000000,  tn1_n500000000 + Google_Protobuf_Duration(seconds: 1))
+        XCTAssertEqual(t0_500000000, tn1_n500000000 + Google_Protobuf_Duration(seconds: 1))
     }
 
     func testArithmeticNormalizes() throws {
@@ -413,92 +413,190 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
     // TODO: Should setter correct for out-of-range
     // nanos and other minor inconsistencies?
 
-    func testInitializationByTimestamps() throws {
+    func testInitializationRoundingTimestamps() throws {
         // Negative timestamp
-        let t1 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.456)
+        let t1 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.456)
         XCTAssertEqual(t1.seconds, -124)
         XCTAssertEqual(t1.nanos, 544_000_000)
+        XCTAssertEqual(t1.timeIntervalSince1970, -123.456)
 
         // Full precision
-        let t2 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.999999999)
+        let t2 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.999999999)
         XCTAssertEqual(t2.seconds, -124)
         XCTAssertEqual(t2.nanos, 1)
+        XCTAssertEqual(t2.timeIntervalSince1970, -123.999999999)
 
-        // Round up
-        let t3 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.9999999994)
+        // Value past percision, default and some explicit rules
+        let t3 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.9999999994)
         XCTAssertEqual(t3.seconds, -124)
         XCTAssertEqual(t3.nanos, 1)
+        XCTAssertEqual(t3.timeIntervalSince1970, -123.999999999)
+        let t3u = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.9999999994, rule: .up)
+        XCTAssertEqual(t3u.seconds, -124)
+        XCTAssertEqual(t3u.nanos, 1)
+        let t3d = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.9999999994, rule: .down)
+        XCTAssertEqual(t3d.seconds, -124)
+        XCTAssertEqual(t3d.nanos, 0)
 
-        // Round down
-        let t4 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.9999999996)
+        // Value past percision, default and some explicit rules
+        let t4 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.9999999996)
         XCTAssertEqual(t4.seconds, -124)
         XCTAssertEqual(t4.nanos, 0)
+        let t4u = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.9999999996, rule: .up)
+        XCTAssertEqual(t4u.seconds, -124)
+        XCTAssertEqual(t4u.nanos, 1)
+        let t4d = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -123.9999999996, rule: .down)
+        XCTAssertEqual(t4d.seconds, -124)
+        XCTAssertEqual(t4d.nanos, 0)
 
-        let t5 = Google_Protobuf_Timestamp(timeIntervalSince1970: 0)
+        let t5 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 0)
         XCTAssertEqual(t5.seconds, 0)
         XCTAssertEqual(t5.nanos, 0)
+        XCTAssertEqual(t5.timeIntervalSince1970, 0)
 
         // Positive timestamp
-        let t6 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.456)
+        let t6 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.456)
         XCTAssertEqual(t6.seconds, 123)
         XCTAssertEqual(t6.nanos, 456_000_000)
 
         // Full precision
-        let t7 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.999999999)
+        let t7 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.999999999)
         XCTAssertEqual(t7.seconds, 123)
         XCTAssertEqual(t7.nanos, 999_999_999)
+        XCTAssertEqual(t7.timeIntervalSince1970, 123.999999999)
 
-        // Round down
-        let t8 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999994)
+        // Value past percision, default and some explicit rules
+        let t8 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.9999999994)
         XCTAssertEqual(t8.seconds, 123)
         XCTAssertEqual(t8.nanos, 999_999_999)
+        let t8u = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.9999999994, rule: .up)
+        XCTAssertEqual(t8u.seconds, 124)
+        XCTAssertEqual(t8u.nanos, 0)
+        let t8d = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.9999999994, rule: .down)
+        XCTAssertEqual(t8d.seconds, 123)
+        XCTAssertEqual(t8d.nanos, 999_999_999)
 
-        // Round up
-        let t9 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999996)
+        // Value past percision, default and some explicit rules
+        let t9 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.9999999996)
         XCTAssertEqual(t9.seconds, 124)
         XCTAssertEqual(t9.nanos, 0)
+        let t9u = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.9999999996)
+        XCTAssertEqual(t9u.seconds, 124)
+        XCTAssertEqual(t9u.nanos, 0)
+        let t9d = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 123.9999999996)
+        XCTAssertEqual(t9d.seconds, 124)
+        XCTAssertEqual(t9d.nanos, 0)
 
         // Small Positive Value
-        let t10 = Google_Protobuf_Timestamp(timeIntervalSince1970: 0.999999999)
+        let t10 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: 0.999999999)
         XCTAssertEqual(t10.seconds, 0)
         XCTAssertEqual(t10.nanos, 999_999_999)
+        XCTAssertEqual(t10.timeIntervalSince1970, 0.999999999)
 
         // Small Negative Value
-        let t11 = Google_Protobuf_Timestamp(timeIntervalSince1970: -0.000000001)
+        let t11 = Google_Protobuf_Timestamp(roundingTimeIntervalSince1970: -0.000000001)
         XCTAssertEqual(t11.seconds, -1)
         XCTAssertEqual(t11.nanos, 999_999_999)
+        // No fetch of the value as it can fall into percision issues for a double.
     }
 
     func testInitializationByReferenceTimestamp() throws {
-        let t1 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: 123.456)
+        let t1 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.456)
         XCTAssertEqual(t1.seconds, 978_307_323)
         XCTAssertEqual(t1.nanos, 456_000_000)
+        XCTAssertEqual(t1.timeIntervalSinceReferenceDate, 123.456)
 
-        let t2 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: 0.0)
+        let t2 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 0.0)
         XCTAssertEqual(t2.seconds, 978_307_200)
         XCTAssertEqual(t2.nanos, 0)
+        XCTAssertEqual(t2.timeIntervalSinceReferenceDate, 0)
 
-        let t3 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -0.1)
+        let t3 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -0.1)
         XCTAssertEqual(t3.seconds, 978_307_199)
         XCTAssertEqual(t3.nanos, 900_000_000)
+        // No fetch of the value as it can fall into percision issues for a double.
 
-        let t4 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -1.0)
+        let t4 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -1.0)
         XCTAssertEqual(t4.seconds, 978_307_199)
         XCTAssertEqual(t4.nanos, 0)
+        XCTAssertEqual(t4.timeIntervalSinceReferenceDate, -1.0)
 
-        let t5 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -978307200.0)
+        let t5 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -978307200.0)
         XCTAssertEqual(t5.seconds, 0)
         XCTAssertEqual(t5.nanos, 0)
+        XCTAssertEqual(t5.timeIntervalSinceReferenceDate, -978307200.0)
 
-        let t6 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -978307201.0)
+        let t6 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -978307201.0)
         XCTAssertEqual(t6.seconds, -1)
         XCTAssertEqual(t6.nanos, 0)
+        XCTAssertEqual(t6.timeIntervalSinceReferenceDate, -978307201.0)
 
+        // Just before epoch.
         // At this point we're in double percision issues, so this doesn't come out as
         // one might expect.
-        let t7 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: -978307200.1)
+        let t7 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -978307200.1)
         XCTAssertEqual(t7.seconds, -1)
         XCTAssertEqual(t7.nanos, 899_999_976)
+        XCTAssertEqual(t7.timeIntervalSinceReferenceDate, -978307200.1)
+
+        // Due to the percission issue mentioned on t7, we can't easily do cases that result
+        // in negative final values where the rounding is clearly testable.
+
+        // Full precision
+        let t8 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.999999999)
+        XCTAssertEqual(t8.seconds, 978_307_323)
+        XCTAssertEqual(t8.nanos, 999_999_999)
+        XCTAssertEqual(t8.timeIntervalSinceReferenceDate, 123.999999999)
+
+        // Full precision
+        let t9 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.999999999)
+        XCTAssertEqual(t9.seconds, 978_307_076)
+        XCTAssertEqual(t9.nanos, 1)
+        XCTAssertEqual(t9.timeIntervalSinceReferenceDate, -123.999999999)
+
+        // Value past percision, default and some explicit rules
+        let t10 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.9999999994)
+        XCTAssertEqual(t10.seconds, 978_307_323)
+        XCTAssertEqual(t10.nanos, 999_999_999)
+        let t10u = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.9999999994, rule: .up)
+        XCTAssertEqual(t10u.seconds, 978_307_324)
+        XCTAssertEqual(t10u.nanos, 0)
+        let t10d = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.9999999994, rule: .down)
+        XCTAssertEqual(t10d.seconds, 978_307_323)
+        XCTAssertEqual(t10d.nanos, 999_999_999)
+
+        // Value past percision, default and some explicit rules
+        let t11 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.9999999996)
+        XCTAssertEqual(t11.seconds, 978_307_324)
+        XCTAssertEqual(t11.nanos, 0)
+        let t11u = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.9999999996, rule: .up)
+        XCTAssertEqual(t11u.seconds, 978_307_324)
+        XCTAssertEqual(t11u.nanos, 0)
+        let t11d = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: 123.9999999996, rule: .down)
+        XCTAssertEqual(t11d.seconds, 978_307_323)
+        XCTAssertEqual(t11d.nanos, 999_999_999)
+
+        // Value past percision, default and some explicit rules
+        let t12 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.9999999994)
+        XCTAssertEqual(t12.seconds, 978_307_076)
+        XCTAssertEqual(t12.nanos, 1)
+        let t12u = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.9999999994, rule: .up)
+        XCTAssertEqual(t12u.seconds, 978_307_076)
+        XCTAssertEqual(t12u.nanos, 1)
+        let t12d = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.9999999994, rule: .down)
+        XCTAssertEqual(t12d.seconds, 978_307_076)
+        XCTAssertEqual(t12d.nanos, 0)
+
+        // Value past percision, default and some explicit rules
+        let t13 = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.9999999996)
+        XCTAssertEqual(t13.seconds, 978_307_076)
+        XCTAssertEqual(t13.nanos, 0)
+        let t13u = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.9999999996, rule: .up)
+        XCTAssertEqual(t13u.seconds, 978_307_076)
+        XCTAssertEqual(t13u.nanos, 1)
+        let t13d = Google_Protobuf_Timestamp(roundingTimeIntervalSinceReferenceDate: -123.9999999996, rule: .down)
+        XCTAssertEqual(t13d.seconds, 978_307_076)
+        XCTAssertEqual(t13d.nanos, 0)
     }
 
     func testInitializationByDates() throws {
