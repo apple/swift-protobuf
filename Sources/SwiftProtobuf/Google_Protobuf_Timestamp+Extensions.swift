@@ -306,10 +306,10 @@ extension Google_Protobuf_Timestamp {
         //
         // Even though this goes through a rounding api, the api doesn't bother
         // to expose any controls on it. `Date` doesn't seem to document the
-        // internal percision and looking at current (Jan 2025) Foundation
-        // sources, the percisions for just getting the _current_ time seems to
-        // result in different percisions between platforms. So it doesn't seem
-        // like exposing the control for something that vaugue is worth while.
+        // internal precision and looking at current (Jan 2025) Foundation
+        // sources, the precision of the operations used just to get the
+        // _current_ time are platform-dependent. So it doesn't seem
+        // like exposing the control for something that vague is worthwhile.
         self.init(roundingTimeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate)
     }
 
