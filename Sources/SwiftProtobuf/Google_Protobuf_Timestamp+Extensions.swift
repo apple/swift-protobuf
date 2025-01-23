@@ -244,7 +244,7 @@ extension Google_Protobuf_Timestamp {
     /// nanosecond according to the given rounding rule.
     ///
     /// - Parameters:
-    ///   - imeIntervalSince1970: The `TimeInterval`, interpreted as
+    ///   - timeIntervalSince1970: The `TimeInterval`, interpreted as
     ///     seconds relative to 00:00:00 UTC on 1 January 1970.
     ///   - rule: The rounding rule to use.
     public init(
