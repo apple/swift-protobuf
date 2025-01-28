@@ -234,10 +234,26 @@ extension Google_Protobuf_Timestamp {
     ///
     /// - Parameter timeIntervalSince1970: The `TimeInterval`, interpreted as
     ///   seconds relative to 00:00:00 UTC on 1 January 1970.
+    @available(*, deprecated, renamed: "init(roundingTimeIntervalSince1970:rule:)")
     public init(timeIntervalSince1970: TimeInterval) {
-        let sd = floor(timeIntervalSince1970)
-        let nd = round((timeIntervalSince1970 - sd) * TimeInterval(nanosPerSecond))
-        let (s, n) = normalizeForTimestamp(seconds: Int64(sd), nanos: Int32(nd))
+        self.init(roundingTimeIntervalSince1970: timeIntervalSince1970, rule: .toNearestOrAwayFromZero)
+    }
+
+    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// UTC on 1 January 1970 by a given number of seconds, rounded to the nearest
+    /// nanosecond according to the given rounding rule.
+    ///
+    /// - Parameters:
+    ///   - timeIntervalSince1970: The `TimeInterval`, interpreted as
+    ///     seconds relative to 00:00:00 UTC on 1 January 1970.
+    ///   - rule: The rounding rule to use.
+    public init(
+        roundingTimeIntervalSince1970 timeIntervalSince1970: TimeInterval,
+        rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero
+    ) {
+        let sd = Int64(timeIntervalSince1970)
+        let nd = ((timeIntervalSince1970 - Double(sd)) * TimeInterval(nanosPerSecond)).rounded(rule)
+        let (s, n) = normalizeForTimestamp(seconds: sd, nanos: Int32(nd))
         self.init(seconds: s, nanos: n)
     }
 
@@ -246,16 +262,34 @@ extension Google_Protobuf_Timestamp {
     ///
     /// - Parameter timeIntervalSinceReferenceDate: The `TimeInterval`,
     ///   interpreted as seconds relative to 00:00:00 UTC on 1 January 2001.
+    @available(*, deprecated, renamed: "init(roundingTimeIntervalSinceReferenceDate:rule:)")
     public init(timeIntervalSinceReferenceDate: TimeInterval) {
-        let sd = floor(timeIntervalSinceReferenceDate)
-        let nd = round(
-            (timeIntervalSinceReferenceDate - sd) * TimeInterval(nanosPerSecond)
+        self.init(
+            roundingTimeIntervalSinceReferenceDate: timeIntervalSinceReferenceDate,
+            rule: .toNearestOrAwayFromZero
         )
+    }
+
+    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// UTC on 1 January 2001 by a given number of seconds, rounded to the nearest
+    /// nanosecond according to the given rounding rule.
+    ///
+    /// - Parameters:
+    ///   - timeIntervalSinceReferenceDate: The `TimeInterval`,
+    ///     interpreted as seconds relative to 00:00:00 UTC on 1 January 2001.
+    ///   - rule: The rounding rule to use.
+    public init(
+        roundingTimeIntervalSinceReferenceDate timeIntervalSinceReferenceDate: TimeInterval,
+        rule: FloatingPointRoundingRule = .toNearestOrAwayFromZero
+    ) {
+        let sd = Int64(timeIntervalSinceReferenceDate)
+        let nd = ((timeIntervalSinceReferenceDate - Double(sd)) * TimeInterval(nanosPerSecond)).rounded(rule)
+
         // The addition of timeIntervalBetween1970And... is deliberately delayed
         // until the input is separated into an integer part and a fraction
         // part, so that we don't unnecessarily lose precision.
         let (s, n) = normalizeForTimestamp(
-            seconds: Int64(sd) + Int64(Date.timeIntervalBetween1970AndReferenceDate),
+            seconds: sd + Int64(Date.timeIntervalBetween1970AndReferenceDate),
             nanos: Int32(nd)
         )
         self.init(seconds: s, nanos: n)
@@ -269,9 +303,14 @@ extension Google_Protobuf_Timestamp {
         // Note: Internally, Date uses the "reference date," not the 1970 date.
         // We use it when interacting with Dates so that Date doesn't perform
         // any double arithmetic on our behalf, which might cost us precision.
-        self.init(
-            timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate
-        )
+        //
+        // Even though this goes through a rounding api, the api doesn't bother
+        // to expose any controls on it. `Date` doesn't seem to document the
+        // internal precision and looking at current (Jan 2025) Foundation
+        // sources, the precision of the operations used just to get the
+        // _current_ time are platform-dependent. So it doesn't seem
+        // like exposing the control for something that vague is worthwhile.
+        self.init(roundingTimeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate)
     }
 
     /// The interval between the timestamp and 00:00:00 UTC on 1 January 1970.
