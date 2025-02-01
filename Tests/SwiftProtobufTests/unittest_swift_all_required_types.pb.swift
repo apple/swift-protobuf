@@ -529,36 +529,16 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 1
+    case bar = 2
+    case baz = 3
 
     /// Intentionally negative.
-    case neg // = -1
+    case neg = -1
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .neg
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .neg: return -1
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      }
     }
 
   }
@@ -675,25 +655,11 @@ struct SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 1
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 1
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .foo
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .foo: return 1
-      }
     }
 
   }
