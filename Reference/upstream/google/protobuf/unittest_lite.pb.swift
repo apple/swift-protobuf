@@ -32,80 +32,32 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foreignLiteFoo // = 4
-  case foreignLiteBaz // = 6
-  case foreignLiteBar // = 5
+enum ProtobufUnittest_ForeignEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foreignLiteFoo = 4
+  case foreignLiteBaz = 6
+  case foreignLiteBar = 5
 
   init() {
     self = .foreignLiteFoo
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 4: self = .foreignLiteFoo
-    case 5: self = .foreignLiteBar
-    case 6: self = .foreignLiteBaz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foreignLiteFoo: return 4
-    case .foreignLiteBar: return 5
-    case .foreignLiteBaz: return 6
-    }
-  }
-
 }
 
-enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case v1First // = 1
+enum ProtobufUnittest_V1EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case v1First = 1
 
   init() {
     self = .v1First
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .v1First
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .v1First: return 1
-    }
-  }
-
 }
 
-enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case v2First // = 1
-  case v2Second // = 2
+enum ProtobufUnittest_V2EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case v2First = 1
+  case v2Second = 2
 
   init() {
     self = .v2First
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .v2First
-    case 2: self = .v2Second
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .v2First: return 1
-    case .v2Second: return 2
-    }
   }
 
 }
@@ -754,31 +706,13 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 1
+    case bar = 2
+    case baz = 3
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      }
     }
 
   }
@@ -1657,33 +1591,15 @@ struct ProtobufUnittest_DupEnum: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnumWithDupValueLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo1 // = 1
-    case bar1 // = 2
-    case baz // = 3
+  enum TestEnumWithDupValueLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo1 = 1
+    case bar1 = 2
+    case baz = 3
     static let foo2 = foo1
     static let bar2 = bar1
 
     init() {
       self = .foo1
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .foo1
-      case 2: self = .bar1
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .foo1: return 1
-      case .bar1: return 2
-      case .baz: return 3
-      }
     }
 
   }

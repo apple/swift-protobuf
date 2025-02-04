@@ -35,34 +35,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case zero // = 0
-  case one // = 1
-  case two // = 2
-  case three // = 3
+public enum SwiftProtoTesting_Fuzz_AnEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case zero = 0
+  case one = 1
+  case two = 2
+  case three = 3
 
   public init() {
     self = .zero
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .zero
-    case 1: self = .one
-    case 2: self = .two
-    case 3: self = .three
-    default: return nil
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .zero: return 0
-    case .one: return 1
-    case .two: return 2
-    case .three: return 3
-    }
   }
 
 }

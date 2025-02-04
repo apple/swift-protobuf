@@ -20,31 +20,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public enum E: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Int
-  case unset // = 0
-  case a // = 1
-  case b // = 2
+public enum E: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case unset = 0
+  case a = 1
+  case b = 2
 
   public init() {
     self = .unset
-  }
-
-  public init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unset
-    case 1: self = .a
-    case 2: self = .b
-    default: return nil
-    }
-  }
-
-  public var rawValue: Int {
-    switch self {
-    case .unset: return 0
-    case .a: return 1
-    case .b: return 2
-    }
   }
 
 }

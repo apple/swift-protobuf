@@ -70,25 +70,11 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-      typealias RawValue = Int
-      case foo // = 0
+    enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+      case foo = 0
 
       init() {
         self = .foo
-      }
-
-      init?(rawValue: Int) {
-        switch rawValue {
-        case 0: self = .foo
-        default: return nil
-        }
-      }
-
-      var rawValue: Int {
-        switch self {
-        case .foo: return 0
-        }
       }
 
     }
@@ -114,25 +100,11 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-      typealias RawValue = Int
-      case foo // = 0
+    enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+      case foo = 0
 
       init() {
         self = .foo
-      }
-
-      init?(rawValue: Int) {
-        switch rawValue {
-        case 0: self = .foo
-        default: return nil
-        }
-      }
-
-      var rawValue: Int {
-        switch self {
-        case .foo: return 0
-        }
       }
 
     }

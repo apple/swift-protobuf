@@ -224,31 +224,13 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Sync with code_generator.h.
-  public enum Feature: SwiftProtobuf.Enum, Swift.CaseIterable {
-    public typealias RawValue = Int
-    case none // = 0
-    case proto3Optional // = 1
-    case supportsEditions // = 2
+  public enum Feature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case none = 0
+    case proto3Optional = 1
+    case supportsEditions = 2
 
     public init() {
       self = .none
-    }
-
-    public init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .none
-      case 1: self = .proto3Optional
-      case 2: self = .supportsEditions
-      default: return nil
-      }
-    }
-
-    public var rawValue: Int {
-      switch self {
-      case .none: return 0
-      case .proto3Optional: return 1
-      case .supportsEditions: return 2
-      }
     }
 
   }

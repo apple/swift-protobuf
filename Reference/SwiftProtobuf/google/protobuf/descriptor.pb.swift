@@ -60,79 +60,43 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 }
 
 /// The full set of known editions.
-enum Google_Protobuf_Edition: Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+enum Google_Protobuf_Edition: Int, Enum, Swift.CaseIterable {
 
   /// A placeholder for an unknown edition value.
-  case unknown // = 0
+  case unknown = 0
 
   /// A placeholder edition for specifying default behaviors *before* a feature
   /// was first introduced.  This is effectively an "infinite past".
-  case legacy // = 900
+  case legacy = 900
 
   /// Legacy syntax "editions".  These pre-date editions, but behave much like
   /// distinct editions.  These can't be used to specify the edition of proto
   /// files, but feature definitions must supply proto2/proto3 defaults for
   /// backwards compatibility.
-  case proto2 // = 998
-  case proto3 // = 999
+  case proto2 = 998
+  case proto3 = 999
 
   /// Editions that have been released.  The specific values are arbitrary and
   /// should not be depended on, but they will always be time-ordered for easy
   /// comparison.
-  case edition2023 // = 1000
-  case edition2024 // = 1001
+  case edition2023 = 1000
+  case edition2024 = 1001
 
   /// Placeholder editions for testing feature resolution.  These should not be
   /// used or relied on outside of tests.
-  case edition1TestOnly // = 1
-  case edition2TestOnly // = 2
-  case edition99997TestOnly // = 99997
-  case edition99998TestOnly // = 99998
-  case edition99999TestOnly // = 99999
+  case edition1TestOnly = 1
+  case edition2TestOnly = 2
+  case edition99997TestOnly = 99997
+  case edition99998TestOnly = 99998
+  case edition99999TestOnly = 99999
 
   /// Placeholder for specifying unbounded edition support.  This should only
   /// ever be used by plugins that can expect to never require any changes to
   /// support a new edition.
-  case max // = 2147483647
+  case max = 2147483647
 
   init() {
     self = .unknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unknown
-    case 1: self = .edition1TestOnly
-    case 2: self = .edition2TestOnly
-    case 900: self = .legacy
-    case 998: self = .proto2
-    case 999: self = .proto3
-    case 1000: self = .edition2023
-    case 1001: self = .edition2024
-    case 99997: self = .edition99997TestOnly
-    case 99998: self = .edition99998TestOnly
-    case 99999: self = .edition99999TestOnly
-    case 2147483647: self = .max
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .unknown: return 0
-    case .edition1TestOnly: return 1
-    case .edition2TestOnly: return 2
-    case .legacy: return 900
-    case .proto2: return 998
-    case .proto3: return 999
-    case .edition2023: return 1000
-    case .edition2024: return 1001
-    case .edition99997TestOnly: return 99997
-    case .edition99998TestOnly: return 99998
-    case .edition99999TestOnly: return 99999
-    case .max: return 2147483647
-    }
   }
 
 }
@@ -451,30 +415,14 @@ struct Google_Protobuf_ExtensionRangeOptions: ExtensibleMessage, Sendable {
   var unknownFields = UnknownStorage()
 
   /// The verification state of the extension range.
-  enum VerificationState: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum VerificationState: Int, Enum, Swift.CaseIterable {
 
     /// All the extensions of the range must be declared.
-    case declaration // = 0
-    case unverified // = 1
+    case declaration = 0
+    case unverified = 1
 
     init() {
       self = .declaration
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .declaration
-      case 1: self = .unverified
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .declaration: return 0
-      case .unverified: return 1
-      }
     }
 
   }
@@ -705,134 +653,68 @@ struct Google_Protobuf_FieldDescriptorProto: Sendable {
 
   var unknownFields = UnknownStorage()
 
-  enum TypeEnum: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum TypeEnum: Int, Enum, Swift.CaseIterable {
 
     /// 0 is reserved for errors.
     /// Order is weird for historical reasons.
-    case double // = 1
-    case float // = 2
+    case double = 1
+    case float = 2
 
     /// Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
     /// negative values are likely.
-    case int64 // = 3
-    case uint64 // = 4
+    case int64 = 3
+    case uint64 = 4
 
     /// Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
     /// negative values are likely.
-    case int32 // = 5
-    case fixed64 // = 6
-    case fixed32 // = 7
-    case bool // = 8
-    case string // = 9
+    case int32 = 5
+    case fixed64 = 6
+    case fixed32 = 7
+    case bool = 8
+    case string = 9
 
     /// Tag-delimited aggregate.
     /// Group type is deprecated and not supported after google.protobuf. However, Proto3
     /// implementations should still be able to parse the group wire format and
     /// treat group fields as unknown fields.  In Editions, the group wire format
     /// can be enabled via the `message_encoding` feature.
-    case group // = 10
+    case group = 10
 
     /// Length-delimited aggregate.
-    case message // = 11
+    case message = 11
 
     /// New in version 2.
-    case bytes // = 12
-    case uint32 // = 13
-    case `enum` // = 14
-    case sfixed32 // = 15
-    case sfixed64 // = 16
+    case bytes = 12
+    case uint32 = 13
+    case `enum` = 14
+    case sfixed32 = 15
+    case sfixed64 = 16
 
     /// Uses ZigZag encoding.
-    case sint32 // = 17
+    case sint32 = 17
 
     /// Uses ZigZag encoding.
-    case sint64 // = 18
+    case sint64 = 18
 
     init() {
       self = .double
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .double
-      case 2: self = .float
-      case 3: self = .int64
-      case 4: self = .uint64
-      case 5: self = .int32
-      case 6: self = .fixed64
-      case 7: self = .fixed32
-      case 8: self = .bool
-      case 9: self = .string
-      case 10: self = .group
-      case 11: self = .message
-      case 12: self = .bytes
-      case 13: self = .uint32
-      case 14: self = .enum
-      case 15: self = .sfixed32
-      case 16: self = .sfixed64
-      case 17: self = .sint32
-      case 18: self = .sint64
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .double: return 1
-      case .float: return 2
-      case .int64: return 3
-      case .uint64: return 4
-      case .int32: return 5
-      case .fixed64: return 6
-      case .fixed32: return 7
-      case .bool: return 8
-      case .string: return 9
-      case .group: return 10
-      case .message: return 11
-      case .bytes: return 12
-      case .uint32: return 13
-      case .enum: return 14
-      case .sfixed32: return 15
-      case .sfixed64: return 16
-      case .sint32: return 17
-      case .sint64: return 18
-      }
-    }
-
   }
 
-  enum Label: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum Label: Int, Enum, Swift.CaseIterable {
 
     /// 0 is reserved for errors
-    case `optional` // = 1
-    case repeated // = 3
+    case `optional` = 1
+    case repeated = 3
 
     /// The required label is only allowed in google.protobuf.  In proto3 and Editions
     /// it's explicitly prohibited.  In Editions, the `field_presence` feature
     /// can be used to get this behavior.
-    case `required` // = 2
+    case `required` = 2
 
     init() {
       self = .optional
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .optional
-      case 2: self = .required
-      case 3: self = .repeated
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .optional: return 1
-      case .required: return 2
-      case .repeated: return 3
-      }
     }
 
   }
@@ -1384,37 +1266,19 @@ struct Google_Protobuf_FileOptions: ExtensibleMessage, @unchecked Sendable {
   var unknownFields = UnknownStorage()
 
   /// Generated classes can be optimized for speed or code size.
-  enum OptimizeMode: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum OptimizeMode: Int, Enum, Swift.CaseIterable {
 
     /// Generate complete code for parsing, serialization,
-    case speed // = 1
+    case speed = 1
 
     /// etc.
-    case codeSize // = 2
+    case codeSize = 2
 
     /// Generate code using MessageLite and the lite runtime.
-    case liteRuntime // = 3
+    case liteRuntime = 3
 
     init() {
       self = .speed
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .speed
-      case 2: self = .codeSize
-      case 3: self = .liteRuntime
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .speed: return 1
-      case .codeSize: return 2
-      case .liteRuntime: return 3
-      }
     }
 
   }
@@ -1745,11 +1609,10 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
 
   var unknownFields = UnknownStorage()
 
-  enum CType: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum CType: Int, Enum, Swift.CaseIterable {
 
     /// Default mode.
-    case string // = 0
+    case string = 0
 
     /// The option [ctype=CORD] may be applied to a non-repeated field of type
     /// "bytes". It indicates that in C++, the data should be stored in a Cord
@@ -1757,93 +1620,40 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
     /// fragmentation. It may also allow better performance when parsing from a
     /// Cord, or when parsing with aliasing enabled, as the parsed Cord may then
     /// alias the original buffer.
-    case cord // = 1
-    case stringPiece // = 2
+    case cord = 1
+    case stringPiece = 2
 
     init() {
       self = .string
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .string
-      case 1: self = .cord
-      case 2: self = .stringPiece
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .string: return 0
-      case .cord: return 1
-      case .stringPiece: return 2
-      }
-    }
-
   }
 
-  enum JSType: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum JSType: Int, Enum, Swift.CaseIterable {
 
     /// Use the default type.
-    case jsNormal // = 0
+    case jsNormal = 0
 
     /// Use JavaScript strings.
-    case jsString // = 1
+    case jsString = 1
 
     /// Use JavaScript numbers.
-    case jsNumber // = 2
+    case jsNumber = 2
 
     init() {
       self = .jsNormal
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .jsNormal
-      case 1: self = .jsString
-      case 2: self = .jsNumber
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .jsNormal: return 0
-      case .jsString: return 1
-      case .jsNumber: return 2
-      }
-    }
-
   }
 
   /// If set to RETENTION_SOURCE, the option will be omitted from the binary.
-  enum OptionRetention: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case retentionUnknown // = 0
-    case retentionRuntime // = 1
-    case retentionSource // = 2
+  enum OptionRetention: Int, Enum, Swift.CaseIterable {
+    case retentionUnknown = 0
+    case retentionRuntime = 1
+    case retentionSource = 2
 
     init() {
       self = .retentionUnknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .retentionUnknown
-      case 1: self = .retentionRuntime
-      case 2: self = .retentionSource
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .retentionUnknown: return 0
-      case .retentionRuntime: return 1
-      case .retentionSource: return 2
-      }
     }
 
   }
@@ -1851,52 +1661,20 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
   /// This indicates the types of entities that the field may apply to when used
   /// as an option. If it is unset, then the field may be freely used as an
   /// option on any kind of entity.
-  enum OptionTargetType: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case targetTypeUnknown // = 0
-    case targetTypeFile // = 1
-    case targetTypeExtensionRange // = 2
-    case targetTypeMessage // = 3
-    case targetTypeField // = 4
-    case targetTypeOneof // = 5
-    case targetTypeEnum // = 6
-    case targetTypeEnumEntry // = 7
-    case targetTypeService // = 8
-    case targetTypeMethod // = 9
+  enum OptionTargetType: Int, Enum, Swift.CaseIterable {
+    case targetTypeUnknown = 0
+    case targetTypeFile = 1
+    case targetTypeExtensionRange = 2
+    case targetTypeMessage = 3
+    case targetTypeField = 4
+    case targetTypeOneof = 5
+    case targetTypeEnum = 6
+    case targetTypeEnumEntry = 7
+    case targetTypeService = 8
+    case targetTypeMethod = 9
 
     init() {
       self = .targetTypeUnknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .targetTypeUnknown
-      case 1: self = .targetTypeFile
-      case 2: self = .targetTypeExtensionRange
-      case 3: self = .targetTypeMessage
-      case 4: self = .targetTypeField
-      case 5: self = .targetTypeOneof
-      case 6: self = .targetTypeEnum
-      case 7: self = .targetTypeEnumEntry
-      case 8: self = .targetTypeService
-      case 9: self = .targetTypeMethod
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .targetTypeUnknown: return 0
-      case .targetTypeFile: return 1
-      case .targetTypeExtensionRange: return 2
-      case .targetTypeMessage: return 3
-      case .targetTypeField: return 4
-      case .targetTypeOneof: return 5
-      case .targetTypeEnum: return 6
-      case .targetTypeEnumEntry: return 7
-      case .targetTypeService: return 8
-      case .targetTypeMethod: return 9
-      }
     }
 
   }
@@ -2261,35 +2039,17 @@ struct Google_Protobuf_MethodOptions: ExtensibleMessage, Sendable {
   /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   /// or neither? HTTP based RPC implementation may choose GET verb for safe
   /// methods, and PUT verb for idempotent methods instead of the default POST.
-  enum IdempotencyLevel: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case idempotencyUnknown // = 0
+  enum IdempotencyLevel: Int, Enum, Swift.CaseIterable {
+    case idempotencyUnknown = 0
 
     /// implies idempotent
-    case noSideEffects // = 1
+    case noSideEffects = 1
 
     /// idempotent, but may have side effects
-    case idempotent // = 2
+    case idempotent = 2
 
     init() {
       self = .idempotencyUnknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .idempotencyUnknown
-      case 1: self = .noSideEffects
-      case 2: self = .idempotent
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .idempotencyUnknown: return 0
-      case .noSideEffects: return 1
-      case .idempotent: return 2
-      }
     }
 
   }
@@ -2486,179 +2246,69 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   var unknownFields = UnknownStorage()
 
-  enum FieldPresence: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case explicit // = 1
-    case implicit // = 2
-    case legacyRequired // = 3
+  enum FieldPresence: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case explicit = 1
+    case implicit = 2
+    case legacyRequired = 3
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .explicit
-      case 2: self = .implicit
-      case 3: self = .legacyRequired
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .explicit: return 1
-      case .implicit: return 2
-      case .legacyRequired: return 3
-      }
     }
 
   }
 
-  enum EnumType: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case `open` // = 1
-    case closed // = 2
+  enum EnumType: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case `open` = 1
+    case closed = 2
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .open
-      case 2: self = .closed
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .open: return 1
-      case .closed: return 2
-      }
     }
 
   }
 
-  enum RepeatedFieldEncoding: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case packed // = 1
-    case expanded // = 2
+  enum RepeatedFieldEncoding: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case packed = 1
+    case expanded = 2
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .packed
-      case 2: self = .expanded
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .packed: return 1
-      case .expanded: return 2
-      }
     }
 
   }
 
-  enum Utf8Validation: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case verify // = 2
-    case none // = 3
+  enum Utf8Validation: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case verify = 2
+    case none = 3
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 2: self = .verify
-      case 3: self = .none
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .verify: return 2
-      case .none: return 3
-      }
     }
 
   }
 
-  enum MessageEncoding: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case lengthPrefixed // = 1
-    case delimited // = 2
+  enum MessageEncoding: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case lengthPrefixed = 1
+    case delimited = 2
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .lengthPrefixed
-      case 2: self = .delimited
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .lengthPrefixed: return 1
-      case .delimited: return 2
-      }
     }
 
   }
 
-  enum JsonFormat: Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case allow // = 1
-    case legacyBestEffort // = 2
+  enum JsonFormat: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case allow = 1
+    case legacyBestEffort = 2
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .allow
-      case 2: self = .legacyBestEffort
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .allow: return 1
-      case .legacyBestEffort: return 2
-      }
     }
 
   }
@@ -3002,37 +2652,19 @@ struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 
     /// Represents the identified object's effect on the element in the original
     /// .proto file.
-    enum Semantic: Enum, Swift.CaseIterable {
-      typealias RawValue = Int
+    enum Semantic: Int, Enum, Swift.CaseIterable {
 
       /// There is no effect or the effect is indescribable.
-      case none // = 0
+      case none = 0
 
       /// The element is set or otherwise mutated.
-      case set // = 1
+      case set = 1
 
       /// An alias to the element is returned.
-      case alias // = 2
+      case alias = 2
 
       init() {
         self = .none
-      }
-
-      init?(rawValue: Int) {
-        switch rawValue {
-        case 0: self = .none
-        case 1: self = .set
-        case 2: self = .alias
-        default: return nil
-        }
-      }
-
-      var rawValue: Int {
-        switch self {
-        case .none: return 0
-        case .set: return 1
-        case .alias: return 2
-        }
       }
 
     }

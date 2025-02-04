@@ -36,64 +36,28 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foreignFoo // = 4
-  case foreignBar // = 5
-  case foreignBaz // = 6
+enum ProtobufUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foreignFoo = 4
+  case foreignBar = 5
+  case foreignBaz = 6
 
   /// (1 << 32) to generate a 64b bitmask would be incorrect.
-  case foreignBax // = 32
+  case foreignBax = 32
 
   /// Large enough to escape the Boxed Integer cache.
-  case foreignLarge // = 123456
+  case foreignLarge = 123456
 
   init() {
     self = .foreignFoo
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 4: self = .foreignFoo
-    case 5: self = .foreignBar
-    case 6: self = .foreignBaz
-    case 32: self = .foreignBax
-    case 123456: self = .foreignLarge
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foreignFoo: return 4
-    case .foreignBar: return 5
-    case .foreignBaz: return 6
-    case .foreignBax: return 32
-    case .foreignLarge: return 123456
-    }
-  }
-
 }
 
-enum ProtobufUnittest_TestReservedEnumFields: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case unknown // = 0
+enum ProtobufUnittest_TestReservedEnumFields: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case unknown = 0
 
   init() {
     self = .unknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unknown
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .unknown: return 0
-    }
   }
 
 }
@@ -148,11 +112,10 @@ enum ProtobufUnittest_ForeignOpenEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// Test an enum that has multiple values with the same number.
-enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foo1 // = 1
-  case bar1 // = 2
-  case baz // = 3
+enum ProtobufUnittest_TestEnumWithDupValue: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foo1 = 1
+  case bar1 = 2
+  case baz = 3
   static let foo2 = foo1
   static let bar2 = bar1
 
@@ -160,386 +123,129 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, Swift.CaseIterab
     self = .foo1
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .foo1
-    case 2: self = .bar1
-    case 3: self = .baz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foo1: return 1
-    case .bar1: return 2
-    case .baz: return 3
-    }
-  }
-
 }
 
 /// Test an enum with large, unordered values.
-enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case sparseA // = 123
-  case sparseB // = 62374
-  case sparseC // = 12589234
-  case sparseD // = -15
-  case sparseE // = -53452
-  case sparseF // = 0
-  case sparseG // = 2
+enum ProtobufUnittest_TestSparseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case sparseA = 123
+  case sparseB = 62374
+  case sparseC = 12589234
+  case sparseD = -15
+  case sparseE = -53452
+  case sparseF = 0
+  case sparseG = 2
 
   init() {
     self = .sparseA
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case -53452: self = .sparseE
-    case -15: self = .sparseD
-    case 0: self = .sparseF
-    case 2: self = .sparseG
-    case 123: self = .sparseA
-    case 62374: self = .sparseB
-    case 12589234: self = .sparseC
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .sparseE: return -53452
-    case .sparseD: return -15
-    case .sparseF: return 0
-    case .sparseG: return 2
-    case .sparseA: return 123
-    case .sparseB: return 62374
-    case .sparseC: return 12589234
-    }
-  }
-
 }
 
-enum ProtobufUnittest_VeryLargeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case enumLabelDefault // = 0
-  case enumLabel1 // = 1
-  case enumLabel2 // = 2
-  case enumLabel3 // = 3
-  case enumLabel4 // = 4
-  case enumLabel5 // = 5
-  case enumLabel6 // = 6
-  case enumLabel7 // = 7
-  case enumLabel8 // = 8
-  case enumLabel9 // = 9
-  case enumLabel10 // = 10
-  case enumLabel11 // = 11
-  case enumLabel12 // = 12
-  case enumLabel13 // = 13
-  case enumLabel14 // = 14
-  case enumLabel15 // = 15
-  case enumLabel16 // = 16
-  case enumLabel17 // = 17
-  case enumLabel18 // = 18
-  case enumLabel19 // = 19
-  case enumLabel20 // = 20
-  case enumLabel21 // = 21
-  case enumLabel22 // = 22
-  case enumLabel23 // = 23
-  case enumLabel24 // = 24
-  case enumLabel25 // = 25
-  case enumLabel26 // = 26
-  case enumLabel27 // = 27
-  case enumLabel28 // = 28
-  case enumLabel29 // = 29
-  case enumLabel30 // = 30
-  case enumLabel31 // = 31
-  case enumLabel32 // = 32
-  case enumLabel33 // = 33
-  case enumLabel34 // = 34
-  case enumLabel35 // = 35
-  case enumLabel36 // = 36
-  case enumLabel37 // = 37
-  case enumLabel38 // = 38
-  case enumLabel39 // = 39
-  case enumLabel40 // = 40
-  case enumLabel41 // = 41
-  case enumLabel42 // = 42
-  case enumLabel43 // = 43
-  case enumLabel44 // = 44
-  case enumLabel45 // = 45
-  case enumLabel46 // = 46
-  case enumLabel47 // = 47
-  case enumLabel48 // = 48
-  case enumLabel49 // = 49
-  case enumLabel50 // = 50
-  case enumLabel51 // = 51
-  case enumLabel52 // = 52
-  case enumLabel53 // = 53
-  case enumLabel54 // = 54
-  case enumLabel55 // = 55
-  case enumLabel56 // = 56
-  case enumLabel57 // = 57
-  case enumLabel58 // = 58
-  case enumLabel59 // = 59
-  case enumLabel60 // = 60
-  case enumLabel61 // = 61
-  case enumLabel62 // = 62
-  case enumLabel63 // = 63
-  case enumLabel64 // = 64
-  case enumLabel65 // = 65
-  case enumLabel66 // = 66
-  case enumLabel67 // = 67
-  case enumLabel68 // = 68
-  case enumLabel69 // = 69
-  case enumLabel70 // = 70
-  case enumLabel71 // = 71
-  case enumLabel72 // = 72
-  case enumLabel73 // = 73
-  case enumLabel74 // = 74
-  case enumLabel75 // = 75
-  case enumLabel76 // = 76
-  case enumLabel77 // = 77
-  case enumLabel78 // = 78
-  case enumLabel79 // = 79
-  case enumLabel80 // = 80
-  case enumLabel81 // = 81
-  case enumLabel82 // = 82
-  case enumLabel83 // = 83
-  case enumLabel84 // = 84
-  case enumLabel85 // = 85
-  case enumLabel86 // = 86
-  case enumLabel87 // = 87
-  case enumLabel88 // = 88
-  case enumLabel89 // = 89
-  case enumLabel90 // = 90
-  case enumLabel91 // = 91
-  case enumLabel92 // = 92
-  case enumLabel93 // = 93
-  case enumLabel94 // = 94
-  case enumLabel95 // = 95
-  case enumLabel96 // = 96
-  case enumLabel97 // = 97
-  case enumLabel98 // = 98
-  case enumLabel99 // = 99
-  case enumLabel100 // = 100
+enum ProtobufUnittest_VeryLargeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case enumLabelDefault = 0
+  case enumLabel1 = 1
+  case enumLabel2 = 2
+  case enumLabel3 = 3
+  case enumLabel4 = 4
+  case enumLabel5 = 5
+  case enumLabel6 = 6
+  case enumLabel7 = 7
+  case enumLabel8 = 8
+  case enumLabel9 = 9
+  case enumLabel10 = 10
+  case enumLabel11 = 11
+  case enumLabel12 = 12
+  case enumLabel13 = 13
+  case enumLabel14 = 14
+  case enumLabel15 = 15
+  case enumLabel16 = 16
+  case enumLabel17 = 17
+  case enumLabel18 = 18
+  case enumLabel19 = 19
+  case enumLabel20 = 20
+  case enumLabel21 = 21
+  case enumLabel22 = 22
+  case enumLabel23 = 23
+  case enumLabel24 = 24
+  case enumLabel25 = 25
+  case enumLabel26 = 26
+  case enumLabel27 = 27
+  case enumLabel28 = 28
+  case enumLabel29 = 29
+  case enumLabel30 = 30
+  case enumLabel31 = 31
+  case enumLabel32 = 32
+  case enumLabel33 = 33
+  case enumLabel34 = 34
+  case enumLabel35 = 35
+  case enumLabel36 = 36
+  case enumLabel37 = 37
+  case enumLabel38 = 38
+  case enumLabel39 = 39
+  case enumLabel40 = 40
+  case enumLabel41 = 41
+  case enumLabel42 = 42
+  case enumLabel43 = 43
+  case enumLabel44 = 44
+  case enumLabel45 = 45
+  case enumLabel46 = 46
+  case enumLabel47 = 47
+  case enumLabel48 = 48
+  case enumLabel49 = 49
+  case enumLabel50 = 50
+  case enumLabel51 = 51
+  case enumLabel52 = 52
+  case enumLabel53 = 53
+  case enumLabel54 = 54
+  case enumLabel55 = 55
+  case enumLabel56 = 56
+  case enumLabel57 = 57
+  case enumLabel58 = 58
+  case enumLabel59 = 59
+  case enumLabel60 = 60
+  case enumLabel61 = 61
+  case enumLabel62 = 62
+  case enumLabel63 = 63
+  case enumLabel64 = 64
+  case enumLabel65 = 65
+  case enumLabel66 = 66
+  case enumLabel67 = 67
+  case enumLabel68 = 68
+  case enumLabel69 = 69
+  case enumLabel70 = 70
+  case enumLabel71 = 71
+  case enumLabel72 = 72
+  case enumLabel73 = 73
+  case enumLabel74 = 74
+  case enumLabel75 = 75
+  case enumLabel76 = 76
+  case enumLabel77 = 77
+  case enumLabel78 = 78
+  case enumLabel79 = 79
+  case enumLabel80 = 80
+  case enumLabel81 = 81
+  case enumLabel82 = 82
+  case enumLabel83 = 83
+  case enumLabel84 = 84
+  case enumLabel85 = 85
+  case enumLabel86 = 86
+  case enumLabel87 = 87
+  case enumLabel88 = 88
+  case enumLabel89 = 89
+  case enumLabel90 = 90
+  case enumLabel91 = 91
+  case enumLabel92 = 92
+  case enumLabel93 = 93
+  case enumLabel94 = 94
+  case enumLabel95 = 95
+  case enumLabel96 = 96
+  case enumLabel97 = 97
+  case enumLabel98 = 98
+  case enumLabel99 = 99
+  case enumLabel100 = 100
 
   init() {
     self = .enumLabelDefault
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .enumLabelDefault
-    case 1: self = .enumLabel1
-    case 2: self = .enumLabel2
-    case 3: self = .enumLabel3
-    case 4: self = .enumLabel4
-    case 5: self = .enumLabel5
-    case 6: self = .enumLabel6
-    case 7: self = .enumLabel7
-    case 8: self = .enumLabel8
-    case 9: self = .enumLabel9
-    case 10: self = .enumLabel10
-    case 11: self = .enumLabel11
-    case 12: self = .enumLabel12
-    case 13: self = .enumLabel13
-    case 14: self = .enumLabel14
-    case 15: self = .enumLabel15
-    case 16: self = .enumLabel16
-    case 17: self = .enumLabel17
-    case 18: self = .enumLabel18
-    case 19: self = .enumLabel19
-    case 20: self = .enumLabel20
-    case 21: self = .enumLabel21
-    case 22: self = .enumLabel22
-    case 23: self = .enumLabel23
-    case 24: self = .enumLabel24
-    case 25: self = .enumLabel25
-    case 26: self = .enumLabel26
-    case 27: self = .enumLabel27
-    case 28: self = .enumLabel28
-    case 29: self = .enumLabel29
-    case 30: self = .enumLabel30
-    case 31: self = .enumLabel31
-    case 32: self = .enumLabel32
-    case 33: self = .enumLabel33
-    case 34: self = .enumLabel34
-    case 35: self = .enumLabel35
-    case 36: self = .enumLabel36
-    case 37: self = .enumLabel37
-    case 38: self = .enumLabel38
-    case 39: self = .enumLabel39
-    case 40: self = .enumLabel40
-    case 41: self = .enumLabel41
-    case 42: self = .enumLabel42
-    case 43: self = .enumLabel43
-    case 44: self = .enumLabel44
-    case 45: self = .enumLabel45
-    case 46: self = .enumLabel46
-    case 47: self = .enumLabel47
-    case 48: self = .enumLabel48
-    case 49: self = .enumLabel49
-    case 50: self = .enumLabel50
-    case 51: self = .enumLabel51
-    case 52: self = .enumLabel52
-    case 53: self = .enumLabel53
-    case 54: self = .enumLabel54
-    case 55: self = .enumLabel55
-    case 56: self = .enumLabel56
-    case 57: self = .enumLabel57
-    case 58: self = .enumLabel58
-    case 59: self = .enumLabel59
-    case 60: self = .enumLabel60
-    case 61: self = .enumLabel61
-    case 62: self = .enumLabel62
-    case 63: self = .enumLabel63
-    case 64: self = .enumLabel64
-    case 65: self = .enumLabel65
-    case 66: self = .enumLabel66
-    case 67: self = .enumLabel67
-    case 68: self = .enumLabel68
-    case 69: self = .enumLabel69
-    case 70: self = .enumLabel70
-    case 71: self = .enumLabel71
-    case 72: self = .enumLabel72
-    case 73: self = .enumLabel73
-    case 74: self = .enumLabel74
-    case 75: self = .enumLabel75
-    case 76: self = .enumLabel76
-    case 77: self = .enumLabel77
-    case 78: self = .enumLabel78
-    case 79: self = .enumLabel79
-    case 80: self = .enumLabel80
-    case 81: self = .enumLabel81
-    case 82: self = .enumLabel82
-    case 83: self = .enumLabel83
-    case 84: self = .enumLabel84
-    case 85: self = .enumLabel85
-    case 86: self = .enumLabel86
-    case 87: self = .enumLabel87
-    case 88: self = .enumLabel88
-    case 89: self = .enumLabel89
-    case 90: self = .enumLabel90
-    case 91: self = .enumLabel91
-    case 92: self = .enumLabel92
-    case 93: self = .enumLabel93
-    case 94: self = .enumLabel94
-    case 95: self = .enumLabel95
-    case 96: self = .enumLabel96
-    case 97: self = .enumLabel97
-    case 98: self = .enumLabel98
-    case 99: self = .enumLabel99
-    case 100: self = .enumLabel100
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .enumLabelDefault: return 0
-    case .enumLabel1: return 1
-    case .enumLabel2: return 2
-    case .enumLabel3: return 3
-    case .enumLabel4: return 4
-    case .enumLabel5: return 5
-    case .enumLabel6: return 6
-    case .enumLabel7: return 7
-    case .enumLabel8: return 8
-    case .enumLabel9: return 9
-    case .enumLabel10: return 10
-    case .enumLabel11: return 11
-    case .enumLabel12: return 12
-    case .enumLabel13: return 13
-    case .enumLabel14: return 14
-    case .enumLabel15: return 15
-    case .enumLabel16: return 16
-    case .enumLabel17: return 17
-    case .enumLabel18: return 18
-    case .enumLabel19: return 19
-    case .enumLabel20: return 20
-    case .enumLabel21: return 21
-    case .enumLabel22: return 22
-    case .enumLabel23: return 23
-    case .enumLabel24: return 24
-    case .enumLabel25: return 25
-    case .enumLabel26: return 26
-    case .enumLabel27: return 27
-    case .enumLabel28: return 28
-    case .enumLabel29: return 29
-    case .enumLabel30: return 30
-    case .enumLabel31: return 31
-    case .enumLabel32: return 32
-    case .enumLabel33: return 33
-    case .enumLabel34: return 34
-    case .enumLabel35: return 35
-    case .enumLabel36: return 36
-    case .enumLabel37: return 37
-    case .enumLabel38: return 38
-    case .enumLabel39: return 39
-    case .enumLabel40: return 40
-    case .enumLabel41: return 41
-    case .enumLabel42: return 42
-    case .enumLabel43: return 43
-    case .enumLabel44: return 44
-    case .enumLabel45: return 45
-    case .enumLabel46: return 46
-    case .enumLabel47: return 47
-    case .enumLabel48: return 48
-    case .enumLabel49: return 49
-    case .enumLabel50: return 50
-    case .enumLabel51: return 51
-    case .enumLabel52: return 52
-    case .enumLabel53: return 53
-    case .enumLabel54: return 54
-    case .enumLabel55: return 55
-    case .enumLabel56: return 56
-    case .enumLabel57: return 57
-    case .enumLabel58: return 58
-    case .enumLabel59: return 59
-    case .enumLabel60: return 60
-    case .enumLabel61: return 61
-    case .enumLabel62: return 62
-    case .enumLabel63: return 63
-    case .enumLabel64: return 64
-    case .enumLabel65: return 65
-    case .enumLabel66: return 66
-    case .enumLabel67: return 67
-    case .enumLabel68: return 68
-    case .enumLabel69: return 69
-    case .enumLabel70: return 70
-    case .enumLabel71: return 71
-    case .enumLabel72: return 72
-    case .enumLabel73: return 73
-    case .enumLabel74: return 74
-    case .enumLabel75: return 75
-    case .enumLabel76: return 76
-    case .enumLabel77: return 77
-    case .enumLabel78: return 78
-    case .enumLabel79: return 79
-    case .enumLabel80: return 80
-    case .enumLabel81: return 81
-    case .enumLabel82: return 82
-    case .enumLabel83: return 83
-    case .enumLabel84: return 84
-    case .enumLabel85: return 85
-    case .enumLabel86: return 86
-    case .enumLabel87: return 87
-    case .enumLabel88: return 88
-    case .enumLabel89: return 89
-    case .enumLabel90: return 90
-    case .enumLabel91: return 91
-    case .enumLabel92: return 92
-    case .enumLabel93: return 93
-    case .enumLabel94: return 94
-    case .enumLabel95: return 95
-    case .enumLabel96: return 96
-    case .enumLabel97: return 97
-    case .enumLabel98: return 98
-    case .enumLabel99: return 99
-    case .enumLabel100: return 100
-    }
   }
 
 }
@@ -1188,36 +894,16 @@ struct ProtobufUnittest_TestAllTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 1
+    case bar = 2
+    case baz = 3
 
     /// Intentionally negative.
-    case neg // = -1
+    case neg = -1
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .neg
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .neg: return -1
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      }
     }
 
   }
@@ -1945,36 +1631,16 @@ struct ProtobufUnittest_TestRequiredEnumNoMask: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unspecified // = 0
-    case foo // = 2
-    case bar // = 100
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unspecified = 0
+    case foo = 2
+    case bar = 100
 
     /// Intentionally negative.
-    case baz // = -1
+    case baz = -1
 
     init() {
       self = .unspecified
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .baz
-      case 0: self = .unspecified
-      case 2: self = .foo
-      case 100: self = .bar
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .baz: return -1
-      case .unspecified: return 0
-      case .foo: return 2
-      case .bar: return 100
-      }
     }
 
   }
@@ -2030,34 +1696,14 @@ struct ProtobufUnittest_TestRequiredEnumMulti: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unspecified // = 0
-    case foo // = 1
-    case bar // = 2
-    case baz // = 100
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unspecified = 0
+    case foo = 1
+    case bar = 2
+    case baz = 100
 
     init() {
       self = .unspecified
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unspecified
-      case 1: self = .foo
-      case 2: self = .bar
-      case 100: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unspecified: return 0
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 100
-      }
     }
 
   }
@@ -2143,34 +1789,14 @@ struct ProtobufUnittest_TestRequiredNoMaskMulti: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unspecified // = 0
-    case foo // = 1
-    case bar // = 2
-    case baz // = 100
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unspecified = 0
+    case foo = 1
+    case bar = 2
+    case baz = 100
 
     init() {
       self = .unspecified
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unspecified
-      case 1: self = .foo
-      case 2: self = .bar
-      case 100: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unspecified: return 0
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 100
-      }
     }
 
   }
@@ -4670,31 +4296,13 @@ struct ProtobufUnittest_TestOneof2: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 1
+    case bar = 2
+    case baz = 3
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      }
     }
 
   }
@@ -5022,31 +4630,13 @@ struct ProtobufUnittest_TestDynamicExtensions: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum DynamicEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case dynamicFoo // = 2200
-    case dynamicBar // = 2201
-    case dynamicBaz // = 2202
+  enum DynamicEnumType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case dynamicFoo = 2200
+    case dynamicBar = 2201
+    case dynamicBaz = 2202
 
     init() {
       self = .dynamicFoo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 2200: self = .dynamicFoo
-      case 2201: self = .dynamicBar
-      case 2202: self = .dynamicBaz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .dynamicFoo: return 2200
-      case .dynamicBar: return 2201
-      case .dynamicBaz: return 2202
-      }
     }
 
   }
@@ -7165,223 +6755,81 @@ struct ProtobufUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unche
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum SeqSmall0: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case `default` // = 0
-    case seqSmall01 // = 1
-    case seqSmall02 // = 2
+  enum SeqSmall0: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case `default` = 0
+    case seqSmall01 = 1
+    case seqSmall02 = 2
 
     init() {
       self = .default
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .default
-      case 1: self = .seqSmall01
-      case 2: self = .seqSmall02
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .default: return 0
-      case .seqSmall01: return 1
-      case .seqSmall02: return 2
-      }
     }
 
   }
 
-  enum SeqSmall1: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case `default` // = 1
-    case seqSmall12 // = 2
-    case seqSmall13 // = 3
+  enum SeqSmall1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case `default` = 1
+    case seqSmall12 = 2
+    case seqSmall13 = 3
 
     init() {
       self = .default
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .default
-      case 2: self = .seqSmall12
-      case 3: self = .seqSmall13
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .default: return 1
-      case .seqSmall12: return 2
-      case .seqSmall13: return 3
-      }
     }
 
   }
 
-  enum SeqLarge: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case `default` // = -1
-    case seqLarge0 // = 0
-    case seqLarge1 // = 1
-    case seqLarge2 // = 2
-    case seqLarge3 // = 3
-    case seqLarge4 // = 4
-    case seqLarge5 // = 5
-    case seqLarge6 // = 6
-    case seqLarge7 // = 7
-    case seqLarge8 // = 8
-    case seqLarge9 // = 9
-    case seqLarge10 // = 10
-    case seqLarge11 // = 11
-    case seqLarge12 // = 12
-    case seqLarge13 // = 13
-    case seqLarge14 // = 14
-    case seqLarge15 // = 15
-    case seqLarge16 // = 16
-    case seqLarge17 // = 17
-    case seqLarge18 // = 18
-    case seqLarge19 // = 19
-    case seqLarge20 // = 20
-    case seqLarge21 // = 21
-    case seqLarge22 // = 22
-    case seqLarge23 // = 23
-    case seqLarge24 // = 24
-    case seqLarge25 // = 25
-    case seqLarge26 // = 26
-    case seqLarge27 // = 27
-    case seqLarge28 // = 28
-    case seqLarge29 // = 29
-    case seqLarge30 // = 30
-    case seqLarge31 // = 31
-    case seqLarge32 // = 32
-    case seqLarge33 // = 33
+  enum SeqLarge: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case `default` = -1
+    case seqLarge0 = 0
+    case seqLarge1 = 1
+    case seqLarge2 = 2
+    case seqLarge3 = 3
+    case seqLarge4 = 4
+    case seqLarge5 = 5
+    case seqLarge6 = 6
+    case seqLarge7 = 7
+    case seqLarge8 = 8
+    case seqLarge9 = 9
+    case seqLarge10 = 10
+    case seqLarge11 = 11
+    case seqLarge12 = 12
+    case seqLarge13 = 13
+    case seqLarge14 = 14
+    case seqLarge15 = 15
+    case seqLarge16 = 16
+    case seqLarge17 = 17
+    case seqLarge18 = 18
+    case seqLarge19 = 19
+    case seqLarge20 = 20
+    case seqLarge21 = 21
+    case seqLarge22 = 22
+    case seqLarge23 = 23
+    case seqLarge24 = 24
+    case seqLarge25 = 25
+    case seqLarge26 = 26
+    case seqLarge27 = 27
+    case seqLarge28 = 28
+    case seqLarge29 = 29
+    case seqLarge30 = 30
+    case seqLarge31 = 31
+    case seqLarge32 = 32
+    case seqLarge33 = 33
 
     init() {
       self = .default
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .default
-      case 0: self = .seqLarge0
-      case 1: self = .seqLarge1
-      case 2: self = .seqLarge2
-      case 3: self = .seqLarge3
-      case 4: self = .seqLarge4
-      case 5: self = .seqLarge5
-      case 6: self = .seqLarge6
-      case 7: self = .seqLarge7
-      case 8: self = .seqLarge8
-      case 9: self = .seqLarge9
-      case 10: self = .seqLarge10
-      case 11: self = .seqLarge11
-      case 12: self = .seqLarge12
-      case 13: self = .seqLarge13
-      case 14: self = .seqLarge14
-      case 15: self = .seqLarge15
-      case 16: self = .seqLarge16
-      case 17: self = .seqLarge17
-      case 18: self = .seqLarge18
-      case 19: self = .seqLarge19
-      case 20: self = .seqLarge20
-      case 21: self = .seqLarge21
-      case 22: self = .seqLarge22
-      case 23: self = .seqLarge23
-      case 24: self = .seqLarge24
-      case 25: self = .seqLarge25
-      case 26: self = .seqLarge26
-      case 27: self = .seqLarge27
-      case 28: self = .seqLarge28
-      case 29: self = .seqLarge29
-      case 30: self = .seqLarge30
-      case 31: self = .seqLarge31
-      case 32: self = .seqLarge32
-      case 33: self = .seqLarge33
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .default: return -1
-      case .seqLarge0: return 0
-      case .seqLarge1: return 1
-      case .seqLarge2: return 2
-      case .seqLarge3: return 3
-      case .seqLarge4: return 4
-      case .seqLarge5: return 5
-      case .seqLarge6: return 6
-      case .seqLarge7: return 7
-      case .seqLarge8: return 8
-      case .seqLarge9: return 9
-      case .seqLarge10: return 10
-      case .seqLarge11: return 11
-      case .seqLarge12: return 12
-      case .seqLarge13: return 13
-      case .seqLarge14: return 14
-      case .seqLarge15: return 15
-      case .seqLarge16: return 16
-      case .seqLarge17: return 17
-      case .seqLarge18: return 18
-      case .seqLarge19: return 19
-      case .seqLarge20: return 20
-      case .seqLarge21: return 21
-      case .seqLarge22: return 22
-      case .seqLarge23: return 23
-      case .seqLarge24: return 24
-      case .seqLarge25: return 25
-      case .seqLarge26: return 26
-      case .seqLarge27: return 27
-      case .seqLarge28: return 28
-      case .seqLarge29: return 29
-      case .seqLarge30: return 30
-      case .seqLarge31: return 31
-      case .seqLarge32: return 32
-      case .seqLarge33: return 33
-      }
     }
 
   }
 
-  enum Arbitrary: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case `default` // = -123123
-    case arbitrary1 // = -123
-    case arbitrary2 // = 213
-    case arbitrary3 // = 213213
-    case min // = -2147483648
-    case max // = 2147483647
+  enum Arbitrary: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case `default` = -123123
+    case arbitrary1 = -123
+    case arbitrary2 = 213
+    case arbitrary3 = 213213
+    case min = -2147483648
+    case max = 2147483647
 
     init() {
       self = .default
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -2147483648: self = .min
-      case -123123: self = .default
-      case -123: self = .arbitrary1
-      case 213: self = .arbitrary2
-      case 213213: self = .arbitrary3
-      case 2147483647: self = .max
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .min: return -2147483648
-      case .default: return -123123
-      case .arbitrary1: return -123
-      case .arbitrary2: return 213
-      case .arbitrary3: return 213213
-      case .max: return 2147483647
-      }
     }
 
   }
@@ -7887,34 +7335,14 @@ struct ProtobufUnittest_TestPackedEnumSmallRange: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unspecified // = 0
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unspecified = 0
+    case foo = 1
+    case bar = 2
+    case baz = 3
 
     init() {
       self = .unspecified
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unspecified
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unspecified: return 0
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      }
     }
 
   }
@@ -7929,207 +7357,75 @@ struct ProtobufUnittest_EnumsForBenchmark: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Flat: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a0 // = 0
-    case a1 // = 1
-    case a2 // = 2
-    case a3 // = 3
-    case a4 // = 4
-    case a5 // = 5
-    case a6 // = 6
-    case a7 // = 7
-    case a8 // = 8
-    case a9 // = 9
-    case a10 // = 10
-    case a11 // = 11
-    case a12 // = 12
-    case a13 // = 13
-    case a14 // = 14
-    case a15 // = 15
+  enum Flat: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a0 = 0
+    case a1 = 1
+    case a2 = 2
+    case a3 = 3
+    case a4 = 4
+    case a5 = 5
+    case a6 = 6
+    case a7 = 7
+    case a8 = 8
+    case a9 = 9
+    case a10 = 10
+    case a11 = 11
+    case a12 = 12
+    case a13 = 13
+    case a14 = 14
+    case a15 = 15
 
     init() {
       self = .a0
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a0
-      case 1: self = .a1
-      case 2: self = .a2
-      case 3: self = .a3
-      case 4: self = .a4
-      case 5: self = .a5
-      case 6: self = .a6
-      case 7: self = .a7
-      case 8: self = .a8
-      case 9: self = .a9
-      case 10: self = .a10
-      case 11: self = .a11
-      case 12: self = .a12
-      case 13: self = .a13
-      case 14: self = .a14
-      case 15: self = .a15
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a0: return 0
-      case .a1: return 1
-      case .a2: return 2
-      case .a3: return 3
-      case .a4: return 4
-      case .a5: return 5
-      case .a6: return 6
-      case .a7: return 7
-      case .a8: return 8
-      case .a9: return 9
-      case .a10: return 10
-      case .a11: return 11
-      case .a12: return 12
-      case .a13: return 13
-      case .a14: return 14
-      case .a15: return 15
-      }
-    }
-
   }
 
   /// Has a few holes, bitmap can be used.
-  enum AlmostFlat: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case b0 // = 0
-    case b1 // = 1
-    case b2 // = 2
-    case b3 // = 3
-    case b5 // = 5
-    case b6 // = 6
-    case b7 // = 7
-    case b8 // = 8
-    case b9 // = 9
-    case b11 // = 11
-    case b12 // = 12
-    case b13 // = 13
-    case b14 // = 14
-    case b15 // = 15
-    case b17 // = 17
-    case b19 // = 19
+  enum AlmostFlat: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case b0 = 0
+    case b1 = 1
+    case b2 = 2
+    case b3 = 3
+    case b5 = 5
+    case b6 = 6
+    case b7 = 7
+    case b8 = 8
+    case b9 = 9
+    case b11 = 11
+    case b12 = 12
+    case b13 = 13
+    case b14 = 14
+    case b15 = 15
+    case b17 = 17
+    case b19 = 19
 
     init() {
       self = .b0
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .b0
-      case 1: self = .b1
-      case 2: self = .b2
-      case 3: self = .b3
-      case 5: self = .b5
-      case 6: self = .b6
-      case 7: self = .b7
-      case 8: self = .b8
-      case 9: self = .b9
-      case 11: self = .b11
-      case 12: self = .b12
-      case 13: self = .b13
-      case 14: self = .b14
-      case 15: self = .b15
-      case 17: self = .b17
-      case 19: self = .b19
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .b0: return 0
-      case .b1: return 1
-      case .b2: return 2
-      case .b3: return 3
-      case .b5: return 5
-      case .b6: return 6
-      case .b7: return 7
-      case .b8: return 8
-      case .b9: return 9
-      case .b11: return 11
-      case .b12: return 12
-      case .b13: return 13
-      case .b14: return 14
-      case .b15: return 15
-      case .b17: return 17
-      case .b19: return 19
-      }
-    }
-
   }
 
-  enum Sparse: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case c536 // = 536
-    case c8387 // = 8387
-    case c9673 // = 9673
-    case c10285 // = 10285
-    case c13318 // = 13318
-    case c15963 // = 15963
-    case c16439 // = 16439
-    case c18197 // = 18197
-    case c19430 // = 19430
-    case c20361 // = 20361
-    case c20706 // = 20706
-    case c21050 // = 21050
-    case c21906 // = 21906
-    case c27265 // = 27265
-    case c30109 // = 30109
-    case c31670 // = 31670
+  enum Sparse: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case c536 = 536
+    case c8387 = 8387
+    case c9673 = 9673
+    case c10285 = 10285
+    case c13318 = 13318
+    case c15963 = 15963
+    case c16439 = 16439
+    case c18197 = 18197
+    case c19430 = 19430
+    case c20361 = 20361
+    case c20706 = 20706
+    case c21050 = 21050
+    case c21906 = 21906
+    case c27265 = 27265
+    case c30109 = 30109
+    case c31670 = 31670
 
     init() {
       self = .c536
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 536: self = .c536
-      case 8387: self = .c8387
-      case 9673: self = .c9673
-      case 10285: self = .c10285
-      case 13318: self = .c13318
-      case 15963: self = .c15963
-      case 16439: self = .c16439
-      case 18197: self = .c18197
-      case 19430: self = .c19430
-      case 20361: self = .c20361
-      case 20706: self = .c20706
-      case 21050: self = .c21050
-      case 21906: self = .c21906
-      case 27265: self = .c27265
-      case 30109: self = .c30109
-      case 31670: self = .c31670
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .c536: return 536
-      case .c8387: return 8387
-      case .c9673: return 9673
-      case .c10285: return 10285
-      case .c13318: return 13318
-      case .c15963: return 15963
-      case .c16439: return 16439
-      case .c18197: return 18197
-      case .c19430: return 19430
-      case .c20361: return 20361
-      case .c20706: return 20706
-      case .c21050: return 21050
-      case .c21906: return 21906
-      case .c27265: return 27265
-      case .c30109: return 30109
-      case .c31670: return 31670
-      }
     }
 
   }

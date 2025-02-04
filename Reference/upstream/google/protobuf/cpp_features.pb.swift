@@ -65,34 +65,14 @@ struct Pb_CppFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum StringType: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case view // = 1
-    case cord // = 2
-    case string // = 3
+  enum StringType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unknown = 0
+    case view = 1
+    case cord = 2
+    case string = 3
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .view
-      case 2: self = .cord
-      case 3: self = .string
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .view: return 1
-      case .cord: return 2
-      case .string: return 3
-      }
     }
 
   }

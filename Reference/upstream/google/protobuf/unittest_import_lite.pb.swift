@@ -31,31 +31,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case importLiteFoo // = 7
-  case importLiteBar // = 8
-  case importLiteBaz // = 9
+enum ProtobufUnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case importLiteFoo = 7
+  case importLiteBar = 8
+  case importLiteBaz = 9
 
   init() {
     self = .importLiteFoo
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 7: self = .importLiteFoo
-    case 8: self = .importLiteBar
-    case 9: self = .importLiteBaz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .importLiteFoo: return 7
-    case .importLiteBar: return 8
-    case .importLiteBaz: return 9
-    }
   }
 
 }

@@ -36,31 +36,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum SDTTopLevelEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case valueZero // = 0
-  case valueOne // = 1
-  case valueTwo // = 2
+enum SDTTopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case valueZero = 0
+  case valueOne = 1
+  case valueTwo = 2
 
   init() {
     self = .valueZero
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .valueZero
-    case 1: self = .valueOne
-    case 2: self = .valueTwo
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .valueZero: return 0
-    case .valueOne: return 1
-    case .valueTwo: return 2
-    }
   }
 
 }
@@ -135,31 +117,13 @@ struct SDTTopLevelMessage: @unchecked Sendable {
 
   }
 
-  enum SubEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case subValue0 // = 0
-    case subValue1 // = 1
-    case subValue2 // = 2
+  enum SubEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case subValue0 = 0
+    case subValue1 = 1
+    case subValue2 = 2
 
     init() {
       self = .subValue0
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .subValue0
-      case 1: self = .subValue1
-      case 2: self = .subValue2
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .subValue0: return 0
-      case .subValue1: return 1
-      case .subValue2: return 2
-      }
     }
 
   }

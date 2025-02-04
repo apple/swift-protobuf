@@ -33,61 +33,25 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case importFoo // = 7
-  case importBar // = 8
-  case importBaz // = 9
+enum ProtobufUnittestImport_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case importFoo = 7
+  case importBar = 8
+  case importBaz = 9
 
   init() {
     self = .importFoo
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 7: self = .importFoo
-    case 8: self = .importBar
-    case 9: self = .importBaz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .importFoo: return 7
-    case .importBar: return 8
-    case .importBaz: return 9
-    }
-  }
-
 }
 
 /// To use an enum in a map, it must has the first value as 0.
-enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case unknown // = 0
-  case foo // = 1
-  case bar // = 2
+enum ProtobufUnittestImport_ImportEnumForMap: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case unknown = 0
+  case foo = 1
+  case bar = 2
 
   init() {
     self = .unknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unknown
-    case 1: self = .foo
-    case 2: self = .bar
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .unknown: return 0
-    case .foo: return 1
-    case .bar: return 2
-    }
   }
 
 }
