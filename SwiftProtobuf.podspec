@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '4.0'
   s.visionos.deployment_target = "1.0"
 
-  s.cocoapods_version = '>= 1.7.0'
+  s.cocoapods_version = '>= 1.13.0'
 
   s.source_files = 'Sources/SwiftProtobuf/**/*.swift'
   s.resource_bundle = {'SwiftProtobuf' => ['Sources/SwiftProtobuf/PrivacyInfo.xcprivacy']}
