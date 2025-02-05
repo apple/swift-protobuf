@@ -65,106 +65,42 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case firstValue // = 1
-    case secondValue // = 2
+  enum EnumTest1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case firstValue = 1
+    case secondValue = 2
 
     init() {
       self = .firstValue
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .firstValue
-      case 2: self = .secondValue
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .firstValue: return 1
-      case .secondValue: return 2
-      }
-    }
-
   }
 
-  enum EnumTest2: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case firstValue // = 1
-    case secondValue // = 2
+  enum EnumTest2: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case firstValue = 1
+    case secondValue = 2
 
     init() {
       self = .firstValue
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .firstValue
-      case 2: self = .secondValue
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .firstValue: return 1
-      case .secondValue: return 2
-      }
-    }
-
   }
 
-  enum EnumTestNoStem: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case enumTestNoStem1 // = 1
-    case enumTestNoStem2 // = 2
+  enum EnumTestNoStem: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case enumTestNoStem1 = 1
+    case enumTestNoStem2 = 2
 
     init() {
       self = .enumTestNoStem1
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .enumTestNoStem1
-      case 2: self = .enumTestNoStem2
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .enumTestNoStem1: return 1
-      case .enumTestNoStem2: return 2
-      }
-    }
-
   }
 
-  enum EnumTestReservedWord: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case `var` // = 1
-    case notReserved // = 2
+  enum EnumTestReservedWord: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case `var` = 1
+    case notReserved = 2
 
     init() {
       self = .var
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .var
-      case 2: self = .notReserved
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .var: return 1
-      case .notReserved: return 2
-      }
     }
 
   }
@@ -181,35 +117,17 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo1 // = 1
+  enum EnumWithAlias: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo1 = 1
     static let foo2 = foo1
 
     /// out of value order to test allCases
-    case baz1 // = 3
-    case bar1 // = 2
+    case baz1 = 3
+    case bar1 = 2
     static let bar2 = bar1
 
     init() {
       self = .foo1
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .foo1
-      case 2: self = .bar1
-      case 3: self = .baz1
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .foo1: return 1
-      case .bar1: return 2
-      case .baz1: return 3
-      }
     }
 
   }

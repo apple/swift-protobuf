@@ -37,37 +37,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// An enum value marked as deprecated.
-enum SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case one // = 1
+enum SwiftProtoTesting_Deprecated_MyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case one = 1
 
   /// Enum comment
   ///
   /// NOTE: This enum value was marked as deprecated in the .proto file
-  case two // = 2
+  case two = 2
 
   /// NOTE: This enum value was marked as deprecated in the .proto file
-  case three // = 3
+  case three = 3
 
   init() {
     self = .one
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .one
-    case 2: self = .two
-    case 3: self = .three
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .one: return 1
-    case .two: return 2
-    case .three: return 3
-    }
   }
 
 }
@@ -75,31 +57,13 @@ enum SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable
 /// Whole enum marked as deprecated.
 ///
 /// NOTE: This enum was marked as deprecated in the .proto file.
-enum SwiftProtoTesting_Deprecated_MyEnum2: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case one // = 1
-  case two // = 2
-  case three // = 3
+enum SwiftProtoTesting_Deprecated_MyEnum2: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case one = 1
+  case two = 2
+  case three = 3
 
   init() {
     self = .one
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .one
-    case 2: self = .two
-    case 3: self = .three
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .one: return 1
-    case .two: return 2
-    case .three: return 3
-    }
   }
 
 }

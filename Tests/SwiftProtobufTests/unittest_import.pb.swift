@@ -56,31 +56,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case importFoo // = 7
-  case importBar // = 8
-  case importBaz // = 9
+enum SwiftProtoTesting_Import_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case importFoo = 7
+  case importBar = 8
+  case importBaz = 9
 
   init() {
     self = .importFoo
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 7: self = .importFoo
-    case 8: self = .importBar
-    case 9: self = .importBaz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .importFoo: return 7
-    case .importBar: return 8
-    case .importBaz: return 9
-    }
   }
 
 }

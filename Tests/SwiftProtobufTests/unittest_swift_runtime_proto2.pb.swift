@@ -576,34 +576,14 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
 
   }
 
-  enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 0
-    case bar // = 1
-    case baz // = 2
-    case extra2 // = 20
+  enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 0
+    case bar = 1
+    case baz = 2
+    case extra2 = 20
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .foo
-      case 1: self = .bar
-      case 2: self = .baz
-      case 20: self = .extra2
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .foo: return 0
-      case .bar: return 1
-      case .baz: return 2
-      case .extra2: return 20
-      }
     }
 
   }

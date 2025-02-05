@@ -38,655 +38,226 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case a // = 0
-  case string // = 1
-  case int // = 2
-  case double // = 3
-  case float // = 4
-  case uint // = 5
-  case hashValue_ // = 6
-  case description_ // = 7
-  case debugDescription_ // = 8
-  case swift // = 9
-  case unrecognized // = 10
-  case `class` // = 11
-  case `deinit` // = 12
-  case `enum` // = 13
-  case `extension` // = 14
-  case `func` // = 15
-  case `import` // = 16
-  case init_ // = 17
-  case `inout` // = 18
-  case `internal` // = 19
-  case `let` // = 20
-  case `operator` // = 21
-  case `private` // = 22
-  case `protocol` // = 23
-  case `public` // = 24
-  case `static` // = 25
-  case `struct` // = 26
-  case `subscript` // = 27
-  case `typealias` // = 28
-  case `var` // = 29
-  case `break` // = 30
-  case `case` // = 31
-  case `continue` // = 32
-  case `default` // = 33
-  case `defer` // = 34
-  case `do` // = 35
-  case `else` // = 36
-  case `fallthrough` // = 37
-  case `for` // = 38
-  case `guard` // = 39
-  case `if` // = 40
-  case `in` // = 41
-  case `repeat` // = 42
-  case `return` // = 43
-  case `switch` // = 44
-  case `where` // = 45
-  case `while` // = 46
-  case `as` // = 47
-  case `catch` // = 48
-  case dynamicType_ // = 49
-  case `false` // = 50
-  case `is` // = 51
-  case `nil` // = 52
-  case `rethrows` // = 53
-  case `super` // = 54
-  case self_ // = 55
-  case `throw` // = 57
-  case `throws` // = 58
-  case `true` // = 59
-  case `try` // = 60
-  case _Column__ // = 61
-  case _File__ // = 62
-  case _Function__ // = 63
-  case _Line__ // = 64
-  case ___ // = 65
-  case `associativity` // = 66
-  case convenience // = 67
-  case dynamic // = 68
-  case didSet // = 69
-  case final // = 70
-  case get // = 71
-  case infix // = 72
-  case indirect // = 73
-  case lazy // = 74
-  case left // = 75
-  case mutating // = 76
-  case none // = 77
-  case nonmutating // = 78
-  case `optional` // = 79
-  case override // = 80
-  case postfix // = 81
-  case precedence // = 82
-  case prefix // = 83
-  case `required` // = 85
-  case right // = 86
-  case set // = 87
-  case type // = 88
-  case unowned // = 89
-  case weak // = 90
-  case willSet // = 91
+enum SwiftProtoTesting_Names_EnumFieldNames: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case a = 0
+  case string = 1
+  case int = 2
+  case double = 3
+  case float = 4
+  case uint = 5
+  case hashValue_ = 6
+  case description_ = 7
+  case debugDescription_ = 8
+  case swift = 9
+  case unrecognized = 10
+  case `class` = 11
+  case `deinit` = 12
+  case `enum` = 13
+  case `extension` = 14
+  case `func` = 15
+  case `import` = 16
+  case init_ = 17
+  case `inout` = 18
+  case `internal` = 19
+  case `let` = 20
+  case `operator` = 21
+  case `private` = 22
+  case `protocol` = 23
+  case `public` = 24
+  case `static` = 25
+  case `struct` = 26
+  case `subscript` = 27
+  case `typealias` = 28
+  case `var` = 29
+  case `break` = 30
+  case `case` = 31
+  case `continue` = 32
+  case `default` = 33
+  case `defer` = 34
+  case `do` = 35
+  case `else` = 36
+  case `fallthrough` = 37
+  case `for` = 38
+  case `guard` = 39
+  case `if` = 40
+  case `in` = 41
+  case `repeat` = 42
+  case `return` = 43
+  case `switch` = 44
+  case `where` = 45
+  case `while` = 46
+  case `as` = 47
+  case `catch` = 48
+  case dynamicType_ = 49
+  case `false` = 50
+  case `is` = 51
+  case `nil` = 52
+  case `rethrows` = 53
+  case `super` = 54
+  case self_ = 55
+  case `throw` = 57
+  case `throws` = 58
+  case `true` = 59
+  case `try` = 60
+  case _Column__ = 61
+  case _File__ = 62
+  case _Function__ = 63
+  case _Line__ = 64
+  case ___ = 65
+  case `associativity` = 66
+  case convenience = 67
+  case dynamic = 68
+  case didSet = 69
+  case final = 70
+  case get = 71
+  case infix = 72
+  case indirect = 73
+  case lazy = 74
+  case left = 75
+  case mutating = 76
+  case none = 77
+  case nonmutating = 78
+  case `optional` = 79
+  case override = 80
+  case postfix = 81
+  case precedence = 82
+  case prefix = 83
+  case `required` = 85
+  case right = 86
+  case set = 87
+  case type = 88
+  case unowned = 89
+  case weak = 90
+  case willSet = 91
 
   ///    id = 92;
-  case cmd // = 93
-  case out // = 96
-  case bycopy // = 98
-  case byref // = 99
-  case oneway // = 100
-  case and // = 102
-  case andEq // = 103
-  case alignas // = 104
-  case alignof // = 105
-  case asm // = 106
-  case auto // = 107
-  case bitand // = 108
-  case bitor // = 109
-  case bool // = 110
-  case char // = 114
-  case char16T // = 115
-  case char32T // = 116
-  case compl // = 118
-  case const // = 119
-  case constexpr // = 120
-  case constCast // = 121
-  case decltype // = 123
-  case delete // = 125
-  case dynamicCast // = 127
-  case explicit // = 130
-  case export // = 131
-  case extern // = 132
-  case friend // = 136
-  case goto // = 137
-  case inline // = 139
-  case long // = 141
-  case mutable // = 142
-  case namespace // = 143
-  case new // = 144
-  case noexcept // = 145
-  case not // = 146
-  case notEq // = 147
-  case nullptr // = 148
-  case or // = 150
-  case orEq // = 151
-  case protected // = 153
-  case register // = 155
-  case reinterpretCast // = 156
-  case short // = 158
-  case signed // = 159
-  case sizeof // = 160
-  case staticAssert // = 162
-  case staticCast // = 163
-  case template // = 166
-  case this // = 167
-  case threadLocal // = 168
-  case typedef // = 172
-  case typeid // = 173
-  case typename // = 174
-  case union // = 175
-  case unsigned // = 176
-  case using // = 177
-  case virtual // = 178
-  case void // = 179
-  case volatile // = 180
-  case wcharT // = 181
-  case xor // = 183
-  case xorEq // = 184
-  case restrict // = 185
-  case category // = 186
-  case ivar // = 187
-  case method // = 188
-  case finalize // = 192
-  case hash // = 193
-  case dealloc // = 194
-  case superclass // = 197
-  case retain // = 198
-  case release // = 199
-  case autorelease // = 200
-  case retainCount // = 201
-  case zone // = 202
-  case isProxy // = 203
-  case copy // = 204
-  case mutableCopy // = 205
-  case classForCoder // = 206
-  case clear // = 207
-  case data // = 208
-  case delimitedData // = 209
-  case descriptor // = 210
-  case extensionRegistry // = 211
-  case extensionsCurrentlySet // = 212
-  case isInitialized // = 213
-  case serializedSize // = 214
-  case sortedExtensionsInUse // = 215
-  case unknownFields // = 216
-  case fixed // = 217
-  case fract // = 218
-  case size // = 219
-  case logicalAddress // = 220
-  case physicalAddress // = 221
-  case byteCount // = 222
-  case byteOffset // = 223
-  case duration // = 224
-  case absoluteTime // = 225
-  case optionBits // = 226
-  case itemCount // = 227
-  case pbversion // = 228
-  case scriptCode // = 229
-  case langCode // = 230
-  case regionCode // = 231
-  case ostype // = 232
-  case processSerialNumber // = 233
-  case point // = 234
-  case rect // = 235
-  case fixedPoint // = 236
-  case fixedRect // = 237
-  case style // = 238
-  case styleParameter // = 239
-  case styleField // = 240
-  case timeScale // = 241
-  case timeBase // = 242
-  case timeRecord // = 243
-  case extensions // = 244
+  case cmd = 93
+  case out = 96
+  case bycopy = 98
+  case byref = 99
+  case oneway = 100
+  case and = 102
+  case andEq = 103
+  case alignas = 104
+  case alignof = 105
+  case asm = 106
+  case auto = 107
+  case bitand = 108
+  case bitor = 109
+  case bool = 110
+  case char = 114
+  case char16T = 115
+  case char32T = 116
+  case compl = 118
+  case const = 119
+  case constexpr = 120
+  case constCast = 121
+  case decltype = 123
+  case delete = 125
+  case dynamicCast = 127
+  case explicit = 130
+  case export = 131
+  case extern = 132
+  case friend = 136
+  case goto = 137
+  case inline = 139
+  case long = 141
+  case mutable = 142
+  case namespace = 143
+  case new = 144
+  case noexcept = 145
+  case not = 146
+  case notEq = 147
+  case nullptr = 148
+  case or = 150
+  case orEq = 151
+  case protected = 153
+  case register = 155
+  case reinterpretCast = 156
+  case short = 158
+  case signed = 159
+  case sizeof = 160
+  case staticAssert = 162
+  case staticCast = 163
+  case template = 166
+  case this = 167
+  case threadLocal = 168
+  case typedef = 172
+  case typeid = 173
+  case typename = 174
+  case union = 175
+  case unsigned = 176
+  case using = 177
+  case virtual = 178
+  case void = 179
+  case volatile = 180
+  case wcharT = 181
+  case xor = 183
+  case xorEq = 184
+  case restrict = 185
+  case category = 186
+  case ivar = 187
+  case method = 188
+  case finalize = 192
+  case hash = 193
+  case dealloc = 194
+  case superclass = 197
+  case retain = 198
+  case release = 199
+  case autorelease = 200
+  case retainCount = 201
+  case zone = 202
+  case isProxy = 203
+  case copy = 204
+  case mutableCopy = 205
+  case classForCoder = 206
+  case clear = 207
+  case data = 208
+  case delimitedData = 209
+  case descriptor = 210
+  case extensionRegistry = 211
+  case extensionsCurrentlySet = 212
+  case isInitialized = 213
+  case serializedSize = 214
+  case sortedExtensionsInUse = 215
+  case unknownFields = 216
+  case fixed = 217
+  case fract = 218
+  case size = 219
+  case logicalAddress = 220
+  case physicalAddress = 221
+  case byteCount = 222
+  case byteOffset = 223
+  case duration = 224
+  case absoluteTime = 225
+  case optionBits = 226
+  case itemCount = 227
+  case pbversion = 228
+  case scriptCode = 229
+  case langCode = 230
+  case regionCode = 231
+  case ostype = 232
+  case processSerialNumber = 233
+  case point = 234
+  case rect = 235
+  case fixedPoint = 236
+  case fixedRect = 237
+  case style = 238
+  case styleParameter = 239
+  case styleField = 240
+  case timeScale = 241
+  case timeBase = 242
+  case timeRecord = 243
+  case extensions = 244
 
   init() {
     self = .a
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .a
-    case 1: self = .string
-    case 2: self = .int
-    case 3: self = .double
-    case 4: self = .float
-    case 5: self = .uint
-    case 6: self = .hashValue_
-    case 7: self = .description_
-    case 8: self = .debugDescription_
-    case 9: self = .swift
-    case 10: self = .unrecognized
-    case 11: self = .class
-    case 12: self = .deinit
-    case 13: self = .enum
-    case 14: self = .extension
-    case 15: self = .func
-    case 16: self = .import
-    case 17: self = .init_
-    case 18: self = .inout
-    case 19: self = .internal
-    case 20: self = .let
-    case 21: self = .operator
-    case 22: self = .private
-    case 23: self = .protocol
-    case 24: self = .public
-    case 25: self = .static
-    case 26: self = .struct
-    case 27: self = .subscript
-    case 28: self = .typealias
-    case 29: self = .var
-    case 30: self = .break
-    case 31: self = .case
-    case 32: self = .continue
-    case 33: self = .default
-    case 34: self = .defer
-    case 35: self = .do
-    case 36: self = .else
-    case 37: self = .fallthrough
-    case 38: self = .for
-    case 39: self = .guard
-    case 40: self = .if
-    case 41: self = .in
-    case 42: self = .repeat
-    case 43: self = .return
-    case 44: self = .switch
-    case 45: self = .where
-    case 46: self = .while
-    case 47: self = .as
-    case 48: self = .catch
-    case 49: self = .dynamicType_
-    case 50: self = .false
-    case 51: self = .is
-    case 52: self = .nil
-    case 53: self = .rethrows
-    case 54: self = .super
-    case 55: self = .self_
-    case 57: self = .throw
-    case 58: self = .throws
-    case 59: self = .true
-    case 60: self = .try
-    case 61: self = ._Column__
-    case 62: self = ._File__
-    case 63: self = ._Function__
-    case 64: self = ._Line__
-    case 65: self = .___
-    case 66: self = .associativity
-    case 67: self = .convenience
-    case 68: self = .dynamic
-    case 69: self = .didSet
-    case 70: self = .final
-    case 71: self = .get
-    case 72: self = .infix
-    case 73: self = .indirect
-    case 74: self = .lazy
-    case 75: self = .left
-    case 76: self = .mutating
-    case 77: self = .none
-    case 78: self = .nonmutating
-    case 79: self = .optional
-    case 80: self = .override
-    case 81: self = .postfix
-    case 82: self = .precedence
-    case 83: self = .prefix
-    case 85: self = .required
-    case 86: self = .right
-    case 87: self = .set
-    case 88: self = .type
-    case 89: self = .unowned
-    case 90: self = .weak
-    case 91: self = .willSet
-    case 93: self = .cmd
-    case 96: self = .out
-    case 98: self = .bycopy
-    case 99: self = .byref
-    case 100: self = .oneway
-    case 102: self = .and
-    case 103: self = .andEq
-    case 104: self = .alignas
-    case 105: self = .alignof
-    case 106: self = .asm
-    case 107: self = .auto
-    case 108: self = .bitand
-    case 109: self = .bitor
-    case 110: self = .bool
-    case 114: self = .char
-    case 115: self = .char16T
-    case 116: self = .char32T
-    case 118: self = .compl
-    case 119: self = .const
-    case 120: self = .constexpr
-    case 121: self = .constCast
-    case 123: self = .decltype
-    case 125: self = .delete
-    case 127: self = .dynamicCast
-    case 130: self = .explicit
-    case 131: self = .export
-    case 132: self = .extern
-    case 136: self = .friend
-    case 137: self = .goto
-    case 139: self = .inline
-    case 141: self = .long
-    case 142: self = .mutable
-    case 143: self = .namespace
-    case 144: self = .new
-    case 145: self = .noexcept
-    case 146: self = .not
-    case 147: self = .notEq
-    case 148: self = .nullptr
-    case 150: self = .or
-    case 151: self = .orEq
-    case 153: self = .protected
-    case 155: self = .register
-    case 156: self = .reinterpretCast
-    case 158: self = .short
-    case 159: self = .signed
-    case 160: self = .sizeof
-    case 162: self = .staticAssert
-    case 163: self = .staticCast
-    case 166: self = .template
-    case 167: self = .this
-    case 168: self = .threadLocal
-    case 172: self = .typedef
-    case 173: self = .typeid
-    case 174: self = .typename
-    case 175: self = .union
-    case 176: self = .unsigned
-    case 177: self = .using
-    case 178: self = .virtual
-    case 179: self = .void
-    case 180: self = .volatile
-    case 181: self = .wcharT
-    case 183: self = .xor
-    case 184: self = .xorEq
-    case 185: self = .restrict
-    case 186: self = .category
-    case 187: self = .ivar
-    case 188: self = .method
-    case 192: self = .finalize
-    case 193: self = .hash
-    case 194: self = .dealloc
-    case 197: self = .superclass
-    case 198: self = .retain
-    case 199: self = .release
-    case 200: self = .autorelease
-    case 201: self = .retainCount
-    case 202: self = .zone
-    case 203: self = .isProxy
-    case 204: self = .copy
-    case 205: self = .mutableCopy
-    case 206: self = .classForCoder
-    case 207: self = .clear
-    case 208: self = .data
-    case 209: self = .delimitedData
-    case 210: self = .descriptor
-    case 211: self = .extensionRegistry
-    case 212: self = .extensionsCurrentlySet
-    case 213: self = .isInitialized
-    case 214: self = .serializedSize
-    case 215: self = .sortedExtensionsInUse
-    case 216: self = .unknownFields
-    case 217: self = .fixed
-    case 218: self = .fract
-    case 219: self = .size
-    case 220: self = .logicalAddress
-    case 221: self = .physicalAddress
-    case 222: self = .byteCount
-    case 223: self = .byteOffset
-    case 224: self = .duration
-    case 225: self = .absoluteTime
-    case 226: self = .optionBits
-    case 227: self = .itemCount
-    case 228: self = .pbversion
-    case 229: self = .scriptCode
-    case 230: self = .langCode
-    case 231: self = .regionCode
-    case 232: self = .ostype
-    case 233: self = .processSerialNumber
-    case 234: self = .point
-    case 235: self = .rect
-    case 236: self = .fixedPoint
-    case 237: self = .fixedRect
-    case 238: self = .style
-    case 239: self = .styleParameter
-    case 240: self = .styleField
-    case 241: self = .timeScale
-    case 242: self = .timeBase
-    case 243: self = .timeRecord
-    case 244: self = .extensions
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .a: return 0
-    case .string: return 1
-    case .int: return 2
-    case .double: return 3
-    case .float: return 4
-    case .uint: return 5
-    case .hashValue_: return 6
-    case .description_: return 7
-    case .debugDescription_: return 8
-    case .swift: return 9
-    case .unrecognized: return 10
-    case .class: return 11
-    case .deinit: return 12
-    case .enum: return 13
-    case .extension: return 14
-    case .func: return 15
-    case .import: return 16
-    case .init_: return 17
-    case .inout: return 18
-    case .internal: return 19
-    case .let: return 20
-    case .operator: return 21
-    case .private: return 22
-    case .protocol: return 23
-    case .public: return 24
-    case .static: return 25
-    case .struct: return 26
-    case .subscript: return 27
-    case .typealias: return 28
-    case .var: return 29
-    case .break: return 30
-    case .case: return 31
-    case .continue: return 32
-    case .default: return 33
-    case .defer: return 34
-    case .do: return 35
-    case .else: return 36
-    case .fallthrough: return 37
-    case .for: return 38
-    case .guard: return 39
-    case .if: return 40
-    case .in: return 41
-    case .repeat: return 42
-    case .return: return 43
-    case .switch: return 44
-    case .where: return 45
-    case .while: return 46
-    case .as: return 47
-    case .catch: return 48
-    case .dynamicType_: return 49
-    case .false: return 50
-    case .is: return 51
-    case .nil: return 52
-    case .rethrows: return 53
-    case .super: return 54
-    case .self_: return 55
-    case .throw: return 57
-    case .throws: return 58
-    case .true: return 59
-    case .try: return 60
-    case ._Column__: return 61
-    case ._File__: return 62
-    case ._Function__: return 63
-    case ._Line__: return 64
-    case .___: return 65
-    case .associativity: return 66
-    case .convenience: return 67
-    case .dynamic: return 68
-    case .didSet: return 69
-    case .final: return 70
-    case .get: return 71
-    case .infix: return 72
-    case .indirect: return 73
-    case .lazy: return 74
-    case .left: return 75
-    case .mutating: return 76
-    case .none: return 77
-    case .nonmutating: return 78
-    case .optional: return 79
-    case .override: return 80
-    case .postfix: return 81
-    case .precedence: return 82
-    case .prefix: return 83
-    case .required: return 85
-    case .right: return 86
-    case .set: return 87
-    case .type: return 88
-    case .unowned: return 89
-    case .weak: return 90
-    case .willSet: return 91
-    case .cmd: return 93
-    case .out: return 96
-    case .bycopy: return 98
-    case .byref: return 99
-    case .oneway: return 100
-    case .and: return 102
-    case .andEq: return 103
-    case .alignas: return 104
-    case .alignof: return 105
-    case .asm: return 106
-    case .auto: return 107
-    case .bitand: return 108
-    case .bitor: return 109
-    case .bool: return 110
-    case .char: return 114
-    case .char16T: return 115
-    case .char32T: return 116
-    case .compl: return 118
-    case .const: return 119
-    case .constexpr: return 120
-    case .constCast: return 121
-    case .decltype: return 123
-    case .delete: return 125
-    case .dynamicCast: return 127
-    case .explicit: return 130
-    case .export: return 131
-    case .extern: return 132
-    case .friend: return 136
-    case .goto: return 137
-    case .inline: return 139
-    case .long: return 141
-    case .mutable: return 142
-    case .namespace: return 143
-    case .new: return 144
-    case .noexcept: return 145
-    case .not: return 146
-    case .notEq: return 147
-    case .nullptr: return 148
-    case .or: return 150
-    case .orEq: return 151
-    case .protected: return 153
-    case .register: return 155
-    case .reinterpretCast: return 156
-    case .short: return 158
-    case .signed: return 159
-    case .sizeof: return 160
-    case .staticAssert: return 162
-    case .staticCast: return 163
-    case .template: return 166
-    case .this: return 167
-    case .threadLocal: return 168
-    case .typedef: return 172
-    case .typeid: return 173
-    case .typename: return 174
-    case .union: return 175
-    case .unsigned: return 176
-    case .using: return 177
-    case .virtual: return 178
-    case .void: return 179
-    case .volatile: return 180
-    case .wcharT: return 181
-    case .xor: return 183
-    case .xorEq: return 184
-    case .restrict: return 185
-    case .category: return 186
-    case .ivar: return 187
-    case .method: return 188
-    case .finalize: return 192
-    case .hash: return 193
-    case .dealloc: return 194
-    case .superclass: return 197
-    case .retain: return 198
-    case .release: return 199
-    case .autorelease: return 200
-    case .retainCount: return 201
-    case .zone: return 202
-    case .isProxy: return 203
-    case .copy: return 204
-    case .mutableCopy: return 205
-    case .classForCoder: return 206
-    case .clear: return 207
-    case .data: return 208
-    case .delimitedData: return 209
-    case .descriptor: return 210
-    case .extensionRegistry: return 211
-    case .extensionsCurrentlySet: return 212
-    case .isInitialized: return 213
-    case .serializedSize: return 214
-    case .sortedExtensionsInUse: return 215
-    case .unknownFields: return 216
-    case .fixed: return 217
-    case .fract: return 218
-    case .size: return 219
-    case .logicalAddress: return 220
-    case .physicalAddress: return 221
-    case .byteCount: return 222
-    case .byteOffset: return 223
-    case .duration: return 224
-    case .absoluteTime: return 225
-    case .optionBits: return 226
-    case .itemCount: return 227
-    case .pbversion: return 228
-    case .scriptCode: return 229
-    case .langCode: return 230
-    case .regionCode: return 231
-    case .ostype: return 232
-    case .processSerialNumber: return 233
-    case .point: return 234
-    case .rect: return 235
-    case .fixedPoint: return 236
-    case .fixedRect: return 237
-    case .style: return 238
-    case .styleParameter: return 239
-    case .styleField: return 240
-    case .timeScale: return 241
-    case .timeBase: return 242
-    case .timeRecord: return 243
-    case .extensions: return 244
-    }
-  }
-
 }
 
-enum SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case aa // = 0
+enum SwiftProtoTesting_Names_EnumFieldNames2: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case aa = 0
 
   /// protoc no longer allows enum naming that would differ only in underscores.
   /// Initial commit:
@@ -695,25 +266,10 @@ enum SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf.Enum, Swift.CaseIter
   ///   https://github.com/protocolbuffers/protobuf/pull/2204
   /// So this is in a second enum so it won't cause issues with the '_' one;
   /// but still ensure things generator correctly.
-  case ____ // = 1065
+  case ____ = 1065
 
   init() {
     self = .aa
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .aa
-    case 1065: self = .____
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .aa: return 0
-    case .____: return 1065
-    }
   }
 
 }
@@ -7251,4855 +6807,1901 @@ struct SwiftProtoTesting_Names_EnumNames: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum StringEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aString // = 0
+  enum StringEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aString = 0
 
     init() {
       self = .aString
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aString
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aString: return 0
-      }
-    }
-
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aProtocol // = 0
+  enum ProtocolEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aProtocol = 0
 
     init() {
       self = .aProtocol
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aProtocol
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aProtocol: return 0
-      }
-    }
-
   }
 
-  enum IntEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aInt // = 0
+  enum IntEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aInt = 0
 
     init() {
       self = .aInt
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aInt
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aInt: return 0
-      }
-    }
-
   }
 
-  enum DoubleEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aDouble // = 0
+  enum DoubleEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aDouble = 0
 
     init() {
       self = .aDouble
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aDouble
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aDouble: return 0
-      }
-    }
-
   }
 
-  enum FloatEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aFloat // = 0
+  enum FloatEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aFloat = 0
 
     init() {
       self = .aFloat
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aFloat
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aFloat: return 0
-      }
-    }
-
   }
 
-  enum UIntEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aUint // = 0
+  enum UIntEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aUint = 0
 
     init() {
       self = .aUint
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aUint
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aUint: return 0
-      }
-    }
-
   }
 
-  enum hashValueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ahashValue // = 0
+  enum hashValueEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ahashValue = 0
 
     init() {
       self = .ahashValue
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ahashValue
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ahashValue: return 0
-      }
-    }
-
   }
 
-  enum descriptionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adescription // = 0
+  enum descriptionEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adescription = 0
 
     init() {
       self = .adescription
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adescription
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adescription: return 0
-      }
-    }
-
   }
 
-  enum debugDescriptionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adebugDescription // = 0
+  enum debugDescriptionEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adebugDescription = 0
 
     init() {
       self = .adebugDescription
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adebugDescription
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adebugDescription: return 0
-      }
-    }
-
   }
 
-  enum SwiftEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aSwift // = 0
+  enum SwiftEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aSwift = 0
 
     init() {
       self = .aSwift
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aSwift
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aSwift: return 0
-      }
-    }
-
   }
 
-  enum UNRECOGNIZED: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aUnrecognized // = 0
+  enum UNRECOGNIZED: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aUnrecognized = 0
 
     init() {
       self = .aUnrecognized
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aUnrecognized
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aUnrecognized: return 0
-      }
-    }
-
   }
 
-  enum classEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aclass // = 0
+  enum classEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aclass = 0
 
     init() {
       self = .aclass
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aclass
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aclass: return 0
-      }
-    }
-
   }
 
-  enum deinitEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adeinit // = 0
+  enum deinitEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adeinit = 0
 
     init() {
       self = .adeinit
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adeinit
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adeinit: return 0
-      }
-    }
-
   }
 
-  enum enumEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aenum // = 0
+  enum enumEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aenum = 0
 
     init() {
       self = .aenum
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aenum
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aenum: return 0
-      }
-    }
-
   }
 
-  enum extensionEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aextension // = 0
+  enum extensionEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aextension = 0
 
     init() {
       self = .aextension
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aextension
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aextension: return 0
-      }
-    }
-
   }
 
-  enum funcEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afunc // = 0
+  enum funcEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afunc = 0
 
     init() {
       self = .afunc
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afunc
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afunc: return 0
-      }
-    }
-
   }
 
-  enum importEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aimport // = 0
+  enum importEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aimport = 0
 
     init() {
       self = .aimport
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aimport
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aimport: return 0
-      }
-    }
-
   }
 
-  enum initEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ainit // = 0
+  enum initEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ainit = 0
 
     init() {
       self = .ainit
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ainit
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ainit: return 0
-      }
-    }
-
   }
 
-  enum inoutEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ainout // = 0
+  enum inoutEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ainout = 0
 
     init() {
       self = .ainout
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ainout
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ainout: return 0
-      }
-    }
-
   }
 
-  enum internalEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ainternal // = 0
+  enum internalEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ainternal = 0
 
     init() {
       self = .ainternal
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ainternal
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ainternal: return 0
-      }
-    }
-
   }
 
-  enum letEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case alet // = 0
+  enum letEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case alet = 0
 
     init() {
       self = .alet
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .alet
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .alet: return 0
-      }
-    }
-
   }
 
-  enum operatorEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aoperator // = 0
+  enum operatorEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aoperator = 0
 
     init() {
       self = .aoperator
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aoperator
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aoperator: return 0
-      }
-    }
-
   }
 
-  enum privateEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aprivate // = 0
+  enum privateEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aprivate = 0
 
     init() {
       self = .aprivate
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aprivate
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aprivate: return 0
-      }
-    }
-
   }
 
-  enum protocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aprotocol // = 0
+  enum protocolEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aprotocol = 0
 
     init() {
       self = .aprotocol
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aprotocol
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aprotocol: return 0
-      }
-    }
-
   }
 
-  enum publicEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case apublic // = 0
+  enum publicEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case apublic = 0
 
     init() {
       self = .apublic
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .apublic
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .apublic: return 0
-      }
-    }
-
   }
 
-  enum staticEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case astatic // = 0
+  enum staticEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case astatic = 0
 
     init() {
       self = .astatic
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .astatic
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .astatic: return 0
-      }
-    }
-
   }
 
-  enum structEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case astruct // = 0
+  enum structEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case astruct = 0
 
     init() {
       self = .astruct
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .astruct
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .astruct: return 0
-      }
-    }
-
   }
 
-  enum subscriptEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case asubscript // = 0
+  enum subscriptEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case asubscript = 0
 
     init() {
       self = .asubscript
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .asubscript
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .asubscript: return 0
-      }
-    }
-
   }
 
-  enum typealiasEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atypealias // = 0
+  enum typealiasEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atypealias = 0
 
     init() {
       self = .atypealias
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atypealias
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atypealias: return 0
-      }
-    }
-
   }
 
-  enum varEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case avar // = 0
+  enum varEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case avar = 0
 
     init() {
       self = .avar
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .avar
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .avar: return 0
-      }
-    }
-
   }
 
-  enum breakEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case abreak // = 0
+  enum breakEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case abreak = 0
 
     init() {
       self = .abreak
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .abreak
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .abreak: return 0
-      }
-    }
-
   }
 
-  enum caseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case acase // = 0
+  enum caseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case acase = 0
 
     init() {
       self = .acase
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .acase
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .acase: return 0
-      }
-    }
-
   }
 
-  enum continueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case acontinue // = 0
+  enum continueEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case acontinue = 0
 
     init() {
       self = .acontinue
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .acontinue
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .acontinue: return 0
-      }
-    }
-
   }
 
-  enum defaultEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adefault // = 0
+  enum defaultEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adefault = 0
 
     init() {
       self = .adefault
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adefault
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adefault: return 0
-      }
-    }
-
   }
 
-  enum deferEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adefer // = 0
+  enum deferEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adefer = 0
 
     init() {
       self = .adefer
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adefer
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adefer: return 0
-      }
-    }
-
   }
 
-  enum doEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ado // = 0
+  enum doEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ado = 0
 
     init() {
       self = .ado
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ado
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ado: return 0
-      }
-    }
-
   }
 
-  enum elseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aelse // = 0
+  enum elseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aelse = 0
 
     init() {
       self = .aelse
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aelse
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aelse: return 0
-      }
-    }
-
   }
 
-  enum fallthroughEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afallthrough // = 0
+  enum fallthroughEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afallthrough = 0
 
     init() {
       self = .afallthrough
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afallthrough
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afallthrough: return 0
-      }
-    }
-
   }
 
-  enum forEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afor // = 0
+  enum forEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afor = 0
 
     init() {
       self = .afor
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afor
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afor: return 0
-      }
-    }
-
   }
 
-  enum guardEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aguard // = 0
+  enum guardEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aguard = 0
 
     init() {
       self = .aguard
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aguard
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aguard: return 0
-      }
-    }
-
   }
 
-  enum ifEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aif // = 0
+  enum ifEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aif = 0
 
     init() {
       self = .aif
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aif
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aif: return 0
-      }
-    }
-
   }
 
-  enum inEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ain // = 0
+  enum inEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ain = 0
 
     init() {
       self = .ain
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ain
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ain: return 0
-      }
-    }
-
   }
 
-  enum repeatEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case arepeat // = 0
+  enum repeatEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case arepeat = 0
 
     init() {
       self = .arepeat
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .arepeat
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .arepeat: return 0
-      }
-    }
-
   }
 
-  enum returnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case areturn // = 0
+  enum returnEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case areturn = 0
 
     init() {
       self = .areturn
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .areturn
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .areturn: return 0
-      }
-    }
-
   }
 
-  enum switchEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aswitch // = 0
+  enum switchEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aswitch = 0
 
     init() {
       self = .aswitch
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aswitch
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aswitch: return 0
-      }
-    }
-
   }
 
-  enum whereEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case awhere // = 0
+  enum whereEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case awhere = 0
 
     init() {
       self = .awhere
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .awhere
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .awhere: return 0
-      }
-    }
-
   }
 
-  enum whileEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case awhile // = 0
+  enum whileEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case awhile = 0
 
     init() {
       self = .awhile
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .awhile
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .awhile: return 0
-      }
-    }
-
   }
 
-  enum asEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aas // = 0
+  enum asEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aas = 0
 
     init() {
       self = .aas
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aas
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aas: return 0
-      }
-    }
-
   }
 
-  enum catchEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case acatch // = 0
+  enum catchEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case acatch = 0
 
     init() {
       self = .acatch
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .acatch
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .acatch: return 0
-      }
-    }
-
   }
 
-  enum dynamicTypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adynamicType // = 0
+  enum dynamicTypeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adynamicType = 0
 
     init() {
       self = .adynamicType
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adynamicType
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adynamicType: return 0
-      }
-    }
-
   }
 
-  enum falseEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afalse // = 0
+  enum falseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afalse = 0
 
     init() {
       self = .afalse
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afalse
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afalse: return 0
-      }
-    }
-
   }
 
-  enum isEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ais // = 0
+  enum isEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ais = 0
 
     init() {
       self = .ais
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ais
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ais: return 0
-      }
-    }
-
   }
 
-  enum nilEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anil // = 0
+  enum nilEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anil = 0
 
     init() {
       self = .anil
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anil
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anil: return 0
-      }
-    }
-
   }
 
-  enum rethrowsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case arethrows // = 0
+  enum rethrowsEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case arethrows = 0
 
     init() {
       self = .arethrows
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .arethrows
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .arethrows: return 0
-      }
-    }
-
   }
 
-  enum superEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case asuper // = 0
+  enum superEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case asuper = 0
 
     init() {
       self = .asuper
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .asuper
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .asuper: return 0
-      }
-    }
-
   }
 
-  enum selfEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aself // = 0
+  enum selfEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aself = 0
 
     init() {
       self = .aself
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aself
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aself: return 0
-      }
-    }
-
   }
 
-  enum throwEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case athrow // = 0
+  enum throwEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case athrow = 0
 
     init() {
       self = .athrow
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .athrow
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .athrow: return 0
-      }
-    }
-
   }
 
-  enum throwsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case athrows // = 0
+  enum throwsEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case athrows = 0
 
     init() {
       self = .athrows
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .athrows
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .athrows: return 0
-      }
-    }
-
   }
 
-  enum trueEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atrue // = 0
+  enum trueEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atrue = 0
 
     init() {
       self = .atrue
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atrue
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atrue: return 0
-      }
-    }
-
   }
 
-  enum tryEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atry // = 0
+  enum tryEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atry = 0
 
     init() {
       self = .atry
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atry
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atry: return 0
-      }
-    }
-
   }
 
-  enum __COLUMN__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a_Column__ // = 0
+  enum __COLUMN__Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a_Column__ = 0
 
     init() {
       self = .a_Column__
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a_Column__
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a_Column__: return 0
-      }
-    }
-
   }
 
-  enum __FILE__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a_File__ // = 0
+  enum __FILE__Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a_File__ = 0
 
     init() {
       self = .a_File__
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a_File__
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a_File__: return 0
-      }
-    }
-
   }
 
-  enum __FUNCTION__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a_Function__ // = 0
+  enum __FUNCTION__Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a_Function__ = 0
 
     init() {
       self = .a_Function__
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a_Function__
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a_Function__: return 0
-      }
-    }
-
   }
 
-  enum __LINE__Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a_Line__ // = 0
+  enum __LINE__Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a_Line__ = 0
 
     init() {
       self = .a_Line__
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a_Line__
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a_Line__: return 0
-      }
-    }
-
   }
 
-  enum _Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a_ // = 0
+  enum _Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a_ = 0
 
     init() {
       self = .a_
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a_
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a_: return 0
-      }
-    }
-
   }
 
-  enum __Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a__ // = 0
+  enum __Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a__ = 0
 
     init() {
       self = .a__
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .a__
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a__: return 0
-      }
-    }
-
   }
 
-  enum associativity: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aassociativity // = 0
+  enum associativity: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aassociativity = 0
 
     init() {
       self = .aassociativity
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aassociativity
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aassociativity: return 0
-      }
-    }
-
   }
 
-  enum convenience: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aconvenience // = 0
+  enum convenience: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aconvenience = 0
 
     init() {
       self = .aconvenience
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aconvenience
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aconvenience: return 0
-      }
-    }
-
   }
 
-  enum dynamic: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adynamic // = 0
+  enum dynamic: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adynamic = 0
 
     init() {
       self = .adynamic
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adynamic
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adynamic: return 0
-      }
-    }
-
   }
 
-  enum didSet: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adidSet // = 0
+  enum didSet: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adidSet = 0
 
     init() {
       self = .adidSet
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adidSet
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adidSet: return 0
-      }
-    }
-
   }
 
-  enum final: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afinal // = 0
+  enum final: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afinal = 0
 
     init() {
       self = .afinal
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afinal
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afinal: return 0
-      }
-    }
-
   }
 
-  enum get: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aget // = 0
+  enum get: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aget = 0
 
     init() {
       self = .aget
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aget
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aget: return 0
-      }
-    }
-
   }
 
-  enum infix: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ainfix // = 0
+  enum infix: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ainfix = 0
 
     init() {
       self = .ainfix
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ainfix
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ainfix: return 0
-      }
-    }
-
   }
 
-  enum indirect: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aindirect // = 0
+  enum indirect: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aindirect = 0
 
     init() {
       self = .aindirect
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aindirect
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aindirect: return 0
-      }
-    }
-
   }
 
-  enum lazy: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case alazy // = 0
+  enum lazy: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case alazy = 0
 
     init() {
       self = .alazy
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .alazy
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .alazy: return 0
-      }
-    }
-
   }
 
-  enum left: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aleft // = 0
+  enum left: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aleft = 0
 
     init() {
       self = .aleft
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aleft
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aleft: return 0
-      }
-    }
-
   }
 
-  enum mutating: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case amutating // = 0
+  enum mutating: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case amutating = 0
 
     init() {
       self = .amutating
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .amutating
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .amutating: return 0
-      }
-    }
-
   }
 
-  enum none: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anone // = 0
+  enum none: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anone = 0
 
     init() {
       self = .anone
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anone
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anone: return 0
-      }
-    }
-
   }
 
-  enum nonmutating: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anonmutating // = 0
+  enum nonmutating: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anonmutating = 0
 
     init() {
       self = .anonmutating
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anonmutating
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anonmutating: return 0
-      }
-    }
-
   }
 
-  enum optional: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aoptional // = 0
+  enum optional: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aoptional = 0
 
     init() {
       self = .aoptional
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aoptional
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aoptional: return 0
-      }
-    }
-
   }
 
-  enum override: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aoverride // = 0
+  enum override: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aoverride = 0
 
     init() {
       self = .aoverride
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aoverride
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aoverride: return 0
-      }
-    }
-
   }
 
-  enum postfix: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case apostfix // = 0
+  enum postfix: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case apostfix = 0
 
     init() {
       self = .apostfix
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .apostfix
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .apostfix: return 0
-      }
-    }
-
   }
 
-  enum precedence: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aprecedence // = 0
+  enum precedence: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aprecedence = 0
 
     init() {
       self = .aprecedence
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aprecedence
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aprecedence: return 0
-      }
-    }
-
   }
 
-  enum prefix: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aprefix // = 0
+  enum prefix: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aprefix = 0
 
     init() {
       self = .aprefix
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aprefix
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aprefix: return 0
-      }
-    }
-
   }
 
-  enum required: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case arequired // = 0
+  enum required: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case arequired = 0
 
     init() {
       self = .arequired
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .arequired
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .arequired: return 0
-      }
-    }
-
   }
 
-  enum right: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aright // = 0
+  enum right: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aright = 0
 
     init() {
       self = .aright
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aright
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aright: return 0
-      }
-    }
-
   }
 
-  enum set: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aset // = 0
+  enum set: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aset = 0
 
     init() {
       self = .aset
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aset
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aset: return 0
-      }
-    }
-
   }
 
-  enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aType // = 0
+  enum TypeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aType = 0
 
     init() {
       self = .aType
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aType
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aType: return 0
-      }
-    }
-
   }
 
-  enum unowned: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aunowned // = 0
+  enum unowned: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aunowned = 0
 
     init() {
       self = .aunowned
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aunowned
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aunowned: return 0
-      }
-    }
-
   }
 
-  enum weak: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aweak // = 0
+  enum weak: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aweak = 0
 
     init() {
       self = .aweak
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aweak
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aweak: return 0
-      }
-    }
-
   }
 
-  enum willSet: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case awillSet // = 0
+  enum willSet: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case awillSet = 0
 
     init() {
       self = .awillSet
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .awillSet
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .awillSet: return 0
-      }
-    }
-
   }
 
-  enum id: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aid // = 0
+  enum id: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aid = 0
 
     init() {
       self = .aid
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aid
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aid: return 0
-      }
-    }
-
   }
 
-  enum _cmd: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aCmd // = 0
+  enum _cmd: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aCmd = 0
 
     init() {
       self = .aCmd
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aCmd
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aCmd: return 0
-      }
-    }
-
   }
 
-  enum out: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aout // = 0
+  enum out: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aout = 0
 
     init() {
       self = .aout
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aout
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aout: return 0
-      }
-    }
-
   }
 
-  enum bycopy: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case abycopy // = 0
+  enum bycopy: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case abycopy = 0
 
     init() {
       self = .abycopy
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .abycopy
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .abycopy: return 0
-      }
-    }
-
   }
 
-  enum byref: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case abyref // = 0
+  enum byref: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case abyref = 0
 
     init() {
       self = .abyref
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .abyref
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .abyref: return 0
-      }
-    }
-
   }
 
-  enum oneway: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aoneway // = 0
+  enum oneway: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aoneway = 0
 
     init() {
       self = .aoneway
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aoneway
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aoneway: return 0
-      }
-    }
-
   }
 
-  enum and: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aand // = 0
+  enum and: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aand = 0
 
     init() {
       self = .aand
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aand
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aand: return 0
-      }
-    }
-
   }
 
-  enum and_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aandEq // = 0
+  enum and_eq: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aandEq = 0
 
     init() {
       self = .aandEq
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aandEq
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aandEq: return 0
-      }
-    }
-
   }
 
-  enum alignas: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aalignas // = 0
+  enum alignas: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aalignas = 0
 
     init() {
       self = .aalignas
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aalignas
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aalignas: return 0
-      }
-    }
-
   }
 
-  enum alignof: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aalignof // = 0
+  enum alignof: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aalignof = 0
 
     init() {
       self = .aalignof
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aalignof
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aalignof: return 0
-      }
-    }
-
   }
 
-  enum asm: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aasm // = 0
+  enum asm: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aasm = 0
 
     init() {
       self = .aasm
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aasm
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aasm: return 0
-      }
-    }
-
   }
 
-  enum auto: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aauto // = 0
+  enum auto: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aauto = 0
 
     init() {
       self = .aauto
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aauto
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aauto: return 0
-      }
-    }
-
   }
 
-  enum bitand: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case abitand // = 0
+  enum bitand: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case abitand = 0
 
     init() {
       self = .abitand
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .abitand
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .abitand: return 0
-      }
-    }
-
   }
 
-  enum bitor: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case abitor // = 0
+  enum bitor: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case abitor = 0
 
     init() {
       self = .abitor
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .abitor
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .abitor: return 0
-      }
-    }
-
   }
 
-  enum bool: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case abool // = 0
+  enum bool: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case abool = 0
 
     init() {
       self = .abool
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .abool
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .abool: return 0
-      }
-    }
-
   }
 
-  enum char: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case achar // = 0
+  enum char: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case achar = 0
 
     init() {
       self = .achar
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .achar
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .achar: return 0
-      }
-    }
-
   }
 
-  enum char16_t: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case achar16T // = 0
+  enum char16_t: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case achar16T = 0
 
     init() {
       self = .achar16T
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .achar16T
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .achar16T: return 0
-      }
-    }
-
   }
 
-  enum char32_t: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case achar32T // = 0
+  enum char32_t: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case achar32T = 0
 
     init() {
       self = .achar32T
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .achar32T
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .achar32T: return 0
-      }
-    }
-
   }
 
-  enum compl: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case acompl // = 0
+  enum compl: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case acompl = 0
 
     init() {
       self = .acompl
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .acompl
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .acompl: return 0
-      }
-    }
-
   }
 
-  enum const: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aconst // = 0
+  enum const: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aconst = 0
 
     init() {
       self = .aconst
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aconst
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aconst: return 0
-      }
-    }
-
   }
 
-  enum constexpr: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aconstexpr // = 0
+  enum constexpr: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aconstexpr = 0
 
     init() {
       self = .aconstexpr
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aconstexpr
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aconstexpr: return 0
-      }
-    }
-
   }
 
-  enum const_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aconstCast // = 0
+  enum const_cast: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aconstCast = 0
 
     init() {
       self = .aconstCast
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aconstCast
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aconstCast: return 0
-      }
-    }
-
   }
 
-  enum decltype: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adecltype // = 0
+  enum decltype: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adecltype = 0
 
     init() {
       self = .adecltype
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adecltype
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adecltype: return 0
-      }
-    }
-
   }
 
-  enum delete: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adelete // = 0
+  enum delete: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adelete = 0
 
     init() {
       self = .adelete
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adelete
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adelete: return 0
-      }
-    }
-
   }
 
-  enum dynamic_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adynamicCast // = 0
+  enum dynamic_cast: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adynamicCast = 0
 
     init() {
       self = .adynamicCast
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adynamicCast
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adynamicCast: return 0
-      }
-    }
-
   }
 
-  enum explicit: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aexplicit // = 0
+  enum explicit: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aexplicit = 0
 
     init() {
       self = .aexplicit
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aexplicit
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aexplicit: return 0
-      }
-    }
-
   }
 
-  enum export: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aexport // = 0
+  enum export: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aexport = 0
 
     init() {
       self = .aexport
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aexport
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aexport: return 0
-      }
-    }
-
   }
 
-  enum extern: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aextern // = 0
+  enum extern: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aextern = 0
 
     init() {
       self = .aextern
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aextern
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aextern: return 0
-      }
-    }
-
   }
 
-  enum friend: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afriend // = 0
+  enum friend: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afriend = 0
 
     init() {
       self = .afriend
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afriend
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afriend: return 0
-      }
-    }
-
   }
 
-  enum goto: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case agoto // = 0
+  enum goto: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case agoto = 0
 
     init() {
       self = .agoto
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .agoto
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .agoto: return 0
-      }
-    }
-
   }
 
-  enum inline: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ainline // = 0
+  enum inline: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ainline = 0
 
     init() {
       self = .ainline
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ainline
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ainline: return 0
-      }
-    }
-
   }
 
-  enum long: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case along // = 0
+  enum long: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case along = 0
 
     init() {
       self = .along
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .along
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .along: return 0
-      }
-    }
-
   }
 
-  enum mutable: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case amutable // = 0
+  enum mutable: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case amutable = 0
 
     init() {
       self = .amutable
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .amutable
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .amutable: return 0
-      }
-    }
-
   }
 
-  enum namespace: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anamespace // = 0
+  enum namespace: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anamespace = 0
 
     init() {
       self = .anamespace
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anamespace
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anamespace: return 0
-      }
-    }
-
   }
 
-  enum new: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anew // = 0
+  enum new: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anew = 0
 
     init() {
       self = .anew
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anew
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anew: return 0
-      }
-    }
-
   }
 
-  enum noexcept: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anoexcept // = 0
+  enum noexcept: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anoexcept = 0
 
     init() {
       self = .anoexcept
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anoexcept
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anoexcept: return 0
-      }
-    }
-
   }
 
-  enum not: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anot // = 0
+  enum not: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anot = 0
 
     init() {
       self = .anot
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anot
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anot: return 0
-      }
-    }
-
   }
 
-  enum not_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anotEq // = 0
+  enum not_eq: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anotEq = 0
 
     init() {
       self = .anotEq
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anotEq
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anotEq: return 0
-      }
-    }
-
   }
 
-  enum nullptr: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case anullptr // = 0
+  enum nullptr: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case anullptr = 0
 
     init() {
       self = .anullptr
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .anullptr
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .anullptr: return 0
-      }
-    }
-
   }
 
-  enum or: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aor // = 0
+  enum or: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aor = 0
 
     init() {
       self = .aor
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aor
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aor: return 0
-      }
-    }
-
   }
 
-  enum or_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aorEq // = 0
+  enum or_eq: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aorEq = 0
 
     init() {
       self = .aorEq
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aorEq
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aorEq: return 0
-      }
-    }
-
   }
 
-  enum protected: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aprotected // = 0
+  enum protected: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aprotected = 0
 
     init() {
       self = .aprotected
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aprotected
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aprotected: return 0
-      }
-    }
-
   }
 
-  enum register: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aregister // = 0
+  enum register: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aregister = 0
 
     init() {
       self = .aregister
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aregister
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aregister: return 0
-      }
-    }
-
   }
 
-  enum reinterpret_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case areinterpretCast // = 0
+  enum reinterpret_cast: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case areinterpretCast = 0
 
     init() {
       self = .areinterpretCast
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .areinterpretCast
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .areinterpretCast: return 0
-      }
-    }
-
   }
 
-  enum short: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ashort // = 0
+  enum short: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ashort = 0
 
     init() {
       self = .ashort
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ashort
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ashort: return 0
-      }
-    }
-
   }
 
-  enum signed: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case asigned // = 0
+  enum signed: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case asigned = 0
 
     init() {
       self = .asigned
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .asigned
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .asigned: return 0
-      }
-    }
-
   }
 
-  enum sizeof: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case asizeof // = 0
+  enum sizeof: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case asizeof = 0
 
     init() {
       self = .asizeof
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .asizeof
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .asizeof: return 0
-      }
-    }
-
   }
 
-  enum static_assert: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case astaticAssert // = 0
+  enum static_assert: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case astaticAssert = 0
 
     init() {
       self = .astaticAssert
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .astaticAssert
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .astaticAssert: return 0
-      }
-    }
-
   }
 
-  enum static_cast: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case astaticCast // = 0
+  enum static_cast: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case astaticCast = 0
 
     init() {
       self = .astaticCast
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .astaticCast
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .astaticCast: return 0
-      }
-    }
-
   }
 
-  enum template: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atemplate // = 0
+  enum template: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atemplate = 0
 
     init() {
       self = .atemplate
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atemplate
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atemplate: return 0
-      }
-    }
-
   }
 
-  enum this: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case athis // = 0
+  enum this: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case athis = 0
 
     init() {
       self = .athis
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .athis
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .athis: return 0
-      }
-    }
-
   }
 
-  enum thread_local: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case athreadLocal // = 0
+  enum thread_local: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case athreadLocal = 0
 
     init() {
       self = .athreadLocal
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .athreadLocal
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .athreadLocal: return 0
-      }
-    }
-
   }
 
-  enum typedef: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atypedef // = 0
+  enum typedef: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atypedef = 0
 
     init() {
       self = .atypedef
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atypedef
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atypedef: return 0
-      }
-    }
-
   }
 
-  enum typeid: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atypeid // = 0
+  enum typeid: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atypeid = 0
 
     init() {
       self = .atypeid
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atypeid
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atypeid: return 0
-      }
-    }
-
   }
 
-  enum typename: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case atypename // = 0
+  enum typename: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case atypename = 0
 
     init() {
       self = .atypename
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .atypename
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .atypename: return 0
-      }
-    }
-
   }
 
-  enum union: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aunion // = 0
+  enum union: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aunion = 0
 
     init() {
       self = .aunion
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aunion
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aunion: return 0
-      }
-    }
-
   }
 
-  enum unsigned: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aunsigned // = 0
+  enum unsigned: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aunsigned = 0
 
     init() {
       self = .aunsigned
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aunsigned
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aunsigned: return 0
-      }
-    }
-
   }
 
-  enum using: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ausing // = 0
+  enum using: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ausing = 0
 
     init() {
       self = .ausing
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ausing
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ausing: return 0
-      }
-    }
-
   }
 
-  enum virtual: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case avirtual // = 0
+  enum virtual: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case avirtual = 0
 
     init() {
       self = .avirtual
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .avirtual
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .avirtual: return 0
-      }
-    }
-
   }
 
-  enum void: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case avoid // = 0
+  enum void: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case avoid = 0
 
     init() {
       self = .avoid
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .avoid
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .avoid: return 0
-      }
-    }
-
   }
 
-  enum volatile: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case avolatile // = 0
+  enum volatile: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case avolatile = 0
 
     init() {
       self = .avolatile
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .avolatile
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .avolatile: return 0
-      }
-    }
-
   }
 
-  enum wchar_t: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case awcharT // = 0
+  enum wchar_t: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case awcharT = 0
 
     init() {
       self = .awcharT
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .awcharT
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .awcharT: return 0
-      }
-    }
-
   }
 
-  enum xor: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case axor // = 0
+  enum xor: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case axor = 0
 
     init() {
       self = .axor
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .axor
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .axor: return 0
-      }
-    }
-
   }
 
-  enum xor_eq: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case axorEq // = 0
+  enum xor_eq: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case axorEq = 0
 
     init() {
       self = .axorEq
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .axorEq
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .axorEq: return 0
-      }
-    }
-
   }
 
-  enum restrict: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case arestrict // = 0
+  enum restrict: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case arestrict = 0
 
     init() {
       self = .arestrict
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .arestrict
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .arestrict: return 0
-      }
-    }
-
   }
 
-  enum Category: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aCategory // = 0
+  enum Category: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aCategory = 0
 
     init() {
       self = .aCategory
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aCategory
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aCategory: return 0
-      }
-    }
-
   }
 
-  enum Ivar: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aIvar // = 0
+  enum Ivar: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aIvar = 0
 
     init() {
       self = .aIvar
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aIvar
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aIvar: return 0
-      }
-    }
-
   }
 
-  enum Method: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aMethod // = 0
+  enum Method: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aMethod = 0
 
     init() {
       self = .aMethod
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aMethod
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aMethod: return 0
-      }
-    }
-
   }
 
-  enum finalize: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case afinalize // = 0
+  enum finalize: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case afinalize = 0
 
     init() {
       self = .afinalize
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .afinalize
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .afinalize: return 0
-      }
-    }
-
   }
 
-  enum hash: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case ahash // = 0
+  enum hash: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case ahash = 0
 
     init() {
       self = .ahash
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .ahash
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .ahash: return 0
-      }
-    }
-
   }
 
-  enum dealloc: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adealloc // = 0
+  enum dealloc: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adealloc = 0
 
     init() {
       self = .adealloc
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adealloc
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adealloc: return 0
-      }
-    }
-
   }
 
-  enum superclass: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case asuperclass // = 0
+  enum superclass: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case asuperclass = 0
 
     init() {
       self = .asuperclass
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .asuperclass
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .asuperclass: return 0
-      }
-    }
-
   }
 
-  enum retain: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aretain // = 0
+  enum retain: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aretain = 0
 
     init() {
       self = .aretain
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aretain
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aretain: return 0
-      }
-    }
-
   }
 
-  enum release: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case arelease // = 0
+  enum release: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case arelease = 0
 
     init() {
       self = .arelease
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .arelease
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .arelease: return 0
-      }
-    }
-
   }
 
-  enum autorelease: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aautorelease // = 0
+  enum autorelease: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aautorelease = 0
 
     init() {
       self = .aautorelease
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aautorelease
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aautorelease: return 0
-      }
-    }
-
   }
 
-  enum retainCount: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aretainCount // = 0
+  enum retainCount: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aretainCount = 0
 
     init() {
       self = .aretainCount
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aretainCount
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aretainCount: return 0
-      }
-    }
-
   }
 
-  enum zone: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case azone // = 0
+  enum zone: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case azone = 0
 
     init() {
       self = .azone
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .azone
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .azone: return 0
-      }
-    }
-
   }
 
-  enum isProxy: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aisProxy // = 0
+  enum isProxy: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aisProxy = 0
 
     init() {
       self = .aisProxy
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aisProxy
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aisProxy: return 0
-      }
-    }
-
   }
 
-  enum copy: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case acopy // = 0
+  enum copy: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case acopy = 0
 
     init() {
       self = .acopy
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .acopy
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .acopy: return 0
-      }
-    }
-
   }
 
-  enum mutableCopy: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case amutableCopy // = 0
+  enum mutableCopy: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case amutableCopy = 0
 
     init() {
       self = .amutableCopy
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .amutableCopy
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .amutableCopy: return 0
-      }
-    }
-
   }
 
-  enum classForCoder: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aclassForCoder // = 0
+  enum classForCoder: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aclassForCoder = 0
 
     init() {
       self = .aclassForCoder
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aclassForCoder
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aclassForCoder: return 0
-      }
-    }
-
   }
 
-  enum clear: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aclear // = 0
+  enum clear: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aclear = 0
 
     init() {
       self = .aclear
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aclear
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aclear: return 0
-      }
-    }
-
   }
 
-  enum data: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adata // = 0
+  enum data: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adata = 0
 
     init() {
       self = .adata
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adata
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adata: return 0
-      }
-    }
-
   }
 
-  enum delimitedData: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adelimitedData // = 0
+  enum delimitedData: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adelimitedData = 0
 
     init() {
       self = .adelimitedData
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adelimitedData
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adelimitedData: return 0
-      }
-    }
-
   }
 
-  enum descriptor: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case adescriptor // = 0
+  enum descriptor: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case adescriptor = 0
 
     init() {
       self = .adescriptor
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .adescriptor
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .adescriptor: return 0
-      }
-    }
-
   }
 
-  enum extensionRegistry: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aextensionRegistry // = 0
+  enum extensionRegistry: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aextensionRegistry = 0
 
     init() {
       self = .aextensionRegistry
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aextensionRegistry
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aextensionRegistry: return 0
-      }
-    }
-
   }
 
-  enum extensionsCurrentlySet: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aextensionsCurrentlySet // = 0
+  enum extensionsCurrentlySet: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aextensionsCurrentlySet = 0
 
     init() {
       self = .aextensionsCurrentlySet
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aextensionsCurrentlySet
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aextensionsCurrentlySet: return 0
-      }
-    }
-
   }
 
-  enum isInitializedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aisInitialized // = 0
+  enum isInitializedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aisInitialized = 0
 
     init() {
       self = .aisInitialized
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aisInitialized
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aisInitialized: return 0
-      }
-    }
-
   }
 
-  enum serializedSize: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aserializedSize // = 0
+  enum serializedSize: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aserializedSize = 0
 
     init() {
       self = .aserializedSize
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aserializedSize
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aserializedSize: return 0
-      }
-    }
-
   }
 
-  enum sortedExtensionsInUse: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case asortedExtensionsInUse // = 0
+  enum sortedExtensionsInUse: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case asortedExtensionsInUse = 0
 
     init() {
       self = .asortedExtensionsInUse
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .asortedExtensionsInUse
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .asortedExtensionsInUse: return 0
-      }
-    }
-
   }
 
-  enum unknownFieldsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aunknownFields // = 0
+  enum unknownFieldsEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aunknownFields = 0
 
     init() {
       self = .aunknownFields
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aunknownFields
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aunknownFields: return 0
-      }
-    }
-
   }
 
-  enum Fixed: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aFixed // = 0
+  enum Fixed: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aFixed = 0
 
     init() {
       self = .aFixed
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aFixed
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aFixed: return 0
-      }
-    }
-
   }
 
-  enum Fract: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aFract // = 0
+  enum Fract: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aFract = 0
 
     init() {
       self = .aFract
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aFract
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aFract: return 0
-      }
-    }
-
   }
 
-  enum Size: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aSize // = 0
+  enum Size: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aSize = 0
 
     init() {
       self = .aSize
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aSize
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aSize: return 0
-      }
-    }
-
   }
 
-  enum LogicalAddress: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aLogicalAddress // = 0
+  enum LogicalAddress: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aLogicalAddress = 0
 
     init() {
       self = .aLogicalAddress
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aLogicalAddress
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aLogicalAddress: return 0
-      }
-    }
-
   }
 
-  enum PhysicalAddress: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aPhysicalAddress // = 0
+  enum PhysicalAddress: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aPhysicalAddress = 0
 
     init() {
       self = .aPhysicalAddress
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aPhysicalAddress
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aPhysicalAddress: return 0
-      }
-    }
-
   }
 
-  enum ByteCount: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aByteCount // = 0
+  enum ByteCount: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aByteCount = 0
 
     init() {
       self = .aByteCount
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aByteCount
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aByteCount: return 0
-      }
-    }
-
   }
 
-  enum ByteOffset: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aByteOffset // = 0
+  enum ByteOffset: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aByteOffset = 0
 
     init() {
       self = .aByteOffset
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aByteOffset
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aByteOffset: return 0
-      }
-    }
-
   }
 
-  enum Duration: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aDuration // = 0
+  enum Duration: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aDuration = 0
 
     init() {
       self = .aDuration
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aDuration
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aDuration: return 0
-      }
-    }
-
   }
 
-  enum AbsoluteTime: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aAbsoluteTime // = 0
+  enum AbsoluteTime: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aAbsoluteTime = 0
 
     init() {
       self = .aAbsoluteTime
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aAbsoluteTime
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aAbsoluteTime: return 0
-      }
-    }
-
   }
 
-  enum OptionBits: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aOptionBits // = 0
+  enum OptionBits: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aOptionBits = 0
 
     init() {
       self = .aOptionBits
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aOptionBits
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aOptionBits: return 0
-      }
-    }
-
   }
 
-  enum ItemCount: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aItemCount // = 0
+  enum ItemCount: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aItemCount = 0
 
     init() {
       self = .aItemCount
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aItemCount
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aItemCount: return 0
-      }
-    }
-
   }
 
-  enum PBVersion: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aPbversion // = 0
+  enum PBVersion: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aPbversion = 0
 
     init() {
       self = .aPbversion
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aPbversion
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aPbversion: return 0
-      }
-    }
-
   }
 
-  enum ScriptCode: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aScriptCode // = 0
+  enum ScriptCode: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aScriptCode = 0
 
     init() {
       self = .aScriptCode
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aScriptCode
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aScriptCode: return 0
-      }
-    }
-
   }
 
-  enum LangCode: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aLangCode // = 0
+  enum LangCode: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aLangCode = 0
 
     init() {
       self = .aLangCode
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aLangCode
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aLangCode: return 0
-      }
-    }
-
   }
 
-  enum RegionCode: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aRegionCode // = 0
+  enum RegionCode: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aRegionCode = 0
 
     init() {
       self = .aRegionCode
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aRegionCode
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aRegionCode: return 0
-      }
-    }
-
   }
 
-  enum OSType: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aOstype // = 0
+  enum OSType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aOstype = 0
 
     init() {
       self = .aOstype
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aOstype
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aOstype: return 0
-      }
-    }
-
   }
 
-  enum ProcessSerialNumber: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aProcessSerialNumber // = 0
+  enum ProcessSerialNumber: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aProcessSerialNumber = 0
 
     init() {
       self = .aProcessSerialNumber
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aProcessSerialNumber
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aProcessSerialNumber: return 0
-      }
-    }
-
   }
 
-  enum Point: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aPoint // = 0
+  enum Point: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aPoint = 0
 
     init() {
       self = .aPoint
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aPoint
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aPoint: return 0
-      }
-    }
-
   }
 
-  enum Rect: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aRect // = 0
+  enum Rect: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aRect = 0
 
     init() {
       self = .aRect
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aRect
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aRect: return 0
-      }
-    }
-
   }
 
-  enum FixedPoint: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aFixedPoint // = 0
+  enum FixedPoint: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aFixedPoint = 0
 
     init() {
       self = .aFixedPoint
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aFixedPoint
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aFixedPoint: return 0
-      }
-    }
-
   }
 
-  enum FixedRect: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aFixedRect // = 0
+  enum FixedRect: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aFixedRect = 0
 
     init() {
       self = .aFixedRect
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aFixedRect
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aFixedRect: return 0
-      }
-    }
-
   }
 
-  enum Style: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aStyle // = 0
+  enum Style: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aStyle = 0
 
     init() {
       self = .aStyle
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aStyle
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aStyle: return 0
-      }
-    }
-
   }
 
-  enum StyleParameter: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aStyleParameter // = 0
+  enum StyleParameter: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aStyleParameter = 0
 
     init() {
       self = .aStyleParameter
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aStyleParameter
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aStyleParameter: return 0
-      }
-    }
-
   }
 
-  enum StyleField: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aStyleField // = 0
+  enum StyleField: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aStyleField = 0
 
     init() {
       self = .aStyleField
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aStyleField
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aStyleField: return 0
-      }
-    }
-
   }
 
-  enum TimeScale: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aTimeScale // = 0
+  enum TimeScale: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aTimeScale = 0
 
     init() {
       self = .aTimeScale
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aTimeScale
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aTimeScale: return 0
-      }
-    }
-
   }
 
-  enum TimeBase: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aTimeBase // = 0
+  enum TimeBase: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aTimeBase = 0
 
     init() {
       self = .aTimeBase
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aTimeBase
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aTimeBase: return 0
-      }
-    }
-
   }
 
-  enum TimeRecord: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aTimeRecord // = 0
+  enum TimeRecord: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aTimeRecord = 0
 
     init() {
       self = .aTimeRecord
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aTimeRecord
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aTimeRecord: return 0
-      }
-    }
-
   }
 
-  enum Extension: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aExtension // = 0
+  enum Extension: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aExtension = 0
 
     init() {
       self = .aExtension
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aExtension
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aExtension: return 0
-      }
-    }
-
   }
 
-  enum ExtensionsEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case aExtensions // = 0
+  enum ExtensionsEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case aExtensions = 0
 
     init() {
       self = .aExtensions
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .aExtensions
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .aExtensions: return 0
-      }
     }
 
   }
@@ -12769,42 +9371,22 @@ struct SwiftProtoTesting_Names_ValidIdentifiers: Sendable {
 
   }
 
-  enum TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  enum TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
     /// Won't prefix strip
-    case testEnum0 // = 0
+    case testEnum0 = 0
 
     /// Will prefix strip
-    case first // = 1
+    case first = 1
 
     /// Leading underscore & number, keeps that.
-    case _2 // = 2
+    case _2 = 2
 
     /// Leading underscore & number, keeps that.
-    case _3Value // = 3
+    case _3Value = 3
 
     init() {
       self = .testEnum0
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .testEnum0
-      case 1: self = .first
-      case 2: self = ._2
-      case 3: self = ._3Value
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .testEnum0: return 0
-      case .first: return 1
-      case ._2: return 2
-      case ._3Value: return 3
-      }
     }
 
   }

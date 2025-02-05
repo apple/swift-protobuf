@@ -50,63 +50,25 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Proto2MapEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foo // = 0
-  case bar // = 1
-  case baz // = 2
+enum SwiftProtoTesting_Proto2MapEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foo = 0
+  case bar = 1
+  case baz = 2
 
   init() {
     self = .foo
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .foo
-    case 1: self = .bar
-    case 2: self = .baz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foo: return 0
-    case .bar: return 1
-    case .baz: return 2
-    }
-  }
-
 }
 
-enum SwiftProtoTesting_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case eProto2MapEnumFoo // = 0
-  case eProto2MapEnumBar // = 1
-  case eProto2MapEnumBaz // = 2
-  case eProto2MapEnumExtra // = 3
+enum SwiftProtoTesting_Proto2MapEnumPlusExtra: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case eProto2MapEnumFoo = 0
+  case eProto2MapEnumBar = 1
+  case eProto2MapEnumBaz = 2
+  case eProto2MapEnumExtra = 3
 
   init() {
     self = .eProto2MapEnumFoo
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .eProto2MapEnumFoo
-    case 1: self = .eProto2MapEnumBar
-    case 2: self = .eProto2MapEnumBaz
-    case 3: self = .eProto2MapEnumExtra
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .eProto2MapEnumFoo: return 0
-    case .eProto2MapEnumBar: return 1
-    case .eProto2MapEnumBaz: return 2
-    case .eProto2MapEnumExtra: return 3
-    }
   }
 
 }

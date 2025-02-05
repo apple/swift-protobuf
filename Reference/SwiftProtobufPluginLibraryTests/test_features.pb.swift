@@ -84,43 +84,17 @@ struct SwiftFeatureTest_TestFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case unknown // = 0
-    case value1 // = 1
-    case value2 // = 2
-    case value3 // = 3
-    case value4 // = 4
-    case value5 // = 5
-    case value6 // = 6
+  enum EnumFeature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unknown = 0
+    case value1 = 1
+    case value2 = 2
+    case value3 = 3
+    case value4 = 4
+    case value5 = 5
+    case value6 = 6
 
     init() {
       self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .value1
-      case 2: self = .value2
-      case 3: self = .value3
-      case 4: self = .value4
-      case 5: self = .value5
-      case 6: self = .value6
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .value1: return 1
-      case .value2: return 2
-      case .value3: return 3
-      case .value4: return 4
-      case .value5: return 5
-      case .value6: return 6
-      }
     }
 
   }

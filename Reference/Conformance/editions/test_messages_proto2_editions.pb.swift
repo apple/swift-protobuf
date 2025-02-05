@@ -34,31 +34,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufTestMessages_Editions_Proto2_ForeignEnumProto2: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foreignFoo // = 0
-  case foreignBar // = 1
-  case foreignBaz // = 2
+enum ProtobufTestMessages_Editions_Proto2_ForeignEnumProto2: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foreignFoo = 0
+  case foreignBar = 1
+  case foreignBaz = 2
 
   init() {
     self = .foreignFoo
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .foreignFoo
-    case 1: self = .foreignBar
-    case 2: self = .foreignBaz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foreignFoo: return 0
-    case .foreignBar: return 1
-    case .foreignBaz: return 2
-    }
   }
 
 }
@@ -1033,36 +1015,16 @@ struct ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: SwiftProtobuf.Ex
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 0
-    case bar // = 1
-    case baz // = 2
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 0
+    case bar = 1
+    case baz = 2
 
     /// Intentionally negative.
-    case neg // = -1
+    case neg = -1
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .neg
-      case 0: self = .foo
-      case 1: self = .bar
-      case 2: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .neg: return -1
-      case .foo: return 0
-      case .bar: return 1
-      case .baz: return 2
-      }
     }
 
   }
@@ -1374,28 +1336,12 @@ struct ProtobufTestMessages_Editions_Proto2_EnumOnlyProto2: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum BoolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case kFalse // = 0
-    case kTrue // = 1
+  enum BoolEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case kFalse = 0
+    case kTrue = 1
 
     init() {
       self = .kFalse
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .kFalse
-      case 1: self = .kTrue
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .kFalse: return 0
-      case .kTrue: return 1
-      }
     }
 
   }
@@ -1817,36 +1763,16 @@ struct ProtobufTestMessages_Editions_Proto2_TestAllRequiredTypesProto2: SwiftPro
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 0
-    case bar // = 1
-    case baz // = 2
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 0
+    case bar = 1
+    case baz = 2
 
     /// Intentionally negative.
-    case neg // = -1
+    case neg = -1
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .neg
-      case 0: self = .foo
-      case 1: self = .bar
-      case 2: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .neg: return -1
-      case .foo: return 0
-      case .bar: return 1
-      case .baz: return 2
-      }
     }
 
   }

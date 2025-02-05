@@ -59,63 +59,27 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foreignFoo // = 4
-  case foreignBar // = 5
-  case foreignBaz // = 6
+enum SwiftProtoTesting_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foreignFoo = 4
+  case foreignBar = 5
+  case foreignBaz = 6
 
   init() {
     self = .foreignFoo
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 4: self = .foreignFoo
-    case 5: self = .foreignBar
-    case 6: self = .foreignBaz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foreignFoo: return 4
-    case .foreignBar: return 5
-    case .foreignBaz: return 6
-    }
-  }
-
 }
 
 /// Test an enum that has multiple values with the same number.
-enum SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foo1 // = 1
-  case bar1 // = 2
-  case baz // = 3
+enum SwiftProtoTesting_TestEnumWithDupValue: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foo1 = 1
+  case bar1 = 2
+  case baz = 3
   static let foo2 = foo1
   static let bar2 = bar1
 
   init() {
     self = .foo1
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .foo1
-    case 2: self = .bar1
-    case 3: self = .baz
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foo1: return 1
-    case .bar1: return 2
-    case .baz: return 3
-    }
   }
 
 }
@@ -728,36 +692,16 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case foo = 1
+    case bar = 2
+    case baz = 3
 
     /// Intentionally negative.
-    case neg // = -1
+    case neg = -1
 
     init() {
       self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case -1: self = .neg
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .neg: return -1
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      }
     }
 
   }

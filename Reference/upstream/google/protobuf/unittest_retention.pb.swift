@@ -27,25 +27,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_TopLevelEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case topLevelUnknown // = 0
+enum ProtobufUnittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case topLevelUnknown = 0
 
   init() {
     self = .topLevelUnknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .topLevelUnknown
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .topLevelUnknown: return 0
-    }
   }
 
 }
@@ -135,25 +121,11 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendab
 
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case nestedUnknown // = 0
+  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case nestedUnknown = 0
 
     init() {
       self = .nestedUnknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .nestedUnknown
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .nestedUnknown: return 0
-      }
     }
 
   }

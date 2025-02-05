@@ -118,63 +118,25 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case double // = 1
-    case json // = 2
-    case `class` // = 3
-    case ___ // = 4
-    case self_ // = 5
-    case type // = 6
+  enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case double = 1
+    case json = 2
+    case `class` = 3
+    case ___ = 4
+    case self_ = 5
+    case type = 6
 
     init() {
       self = .double
     }
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .double
-      case 2: self = .json
-      case 3: self = .class
-      case 4: self = .___
-      case 5: self = .self_
-      case 6: self = .type
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .double: return 1
-      case .json: return 2
-      case .class: return 3
-      case .___: return 4
-      case .self_: return 5
-      case .type: return 6
-      }
-    }
-
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case a // = 1
+  enum ProtocolEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case a = 1
 
     init() {
       self = .a
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 1: self = .a
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .a: return 1
-      }
     }
 
   }

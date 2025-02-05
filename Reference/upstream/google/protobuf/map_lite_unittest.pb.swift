@@ -28,92 +28,36 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case proto2MapEnumFooLite // = 0
-  case proto2MapEnumBarLite // = 1
-  case proto2MapEnumBazLite // = 2
+enum ProtobufUnittest_Proto2MapEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case proto2MapEnumFooLite = 0
+  case proto2MapEnumBarLite = 1
+  case proto2MapEnumBazLite = 2
 
   init() {
     self = .proto2MapEnumFooLite
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .proto2MapEnumFooLite
-    case 1: self = .proto2MapEnumBarLite
-    case 2: self = .proto2MapEnumBazLite
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .proto2MapEnumFooLite: return 0
-    case .proto2MapEnumBarLite: return 1
-    case .proto2MapEnumBazLite: return 2
-    }
-  }
-
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case eProto2MapEnumFooLite // = 0
-  case eProto2MapEnumBarLite // = 1
-  case eProto2MapEnumBazLite // = 2
-  case eProto2MapEnumExtraLite // = 3
+enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case eProto2MapEnumFooLite = 0
+  case eProto2MapEnumBarLite = 1
+  case eProto2MapEnumBazLite = 2
+  case eProto2MapEnumExtraLite = 3
 
   init() {
     self = .eProto2MapEnumFooLite
   }
 
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .eProto2MapEnumFooLite
-    case 1: self = .eProto2MapEnumBarLite
-    case 2: self = .eProto2MapEnumBazLite
-    case 3: self = .eProto2MapEnumExtraLite
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .eProto2MapEnumFooLite: return 0
-    case .eProto2MapEnumBarLite: return 1
-    case .eProto2MapEnumBazLite: return 2
-    case .eProto2MapEnumExtraLite: return 3
-    }
-  }
-
 }
 
-enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case mapEnumFooLite // = 0
-  case mapEnumBarLite // = 1
-  case mapEnumBazLite // = 2
+enum ProtobufUnittest_MapEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case mapEnumFooLite = 0
+  case mapEnumBarLite = 1
+  case mapEnumBazLite = 2
 
   init() {
     self = .mapEnumFooLite
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .mapEnumFooLite
-    case 1: self = .mapEnumBarLite
-    case 2: self = .mapEnumBazLite
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .mapEnumFooLite: return 0
-    case .mapEnumBarLite: return 1
-    case .mapEnumBazLite: return 2
-    }
   }
 
 }

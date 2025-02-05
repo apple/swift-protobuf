@@ -60,10 +60,12 @@ class EnumGenerator {
 
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(enumDescriptor.isClosed ? "Int, " : "")\(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
-            p.print("\(visibility)typealias RawValue = Int")
+            if !enumDescriptor.isClosed {
+                p.print("\(visibility)typealias RawValue = Int")
+            }
 
             // Cases/aliases
             generateCasesOrAliases(printer: &p)
@@ -76,11 +78,13 @@ class EnumGenerator {
             p.printIndented("self = \(namer.dottedRelativeName(enumValue: enumDescriptor.values.first!))")
             p.print("}")
 
-            p.print()
-            generateInitRawValue(printer: &p)
+            if !enumDescriptor.isClosed {
+                p.print()
+                generateInitRawValue(printer: &p)
 
-            p.print()
-            generateRawValueProperty(printer: &p)
+                p.print()
+                generateRawValueProperty(printer: &p)
+            }
 
             maybeGenerateCaseIterable(printer: &p)
 
@@ -134,6 +138,8 @@ class EnumGenerator {
             if let aliasOf = aliasInfo.original(of: enumValueDescriptor) {
                 let aliasOfName = namer.relativeName(enumValue: aliasOf)
                 p.print("\(comments)\(visibility)static let \(relativeName) = \(aliasOfName)")
+            } else if enumDescriptor.isClosed {
+                p.print("\(comments)case \(relativeName) = \(enumValueDescriptor.number)")
             } else {
                 p.print("\(comments)case \(relativeName) // = \(enumValueDescriptor.number)")
             }

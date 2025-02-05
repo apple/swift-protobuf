@@ -33,28 +33,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case lazyEnum0 // = 0
-  case lazyEnum1 // = 1
+enum ProtobufUnittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case lazyEnum0 = 0
+  case lazyEnum1 = 1
 
   init() {
     self = .lazyEnum0
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .lazyEnum0
-    case 1: self = .lazyEnum1
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .lazyEnum0: return 0
-    case .lazyEnum1: return 1
-    }
   }
 
 }

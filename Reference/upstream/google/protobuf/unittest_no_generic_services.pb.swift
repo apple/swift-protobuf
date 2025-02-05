@@ -29,25 +29,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case foo // = 1
+enum ProtobufUnittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case foo = 1
 
   init() {
     self = .foo
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 1: self = .foo
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .foo: return 1
-    }
   }
 
 }
