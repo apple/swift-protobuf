@@ -30,7 +30,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Test that we can include all well-known types.
 /// Each wrapper type is included separately, as languages
 /// map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: @unchecked Sendable {
+struct Proto2Unittest_TestWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -215,7 +215,7 @@ struct ProtobufUnittest_TestWellKnownTypes: @unchecked Sendable {
 }
 
 /// A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: @unchecked Sendable {
+struct Proto2Unittest_RepeatedWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -318,12 +318,12 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: Sendable {
+struct Proto2Unittest_OneofWellKnownTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField? = nil
+  var oneofField: Proto2Unittest_OneofWellKnownTypes.OneOf_OneofField? = nil
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
     get {
@@ -499,7 +499,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: Sendable {
 /// A map field for each well-known type. We only
 /// need to worry about the value part of the map being the
 /// well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: @unchecked Sendable {
+struct Proto2Unittest_MapWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -603,9 +603,9 @@ struct ProtobufUnittest_MapWellKnownTypes: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -792,7 +792,7 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestWellKnownTypes, rhs: ProtobufUnittest_TestWellKnownTypes) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestWellKnownTypes, rhs: Proto2Unittest_TestWellKnownTypes) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -825,7 +825,7 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -1001,7 +1001,7 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_RepeatedWellKnownTypes, rhs: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
+  static func ==(lhs: Proto2Unittest_RepeatedWellKnownTypes, rhs: Proto2Unittest_RepeatedWellKnownTypes) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1033,7 +1033,7 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -1384,14 +1384,14 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OneofWellKnownTypes, rhs: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
+  static func ==(lhs: Proto2Unittest_OneofWellKnownTypes, rhs: Proto2Unittest_OneofWellKnownTypes) -> Bool {
     if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -1567,7 +1567,7 @@ extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_MapWellKnownTypes, rhs: ProtobufUnittest_MapWellKnownTypes) -> Bool {
+  static func ==(lhs: Proto2Unittest_MapWellKnownTypes, rhs: Proto2Unittest_MapWellKnownTypes) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

@@ -171,8 +171,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
-  var optionalProto2Message: ProtobufUnittest_TestAllTypes {
-    get {return _storage._optionalProto2Message ?? ProtobufUnittest_TestAllTypes()}
+  var optionalProto2Message: Proto2Unittest_TestAllTypes {
+    get {return _storage._optionalProto2Message ?? Proto2Unittest_TestAllTypes()}
     set {_uniqueStorage()._optionalProto2Message = newValue}
   }
   /// Returns true if `optionalProto2Message` has been explicitly set.
@@ -187,7 +187,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
 
   /// N.B.: proto2-enum-type fields not allowed, because their default values
   /// might not be zero.
-  /// optional protobuf_unittest.ForeignEnum          optional_proto2_enum     =
+  /// optional proto2_unittest.ForeignEnum          optional_proto2_enum     =
   /// 23;
   var optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum {
     get {return _storage._optionalForeignEnum}
@@ -299,7 +299,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  var repeatedProto2Message: [ProtobufUnittest_TestAllTypes] {
+  var repeatedProto2Message: [Proto2Unittest_TestAllTypes] {
     get {return _storage._repeatedProto2Message}
     set {_uniqueStorage()._repeatedProto2Message = newValue}
   }
@@ -454,8 +454,8 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var proto2: ProtobufUnittest_TestRequired {
-    get {return _proto2 ?? ProtobufUnittest_TestRequired()}
+  var proto2: Proto2Unittest_TestRequired {
+    get {return _proto2 ?? Proto2Unittest_TestRequired()}
     set {_proto2 = newValue}
   }
   /// Returns true if `proto2` has been explicitly set.
@@ -467,7 +467,7 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: Sendable {
 
   init() {}
 
-  fileprivate var _proto2: ProtobufUnittest_TestRequired? = nil
+  fileprivate var _proto2: Proto2Unittest_TestRequired? = nil
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -592,7 +592,7 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, Swi
     var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
-    var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
+    var _optionalProto2Message: Proto2Unittest_TestAllTypes? = nil
     var _optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum = .foo
     var _optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum = .foreignFoo
     var _optionalStringPiece: String = String()
@@ -615,7 +615,7 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, Swi
     var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = []
-    var _repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = []
+    var _repeatedProto2Message: [Proto2Unittest_TestAllTypes] = []
     var _repeatedNestedEnum: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = []
     var _repeatedForeignEnum: [Proto2NofieldpresenceUnittest_ForeignEnum] = []
     var _repeatedStringPiece: [String] = []

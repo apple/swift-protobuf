@@ -100,6 +100,7 @@ message GeneratedSwiftReservedMessages {
   message clearEditionIntroduced { int32 clearEditionIntroduced = 1; }
   message clearEditionRemoved { int32 clearEditionRemoved = 1; }
   message clearEnd { int32 clearEnd = 1; }
+  message clearEnforceNamingStyle { int32 clearEnforceNamingStyle = 1; }
   message clearEnumType { int32 clearEnumType = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
   message clearExtensionValue { int32 clearExtensionValue = 1; }
@@ -267,7 +268,7 @@ message GeneratedSwiftReservedMessages {
   message discardUnknownFields { int32 discardUnknownFields = 1; }
   message Double { int32 Double = 1; }
   message doubleValue { int32 doubleValue = 1; }
-  message Duration { int32 Duration = 1; }
+  message duration { int32 duration = 1; }
   message E { int32 E = 1; }
   message edition { int32 edition = 1; }
   message EditionDefault { int32 EditionDefault = 1; }
@@ -282,6 +283,7 @@ message GeneratedSwiftReservedMessages {
   message emitFieldName { int32 emitFieldName = 1; }
   message emitFieldNumber { int32 emitFieldNumber = 1; }
   message Empty { int32 Empty = 1; }
+  message emptyAnyTypeURL { int32 emptyAnyTypeURL = 1; }
   message emptyData { int32 emptyData = 1; }
   message encodeAsBytes { int32 encodeAsBytes = 1; }
   message encoded { int32 encoded = 1; }
@@ -294,6 +296,7 @@ message GeneratedSwiftReservedMessages {
   message endMessageField { int32 endMessageField = 1; }
   message endObject { int32 endObject = 1; }
   message endRegularField { int32 endRegularField = 1; }
+  message enforceNamingStyle { int32 enforceNamingStyle = 1; }
   message enum { int32 enum = 1; }
   message EnumDescriptorProto { int32 EnumDescriptorProto = 1; }
   message EnumOptions { int32 EnumOptions = 1; }
@@ -457,6 +460,7 @@ message GeneratedSwiftReservedMessages {
   message hasEditionIntroduced { int32 hasEditionIntroduced = 1; }
   message hasEditionRemoved { int32 hasEditionRemoved = 1; }
   message hasEnd { int32 hasEnd = 1; }
+  message hasEnforceNamingStyle { int32 hasEnforceNamingStyle = 1; }
   message hasEnumType { int32 hasEnumType = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
   message hasExtensionValue { int32 hasExtensionValue = 1; }
@@ -558,6 +562,7 @@ message GeneratedSwiftReservedMessages {
   message intersect { int32 intersect = 1; }
   message into { int32 into = 1; }
   message ints { int32 ints = 1; }
+  message invalidAnyTypeURL { int32 invalidAnyTypeURL = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }
@@ -575,9 +580,11 @@ message GeneratedSwiftReservedMessages {
   message javaPackage { int32 javaPackage = 1; }
   message javaStringCheckUtf8 { int32 javaStringCheckUtf8 = 1; }
   message JSONDecoder { int32 JSONDecoder = 1; }
+  message JSONDecoding { int32 JSONDecoding = 1; }
   message JSONDecodingError { int32 JSONDecodingError = 1; }
   message JSONDecodingOptions { int32 JSONDecodingOptions = 1; }
   message jsonEncoder { int32 jsonEncoder = 1; }
+  message JSONEncoding { int32 JSONEncoding = 1; }
   message JSONEncodingError { int32 JSONEncodingError = 1; }
   message JSONEncodingOptions { int32 JSONEncodingOptions = 1; }
   message JSONEncodingVisitor { int32 JSONEncodingVisitor = 1; }

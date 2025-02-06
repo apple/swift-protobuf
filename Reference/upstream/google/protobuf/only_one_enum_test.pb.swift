@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case `default` // = 0
   case valid // = 10
@@ -47,7 +47,7 @@ enum ProtobufUnittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittest_OnlyOneEnum] = [
+  static let allCases: [Proto2Unittest_OnlyOneEnum] = [
     .default,
     .valid,
   ]
@@ -56,7 +56,7 @@ enum ProtobufUnittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ProtobufUnittest_OnlyOneEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_OnlyOneEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ONLY_ONE_ENUM_DEFAULT"),
     10: .same(proto: "ONLY_ONE_ENUM_VALID"),

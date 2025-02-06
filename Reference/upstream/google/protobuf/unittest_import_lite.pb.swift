@@ -31,7 +31,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2UnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case importLiteFoo = 7
   case importLiteBar = 8
   case importLiteBaz = 9
@@ -42,7 +42,7 @@ enum ProtobufUnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseI
 
 }
 
-struct ProtobufUnittestImport_ImportMessageLite: Sendable {
+struct Proto2UnittestImport_ImportMessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -65,9 +65,9 @@ struct ProtobufUnittestImport_ImportMessageLite: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest_import"
+fileprivate let _protobuf_package = "proto2_unittest_import"
 
-extension ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
+extension Proto2UnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     7: .same(proto: "IMPORT_LITE_FOO"),
     8: .same(proto: "IMPORT_LITE_BAR"),
@@ -75,7 +75,7 @@ extension ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProvidi
   ]
 }
 
-extension ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
@@ -104,7 +104,7 @@ extension ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestImport_ImportMessageLite, rhs: ProtobufUnittestImport_ImportMessageLite) -> Bool {
+  static func ==(lhs: Proto2UnittestImport_ImportMessageLite, rhs: Proto2UnittestImport_ImportMessageLite) -> Bool {
     if lhs._d != rhs._d {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

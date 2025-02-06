@@ -33,13 +33,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_LazyImports_ImportedMessage: Sendable {
+struct Proto2Unittest_LazyImports_ImportedMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var lazyMessage: ProtobufUnittest_LazyImports_LazyMessage {
-    get {return _lazyMessage ?? ProtobufUnittest_LazyImports_LazyMessage()}
+  var lazyMessage: Proto2Unittest_LazyImports_LazyMessage {
+    get {return _lazyMessage ?? Proto2Unittest_LazyImports_LazyMessage()}
     set {_lazyMessage = newValue}
   }
   /// Returns true if `lazyMessage` has been explicitly set.
@@ -51,10 +51,10 @@ struct ProtobufUnittest_LazyImports_ImportedMessage: Sendable {
 
   init() {}
 
-  fileprivate var _lazyMessage: ProtobufUnittest_LazyImports_LazyMessage? = nil
+  fileprivate var _lazyMessage: Proto2Unittest_LazyImports_LazyMessage? = nil
 }
 
-struct ProtobufUnittest_LazyImports_MessageCustomOption: Sendable {
+struct Proto2Unittest_LazyImports_MessageCustomOption: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,7 +64,7 @@ struct ProtobufUnittest_LazyImports_MessageCustomOption: Sendable {
   init() {}
 }
 
-struct ProtobufUnittest_LazyImports_MessageCustomOption2: Sendable {
+struct Proto2Unittest_LazyImports_MessageCustomOption2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -76,9 +76,9 @@ struct ProtobufUnittest_LazyImports_MessageCustomOption2: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest.lazy_imports"
+fileprivate let _protobuf_package = "proto2_unittest.lazy_imports"
 
-extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "lazy_message"),
@@ -107,14 +107,14 @@ extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_LazyImports_ImportedMessage, rhs: ProtobufUnittest_LazyImports_ImportedMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_LazyImports_ImportedMessage, rhs: Proto2Unittest_LazyImports_ImportedMessage) -> Bool {
     if lhs._lazyMessage != rhs._lazyMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -127,13 +127,13 @@ extension ProtobufUnittest_LazyImports_MessageCustomOption: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_LazyImports_MessageCustomOption, rhs: ProtobufUnittest_LazyImports_MessageCustomOption) -> Bool {
+  static func ==(lhs: Proto2Unittest_LazyImports_MessageCustomOption, rhs: Proto2Unittest_LazyImports_MessageCustomOption) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -146,7 +146,7 @@ extension ProtobufUnittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_LazyImports_MessageCustomOption2, rhs: ProtobufUnittest_LazyImports_MessageCustomOption2) -> Bool {
+  static func ==(lhs: Proto2Unittest_LazyImports_MessageCustomOption2, rhs: Proto2Unittest_LazyImports_MessageCustomOption2) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

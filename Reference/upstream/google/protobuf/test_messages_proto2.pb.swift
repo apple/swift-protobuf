@@ -995,6 +995,15 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   /// Clears the value of `fieldName18__`. Subsequent reads from it will return its default value.
   mutating func clearFieldName18__() {_uniqueStorage()._fieldName18__ = nil}
 
+  var messageSetCorrect: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
+    get {return _storage._messageSetCorrect ?? ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect()}
+    set {_uniqueStorage()._messageSetCorrect = newValue}
+  }
+  /// Returns true if `messageSetCorrect` has been explicitly set.
+  var hasMessageSetCorrect: Bool {return _storage._messageSetCorrect != nil}
+  /// Clears the value of `messageSetCorrect`. Subsequent reads from it will return its default value.
+  mutating func clearMessageSetCorrect() {_uniqueStorage()._messageSetCorrect = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_OneofField: Equatable, @unchecked Sendable {
@@ -1175,6 +1184,40 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
     init() {}
 
     fileprivate var _i: Int32? = nil
+  }
+
+  struct ExtensionWithOneof: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var oneofField: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.OneOf_OneofField? = nil
+
+    var a: Int32 {
+      get {
+        if case .a(let v)? = oneofField {return v}
+        return 0
+      }
+      set {oneofField = .a(newValue)}
+    }
+
+    var b: Int32 {
+      get {
+        if case .b(let v)? = oneofField {return v}
+        return 0
+      }
+      set {oneofField = .b(newValue)}
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    enum OneOf_OneofField: Equatable, Sendable {
+      case a(Int32)
+      case b(Int32)
+
+    }
+
+    init() {}
   }
 
   init() {}
@@ -1909,6 +1952,117 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct ProtobufTestMessages_Proto2_TestLargeOneof: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var largeOneof: ProtobufTestMessages_Proto2_TestLargeOneof.OneOf_LargeOneof? = nil
+
+  var a1: ProtobufTestMessages_Proto2_TestLargeOneof.A1 {
+    get {
+      if case .a1(let v)? = largeOneof {return v}
+      return ProtobufTestMessages_Proto2_TestLargeOneof.A1()
+    }
+    set {largeOneof = .a1(newValue)}
+  }
+
+  var a2: ProtobufTestMessages_Proto2_TestLargeOneof.A2 {
+    get {
+      if case .a2(let v)? = largeOneof {return v}
+      return ProtobufTestMessages_Proto2_TestLargeOneof.A2()
+    }
+    set {largeOneof = .a2(newValue)}
+  }
+
+  var a3: ProtobufTestMessages_Proto2_TestLargeOneof.A3 {
+    get {
+      if case .a3(let v)? = largeOneof {return v}
+      return ProtobufTestMessages_Proto2_TestLargeOneof.A3()
+    }
+    set {largeOneof = .a3(newValue)}
+  }
+
+  var a4: ProtobufTestMessages_Proto2_TestLargeOneof.A4 {
+    get {
+      if case .a4(let v)? = largeOneof {return v}
+      return ProtobufTestMessages_Proto2_TestLargeOneof.A4()
+    }
+    set {largeOneof = .a4(newValue)}
+  }
+
+  var a5: ProtobufTestMessages_Proto2_TestLargeOneof.A5 {
+    get {
+      if case .a5(let v)? = largeOneof {return v}
+      return ProtobufTestMessages_Proto2_TestLargeOneof.A5()
+    }
+    set {largeOneof = .a5(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_LargeOneof: Equatable, Sendable {
+    case a1(ProtobufTestMessages_Proto2_TestLargeOneof.A1)
+    case a2(ProtobufTestMessages_Proto2_TestLargeOneof.A2)
+    case a3(ProtobufTestMessages_Proto2_TestLargeOneof.A3)
+    case a4(ProtobufTestMessages_Proto2_TestLargeOneof.A4)
+    case a5(ProtobufTestMessages_Proto2_TestLargeOneof.A5)
+
+  }
+
+  struct A1: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct A2: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct A3: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct A4: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct A5: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  init() {}
+}
+
 // MARK: - Extension support defined in test_messages_proto2.proto.
 
 // MARK: - Extension Properties
@@ -2016,6 +2170,21 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
     clearExtensionValue(ext: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension)
   }
 
+  var ProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof {
+    get {return getExtensionValue(ext: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof) ?? ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof()}
+    set {setExtensionValue(ext: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof: Bool {
+    return hasExtensionValue(ext: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof)
+  }
+  /// Clears the value of extension `ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof() {
+    clearExtensionValue(ext: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof)
+  }
+
 }
 
 // MARK: - File's ExtensionMap: ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions
@@ -2029,6 +2198,7 @@ let ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions: SwiftProtobuf.Sim
   ProtobufTestMessages_Proto2_Extensions_GroupField,
   ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension,
   ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension,
+  ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof,
   ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension,
   ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension
 ]
@@ -2061,6 +2231,15 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2>, ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect>(
       _protobuf_fieldNumber: 4135312,
       fieldName: "protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2"
+    )
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof {
+  enum Extensions {
+    static let extension_with_oneof = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof>, ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect>(
+      _protobuf_fieldNumber: 123456789,
+      fieldName: "protobuf_test_messages.proto2.TestAllTypesProto2.ExtensionWithOneof"
     )
   }
 }
@@ -2234,6 +2413,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
     416: .standard(proto: "field__Name16"),
     417: .standard(proto: "field_name17__"),
     418: .standard(proto: "Field_name18__"),
+    500: .standard(proto: "message_set_correct"),
   ]
 
   fileprivate class _StorageClass {
@@ -2363,6 +2543,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
     var _field_Name16: Int32? = nil
     var _fieldName17__: Int32? = nil
     var _fieldName18__: Int32? = nil
+    var _messageSetCorrect: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -2503,6 +2684,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       _field_Name16 = source._field_Name16
       _fieldName17__ = source._fieldName17__
       _fieldName18__ = source._fieldName18__
+      _messageSetCorrect = source._messageSetCorrect
     }
   }
 
@@ -2521,6 +2703,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedNestedMessage) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapStringNestedMessage) {return false}
       if let v = _storage._oneofField, !v.isInitialized {return false}
+      if let v = _storage._messageSetCorrect, !v.isInitialized {return false}
       return true
     }
   }
@@ -2735,6 +2918,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
         case 416: try { try decoder.decodeSingularInt32Field(value: &_storage._field_Name16) }()
         case 417: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldName17__) }()
         case 418: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldName18__) }()
+        case 500: try { try decoder.decodeSingularMessageField(value: &_storage._messageSetCorrect) }()
         case 120..<201:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufTestMessages_Proto2_TestAllTypesProto2.self, fieldNumber: fieldNumber) }()
         default: break
@@ -3164,6 +3348,9 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       try { if let v = _storage._fieldName18__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 418)
       } }()
+      try { if let v = _storage._messageSetCorrect {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 500)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -3299,6 +3486,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
         if _storage._field_Name16 != rhs_storage._field_Name16 {return false}
         if _storage._fieldName17__ != rhs_storage._fieldName17__ {return false}
         if _storage._fieldName18__ != rhs_storage._fieldName18__ {return false}
+        if _storage._messageSetCorrect != rhs_storage._messageSetCorrect {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -3585,6 +3773,66 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
 
   static func ==(lhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2, rhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2) -> Bool {
     if lhs._i != rhs._i {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_TestAllTypesProto2.protoMessageName + ".ExtensionWithOneof"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .a(v)
+        }
+      }()
+      case 2: try {
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .b(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.oneofField {
+    case .a?: try {
+      guard case .a(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }()
+    case .b?: try {
+      guard case .b(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof, rhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof) -> Bool {
+    if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4595,6 +4843,225 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorre
 
   static func ==(lhs: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2, rhs: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2) -> Bool {
     if lhs._i != rhs._i {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestLargeOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestLargeOneof"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a1"),
+    2: .same(proto: "a2"),
+    3: .same(proto: "a3"),
+    4: .same(proto: "a4"),
+    5: .same(proto: "a5"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: ProtobufTestMessages_Proto2_TestLargeOneof.A1?
+        var hadOneofValue = false
+        if let current = self.largeOneof {
+          hadOneofValue = true
+          if case .a1(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.largeOneof = .a1(v)
+        }
+      }()
+      case 2: try {
+        var v: ProtobufTestMessages_Proto2_TestLargeOneof.A2?
+        var hadOneofValue = false
+        if let current = self.largeOneof {
+          hadOneofValue = true
+          if case .a2(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.largeOneof = .a2(v)
+        }
+      }()
+      case 3: try {
+        var v: ProtobufTestMessages_Proto2_TestLargeOneof.A3?
+        var hadOneofValue = false
+        if let current = self.largeOneof {
+          hadOneofValue = true
+          if case .a3(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.largeOneof = .a3(v)
+        }
+      }()
+      case 4: try {
+        var v: ProtobufTestMessages_Proto2_TestLargeOneof.A4?
+        var hadOneofValue = false
+        if let current = self.largeOneof {
+          hadOneofValue = true
+          if case .a4(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.largeOneof = .a4(v)
+        }
+      }()
+      case 5: try {
+        var v: ProtobufTestMessages_Proto2_TestLargeOneof.A5?
+        var hadOneofValue = false
+        if let current = self.largeOneof {
+          hadOneofValue = true
+          if case .a5(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.largeOneof = .a5(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.largeOneof {
+    case .a1?: try {
+      guard case .a1(let v)? = self.largeOneof else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .a2?: try {
+      guard case .a2(let v)? = self.largeOneof else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case .a3?: try {
+      guard case .a3(let v)? = self.largeOneof else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case .a4?: try {
+      guard case .a4(let v)? = self.largeOneof else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    }()
+    case .a5?: try {
+      guard case .a5(let v)? = self.largeOneof else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestLargeOneof, rhs: ProtobufTestMessages_Proto2_TestLargeOneof) -> Bool {
+    if lhs.largeOneof != rhs.largeOneof {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestLargeOneof.A1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_TestLargeOneof.protoMessageName + ".A1"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestLargeOneof.A1, rhs: ProtobufTestMessages_Proto2_TestLargeOneof.A1) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestLargeOneof.A2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_TestLargeOneof.protoMessageName + ".A2"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestLargeOneof.A2, rhs: ProtobufTestMessages_Proto2_TestLargeOneof.A2) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestLargeOneof.A3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_TestLargeOneof.protoMessageName + ".A3"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestLargeOneof.A3, rhs: ProtobufTestMessages_Proto2_TestLargeOneof.A3) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestLargeOneof.A4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_TestLargeOneof.protoMessageName + ".A4"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestLargeOneof.A4, rhs: ProtobufTestMessages_Proto2_TestLargeOneof.A4) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_TestLargeOneof.A5: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_TestLargeOneof.protoMessageName + ".A5"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_TestLargeOneof.A5, rhs: ProtobufTestMessages_Proto2_TestLargeOneof.A5) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

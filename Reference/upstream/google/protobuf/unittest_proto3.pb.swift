@@ -177,8 +177,8 @@ struct Proto3Unittest_TestAllTypes: @unchecked Sendable {
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
-  var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
-    get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
+  var optionalImportMessage: Proto2UnittestImport_ImportMessage {
+    get {return _storage._optionalImportMessage ?? Proto2UnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -207,8 +207,8 @@ struct Proto3Unittest_TestAllTypes: @unchecked Sendable {
   }
 
   /// Defined in unittest_import_public.proto
-  var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
-    get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
+  var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage {
+    get {return _storage._optionalPublicImportMessage ?? Proto2UnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -234,8 +234,8 @@ struct Proto3Unittest_TestAllTypes: @unchecked Sendable {
   /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
 
-  var optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage {
-    get {return _storage._optionalLazyImportMessage ?? ProtobufUnittestImport_ImportMessage()}
+  var optionalLazyImportMessage: Proto2UnittestImport_ImportMessage {
+    get {return _storage._optionalLazyImportMessage ?? Proto2UnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalLazyImportMessage = newValue}
   }
   /// Returns true if `optionalLazyImportMessage` has been explicitly set.
@@ -329,7 +329,7 @@ struct Proto3Unittest_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  var repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] {
+  var repeatedImportMessage: [Proto2UnittestImport_ImportMessage] {
     get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
@@ -1150,15 +1150,15 @@ extension Proto3Unittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mes
     var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Proto3Unittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3Unittest_ForeignMessage? = nil
-    var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
+    var _optionalImportMessage: Proto2UnittestImport_ImportMessage? = nil
     var _optionalNestedEnum: Proto3Unittest_TestAllTypes.NestedEnum = .zero
     var _optionalForeignEnum: Proto3Unittest_ForeignEnum = .foreignZero
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
-    var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
+    var _optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: Proto3Unittest_TestAllTypes.NestedMessage? = nil
     var _optionalUnverifiedLazyMessage: Proto3Unittest_TestAllTypes.NestedMessage? = nil
-    var _optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage? = nil
+    var _optionalLazyImportMessage: Proto2UnittestImport_ImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -1176,7 +1176,7 @@ extension Proto3Unittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mes
     var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [Proto3Unittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto3Unittest_ForeignMessage] = []
-    var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
+    var _repeatedImportMessage: [Proto2UnittestImport_ImportMessage] = []
     var _repeatedNestedEnum: [Proto3Unittest_TestAllTypes.NestedEnum] = []
     var _repeatedForeignEnum: [Proto3Unittest_ForeignEnum] = []
     var _repeatedStringPiece: [String] = []

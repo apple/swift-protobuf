@@ -28,7 +28,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
+struct Proto2Unittest_TestProto3Optional: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,8 +178,8 @@ struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
   mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
 
-  var optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestProto3Optional.NestedMessage()}
+  var optionalNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage {
+    get {return _storage._optionalNestedMessage ?? Proto2Unittest_TestProto3Optional.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -187,8 +187,8 @@ struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
-  var lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage {
-    get {return _storage._lazyNestedMessage ?? ProtobufUnittest_TestProto3Optional.NestedMessage()}
+  var lazyNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage {
+    get {return _storage._lazyNestedMessage ?? Proto2Unittest_TestProto3Optional.NestedMessage()}
     set {_uniqueStorage()._lazyNestedMessage = newValue}
   }
   /// Returns true if `lazyNestedMessage` has been explicitly set.
@@ -196,7 +196,7 @@ struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
   /// Clears the value of `lazyNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearLazyNestedMessage() {_uniqueStorage()._lazyNestedMessage = nil}
 
-  var optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum {
+  var optionalNestedEnum: Proto2Unittest_TestProto3Optional.NestedEnum {
     get {return _storage._optionalNestedEnum ?? .unspecified}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
@@ -256,7 +256,7 @@ struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittest_TestProto3Optional.NestedEnum] = [
+    static let allCases: [Proto2Unittest_TestProto3Optional.NestedEnum] = [
       .unspecified,
       .foo,
       .bar,
@@ -295,13 +295,13 @@ struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_TestProto3OptionalMessage: Sendable {
+struct Proto2Unittest_TestProto3OptionalMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var nestedMessage: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage {
-    get {return _nestedMessage ?? ProtobufUnittest_TestProto3OptionalMessage.NestedMessage()}
+  var nestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage {
+    get {return _nestedMessage ?? Proto2Unittest_TestProto3OptionalMessage.NestedMessage()}
     set {_nestedMessage = newValue}
   }
   /// Returns true if `nestedMessage` has been explicitly set.
@@ -309,8 +309,8 @@ struct ProtobufUnittest_TestProto3OptionalMessage: Sendable {
   /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearNestedMessage() {self._nestedMessage = nil}
 
-  var optionalNestedMessage: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage {
-    get {return _optionalNestedMessage ?? ProtobufUnittest_TestProto3OptionalMessage.NestedMessage()}
+  var optionalNestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage {
+    get {return _optionalNestedMessage ?? Proto2Unittest_TestProto3OptionalMessage.NestedMessage()}
     set {_optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -334,11 +334,11 @@ struct ProtobufUnittest_TestProto3OptionalMessage: Sendable {
 
   init() {}
 
-  fileprivate var _nestedMessage: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage? = nil
-  fileprivate var _optionalNestedMessage: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage? = nil
+  fileprivate var _nestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage? = nil
+  fileprivate var _optionalNestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage? = nil
 }
 
-struct ProtobufUnittest_Proto3OptionalExtensions: Sendable {
+struct Proto2Unittest_Proto3OptionalExtensions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -359,72 +359,72 @@ struct ProtobufUnittest_Proto3OptionalExtensions: Sendable {
 
 extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
-  var ProtobufUnittest_Proto3OptionalExtensions_extNoOptional: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional, value: newValue)}
+  var Proto2Unittest_Proto3OptionalExtensions_extNoOptional: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional`
+  /// Returns true if extension `Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional`
   /// has been explicitly set.
-  var hasProtobufUnittest_Proto3OptionalExtensions_extNoOptional: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional)
+  var hasProto2Unittest_Proto3OptionalExtensions_extNoOptional: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional)
   }
-  /// Clears the value of extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional`.
+  /// Clears the value of extension `Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Proto3OptionalExtensions_extNoOptional() {
-    clearExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional)
+  mutating func clearProto2Unittest_Proto3OptionalExtensions_extNoOptional() {
+    clearExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional)
   }
 
-  var ProtobufUnittest_Proto3OptionalExtensions_extWithOptional: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional, value: newValue)}
+  var Proto2Unittest_Proto3OptionalExtensions_extWithOptional: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional`
+  /// Returns true if extension `Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional`
   /// has been explicitly set.
-  var hasProtobufUnittest_Proto3OptionalExtensions_extWithOptional: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional)
+  var hasProto2Unittest_Proto3OptionalExtensions_extWithOptional: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional)
   }
-  /// Clears the value of extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional`.
+  /// Clears the value of extension `Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Proto3OptionalExtensions_extWithOptional() {
-    clearExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional)
+  mutating func clearProto2Unittest_Proto3OptionalExtensions_extWithOptional() {
+    clearExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional)
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestProto3Optional_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_UnittestProto3Optional_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_UnittestProto3Optional_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional,
-  ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional
+let Proto2Unittest_UnittestProto3Optional_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional,
+  Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension ProtobufUnittest_Proto3OptionalExtensions {
+extension Proto2Unittest_Proto3OptionalExtensions {
   enum Extensions {
     static let ext_no_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 355886728,
-      fieldName: "protobuf_unittest.Proto3OptionalExtensions.ext_no_optional"
+      fieldName: "proto2_unittest.Proto3OptionalExtensions.ext_no_optional"
     )
 
     static let ext_with_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 355886729,
-      fieldName: "protobuf_unittest.Proto3OptionalExtensions.ext_with_optional"
+      fieldName: "proto2_unittest.Proto3OptionalExtensions.ext_with_optional"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3Optional"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -467,9 +467,9 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     var _optionalString: String? = nil
     var _optionalBytes: Data? = nil
     var _optionalCord: String? = nil
-    var _optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
-    var _lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
-    var _optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum? = nil
+    var _optionalNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage? = nil
+    var _lazyNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage? = nil
+    var _optionalNestedEnum: Proto2Unittest_TestProto3Optional.NestedEnum? = nil
     var _singularInt32: Int32 = 0
     var _singularInt64: Int64 = 0
 
@@ -625,7 +625,7 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestProto3Optional, rhs: ProtobufUnittest_TestProto3Optional) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestProto3Optional, rhs: Proto2Unittest_TestProto3Optional) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -660,7 +660,7 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -1: .same(proto: "NEG"),
     0: .same(proto: "UNSPECIFIED"),
@@ -670,8 +670,8 @@ extension ProtobufUnittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNa
   ]
 }
 
-extension ProtobufUnittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestProto3Optional.protoMessageName + ".NestedMessage"
+extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestProto3Optional.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
   ]
@@ -699,14 +699,14 @@ extension ProtobufUnittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestProto3Optional.NestedMessage, rhs: ProtobufUnittest_TestProto3Optional.NestedMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestProto3Optional.NestedMessage, rhs: Proto2Unittest_TestProto3Optional.NestedMessage) -> Bool {
     if lhs._bb != rhs._bb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestProto3OptionalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3OptionalMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "nested_message"),
@@ -740,7 +740,7 @@ extension ProtobufUnittest_TestProto3OptionalMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestProto3OptionalMessage, rhs: ProtobufUnittest_TestProto3OptionalMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestProto3OptionalMessage, rhs: Proto2Unittest_TestProto3OptionalMessage) -> Bool {
     if lhs._nestedMessage != rhs._nestedMessage {return false}
     if lhs._optionalNestedMessage != rhs._optionalNestedMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -748,8 +748,8 @@ extension ProtobufUnittest_TestProto3OptionalMessage: SwiftProtobuf.Message, Swi
   }
 }
 
-extension ProtobufUnittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestProto3OptionalMessage.protoMessageName + ".NestedMessage"
+extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestProto3OptionalMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "s"),
   ]
@@ -773,14 +773,14 @@ extension ProtobufUnittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage, rhs: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestProto3OptionalMessage.NestedMessage, rhs: Proto2Unittest_TestProto3OptionalMessage.NestedMessage) -> Bool {
     if lhs.s != rhs.s {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_Proto3OptionalExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_Proto3OptionalExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto3OptionalExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -793,7 +793,7 @@ extension ProtobufUnittest_Proto3OptionalExtensions: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Proto3OptionalExtensions, rhs: ProtobufUnittest_Proto3OptionalExtensions) -> Bool {
+  static func ==(lhs: Proto2Unittest_Proto3OptionalExtensions, rhs: Proto2Unittest_Proto3OptionalExtensions) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

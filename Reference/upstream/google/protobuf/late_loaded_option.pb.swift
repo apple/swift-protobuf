@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_LateLoadedOption: Sendable {
+struct Proto2Unittest_LateLoadedOption: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -52,51 +52,51 @@ struct ProtobufUnittest_LateLoadedOption: Sendable {
 
 extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
-  var ProtobufUnittest_LateLoadedOption_ext: ProtobufUnittest_LateLoadedOption {
-    get {return getExtensionValue(ext: ProtobufUnittest_LateLoadedOption.Extensions.ext) ?? ProtobufUnittest_LateLoadedOption()}
-    set {setExtensionValue(ext: ProtobufUnittest_LateLoadedOption.Extensions.ext, value: newValue)}
+  var Proto2Unittest_LateLoadedOption_ext: Proto2Unittest_LateLoadedOption {
+    get {return getExtensionValue(ext: Proto2Unittest_LateLoadedOption.Extensions.ext) ?? Proto2Unittest_LateLoadedOption()}
+    set {setExtensionValue(ext: Proto2Unittest_LateLoadedOption.Extensions.ext, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_LateLoadedOption.Extensions.ext`
+  /// Returns true if extension `Proto2Unittest_LateLoadedOption.Extensions.ext`
   /// has been explicitly set.
-  var hasProtobufUnittest_LateLoadedOption_ext: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_LateLoadedOption.Extensions.ext)
+  var hasProto2Unittest_LateLoadedOption_ext: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_LateLoadedOption.Extensions.ext)
   }
-  /// Clears the value of extension `ProtobufUnittest_LateLoadedOption.Extensions.ext`.
+  /// Clears the value of extension `Proto2Unittest_LateLoadedOption.Extensions.ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_LateLoadedOption_ext() {
-    clearExtensionValue(ext: ProtobufUnittest_LateLoadedOption.Extensions.ext)
+  mutating func clearProto2Unittest_LateLoadedOption_ext() {
+    clearExtensionValue(ext: Proto2Unittest_LateLoadedOption.Extensions.ext)
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_LateLoadedOption_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_LateLoadedOption_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_LateLoadedOption_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_LateLoadedOption.Extensions.ext
+let Proto2Unittest_LateLoadedOption_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_LateLoadedOption.Extensions.ext
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension ProtobufUnittest_LateLoadedOption {
+extension Proto2Unittest_LateLoadedOption {
   enum Extensions {
-    static let ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_LateLoadedOption>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+    static let ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_LateLoadedOption>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 95126892,
-      fieldName: "protobuf_unittest.LateLoadedOption.ext"
+      fieldName: "proto2_unittest.LateLoadedOption.ext"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_LateLoadedOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_LateLoadedOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".LateLoadedOption"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
@@ -125,7 +125,7 @@ extension ProtobufUnittest_LateLoadedOption: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_LateLoadedOption, rhs: ProtobufUnittest_LateLoadedOption) -> Bool {
+  static func ==(lhs: Proto2Unittest_LateLoadedOption, rhs: Proto2Unittest_LateLoadedOption) -> Bool {
     if lhs._value != rhs._value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

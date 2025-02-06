@@ -32,7 +32,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_ForeignEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_ForeignEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foreignLiteFoo = 4
   case foreignLiteBaz = 6
   case foreignLiteBar = 5
@@ -43,7 +43,7 @@ enum ProtobufUnittest_ForeignEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterab
 
 }
 
-enum ProtobufUnittest_V1EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_V1EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case v1First = 1
 
   init() {
@@ -52,7 +52,7 @@ enum ProtobufUnittest_V1EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum ProtobufUnittest_V2EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_V2EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case v2First = 1
   case v2Second = 2
 
@@ -63,7 +63,7 @@ enum ProtobufUnittest_V2EnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// Same as TestAllTypes but with the lite runtime.
-struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
+struct Proto2Unittest_TestAllTypesLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -204,8 +204,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
-  var optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup {
-    get {return _storage._optionalGroup ?? ProtobufUnittest_TestAllTypesLite.OptionalGroup()}
+  var optionalGroup: Proto2Unittest_TestAllTypesLite.OptionalGroup {
+    get {return _storage._optionalGroup ?? Proto2Unittest_TestAllTypesLite.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -213,8 +213,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
   mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
 
-  var optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+  var optionalNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return _storage._optionalNestedMessage ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -222,8 +222,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
-  var optionalForeignMessage: ProtobufUnittest_ForeignMessageLite {
-    get {return _storage._optionalForeignMessage ?? ProtobufUnittest_ForeignMessageLite()}
+  var optionalForeignMessage: Proto2Unittest_ForeignMessageLite {
+    get {return _storage._optionalForeignMessage ?? Proto2Unittest_ForeignMessageLite()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -231,8 +231,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
-  var optionalImportMessage: ProtobufUnittestImport_ImportMessageLite {
-    get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessageLite()}
+  var optionalImportMessage: Proto2UnittestImport_ImportMessageLite {
+    get {return _storage._optionalImportMessage ?? Proto2UnittestImport_ImportMessageLite()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -240,7 +240,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalImportMessage() {_uniqueStorage()._optionalImportMessage = nil}
 
-  var optionalNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum {
+  var optionalNestedEnum: Proto2Unittest_TestAllTypesLite.NestedEnum {
     get {return _storage._optionalNestedEnum ?? .foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
@@ -249,7 +249,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedEnum() {_uniqueStorage()._optionalNestedEnum = nil}
 
-  var optionalForeignEnum: ProtobufUnittest_ForeignEnumLite {
+  var optionalForeignEnum: Proto2Unittest_ForeignEnumLite {
     get {return _storage._optionalForeignEnum ?? .foreignLiteFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
@@ -258,7 +258,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignEnum() {_uniqueStorage()._optionalForeignEnum = nil}
 
-  var optionalImportEnum: ProtobufUnittestImport_ImportEnumLite {
+  var optionalImportEnum: Proto2UnittestImport_ImportEnumLite {
     get {return _storage._optionalImportEnum ?? .importLiteFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
@@ -295,8 +295,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   mutating func clearOptionalBytesCord() {_uniqueStorage()._optionalBytesCord = nil}
 
   /// Defined in unittest_import_public.proto
-  var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite {
-    get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessageLite()}
+  var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessageLite {
+    get {return _storage._optionalPublicImportMessage ?? Proto2UnittestImport_PublicImportMessageLite()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -304,8 +304,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalPublicImportMessage() {_uniqueStorage()._optionalPublicImportMessage = nil}
 
-  var optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return _storage._optionalLazyMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+  var optionalLazyMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return _storage._optionalLazyMessage ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -313,8 +313,8 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
-  var optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return _storage._optionalUnverifiedLazyMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+  var optionalUnverifiedLazyMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return _storage._optionalUnverifiedLazyMessage ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
     set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
   }
   /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
@@ -398,37 +398,37 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  var repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] {
+  var repeatedGroup: [Proto2Unittest_TestAllTypesLite.RepeatedGroup] {
     get {return _storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
-  var repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
+  var repeatedNestedMessage: [Proto2Unittest_TestAllTypesLite.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  var repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] {
+  var repeatedForeignMessage: [Proto2Unittest_ForeignMessageLite] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  var repeatedImportMessage: [ProtobufUnittestImport_ImportMessageLite] {
+  var repeatedImportMessage: [Proto2UnittestImport_ImportMessageLite] {
     get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
-  var repeatedNestedEnum: [ProtobufUnittest_TestAllTypesLite.NestedEnum] {
+  var repeatedNestedEnum: [Proto2Unittest_TestAllTypesLite.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  var repeatedForeignEnum: [ProtobufUnittest_ForeignEnumLite] {
+  var repeatedForeignEnum: [Proto2Unittest_ForeignEnumLite] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
-  var repeatedImportEnum: [ProtobufUnittestImport_ImportEnumLite] {
+  var repeatedImportEnum: [Proto2UnittestImport_ImportEnumLite] {
     get {return _storage._repeatedImportEnum}
     set {_uniqueStorage()._repeatedImportEnum = newValue}
   }
@@ -443,7 +443,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
-  var repeatedLazyMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
+  var repeatedLazyMessage: [Proto2Unittest_TestAllTypesLite.NestedMessage] {
     get {return _storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
@@ -584,7 +584,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
   mutating func clearDefaultBytes() {_uniqueStorage()._defaultBytes = nil}
 
-  var defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum {
+  var defaultNestedEnum: Proto2Unittest_TestAllTypesLite.NestedEnum {
     get {return _storage._defaultNestedEnum ?? .bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
@@ -593,7 +593,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultNestedEnum() {_uniqueStorage()._defaultNestedEnum = nil}
 
-  var defaultForeignEnum: ProtobufUnittest_ForeignEnumLite {
+  var defaultForeignEnum: Proto2Unittest_ForeignEnumLite {
     get {return _storage._defaultForeignEnum ?? .foreignLiteBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
@@ -602,7 +602,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultForeignEnum() {_uniqueStorage()._defaultForeignEnum = nil}
 
-  var defaultImportEnum: ProtobufUnittestImport_ImportEnumLite {
+  var defaultImportEnum: Proto2UnittestImport_ImportEnumLite {
     get {return _storage._defaultImportEnum ?? .importLiteBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
@@ -643,10 +643,10 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
     set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
-  var oneofNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+  var oneofNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
     get {
       if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
-      return ProtobufUnittest_TestAllTypesLite.NestedMessage()
+      return Proto2Unittest_TestAllTypesLite.NestedMessage()
     }
     set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
@@ -667,18 +667,18 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
-  var oneofLazyNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+  var oneofLazyNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
     get {
       if case .oneofLazyNestedMessage(let v)? = _storage._oneofField {return v}
-      return ProtobufUnittest_TestAllTypesLite.NestedMessage()
+      return Proto2Unittest_TestAllTypesLite.NestedMessage()
     }
     set {_uniqueStorage()._oneofField = .oneofLazyNestedMessage(newValue)}
   }
 
-  var oneofNestedMessage2: ProtobufUnittest_TestAllTypesLite.NestedMessage2 {
+  var oneofNestedMessage2: Proto2Unittest_TestAllTypesLite.NestedMessage2 {
     get {
       if case .oneofNestedMessage2(let v)? = _storage._oneofField {return v}
-      return ProtobufUnittest_TestAllTypesLite.NestedMessage2()
+      return Proto2Unittest_TestAllTypesLite.NestedMessage2()
     }
     set {_uniqueStorage()._oneofField = .oneofNestedMessage2(newValue)}
   }
@@ -698,11 +698,11 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   /// For oneof test
   enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
-    case oneofNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
+    case oneofNestedMessage(Proto2Unittest_TestAllTypesLite.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
-    case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
-    case oneofNestedMessage2(ProtobufUnittest_TestAllTypesLite.NestedMessage2)
+    case oneofLazyNestedMessage(Proto2Unittest_TestAllTypesLite.NestedMessage)
+    case oneofNestedMessage2(Proto2Unittest_TestAllTypesLite.NestedMessage2)
 
   }
 
@@ -818,7 +818,7 @@ struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_ForeignMessageLite: Sendable {
+struct Proto2Unittest_ForeignMessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -839,7 +839,7 @@ struct ProtobufUnittest_ForeignMessageLite: Sendable {
   fileprivate var _c: Int32? = nil
 }
 
-struct ProtobufUnittest_TestPackedTypesLite: Sendable {
+struct Proto2Unittest_TestPackedTypesLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -870,14 +870,14 @@ struct ProtobufUnittest_TestPackedTypesLite: Sendable {
 
   var packedBool: [Bool] = []
 
-  var packedEnum: [ProtobufUnittest_ForeignEnumLite] = []
+  var packedEnum: [Proto2Unittest_ForeignEnumLite] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 }
 
-struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestAllExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -889,7 +889,7 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.ExtensibleMessage, 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_OptionalGroup_extension_lite: Sendable {
+struct Proto2Unittest_OptionalGroup_extension_lite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -910,7 +910,7 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct ProtobufUnittest_RepeatedGroup_extension_lite: Sendable {
+struct Proto2Unittest_RepeatedGroup_extension_lite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -931,7 +931,7 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestPackedExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -943,7 +943,7 @@ struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.ExtensibleMessag
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_TestNestedExtensionLite: Sendable {
+struct Proto2Unittest_TestNestedExtensionLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -955,7 +955,7 @@ struct ProtobufUnittest_TestNestedExtensionLite: Sendable {
 
 /// Test that deprecated fields work.  We only verify that they compile (at one
 /// point this failed).
-struct ProtobufUnittest_TestDeprecatedLite: @unchecked Sendable {
+struct Proto2Unittest_TestDeprecatedLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -991,8 +991,8 @@ struct ProtobufUnittest_TestDeprecatedLite: @unchecked Sendable {
   mutating func clearDeprecatedField3() {_uniqueStorage()._deprecatedField3 = nil}
 
   /// NOTE: This field was marked as deprecated in the .proto file.
-  var deprecatedField4: ProtobufUnittest_TestDeprecatedLite {
-    get {return _storage._deprecatedField4 ?? ProtobufUnittest_TestDeprecatedLite()}
+  var deprecatedField4: Proto2Unittest_TestDeprecatedLite {
+    get {return _storage._deprecatedField4 ?? Proto2Unittest_TestDeprecatedLite()}
     set {_uniqueStorage()._deprecatedField4 = newValue}
   }
   /// Returns true if `deprecatedField4` has been explicitly set.
@@ -1008,13 +1008,13 @@ struct ProtobufUnittest_TestDeprecatedLite: @unchecked Sendable {
 }
 
 /// See the comments of the same type in unittest.proto.
-struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var requiredAllTypes: ProtobufUnittest_TestAllTypesLite {
-    get {return _requiredAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
+  var requiredAllTypes: Proto2Unittest_TestAllTypesLite {
+    get {return _requiredAllTypes ?? Proto2Unittest_TestAllTypesLite()}
     set {_requiredAllTypes = newValue}
   }
   /// Returns true if `requiredAllTypes` has been explicitly set.
@@ -1022,8 +1022,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
   /// Clears the value of `requiredAllTypes`. Subsequent reads from it will return its default value.
   mutating func clearRequiredAllTypes() {self._requiredAllTypes = nil}
 
-  var optionalAllTypes: ProtobufUnittest_TestAllTypesLite {
-    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
+  var optionalAllTypes: Proto2Unittest_TestAllTypesLite {
+    get {return _optionalAllTypes ?? Proto2Unittest_TestAllTypesLite()}
     set {_optionalAllTypes = newValue}
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -1031,10 +1031,10 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
   /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
 
-  var repeatedAllTypes: [ProtobufUnittest_TestAllTypesLite] = []
+  var repeatedAllTypes: [Proto2Unittest_TestAllTypesLite] = []
 
-  var optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup {
-    get {return _optionalGroup ?? ProtobufUnittest_TestParsingMergeLite.OptionalGroup()}
+  var optionalGroup: Proto2Unittest_TestParsingMergeLite.OptionalGroup {
+    get {return _optionalGroup ?? Proto2Unittest_TestParsingMergeLite.OptionalGroup()}
     set {_optionalGroup = newValue}
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -1042,7 +1042,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
   mutating func clearOptionalGroup() {self._optionalGroup = nil}
 
-  var repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] = []
+  var repeatedGroup: [Proto2Unittest_TestParsingMergeLite.RepeatedGroup] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1051,19 +1051,19 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var field1: [ProtobufUnittest_TestAllTypesLite] = []
+    var field1: [Proto2Unittest_TestAllTypesLite] = []
 
-    var field2: [ProtobufUnittest_TestAllTypesLite] = []
+    var field2: [Proto2Unittest_TestAllTypesLite] = []
 
-    var field3: [ProtobufUnittest_TestAllTypesLite] = []
+    var field3: [Proto2Unittest_TestAllTypesLite] = []
 
-    var group1: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1] = []
+    var group1: [Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1] = []
 
-    var group2: [ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2] = []
+    var group2: [Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2] = []
 
-    var ext1: [ProtobufUnittest_TestAllTypesLite] = []
+    var ext1: [Proto2Unittest_TestAllTypesLite] = []
 
-    var ext2: [ProtobufUnittest_TestAllTypesLite] = []
+    var ext2: [Proto2Unittest_TestAllTypesLite] = []
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1072,8 +1072,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
 
-      var field1: ProtobufUnittest_TestAllTypesLite {
-        get {return _field1 ?? ProtobufUnittest_TestAllTypesLite()}
+      var field1: Proto2Unittest_TestAllTypesLite {
+        get {return _field1 ?? Proto2Unittest_TestAllTypesLite()}
         set {_field1 = newValue}
       }
       /// Returns true if `field1` has been explicitly set.
@@ -1085,7 +1085,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
 
       init() {}
 
-      fileprivate var _field1: ProtobufUnittest_TestAllTypesLite? = nil
+      fileprivate var _field1: Proto2Unittest_TestAllTypesLite? = nil
     }
 
     struct Group2: Sendable {
@@ -1093,8 +1093,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
 
-      var field1: ProtobufUnittest_TestAllTypesLite {
-        get {return _field1 ?? ProtobufUnittest_TestAllTypesLite()}
+      var field1: Proto2Unittest_TestAllTypesLite {
+        get {return _field1 ?? Proto2Unittest_TestAllTypesLite()}
         set {_field1 = newValue}
       }
       /// Returns true if `field1` has been explicitly set.
@@ -1106,7 +1106,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
 
       init() {}
 
-      fileprivate var _field1: ProtobufUnittest_TestAllTypesLite? = nil
+      fileprivate var _field1: Proto2Unittest_TestAllTypesLite? = nil
     }
 
     init() {}
@@ -1117,8 +1117,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
-      get {return _optionalGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
+    var optionalGroupAllTypes: Proto2Unittest_TestAllTypesLite {
+      get {return _optionalGroupAllTypes ?? Proto2Unittest_TestAllTypesLite()}
       set {_optionalGroupAllTypes = newValue}
     }
     /// Returns true if `optionalGroupAllTypes` has been explicitly set.
@@ -1130,7 +1130,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
 
     init() {}
 
-    fileprivate var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
+    fileprivate var _optionalGroupAllTypes: Proto2Unittest_TestAllTypesLite? = nil
   }
 
   struct RepeatedGroup: Sendable {
@@ -1138,8 +1138,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
-      get {return _repeatedGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
+    var repeatedGroupAllTypes: Proto2Unittest_TestAllTypesLite {
+      get {return _repeatedGroupAllTypes ?? Proto2Unittest_TestAllTypesLite()}
       set {_repeatedGroupAllTypes = newValue}
     }
     /// Returns true if `repeatedGroupAllTypes` has been explicitly set.
@@ -1151,26 +1151,26 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, S
 
     init() {}
 
-    fileprivate var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
+    fileprivate var _repeatedGroupAllTypes: Proto2Unittest_TestAllTypesLite? = nil
   }
 
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _requiredAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
-  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
-  fileprivate var _optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil
+  fileprivate var _requiredAllTypes: Proto2Unittest_TestAllTypesLite? = nil
+  fileprivate var _optionalAllTypes: Proto2Unittest_TestAllTypesLite? = nil
+  fileprivate var _optionalGroup: Proto2Unittest_TestParsingMergeLite.OptionalGroup? = nil
 }
 
 /// Test that the correct exception is thrown by parseFrom in a corner case
 /// involving merging, extensions, and required fields.
-struct ProtobufUnittest_TestMergeExceptionLite: Sendable {
+struct Proto2Unittest_TestMergeExceptionLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var allExtensions: ProtobufUnittest_TestAllExtensionsLite {
-    get {return _allExtensions ?? ProtobufUnittest_TestAllExtensionsLite()}
+  var allExtensions: Proto2Unittest_TestAllExtensionsLite {
+    get {return _allExtensions ?? Proto2Unittest_TestAllExtensionsLite()}
     set {_allExtensions = newValue}
   }
   /// Returns true if `allExtensions` has been explicitly set.
@@ -1182,11 +1182,11 @@ struct ProtobufUnittest_TestMergeExceptionLite: Sendable {
 
   init() {}
 
-  fileprivate var _allExtensions: ProtobufUnittest_TestAllExtensionsLite? = nil
+  fileprivate var _allExtensions: Proto2Unittest_TestAllExtensionsLite? = nil
 }
 
 /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
-struct ProtobufUnittest_TestEmptyMessageLite: Sendable {
+struct Proto2Unittest_TestEmptyMessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1198,7 +1198,7 @@ struct ProtobufUnittest_TestEmptyMessageLite: Sendable {
 
 /// Like above, but declare all field numbers as potential extensions.  No
 /// actual extensions should ever be defined for this type.
-struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1210,7 +1210,7 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Extens
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_V1MessageLite: Sendable {
+struct Proto2Unittest_V1MessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1224,7 +1224,7 @@ struct ProtobufUnittest_V1MessageLite: Sendable {
   /// Clears the value of `intField`. Subsequent reads from it will return its default value.
   mutating func clearIntField() {self._intField = nil}
 
-  var enumField: ProtobufUnittest_V1EnumLite {
+  var enumField: Proto2Unittest_V1EnumLite {
     get {return _enumField ?? .v1First}
     set {_enumField = newValue}
   }
@@ -1238,10 +1238,10 @@ struct ProtobufUnittest_V1MessageLite: Sendable {
   init() {}
 
   fileprivate var _intField: Int32? = nil
-  fileprivate var _enumField: ProtobufUnittest_V1EnumLite? = nil
+  fileprivate var _enumField: Proto2Unittest_V1EnumLite? = nil
 }
 
-struct ProtobufUnittest_V2MessageLite: Sendable {
+struct Proto2Unittest_V2MessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1255,7 +1255,7 @@ struct ProtobufUnittest_V2MessageLite: Sendable {
   /// Clears the value of `intField`. Subsequent reads from it will return its default value.
   mutating func clearIntField() {self._intField = nil}
 
-  var enumField: ProtobufUnittest_V2EnumLite {
+  var enumField: Proto2Unittest_V2EnumLite {
     get {return _enumField ?? .v2First}
     set {_enumField = newValue}
   }
@@ -1269,10 +1269,10 @@ struct ProtobufUnittest_V2MessageLite: Sendable {
   init() {}
 
   fileprivate var _intField: Int32? = nil
-  fileprivate var _enumField: ProtobufUnittest_V2EnumLite? = nil
+  fileprivate var _enumField: Proto2Unittest_V2EnumLite? = nil
 }
 
-struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct Proto2Unittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1299,7 +1299,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
 
   var packedInt32: [Int32] = []
 
-  var optionalEnum: ProtobufUnittest_ForeignEnumLite {
+  var optionalEnum: Proto2Unittest_ForeignEnumLite {
     get {return _optionalEnum ?? .foreignLiteFoo}
     set {_optionalEnum = newValue}
   }
@@ -1326,8 +1326,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytes() {self._optionalBytes = nil}
 
-  var optionalMessage: ProtobufUnittest_ForeignMessageLite {
-    get {return _optionalMessage ?? ProtobufUnittest_ForeignMessageLite()}
+  var optionalMessage: Proto2Unittest_ForeignMessageLite {
+    get {return _optionalMessage ?? Proto2Unittest_ForeignMessageLite()}
     set {_optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -1335,8 +1335,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {self._optionalMessage = nil}
 
-  var optionalGroup: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup {
-    get {return _optionalGroup ?? ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup()}
+  var optionalGroup: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup {
+    get {return _optionalGroup ?? Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup()}
     set {_optionalGroup = newValue}
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -1346,7 +1346,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
 
   var stringStringMap: Dictionary<String,String> = [:]
 
-  var oneofField: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField? = nil
+  var oneofField: Proto2Unittest_TestHugeFieldNumbersLite.OneOf_OneofField? = nil
 
   var oneofUint32: UInt32 {
     get {
@@ -1356,10 +1356,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
     set {oneofField = .oneofUint32(newValue)}
   }
 
-  var oneofTestAllTypes: ProtobufUnittest_TestAllTypesLite {
+  var oneofTestAllTypes: Proto2Unittest_TestAllTypesLite {
     get {
       if case .oneofTestAllTypes(let v)? = oneofField {return v}
-      return ProtobufUnittest_TestAllTypesLite()
+      return Proto2Unittest_TestAllTypesLite()
     }
     set {oneofField = .oneofTestAllTypes(newValue)}
   }
@@ -1384,7 +1384,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
 
   enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
-    case oneofTestAllTypes(ProtobufUnittest_TestAllTypesLite)
+    case oneofTestAllTypes(Proto2Unittest_TestAllTypesLite)
     case oneofString(String)
     case oneofBytes(Data)
 
@@ -1416,19 +1416,19 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _optionalInt32: Int32? = nil
   fileprivate var _fixed32: Int32? = nil
-  fileprivate var _optionalEnum: ProtobufUnittest_ForeignEnumLite? = nil
+  fileprivate var _optionalEnum: Proto2Unittest_ForeignEnumLite? = nil
   fileprivate var _optionalString: String? = nil
   fileprivate var _optionalBytes: Data? = nil
-  fileprivate var _optionalMessage: ProtobufUnittest_ForeignMessageLite? = nil
-  fileprivate var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
+  fileprivate var _optionalMessage: Proto2Unittest_ForeignMessageLite? = nil
+  fileprivate var _optionalGroup: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
 }
 
-struct ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {
+struct Proto2Unittest_TestOneofParsingLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var oneofField: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField? = nil
+  var oneofField: Proto2Unittest_TestOneofParsingLite.OneOf_OneofField? = nil
 
   var oneofInt32: Int32 {
     get {
@@ -1438,10 +1438,10 @@ struct ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {
     set {oneofField = .oneofInt32(newValue)}
   }
 
-  var oneofSubmessage: ProtobufUnittest_TestAllTypesLite {
+  var oneofSubmessage: Proto2Unittest_TestAllTypesLite {
     get {
       if case .oneofSubmessage(let v)? = oneofField {return v}
-      return ProtobufUnittest_TestAllTypesLite()
+      return Proto2Unittest_TestAllTypesLite()
     }
     set {oneofField = .oneofSubmessage(newValue)}
   }
@@ -1494,7 +1494,7 @@ struct ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {
     set {oneofField = .oneofBytesStringPiece(newValue)}
   }
 
-  var oneofEnum: ProtobufUnittest_V2EnumLite {
+  var oneofEnum: Proto2Unittest_V2EnumLite {
     get {
       if case .oneofEnum(let v)? = oneofField {return v}
       return .v2First
@@ -1506,21 +1506,21 @@ struct ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {
 
   enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofInt32(Int32)
-    case oneofSubmessage(ProtobufUnittest_TestAllTypesLite)
+    case oneofSubmessage(Proto2Unittest_TestAllTypesLite)
     case oneofString(String)
     case oneofBytes(Data)
     case oneofStringCord(String)
     case oneofBytesCord(Data)
     case oneofStringStringPiece(String)
     case oneofBytesStringPiece(Data)
-    case oneofEnum(ProtobufUnittest_V2EnumLite)
+    case oneofEnum(Proto2Unittest_V2EnumLite)
 
   }
 
   init() {}
 }
 
-struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1535,7 +1535,7 @@ struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage, Sen
 /// The following four messages are set up to test for wire compatibility between
 /// packed and non-packed repeated fields. We use the field number 2048, because
 /// that is large enough to require a 3-byte varint for the tag.
-struct ProtobufUnittest_PackedInt32: Sendable {
+struct Proto2Unittest_PackedInt32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1547,7 +1547,7 @@ struct ProtobufUnittest_PackedInt32: Sendable {
   init() {}
 }
 
-struct ProtobufUnittest_NonPackedInt32: Sendable {
+struct Proto2Unittest_NonPackedInt32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1559,7 +1559,7 @@ struct ProtobufUnittest_NonPackedInt32: Sendable {
   init() {}
 }
 
-struct ProtobufUnittest_PackedFixed32: Sendable {
+struct Proto2Unittest_PackedFixed32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1571,7 +1571,7 @@ struct ProtobufUnittest_PackedFixed32: Sendable {
   init() {}
 }
 
-struct ProtobufUnittest_NonPackedFixed32: Sendable {
+struct Proto2Unittest_NonPackedFixed32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1584,7 +1584,7 @@ struct ProtobufUnittest_NonPackedFixed32: Sendable {
 }
 
 /// Test an enum that has multiple values with the same number.
-struct ProtobufUnittest_DupEnum: Sendable {
+struct Proto2Unittest_DupEnum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1607,13 +1607,13 @@ struct ProtobufUnittest_DupEnum: Sendable {
   init() {}
 }
 
-struct ProtobufUnittest_RecursiveMessage: @unchecked Sendable {
+struct Proto2Unittest_RecursiveMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var recurse: ProtobufUnittest_RecursiveMessage {
-    get {return _storage._recurse ?? ProtobufUnittest_RecursiveMessage()}
+  var recurse: Proto2Unittest_RecursiveMessage {
+    get {return _storage._recurse ?? Proto2Unittest_RecursiveMessage()}
     set {_uniqueStorage()._recurse = newValue}
   }
   /// Returns true if `recurse` has been explicitly set.
@@ -1637,13 +1637,13 @@ struct ProtobufUnittest_RecursiveMessage: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_RecursiveGroup: @unchecked Sendable {
+struct Proto2Unittest_RecursiveGroup: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var recurse: ProtobufUnittest_RecursiveGroup {
-    get {return _storage._recurse ?? ProtobufUnittest_RecursiveGroup()}
+  var recurse: Proto2Unittest_RecursiveGroup {
+    get {return _storage._recurse ?? Proto2Unittest_RecursiveGroup()}
     set {_uniqueStorage()._recurse = newValue}
   }
   /// Returns true if `recurse` has been explicitly set.
@@ -1667,1156 +1667,1156 @@ struct ProtobufUnittest_RecursiveGroup: @unchecked Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_TestAllExtensionsLite {
+extension Proto2Unittest_TestAllExtensionsLite {
 
   /// Singular
-  var ProtobufUnittest_optionalInt32ExtensionLite: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalInt32ExtensionLite: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_int32_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_int32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_int32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_int32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalInt32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite)
+  var hasProto2Unittest_optionalInt32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_int32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_int32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_int32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalInt32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite)
+  mutating func clearProto2Unittest_optionalInt32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_int32_extension_lite)
   }
 
-  var ProtobufUnittest_optionalInt64ExtensionLite: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalInt64ExtensionLite: Int64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_int64_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_int64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_int64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_int64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalInt64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension_lite)
+  var hasProto2Unittest_optionalInt64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_int64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_int64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_int64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalInt64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension_lite)
+  mutating func clearProto2Unittest_optionalInt64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_int64_extension_lite)
   }
 
-  var ProtobufUnittest_optionalUint32ExtensionLite: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalUint32ExtensionLite: UInt32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_uint32_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_uint32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_uint32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_uint32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalUint32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension_lite)
+  var hasProto2Unittest_optionalUint32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_uint32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_uint32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_uint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalUint32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension_lite)
+  mutating func clearProto2Unittest_optionalUint32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_uint32_extension_lite)
   }
 
-  var ProtobufUnittest_optionalUint64ExtensionLite: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalUint64ExtensionLite: UInt64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_uint64_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_uint64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_uint64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_uint64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalUint64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension_lite)
+  var hasProto2Unittest_optionalUint64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_uint64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_uint64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_uint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalUint64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension_lite)
+  mutating func clearProto2Unittest_optionalUint64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_uint64_extension_lite)
   }
 
-  var ProtobufUnittest_optionalSint32ExtensionLite: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalSint32ExtensionLite: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_sint32_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_sint32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sint32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_sint32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalSint32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension_lite)
+  var hasProto2Unittest_optionalSint32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_sint32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sint32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_sint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalSint32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension_lite)
+  mutating func clearProto2Unittest_optionalSint32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_sint32_extension_lite)
   }
 
-  var ProtobufUnittest_optionalSint64ExtensionLite: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalSint64ExtensionLite: Int64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_sint64_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_sint64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sint64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_sint64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalSint64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension_lite)
+  var hasProto2Unittest_optionalSint64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_sint64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sint64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_sint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalSint64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension_lite)
+  mutating func clearProto2Unittest_optionalSint64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_sint64_extension_lite)
   }
 
-  var ProtobufUnittest_optionalFixed32ExtensionLite: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalFixed32ExtensionLite: UInt32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed32_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_fixed32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_fixed32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalFixed32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension_lite)
+  var hasProto2Unittest_optionalFixed32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_fixed32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_fixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalFixed32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension_lite)
+  mutating func clearProto2Unittest_optionalFixed32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed32_extension_lite)
   }
 
-  var ProtobufUnittest_optionalFixed64ExtensionLite: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalFixed64ExtensionLite: UInt64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed64_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_fixed64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_fixed64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalFixed64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension_lite)
+  var hasProto2Unittest_optionalFixed64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_fixed64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_fixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalFixed64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension_lite)
+  mutating func clearProto2Unittest_optionalFixed64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_fixed64_extension_lite)
   }
 
-  var ProtobufUnittest_optionalSfixed32ExtensionLite: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalSfixed32ExtensionLite: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed32_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sfixed32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_sfixed32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalSfixed32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension_lite)
+  var hasProto2Unittest_optionalSfixed32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sfixed32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_sfixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalSfixed32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension_lite)
+  mutating func clearProto2Unittest_optionalSfixed32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed32_extension_lite)
   }
 
-  var ProtobufUnittest_optionalSfixed64ExtensionLite: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalSfixed64ExtensionLite: Int64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed64_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sfixed64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_sfixed64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalSfixed64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension_lite)
+  var hasProto2Unittest_optionalSfixed64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sfixed64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_sfixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalSfixed64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension_lite)
+  mutating func clearProto2Unittest_optionalSfixed64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_sfixed64_extension_lite)
   }
 
-  var ProtobufUnittest_optionalFloatExtensionLite: Float {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalFloatExtensionLite: Float {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_float_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_float_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_float_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_float_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalFloatExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension_lite)
+  var hasProto2Unittest_optionalFloatExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_float_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_float_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_float_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalFloatExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension_lite)
+  mutating func clearProto2Unittest_optionalFloatExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_float_extension_lite)
   }
 
-  var ProtobufUnittest_optionalDoubleExtensionLite: Double {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalDoubleExtensionLite: Double {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_double_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_double_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_double_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_double_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalDoubleExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension_lite)
+  var hasProto2Unittest_optionalDoubleExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_double_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_double_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_double_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalDoubleExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension_lite)
+  mutating func clearProto2Unittest_optionalDoubleExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_double_extension_lite)
   }
 
-  var ProtobufUnittest_optionalBoolExtensionLite: Bool {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension_lite) ?? false}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalBoolExtensionLite: Bool {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_bool_extension_lite) ?? false}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_bool_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bool_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_bool_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalBoolExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension_lite)
+  var hasProto2Unittest_optionalBoolExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_bool_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bool_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_bool_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalBoolExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension_lite)
+  mutating func clearProto2Unittest_optionalBoolExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_bool_extension_lite)
   }
 
-  var ProtobufUnittest_optionalStringExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalStringExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_string_extension_lite) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_string_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_string_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_string_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalStringExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite)
+  var hasProto2Unittest_optionalStringExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_string_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_string_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_string_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalStringExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite)
+  mutating func clearProto2Unittest_optionalStringExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_string_extension_lite)
   }
 
-  var ProtobufUnittest_optionalBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? Data()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalBytesExtensionLite: Data {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_extension_lite) ?? Data()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_bytes_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalBytesExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite)
+  var hasProto2Unittest_optionalBytesExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bytes_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_bytes_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalBytesExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite)
+  mutating func clearProto2Unittest_optionalBytesExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_extension_lite)
   }
 
-  var ProtobufUnittest_optionalGroupExtensionLite: ProtobufUnittest_OptionalGroup_extension_lite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension_lite) ?? ProtobufUnittest_OptionalGroup_extension_lite()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalGroupExtensionLite: Proto2Unittest_OptionalGroup_extension_lite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_OptionalGroup_extension_lite) ?? Proto2Unittest_OptionalGroup_extension_lite()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_OptionalGroup_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_OptionalGroup_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_OptionalGroup_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalGroupExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension_lite)
+  var hasProto2Unittest_optionalGroupExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_OptionalGroup_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_OptionalGroup_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_OptionalGroup_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalGroupExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension_lite)
+  mutating func clearProto2Unittest_optionalGroupExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_OptionalGroup_extension_lite)
   }
 
-  var ProtobufUnittest_optionalNestedMessageExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension_lite) ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalNestedMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_message_extension_lite) ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_nested_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_nested_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalNestedMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension_lite)
+  var hasProto2Unittest_optionalNestedMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_nested_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_nested_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalNestedMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension_lite)
+  mutating func clearProto2Unittest_optionalNestedMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_message_extension_lite)
   }
 
-  var ProtobufUnittest_optionalForeignMessageExtensionLite: ProtobufUnittest_ForeignMessageLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension_lite) ?? ProtobufUnittest_ForeignMessageLite()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalForeignMessageExtensionLite: Proto2Unittest_ForeignMessageLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_message_extension_lite) ?? Proto2Unittest_ForeignMessageLite()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_foreign_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_foreign_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalForeignMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension_lite)
+  var hasProto2Unittest_optionalForeignMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_foreign_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_foreign_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalForeignMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension_lite)
+  mutating func clearProto2Unittest_optionalForeignMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_message_extension_lite)
   }
 
-  var ProtobufUnittest_optionalImportMessageExtensionLite: ProtobufUnittestImport_ImportMessageLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension_lite) ?? ProtobufUnittestImport_ImportMessageLite()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalImportMessageExtensionLite: Proto2UnittestImport_ImportMessageLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_import_message_extension_lite) ?? Proto2UnittestImport_ImportMessageLite()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_import_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_import_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_import_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalImportMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension_lite)
+  var hasProto2Unittest_optionalImportMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_import_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_import_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_import_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalImportMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension_lite)
+  mutating func clearProto2Unittest_optionalImportMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_import_message_extension_lite)
   }
 
-  var ProtobufUnittest_optionalNestedEnumExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension_lite) ?? .foo}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalNestedEnumExtensionLite: Proto2Unittest_TestAllTypesLite.NestedEnum {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_enum_extension_lite) ?? .foo}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_enum_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_nested_enum_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_nested_enum_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalNestedEnumExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension_lite)
+  var hasProto2Unittest_optionalNestedEnumExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_enum_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_nested_enum_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_nested_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalNestedEnumExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension_lite)
+  mutating func clearProto2Unittest_optionalNestedEnumExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_nested_enum_extension_lite)
   }
 
-  var ProtobufUnittest_optionalForeignEnumExtensionLite: ProtobufUnittest_ForeignEnumLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite) ?? .foreignLiteFoo}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalForeignEnumExtensionLite: Proto2Unittest_ForeignEnumLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite) ?? .foreignLiteFoo}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_foreign_enum_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalForeignEnumExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite)
+  var hasProto2Unittest_optionalForeignEnumExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_foreign_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalForeignEnumExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite)
+  mutating func clearProto2Unittest_optionalForeignEnumExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite)
   }
 
-  var ProtobufUnittest_optionalImportEnumExtensionLite: ProtobufUnittestImport_ImportEnumLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension_lite) ?? .importLiteFoo}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalImportEnumExtensionLite: Proto2UnittestImport_ImportEnumLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_import_enum_extension_lite) ?? .importLiteFoo}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_import_enum_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_import_enum_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_import_enum_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalImportEnumExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension_lite)
+  var hasProto2Unittest_optionalImportEnumExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_import_enum_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_import_enum_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_import_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalImportEnumExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension_lite)
+  mutating func clearProto2Unittest_optionalImportEnumExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_import_enum_extension_lite)
   }
 
-  var ProtobufUnittest_optionalStringPieceExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalStringPieceExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_string_piece_extension_lite) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_string_piece_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_string_piece_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_string_piece_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalStringPieceExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite)
+  var hasProto2Unittest_optionalStringPieceExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_string_piece_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_string_piece_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_string_piece_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalStringPieceExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite)
+  mutating func clearProto2Unittest_optionalStringPieceExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_string_piece_extension_lite)
   }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
-  var ProtobufUnittest_optionalCordExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalCordExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_cord_extension_lite) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_cord_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_cord_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_cord_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalCordExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite)
+  var hasProto2Unittest_optionalCordExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_cord_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_cord_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_cord_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalCordExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite)
+  mutating func clearProto2Unittest_optionalCordExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_cord_extension_lite)
   }
 
-  var ProtobufUnittest_optionalBytesCordExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite) ?? Data()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalBytesCordExtensionLite: Data {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite) ?? Data()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_bytes_cord_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalBytesCordExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite)
+  var hasProto2Unittest_optionalBytesCordExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_bytes_cord_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalBytesCordExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite)
+  mutating func clearProto2Unittest_optionalBytesCordExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite)
   }
 
-  var ProtobufUnittest_optionalPublicImportMessageExtensionLite: ProtobufUnittestImport_PublicImportMessageLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension_lite) ?? ProtobufUnittestImport_PublicImportMessageLite()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalPublicImportMessageExtensionLite: Proto2UnittestImport_PublicImportMessageLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_public_import_message_extension_lite) ?? Proto2UnittestImport_PublicImportMessageLite()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_public_import_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_public_import_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_public_import_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalPublicImportMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension_lite)
+  var hasProto2Unittest_optionalPublicImportMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_public_import_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_public_import_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_public_import_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalPublicImportMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension_lite)
+  mutating func clearProto2Unittest_optionalPublicImportMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_public_import_message_extension_lite)
   }
 
-  var ProtobufUnittest_optionalLazyMessageExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension_lite) ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalLazyMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_lazy_message_extension_lite) ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_lazy_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_lazy_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_lazy_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalLazyMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension_lite)
+  var hasProto2Unittest_optionalLazyMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_lazy_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_lazy_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_lazy_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalLazyMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension_lite)
+  mutating func clearProto2Unittest_optionalLazyMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_lazy_message_extension_lite)
   }
 
-  var ProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite) ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite, value: newValue)}
+  var Proto2Unittest_optionalUnverifiedLazyMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite) ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite)
+  var hasProto2Unittest_optionalUnverifiedLazyMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite)
+  mutating func clearProto2Unittest_optionalUnverifiedLazyMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite)
   }
 
   /// Repeated
-  var ProtobufUnittest_repeatedInt32ExtensionLite: [Int32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedInt32ExtensionLite: [Int32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_int32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_int32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedInt64ExtensionLite: [Int64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int64_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedInt64ExtensionLite: [Int64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_int64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_int64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedUint32ExtensionLite: [UInt32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint32_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedUint32ExtensionLite: [UInt32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_uint32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_uint32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedUint64ExtensionLite: [UInt64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint64_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedUint64ExtensionLite: [UInt64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_uint64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_uint64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedSint32ExtensionLite: [Int32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint32_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedSint32ExtensionLite: [Int32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_sint32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_sint32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedSint64ExtensionLite: [Int64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint64_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedSint64ExtensionLite: [Int64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_sint64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_sint64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedFixed32ExtensionLite: [UInt32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedFixed32ExtensionLite: [UInt32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_fixed32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_fixed32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedFixed64ExtensionLite: [UInt64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedFixed64ExtensionLite: [UInt64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_fixed64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_fixed64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedSfixed32ExtensionLite: [Int32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedSfixed32ExtensionLite: [Int32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_sfixed32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_sfixed32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedSfixed64ExtensionLite: [Int64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedSfixed64ExtensionLite: [Int64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_sfixed64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_sfixed64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedFloatExtensionLite: [Float] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_float_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_float_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedFloatExtensionLite: [Float] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_float_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_float_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedDoubleExtensionLite: [Double] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_double_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_double_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedDoubleExtensionLite: [Double] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_double_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_double_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedBoolExtensionLite: [Bool] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bool_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bool_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedBoolExtensionLite: [Bool] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_bool_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_bool_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedStringExtensionLite: [String] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedStringExtensionLite: [String] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_string_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_string_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedBytesExtensionLite: [Data] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedBytesExtensionLite: [Data] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_bytes_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_bytes_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedGroupExtensionLite: [ProtobufUnittest_RepeatedGroup_extension_lite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_RepeatedGroup_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_RepeatedGroup_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedGroupExtensionLite: [Proto2Unittest_RepeatedGroup_extension_lite] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_RepeatedGroup_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_RepeatedGroup_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedNestedMessageExtensionLite: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_message_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_message_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedNestedMessageExtensionLite: [Proto2Unittest_TestAllTypesLite.NestedMessage] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_nested_message_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_nested_message_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedForeignMessageExtensionLite: [ProtobufUnittest_ForeignMessageLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_message_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_message_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedForeignMessageExtensionLite: [Proto2Unittest_ForeignMessageLite] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_foreign_message_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_foreign_message_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedImportMessageExtensionLite: [ProtobufUnittestImport_ImportMessageLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_message_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_message_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedImportMessageExtensionLite: [Proto2UnittestImport_ImportMessageLite] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_import_message_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_import_message_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedNestedEnumExtensionLite: [ProtobufUnittest_TestAllTypesLite.NestedEnum] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_enum_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedNestedEnumExtensionLite: [Proto2Unittest_TestAllTypesLite.NestedEnum] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_nested_enum_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_nested_enum_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedForeignEnumExtensionLite: [ProtobufUnittest_ForeignEnumLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_enum_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedForeignEnumExtensionLite: [Proto2Unittest_ForeignEnumLite] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_foreign_enum_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_foreign_enum_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedImportEnumExtensionLite: [ProtobufUnittestImport_ImportEnumLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_enum_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedImportEnumExtensionLite: [Proto2UnittestImport_ImportEnumLite] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_import_enum_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_import_enum_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedStringPieceExtensionLite: [String] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedStringPieceExtensionLite: [String] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_string_piece_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_string_piece_extension_lite, value: newValue)}
   }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
-  var ProtobufUnittest_repeatedCordExtensionLite: [String] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedCordExtensionLite: [String] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_cord_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_cord_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedLazyMessageExtensionLite: [ProtobufUnittest_TestAllTypesLite.NestedMessage] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_lazy_message_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_lazy_message_extension_lite, value: newValue)}
+  var Proto2Unittest_repeatedLazyMessageExtensionLite: [Proto2Unittest_TestAllTypesLite.NestedMessage] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_lazy_message_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_lazy_message_extension_lite, value: newValue)}
   }
 
   /// Singular with defaults
-  var ProtobufUnittest_defaultInt32ExtensionLite: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension_lite) ?? 41}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultInt32ExtensionLite: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_int32_extension_lite) ?? 41}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_int32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_int32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_int32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultInt32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension_lite)
+  var hasProto2Unittest_defaultInt32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_int32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_int32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_int32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultInt32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension_lite)
+  mutating func clearProto2Unittest_defaultInt32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_int32_extension_lite)
   }
 
-  var ProtobufUnittest_defaultInt64ExtensionLite: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension_lite) ?? 42}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultInt64ExtensionLite: Int64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_int64_extension_lite) ?? 42}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_int64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_int64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_int64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultInt64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension_lite)
+  var hasProto2Unittest_defaultInt64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_int64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_int64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_int64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultInt64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension_lite)
+  mutating func clearProto2Unittest_defaultInt64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_int64_extension_lite)
   }
 
-  var ProtobufUnittest_defaultUint32ExtensionLite: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension_lite) ?? 43}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultUint32ExtensionLite: UInt32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_uint32_extension_lite) ?? 43}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_uint32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_uint32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_uint32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultUint32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension_lite)
+  var hasProto2Unittest_defaultUint32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_uint32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_uint32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_uint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultUint32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension_lite)
+  mutating func clearProto2Unittest_defaultUint32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_uint32_extension_lite)
   }
 
-  var ProtobufUnittest_defaultUint64ExtensionLite: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension_lite) ?? 44}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultUint64ExtensionLite: UInt64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_uint64_extension_lite) ?? 44}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_uint64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_uint64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_uint64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultUint64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension_lite)
+  var hasProto2Unittest_defaultUint64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_uint64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_uint64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_uint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultUint64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension_lite)
+  mutating func clearProto2Unittest_defaultUint64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_uint64_extension_lite)
   }
 
-  var ProtobufUnittest_defaultSint32ExtensionLite: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension_lite) ?? -45}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultSint32ExtensionLite: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_sint32_extension_lite) ?? -45}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_sint32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_sint32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_sint32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultSint32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension_lite)
+  var hasProto2Unittest_defaultSint32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_sint32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sint32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_sint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultSint32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension_lite)
+  mutating func clearProto2Unittest_defaultSint32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_sint32_extension_lite)
   }
 
-  var ProtobufUnittest_defaultSint64ExtensionLite: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension_lite) ?? 46}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultSint64ExtensionLite: Int64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_sint64_extension_lite) ?? 46}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_sint64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_sint64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_sint64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultSint64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension_lite)
+  var hasProto2Unittest_defaultSint64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_sint64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sint64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_sint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultSint64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension_lite)
+  mutating func clearProto2Unittest_defaultSint64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_sint64_extension_lite)
   }
 
-  var ProtobufUnittest_defaultFixed32ExtensionLite: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension_lite) ?? 47}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultFixed32ExtensionLite: UInt32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_fixed32_extension_lite) ?? 47}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_fixed32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_fixed32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_fixed32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultFixed32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension_lite)
+  var hasProto2Unittest_defaultFixed32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_fixed32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_fixed32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_fixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultFixed32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension_lite)
+  mutating func clearProto2Unittest_defaultFixed32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_fixed32_extension_lite)
   }
 
-  var ProtobufUnittest_defaultFixed64ExtensionLite: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension_lite) ?? 48}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultFixed64ExtensionLite: UInt64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_fixed64_extension_lite) ?? 48}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_fixed64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_fixed64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_fixed64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultFixed64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension_lite)
+  var hasProto2Unittest_defaultFixed64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_fixed64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_fixed64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_fixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultFixed64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension_lite)
+  mutating func clearProto2Unittest_defaultFixed64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_fixed64_extension_lite)
   }
 
-  var ProtobufUnittest_defaultSfixed32ExtensionLite: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension_lite) ?? 49}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultSfixed32ExtensionLite: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed32_extension_lite) ?? 49}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_sfixed32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_sfixed32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultSfixed32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension_lite)
+  var hasProto2Unittest_defaultSfixed32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sfixed32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_sfixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultSfixed32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension_lite)
+  mutating func clearProto2Unittest_defaultSfixed32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed32_extension_lite)
   }
 
-  var ProtobufUnittest_defaultSfixed64ExtensionLite: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension_lite) ?? -50}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultSfixed64ExtensionLite: Int64 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed64_extension_lite) ?? -50}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed64_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_sfixed64_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_sfixed64_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultSfixed64ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension_lite)
+  var hasProto2Unittest_defaultSfixed64ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed64_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sfixed64_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_sfixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultSfixed64ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension_lite)
+  mutating func clearProto2Unittest_defaultSfixed64ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_sfixed64_extension_lite)
   }
 
-  var ProtobufUnittest_defaultFloatExtensionLite: Float {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension_lite) ?? 51.5}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultFloatExtensionLite: Float {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_float_extension_lite) ?? 51.5}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_float_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_float_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_float_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultFloatExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension_lite)
+  var hasProto2Unittest_defaultFloatExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_float_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_float_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_float_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultFloatExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension_lite)
+  mutating func clearProto2Unittest_defaultFloatExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_float_extension_lite)
   }
 
-  var ProtobufUnittest_defaultDoubleExtensionLite: Double {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension_lite) ?? 52000}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultDoubleExtensionLite: Double {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_double_extension_lite) ?? 52000}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_double_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_double_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_double_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultDoubleExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension_lite)
+  var hasProto2Unittest_defaultDoubleExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_double_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_double_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_double_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultDoubleExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension_lite)
+  mutating func clearProto2Unittest_defaultDoubleExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_double_extension_lite)
   }
 
-  var ProtobufUnittest_defaultBoolExtensionLite: Bool {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension_lite) ?? true}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultBoolExtensionLite: Bool {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_bool_extension_lite) ?? true}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_bool_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_bool_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_bool_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultBoolExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension_lite)
+  var hasProto2Unittest_defaultBoolExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_bool_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_bool_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_bool_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultBoolExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension_lite)
+  mutating func clearProto2Unittest_defaultBoolExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_bool_extension_lite)
   }
 
-  var ProtobufUnittest_defaultStringExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension_lite) ?? "hello"}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultStringExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_string_extension_lite) ?? "hello"}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_string_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_string_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_string_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultStringExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension_lite)
+  var hasProto2Unittest_defaultStringExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_string_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_string_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_string_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultStringExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension_lite)
+  mutating func clearProto2Unittest_defaultStringExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_string_extension_lite)
   }
 
-  var ProtobufUnittest_defaultBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite) ?? Data([119, 111, 114, 108, 100])}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultBytesExtensionLite: Data {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_bytes_extension_lite) ?? Data([119, 111, 114, 108, 100])}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_bytes_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_bytes_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_bytes_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultBytesExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite)
+  var hasProto2Unittest_defaultBytesExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_bytes_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_bytes_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_bytes_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultBytesExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite)
+  mutating func clearProto2Unittest_defaultBytesExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_bytes_extension_lite)
   }
 
-  var ProtobufUnittest_defaultNestedEnumExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension_lite) ?? .bar}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultNestedEnumExtensionLite: Proto2Unittest_TestAllTypesLite.NestedEnum {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_nested_enum_extension_lite) ?? .bar}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_nested_enum_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_nested_enum_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_nested_enum_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultNestedEnumExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension_lite)
+  var hasProto2Unittest_defaultNestedEnumExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_nested_enum_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_nested_enum_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_nested_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultNestedEnumExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension_lite)
+  mutating func clearProto2Unittest_defaultNestedEnumExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_nested_enum_extension_lite)
   }
 
-  var ProtobufUnittest_defaultForeignEnumExtensionLite: ProtobufUnittest_ForeignEnumLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension_lite) ?? .foreignLiteBar}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultForeignEnumExtensionLite: Proto2Unittest_ForeignEnumLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_foreign_enum_extension_lite) ?? .foreignLiteBar}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_foreign_enum_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_foreign_enum_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_foreign_enum_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultForeignEnumExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension_lite)
+  var hasProto2Unittest_defaultForeignEnumExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_foreign_enum_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_foreign_enum_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_foreign_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultForeignEnumExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension_lite)
+  mutating func clearProto2Unittest_defaultForeignEnumExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_foreign_enum_extension_lite)
   }
 
-  var ProtobufUnittest_defaultImportEnumExtensionLite: ProtobufUnittestImport_ImportEnumLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension_lite) ?? .importLiteBar}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultImportEnumExtensionLite: Proto2UnittestImport_ImportEnumLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_import_enum_extension_lite) ?? .importLiteBar}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_import_enum_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_import_enum_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_import_enum_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultImportEnumExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension_lite)
+  var hasProto2Unittest_defaultImportEnumExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_import_enum_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_import_enum_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_import_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultImportEnumExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension_lite)
+  mutating func clearProto2Unittest_defaultImportEnumExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_import_enum_extension_lite)
   }
 
-  var ProtobufUnittest_defaultStringPieceExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension_lite) ?? "abc"}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultStringPieceExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_string_piece_extension_lite) ?? "abc"}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_string_piece_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_string_piece_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_string_piece_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultStringPieceExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension_lite)
+  var hasProto2Unittest_defaultStringPieceExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_string_piece_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_string_piece_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_string_piece_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultStringPieceExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension_lite)
+  mutating func clearProto2Unittest_defaultStringPieceExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_string_piece_extension_lite)
   }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
-  var ProtobufUnittest_defaultCordExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension_lite) ?? "123"}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension_lite, value: newValue)}
+  var Proto2Unittest_defaultCordExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_default_cord_extension_lite) ?? "123"}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_default_cord_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_default_cord_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_default_cord_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_defaultCordExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension_lite)
+  var hasProto2Unittest_defaultCordExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_default_cord_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_default_cord_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_default_cord_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_defaultCordExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension_lite)
+  mutating func clearProto2Unittest_defaultCordExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_default_cord_extension_lite)
   }
 
   /// For oneof test
-  var ProtobufUnittest_oneofUint32ExtensionLite: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension_lite) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension_lite, value: newValue)}
+  var Proto2Unittest_oneofUint32ExtensionLite: UInt32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_oneof_uint32_extension_lite) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_oneof_uint32_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_uint32_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_oneof_uint32_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_oneofUint32ExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension_lite)
+  var hasProto2Unittest_oneofUint32ExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_oneof_uint32_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_uint32_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_oneof_uint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_oneofUint32ExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension_lite)
+  mutating func clearProto2Unittest_oneofUint32ExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_uint32_extension_lite)
   }
 
-  var ProtobufUnittest_oneofNestedMessageExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension_lite) ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension_lite, value: newValue)}
+  var Proto2Unittest_oneofNestedMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_oneof_nested_message_extension_lite) ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_oneof_nested_message_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_nested_message_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_oneof_nested_message_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_oneofNestedMessageExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension_lite)
+  var hasProto2Unittest_oneofNestedMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_oneof_nested_message_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_nested_message_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_oneof_nested_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_oneofNestedMessageExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension_lite)
+  mutating func clearProto2Unittest_oneofNestedMessageExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_nested_message_extension_lite)
   }
 
-  var ProtobufUnittest_oneofStringExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite, value: newValue)}
+  var Proto2Unittest_oneofStringExtensionLite: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_oneof_string_extension_lite) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_oneof_string_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_string_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_oneof_string_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_oneofStringExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite)
+  var hasProto2Unittest_oneofStringExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_oneof_string_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_string_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_oneof_string_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_oneofStringExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite)
+  mutating func clearProto2Unittest_oneofStringExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_string_extension_lite)
   }
 
-  var ProtobufUnittest_oneofBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? Data()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite, value: newValue)}
+  var Proto2Unittest_oneofBytesExtensionLite: Data {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_oneof_bytes_extension_lite) ?? Data()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_oneof_bytes_extension_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_bytes_extension_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_oneof_bytes_extension_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_oneofBytesExtensionLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite)
+  var hasProto2Unittest_oneofBytesExtensionLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_oneof_bytes_extension_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_bytes_extension_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_oneof_bytes_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_oneofBytesExtensionLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite)
+  mutating func clearProto2Unittest_oneofBytesExtensionLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_bytes_extension_lite)
   }
 
-  var ProtobufUnittest_TestNestedExtensionLite_nestedExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension, value: newValue)}
+  var Proto2Unittest_TestNestedExtensionLite_nestedExtension: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension`
+  /// Returns true if extension `Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension`
   /// has been explicitly set.
-  var hasProtobufUnittest_TestNestedExtensionLite_nestedExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension)
+  var hasProto2Unittest_TestNestedExtensionLite_nestedExtension: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension)
   }
-  /// Clears the value of extension `ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension`.
+  /// Clears the value of extension `Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_TestNestedExtensionLite_nestedExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension)
+  mutating func clearProto2Unittest_TestNestedExtensionLite_nestedExtension() {
+    clearExtensionValue(ext: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension)
   }
 }
 
-extension ProtobufUnittest_TestHugeFieldNumbersLite {
+extension Proto2Unittest_TestHugeFieldNumbersLite {
 
-  var ProtobufUnittest_testAllTypesLite: ProtobufUnittest_TestAllTypesLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types_lite) ?? ProtobufUnittest_TestAllTypesLite()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types_lite, value: newValue)}
+  var Proto2Unittest_testAllTypesLite: Proto2Unittest_TestAllTypesLite {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_test_all_types_lite) ?? Proto2Unittest_TestAllTypesLite()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_test_all_types_lite, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_test_all_types_lite`
+  /// Returns true if extension `Proto2Unittest_Extensions_test_all_types_lite`
   /// has been explicitly set.
-  var hasProtobufUnittest_testAllTypesLite: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types_lite)
+  var hasProto2Unittest_testAllTypesLite: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_test_all_types_lite)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_test_all_types_lite`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_test_all_types_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_testAllTypesLite() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types_lite)
+  mutating func clearProto2Unittest_testAllTypesLite() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_test_all_types_lite)
   }
 }
 
-extension ProtobufUnittest_TestPackedExtensionsLite {
+extension Proto2Unittest_TestPackedExtensionsLite {
 
-  var ProtobufUnittest_packedInt32ExtensionLite: [Int32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_int32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_int32_extension_lite, value: newValue)}
+  var Proto2Unittest_packedInt32ExtensionLite: [Int32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_int32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_int32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedInt64ExtensionLite: [Int64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_int64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_int64_extension_lite, value: newValue)}
+  var Proto2Unittest_packedInt64ExtensionLite: [Int64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_int64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_int64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedUint32ExtensionLite: [UInt32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint32_extension_lite, value: newValue)}
+  var Proto2Unittest_packedUint32ExtensionLite: [UInt32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_uint32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_uint32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedUint64ExtensionLite: [UInt64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint64_extension_lite, value: newValue)}
+  var Proto2Unittest_packedUint64ExtensionLite: [UInt64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_uint64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_uint64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedSint32ExtensionLite: [Int32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint32_extension_lite, value: newValue)}
+  var Proto2Unittest_packedSint32ExtensionLite: [Int32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_sint32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_sint32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedSint64ExtensionLite: [Int64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint64_extension_lite, value: newValue)}
+  var Proto2Unittest_packedSint64ExtensionLite: [Int64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_sint64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_sint64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedFixed32ExtensionLite: [UInt32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_packedFixed32ExtensionLite: [UInt32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_fixed32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_fixed32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedFixed64ExtensionLite: [UInt64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_packedFixed64ExtensionLite: [UInt64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_fixed64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_fixed64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedSfixed32ExtensionLite: [Int32] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed32_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed32_extension_lite, value: newValue)}
+  var Proto2Unittest_packedSfixed32ExtensionLite: [Int32] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_sfixed32_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_sfixed32_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedSfixed64ExtensionLite: [Int64] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed64_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed64_extension_lite, value: newValue)}
+  var Proto2Unittest_packedSfixed64ExtensionLite: [Int64] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_sfixed64_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_sfixed64_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedFloatExtensionLite: [Float] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_float_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_float_extension_lite, value: newValue)}
+  var Proto2Unittest_packedFloatExtensionLite: [Float] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_float_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_float_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedDoubleExtensionLite: [Double] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_double_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_double_extension_lite, value: newValue)}
+  var Proto2Unittest_packedDoubleExtensionLite: [Double] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_double_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_double_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedBoolExtensionLite: [Bool] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_bool_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_bool_extension_lite, value: newValue)}
+  var Proto2Unittest_packedBoolExtensionLite: [Bool] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_bool_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_bool_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_packedEnumExtensionLite: [ProtobufUnittest_ForeignEnumLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_enum_extension_lite) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_enum_extension_lite, value: newValue)}
+  var Proto2Unittest_packedEnumExtensionLite: [Proto2Unittest_ForeignEnumLite] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_packed_enum_extension_lite) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_packed_enum_extension_lite, value: newValue)}
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite {
+extension Proto2Unittest_TestParsingMergeLite {
 
-  var ProtobufUnittest_TestParsingMergeLite_optionalExt: ProtobufUnittest_TestAllTypesLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext) ?? ProtobufUnittest_TestAllTypesLite()}
-    set {setExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext, value: newValue)}
+  var Proto2Unittest_TestParsingMergeLite_optionalExt: Proto2Unittest_TestAllTypesLite {
+    get {return getExtensionValue(ext: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext) ?? Proto2Unittest_TestAllTypesLite()}
+    set {setExtensionValue(ext: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext`
+  /// Returns true if extension `Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext`
   /// has been explicitly set.
-  var hasProtobufUnittest_TestParsingMergeLite_optionalExt: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext)
+  var hasProto2Unittest_TestParsingMergeLite_optionalExt: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext)
   }
-  /// Clears the value of extension `ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext`.
+  /// Clears the value of extension `Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_TestParsingMergeLite_optionalExt() {
-    clearExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext)
+  mutating func clearProto2Unittest_TestParsingMergeLite_optionalExt() {
+    clearExtensionValue(ext: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext)
   }
 
-  var ProtobufUnittest_TestParsingMergeLite_repeatedExt: [ProtobufUnittest_TestAllTypesLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext, value: newValue)}
+  var Proto2Unittest_TestParsingMergeLite_repeatedExt: [Proto2Unittest_TestAllTypesLite] {
+    get {return getExtensionValue(ext: Proto2Unittest_TestParsingMergeLite.Extensions.repeated_ext) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_TestParsingMergeLite.Extensions.repeated_ext, value: newValue)}
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestLite_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_UnittestLite_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_Extensions_optional_int32_extension_lite,
-  ProtobufUnittest_Extensions_optional_int64_extension_lite,
-  ProtobufUnittest_Extensions_optional_uint32_extension_lite,
-  ProtobufUnittest_Extensions_optional_uint64_extension_lite,
-  ProtobufUnittest_Extensions_optional_sint32_extension_lite,
-  ProtobufUnittest_Extensions_optional_sint64_extension_lite,
-  ProtobufUnittest_Extensions_optional_fixed32_extension_lite,
-  ProtobufUnittest_Extensions_optional_fixed64_extension_lite,
-  ProtobufUnittest_Extensions_optional_sfixed32_extension_lite,
-  ProtobufUnittest_Extensions_optional_sfixed64_extension_lite,
-  ProtobufUnittest_Extensions_optional_float_extension_lite,
-  ProtobufUnittest_Extensions_optional_double_extension_lite,
-  ProtobufUnittest_Extensions_optional_bool_extension_lite,
-  ProtobufUnittest_Extensions_optional_string_extension_lite,
-  ProtobufUnittest_Extensions_optional_bytes_extension_lite,
-  ProtobufUnittest_Extensions_OptionalGroup_extension_lite,
-  ProtobufUnittest_Extensions_optional_nested_message_extension_lite,
-  ProtobufUnittest_Extensions_optional_foreign_message_extension_lite,
-  ProtobufUnittest_Extensions_optional_import_message_extension_lite,
-  ProtobufUnittest_Extensions_optional_nested_enum_extension_lite,
-  ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite,
-  ProtobufUnittest_Extensions_optional_import_enum_extension_lite,
-  ProtobufUnittest_Extensions_optional_string_piece_extension_lite,
-  ProtobufUnittest_Extensions_optional_cord_extension_lite,
-  ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite,
-  ProtobufUnittest_Extensions_optional_public_import_message_extension_lite,
-  ProtobufUnittest_Extensions_optional_lazy_message_extension_lite,
-  ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite,
-  ProtobufUnittest_Extensions_repeated_int32_extension_lite,
-  ProtobufUnittest_Extensions_repeated_int64_extension_lite,
-  ProtobufUnittest_Extensions_repeated_uint32_extension_lite,
-  ProtobufUnittest_Extensions_repeated_uint64_extension_lite,
-  ProtobufUnittest_Extensions_repeated_sint32_extension_lite,
-  ProtobufUnittest_Extensions_repeated_sint64_extension_lite,
-  ProtobufUnittest_Extensions_repeated_fixed32_extension_lite,
-  ProtobufUnittest_Extensions_repeated_fixed64_extension_lite,
-  ProtobufUnittest_Extensions_repeated_sfixed32_extension_lite,
-  ProtobufUnittest_Extensions_repeated_sfixed64_extension_lite,
-  ProtobufUnittest_Extensions_repeated_float_extension_lite,
-  ProtobufUnittest_Extensions_repeated_double_extension_lite,
-  ProtobufUnittest_Extensions_repeated_bool_extension_lite,
-  ProtobufUnittest_Extensions_repeated_string_extension_lite,
-  ProtobufUnittest_Extensions_repeated_bytes_extension_lite,
-  ProtobufUnittest_Extensions_RepeatedGroup_extension_lite,
-  ProtobufUnittest_Extensions_repeated_nested_message_extension_lite,
-  ProtobufUnittest_Extensions_repeated_foreign_message_extension_lite,
-  ProtobufUnittest_Extensions_repeated_import_message_extension_lite,
-  ProtobufUnittest_Extensions_repeated_nested_enum_extension_lite,
-  ProtobufUnittest_Extensions_repeated_foreign_enum_extension_lite,
-  ProtobufUnittest_Extensions_repeated_import_enum_extension_lite,
-  ProtobufUnittest_Extensions_repeated_string_piece_extension_lite,
-  ProtobufUnittest_Extensions_repeated_cord_extension_lite,
-  ProtobufUnittest_Extensions_repeated_lazy_message_extension_lite,
-  ProtobufUnittest_Extensions_default_int32_extension_lite,
-  ProtobufUnittest_Extensions_default_int64_extension_lite,
-  ProtobufUnittest_Extensions_default_uint32_extension_lite,
-  ProtobufUnittest_Extensions_default_uint64_extension_lite,
-  ProtobufUnittest_Extensions_default_sint32_extension_lite,
-  ProtobufUnittest_Extensions_default_sint64_extension_lite,
-  ProtobufUnittest_Extensions_default_fixed32_extension_lite,
-  ProtobufUnittest_Extensions_default_fixed64_extension_lite,
-  ProtobufUnittest_Extensions_default_sfixed32_extension_lite,
-  ProtobufUnittest_Extensions_default_sfixed64_extension_lite,
-  ProtobufUnittest_Extensions_default_float_extension_lite,
-  ProtobufUnittest_Extensions_default_double_extension_lite,
-  ProtobufUnittest_Extensions_default_bool_extension_lite,
-  ProtobufUnittest_Extensions_default_string_extension_lite,
-  ProtobufUnittest_Extensions_default_bytes_extension_lite,
-  ProtobufUnittest_Extensions_default_nested_enum_extension_lite,
-  ProtobufUnittest_Extensions_default_foreign_enum_extension_lite,
-  ProtobufUnittest_Extensions_default_import_enum_extension_lite,
-  ProtobufUnittest_Extensions_default_string_piece_extension_lite,
-  ProtobufUnittest_Extensions_default_cord_extension_lite,
-  ProtobufUnittest_Extensions_oneof_uint32_extension_lite,
-  ProtobufUnittest_Extensions_oneof_nested_message_extension_lite,
-  ProtobufUnittest_Extensions_oneof_string_extension_lite,
-  ProtobufUnittest_Extensions_oneof_bytes_extension_lite,
-  ProtobufUnittest_Extensions_packed_int32_extension_lite,
-  ProtobufUnittest_Extensions_packed_int64_extension_lite,
-  ProtobufUnittest_Extensions_packed_uint32_extension_lite,
-  ProtobufUnittest_Extensions_packed_uint64_extension_lite,
-  ProtobufUnittest_Extensions_packed_sint32_extension_lite,
-  ProtobufUnittest_Extensions_packed_sint64_extension_lite,
-  ProtobufUnittest_Extensions_packed_fixed32_extension_lite,
-  ProtobufUnittest_Extensions_packed_fixed64_extension_lite,
-  ProtobufUnittest_Extensions_packed_sfixed32_extension_lite,
-  ProtobufUnittest_Extensions_packed_sfixed64_extension_lite,
-  ProtobufUnittest_Extensions_packed_float_extension_lite,
-  ProtobufUnittest_Extensions_packed_double_extension_lite,
-  ProtobufUnittest_Extensions_packed_bool_extension_lite,
-  ProtobufUnittest_Extensions_packed_enum_extension_lite,
-  ProtobufUnittest_Extensions_test_all_types_lite,
-  ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension,
-  ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext,
-  ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext
+let Proto2Unittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_Extensions_optional_int32_extension_lite,
+  Proto2Unittest_Extensions_optional_int64_extension_lite,
+  Proto2Unittest_Extensions_optional_uint32_extension_lite,
+  Proto2Unittest_Extensions_optional_uint64_extension_lite,
+  Proto2Unittest_Extensions_optional_sint32_extension_lite,
+  Proto2Unittest_Extensions_optional_sint64_extension_lite,
+  Proto2Unittest_Extensions_optional_fixed32_extension_lite,
+  Proto2Unittest_Extensions_optional_fixed64_extension_lite,
+  Proto2Unittest_Extensions_optional_sfixed32_extension_lite,
+  Proto2Unittest_Extensions_optional_sfixed64_extension_lite,
+  Proto2Unittest_Extensions_optional_float_extension_lite,
+  Proto2Unittest_Extensions_optional_double_extension_lite,
+  Proto2Unittest_Extensions_optional_bool_extension_lite,
+  Proto2Unittest_Extensions_optional_string_extension_lite,
+  Proto2Unittest_Extensions_optional_bytes_extension_lite,
+  Proto2Unittest_Extensions_OptionalGroup_extension_lite,
+  Proto2Unittest_Extensions_optional_nested_message_extension_lite,
+  Proto2Unittest_Extensions_optional_foreign_message_extension_lite,
+  Proto2Unittest_Extensions_optional_import_message_extension_lite,
+  Proto2Unittest_Extensions_optional_nested_enum_extension_lite,
+  Proto2Unittest_Extensions_optional_foreign_enum_extension_lite,
+  Proto2Unittest_Extensions_optional_import_enum_extension_lite,
+  Proto2Unittest_Extensions_optional_string_piece_extension_lite,
+  Proto2Unittest_Extensions_optional_cord_extension_lite,
+  Proto2Unittest_Extensions_optional_bytes_cord_extension_lite,
+  Proto2Unittest_Extensions_optional_public_import_message_extension_lite,
+  Proto2Unittest_Extensions_optional_lazy_message_extension_lite,
+  Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite,
+  Proto2Unittest_Extensions_repeated_int32_extension_lite,
+  Proto2Unittest_Extensions_repeated_int64_extension_lite,
+  Proto2Unittest_Extensions_repeated_uint32_extension_lite,
+  Proto2Unittest_Extensions_repeated_uint64_extension_lite,
+  Proto2Unittest_Extensions_repeated_sint32_extension_lite,
+  Proto2Unittest_Extensions_repeated_sint64_extension_lite,
+  Proto2Unittest_Extensions_repeated_fixed32_extension_lite,
+  Proto2Unittest_Extensions_repeated_fixed64_extension_lite,
+  Proto2Unittest_Extensions_repeated_sfixed32_extension_lite,
+  Proto2Unittest_Extensions_repeated_sfixed64_extension_lite,
+  Proto2Unittest_Extensions_repeated_float_extension_lite,
+  Proto2Unittest_Extensions_repeated_double_extension_lite,
+  Proto2Unittest_Extensions_repeated_bool_extension_lite,
+  Proto2Unittest_Extensions_repeated_string_extension_lite,
+  Proto2Unittest_Extensions_repeated_bytes_extension_lite,
+  Proto2Unittest_Extensions_RepeatedGroup_extension_lite,
+  Proto2Unittest_Extensions_repeated_nested_message_extension_lite,
+  Proto2Unittest_Extensions_repeated_foreign_message_extension_lite,
+  Proto2Unittest_Extensions_repeated_import_message_extension_lite,
+  Proto2Unittest_Extensions_repeated_nested_enum_extension_lite,
+  Proto2Unittest_Extensions_repeated_foreign_enum_extension_lite,
+  Proto2Unittest_Extensions_repeated_import_enum_extension_lite,
+  Proto2Unittest_Extensions_repeated_string_piece_extension_lite,
+  Proto2Unittest_Extensions_repeated_cord_extension_lite,
+  Proto2Unittest_Extensions_repeated_lazy_message_extension_lite,
+  Proto2Unittest_Extensions_default_int32_extension_lite,
+  Proto2Unittest_Extensions_default_int64_extension_lite,
+  Proto2Unittest_Extensions_default_uint32_extension_lite,
+  Proto2Unittest_Extensions_default_uint64_extension_lite,
+  Proto2Unittest_Extensions_default_sint32_extension_lite,
+  Proto2Unittest_Extensions_default_sint64_extension_lite,
+  Proto2Unittest_Extensions_default_fixed32_extension_lite,
+  Proto2Unittest_Extensions_default_fixed64_extension_lite,
+  Proto2Unittest_Extensions_default_sfixed32_extension_lite,
+  Proto2Unittest_Extensions_default_sfixed64_extension_lite,
+  Proto2Unittest_Extensions_default_float_extension_lite,
+  Proto2Unittest_Extensions_default_double_extension_lite,
+  Proto2Unittest_Extensions_default_bool_extension_lite,
+  Proto2Unittest_Extensions_default_string_extension_lite,
+  Proto2Unittest_Extensions_default_bytes_extension_lite,
+  Proto2Unittest_Extensions_default_nested_enum_extension_lite,
+  Proto2Unittest_Extensions_default_foreign_enum_extension_lite,
+  Proto2Unittest_Extensions_default_import_enum_extension_lite,
+  Proto2Unittest_Extensions_default_string_piece_extension_lite,
+  Proto2Unittest_Extensions_default_cord_extension_lite,
+  Proto2Unittest_Extensions_oneof_uint32_extension_lite,
+  Proto2Unittest_Extensions_oneof_nested_message_extension_lite,
+  Proto2Unittest_Extensions_oneof_string_extension_lite,
+  Proto2Unittest_Extensions_oneof_bytes_extension_lite,
+  Proto2Unittest_Extensions_packed_int32_extension_lite,
+  Proto2Unittest_Extensions_packed_int64_extension_lite,
+  Proto2Unittest_Extensions_packed_uint32_extension_lite,
+  Proto2Unittest_Extensions_packed_uint64_extension_lite,
+  Proto2Unittest_Extensions_packed_sint32_extension_lite,
+  Proto2Unittest_Extensions_packed_sint64_extension_lite,
+  Proto2Unittest_Extensions_packed_fixed32_extension_lite,
+  Proto2Unittest_Extensions_packed_fixed64_extension_lite,
+  Proto2Unittest_Extensions_packed_sfixed32_extension_lite,
+  Proto2Unittest_Extensions_packed_sfixed64_extension_lite,
+  Proto2Unittest_Extensions_packed_float_extension_lite,
+  Proto2Unittest_Extensions_packed_double_extension_lite,
+  Proto2Unittest_Extensions_packed_bool_extension_lite,
+  Proto2Unittest_Extensions_packed_enum_extension_lite,
+  Proto2Unittest_Extensions_test_all_types_lite,
+  Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension,
+  Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext,
+  Proto2Unittest_TestParsingMergeLite.Extensions.repeated_ext
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -2824,503 +2824,503 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
 // accessors for the extension fields on the messages directly.
 
 /// Singular
-let ProtobufUnittest_Extensions_optional_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.optional_int32_extension_lite"
+  fieldName: "proto2_unittest.optional_int32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 2,
-  fieldName: "protobuf_unittest.optional_int64_extension_lite"
+  fieldName: "proto2_unittest.optional_int64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 3,
-  fieldName: "protobuf_unittest.optional_uint32_extension_lite"
+  fieldName: "proto2_unittest.optional_uint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 4,
-  fieldName: "protobuf_unittest.optional_uint64_extension_lite"
+  fieldName: "proto2_unittest.optional_uint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 5,
-  fieldName: "protobuf_unittest.optional_sint32_extension_lite"
+  fieldName: "proto2_unittest.optional_sint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 6,
-  fieldName: "protobuf_unittest.optional_sint64_extension_lite"
+  fieldName: "proto2_unittest.optional_sint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 7,
-  fieldName: "protobuf_unittest.optional_fixed32_extension_lite"
+  fieldName: "proto2_unittest.optional_fixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 8,
-  fieldName: "protobuf_unittest.optional_fixed64_extension_lite"
+  fieldName: "proto2_unittest.optional_fixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 9,
-  fieldName: "protobuf_unittest.optional_sfixed32_extension_lite"
+  fieldName: "proto2_unittest.optional_sfixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 10,
-  fieldName: "protobuf_unittest.optional_sfixed64_extension_lite"
+  fieldName: "proto2_unittest.optional_sfixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 11,
-  fieldName: "protobuf_unittest.optional_float_extension_lite"
+  fieldName: "proto2_unittest.optional_float_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 12,
-  fieldName: "protobuf_unittest.optional_double_extension_lite"
+  fieldName: "proto2_unittest.optional_double_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 13,
-  fieldName: "protobuf_unittest.optional_bool_extension_lite"
+  fieldName: "proto2_unittest.optional_bool_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 14,
-  fieldName: "protobuf_unittest.optional_string_extension_lite"
+  fieldName: "proto2_unittest.optional_string_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 15,
-  fieldName: "protobuf_unittest.optional_bytes_extension_lite"
+  fieldName: "proto2_unittest.optional_bytes_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_OptionalGroup_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_OptionalGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_OptionalGroup_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Proto2Unittest_OptionalGroup_extension_lite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 16,
-  fieldName: "protobuf_unittest.optionalgroup_extension_lite"
+  fieldName: "proto2_unittest.optionalgroup_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_nested_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_nested_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 18,
-  fieldName: "protobuf_unittest.optional_nested_message_extension_lite"
+  fieldName: "proto2_unittest.optional_nested_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_foreign_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ForeignMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_foreign_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_ForeignMessageLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 19,
-  fieldName: "protobuf_unittest.optional_foreign_message_extension_lite"
+  fieldName: "proto2_unittest.optional_foreign_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittestImport_ImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_ImportMessageLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 20,
-  fieldName: "protobuf_unittest.optional_import_message_extension_lite"
+  fieldName: "proto2_unittest.optional_import_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_nested_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_nested_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_TestAllTypesLite.NestedEnum>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 21,
-  fieldName: "protobuf_unittest.optional_nested_enum_extension_lite"
+  fieldName: "proto2_unittest.optional_nested_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_foreign_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_foreign_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_ForeignEnumLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 22,
-  fieldName: "protobuf_unittest.optional_foreign_enum_extension_lite"
+  fieldName: "proto2_unittest.optional_foreign_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_import_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittestImport_ImportEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_import_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnumLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 23,
-  fieldName: "protobuf_unittest.optional_import_enum_extension_lite"
+  fieldName: "proto2_unittest.optional_import_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_string_piece_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_string_piece_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 24,
-  fieldName: "protobuf_unittest.optional_string_piece_extension_lite"
+  fieldName: "proto2_unittest.optional_string_piece_extension_lite"
 )
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
-let ProtobufUnittest_Extensions_optional_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 25,
-  fieldName: "protobuf_unittest.optional_cord_extension_lite"
+  fieldName: "proto2_unittest.optional_cord_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_bytes_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_bytes_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 86,
-  fieldName: "protobuf_unittest.optional_bytes_cord_extension_lite"
+  fieldName: "proto2_unittest.optional_bytes_cord_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_public_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_public_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_PublicImportMessageLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 26,
-  fieldName: "protobuf_unittest.optional_public_import_message_extension_lite"
+  fieldName: "proto2_unittest.optional_public_import_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 27,
-  fieldName: "protobuf_unittest.optional_lazy_message_extension_lite"
+  fieldName: "proto2_unittest.optional_lazy_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 28,
-  fieldName: "protobuf_unittest.optional_unverified_lazy_message_extension_lite"
+  fieldName: "proto2_unittest.optional_unverified_lazy_message_extension_lite"
 )
 
 /// Repeated
-let ProtobufUnittest_Extensions_repeated_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 31,
-  fieldName: "protobuf_unittest.repeated_int32_extension_lite"
+  fieldName: "proto2_unittest.repeated_int32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 32,
-  fieldName: "protobuf_unittest.repeated_int64_extension_lite"
+  fieldName: "proto2_unittest.repeated_int64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 33,
-  fieldName: "protobuf_unittest.repeated_uint32_extension_lite"
+  fieldName: "proto2_unittest.repeated_uint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 34,
-  fieldName: "protobuf_unittest.repeated_uint64_extension_lite"
+  fieldName: "proto2_unittest.repeated_uint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 35,
-  fieldName: "protobuf_unittest.repeated_sint32_extension_lite"
+  fieldName: "proto2_unittest.repeated_sint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 36,
-  fieldName: "protobuf_unittest.repeated_sint64_extension_lite"
+  fieldName: "proto2_unittest.repeated_sint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 37,
-  fieldName: "protobuf_unittest.repeated_fixed32_extension_lite"
+  fieldName: "proto2_unittest.repeated_fixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 38,
-  fieldName: "protobuf_unittest.repeated_fixed64_extension_lite"
+  fieldName: "proto2_unittest.repeated_fixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 39,
-  fieldName: "protobuf_unittest.repeated_sfixed32_extension_lite"
+  fieldName: "proto2_unittest.repeated_sfixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 40,
-  fieldName: "protobuf_unittest.repeated_sfixed64_extension_lite"
+  fieldName: "proto2_unittest.repeated_sfixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 41,
-  fieldName: "protobuf_unittest.repeated_float_extension_lite"
+  fieldName: "proto2_unittest.repeated_float_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 42,
-  fieldName: "protobuf_unittest.repeated_double_extension_lite"
+  fieldName: "proto2_unittest.repeated_double_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 43,
-  fieldName: "protobuf_unittest.repeated_bool_extension_lite"
+  fieldName: "proto2_unittest.repeated_bool_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 44,
-  fieldName: "protobuf_unittest.repeated_string_extension_lite"
+  fieldName: "proto2_unittest.repeated_string_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 45,
-  fieldName: "protobuf_unittest.repeated_bytes_extension_lite"
+  fieldName: "proto2_unittest.repeated_bytes_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_RepeatedGroup_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<ProtobufUnittest_RepeatedGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_RepeatedGroup_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<Proto2Unittest_RepeatedGroup_extension_lite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 46,
-  fieldName: "protobuf_unittest.repeatedgroup_extension_lite"
+  fieldName: "proto2_unittest.repeatedgroup_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_nested_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_nested_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 48,
-  fieldName: "protobuf_unittest.repeated_nested_message_extension_lite"
+  fieldName: "proto2_unittest.repeated_nested_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_foreign_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittest_ForeignMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_foreign_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_ForeignMessageLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 49,
-  fieldName: "protobuf_unittest.repeated_foreign_message_extension_lite"
+  fieldName: "proto2_unittest.repeated_foreign_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittestImport_ImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_import_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2UnittestImport_ImportMessageLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 50,
-  fieldName: "protobuf_unittest.repeated_import_message_extension_lite"
+  fieldName: "proto2_unittest.repeated_import_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_nested_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_nested_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2Unittest_TestAllTypesLite.NestedEnum>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 51,
-  fieldName: "protobuf_unittest.repeated_nested_enum_extension_lite"
+  fieldName: "proto2_unittest.repeated_nested_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_foreign_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_foreign_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2Unittest_ForeignEnumLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 52,
-  fieldName: "protobuf_unittest.repeated_foreign_enum_extension_lite"
+  fieldName: "proto2_unittest.repeated_foreign_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_import_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<ProtobufUnittestImport_ImportEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_import_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2UnittestImport_ImportEnumLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 53,
-  fieldName: "protobuf_unittest.repeated_import_enum_extension_lite"
+  fieldName: "proto2_unittest.repeated_import_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_string_piece_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_string_piece_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 54,
-  fieldName: "protobuf_unittest.repeated_string_piece_extension_lite"
+  fieldName: "proto2_unittest.repeated_string_piece_extension_lite"
 )
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
-let ProtobufUnittest_Extensions_repeated_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 55,
-  fieldName: "protobuf_unittest.repeated_cord_extension_lite"
+  fieldName: "proto2_unittest.repeated_cord_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_repeated_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_repeated_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 57,
-  fieldName: "protobuf_unittest.repeated_lazy_message_extension_lite"
+  fieldName: "proto2_unittest.repeated_lazy_message_extension_lite"
 )
 
 /// Singular with defaults
-let ProtobufUnittest_Extensions_default_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 61,
-  fieldName: "protobuf_unittest.default_int32_extension_lite"
+  fieldName: "proto2_unittest.default_int32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 62,
-  fieldName: "protobuf_unittest.default_int64_extension_lite"
+  fieldName: "proto2_unittest.default_int64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 63,
-  fieldName: "protobuf_unittest.default_uint32_extension_lite"
+  fieldName: "proto2_unittest.default_uint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 64,
-  fieldName: "protobuf_unittest.default_uint64_extension_lite"
+  fieldName: "proto2_unittest.default_uint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 65,
-  fieldName: "protobuf_unittest.default_sint32_extension_lite"
+  fieldName: "proto2_unittest.default_sint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 66,
-  fieldName: "protobuf_unittest.default_sint64_extension_lite"
+  fieldName: "proto2_unittest.default_sint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 67,
-  fieldName: "protobuf_unittest.default_fixed32_extension_lite"
+  fieldName: "proto2_unittest.default_fixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 68,
-  fieldName: "protobuf_unittest.default_fixed64_extension_lite"
+  fieldName: "proto2_unittest.default_fixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 69,
-  fieldName: "protobuf_unittest.default_sfixed32_extension_lite"
+  fieldName: "proto2_unittest.default_sfixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 70,
-  fieldName: "protobuf_unittest.default_sfixed64_extension_lite"
+  fieldName: "proto2_unittest.default_sfixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 71,
-  fieldName: "protobuf_unittest.default_float_extension_lite"
+  fieldName: "proto2_unittest.default_float_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 72,
-  fieldName: "protobuf_unittest.default_double_extension_lite"
+  fieldName: "proto2_unittest.default_double_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 73,
-  fieldName: "protobuf_unittest.default_bool_extension_lite"
+  fieldName: "proto2_unittest.default_bool_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 74,
-  fieldName: "protobuf_unittest.default_string_extension_lite"
+  fieldName: "proto2_unittest.default_string_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 75,
-  fieldName: "protobuf_unittest.default_bytes_extension_lite"
+  fieldName: "proto2_unittest.default_bytes_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_nested_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_TestAllTypesLite.NestedEnum>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_nested_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_TestAllTypesLite.NestedEnum>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 81,
-  fieldName: "protobuf_unittest.default_nested_enum_extension_lite"
+  fieldName: "proto2_unittest.default_nested_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_foreign_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_foreign_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_ForeignEnumLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 82,
-  fieldName: "protobuf_unittest.default_foreign_enum_extension_lite"
+  fieldName: "proto2_unittest.default_foreign_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_import_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittestImport_ImportEnumLite>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_import_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnumLite>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 83,
-  fieldName: "protobuf_unittest.default_import_enum_extension_lite"
+  fieldName: "proto2_unittest.default_import_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_default_string_piece_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_string_piece_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 84,
-  fieldName: "protobuf_unittest.default_string_piece_extension_lite"
+  fieldName: "proto2_unittest.default_string_piece_extension_lite"
 )
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
-let ProtobufUnittest_Extensions_default_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_default_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 85,
-  fieldName: "protobuf_unittest.default_cord_extension_lite"
+  fieldName: "proto2_unittest.default_cord_extension_lite"
 )
 
 /// For oneof test
-let ProtobufUnittest_Extensions_oneof_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_oneof_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 111,
-  fieldName: "protobuf_unittest.oneof_uint32_extension_lite"
+  fieldName: "proto2_unittest.oneof_uint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_oneof_nested_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_oneof_nested_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 112,
-  fieldName: "protobuf_unittest.oneof_nested_message_extension_lite"
+  fieldName: "proto2_unittest.oneof_nested_message_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_oneof_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_oneof_string_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 113,
-  fieldName: "protobuf_unittest.oneof_string_extension_lite"
+  fieldName: "proto2_unittest.oneof_string_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_oneof_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
+let Proto2Unittest_Extensions_oneof_bytes_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 114,
-  fieldName: "protobuf_unittest.oneof_bytes_extension_lite"
+  fieldName: "proto2_unittest.oneof_bytes_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 90,
-  fieldName: "protobuf_unittest.packed_int32_extension_lite"
+  fieldName: "proto2_unittest.packed_int32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_int64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 91,
-  fieldName: "protobuf_unittest.packed_int64_extension_lite"
+  fieldName: "proto2_unittest.packed_int64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_uint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 92,
-  fieldName: "protobuf_unittest.packed_uint32_extension_lite"
+  fieldName: "proto2_unittest.packed_uint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_uint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 93,
-  fieldName: "protobuf_unittest.packed_uint64_extension_lite"
+  fieldName: "proto2_unittest.packed_uint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_sint32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 94,
-  fieldName: "protobuf_unittest.packed_sint32_extension_lite"
+  fieldName: "proto2_unittest.packed_sint32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_sint64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 95,
-  fieldName: "protobuf_unittest.packed_sint64_extension_lite"
+  fieldName: "proto2_unittest.packed_sint64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_fixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 96,
-  fieldName: "protobuf_unittest.packed_fixed32_extension_lite"
+  fieldName: "proto2_unittest.packed_fixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_fixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 97,
-  fieldName: "protobuf_unittest.packed_fixed64_extension_lite"
+  fieldName: "proto2_unittest.packed_fixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_sfixed32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 98,
-  fieldName: "protobuf_unittest.packed_sfixed32_extension_lite"
+  fieldName: "proto2_unittest.packed_sfixed32_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_sfixed64_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 99,
-  fieldName: "protobuf_unittest.packed_sfixed64_extension_lite"
+  fieldName: "proto2_unittest.packed_sfixed64_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_float_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.packed_float_extension_lite"
+  fieldName: "proto2_unittest.packed_float_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_double_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.packed_double_extension_lite"
+  fieldName: "proto2_unittest.packed_double_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_bool_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 102,
-  fieldName: "protobuf_unittest.packed_bool_extension_lite"
+  fieldName: "proto2_unittest.packed_bool_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_packed_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<ProtobufUnittest_ForeignEnumLite>, ProtobufUnittest_TestPackedExtensionsLite>(
+let Proto2Unittest_Extensions_packed_enum_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<Proto2Unittest_ForeignEnumLite>, Proto2Unittest_TestPackedExtensionsLite>(
   _protobuf_fieldNumber: 103,
-  fieldName: "protobuf_unittest.packed_enum_extension_lite"
+  fieldName: "proto2_unittest.packed_enum_extension_lite"
 )
 
-let ProtobufUnittest_Extensions_test_all_types_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestHugeFieldNumbersLite>(
+let Proto2Unittest_Extensions_test_all_types_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite>, Proto2Unittest_TestHugeFieldNumbersLite>(
   _protobuf_fieldNumber: 536860000,
-  fieldName: "protobuf_unittest.test_all_types_lite"
+  fieldName: "proto2_unittest.test_all_types_lite"
 )
 
-extension ProtobufUnittest_TestNestedExtensionLite {
+extension Proto2Unittest_TestNestedExtensionLite {
   enum Extensions {
-    static let nested_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
+    static let nested_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestAllExtensionsLite>(
       _protobuf_fieldNumber: 12345,
-      fieldName: "protobuf_unittest.TestNestedExtensionLite.nested_extension"
+      fieldName: "proto2_unittest.TestNestedExtensionLite.nested_extension"
     )
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite {
+extension Proto2Unittest_TestParsingMergeLite {
   enum Extensions {
-    static let optional_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestParsingMergeLite>(
+    static let optional_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite>, Proto2Unittest_TestParsingMergeLite>(
       _protobuf_fieldNumber: 1000,
-      fieldName: "protobuf_unittest.TestParsingMergeLite.optional_ext"
+      fieldName: "proto2_unittest.TestParsingMergeLite.optional_ext"
     )
 
-    static let repeated_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestParsingMergeLite>(
+    static let repeated_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_TestAllTypesLite>, Proto2Unittest_TestParsingMergeLite>(
       _protobuf_fieldNumber: 1001,
-      fieldName: "protobuf_unittest.TestParsingMergeLite.repeated_ext"
+      fieldName: "proto2_unittest.TestParsingMergeLite.repeated_ext"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_ForeignEnumLite: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_ForeignEnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     4: .same(proto: "FOREIGN_LITE_FOO"),
     5: .same(proto: "FOREIGN_LITE_BAR"),
@@ -3328,20 +3328,20 @@ extension ProtobufUnittest_ForeignEnumLite: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension ProtobufUnittest_V1EnumLite: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_V1EnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "V1_FIRST"),
   ]
 }
 
-extension ProtobufUnittest_V2EnumLite: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_V2EnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "V2_FIRST"),
     2: .same(proto: "V2_SECOND"),
   ]
 }
 
-extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -3444,19 +3444,19 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
     var _optionalBytes: Data? = nil
-    var _optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup? = nil
-    var _optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
-    var _optionalForeignMessage: ProtobufUnittest_ForeignMessageLite? = nil
-    var _optionalImportMessage: ProtobufUnittestImport_ImportMessageLite? = nil
-    var _optionalNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil
-    var _optionalForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil
-    var _optionalImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil
+    var _optionalGroup: Proto2Unittest_TestAllTypesLite.OptionalGroup? = nil
+    var _optionalNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage? = nil
+    var _optionalForeignMessage: Proto2Unittest_ForeignMessageLite? = nil
+    var _optionalImportMessage: Proto2UnittestImport_ImportMessageLite? = nil
+    var _optionalNestedEnum: Proto2Unittest_TestAllTypesLite.NestedEnum? = nil
+    var _optionalForeignEnum: Proto2Unittest_ForeignEnumLite? = nil
+    var _optionalImportEnum: Proto2UnittestImport_ImportEnumLite? = nil
     var _optionalStringPiece: String? = nil
     var _optionalCord: String? = nil
     var _optionalBytesCord: Data? = nil
-    var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite? = nil
-    var _optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
-    var _optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
+    var _optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessageLite? = nil
+    var _optionalLazyMessage: Proto2Unittest_TestAllTypesLite.NestedMessage? = nil
+    var _optionalUnverifiedLazyMessage: Proto2Unittest_TestAllTypesLite.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -3472,16 +3472,16 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
     var _repeatedBytes: [Data] = []
-    var _repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] = []
-    var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = []
-    var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] = []
-    var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessageLite] = []
-    var _repeatedNestedEnum: [ProtobufUnittest_TestAllTypesLite.NestedEnum] = []
-    var _repeatedForeignEnum: [ProtobufUnittest_ForeignEnumLite] = []
-    var _repeatedImportEnum: [ProtobufUnittestImport_ImportEnumLite] = []
+    var _repeatedGroup: [Proto2Unittest_TestAllTypesLite.RepeatedGroup] = []
+    var _repeatedNestedMessage: [Proto2Unittest_TestAllTypesLite.NestedMessage] = []
+    var _repeatedForeignMessage: [Proto2Unittest_ForeignMessageLite] = []
+    var _repeatedImportMessage: [Proto2UnittestImport_ImportMessageLite] = []
+    var _repeatedNestedEnum: [Proto2Unittest_TestAllTypesLite.NestedEnum] = []
+    var _repeatedForeignEnum: [Proto2Unittest_ForeignEnumLite] = []
+    var _repeatedImportEnum: [Proto2UnittestImport_ImportEnumLite] = []
     var _repeatedStringPiece: [String] = []
     var _repeatedCord: [String] = []
-    var _repeatedLazyMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = []
+    var _repeatedLazyMessage: [Proto2Unittest_TestAllTypesLite.NestedMessage] = []
     var _defaultInt32: Int32? = nil
     var _defaultInt64: Int64? = nil
     var _defaultUint32: UInt32? = nil
@@ -3497,12 +3497,12 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
     var _defaultBytes: Data? = nil
-    var _defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil
-    var _defaultForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil
-    var _defaultImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil
+    var _defaultNestedEnum: Proto2Unittest_TestAllTypesLite.NestedEnum? = nil
+    var _defaultForeignEnum: Proto2Unittest_ForeignEnumLite? = nil
+    var _defaultImportEnum: Proto2UnittestImport_ImportEnumLite? = nil
     var _defaultStringPiece: String? = nil
     var _defaultCord: String? = nil
-    var _oneofField: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField?
+    var _oneofField: Proto2Unittest_TestAllTypesLite.OneOf_OneofField?
     var _deceptivelyNamedList: Int32? = nil
 
     #if swift(>=5.10)
@@ -3693,7 +3693,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
           }
         }()
         case 112: try {
-          var v: ProtobufUnittest_TestAllTypesLite.NestedMessage?
+          var v: Proto2Unittest_TestAllTypesLite.NestedMessage?
           var hadOneofValue = false
           if let current = _storage._oneofField {
             hadOneofValue = true
@@ -3722,7 +3722,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
           }
         }()
         case 115: try {
-          var v: ProtobufUnittest_TestAllTypesLite.NestedMessage?
+          var v: Proto2Unittest_TestAllTypesLite.NestedMessage?
           var hadOneofValue = false
           if let current = _storage._oneofField {
             hadOneofValue = true
@@ -3736,7 +3736,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         }()
         case 116: try { try decoder.decodeSingularInt32Field(value: &_storage._deceptivelyNamedList) }()
         case 117: try {
-          var v: ProtobufUnittest_TestAllTypesLite.NestedMessage2?
+          var v: Proto2Unittest_TestAllTypesLite.NestedMessage2?
           var hadOneofValue = false
           if let current = _storage._oneofField {
             hadOneofValue = true
@@ -4012,7 +4012,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllTypesLite, rhs: ProtobufUnittest_TestAllTypesLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAllTypesLite, rhs: Proto2Unittest_TestAllTypesLite) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -4101,7 +4101,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_TestAllTypesLite.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestAllTypesLite.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FOO"),
     2: .same(proto: "BAR"),
@@ -4109,8 +4109,8 @@ extension ProtobufUnittest_TestAllTypesLite.NestedEnum: SwiftProtobuf._ProtoName
   ]
 }
 
-extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".NestedMessage"
+extension Proto2Unittest_TestAllTypesLite.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestAllTypesLite.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
     2: .same(proto: "cc"),
@@ -4148,7 +4148,7 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllTypesLite.NestedMessage, rhs: ProtobufUnittest_TestAllTypesLite.NestedMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAllTypesLite.NestedMessage, rhs: Proto2Unittest_TestAllTypesLite.NestedMessage) -> Bool {
     if lhs._bb != rhs._bb {return false}
     if lhs._cc != rhs._cc {return false}
     if lhs.dd != rhs.dd {return false}
@@ -4157,8 +4157,8 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf.Message
   }
 }
 
-extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".NestedMessage2"
+extension Proto2Unittest_TestAllTypesLite.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestAllTypesLite.protoMessageName + ".NestedMessage2"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dd"),
   ]
@@ -4186,15 +4186,15 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllTypesLite.NestedMessage2, rhs: ProtobufUnittest_TestAllTypesLite.NestedMessage2) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAllTypesLite.NestedMessage2, rhs: Proto2Unittest_TestAllTypesLite.NestedMessage2) -> Bool {
     if lhs._dd != rhs._dd {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".OptionalGroup"
+extension Proto2Unittest_TestAllTypesLite.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestAllTypesLite.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
   ]
@@ -4222,15 +4222,15 @@ extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllTypesLite.OptionalGroup, rhs: ProtobufUnittest_TestAllTypesLite.OptionalGroup) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAllTypesLite.OptionalGroup, rhs: Proto2Unittest_TestAllTypesLite.OptionalGroup) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".RepeatedGroup"
+extension Proto2Unittest_TestAllTypesLite.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestAllTypesLite.protoMessageName + ".RepeatedGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     47: .same(proto: "a"),
   ]
@@ -4258,14 +4258,14 @@ extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllTypesLite.RepeatedGroup, rhs: ProtobufUnittest_TestAllTypesLite.RepeatedGroup) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAllTypesLite.RepeatedGroup, rhs: Proto2Unittest_TestAllTypesLite.RepeatedGroup) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
@@ -4294,14 +4294,14 @@ extension ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_ForeignMessageLite, rhs: ProtobufUnittest_ForeignMessageLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_ForeignMessageLite, rhs: Proto2Unittest_ForeignMessageLite) -> Bool {
     if lhs._c != rhs._c {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypesLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     90: .standard(proto: "packed_int32"),
@@ -4391,7 +4391,7 @@ extension ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestPackedTypesLite, rhs: ProtobufUnittest_TestPackedTypesLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestPackedTypesLite, rhs: Proto2Unittest_TestPackedTypesLite) -> Bool {
     if lhs.packedInt32 != rhs.packedInt32 {return false}
     if lhs.packedInt64 != rhs.packedInt64 {return false}
     if lhs.packedUint32 != rhs.packedUint32 {return false}
@@ -4411,7 +4411,7 @@ extension ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllExtensionsLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -4423,7 +4423,7 @@ extension ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftPr
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestAllExtensionsLite.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestAllExtensionsLite.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -4433,14 +4433,14 @@ extension ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllExtensionsLite, rhs: ProtobufUnittest_TestAllExtensionsLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAllExtensionsLite, rhs: Proto2Unittest_TestAllExtensionsLite) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionalGroup_extension_lite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
@@ -4469,14 +4469,14 @@ extension ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OptionalGroup_extension_lite, rhs: ProtobufUnittest_OptionalGroup_extension_lite) -> Bool {
+  static func ==(lhs: Proto2Unittest_OptionalGroup_extension_lite, rhs: Proto2Unittest_OptionalGroup_extension_lite) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedGroup_extension_lite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     47: .same(proto: "a"),
@@ -4505,14 +4505,14 @@ extension ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_RepeatedGroup_extension_lite, rhs: ProtobufUnittest_RepeatedGroup_extension_lite) -> Bool {
+  static func ==(lhs: Proto2Unittest_RepeatedGroup_extension_lite, rhs: Proto2Unittest_RepeatedGroup_extension_lite) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedExtensionsLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -4524,7 +4524,7 @@ extension ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, Swif
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestPackedExtensionsLite.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestPackedExtensionsLite.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -4534,14 +4534,14 @@ extension ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestPackedExtensionsLite, rhs: ProtobufUnittest_TestPackedExtensionsLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestPackedExtensionsLite, rhs: Proto2Unittest_TestPackedExtensionsLite) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestNestedExtensionLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedExtensionLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -4554,13 +4554,13 @@ extension ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestNestedExtensionLite, rhs: ProtobufUnittest_TestNestedExtensionLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestNestedExtensionLite, rhs: Proto2Unittest_TestNestedExtensionLite) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "deprecated_field"),
@@ -4573,7 +4573,7 @@ extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProto
     var _deprecatedField: Int32? = nil
     var _deprecatedField2: Int32? = nil
     var _deprecatedField3: String? = nil
-    var _deprecatedField4: ProtobufUnittest_TestDeprecatedLite? = nil
+    var _deprecatedField4: Proto2Unittest_TestDeprecatedLite? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -4650,7 +4650,7 @@ extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestDeprecatedLite, rhs: ProtobufUnittest_TestDeprecatedLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestDeprecatedLite, rhs: Proto2Unittest_TestDeprecatedLite) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -4668,7 +4668,7 @@ extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMergeLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_all_types"),
@@ -4698,7 +4698,7 @@ extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftPro
       case 10: try { try decoder.decodeSingularGroupField(value: &self._optionalGroup) }()
       case 20: try { try decoder.decodeRepeatedGroupField(value: &self.repeatedGroup) }()
       case 1000..<536870912:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestParsingMergeLite.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestParsingMergeLite.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -4728,7 +4728,7 @@ extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestParsingMergeLite, rhs: ProtobufUnittest_TestParsingMergeLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestParsingMergeLite, rhs: Proto2Unittest_TestParsingMergeLite) -> Bool {
     if lhs._requiredAllTypes != rhs._requiredAllTypes {return false}
     if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
     if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
@@ -4740,8 +4740,8 @@ extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.protoMessageName + ".RepeatedFieldsGenerator"
+extension Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestParsingMergeLite.protoMessageName + ".RepeatedFieldsGenerator"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
     2: .same(proto: "field2"),
@@ -4797,7 +4797,7 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator, rhs: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator, rhs: Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator) -> Bool {
     if lhs.field1 != rhs.field1 {return false}
     if lhs.field2 != rhs.field2 {return false}
     if lhs.field3 != rhs.field3 {return false}
@@ -4810,8 +4810,8 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftPr
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.protoMessageName + ".Group1"
+extension Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.protoMessageName + ".Group1"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .same(proto: "field1"),
   ]
@@ -4839,15 +4839,15 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1, rhs: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1, rhs: Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> Bool {
     if lhs._field1 != rhs._field1 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.protoMessageName + ".Group2"
+extension Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.protoMessageName + ".Group2"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .same(proto: "field1"),
   ]
@@ -4875,15 +4875,15 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2, rhs: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2, rhs: Proto2Unittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> Bool {
     if lhs._field1 != rhs._field1 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.protoMessageName + ".OptionalGroup"
+extension Proto2Unittest_TestParsingMergeLite.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestParsingMergeLite.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .standard(proto: "optional_group_all_types"),
   ]
@@ -4911,15 +4911,15 @@ extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestParsingMergeLite.OptionalGroup, rhs: ProtobufUnittest_TestParsingMergeLite.OptionalGroup) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestParsingMergeLite.OptionalGroup, rhs: Proto2Unittest_TestParsingMergeLite.OptionalGroup) -> Bool {
     if lhs._optionalGroupAllTypes != rhs._optionalGroupAllTypes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.protoMessageName + ".RepeatedGroup"
+extension Proto2Unittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestParsingMergeLite.protoMessageName + ".RepeatedGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .standard(proto: "repeated_group_all_types"),
   ]
@@ -4947,14 +4947,14 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestParsingMergeLite.RepeatedGroup, rhs: ProtobufUnittest_TestParsingMergeLite.RepeatedGroup) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestParsingMergeLite.RepeatedGroup, rhs: Proto2Unittest_TestParsingMergeLite.RepeatedGroup) -> Bool {
     if lhs._repeatedGroupAllTypes != rhs._repeatedGroupAllTypes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestMergeExceptionLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestMergeExceptionLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMergeExceptionLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "all_extensions"),
@@ -4988,14 +4988,14 @@ extension ProtobufUnittest_TestMergeExceptionLite: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestMergeExceptionLite, rhs: ProtobufUnittest_TestMergeExceptionLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestMergeExceptionLite, rhs: Proto2Unittest_TestMergeExceptionLite) -> Bool {
     if lhs._allExtensions != rhs._allExtensions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5008,13 +5008,13 @@ extension ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestEmptyMessageLite, rhs: ProtobufUnittest_TestEmptyMessageLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestEmptyMessageLite, rhs: Proto2Unittest_TestEmptyMessageLite) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageWithExtensionsLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5026,7 +5026,7 @@ extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Mes
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestEmptyMessageWithExtensionsLite.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestEmptyMessageWithExtensionsLite.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -5036,14 +5036,14 @@ extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestEmptyMessageWithExtensionsLite, rhs: ProtobufUnittest_TestEmptyMessageWithExtensionsLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestEmptyMessageWithExtensionsLite, rhs: Proto2Unittest_TestEmptyMessageWithExtensionsLite) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".V1MessageLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int_field"),
@@ -5082,7 +5082,7 @@ extension ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_V1MessageLite, rhs: ProtobufUnittest_V1MessageLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_V1MessageLite, rhs: Proto2Unittest_V1MessageLite) -> Bool {
     if lhs._intField != rhs._intField {return false}
     if lhs._enumField != rhs._enumField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -5090,7 +5090,7 @@ extension ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".V2MessageLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int_field"),
@@ -5129,7 +5129,7 @@ extension ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_V2MessageLite, rhs: ProtobufUnittest_V2MessageLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_V2MessageLite, rhs: Proto2Unittest_V2MessageLite) -> Bool {
     if lhs._intField != rhs._intField {return false}
     if lhs._enumField != rhs._enumField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -5137,7 +5137,7 @@ extension ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbersLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     536870000: .standard(proto: "optional_int32"),
@@ -5187,7 +5187,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, Swif
         }
       }()
       case 536870012: try {
-        var v: ProtobufUnittest_TestAllTypesLite?
+        var v: Proto2Unittest_TestAllTypesLite?
         var hadOneofValue = false
         if let current = self.oneofField {
           hadOneofValue = true
@@ -5216,7 +5216,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, Swif
         }
       }()
       case 536860000..<536870000:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbersLite.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestHugeFieldNumbersLite.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -5280,7 +5280,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbersLite, rhs: ProtobufUnittest_TestHugeFieldNumbersLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestHugeFieldNumbersLite, rhs: Proto2Unittest_TestHugeFieldNumbersLite) -> Bool {
     if lhs._optionalInt32 != rhs._optionalInt32 {return false}
     if lhs._fixed32 != rhs._fixed32 {return false}
     if lhs.repeatedInt32 != rhs.repeatedInt32 {return false}
@@ -5298,8 +5298,8 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, Swif
   }
 }
 
-extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestHugeFieldNumbersLite.protoMessageName + ".OptionalGroup"
+extension Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TestHugeFieldNumbersLite.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     536870009: .standard(proto: "group_a"),
   ]
@@ -5327,14 +5327,14 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup, rhs: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup, rhs: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup) -> Bool {
     if lhs._groupA != rhs._groupA {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOneofParsingLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "oneof_int32"),
@@ -5363,7 +5363,7 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
         }
       }()
       case 2: try {
-        var v: ProtobufUnittest_TestAllTypesLite?
+        var v: Proto2Unittest_TestAllTypesLite?
         var hadOneofValue = false
         if let current = self.oneofField {
           hadOneofValue = true
@@ -5424,7 +5424,7 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
         }
       }()
       case 9: try {
-        var v: ProtobufUnittest_V2EnumLite?
+        var v: Proto2Unittest_V2EnumLite?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -5483,14 +5483,14 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestOneofParsingLite, rhs: ProtobufUnittest_TestOneofParsingLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestOneofParsingLite, rhs: Proto2Unittest_TestOneofParsingLite) -> Bool {
     if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestMessageSetLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5500,7 +5500,7 @@ extension ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.Message, SwiftProto
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestMessageSetLite.self)
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestMessageSetLite.self)
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -5508,14 +5508,14 @@ extension ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestMessageSetLite, rhs: ProtobufUnittest_TestMessageSetLite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestMessageSetLite, rhs: Proto2Unittest_TestMessageSetLite) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_PackedInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_PackedInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".PackedInt32"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2048: .standard(proto: "repeated_int32"),
@@ -5540,14 +5540,14 @@ extension ProtobufUnittest_PackedInt32: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_PackedInt32, rhs: ProtobufUnittest_PackedInt32) -> Bool {
+  static func ==(lhs: Proto2Unittest_PackedInt32, rhs: Proto2Unittest_PackedInt32) -> Bool {
     if lhs.repeatedInt32 != rhs.repeatedInt32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_NonPackedInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_NonPackedInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NonPackedInt32"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2048: .standard(proto: "repeated_int32"),
@@ -5572,14 +5572,14 @@ extension ProtobufUnittest_NonPackedInt32: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_NonPackedInt32, rhs: ProtobufUnittest_NonPackedInt32) -> Bool {
+  static func ==(lhs: Proto2Unittest_NonPackedInt32, rhs: Proto2Unittest_NonPackedInt32) -> Bool {
     if lhs.repeatedInt32 != rhs.repeatedInt32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_PackedFixed32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_PackedFixed32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".PackedFixed32"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2048: .standard(proto: "repeated_fixed32"),
@@ -5604,14 +5604,14 @@ extension ProtobufUnittest_PackedFixed32: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_PackedFixed32, rhs: ProtobufUnittest_PackedFixed32) -> Bool {
+  static func ==(lhs: Proto2Unittest_PackedFixed32, rhs: Proto2Unittest_PackedFixed32) -> Bool {
     if lhs.repeatedFixed32 != rhs.repeatedFixed32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_NonPackedFixed32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_NonPackedFixed32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NonPackedFixed32"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2048: .standard(proto: "repeated_fixed32"),
@@ -5636,14 +5636,14 @@ extension ProtobufUnittest_NonPackedFixed32: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_NonPackedFixed32, rhs: ProtobufUnittest_NonPackedFixed32) -> Bool {
+  static func ==(lhs: Proto2Unittest_NonPackedFixed32, rhs: Proto2Unittest_NonPackedFixed32) -> Bool {
     if lhs.repeatedFixed32 != rhs.repeatedFixed32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_DupEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_DupEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DupEnum"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5656,13 +5656,13 @@ extension ProtobufUnittest_DupEnum: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_DupEnum, rhs: ProtobufUnittest_DupEnum) -> Bool {
+  static func ==(lhs: Proto2Unittest_DupEnum, rhs: Proto2Unittest_DupEnum) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_DupEnum.TestEnumWithDupValueLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
     2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
@@ -5670,7 +5670,7 @@ extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: SwiftProtobuf._Prot
   ]
 }
 
-extension ProtobufUnittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RecursiveMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "recurse"),
@@ -5678,7 +5678,7 @@ extension ProtobufUnittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobu
   ]
 
   fileprivate class _StorageClass {
-    var _recurse: ProtobufUnittest_RecursiveMessage? = nil
+    var _recurse: Proto2Unittest_RecursiveMessage? = nil
     var _payload: Data? = nil
 
     #if swift(>=5.10)
@@ -5738,7 +5738,7 @@ extension ProtobufUnittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_RecursiveMessage, rhs: ProtobufUnittest_RecursiveMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_RecursiveMessage, rhs: Proto2Unittest_RecursiveMessage) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -5754,14 +5754,14 @@ extension ProtobufUnittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_RecursiveGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_RecursiveGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RecursiveGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "recurse"),
   ]
 
   fileprivate class _StorageClass {
-    var _recurse: ProtobufUnittest_RecursiveGroup? = nil
+    var _recurse: Proto2Unittest_RecursiveGroup? = nil
 
     #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
@@ -5815,7 +5815,7 @@ extension ProtobufUnittest_RecursiveGroup: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_RecursiveGroup, rhs: ProtobufUnittest_RecursiveGroup) -> Bool {
+  static func ==(lhs: Proto2Unittest_RecursiveGroup, rhs: Proto2Unittest_RecursiveGroup) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

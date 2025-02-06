@@ -29,7 +29,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foo = 1
 
   init() {
@@ -38,7 +38,7 @@ enum ProtobufUnittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, S
 
 }
 
-struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -69,55 +69,55 @@ struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensi
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_NoGenericServicesTest_TestMessage {
+extension Proto2Unittest_NoGenericServicesTest_TestMessage {
 
-  var ProtobufUnittest_NoGenericServicesTest_testExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
+  var Proto2Unittest_NoGenericServicesTest_testExtension: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension`
+  /// Returns true if extension `Proto2Unittest_NoGenericServicesTest_Extensions_test_extension`
   /// has been explicitly set.
-  var hasProtobufUnittest_NoGenericServicesTest_testExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension)
+  var hasProto2Unittest_NoGenericServicesTest_testExtension: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension)
   }
-  /// Clears the value of extension `ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension`.
+  /// Clears the value of extension `Proto2Unittest_NoGenericServicesTest_Extensions_test_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_NoGenericServicesTest_testExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension)
+  mutating func clearProto2Unittest_NoGenericServicesTest_testExtension() {
+    clearExtensionValue(ext: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension)
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension
+let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_NoGenericServicesTest_Extensions_test_extension
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_NoGenericServicesTest_TestMessage>(
+let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_NoGenericServicesTest_TestMessage>(
   _protobuf_fieldNumber: 1000,
-  fieldName: "protobuf_unittest.no_generic_services_test.test_extension"
+  fieldName: "proto2_unittest.no_generic_services_test.test_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest.no_generic_services_test"
+fileprivate let _protobuf_package = "proto2_unittest.no_generic_services_test"
 
-extension ProtobufUnittest_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FOO"),
   ]
 }
 
-extension ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -136,7 +136,7 @@ extension ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Mess
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
       case 1000..<536870912:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -154,7 +154,7 @@ extension ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_NoGenericServicesTest_TestMessage, rhs: ProtobufUnittest_NoGenericServicesTest_TestMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_NoGenericServicesTest_TestMessage, rhs: Proto2Unittest_NoGenericServicesTest_TestMessage) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
