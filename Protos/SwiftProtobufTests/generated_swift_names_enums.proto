@@ -267,7 +267,7 @@ message GeneratedSwiftReservedEnums {
   enum discardUnknownFields { NONE_discardUnknownFields = 0; }
   enum Double { NONE_Double = 0; }
   enum doubleValue { NONE_doubleValue = 0; }
-  enum Duration { NONE_Duration = 0; }
+  enum duration { NONE_duration = 0; }
   enum E { NONE_E = 0; }
   enum edition { NONE_edition = 0; }
   enum EditionDefault { NONE_EditionDefault = 0; }
@@ -282,6 +282,7 @@ message GeneratedSwiftReservedEnums {
   enum emitFieldName { NONE_emitFieldName = 0; }
   enum emitFieldNumber { NONE_emitFieldNumber = 0; }
   enum Empty { NONE_Empty = 0; }
+  enum emptyAnyTypeURL { NONE_emptyAnyTypeURL = 0; }
   enum emptyData { NONE_emptyData = 0; }
   enum encodeAsBytes { NONE_encodeAsBytes = 0; }
   enum encoded { NONE_encoded = 0; }
@@ -558,6 +559,7 @@ message GeneratedSwiftReservedEnums {
   enum intersect { NONE_intersect = 0; }
   enum into { NONE_into = 0; }
   enum ints { NONE_ints = 0; }
+  enum invalidAnyTypeURL { NONE_invalidAnyTypeURL = 0; }
   enum isA { NONE_isA = 0; }
   enum isEqual { NONE_isEqual = 0; }
   enum isEqualTo { NONE_isEqualTo = 0; }
@@ -575,9 +577,11 @@ message GeneratedSwiftReservedEnums {
   enum javaPackage { NONE_javaPackage = 0; }
   enum javaStringCheckUtf8 { NONE_javaStringCheckUtf8 = 0; }
   enum JSONDecoder { NONE_JSONDecoder = 0; }
+  enum JSONDecoding { NONE_JSONDecoding = 0; }
   enum JSONDecodingError { NONE_JSONDecodingError = 0; }
   enum JSONDecodingOptions { NONE_JSONDecodingOptions = 0; }
   enum jsonEncoder { NONE_jsonEncoder = 0; }
+  enum JSONEncoding { NONE_JSONEncoding = 0; }
   enum JSONEncodingError { NONE_JSONEncodingError = 0; }
   enum JSONEncodingOptions { NONE_JSONEncodingOptions = 0; }
   enum JSONEncodingVisitor { NONE_JSONEncodingVisitor = 0; }
