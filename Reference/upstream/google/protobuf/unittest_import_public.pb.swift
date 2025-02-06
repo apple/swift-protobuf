@@ -29,7 +29,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittestImport_PublicImportMessage: Sendable {
+struct Proto2UnittestImport_PublicImportMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -52,9 +52,9 @@ struct ProtobufUnittestImport_PublicImportMessage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest_import"
+fileprivate let _protobuf_package = "proto2_unittest_import"
 
-extension ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2UnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".PublicImportMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
@@ -83,7 +83,7 @@ extension ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestImport_PublicImportMessage, rhs: ProtobufUnittestImport_PublicImportMessage) -> Bool {
+  static func ==(lhs: Proto2UnittestImport_PublicImportMessage, rhs: Proto2UnittestImport_PublicImportMessage) -> Bool {
     if lhs._e != rhs._e {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

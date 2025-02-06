@@ -27,7 +27,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case topLevelUnknown = 0
 
   init() {
@@ -37,7 +37,7 @@ enum ProtobufUnittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable 
 }
 
 /// Retention attributes set on fields nested within a message
-struct ProtobufUnittest_OptionsMessage: Sendable {
+struct Proto2Unittest_OptionsMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,7 +78,7 @@ struct ProtobufUnittest_OptionsMessage: Sendable {
   fileprivate var _sourceRetentionField: Int32? = nil
 }
 
-struct ProtobufUnittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -90,7 +90,7 @@ struct ProtobufUnittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -104,7 +104,7 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendab
   /// Clears the value of `f`. Subsequent reads from it will return its default value.
   mutating func clearF() {self._f = nil}
 
-  var o: ProtobufUnittest_TopLevelMessage.OneOf_O? = nil
+  var o: Proto2Unittest_TopLevelMessage.OneOf_O? = nil
 
   var i: Int64 {
     get {
@@ -155,370 +155,370 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendab
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_Extendee {
+extension Proto2Unittest_Extendee {
 
-  var ProtobufUnittest_i: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_i) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_i, value: newValue)}
+  var Proto2Unittest_i: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_i) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_i, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_i`
+  /// Returns true if extension `Proto2Unittest_Extensions_i`
   /// has been explicitly set.
-  var hasProtobufUnittest_i: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_i)
+  var hasProto2Unittest_i: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_i)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_i`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_i`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_i() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_i)
+  mutating func clearProto2Unittest_i() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_i)
   }
 
-  var ProtobufUnittest_TopLevelMessage_s: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_TopLevelMessage.Extensions.s) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_TopLevelMessage.Extensions.s, value: newValue)}
+  var Proto2Unittest_TopLevelMessage_s: String {
+    get {return getExtensionValue(ext: Proto2Unittest_TopLevelMessage.Extensions.s) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_TopLevelMessage.Extensions.s, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_TopLevelMessage.Extensions.s`
+  /// Returns true if extension `Proto2Unittest_TopLevelMessage.Extensions.s`
   /// has been explicitly set.
-  var hasProtobufUnittest_TopLevelMessage_s: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TopLevelMessage.Extensions.s)
+  var hasProto2Unittest_TopLevelMessage_s: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TopLevelMessage.Extensions.s)
   }
-  /// Clears the value of extension `ProtobufUnittest_TopLevelMessage.Extensions.s`.
+  /// Clears the value of extension `Proto2Unittest_TopLevelMessage.Extensions.s`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_TopLevelMessage_s() {
-    clearExtensionValue(ext: ProtobufUnittest_TopLevelMessage.Extensions.s)
+  mutating func clearProto2Unittest_TopLevelMessage_s() {
+    clearExtensionValue(ext: Proto2Unittest_TopLevelMessage.Extensions.s)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_EnumOptions {
 
-  var ProtobufUnittest_enumOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_enum_option, value: newValue)}
+  var Proto2Unittest_enumOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_enum_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_enum_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_enum_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_enum_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_enumOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_enum_option)
+  var hasProto2Unittest_enumOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_enum_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_enum_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_enum_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_enumOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_enum_option)
+  mutating func clearProto2Unittest_enumOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_enum_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
 
-  var ProtobufUnittest_enumEntryOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_entry_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_enum_entry_option, value: newValue)}
+  var Proto2Unittest_enumEntryOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_enum_entry_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_enum_entry_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_enum_entry_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_enum_entry_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_enumEntryOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_enum_entry_option)
+  var hasProto2Unittest_enumEntryOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_enum_entry_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_enum_entry_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_enum_entry_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_enumEntryOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_enum_entry_option)
+  mutating func clearProto2Unittest_enumEntryOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_enum_entry_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions {
 
-  var ProtobufUnittest_extensionRangeOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_extension_range_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_extension_range_option, value: newValue)}
+  var Proto2Unittest_extensionRangeOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_extension_range_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_extension_range_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_extension_range_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_extension_range_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_extensionRangeOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_extension_range_option)
+  var hasProto2Unittest_extensionRangeOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_extension_range_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_extension_range_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_extension_range_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_extensionRangeOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_extension_range_option)
+  mutating func clearProto2Unittest_extensionRangeOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_extension_range_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
-  var ProtobufUnittest_fieldOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_field_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_field_option, value: newValue)}
+  var Proto2Unittest_fieldOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_field_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_field_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_field_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_field_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_fieldOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_field_option)
+  var hasProto2Unittest_fieldOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_field_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_field_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_field_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_fieldOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_field_option)
+  mutating func clearProto2Unittest_fieldOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_field_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
-  var ProtobufUnittest_plainOption: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_plain_option) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_plain_option, value: newValue)}
+  var Proto2Unittest_plainOption: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_plain_option) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_plain_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_plain_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_plain_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_plainOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_plain_option)
+  var hasProto2Unittest_plainOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_plain_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_plain_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_plain_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_plainOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_plain_option)
+  mutating func clearProto2Unittest_plainOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_plain_option)
   }
 
-  var ProtobufUnittest_runtimeRetentionOption: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_runtime_retention_option) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_runtime_retention_option, value: newValue)}
+  var Proto2Unittest_runtimeRetentionOption: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_runtime_retention_option) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_runtime_retention_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_runtime_retention_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_runtime_retention_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_runtimeRetentionOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_runtime_retention_option)
+  var hasProto2Unittest_runtimeRetentionOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_runtime_retention_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_runtime_retention_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_runtime_retention_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_runtimeRetentionOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_runtime_retention_option)
+  mutating func clearProto2Unittest_runtimeRetentionOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_runtime_retention_option)
   }
 
-  var ProtobufUnittest_sourceRetentionOption: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_source_retention_option) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_source_retention_option, value: newValue)}
+  var Proto2Unittest_sourceRetentionOption: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_source_retention_option) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_source_retention_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_source_retention_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_source_retention_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_sourceRetentionOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_source_retention_option)
+  var hasProto2Unittest_sourceRetentionOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_source_retention_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_source_retention_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_source_retention_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_sourceRetentionOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_source_retention_option)
+  mutating func clearProto2Unittest_sourceRetentionOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_source_retention_option)
   }
 
-  var ProtobufUnittest_fileOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_file_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_file_option, value: newValue)}
+  var Proto2Unittest_fileOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_file_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_file_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_file_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_file_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_fileOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_file_option)
+  var hasProto2Unittest_fileOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_file_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_file_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_file_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_fileOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_file_option)
+  mutating func clearProto2Unittest_fileOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_file_option)
   }
 
-  var ProtobufUnittest_repeatedOptions: [ProtobufUnittest_OptionsMessage] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_options) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_options, value: newValue)}
+  var Proto2Unittest_repeatedOptions: [Proto2Unittest_OptionsMessage] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_options) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_options, value: newValue)}
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
-  var ProtobufUnittest_messageOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_message_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_message_option, value: newValue)}
+  var Proto2Unittest_messageOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_message_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_message_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_message_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_message_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_messageOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_message_option)
+  var hasProto2Unittest_messageOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_message_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_message_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_message_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_messageOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_message_option)
+  mutating func clearProto2Unittest_messageOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_message_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_MethodOptions {
 
-  var ProtobufUnittest_methodOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_method_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_method_option, value: newValue)}
+  var Proto2Unittest_methodOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_method_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_method_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_method_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_method_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_methodOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_method_option)
+  var hasProto2Unittest_methodOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_method_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_method_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_method_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_methodOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_method_option)
+  mutating func clearProto2Unittest_methodOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_method_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_OneofOptions {
 
-  var ProtobufUnittest_oneofOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_option, value: newValue)}
+  var Proto2Unittest_oneofOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_oneof_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_oneof_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_oneof_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_oneofOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_option)
+  var hasProto2Unittest_oneofOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_oneof_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_oneof_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_oneofOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_option)
+  mutating func clearProto2Unittest_oneofOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_option)
   }
 }
 
 extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
 
-  var ProtobufUnittest_serviceOption: ProtobufUnittest_OptionsMessage {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_service_option) ?? ProtobufUnittest_OptionsMessage()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_service_option, value: newValue)}
+  var Proto2Unittest_serviceOption: Proto2Unittest_OptionsMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_service_option) ?? Proto2Unittest_OptionsMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_service_option, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_service_option`
+  /// Returns true if extension `Proto2Unittest_Extensions_service_option`
   /// has been explicitly set.
-  var hasProtobufUnittest_serviceOption: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_service_option)
+  var hasProto2Unittest_serviceOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_service_option)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_service_option`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_service_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_serviceOption() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_service_option)
+  mutating func clearProto2Unittest_serviceOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_service_option)
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestRetention_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_UnittestRetention_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_UnittestRetention_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_Extensions_plain_option,
-  ProtobufUnittest_Extensions_runtime_retention_option,
-  ProtobufUnittest_Extensions_source_retention_option,
-  ProtobufUnittest_Extensions_file_option,
-  ProtobufUnittest_Extensions_repeated_options,
-  ProtobufUnittest_Extensions_extension_range_option,
-  ProtobufUnittest_Extensions_message_option,
-  ProtobufUnittest_Extensions_field_option,
-  ProtobufUnittest_Extensions_oneof_option,
-  ProtobufUnittest_Extensions_enum_option,
-  ProtobufUnittest_Extensions_enum_entry_option,
-  ProtobufUnittest_Extensions_service_option,
-  ProtobufUnittest_Extensions_method_option,
-  ProtobufUnittest_Extensions_i,
-  ProtobufUnittest_TopLevelMessage.Extensions.s
+let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_Extensions_plain_option,
+  Proto2Unittest_Extensions_runtime_retention_option,
+  Proto2Unittest_Extensions_source_retention_option,
+  Proto2Unittest_Extensions_file_option,
+  Proto2Unittest_Extensions_repeated_options,
+  Proto2Unittest_Extensions_extension_range_option,
+  Proto2Unittest_Extensions_message_option,
+  Proto2Unittest_Extensions_field_option,
+  Proto2Unittest_Extensions_oneof_option,
+  Proto2Unittest_Extensions_enum_option,
+  Proto2Unittest_Extensions_enum_entry_option,
+  Proto2Unittest_Extensions_service_option,
+  Proto2Unittest_Extensions_method_option,
+  Proto2Unittest_Extensions_i,
+  Proto2Unittest_TopLevelMessage.Extensions.s
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufUnittest_Extensions_plain_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+let Proto2Unittest_Extensions_plain_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 505092806,
-  fieldName: "protobuf_unittest.plain_option"
+  fieldName: "proto2_unittest.plain_option"
 )
 
-let ProtobufUnittest_Extensions_runtime_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+let Proto2Unittest_Extensions_runtime_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 505039132,
-  fieldName: "protobuf_unittest.runtime_retention_option"
+  fieldName: "proto2_unittest.runtime_retention_option"
 )
 
-let ProtobufUnittest_Extensions_source_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+let Proto2Unittest_Extensions_source_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 504878676,
-  fieldName: "protobuf_unittest.source_retention_option"
+  fieldName: "proto2_unittest.source_retention_option"
 )
 
-let ProtobufUnittest_Extensions_file_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+let Proto2Unittest_Extensions_file_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 504871168,
-  fieldName: "protobuf_unittest.file_option"
+  fieldName: "proto2_unittest.file_option"
 )
 
-let ProtobufUnittest_Extensions_repeated_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+let Proto2Unittest_Extensions_repeated_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 504823570,
-  fieldName: "protobuf_unittest.repeated_options"
+  fieldName: "proto2_unittest.repeated_options"
 )
 
-let ProtobufUnittest_Extensions_extension_range_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions>(
+let Proto2Unittest_Extensions_extension_range_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions>(
   _protobuf_fieldNumber: 504822148,
-  fieldName: "protobuf_unittest.extension_range_option"
+  fieldName: "proto2_unittest.extension_range_option"
 )
 
-let ProtobufUnittest_Extensions_message_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+let Proto2Unittest_Extensions_message_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 504820819,
-  fieldName: "protobuf_unittest.message_option"
+  fieldName: "proto2_unittest.message_option"
 )
 
-let ProtobufUnittest_Extensions_field_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+let Proto2Unittest_Extensions_field_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 504589219,
-  fieldName: "protobuf_unittest.field_option"
+  fieldName: "proto2_unittest.field_option"
 )
 
-let ProtobufUnittest_Extensions_oneof_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_OneofOptions>(
+let Proto2Unittest_Extensions_oneof_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_OneofOptions>(
   _protobuf_fieldNumber: 504479153,
-  fieldName: "protobuf_unittest.oneof_option"
+  fieldName: "proto2_unittest.oneof_option"
 )
 
-let ProtobufUnittest_Extensions_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumOptions>(
+let Proto2Unittest_Extensions_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumOptions>(
   _protobuf_fieldNumber: 504451567,
-  fieldName: "protobuf_unittest.enum_option"
+  fieldName: "proto2_unittest.enum_option"
 )
 
-let ProtobufUnittest_Extensions_enum_entry_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
+let Proto2Unittest_Extensions_enum_entry_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
   _protobuf_fieldNumber: 504450522,
-  fieldName: "protobuf_unittest.enum_entry_option"
+  fieldName: "proto2_unittest.enum_entry_option"
 )
 
-let ProtobufUnittest_Extensions_service_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ServiceOptions>(
+let Proto2Unittest_Extensions_service_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 504387709,
-  fieldName: "protobuf_unittest.service_option"
+  fieldName: "proto2_unittest.service_option"
 )
 
-let ProtobufUnittest_Extensions_method_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
+let Proto2Unittest_Extensions_method_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 504349420,
-  fieldName: "protobuf_unittest.method_option"
+  fieldName: "proto2_unittest.method_option"
 )
 
-let ProtobufUnittest_Extensions_i = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extendee>(
+let Proto2Unittest_Extensions_i = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_Extendee>(
   _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.i"
+  fieldName: "proto2_unittest.i"
 )
 
-extension ProtobufUnittest_TopLevelMessage {
+extension Proto2Unittest_TopLevelMessage {
   enum Extensions {
-    static let s = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extendee>(
+    static let s = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_Extendee>(
       _protobuf_fieldNumber: 2,
-      fieldName: "protobuf_unittest.TopLevelMessage.s"
+      fieldName: "proto2_unittest.TopLevelMessage.s"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "TOP_LEVEL_UNKNOWN"),
   ]
 }
 
-extension ProtobufUnittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionsMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "plain_field"),
@@ -557,7 +557,7 @@ extension ProtobufUnittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OptionsMessage, rhs: ProtobufUnittest_OptionsMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_OptionsMessage, rhs: Proto2Unittest_OptionsMessage) -> Bool {
     if lhs._plainField != rhs._plainField {return false}
     if lhs._runtimeRetentionField != rhs._runtimeRetentionField {return false}
     if lhs._sourceRetentionField != rhs._sourceRetentionField {return false}
@@ -566,7 +566,7 @@ extension ProtobufUnittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension ProtobufUnittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Extendee"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -578,7 +578,7 @@ extension ProtobufUnittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._Messa
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 3) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_Extendee.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_Extendee.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -588,14 +588,14 @@ extension ProtobufUnittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Extendee, rhs: ProtobufUnittest_Extendee) -> Bool {
+  static func ==(lhs: Proto2Unittest_Extendee, rhs: Proto2Unittest_Extendee) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "f"),
@@ -623,7 +623,7 @@ extension ProtobufUnittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf
         }
       }()
       case 10..<101:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TopLevelMessage.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TopLevelMessage.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -644,7 +644,7 @@ extension ProtobufUnittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TopLevelMessage, rhs: ProtobufUnittest_TopLevelMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_TopLevelMessage, rhs: Proto2Unittest_TopLevelMessage) -> Bool {
     if lhs._f != rhs._f {return false}
     if lhs.o != rhs.o {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -653,14 +653,14 @@ extension ProtobufUnittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension ProtobufUnittest_TopLevelMessage.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TopLevelMessage.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NESTED_UNKNOWN"),
   ]
 }
 
-extension ProtobufUnittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TopLevelMessage.protoMessageName + ".NestedMessage"
+extension Proto2Unittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto2Unittest_TopLevelMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -672,7 +672,7 @@ extension ProtobufUnittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TopLevelMessage.NestedMessage, rhs: ProtobufUnittest_TopLevelMessage.NestedMessage) -> Bool {
+  static func ==(lhs: Proto2Unittest_TopLevelMessage.NestedMessage, rhs: Proto2Unittest_TopLevelMessage.NestedMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

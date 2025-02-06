@@ -37,7 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// clang-format off
-struct ProtobufUnittest_TestEnormousDescriptor: @unchecked Sendable {
+struct Proto2Unittest_TestEnormousDescriptor: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9051,9 +9051,9 @@ struct ProtobufUnittest_TestEnormousDescriptor: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnormousDescriptor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "long_field_name_is_looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong_1"),
@@ -16107,7 +16107,7 @@ extension ProtobufUnittest_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestEnormousDescriptor, rhs: ProtobufUnittest_TestEnormousDescriptor) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestEnormousDescriptor, rhs: Proto2Unittest_TestEnormousDescriptor) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

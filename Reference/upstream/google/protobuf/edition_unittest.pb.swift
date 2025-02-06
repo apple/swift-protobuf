@@ -371,8 +371,8 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
-  var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
-    get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
+  var optionalImportMessage: Proto2UnittestImport_ImportMessage {
+    get {return _storage._optionalImportMessage ?? Proto2UnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -398,7 +398,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignEnum() {_uniqueStorage()._optionalForeignEnum = nil}
 
-  var optionalImportEnum: ProtobufUnittestImport_ImportEnum {
+  var optionalImportEnum: Proto2UnittestImport_ImportEnum {
     get {return _storage._optionalImportEnum ?? .importFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
@@ -435,8 +435,8 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   mutating func clearOptionalBytesCord() {_uniqueStorage()._optionalBytesCord = nil}
 
   /// Defined in unittest_import_public.proto
-  var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
-    get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
+  var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage {
+    get {return _storage._optionalPublicImportMessage ?? Proto2UnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -553,7 +553,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
-  var repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] {
+  var repeatedImportMessage: [Proto2UnittestImport_ImportMessage] {
     get {return _storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
@@ -568,7 +568,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
-  var repeatedImportEnum: [ProtobufUnittestImport_ImportEnum] {
+  var repeatedImportEnum: [Proto2UnittestImport_ImportEnum] {
     get {return _storage._repeatedImportEnum}
     set {_uniqueStorage()._repeatedImportEnum = newValue}
   }
@@ -742,7 +742,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultForeignEnum() {_uniqueStorage()._defaultForeignEnum = nil}
 
-  var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
+  var defaultImportEnum: Proto2UnittestImport_ImportEnum {
     get {return _storage._defaultImportEnum ?? .importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
@@ -2590,7 +2590,7 @@ struct EditionUnittest_TestIsInitialized: Sendable {
 /// Test that groups have disjoint field numbers from their siblings and
 /// parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
 /// to compile with proto1, this will emit an error; so we only include it
-/// in protobuf_unittest_proto.
+/// in proto2_unittest_proto.
 struct EditionUnittest_TestDupFieldNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -7817,8 +7817,8 @@ extension EditionUnittest_TestAllExtensions {
     clearExtensionValue(ext: EditionUnittest_Extensions_optional_foreign_message_extension)
   }
 
-  var EditionUnittest_optionalImportMessageExtension: ProtobufUnittestImport_ImportMessage {
-    get {return getExtensionValue(ext: EditionUnittest_Extensions_optional_import_message_extension) ?? ProtobufUnittestImport_ImportMessage()}
+  var EditionUnittest_optionalImportMessageExtension: Proto2UnittestImport_ImportMessage {
+    get {return getExtensionValue(ext: EditionUnittest_Extensions_optional_import_message_extension) ?? Proto2UnittestImport_ImportMessage()}
     set {setExtensionValue(ext: EditionUnittest_Extensions_optional_import_message_extension, value: newValue)}
   }
   /// Returns true if extension `EditionUnittest_Extensions_optional_import_message_extension`
@@ -7862,7 +7862,7 @@ extension EditionUnittest_TestAllExtensions {
     clearExtensionValue(ext: EditionUnittest_Extensions_optional_foreign_enum_extension)
   }
 
-  var EditionUnittest_optionalImportEnumExtension: ProtobufUnittestImport_ImportEnum {
+  var EditionUnittest_optionalImportEnumExtension: Proto2UnittestImport_ImportEnum {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_optional_import_enum_extension) ?? .importFoo}
     set {setExtensionValue(ext: EditionUnittest_Extensions_optional_import_enum_extension, value: newValue)}
   }
@@ -7924,8 +7924,8 @@ extension EditionUnittest_TestAllExtensions {
     clearExtensionValue(ext: EditionUnittest_Extensions_optional_bytes_cord_extension)
   }
 
-  var EditionUnittest_optionalPublicImportMessageExtension: ProtobufUnittestImport_PublicImportMessage {
-    get {return getExtensionValue(ext: EditionUnittest_Extensions_optional_public_import_message_extension) ?? ProtobufUnittestImport_PublicImportMessage()}
+  var EditionUnittest_optionalPublicImportMessageExtension: Proto2UnittestImport_PublicImportMessage {
+    get {return getExtensionValue(ext: EditionUnittest_Extensions_optional_public_import_message_extension) ?? Proto2UnittestImport_PublicImportMessage()}
     set {setExtensionValue(ext: EditionUnittest_Extensions_optional_public_import_message_extension, value: newValue)}
   }
   /// Returns true if extension `EditionUnittest_Extensions_optional_public_import_message_extension`
@@ -8060,7 +8060,7 @@ extension EditionUnittest_TestAllExtensions {
     set {setExtensionValue(ext: EditionUnittest_Extensions_repeated_foreign_message_extension, value: newValue)}
   }
 
-  var EditionUnittest_repeatedImportMessageExtension: [ProtobufUnittestImport_ImportMessage] {
+  var EditionUnittest_repeatedImportMessageExtension: [Proto2UnittestImport_ImportMessage] {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_repeated_import_message_extension) ?? []}
     set {setExtensionValue(ext: EditionUnittest_Extensions_repeated_import_message_extension, value: newValue)}
   }
@@ -8075,7 +8075,7 @@ extension EditionUnittest_TestAllExtensions {
     set {setExtensionValue(ext: EditionUnittest_Extensions_repeated_foreign_enum_extension, value: newValue)}
   }
 
-  var EditionUnittest_repeatedImportEnumExtension: [ProtobufUnittestImport_ImportEnum] {
+  var EditionUnittest_repeatedImportEnumExtension: [Proto2UnittestImport_ImportEnum] {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_repeated_import_enum_extension) ?? []}
     set {setExtensionValue(ext: EditionUnittest_Extensions_repeated_import_enum_extension, value: newValue)}
   }
@@ -8353,7 +8353,7 @@ extension EditionUnittest_TestAllExtensions {
     clearExtensionValue(ext: EditionUnittest_Extensions_default_foreign_enum_extension)
   }
 
-  var EditionUnittest_defaultImportEnumExtension: ProtobufUnittestImport_ImportEnum {
+  var EditionUnittest_defaultImportEnumExtension: Proto2UnittestImport_ImportEnum {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_default_import_enum_extension) ?? .importBar}
     set {setExtensionValue(ext: EditionUnittest_Extensions_default_import_enum_extension, value: newValue)}
   }
@@ -9198,7 +9198,7 @@ let EditionUnittest_Extensions_optional_foreign_message_extension = SwiftProtobu
   fieldName: "edition_unittest.optional_foreign_message_extension"
 )
 
-let EditionUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
+let EditionUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 20,
   fieldName: "edition_unittest.optional_import_message_extension"
 )
@@ -9213,7 +9213,7 @@ let EditionUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.M
   fieldName: "edition_unittest.optional_foreign_enum_extension"
 )
 
-let EditionUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
+let EditionUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 23,
   fieldName: "edition_unittest.optional_import_enum_extension"
 )
@@ -9235,7 +9235,7 @@ let EditionUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.Mes
   fieldName: "edition_unittest.optional_bytes_cord_extension"
 )
 
-let EditionUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessage>, EditionUnittest_TestAllExtensions>(
+let EditionUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_PublicImportMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 26,
   fieldName: "edition_unittest.optional_public_import_message_extension"
 )
@@ -9341,7 +9341,7 @@ let EditionUnittest_Extensions_repeated_foreign_message_extension = SwiftProtobu
   fieldName: "edition_unittest.repeated_foreign_message_extension"
 )
 
-let EditionUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
+let EditionUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2UnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 50,
   fieldName: "edition_unittest.repeated_import_message_extension"
 )
@@ -9356,7 +9356,7 @@ let EditionUnittest_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.M
   fieldName: "edition_unittest.repeated_foreign_enum_extension"
 )
 
-let EditionUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<ProtobufUnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
+let EditionUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 53,
   fieldName: "edition_unittest.repeated_import_enum_extension"
 )
@@ -9464,7 +9464,7 @@ let EditionUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.Me
   fieldName: "edition_unittest.default_foreign_enum_extension"
 )
 
-let EditionUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
+let EditionUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 83,
   fieldName: "edition_unittest.default_import_enum_extension"
 )
@@ -10135,14 +10135,14 @@ extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _optionalGroup: EditionUnittest_TestAllTypes.OptionalGroup? = nil
     var _optionalNestedMessage: EditionUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: EditionUnittest_ForeignMessage? = nil
-    var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
+    var _optionalImportMessage: Proto2UnittestImport_ImportMessage? = nil
     var _optionalNestedEnum: EditionUnittest_TestAllTypes.NestedEnum? = nil
     var _optionalForeignEnum: EditionUnittest_ForeignEnum? = nil
-    var _optionalImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _optionalImportEnum: Proto2UnittestImport_ImportEnum? = nil
     var _optionalStringPiece: String? = nil
     var _optionalCord: String? = nil
     var _optionalBytesCord: Data? = nil
-    var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
+    var _optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: EditionUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalUnverifiedLazyMessage: EditionUnittest_TestAllTypes.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
@@ -10163,10 +10163,10 @@ extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _repeatedGroup: [EditionUnittest_TestAllTypes.RepeatedGroup] = []
     var _repeatedNestedMessage: [EditionUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [EditionUnittest_ForeignMessage] = []
-    var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
+    var _repeatedImportMessage: [Proto2UnittestImport_ImportMessage] = []
     var _repeatedNestedEnum: [EditionUnittest_TestAllTypes.NestedEnum] = []
     var _repeatedForeignEnum: [EditionUnittest_ForeignEnum] = []
-    var _repeatedImportEnum: [ProtobufUnittestImport_ImportEnum] = []
+    var _repeatedImportEnum: [Proto2UnittestImport_ImportEnum] = []
     var _repeatedStringPiece: [String] = []
     var _repeatedCord: [String] = []
     var _repeatedLazyMessage: [EditionUnittest_TestAllTypes.NestedMessage] = []
@@ -10187,7 +10187,7 @@ extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _defaultBytes: Data? = nil
     var _defaultNestedEnum: EditionUnittest_TestAllTypes.NestedEnum? = nil
     var _defaultForeignEnum: EditionUnittest_ForeignEnum? = nil
-    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _defaultImportEnum: Proto2UnittestImport_ImportEnum? = nil
     var _defaultStringPiece: String? = nil
     var _defaultCord: String? = nil
     var _oneofField: EditionUnittest_TestAllTypes.OneOf_OneofField?

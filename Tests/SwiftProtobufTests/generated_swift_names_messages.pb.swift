@@ -1183,6 +1183,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
+  struct clearEnforceNamingStyle: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var clearEnforceNamingStyle_p: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct clearEnumType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3523,6 +3535,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
+  struct enforceNamingStyle: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var enforceNamingStyle: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct enumMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -5473,6 +5497,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var hasEnd_p: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct hasEnforceNamingStyle: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var hasEnforceNamingStyle_p: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -15369,6 +15405,38 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnd: S
   }
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceNamingStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnforceNamingStyle"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "clearEnforceNamingStyle"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.clearEnforceNamingStyle_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.clearEnforceNamingStyle_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.clearEnforceNamingStyle_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceNamingStyle, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceNamingStyle) -> Bool {
+    if lhs.clearEnforceNamingStyle_p != rhs.clearEnforceNamingStyle_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnumType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnumType"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -21609,6 +21677,38 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endRegularF
   }
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceNamingStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enforceNamingStyle"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "enforceNamingStyle"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.enforceNamingStyle) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.enforceNamingStyle != 0 {
+      try visitor.visitSingularInt32Field(value: self.enforceNamingStyle, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceNamingStyle, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceNamingStyle) -> Bool {
+    if lhs.enforceNamingStyle != rhs.enforceNamingStyle {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enum"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -26820,6 +26920,38 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnd: Swi
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnd, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnd) -> Bool {
     if lhs.hasEnd_p != rhs.hasEnd_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceNamingStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEnforceNamingStyle"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "hasEnforceNamingStyle"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.hasEnforceNamingStyle_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.hasEnforceNamingStyle_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.hasEnforceNamingStyle_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceNamingStyle, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceNamingStyle) -> Bool {
+    if lhs.hasEnforceNamingStyle_p != rhs.hasEnforceNamingStyle_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

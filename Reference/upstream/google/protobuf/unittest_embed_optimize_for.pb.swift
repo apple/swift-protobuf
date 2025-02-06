@@ -33,15 +33,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize: Sendable {
+struct Proto2Unittest_TestEmbedOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Test that embedding a message which has optimize_for = CODE_SIZE into
   /// one optimized for speed works.
-  var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
-    get {return _optionalMessage ?? ProtobufUnittest_TestOptimizedForSize()}
+  var optionalMessage: Proto2Unittest_TestOptimizedForSize {
+    get {return _optionalMessage ?? Proto2Unittest_TestOptimizedForSize()}
     set {_optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -49,20 +49,20 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: Sendable {
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {self._optionalMessage = nil}
 
-  var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
+  var repeatedMessage: [Proto2Unittest_TestOptimizedForSize] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
+  fileprivate var _optionalMessage: Proto2Unittest_TestOptimizedForSize? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmbedOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_message"),
@@ -102,7 +102,7 @@ extension ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestEmbedOptimizedForSize, rhs: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestEmbedOptimizedForSize, rhs: Proto2Unittest_TestEmbedOptimizedForSize) -> Bool {
     if lhs._optionalMessage != rhs._optionalMessage {return false}
     if lhs.repeatedMessage != rhs.repeatedMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

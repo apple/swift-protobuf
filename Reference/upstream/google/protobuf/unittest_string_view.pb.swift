@@ -22,7 +22,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// NEXT_TAG = 5;
-struct ProtobufUnittest_TestStringView: @unchecked Sendable {
+struct Proto2Unittest_TestStringView: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -57,7 +57,7 @@ struct ProtobufUnittest_TestStringView: @unchecked Sendable {
   fileprivate var _singularBytes: Data? = nil
 }
 
-struct ProtobufUnittest_TestStringViewExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestStringViewExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,92 +78,92 @@ struct ProtobufUnittest_TestStringViewExtension: SwiftProtobuf.ExtensibleMessage
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_TestStringViewExtension {
+extension Proto2Unittest_TestStringViewExtension {
 
-  var ProtobufUnittest_singularStringViewExtension: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_singular_string_view_extension) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_singular_string_view_extension, value: newValue)}
+  var Proto2Unittest_singularStringViewExtension: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_singular_string_view_extension) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_singular_string_view_extension, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_singular_string_view_extension`
+  /// Returns true if extension `Proto2Unittest_Extensions_singular_string_view_extension`
   /// has been explicitly set.
-  var hasProtobufUnittest_singularStringViewExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_singular_string_view_extension)
+  var hasProto2Unittest_singularStringViewExtension: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_singular_string_view_extension)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_singular_string_view_extension`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_singular_string_view_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_singularStringViewExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_singular_string_view_extension)
+  mutating func clearProto2Unittest_singularStringViewExtension() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_singular_string_view_extension)
   }
 
-  var ProtobufUnittest_singularBytesViewExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_singular_bytes_view_extension) ?? Data()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_singular_bytes_view_extension, value: newValue)}
+  var Proto2Unittest_singularBytesViewExtension: Data {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_singular_bytes_view_extension) ?? Data()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_singular_bytes_view_extension, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extensions_singular_bytes_view_extension`
+  /// Returns true if extension `Proto2Unittest_Extensions_singular_bytes_view_extension`
   /// has been explicitly set.
-  var hasProtobufUnittest_singularBytesViewExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extensions_singular_bytes_view_extension)
+  var hasProto2Unittest_singularBytesViewExtension: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_singular_bytes_view_extension)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extensions_singular_bytes_view_extension`.
+  /// Clears the value of extension `Proto2Unittest_Extensions_singular_bytes_view_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_singularBytesViewExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_Extensions_singular_bytes_view_extension)
+  mutating func clearProto2Unittest_singularBytesViewExtension() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_singular_bytes_view_extension)
   }
 
-  var ProtobufUnittest_repeatedStringViewExtension: [String] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_view_extension) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_view_extension, value: newValue)}
+  var Proto2Unittest_repeatedStringViewExtension: [String] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_string_view_extension) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_string_view_extension, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedBytesViewExtension: [Data] {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_view_extension) ?? []}
-    set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_view_extension, value: newValue)}
+  var Proto2Unittest_repeatedBytesViewExtension: [Data] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_bytes_view_extension) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_bytes_view_extension, value: newValue)}
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestStringView_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_UnittestStringView_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_UnittestStringView_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_Extensions_singular_string_view_extension,
-  ProtobufUnittest_Extensions_singular_bytes_view_extension,
-  ProtobufUnittest_Extensions_repeated_string_view_extension,
-  ProtobufUnittest_Extensions_repeated_bytes_view_extension
+let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_Extensions_singular_string_view_extension,
+  Proto2Unittest_Extensions_singular_bytes_view_extension,
+  Proto2Unittest_Extensions_repeated_string_view_extension,
+  Proto2Unittest_Extensions_repeated_bytes_view_extension
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufUnittest_Extensions_singular_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestStringViewExtension>(
+let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.singular_string_view_extension"
+  fieldName: "proto2_unittest.singular_string_view_extension"
 )
 
-let ProtobufUnittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestStringViewExtension>(
+let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 2,
-  fieldName: "protobuf_unittest.singular_bytes_view_extension"
+  fieldName: "proto2_unittest.singular_bytes_view_extension"
 )
 
-let ProtobufUnittest_Extensions_repeated_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestStringViewExtension>(
+let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 3,
-  fieldName: "protobuf_unittest.repeated_string_view_extension"
+  fieldName: "proto2_unittest.repeated_string_view_extension"
 )
 
-let ProtobufUnittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestStringViewExtension>(
+let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 4,
-  fieldName: "protobuf_unittest.repeated_bytes_view_extension"
+  fieldName: "proto2_unittest.repeated_bytes_view_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringView"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "singular_string"),
@@ -207,7 +207,7 @@ extension ProtobufUnittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestStringView, rhs: ProtobufUnittest_TestStringView) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestStringView, rhs: Proto2Unittest_TestStringView) -> Bool {
     if lhs._singularString != rhs._singularString {return false}
     if lhs._singularBytes != rhs._singularBytes {return false}
     if lhs.repeatedString != rhs.repeatedString {return false}
@@ -217,7 +217,7 @@ extension ProtobufUnittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension ProtobufUnittest_TestStringViewExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringViewExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -229,7 +229,7 @@ extension ProtobufUnittest_TestStringViewExtension: SwiftProtobuf.Message, Swift
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestStringViewExtension.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestStringViewExtension.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -239,7 +239,7 @@ extension ProtobufUnittest_TestStringViewExtension: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestStringViewExtension, rhs: ProtobufUnittest_TestStringViewExtension) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestStringViewExtension, rhs: Proto2Unittest_TestStringViewExtension) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true

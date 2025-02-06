@@ -100,6 +100,7 @@ message GeneratedSwiftReservedEnums {
   enum clearEditionIntroduced { NONE_clearEditionIntroduced = 0; }
   enum clearEditionRemoved { NONE_clearEditionRemoved = 0; }
   enum clearEnd { NONE_clearEnd = 0; }
+  enum clearEnforceNamingStyle { NONE_clearEnforceNamingStyle = 0; }
   enum clearEnumType { NONE_clearEnumType = 0; }
   enum clearExtendee { NONE_clearExtendee = 0; }
   enum clearExtensionValue { NONE_clearExtensionValue = 0; }
@@ -295,6 +296,7 @@ message GeneratedSwiftReservedEnums {
   enum endMessageField { NONE_endMessageField = 0; }
   enum endObject { NONE_endObject = 0; }
   enum endRegularField { NONE_endRegularField = 0; }
+  enum enforceNamingStyle { NONE_enforceNamingStyle = 0; }
   enum enum { NONE_enum = 0; }
   enum EnumDescriptorProto { NONE_EnumDescriptorProto = 0; }
   enum EnumOptions { NONE_EnumOptions = 0; }
@@ -458,6 +460,7 @@ message GeneratedSwiftReservedEnums {
   enum hasEditionIntroduced { NONE_hasEditionIntroduced = 0; }
   enum hasEditionRemoved { NONE_hasEditionRemoved = 0; }
   enum hasEnd { NONE_hasEnd = 0; }
+  enum hasEnforceNamingStyle { NONE_hasEnforceNamingStyle = 0; }
   enum hasEnumType { NONE_hasEnumType = 0; }
   enum hasExtendee { NONE_hasExtendee = 0; }
   enum hasExtensionValue { NONE_hasExtensionValue = 0; }

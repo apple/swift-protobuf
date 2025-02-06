@@ -31,13 +31,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_TestLiteImportsNonlite: Sendable {
+struct Proto2Unittest_TestLiteImportsNonlite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var message: ProtobufUnittest_TestAllTypes {
-    get {return _message ?? ProtobufUnittest_TestAllTypes()}
+  var message: Proto2Unittest_TestAllTypes {
+    get {return _message ?? Proto2Unittest_TestAllTypes()}
     set {_message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
@@ -46,8 +46,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: Sendable {
   mutating func clearMessage() {self._message = nil}
 
   /// Verifies that transitive required fields generates valid code.
-  var messageWithRequired: ProtobufUnittest_TestRequired {
-    get {return _messageWithRequired ?? ProtobufUnittest_TestRequired()}
+  var messageWithRequired: Proto2Unittest_TestRequired {
+    get {return _messageWithRequired ?? Proto2Unittest_TestRequired()}
     set {_messageWithRequired = newValue}
   }
   /// Returns true if `messageWithRequired` has been explicitly set.
@@ -59,15 +59,15 @@ struct ProtobufUnittest_TestLiteImportsNonlite: Sendable {
 
   init() {}
 
-  fileprivate var _message: ProtobufUnittest_TestAllTypes? = nil
-  fileprivate var _messageWithRequired: ProtobufUnittest_TestRequired? = nil
+  fileprivate var _message: Proto2Unittest_TestAllTypes? = nil
+  fileprivate var _messageWithRequired: Proto2Unittest_TestRequired? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestLiteImportsNonlite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
@@ -106,7 +106,7 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestLiteImportsNonlite, rhs: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestLiteImportsNonlite, rhs: Proto2Unittest_TestLiteImportsNonlite) -> Bool {
     if lhs._message != rhs._message {return false}
     if lhs._messageWithRequired != rhs._messageWithRequired {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

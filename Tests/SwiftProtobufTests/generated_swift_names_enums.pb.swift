@@ -2911,6 +2911,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum clearEnforceNamingStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneClearEnforceNamingStyle // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearEnforceNamingStyle
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearEnforceNamingStyle
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearEnforceNamingStyle: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnforceNamingStyle] = [
+      .noneClearEnforceNamingStyle,
+    ]
+
+  }
+
   enum clearEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEnumType // = 0
@@ -8761,6 +8791,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum enforceNamingStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneEnforceNamingStyle // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEnforceNamingStyle
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEnforceNamingStyle
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEnforceNamingStyle: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enforceNamingStyle] = [
+      .noneEnforceNamingStyle,
+    ]
+
+  }
+
   enum enumEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnum // = 0
@@ -13647,6 +13707,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnd] = [
       .noneHasEnd,
+    ]
+
+  }
+
+  enum hasEnforceNamingStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneHasEnforceNamingStyle // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasEnforceNamingStyle
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasEnforceNamingStyle
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasEnforceNamingStyle: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceNamingStyle] = [
+      .noneHasEnforceNamingStyle,
     ]
 
   }
@@ -31233,6 +31323,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnd: Swif
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnforceNamingStyle: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearEnforceNamingStyle"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnumType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearEnumType"),
@@ -32403,6 +32499,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.endRegularFiel
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enforceNamingStyle: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_enforceNamingStyle"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_enum"),
@@ -33378,6 +33480,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionRemo
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnd: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasEnd"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceNamingStyle: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasEnforceNamingStyle"),
   ]
 }
 

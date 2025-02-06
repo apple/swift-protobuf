@@ -2244,6 +2244,15 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
   /// Clears the value of `jsonFormat`. Subsequent reads from it will return its default value.
   mutating func clearJsonFormat() {self._jsonFormat = nil}
 
+  var enforceNamingStyle: Google_Protobuf_FeatureSet.EnforceNamingStyle {
+    get {return _enforceNamingStyle ?? .unknown}
+    set {_enforceNamingStyle = newValue}
+  }
+  /// Returns true if `enforceNamingStyle` has been explicitly set.
+  var hasEnforceNamingStyle: Bool {return self._enforceNamingStyle != nil}
+  /// Clears the value of `enforceNamingStyle`. Subsequent reads from it will return its default value.
+  mutating func clearEnforceNamingStyle() {self._enforceNamingStyle = nil}
+
   var unknownFields = UnknownStorage()
 
   enum FieldPresence: Int, Enum, Swift.CaseIterable {
@@ -2313,6 +2322,17 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
+  enum EnforceNamingStyle: Int, Enum, Swift.CaseIterable {
+    case unknown = 0
+    case style2024 = 1
+    case styleLegacy = 2
+
+    init() {
+      self = .unknown
+    }
+
+  }
+
   init() {}
 
   var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
@@ -2322,6 +2342,7 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
   fileprivate var _utf8Validation: Google_Protobuf_FeatureSet.Utf8Validation? = nil
   fileprivate var _messageEncoding: Google_Protobuf_FeatureSet.MessageEncoding? = nil
   fileprivate var _jsonFormat: Google_Protobuf_FeatureSet.JsonFormat? = nil
+  fileprivate var _enforceNamingStyle: Google_Protobuf_FeatureSet.EnforceNamingStyle? = nil
 }
 
 /// A compiled specification for the defaults of a set of features.  These
@@ -4843,6 +4864,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     4: .standard(proto: "utf8_validation"),
     5: .standard(proto: "message_encoding"),
     6: .standard(proto: "json_format"),
+    7: .standard(proto: "enforce_naming_style"),
   ]
 
   public var isInitialized: Bool {
@@ -4862,6 +4884,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
       case 4: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self._messageEncoding) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jsonFormat) }()
+      case 7: try { try decoder.decodeSingularEnumField(value: &self._enforceNamingStyle) }()
       case 1000..<10001:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FeatureSet.self, fieldNumber: fieldNumber) }()
       default: break
@@ -4892,6 +4915,9 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     try { if let v = self._jsonFormat {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     } }()
+    try { if let v = self._enforceNamingStyle {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
+    } }()
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 10001)
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4903,6 +4929,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     if lhs._utf8Validation != rhs._utf8Validation {return false}
     if lhs._messageEncoding != rhs._messageEncoding {return false}
     if lhs._jsonFormat != rhs._jsonFormat {return false}
+    if lhs._enforceNamingStyle != rhs._enforceNamingStyle {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
@@ -4955,6 +4982,14 @@ extension Google_Protobuf_FeatureSet.JsonFormat: _ProtoNameProviding {
     0: .same(proto: "JSON_FORMAT_UNKNOWN"),
     1: .same(proto: "ALLOW"),
     2: .same(proto: "LEGACY_BEST_EFFORT"),
+  ]
+}
+
+extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
+  static let _protobuf_nameMap: _NameMap = [
+    0: .same(proto: "ENFORCE_NAMING_STYLE_UNKNOWN"),
+    1: .same(proto: "STYLE2024"),
+    2: .same(proto: "STYLE_LEGACY"),
   ]
 }
 

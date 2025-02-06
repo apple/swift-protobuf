@@ -33,7 +33,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,8 +47,8 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, S
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() {self._i = nil}
 
-  var msg: ProtobufUnittest_ForeignMessage {
-    get {return _msg ?? ProtobufUnittest_ForeignMessage()}
+  var msg: Proto2Unittest_ForeignMessage {
+    get {return _msg ?? Proto2Unittest_ForeignMessage()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
@@ -56,7 +56,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, S
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
   mutating func clearMsg() {self._msg = nil}
 
-  var foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo? = nil
+  var foo: Proto2Unittest_TestOptimizedForSize.OneOf_Foo? = nil
 
   var integerField: Int32 {
     get {
@@ -86,10 +86,10 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, S
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _i: Int32? = nil
-  fileprivate var _msg: ProtobufUnittest_ForeignMessage? = nil
+  fileprivate var _msg: Proto2Unittest_ForeignMessage? = nil
 }
 
-struct ProtobufUnittest_TestRequiredOptimizedForSize: Sendable {
+struct Proto2Unittest_TestRequiredOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,13 +110,13 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: Sendable {
   fileprivate var _x: Int32? = nil
 }
 
-struct ProtobufUnittest_TestOptionalOptimizedForSize: Sendable {
+struct Proto2Unittest_TestOptionalOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var o: ProtobufUnittest_TestRequiredOptimizedForSize {
-    get {return _o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
+  var o: Proto2Unittest_TestRequiredOptimizedForSize {
+    get {return _o ?? Proto2Unittest_TestRequiredOptimizedForSize()}
     set {_o = newValue}
   }
   /// Returns true if `o` has been explicitly set.
@@ -128,7 +128,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: Sendable {
 
   init() {}
 
-  fileprivate var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
+  fileprivate var _o: Proto2Unittest_TestRequiredOptimizedForSize? = nil
 }
 
 // MARK: - Extension support defined in unittest_optimize_for.proto.
@@ -140,74 +140,74 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_TestOptimizedForSize {
+extension Proto2Unittest_TestOptimizedForSize {
 
-  var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
+  var Proto2Unittest_TestOptimizedForSize_testExtension: Int32 {
+    get {return getExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
+    set {setExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension`
+  /// Returns true if extension `Proto2Unittest_TestOptimizedForSize.Extensions.test_extension`
   /// has been explicitly set.
-  var hasProtobufUnittest_TestOptimizedForSize_testExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
+  var hasProto2Unittest_TestOptimizedForSize_testExtension: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension)
   }
-  /// Clears the value of extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension`.
+  /// Clears the value of extension `Proto2Unittest_TestOptimizedForSize.Extensions.test_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
+  mutating func clearProto2Unittest_TestOptimizedForSize_testExtension() {
+    clearExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension)
   }
 
-  var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
-    set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
+  var Proto2Unittest_TestOptimizedForSize_testExtension2: Proto2Unittest_TestRequiredOptimizedForSize {
+    get {return getExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2) ?? Proto2Unittest_TestRequiredOptimizedForSize()}
+    set {setExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2`
+  /// Returns true if extension `Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2`
   /// has been explicitly set.
-  var hasProtobufUnittest_TestOptimizedForSize_testExtension2: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
+  var hasProto2Unittest_TestOptimizedForSize_testExtension2: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2)
   }
-  /// Clears the value of extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2`.
+  /// Clears the value of extension `Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension2() {
-    clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
+  mutating func clearProto2Unittest_TestOptimizedForSize_testExtension2() {
+    clearExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2)
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestOptimizeFor_Extensions
+// MARK: - File's ExtensionMap: Proto2Unittest_UnittestOptimizeFor_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension,
-  ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
+let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Proto2Unittest_TestOptimizedForSize.Extensions.test_extension,
+  Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension ProtobufUnittest_TestOptimizedForSize {
+extension Proto2Unittest_TestOptimizedForSize {
   enum Extensions {
-    static let test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
+    static let test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1234,
-      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension"
+      fieldName: "proto2_unittest.TestOptimizedForSize.test_extension"
     )
 
-    static let test_extension2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
+    static let test_extension2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestRequiredOptimizedForSize>, Proto2Unittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1235,
-      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension2"
+      fieldName: "proto2_unittest.TestOptimizedForSize.test_extension2"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
@@ -246,7 +246,7 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftPro
       }()
       case 19: try { try decoder.decodeSingularMessageField(value: &self._msg) }()
       case 1000..<536870912:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestOptimizedForSize.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -278,7 +278,7 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestOptimizedForSize, rhs: ProtobufUnittest_TestOptimizedForSize) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestOptimizedForSize, rhs: Proto2Unittest_TestOptimizedForSize) -> Bool {
     if lhs._i != rhs._i {return false}
     if lhs._msg != rhs._msg {return false}
     if lhs.foo != rhs.foo {return false}
@@ -288,7 +288,7 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
@@ -322,14 +322,14 @@ extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestRequiredOptimizedForSize, rhs: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestRequiredOptimizedForSize, rhs: Proto2Unittest_TestRequiredOptimizedForSize) -> Bool {
     if lhs._x != rhs._x {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "o"),
@@ -363,7 +363,7 @@ extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestOptionalOptimizedForSize, rhs: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestOptionalOptimizedForSize, rhs: Proto2Unittest_TestOptionalOptimizedForSize) -> Bool {
     if lhs._o != rhs._o {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

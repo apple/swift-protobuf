@@ -34,7 +34,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// A message with message_set_wire_format.
-struct ProtobufUnittest_TestExtensionSet: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct Proto2Unittest_TestExtensionSet: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -46,13 +46,13 @@ struct ProtobufUnittest_TestExtensionSet: SwiftProtobuf.ExtensibleMessage, Senda
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_TestExtensionSetContainer: Sendable {
+struct Proto2Unittest_TestExtensionSetContainer: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var `extension`: ProtobufUnittest_TestExtensionSet {
-    get {return _extension ?? ProtobufUnittest_TestExtensionSet()}
+  var `extension`: Proto2Unittest_TestExtensionSet {
+    get {return _extension ?? Proto2Unittest_TestExtensionSet()}
     set {_extension = newValue}
   }
   /// Returns true if ``extension`` has been explicitly set.
@@ -64,14 +64,14 @@ struct ProtobufUnittest_TestExtensionSetContainer: Sendable {
 
   init() {}
 
-  fileprivate var _extension: ProtobufUnittest_TestExtensionSet? = nil
+  fileprivate var _extension: Proto2Unittest_TestExtensionSet? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestExtensionSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionSet"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -83,7 +83,7 @@ extension ProtobufUnittest_TestExtensionSet: SwiftProtobuf.Message, SwiftProtobu
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (4 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestExtensionSet.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestExtensionSet.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -93,14 +93,14 @@ extension ProtobufUnittest_TestExtensionSet: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestExtensionSet, rhs: ProtobufUnittest_TestExtensionSet) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestExtensionSet, rhs: Proto2Unittest_TestExtensionSet) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestExtensionSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestExtensionSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionSetContainer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extension"),
@@ -134,7 +134,7 @@ extension ProtobufUnittest_TestExtensionSetContainer: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestExtensionSetContainer, rhs: ProtobufUnittest_TestExtensionSetContainer) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestExtensionSetContainer, rhs: Proto2Unittest_TestExtensionSetContainer) -> Bool {
     if lhs._extension != rhs._extension {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

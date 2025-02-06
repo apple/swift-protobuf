@@ -33,7 +33,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufUnittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+enum Proto2Unittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case lazyEnum0 = 0
   case lazyEnum1 = 1
 
@@ -45,7 +45,7 @@ enum ProtobufUnittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseI
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "LAZY_ENUM_0"),
     1: .same(proto: "LAZY_ENUM_1"),

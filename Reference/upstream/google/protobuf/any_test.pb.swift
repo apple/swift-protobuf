@@ -27,7 +27,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_TestAny: Sendable {
+struct Proto2Unittest_TestAny: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -56,9 +56,9 @@ struct ProtobufUnittest_TestAny: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "proto2_unittest"
 
-extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2Unittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int32_value"),
@@ -102,7 +102,7 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAny, rhs: ProtobufUnittest_TestAny) -> Bool {
+  static func ==(lhs: Proto2Unittest_TestAny, rhs: Proto2Unittest_TestAny) -> Bool {
     if lhs.int32Value != rhs.int32Value {return false}
     if lhs._anyValue != rhs._anyValue {return false}
     if lhs.repeatedAnyValue != rhs.repeatedAnyValue {return false}

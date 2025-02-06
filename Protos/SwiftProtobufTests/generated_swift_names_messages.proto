@@ -100,6 +100,7 @@ message GeneratedSwiftReservedMessages {
   message clearEditionIntroduced { int32 clearEditionIntroduced = 1; }
   message clearEditionRemoved { int32 clearEditionRemoved = 1; }
   message clearEnd { int32 clearEnd = 1; }
+  message clearEnforceNamingStyle { int32 clearEnforceNamingStyle = 1; }
   message clearEnumType { int32 clearEnumType = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
   message clearExtensionValue { int32 clearExtensionValue = 1; }
@@ -295,6 +296,7 @@ message GeneratedSwiftReservedMessages {
   message endMessageField { int32 endMessageField = 1; }
   message endObject { int32 endObject = 1; }
   message endRegularField { int32 endRegularField = 1; }
+  message enforceNamingStyle { int32 enforceNamingStyle = 1; }
   message enum { int32 enum = 1; }
   message EnumDescriptorProto { int32 EnumDescriptorProto = 1; }
   message EnumOptions { int32 EnumOptions = 1; }
@@ -458,6 +460,7 @@ message GeneratedSwiftReservedMessages {
   message hasEditionIntroduced { int32 hasEditionIntroduced = 1; }
   message hasEditionRemoved { int32 hasEditionRemoved = 1; }
   message hasEnd { int32 hasEnd = 1; }
+  message hasEnforceNamingStyle { int32 hasEnforceNamingStyle = 1; }
   message hasEnumType { int32 hasEnumType = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
   message hasExtensionValue { int32 hasExtensionValue = 1; }
