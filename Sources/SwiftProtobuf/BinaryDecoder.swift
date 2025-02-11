@@ -1162,10 +1162,12 @@ internal struct BinaryDecoder: Decoder {
         // This is loosely based on the C++:
         //   ExtensionSet::ParseMessageSetItem()
         //   WireFormat::ParseAndMergeMessageSetItem()
-        // (yes, there have two versions that are almost the same)
+        // And more implementation seem to draw from:
+        //   upb_Decoder_DecodeMessageSetItem()
 
         var msgExtension: (any AnyMessageExtension)?
         var fieldData: Data?
+        var gotData: Bool = false
 
         // In this loop, if wire types are wrong, things don't decode,
         // just bail instead of letting things go into unknown fields.
@@ -1177,8 +1179,18 @@ internal struct BinaryDecoder: Decoder {
                 var extensionFieldNumber: Int32 = 0
                 try decodeSingularInt32Field(value: &extensionFieldNumber)
                 if extensionFieldNumber == 0 { return .malformed }
+                if let _ = msgExtension {
+                    // The field appears more than once, only the first value counts.
+                    continue
+                }
                 guard let ext = extensions?[messageType, Int(extensionFieldNumber)] else {
-                    return .handleAsUnknown  // Unknown extension.
+                    // At this point it is an unknown extension, so it will be treated as
+                    // an unknown field.
+                    //
+                    // NOTE: There are other repeated `type_id` or `message` fields within
+                    // the group they are preserved. No attempt is made to prune them down
+                    // to be conformant.
+                    return .handleAsUnknown
                 }
                 msgExtension = ext
 
@@ -1211,8 +1223,14 @@ internal struct BinaryDecoder: Decoder {
                 }
 
             case WireFormat.MessageSet.FieldNumbers.message:
-                if let ext = msgExtension {
+                if gotData {
+                    // first one sticks, skip any additional occurances of the field.
+                    guard fieldWireFormat == .lengthDelimited else { return .malformed }
+                    try skip()
+                    consumed = true
+                } else if let ext = msgExtension {
                     assert(consumed == false)
+                    gotData = true
                     try decodeExtensionField(
                         values: &values,
                         messageType: messageType,
@@ -1223,27 +1241,20 @@ internal struct BinaryDecoder: Decoder {
                         return .malformed
                     }
                 } else {
-                    // The C++ references ends up appending the blocks together as length
-                    // delimited blocks, but the parsing will only use the first block.
-                    // So just capture a block, and then skip any others that happen to
-                    // be found.
-                    if fieldData == nil {
-                        var d: Data?
-                        try decodeSingularBytesField(value: &d)
-                        guard let data = d else { return .malformed }
-                        // Save it as length delimited
-                        let payloadSize = Varint.encodedSize(of: Int64(data.count)) + data.count
-                        var payload = Data(count: payloadSize)
-                        payload.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
-                            var encoder = BinaryEncoder(forWritingInto: body)
-                            encoder.putBytesValue(value: data)
-                        }
-                        fieldData = payload
-                    } else {
-                        guard fieldWireFormat == .lengthDelimited else { return .malformed }
-                        try skip()
-                        consumed = true
+                    // Haven't gotten the type_id yet, to cache the data for later.
+                    assert(fieldData == .none)
+                    var d: Data?
+                    try decodeSingularBytesField(value: &d)
+                    guard let data = d else { return .malformed }
+                    // Save it as length delimited
+                    let payloadSize = Varint.encodedSize(of: Int64(data.count)) + data.count
+                    var payload = Data(count: payloadSize)
+                    payload.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
+                        var encoder = BinaryEncoder(forWritingInto: body)
+                        encoder.putBytesValue(value: data)
                     }
+                    fieldData = payload
+                    gotData = true
                 }
 
             default:
