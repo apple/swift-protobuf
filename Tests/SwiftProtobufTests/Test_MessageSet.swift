@@ -244,6 +244,115 @@ final class Test_MessageSet: XCTestCase {
         validator.validate(message: msg)
     }
 
+    func testParse_FirstValueSticks() throws {
+        let extMsg1 = SwiftProtoTesting_TestMessageSetExtension1.with { $0.i = 123 }
+        let extMsg2 = SwiftProtoTesting_TestMessageSetExtension2.with { $0.str = "foo" }
+
+        var rawItem = SwiftProtoTesting_RawBreakableMessageSet.Item()
+        rawItem.typeID = [
+            Int32(SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber),
+            Int32(SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber),
+        ]
+        rawItem.message = [
+            try extMsg1.serializedBytes(),
+            try extMsg2.serializedBytes(),
+        ]
+        let raw = SwiftProtoTesting_RawBreakableMessageSet.with { $0.item = [rawItem] }
+
+        let serialized: Data
+        do {
+            serialized = try raw.serializedBytes()
+        } catch let e {
+            XCTFail("Failed to serialize: \(e)")
+            return
+        }
+
+        let msg: SwiftProtoTesting_WireFormat_TestMessageSet
+        do {
+            msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: serialized,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        } catch let e {
+            XCTFail("Failed to parse: \(e)")
+            return
+        }
+
+        // Only the first extension shows up and with only the expected data.
+        XCTAssertTrue(msg.hasSwiftProtoTesting_TestMessageSetExtension1_messageSetExtension)
+        XCTAssertFalse(msg.hasSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension)
+        XCTAssertEqual(
+            msg.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i,
+            123
+        )
+        XCTAssertTrue(
+            msg.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.unknownFields.data.isEmpty
+        )
+
+        XCTAssertTrue(msg.unknownFields.data.isEmpty)
+
+        var validator = ExtensionValidator()
+        validator.expectedMessages = [
+            (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false)
+        ]
+        validator.validate(message: msg)
+    }
+
+    func testParse_PartialValuesDropped() {
+        var raw = SwiftProtoTesting_RawBreakableMessageSet()
+
+        do {
+            // No payload
+            let rawItem = SwiftProtoTesting_RawBreakableMessageSet.Item.with {
+                $0.typeID = [
+                    Int32(SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
+                ]
+            }
+            raw.item.append(rawItem)
+        }
+
+        do {
+            // No typeID
+            let rawItem = SwiftProtoTesting_RawBreakableMessageSet.Item.with {
+                $0.message = [Data()]  // Empty message is zero length data.
+            }
+            raw.item.append(rawItem)
+        }
+
+        do {
+            // Neither field.
+            let rawItem = SwiftProtoTesting_RawBreakableMessageSet.Item()
+            raw.item.append(rawItem)
+        }
+
+        let serialized: Data
+        do {
+            serialized = try raw.serializedBytes()
+        } catch let e {
+            XCTFail("Failed to serialize: \(e)")
+            return
+        }
+
+        let msg: SwiftProtoTesting_WireFormat_TestMessageSet
+        do {
+            msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: serialized,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        } catch let e {
+            XCTFail("Failed to parse: \(e)")
+            return
+        }
+
+        // All are partials, so nothing show show up.
+        XCTAssertFalse(msg.hasSwiftProtoTesting_TestMessageSetExtension1_messageSetExtension)
+        XCTAssertFalse(msg.hasSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension)
+        XCTAssertTrue(msg.unknownFields.data.isEmpty)
+
+        var validator = ExtensionValidator()
+        validator.validate(message: msg)
+    }
+
     fileprivate struct ExtensionValidator: PBTestVisitor {
         // Values are field number and if we should recurse.
         var expectedMessages = [(Int, Bool)]()
