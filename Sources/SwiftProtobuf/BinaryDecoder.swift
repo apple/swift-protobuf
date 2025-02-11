@@ -1113,39 +1113,52 @@ internal struct BinaryDecoder: Decoder {
         values: inout ExtensionFieldValueSet,
         messageType: any Message.Type
     ) throws {
-        // Spin looking for the Item group, everything else will end up in unknown fields.
+        // Anything not in an acceptable form will go into unknown fields
         while let fieldNumber = try self.nextFieldNumber() {
-            guard fieldNumber == WireFormat.MessageSet.FieldNumbers.item && fieldWireFormat == WireFormat.startGroup
-            else {
-                continue
+            // Normal MessageSet wire format (nested in a group)
+            if fieldNumber == WireFormat.MessageSet.FieldNumbers.item && fieldWireFormat == WireFormat.startGroup {
+                // This is similar to decodeFullGroup
+
+                try incrementRecursionDepth()
+                var subDecoder = self
+                subDecoder.groupFieldNumber = fieldNumber
+                subDecoder.consumed = true
+
+                let itemResult = try subDecoder.decodeMessageSetItem(
+                    values: &values,
+                    messageType: messageType
+                )
+                switch itemResult {
+                case .success:
+                    // Advance over what was parsed.
+                    consume(length: available - subDecoder.available)
+                    consumed = true
+                case .handleAsUnknown:
+                    // Nothing to do.
+                    break
+
+                case .malformed:
+                    throw BinaryDecodingError.malformedProtobuf
+                }
+
+                assert(recursionBudget == subDecoder.recursionBudget)
+                decrementRecursionDepth()
+            } else if fieldWireFormat == WireFormat.lengthDelimited,
+                let ext = extensions?[messageType, fieldNumber]
+            {
+                // This was a raw extension field, this is possible if some encoder doesn't
+                // know the MessageSet wire format. Since we know the extension, promote it.
+                // _upb_Decoder_FindField() has this same basic logic.
+                try decodeExtensionField(
+                    values: &values,
+                    messageType: messageType,
+                    fieldNumber: fieldNumber,
+                    messageExtension: ext
+                )
+                if !consumed {
+                    throw BinaryDecodingError.malformedProtobuf
+                }
             }
-
-            // This is similar to decodeFullGroup
-
-            try incrementRecursionDepth()
-            var subDecoder = self
-            subDecoder.groupFieldNumber = fieldNumber
-            subDecoder.consumed = true
-
-            let itemResult = try subDecoder.decodeMessageSetItem(
-                values: &values,
-                messageType: messageType
-            )
-            switch itemResult {
-            case .success:
-                // Advance over what was parsed.
-                consume(length: available - subDecoder.available)
-                consumed = true
-            case .handleAsUnknown:
-                // Nothing to do.
-                break
-
-            case .malformed:
-                throw BinaryDecodingError.malformedProtobuf
-            }
-
-            assert(recursionBudget == subDecoder.recursionBudget)
-            decrementRecursionDepth()
         }
     }
 

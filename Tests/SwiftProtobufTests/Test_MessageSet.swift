@@ -353,6 +353,55 @@ final class Test_MessageSet: XCTestCase {
         validator.validate(message: msg)
     }
 
+    func testParse_FieldEncoding() {
+        let extMsg1 = SwiftProtoTesting_TestMessageSetExtension1.with { $0.i = 123 }
+        let extMsg3 = SwiftProtoTesting_TestMessageSetExtension3.with { $0.x = 10 }
+
+        let msgEx = SwiftProtoTesting_MessageEx.with {
+            $0.SwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension = extMsg1
+            $0.SwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension = extMsg3
+        }
+
+        let serialized: Data
+        do {
+            serialized = try msgEx.serializedBytes()
+        } catch let e {
+            XCTFail("Failed to serialize: \(e)")
+            return
+        }
+
+        let msg: SwiftProtoTesting_WireFormat_TestMessageSet
+        do {
+            msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: serialized,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        } catch let e {
+            XCTFail("Failed to parse: \(e)")
+            return
+        }
+
+        // One comes in as a known field, other comes in as unknown field (not promoted to the
+        // group form).
+        XCTAssertTrue(msg.hasSwiftProtoTesting_TestMessageSetExtension1_messageSetExtension)
+        XCTAssertFalse(msg.hasSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension)
+
+        let expectedUnknowns = Data([
+            210, 223, 243, 5,  // Length delimted field 1547770
+            3,  // Length (varint)
+            208, 1,  // Varint field 26 ("x") in message
+            10,  // Value of X
+        ])
+        XCTAssertEqual(msg.unknownFields.data, expectedUnknowns)
+
+        var validator = ExtensionValidator()
+        validator.expectedMessages = [
+            (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false)
+        ]
+        validator.expectedUnknowns = [expectedUnknowns]
+        validator.validate(message: msg)
+    }
+
     fileprivate struct ExtensionValidator: PBTestVisitor {
         // Values are field number and if we should recurse.
         var expectedMessages = [(Int, Bool)]()

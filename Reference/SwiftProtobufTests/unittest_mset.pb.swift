@@ -79,6 +79,20 @@ struct SwiftProtoTesting_TestMessageSetContainer: Sendable {
   fileprivate var _messageSet: SwiftProtoTesting_WireFormat_TestMessageSet? = nil
 }
 
+/// A message without the message_set_wire_format option but still supports
+/// extensions.
+struct SwiftProtoTesting_MessageEx: SwiftProtobuf.ExtensibleMessage, Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 struct SwiftProtoTesting_TestMessageSetExtension1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -139,6 +153,29 @@ struct SwiftProtoTesting_TestMessageSetExtension2: Sendable {
   init() {}
 
   fileprivate var _str: String? = nil
+}
+
+/// This isn't on swift_proto_testing.wire_format.TestMessageSet, so it will be unknown
+/// when parsing there.
+struct SwiftProtoTesting_TestMessageSetExtension3: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var x: Int32 {
+    get {return _x ?? 0}
+    set {_x = newValue}
+  }
+  /// Returns true if `x` has been explicitly set.
+  var hasX: Bool {return self._x != nil}
+  /// Clears the value of `x`. Subsequent reads from it will return its default value.
+  mutating func clearX() {self._x = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _x: Int32? = nil
 }
 
 /// MessageSet wire format is equivalent to this.
@@ -222,6 +259,39 @@ struct SwiftProtoTesting_RawBreakableMessageSet: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
+extension SwiftProtoTesting_MessageEx {
+
+  var SwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension: SwiftProtoTesting_TestMessageSetExtension1 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension) ?? SwiftProtoTesting_TestMessageSetExtension1()}
+    set {setExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension() {
+    clearExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension)
+  }
+
+  var SwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension: SwiftProtoTesting_TestMessageSetExtension3 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension) ?? SwiftProtoTesting_TestMessageSetExtension3()}
+    set {setExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension() {
+    clearExtensionValue(ext: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension)
+  }
+}
+
 extension SwiftProtoTesting_WireFormat_TestMessageSet {
 
   var SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension: SwiftProtoTesting_TestMessageSetExtension1 {
@@ -264,7 +334,9 @@ extension SwiftProtoTesting_WireFormat_TestMessageSet {
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let SwiftProtoTesting_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension,
-  SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension
+  SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension,
+  SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension,
+  SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -277,6 +349,11 @@ extension SwiftProtoTesting_TestMessageSetExtension1 {
       _protobuf_fieldNumber: 1545008,
       fieldName: "swift_proto_testing.TestMessageSetExtension1"
     )
+
+    static let doppelganger_message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension1>, SwiftProtoTesting_MessageEx>(
+      _protobuf_fieldNumber: 1545008,
+      fieldName: "swift_proto_testing.TestMessageSetExtension1.doppelganger_message_set_extension"
+    )
   }
 }
 
@@ -285,6 +362,15 @@ extension SwiftProtoTesting_TestMessageSetExtension2 {
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension2>, SwiftProtoTesting_WireFormat_TestMessageSet>(
       _protobuf_fieldNumber: 1547769,
       fieldName: "swift_proto_testing.TestMessageSetExtension2"
+    )
+  }
+}
+
+extension SwiftProtoTesting_TestMessageSetExtension3 {
+  enum Extensions {
+    static let doppelganger_message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension3>, SwiftProtoTesting_MessageEx>(
+      _protobuf_fieldNumber: 1547770,
+      fieldName: "swift_proto_testing.TestMessageSetExtension3.doppelganger_message_set_extension"
     )
   }
 }
@@ -330,6 +416,35 @@ extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.Message, Swif
   static func ==(lhs: SwiftProtoTesting_TestMessageSetContainer, rhs: SwiftProtoTesting_TestMessageSetContainer) -> Bool {
     if lhs._messageSet != rhs._messageSet {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_MessageEx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MessageEx"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (4 <= fieldNumber && fieldNumber < 536870912) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_MessageEx.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 4, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_MessageEx, rhs: SwiftProtoTesting_MessageEx) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -418,6 +533,42 @@ extension SwiftProtoTesting_TestMessageSetExtension2: SwiftProtobuf.Message, Swi
 
   static func ==(lhs: SwiftProtoTesting_TestMessageSetExtension2, rhs: SwiftProtoTesting_TestMessageSetExtension2) -> Bool {
     if lhs._str != rhs._str {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_TestMessageSetExtension3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension3"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    26: .same(proto: "x"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 26: try { try decoder.decodeSingularInt32Field(value: &self._x) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._x {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_TestMessageSetExtension3, rhs: SwiftProtoTesting_TestMessageSetExtension3) -> Bool {
+    if lhs._x != rhs._x {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
