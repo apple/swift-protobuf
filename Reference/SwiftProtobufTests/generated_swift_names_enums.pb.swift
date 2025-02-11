@@ -12961,6 +12961,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum gotData: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneGotData // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneGotData
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneGotData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneGotData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.gotData] = [
+      .noneGotData,
+    ]
+
+  }
+
   enum group: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneGroup // = 0
@@ -33330,6 +33360,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.goPackage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_goPackage"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.gotData: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_gotData"),
   ]
 }
 
