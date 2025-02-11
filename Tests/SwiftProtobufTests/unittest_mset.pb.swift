@@ -185,6 +185,34 @@ struct SwiftProtoTesting_RawMessageSet: Sendable {
   init() {}
 }
 
+/// MessageSet wire format is equivalent to this but since the fields
+/// are repeated they can be left off or over present to testing.
+struct SwiftProtoTesting_RawBreakableMessageSet: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var item: [SwiftProtoTesting_RawBreakableMessageSet.Item] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct Item: @unchecked Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var typeID: [Int32] = []
+
+    var message: [Data] = []
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  init() {}
+}
+
 // MARK: - Extension support defined in unittest_mset.proto.
 
 // MARK: - Extension Properties
@@ -476,6 +504,77 @@ extension SwiftProtoTesting_RawMessageSet.Item: SwiftProtobuf.Message, SwiftProt
   static func ==(lhs: SwiftProtoTesting_RawMessageSet.Item, rhs: SwiftProtoTesting_RawMessageSet.Item) -> Bool {
     if lhs._typeID != rhs._typeID {return false}
     if lhs._message != rhs._message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_RawBreakableMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".RawBreakableMessageSet"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "item"),
+    1: .unique(proto: "Item", json: "item"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedGroupField(value: &self.item) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.item.isEmpty {
+      try visitor.visitRepeatedGroupField(value: self.item, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_RawBreakableMessageSet, rhs: SwiftProtoTesting_RawBreakableMessageSet) -> Bool {
+    if lhs.item != rhs.item {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_RawBreakableMessageSet.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_RawBreakableMessageSet.protoMessageName + ".Item"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2: .standard(proto: "type_id"),
+    3: .same(proto: "message"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 2: try { try decoder.decodeRepeatedInt32Field(value: &self.typeID) }()
+      case 3: try { try decoder.decodeRepeatedBytesField(value: &self.message) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.typeID.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.typeID, fieldNumber: 2)
+    }
+    if !self.message.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.message, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_RawBreakableMessageSet.Item, rhs: SwiftProtoTesting_RawBreakableMessageSet.Item) -> Bool {
+    if lhs.typeID != rhs.typeID {return false}
+    if lhs.message != rhs.message {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

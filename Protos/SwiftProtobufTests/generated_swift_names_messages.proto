@@ -435,6 +435,7 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_UninterpretedOption { int32 Google_Protobuf_UninterpretedOption = 1; }
   message Google_Protobuf_Value { int32 Google_Protobuf_Value = 1; }
   message goPackage { int32 goPackage = 1; }
+  message gotData { int32 gotData = 1; }
   message group { int32 group = 1; }
   message groupFieldNumberStack { int32 groupFieldNumberStack = 1; }
   message groupSize { int32 groupSize = 1; }

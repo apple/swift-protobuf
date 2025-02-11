@@ -435,6 +435,7 @@ message GeneratedSwiftReservedEnums {
   enum Google_Protobuf_UninterpretedOption { NONE_Google_Protobuf_UninterpretedOption = 0; }
   enum Google_Protobuf_Value { NONE_Google_Protobuf_Value = 0; }
   enum goPackage { NONE_goPackage = 0; }
+  enum gotData { NONE_gotData = 0; }
   enum group { NONE_group = 0; }
   enum groupFieldNumberStack { NONE_groupFieldNumberStack = 0; }
   enum groupSize { NONE_groupSize = 0; }
