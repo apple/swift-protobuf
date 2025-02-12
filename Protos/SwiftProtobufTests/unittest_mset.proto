@@ -45,9 +45,20 @@ message TestMessageSetContainer {
   optional swift_proto_testing.wire_format.TestMessageSet message_set = 1;
 }
 
+// A message without the message_set_wire_format option but still supports
+// extensions.
+message MessageEx {
+  extensions 4 to max;
+}
+
 message TestMessageSetExtension1 {
   extend swift_proto_testing.wire_format.TestMessageSet {
     optional TestMessageSetExtension1 message_set_extension = 1545008;
+  }
+  // Also extend a non-MessageSet with the same field number. This will allow us
+  // to test parsing a normal extension into a MessageSet.
+  extend MessageEx {
+    optional TestMessageSetExtension1 doppelganger_message_set_extension = 1545008;
   }
   optional int32 i = 15;
   optional swift_proto_testing.wire_format.TestMessageSet recursive = 16;
@@ -60,6 +71,16 @@ message TestMessageSetExtension2 {
   }
   optional string str = 25;
 }
+
+// This isn't on swift_proto_testing.wire_format.TestMessageSet, so it will be unknown
+// when parsing there.
+message TestMessageSetExtension3 {
+  extend MessageEx {
+    optional TestMessageSetExtension3 doppelganger_message_set_extension = 1547770;
+  }
+  optional int32 x = 26;
+}
+
 
 // MessageSet wire format is equivalent to this.
 message RawMessageSet {
