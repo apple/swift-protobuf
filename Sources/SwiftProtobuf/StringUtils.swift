@@ -18,7 +18,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 // Note: Once our minimum support version is at least Swift 5.3, we should
 // probably recast the following to use String(unsafeUninitializedCapacity:)

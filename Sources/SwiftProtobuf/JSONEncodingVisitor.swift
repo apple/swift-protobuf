@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Visitor that serializes a message into JSON format.
 internal struct JSONEncodingVisitor: Visitor {

@@ -13,8 +13,12 @@
 // -----------------------------------------------------------------------------
 
 #if !os(WASI)
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
 #endif
+#endif  //  !os(WASI)
 
 /// Helper methods for reading/writing messages with a length prefix.
 public enum BinaryDelimited {

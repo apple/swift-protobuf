@@ -25,7 +25,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// This is the key interface used by the generated `traverse()` methods
 /// used for serialization.  It is implemented by each serialization protocol:

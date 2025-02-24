@@ -8,7 +8,11 @@
 //
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Conformance to this protocol gives users a way to provide their own "bag of bytes" types
 /// to be used for serialization and deserialization of protobufs.
