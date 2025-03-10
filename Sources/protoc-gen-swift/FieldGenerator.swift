@@ -42,7 +42,7 @@ protocol FieldGenerator {
     var generateTraverseUsesLocals: Bool { get }
 
     /// Generate the support for traversing this field.
-    func generateTraverse(printer: inout CodePrinter)
+    func generateTraverse(printer: inout CodePrinter, isAsync: Bool)
 
     /// Generate support for comparing this field's value.
     /// The generated code should return false in the current scope if the field's don't match.

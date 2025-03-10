@@ -68,6 +68,7 @@ class GeneratorOptions {
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
+    let asyncTraverse: Bool
     let experimentalStripNonfunctionalCodegen: Bool
 
     /// A string snippet to insert for the visibility
@@ -80,6 +81,7 @@ class GeneratorOptions {
         var swiftProtobufModuleName: String? = nil
         var implementationOnlyImports: Bool = false
         var useAccessLevelOnImports = false
+        var asyncTraverse: Bool = false
         var experimentalStripNonfunctionalCodegen: Bool = false
 
         for pair in parameter.parsedPairs {
@@ -135,6 +137,15 @@ class GeneratorOptions {
                         value: pair.value
                     )
                 }
+            case "AsyncTraverse":
+                if let value = Bool(pair.value) {
+                    asyncTraverse = value
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
             case "experimental_strip_nonfunctional_codegen":
                 if pair.value.isEmpty {  // Also support option without any value.
                     experimentalStripNonfunctionalCodegen = true
@@ -169,6 +180,7 @@ class GeneratorOptions {
 
         self.outputNaming = outputNaming
         self.visibility = visibility
+        self.asyncTraverse = asyncTraverse
 
         switch visibility {
         case .internal:

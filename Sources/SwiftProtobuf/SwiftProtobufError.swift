@@ -93,6 +93,7 @@ extension SwiftProtobufError {
             case binaryStreamDecodingError
             case jsonDecodingError
             case jsonEncodingError
+            case unimplemented
 
             var description: String {
                 switch self {
@@ -104,6 +105,8 @@ extension SwiftProtobufError {
                     return "JSON decoding error"
                 case .jsonEncodingError:
                     return "JSON encoding error"
+                case .unimplemented:
+                    return "Unimplemented"
                 }
             }
         }
@@ -137,6 +140,11 @@ extension SwiftProtobufError {
         /// Errors arising from JSON encoding of messages.
         public static var jsonEncodingError: Self {
             Self(.jsonEncodingError)
+        }
+
+        /// Errors arising when a method is not implemented.
+        public static var unimplemented: Self {
+            Self(.unimplemented)
         }
     }
 
@@ -311,6 +319,21 @@ extension SwiftProtobufError {
             SwiftProtobufError(
                 code: .jsonEncodingError,
                 message: "google.protobuf.Any 'type_url' was empty, only allowed for empty objects.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+    }
+
+    public enum AsyncTraverse {
+        /// Error thrown when a method required for async traversing is unimpleneted.
+        public static func unimplemented(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .unimplemented,
+                message: "Method needed for async traverse is not implemented.",
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }

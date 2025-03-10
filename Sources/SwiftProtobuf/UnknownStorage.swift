@@ -40,4 +40,10 @@ public struct UnknownStorage: Equatable, @unchecked Sendable {
             try visitor.visitUnknown(bytes: data)
         }
     }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if !data.isEmpty {
+            try await visitor.visitUnknown(bytes: &data)
+        }
+    }
 }

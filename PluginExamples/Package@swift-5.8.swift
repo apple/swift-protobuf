@@ -14,6 +14,7 @@ let package = Package(
                 .target(name: "Simple"),
                 .target(name: "Nested"),
                 .target(name: "Import"),
+                .target(name: "AsyncTraverse"),
             ]
         ),
         .target(
@@ -36,6 +37,15 @@ let package = Package(
         ),
         .target(
             name: "Import",
+            dependencies: [
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
+            ],
+            plugins: [
+                .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
+            ]
+        ),
+        .target(
+            name: "AsyncTraverse",
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],

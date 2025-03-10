@@ -103,8 +103,8 @@ class OneofGenerator {
             oneof.generateTraverseUsesLocals
         }
 
-        func generateTraverse(printer p: inout CodePrinter) {
-            oneof.generateTraverse(printer: &p, field: self)
+        func generateTraverse(printer p: inout CodePrinter, isAsync: Bool) {
+            oneof.generateTraverse(printer: &p, field: self, isAsync: isAsync)
         }
     }
 
@@ -390,24 +390,26 @@ class OneofGenerator {
 
     var generateTraverseUsesLocals: Bool { true }
 
-    func generateTraverse(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+    func generateTraverse(printer p: inout CodePrinter, field: MemberFieldGenerator, isAsync: Bool) {
         // First field in the group causes the output.
         let group = fieldSortedGrouped[field.group]
         guard field === group.first else { return }
 
         if group.count == 1 {
-            p.print("try { if case \(field.dottedSwiftName)(let v)? = \(storedProperty) {")
+            p.print(
+                "try \(isAsync ? "await " : ""){ if case \(field.dottedSwiftName)(\(isAsync ? "var" : "let") v)? = \(storedProperty) {"
+            )
             p.printIndented(
-                "try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))"
+                "try \(isAsync ? "await " : "")visitor.visitSingular\(field.protoGenericType)Field(value: \(isAsync ? "&" : "")v, fieldNumber: \(field.number))"
             )
             p.print("} }()")
         } else {
             p.print("switch \(storedProperty) {")
             for f in group {
-                p.print("case \(f.dottedSwiftName)?: try {")
+                p.print("case \(f.dottedSwiftName)?: try \(isAsync ? "await " : ""){")
                 p.printIndented(
-                    "guard case \(f.dottedSwiftName)(let v)? = \(storedProperty) else { preconditionFailure() }",
-                    "try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))"
+                    "guard case \(f.dottedSwiftName)(\(isAsync ? "var" : "let") v)? = \(storedProperty) else { preconditionFailure() }",
+                    "try \(isAsync ? "await " : "")visitor.visitSingular\(f.protoGenericType)Field(value: \(isAsync ? "&" : "")v, fieldNumber: \(f.number))"
                 )
                 p.print("}()")
             }

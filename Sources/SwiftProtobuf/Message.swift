@@ -97,6 +97,12 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// behaviors for specific encodings, but the general idea is quite simple.
     func traverse<V: Visitor>(visitor: inout V) throws
 
+    /// Traverses the fields of the message, calling the appropriate methods
+    /// of the passed ``AsyncVisitor`` object.
+    ///
+    /// - Parameter visitor: The visitor used for traversing.
+    mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws
+
     // Standard utility properties and methods.
     // Most of these are simple wrappers on top of the visitor machinery.
     // They are implemented in the protocol, not in the generated structs,
@@ -167,6 +173,10 @@ extension Message {
         var message = Self()
         try populator(&message)
         return message
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        throw SwiftProtobufError.AsyncTraverse.unimplemented()
     }
 }
 

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message AsyncTraverseMessage {
+    bytes data = 1;
+    Nested nested = 2;
+    repeated bytes repeated_data = 3;
+    repeated Nested repeated_nested = 4;
+}
+
+message Nested {
+    bytes data = 1;
+    NestedNested nestedNested = 2;
+}
+
+message NestedNested {
+    bytes data = 1;
+}

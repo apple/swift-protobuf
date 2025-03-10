@@ -190,7 +190,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         !isRepeated && hasFieldPresence
     }
 
-    func generateTraverse(printer p: inout CodePrinter) {
+    func generateTraverse(printer p: inout CodePrinter, isAsync: Bool) {
         let visitMethod: String
         let traitsArg: String
         if isMap {
@@ -206,10 +206,12 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         var usesLocals = false
         let conditional: String
+        var conditionalSuffix: String = ""
         if isRepeated {  // Also covers maps
             conditional = "!\(varName).isEmpty"
         } else if hasFieldPresence {
-            conditional = "let v = \(storedProperty)"
+            conditional = "\(isAsync ? "var" : "let") v = \(storedProperty)"
+            conditionalSuffix = isAsync ? "\(storedProperty) = v" : ""
             usesLocals = true
         } else {
             // At this point, the fields would be a primitive type, and should only
@@ -231,11 +233,16 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             }
         }
         assert(usesLocals == generateTraverseUsesLocals)
-        let prefix = usesLocals ? "try { " : ""
+        let prefix = usesLocals ? "try \(isAsync ? "await " : ""){ " : ""
         let suffix = usesLocals ? " }()" : ""
 
         p.print("\(prefix)if \(conditional) {")
-        p.printIndented("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))")
+        p.printIndented(
+            "try \(isAsync ? "await " : "")visitor.\(visitMethod)(\(traitsArg)value: \(isAsync ? "&" : "")\(varName), fieldNumber: \(number))"
+        )
+        if !conditionalSuffix.isEmpty {
+            p.printIndented(conditionalSuffix)
+        }
         p.print("}\(suffix)")
     }
 }

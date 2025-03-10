@@ -87,6 +87,8 @@ struct SwiftProtobufPlugin {
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
             var useAccessLevelOnImports: Bool?
+            /// Whether an async traverse method should be generated.
+            var asyncTraverse: Bool?
         }
 
         /// The path to the `protoc` binary.
@@ -195,6 +197,10 @@ struct SwiftProtobufPlugin {
         // Add the useAccessLevelOnImports only imports flag if it was set
         if let useAccessLevelOnImports = invocation.useAccessLevelOnImports {
             protocArgs.append("--swift_opt=UseAccessLevelOnImports=\(useAccessLevelOnImports)")
+        }
+
+        if let asyncTraverse = invocation.asyncTraverse {
+            protocArgs.append("--swift_opt=AsyncTraverse=\(asyncTraverse)")
         }
 
         var inputFiles = [Path]()

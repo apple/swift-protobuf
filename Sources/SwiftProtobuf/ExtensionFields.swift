@@ -34,6 +34,9 @@ public protocol AnyExtensionField: Sendable, CustomDebugStringConvertible {
     /// Fields know their own type, so can dispatch to a visitor
     func traverse<V: Visitor>(visitor: inout V) throws
 
+    /// Fields know their own type, so can dispatch to a visitor
+    mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws
+
     /// Check if the field is initialized.
     var isInitialized: Bool { get }
 }
@@ -42,6 +45,10 @@ extension AnyExtensionField {
     // Default implementation for extensions fields.  The message types below provide
     // custom versions.
     public var isInitialized: Bool { true }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        throw SwiftProtobufError.AsyncTraverse.unimplemented()
+    }
 }
 
 ///
@@ -114,6 +121,10 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     public func traverse<V: Visitor>(visitor: inout V) throws {
         try T.visitSingular(value: value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
     }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        try await T.visitSingular(value: &value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
+    }
 }
 
 ///
@@ -167,6 +178,12 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     public func traverse<V: Visitor>(visitor: inout V) throws {
         if value.count > 0 {
             try T.visitRepeated(value: value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
+        }
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if value.count > 0 {
+            try await T.visitRepeated(value: &value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
         }
     }
 }
@@ -225,6 +242,12 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     public func traverse<V: Visitor>(visitor: inout V) throws {
         if value.count > 0 {
             try T.visitPacked(value: value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
+        }
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if value.count > 0 {
+            try await T.visitPacked(value: &value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
         }
     }
 }
@@ -291,6 +314,13 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
             fieldNumber: protobufExtension.fieldNumber
         )
     }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        try await visitor.visitSingularEnumField(
+            value: &value,
+            fieldNumber: protobufExtension.fieldNumber
+        )
+    }
 }
 
 ///
@@ -345,6 +375,15 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
         if value.count > 0 {
             try visitor.visitRepeatedEnumField(
                 value: value,
+                fieldNumber: protobufExtension.fieldNumber
+            )
+        }
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if value.count > 0 {
+            try await visitor.visitRepeatedEnumField(
+                value: &value,
                 fieldNumber: protobufExtension.fieldNumber
             )
         }
@@ -406,6 +445,15 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
         if value.count > 0 {
             try visitor.visitPackedEnumField(
                 value: value,
+                fieldNumber: protobufExtension.fieldNumber
+            )
+        }
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if value.count > 0 {
+            try await visitor.visitPackedEnumField(
+                value: &value,
                 fieldNumber: protobufExtension.fieldNumber
             )
         }
@@ -477,6 +525,13 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
         )
     }
 
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        try await visitor.visitSingularMessageField(
+            value: &value,
+            fieldNumber: protobufExtension.fieldNumber
+        )
+    }
+
     public var isInitialized: Bool {
         value.isInitialized
     }
@@ -535,6 +590,15 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
         if value.count > 0 {
             try visitor.visitRepeatedMessageField(
                 value: value,
+                fieldNumber: protobufExtension.fieldNumber
+            )
+        }
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if value.count > 0 {
+            try await visitor.visitRepeatedMessageField(
+                value: &value,
                 fieldNumber: protobufExtension.fieldNumber
             )
         }
@@ -613,6 +677,13 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
         )
     }
 
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        try await visitor.visitSingularGroupField(
+            value: &value,
+            fieldNumber: protobufExtension.fieldNumber
+        )
+    }
+
     public var isInitialized: Bool {
         value.isInitialized
     }
@@ -669,6 +740,15 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
         if value.count > 0 {
             try visitor.visitRepeatedGroupField(
                 value: value,
+                fieldNumber: protobufExtension.fieldNumber
+            )
+        }
+    }
+
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V) async throws {
+        if value.count > 0 {
+            try await visitor.visitRepeatedGroupField(
+                value: &value,
                 fieldNumber: protobufExtension.fieldNumber
             )
         }

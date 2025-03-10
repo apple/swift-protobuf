@@ -45,6 +45,46 @@ public protocol FieldType: Sendable {
     static func visitSingular<V: Visitor>(value: BaseType, fieldNumber: Int, with visitor: inout V) throws
     static func visitRepeated<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws
     static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws
+
+    static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws
+    static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws
+    static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws
+}
+
+extension FieldType {
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        throw SwiftProtobufError.AsyncTraverse.unimplemented()
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        throw SwiftProtobufError.AsyncTraverse.unimplemented()
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        throw SwiftProtobufError.AsyncTraverse.unimplemented()
+    }
 }
 
 ///
@@ -98,6 +138,27 @@ public struct ProtobufFloat: FieldType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedFloatField(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularFloatField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedFloatField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedFloatField(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -121,6 +182,27 @@ public struct ProtobufDouble: FieldType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedDoubleField(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularDoubleField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedDoubleField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedDoubleField(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -143,6 +225,27 @@ public struct ProtobufInt32: FieldType, MapKeyType, MapValueType {
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularInt32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedInt32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedInt32Field(value: &value, fieldNumber: fieldNumber)
     }
 }
 
@@ -168,6 +271,27 @@ public struct ProtobufInt64: FieldType, MapKeyType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -190,6 +314,27 @@ public struct ProtobufUInt32: FieldType, MapKeyType, MapValueType {
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedUInt32Field(value: value, fieldNumber: fieldNumber)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularUInt32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedUInt32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedUInt32Field(value: &value, fieldNumber: fieldNumber)
     }
 }
 
@@ -215,6 +360,27 @@ public struct ProtobufUInt64: FieldType, MapKeyType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedUInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularUInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedUInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedUInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -237,6 +403,27 @@ public struct ProtobufSInt32: FieldType, MapKeyType, MapValueType {
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedSInt32Field(value: value, fieldNumber: fieldNumber)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularSInt32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedSInt32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedSInt32Field(value: &value, fieldNumber: fieldNumber)
     }
 }
 
@@ -262,6 +449,27 @@ public struct ProtobufSInt64: FieldType, MapKeyType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedSInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularSInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedSInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedSInt64Field(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -284,6 +492,27 @@ public struct ProtobufFixed32: FieldType, MapKeyType, MapValueType {
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedFixed32Field(value: value, fieldNumber: fieldNumber)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularFixed32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedFixed32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedFixed32Field(value: &value, fieldNumber: fieldNumber)
     }
 }
 
@@ -308,6 +537,27 @@ public struct ProtobufFixed64: FieldType, MapKeyType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedFixed64Field(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularFixed64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedFixed64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedFixed64Field(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -330,6 +580,27 @@ public struct ProtobufSFixed32: FieldType, MapKeyType, MapValueType {
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedSFixed32Field(value: value, fieldNumber: fieldNumber)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularSFixed32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedSFixed32Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedSFixed32Field(value: &value, fieldNumber: fieldNumber)
     }
 }
 
@@ -354,6 +625,27 @@ public struct ProtobufSFixed64: FieldType, MapKeyType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedSFixed64Field(value: value, fieldNumber: fieldNumber)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularSFixed64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedSFixed64Field(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedSFixed64Field(value: &value, fieldNumber: fieldNumber)
+    }
 }
 
 ///
@@ -376,6 +668,27 @@ public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         try visitor.visitPackedBoolField(value: value, fieldNumber: fieldNumber)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularBoolField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedBoolField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitPackedBoolField(value: &value, fieldNumber: fieldNumber)
     }
 
     /// Custom _lessThan since `Bool` isn't `Comparable`.
@@ -408,6 +721,27 @@ public struct ProtobufString: FieldType, MapKeyType, MapValueType {
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
         assert(false)
     }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularStringField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedStringField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        assert(false)
+    }
 }
 
 ///
@@ -429,6 +763,27 @@ public struct ProtobufBytes: FieldType, MapValueType {
         try visitor.visitRepeatedBytesField(value: value, fieldNumber: fieldNumber)
     }
     public static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws {
+        assert(false)
+    }
+    public static func visitSingular<V: AsyncVisitor>(
+        value: inout BaseType,
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitSingularBytesField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitRepeated<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
+        try await visitor.visitRepeatedBytesField(value: &value, fieldNumber: fieldNumber)
+    }
+    public static func visitPacked<V: AsyncVisitor>(
+        value: inout [BaseType],
+        fieldNumber: Int,
+        with visitor: inout V
+    ) async throws {
         assert(false)
     }
 }

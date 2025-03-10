@@ -210,7 +210,12 @@ class MessageGenerator {
         p.print("}")
     }
 
-    func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+    func generateRuntimeSupport(
+        printer p: inout CodePrinter,
+        file: FileGenerator,
+        parent: MessageGenerator?,
+        generateAsyncTraverse: Bool
+    ) {
         p.print(
             "",
             "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase, \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
@@ -239,7 +244,11 @@ class MessageGenerator {
             // generateIsInitialized provides a blank line after itself.
             generateDecodeMessage(printer: &p)
             p.print()
-            generateTraverse(printer: &p)
+            generateTraverse(printer: &p, isAsync: false)
+            if generateAsyncTraverse {
+                p.print()
+                generateTraverse(printer: &p, isAsync: true)
+            }
             p.print()
             generateMessageEquality(printer: &p)
         }
@@ -250,7 +259,12 @@ class MessageGenerator {
             e.generateRuntimeSupport(printer: &p)
         }
         for m in messages {
-            m.generateRuntimeSupport(printer: &p, file: file, parent: self)
+            m.generateRuntimeSupport(
+                printer: &p,
+                file: file,
+                parent: self,
+                generateAsyncTraverse: generateAsyncTraverse
+            )
         }
     }
 
@@ -356,51 +370,56 @@ class MessageGenerator {
     /// Generates the `traverse` method for the message.
     ///
     /// - Parameter p: The code printer.
-    private func generateTraverse(printer p: inout CodePrinter) {
-        p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModulePrefix)Visitor>(visitor: inout V) throws {")
+    private func generateTraverse(printer p: inout CodePrinter, isAsync: Bool) {
+        p.print(
+            "\(visibility)\(isAsync ? " mutating " : "")func traverse<V: \(namer.swiftProtobufModulePrefix)\(isAsync ? "Async" : "")Visitor>(visitor: inout V) \(isAsync ? "async " : "")throws {"
+        )
         p.withIndentation { p in
-            generateWithLifetimeExtension(printer: &p, throws: true) { p in
-                if let storage = storage {
-                    storage.generatePreTraverse(printer: &p)
-                }
+            if let storage = storage {
+                storage.generatePreTraverse(printer: &p)
+            }
 
-                let visitExtensionsName =
-                    descriptor.useMessageSetWireFormat ? "visitExtensionFieldsAsMessageSet" : "visitExtensionFields"
+            let visitExtensionsName =
+                descriptor.useMessageSetWireFormat ? "visitExtensionFieldsAsMessageSet" : "visitExtensionFields"
 
-                let usesLocals = fields.reduce(false) { $0 || $1.generateTraverseUsesLocals }
-                if usesLocals {
+            let usesLocals = fields.reduce(false) { $0 || $1.generateTraverseUsesLocals }
+            if usesLocals {
+                p.print(
+                    """
+                    // The use of inline closures is to circumvent an issue where the compiler
+                    // allocates stack space for every if/case branch local when no optimizations
+                    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+                    // https://github.com/apple/swift-protobuf/issues/1182
+                    """
+                )
+            }
+
+            // Use the "ambitious" ranges because for visit because subranges with no
+            // intermixed fields can be merged to reduce the number of calls for
+            // extension visitation.
+            var ranges = descriptor._ambitiousExtensionRanges.makeIterator()
+            var nextRange = ranges.next()
+            for f in fieldsSortedByNumber {
+                while nextRange != nil && Int(nextRange!.lowerBound) < f.number {
                     p.print(
-                        """
-                        // The use of inline closures is to circumvent an issue where the compiler
-                        // allocates stack space for every if/case branch local when no optimizations
-                        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-                        // https://github.com/apple/swift-protobuf/issues/1182
-                        """
-                    )
-                }
-
-                // Use the "ambitious" ranges because for visit because subranges with no
-                // intermixed fields can be merged to reduce the number of calls for
-                // extension visitation.
-                var ranges = descriptor._ambitiousExtensionRanges.makeIterator()
-                var nextRange = ranges.next()
-                for f in fieldsSortedByNumber {
-                    while nextRange != nil && Int(nextRange!.lowerBound) < f.number {
-                        p.print(
-                            "try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))"
-                        )
-                        nextRange = ranges.next()
-                    }
-                    f.generateTraverse(printer: &p)
-                }
-                while nextRange != nil {
-                    p.print(
-                        "try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))"
+                        "try \(isAsync ? "await " : "")visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))"
                     )
                     nextRange = ranges.next()
                 }
+                f.generateTraverse(printer: &p, isAsync: isAsync)
             }
-            p.print("try unknownFields.traverse(visitor: &visitor)")
+            while nextRange != nil {
+                p.print(
+                    "try \(isAsync ? "await " : "")visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound    ), end: \(nextRange!.upperBound))"
+                )
+                nextRange = ranges.next()
+            }
+            p.print("try \(isAsync ? "await " : "")unknownFields.traverse(visitor: &visitor)")
+
+            // It's enough to extend the lifetime of storage at the end of the scope
+            if storage != nil {
+                p.print("withExtendedLifetime(_storage) { _ in }")
+            }
         }
         p.print("}")
     }

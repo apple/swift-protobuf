@@ -64,6 +64,15 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
         }
     }
 
+    public mutating func traverse<V: AsyncVisitor>(visitor: inout V, start: Int, end: Int) async throws {
+        let validIndexes = values.keys.filter { $0 >= start && $0 < end }
+        for i in validIndexes.sorted() {
+            var value = values[i]!
+            try await value.traverse(visitor: &visitor)
+            values[i] = value
+        }
+    }
+
     public subscript(index: Int) -> (any AnyExtensionField)? {
         get { values[index] }
         set { values[index] = newValue }

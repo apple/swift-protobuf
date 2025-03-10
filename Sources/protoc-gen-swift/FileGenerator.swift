@@ -225,7 +225,12 @@ class FileGenerator {
                 e.generateRuntimeSupport(printer: &p)
             }
             for m in messages {
-                m.generateRuntimeSupport(printer: &p, file: self, parent: nil)
+                m.generateRuntimeSupport(
+                    printer: &p,
+                    file: self,
+                    parent: nil,
+                    generateAsyncTraverse: generatorOptions.asyncTraverse
+                )
             }
         }
     }

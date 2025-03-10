@@ -1,0 +1,11 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "AsyncTraverse.proto",
+            ],
+            "visibility": "public",
+            "asyncTraverse": true,
+        }
+    ]
+}
