@@ -332,7 +332,7 @@ extension FieldDescriptor {
         case .sint64: result = "Int64"
         }
 
-        if label == .repeated {
+        if isRepeated {
             return "[\(result)]"
         }
         return result
@@ -340,18 +340,16 @@ extension FieldDescriptor {
 
     func swiftStorageType(namer: SwiftProtobufNamer) -> String {
         let swiftType = self.swiftType(namer: namer)
-        switch label {
-        case .repeated:
+        if isRepeated {
             return swiftType
-        case .optional, .required:
-            guard realContainingOneof == nil else {
-                return swiftType
-            }
-            if hasPresence {
-                return "\(swiftType)?"
-            } else {
-                return swiftType
-            }
+        }
+        guard realContainingOneof == nil else {
+            return swiftType
+        }
+        if hasPresence {
+            return "\(swiftType)?"
+        } else {
+            return swiftType
         }
     }
 
@@ -384,7 +382,7 @@ extension FieldDescriptor {
         if isMap {
             return "[:]"
         }
-        if label == .repeated {
+        if isRepeated {
             return "[]"
         }
 
