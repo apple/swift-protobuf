@@ -1092,17 +1092,18 @@ public final class FieldDescriptor {
     /// optional/required/repeated
     public let label: Google_Protobuf_FieldDescriptorProto.Label
 
-    /// Shorthand for `label` == `.required`.
-    ///
-    /// NOTE: This could also be a map as the are also repeated fields.
+    /// Whether or not the field is required. For proto2 required fields and
+    /// Editions `LEGACY_REQUIRED` fields.
     public var isRequired: Bool {
         // Implementation comes from FieldDescriptor::is_required()
         features.fieldPresence == .legacyRequired
     }
-    /// Shorthand for `label` == `.optional`
-    public var isOptional: Bool { label == .optional }
-    /// Shorthand for `label` == `.repeated`
+    /// Whether or not the field is repeated/map field.
     public var isRepeated: Bool { label == .repeated }
+
+    /// Use !isRequired() && !isRepeated() instead.
+    @available(*, deprecated, message: "Use !isRequired() && !isRepeated() instead.")
+    public var isOptional: Bool { label == .optional }
 
     /// Is this field packable.
     public var isPackable: Bool {

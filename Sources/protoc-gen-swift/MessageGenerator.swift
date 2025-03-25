@@ -117,9 +117,9 @@ class MessageGenerator {
                     "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is a non message extension field."
                 return
             }
-            guard e.isOptional else {
+            guard !e.isRequired && !e.isRepeated else {
                 errorString =
-                    "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is not a \"optional\" extension field."
+                    "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) cannot be required nor repeated extension field."
                 return
             }
         }
