@@ -33,10 +33,12 @@ class ExtensionSetGenerator {
 
         var extensionFieldType: String {
             let label: String
-            switch fieldDescriptor.label {
-            case .optional: label = "Optional"
-            case .required: label = "Required"
-            case .repeated: label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
+            if fieldDescriptor.isRequired {
+                label = "Required"
+            } else if fieldDescriptor.isRepeated {
+                label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
+            } else {
+                label = "Optional"
             }
 
             let modifier: String
@@ -69,7 +71,8 @@ class ExtensionSetGenerator {
 
             var fieldNamePath: String
             if fieldDescriptor.containingType.useMessageSetWireFormat && fieldDescriptor.type == .message
-                && fieldDescriptor.label == .optional && fieldDescriptor.messageType === fieldDescriptor.extensionScope
+                && (!fieldDescriptor.isRepeated && !fieldDescriptor.isRequired)
+                && fieldDescriptor.messageType === fieldDescriptor.extensionScope
             {
                 fieldNamePath = fieldDescriptor.messageType!.fullName
             } else {
@@ -105,7 +108,8 @@ class ExtensionSetGenerator {
             p.print("}")
 
             // Repeated extension fields can use .isEmpty and clear by setting to the empty list.
-            if fieldDescriptor.label != .repeated {
+            // Everything else gets a "has" helper.
+            if !fieldDescriptor.isRepeated {
                 p.print(
                     "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.",
                     "\(visibility)var \(extensionNames.has): Bool {"

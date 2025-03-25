@@ -1089,7 +1089,9 @@ public final class FieldDescriptor {
     /// Declared type of this field.
     public private(set) var type: Google_Protobuf_FieldDescriptorProto.TypeEnum
 
-    /// optional/required/repeated
+    /// This should never be called directly. Use isRequired and isRepeated
+    /// helper methods instead.
+    // TODO(thomasvl): @available(*, deprecated, message: "Use isRequired or isRepeated instead.")
     public let label: Google_Protobuf_FieldDescriptorProto.Label
 
     /// Whether or not the field is required. For proto2 required fields and
@@ -1102,13 +1104,13 @@ public final class FieldDescriptor {
     public var isRepeated: Bool { label == .repeated }
 
     /// Use !isRequired() && !isRepeated() instead.
-    @available(*, deprecated, message: "Use !isRequired() && !isRepeated() instead.")
+    @available(*, deprecated, message: "Use !isRequired && !isRepeated instead.")
     public var isOptional: Bool { label == .optional }
 
     /// Is this field packable.
     public var isPackable: Bool {
         // This logic comes from the C++ FieldDescriptor::is_packable() impl.
-        label == .repeated && FieldDescriptor.isPackable(type: type)
+        isRepeated && FieldDescriptor.isPackable(type: type)
     }
     /// If this field is packable and packed.
     public var isPacked: Bool {
@@ -1140,7 +1142,7 @@ public final class FieldDescriptor {
     /// repeated fields, and singular proto3 fields without "optional".
     public var hasPresence: Bool {
         // This logic comes from the C++ FieldDescriptor::has_presence() impl.
-        guard label != .repeated else { return false }
+        guard !isRepeated else { return false }
         switch type {
         case .group, .message:
             // Groups/messages always get field presence.
