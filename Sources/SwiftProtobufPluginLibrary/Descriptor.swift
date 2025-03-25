@@ -1091,8 +1091,11 @@ public final class FieldDescriptor {
 
     /// This should never be called directly. Use isRequired and isRepeated
     /// helper methods instead.
-    // TODO(thomasvl): @available(*, deprecated, message: "Use isRequired or isRepeated instead.")
-    public let label: Google_Protobuf_FieldDescriptorProto.Label
+    @available(*, deprecated, message: "Use isRequired or isRepeated instead.")
+    public var label: Google_Protobuf_FieldDescriptorProto.Label { _label }
+
+    // Storage for `label`, used by other apis.
+    private var _label: Google_Protobuf_FieldDescriptorProto.Label
 
     /// Whether or not the field is required. For proto2 required fields and
     /// Editions `LEGACY_REQUIRED` fields.
@@ -1101,7 +1104,7 @@ public final class FieldDescriptor {
         features.fieldPresence == .legacyRequired
     }
     /// Whether or not the field is repeated/map field.
-    public var isRepeated: Bool { label == .repeated }
+    public var isRepeated: Bool { _label == .repeated }
 
     /// Use !isRequired() && !isRepeated() instead.
     @available(*, deprecated, message: "Use !isRequired && !isRepeated instead.")
@@ -1129,7 +1132,7 @@ public final class FieldDescriptor {
     var _hasOptionalKeyword: Bool {
         // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
         // impl.
-        proto3Optional || (file.edition == .proto2 && label == .optional && oneofIndex == nil)
+        proto3Optional || (file.edition == .proto2 && _label == .optional && oneofIndex == nil)
     }
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var hasOptionalKeyword: Bool {
@@ -1346,9 +1349,9 @@ public final class FieldDescriptor {
         // helper instead of access `label` directly, they won't need this, but for
         // consistency, remap `label` to expose the pre Editions/Features value.
         if self.features.fieldPresence == .legacyRequired && proto.label == .optional {
-            self.label = .required
+            self._label = .required
         } else {
-            self.label = proto.label
+            self._label = proto.label
         }
         self.options = proto.options
         self.oneofIndex = proto.hasOneofIndex ? proto.oneofIndex : nil
