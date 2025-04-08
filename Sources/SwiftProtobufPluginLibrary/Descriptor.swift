@@ -1092,7 +1092,15 @@ public final class FieldDescriptor {
     /// This should never be called directly. Use isRequired and isRepeated
     /// helper methods instead.
     @available(*, deprecated, message: "Use isRequired or isRepeated instead.")
-    public var label: Google_Protobuf_FieldDescriptorProto.Label { _label }
+    public var label: Google_Protobuf_FieldDescriptorProto.Label {
+        if isRepeated {
+            return .repeated
+        } else if isRequired {
+            return .required
+        } else {
+            return .optional
+        }
+    }
 
     // Storage for `label`, used by other apis.
     private var _label: Google_Protobuf_FieldDescriptorProto.Label
@@ -1132,7 +1140,7 @@ public final class FieldDescriptor {
     var _hasOptionalKeyword: Bool {
         // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
         // impl.
-        proto3Optional || (file.edition == .proto2 && _label == .optional && oneofIndex == nil)
+        proto3Optional || (file.edition == .proto2 && !isRequired && !isRepeated && oneofIndex == nil)
     }
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var hasOptionalKeyword: Bool {
