@@ -21,7 +21,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-/// NEXT_TAG = 5;
+/// NEXT_TAG = 6;
 struct Proto2Unittest_TestStringView: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -44,6 +44,8 @@ struct Proto2Unittest_TestStringView: @unchecked Sendable {
   var hasSingularBytes: Bool {return self._singularBytes != nil}
   /// Clears the value of `singularBytes`. Subsequent reads from it will return its default value.
   mutating func clearSingularBytes() {self._singularBytes = nil}
+
+  var implicitPresence: String = String()
 
   var repeatedString: [String] = []
 
@@ -168,6 +170,7 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._M
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "singular_string"),
     2: .standard(proto: "singular_bytes"),
+    5: .standard(proto: "implicit_presence"),
     3: .standard(proto: "repeated_string"),
     4: .standard(proto: "repeated_bytes"),
   ]
@@ -182,6 +185,7 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._M
       case 2: try { try decoder.decodeSingularBytesField(value: &self._singularBytes) }()
       case 3: try { try decoder.decodeRepeatedStringField(value: &self.repeatedString) }()
       case 4: try { try decoder.decodeRepeatedBytesField(value: &self.repeatedBytes) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.implicitPresence) }()
       default: break
       }
     }
@@ -204,12 +208,16 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._M
     if !self.repeatedBytes.isEmpty {
       try visitor.visitRepeatedBytesField(value: self.repeatedBytes, fieldNumber: 4)
     }
+    if !self.implicitPresence.isEmpty {
+      try visitor.visitSingularStringField(value: self.implicitPresence, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Proto2Unittest_TestStringView, rhs: Proto2Unittest_TestStringView) -> Bool {
     if lhs._singularString != rhs._singularString {return false}
     if lhs._singularBytes != rhs._singularBytes {return false}
+    if lhs.implicitPresence != rhs.implicitPresence {return false}
     if lhs.repeatedString != rhs.repeatedString {return false}
     if lhs.repeatedBytes != rhs.repeatedBytes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

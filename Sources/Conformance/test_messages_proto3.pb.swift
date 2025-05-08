@@ -85,6 +85,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {
   // methods supported on all messages.
 
   /// Singular
+  /// test [kotlin] comment
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}

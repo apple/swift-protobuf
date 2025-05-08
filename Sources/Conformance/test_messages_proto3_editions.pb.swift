@@ -8,6 +8,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
+// clang-format off
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
 //
@@ -85,6 +86,7 @@ struct ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3: @unchecked Senda
   // methods supported on all messages.
 
   /// Singular
+  /// test [kotlin] comment
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
