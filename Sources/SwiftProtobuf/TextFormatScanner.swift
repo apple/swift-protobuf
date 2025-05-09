@@ -1176,6 +1176,7 @@ internal struct TextFormatScanner {
                     throw TextFormatDecodingError.malformedText
                 }
             }
+            var isReserved = false
             let c = p[0]
             switch c {
             case asciiLowerA...asciiLowerZ,
@@ -1185,9 +1186,13 @@ internal struct TextFormatScanner {
                     return fieldNumber
                 }
                 if !options.ignoreUnknownFields {
-                    throw TextFormatDecodingError.unknownField
+                    if names.isReserved(name: key) {
+                        isReserved = true
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
-                // Unknown field name
+                // Unknown field name or reserved, break and skip
                 break
             case asciiOpenSquareBracket:  // Start of an extension field
                 let key = try parseExtensionKey()
@@ -1197,7 +1202,7 @@ internal struct TextFormatScanner {
                 if !options.ignoreUnknownExtensionFields {
                     throw TextFormatDecodingError.unknownField
                 }
-                // Unknown field name
+                // Unknown field name, break and skip
                 break
             case asciiOne...asciiNine:  // 1-9 (field numbers are 123, not 0123)
                 let start = p
@@ -1220,9 +1225,14 @@ internal struct TextFormatScanner {
                     return fieldNum
                 }
                 if !options.ignoreUnknownFields {
-                    throw TextFormatDecodingError.unknownField
+                    // fieldNumber is range checked while parsing, so safe can truncate.
+                    if names.isReserved(number: Int32(truncatingIfNeeded: fieldNum)) {
+                        isReserved = true
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
-                // Unknown field name
+                // Unknown field name or reserved, break and skip
                 break
             default:
                 if c == terminator {
@@ -1232,7 +1242,7 @@ internal struct TextFormatScanner {
                 throw TextFormatDecodingError.malformedText
             }
 
-            assert(options.ignoreUnknownFields || options.ignoreUnknownExtensionFields)
+            assert(options.ignoreUnknownFields || options.ignoreUnknownExtensionFields || isReserved)
             try skipUnknownFieldValue()
             // Skip any separator before looping around to try for another field.
             skipOptionalSeparator()
