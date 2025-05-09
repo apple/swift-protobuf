@@ -182,7 +182,10 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrdering"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
+      reservedNames: [],
+      reservedRanges: [8..<9, 121..<126],
+      numberNameMappings: [:])
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -216,12 +219,15 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, 
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingWithFields"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    6: .same(proto: "field6"),
-    124: .same(proto: "field124"),
-    125: .same(proto: "field125"),
-    200: .same(proto: "field200"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
+      reservedNames: [],
+      reservedRanges: [8..<9, 121..<124],
+      numberNameMappings: [
+        6: .same(proto: "field6"),
+        124: .same(proto: "field124"),
+        125: .same(proto: "field125"),
+        200: .same(proto: "field200"),
+  ])
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
