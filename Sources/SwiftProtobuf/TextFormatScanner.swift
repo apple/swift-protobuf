@@ -240,19 +240,15 @@ private func decodeString(_ s: String) -> String? {
 /// TextFormatScanner has no public members.
 ///
 internal struct TextFormatScanner {
-    internal var extensions: (any ExtensionMap)?
+    internal let extensions: (any ExtensionMap)?
     private var p: UnsafeRawPointer
-    private var end: UnsafeRawPointer
-    private var doubleParser = DoubleParser()
+    private let end: UnsafeRawPointer
+    private let doubleParser = DoubleParser()
 
     internal let options: TextFormatDecodingOptions
     internal var recursionBudget: Int
 
-    internal var complete: Bool {
-        mutating get {
-            p == end
-        }
-    }
+    internal var complete: Bool { p == end }
 
     internal init(
         utf8Pointer: UnsafeRawPointer,
