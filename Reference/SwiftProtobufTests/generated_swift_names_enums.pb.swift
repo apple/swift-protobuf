@@ -17221,6 +17221,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum isReserved: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneIsReserved // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIsReserved
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIsReserved
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIsReserved: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isReserved] = [
+      .noneIsReserved,
+    ]
+
+  }
+
   enum isValid: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneIsValid // = 0
@@ -34482,6 +34512,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isNegative: Sw
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isPathValid: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isPathValid"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isReserved: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_isReserved"),
   ]
 }
 
