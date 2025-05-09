@@ -577,6 +577,7 @@ message GeneratedSwiftReservedEnums {
   enum isInitialized { NONE_isInitialized = 0; }
   enum isNegative { NONE_isNegative = 0; }
   enum isPathValid { NONE_isPathValid = 0; }
+  enum isReserved { NONE_isReserved = 0; }
   enum isValid { NONE_isValid = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
   enum iterator { NONE_iterator = 0; }

@@ -577,6 +577,7 @@ message GeneratedSwiftReservedMessages {
   message isInitialized { int32 isInitialized = 1; }
   message isNegative { int32 isNegative = 1; }
   message isPathValid { int32 isPathValid = 1; }
+  message isReserved { int32 isReserved = 1; }
   message isValid { int32 isValid = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
   message iterator { int32 iterator = 1; }
