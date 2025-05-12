@@ -165,9 +165,10 @@ message TestAllTypes {
     bytes oneof_bytes = 114;
   }
 
-  reserved "reserved_field";
+  reserved "something_old", "reserved_field";
+  reserved "something_long_gone";
 
-  reserved 999999;
+  reserved 999980 to 999989, 999998 to 999999, 1000011;
 }
 
 // This proto includes a recursively nested message.

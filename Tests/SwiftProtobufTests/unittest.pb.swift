@@ -3920,8 +3920,8 @@ extension SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProvid
 extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(
-      reservedNames: ["reserved_field"],
-      reservedRanges: [999999..<1000000],
+      reservedNames: ["something_old", "reserved_field", "something_long_gone"],
+      reservedRanges: [999980..<999990, 999998..<1000000, 1000011..<1000012],
       numberNameMappings: [
         1: .standard(proto: "optional_int32"),
         2: .standard(proto: "optional_int64"),
