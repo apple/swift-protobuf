@@ -12029,7 +12029,7 @@ extension Proto2Unittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtobu
   static let protoMessageName: String = _protobuf_package + ".TestReservedFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(
       reservedNames: ["bar", "baz"],
-      reservedRanges: [2..<3, 15..<16, 9..<12],
+      reservedRanges: [2..<3, 9..<12, 15..<16],
       numberNameMappings: [:])
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -21445,7 +21445,7 @@ extension Proto2Unittest_FastParseTableCompression: SwiftProtobuf.Message, Swift
   static let protoMessageName: String = _protobuf_package + ".FastParseTableCompression"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(
       reservedNames: [],
-      reservedRanges: [6..<7, 7..<8, 8..<9, 10..<11, 13..<14, 16..<17],
+      reservedRanges: [6..<9, 10..<11, 13..<14, 16..<17],
       numberNameMappings: [
         1: .standard(proto: "important_field_1"),
         2: .standard(proto: "important_field_2"),

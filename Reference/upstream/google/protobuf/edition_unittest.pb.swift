@@ -11183,7 +11183,7 @@ extension EditionUnittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtob
   static let protoMessageName: String = _protobuf_package + ".TestReservedFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(
       reservedNames: ["bar", "baz"],
-      reservedRanges: [2..<3, 15..<16, 9..<12],
+      reservedRanges: [2..<3, 9..<12, 15..<16],
       numberNameMappings: [:])
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

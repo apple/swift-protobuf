@@ -3921,7 +3921,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(
       reservedNames: ["something_old", "reserved_field", "something_long_gone"],
-      reservedRanges: [999980..<999990, 999998..<1000000, 1000011..<1000012],
+      reservedRanges: [999980..<999990, 999998..<1000000, 1000010..<1000013],
       numberNameMappings: [
         1: .standard(proto: "optional_int32"),
         2: .standard(proto: "optional_int64"),

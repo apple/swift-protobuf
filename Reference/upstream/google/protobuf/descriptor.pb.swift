@@ -3943,7 +3943,7 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
   static let protoMessageName: String = _protobuf_package + ".FileOptions"
   static let _protobuf_nameMap = _NameMap(
       reservedNames: ["php_generic_services"],
-      reservedRanges: [42..<43, 38..<39],
+      reservedRanges: [38..<39, 42..<43],
       numberNameMappings: [
         1: .standard(proto: "java_package"),
         8: .standard(proto: "java_outer_classname"),
@@ -4199,7 +4199,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
   static let protoMessageName: String = _protobuf_package + ".MessageOptions"
   static let _protobuf_nameMap = _NameMap(
       reservedNames: [],
-      reservedRanges: [4..<5, 5..<6, 6..<7, 8..<9, 9..<10],
+      reservedRanges: [4..<7, 8..<10],
       numberNameMappings: [
         1: .standard(proto: "message_set_wire_format"),
         2: .standard(proto: "no_standard_descriptor_accessor"),
@@ -5299,7 +5299,7 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
   static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
   static let _protobuf_nameMap = _NameMap(
       reservedNames: ["features"],
-      reservedRanges: [1..<2, 2..<3],
+      reservedRanges: [1..<3],
       numberNameMappings: [
         3: .same(proto: "edition"),
         4: .standard(proto: "overridable_features"),
