@@ -290,7 +290,7 @@ class MessageGenerator {
                 p.print("    reservedRanges: [", newlines: false)
                 p.withIndentation { p in
                     var first = true
-                    for range in descriptor.reservedRanges {
+                    for range in descriptor.reservedRanges.sortAndMergeContinuous() {
                         p.print("\(first ? "" : ", ")\(range)", newlines: false)
                         first = false
                     }

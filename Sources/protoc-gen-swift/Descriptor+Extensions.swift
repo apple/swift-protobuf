@@ -251,20 +251,7 @@ extension Descriptor {
     /// This also uses Range<> since the options that could be on
     /// `extensionRanges` no longer can apply as the things have been merged.
     var _normalizedExtensionRanges: [Range<Int32>] {
-        var ordered: [Range<Int32>] = self.messageExtensionRanges.sorted(by: {
-            $0.start < $1.start
-        }).map {
-            $0.start..<$0.end
-        }
-        if ordered.count > 1 {
-            for i in (0..<(ordered.count - 1)).reversed() {
-                if ordered[i].upperBound == ordered[i + 1].lowerBound {
-                    ordered[i] = ordered[i].lowerBound..<ordered[i + 1].upperBound
-                    ordered.remove(at: i + 1)
-                }
-            }
-        }
-        return ordered
+        self.messageExtensionRanges.map({ $0.start..<$0.end }).sortAndMergeContinuous()
     }
 
     /// The `extensionRanges` from `normalizedExtensionRanges`, but takes a step
