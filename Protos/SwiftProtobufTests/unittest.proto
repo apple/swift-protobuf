@@ -164,6 +164,10 @@ message TestAllTypes {
     string oneof_string = 113;
     bytes oneof_bytes = 114;
   }
+
+  reserved "reserved_field";
+
+  reserved 999999;
 }
 
 // This proto includes a recursively nested message.
