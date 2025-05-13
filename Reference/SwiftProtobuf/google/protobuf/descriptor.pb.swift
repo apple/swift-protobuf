@@ -101,6 +101,22 @@ enum Google_Protobuf_Edition: Int, Enum, Swift.CaseIterable {
 
 }
 
+/// Describes the 'visibility' of a symbol with respect to the proto import
+/// system. Symbols can only be imported when the visibility rules do not prevent
+/// it (ex: local symbols cannot be imported).  Visibility modifiers can only set
+/// on `message` and `enum` as they are the only types available to be referenced
+/// from other files.
+enum Google_Protobuf_SymbolVisibility: Int, Enum, Swift.CaseIterable {
+  case visibilityUnset = 0
+  case visibilityLocal = 1
+  case visibilityExport = 2
+
+  init() {
+    self = .visibilityUnset
+  }
+
+}
+
 /// The protocol compiler can output a FileDescriptorSet containing the .proto
 /// files it parses.
 struct Google_Protobuf_FileDescriptorSet: ExtensibleMessage, Sendable {
@@ -152,6 +168,10 @@ struct Google_Protobuf_FileDescriptorProto: Sendable {
   /// Indexes of the weak imported files in the dependency list.
   /// For Google-internal migration only. Do not use.
   var weakDependency: [Int32] = []
+
+  /// Names of files imported by this file purely for the purpose of providing
+  /// option extensions. These are excluded from the dependency list above.
+  var optionDependency: [String] = []
 
   /// All top-level definitions in this file.
   var messageType: [Google_Protobuf_DescriptorProto] = []
@@ -290,6 +310,16 @@ struct Google_Protobuf_DescriptorProto: @unchecked Sendable {
     get {return _storage._reservedName}
     set {_uniqueStorage()._reservedName = newValue}
   }
+
+  /// Support for `export` and `local` keywords on enums.
+  var visibility: Google_Protobuf_SymbolVisibility {
+    get {return _storage._visibility ?? .visibilityUnset}
+    set {_uniqueStorage()._visibility = newValue}
+  }
+  /// Returns true if `visibility` has been explicitly set.
+  var hasVisibility: Bool {return _storage._visibility != nil}
+  /// Clears the value of `visibility`. Subsequent reads from it will return its default value.
+  mutating func clearVisibility() {_uniqueStorage()._visibility = nil}
 
   var unknownFields = UnknownStorage()
 
@@ -767,39 +797,58 @@ struct Google_Protobuf_OneofDescriptorProto: Sendable {
 }
 
 /// Describes an enum type.
-struct Google_Protobuf_EnumDescriptorProto: Sendable {
+struct Google_Protobuf_EnumDescriptorProto: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var name: String {
-    get {return _name ?? String()}
-    set {_name = newValue}
+    get {return _storage._name ?? String()}
+    set {_uniqueStorage()._name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  mutating func clearName() {_uniqueStorage()._name = nil}
 
-  var value: [Google_Protobuf_EnumValueDescriptorProto] = []
+  var value: [Google_Protobuf_EnumValueDescriptorProto] {
+    get {return _storage._value}
+    set {_uniqueStorage()._value = newValue}
+  }
 
   var options: Google_Protobuf_EnumOptions {
-    get {return _options ?? Google_Protobuf_EnumOptions()}
-    set {_options = newValue}
+    get {return _storage._options ?? Google_Protobuf_EnumOptions()}
+    set {_uniqueStorage()._options = newValue}
   }
   /// Returns true if `options` has been explicitly set.
-  var hasOptions: Bool {return self._options != nil}
+  var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  mutating func clearOptions() {self._options = nil}
+  mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   /// Range of reserved numeric values. Reserved numeric values may not be used
   /// by enum values in the same enum declaration. Reserved ranges may not
   /// overlap.
-  var reservedRange: [Google_Protobuf_EnumDescriptorProto.EnumReservedRange] = []
+  var reservedRange: [Google_Protobuf_EnumDescriptorProto.EnumReservedRange] {
+    get {return _storage._reservedRange}
+    set {_uniqueStorage()._reservedRange = newValue}
+  }
 
   /// Reserved enum value names, which may not be reused. A given name may only
   /// be reserved once.
-  var reservedName: [String] = []
+  var reservedName: [String] {
+    get {return _storage._reservedName}
+    set {_uniqueStorage()._reservedName = newValue}
+  }
+
+  /// Support for `export` and `local` keywords on enums.
+  var visibility: Google_Protobuf_SymbolVisibility {
+    get {return _storage._visibility ?? .visibilityUnset}
+    set {_uniqueStorage()._visibility = newValue}
+  }
+  /// Returns true if `visibility` has been explicitly set.
+  var hasVisibility: Bool {return _storage._visibility != nil}
+  /// Clears the value of `visibility`. Subsequent reads from it will return its default value.
+  mutating func clearVisibility() {_uniqueStorage()._visibility = nil}
 
   var unknownFields = UnknownStorage()
 
@@ -844,50 +893,47 @@ struct Google_Protobuf_EnumDescriptorProto: Sendable {
 
   init() {}
 
-  fileprivate var _name: String? = nil
-  fileprivate var _options: Google_Protobuf_EnumOptions? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a value within an enum.
-struct Google_Protobuf_EnumValueDescriptorProto: Sendable {
+struct Google_Protobuf_EnumValueDescriptorProto: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var name: String {
-    get {return _name ?? String()}
-    set {_name = newValue}
+    get {return _storage._name ?? String()}
+    set {_uniqueStorage()._name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  mutating func clearName() {_uniqueStorage()._name = nil}
 
   var number: Int32 {
-    get {return _number ?? 0}
-    set {_number = newValue}
+    get {return _storage._number ?? 0}
+    set {_uniqueStorage()._number = newValue}
   }
   /// Returns true if `number` has been explicitly set.
-  var hasNumber: Bool {return self._number != nil}
+  var hasNumber: Bool {return _storage._number != nil}
   /// Clears the value of `number`. Subsequent reads from it will return its default value.
-  mutating func clearNumber() {self._number = nil}
+  mutating func clearNumber() {_uniqueStorage()._number = nil}
 
   var options: Google_Protobuf_EnumValueOptions {
-    get {return _options ?? Google_Protobuf_EnumValueOptions()}
-    set {_options = newValue}
+    get {return _storage._options ?? Google_Protobuf_EnumValueOptions()}
+    set {_uniqueStorage()._options = newValue}
   }
   /// Returns true if `options` has been explicitly set.
-  var hasOptions: Bool {return self._options != nil}
+  var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  mutating func clearOptions() {self._options = nil}
+  mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   var unknownFields = UnknownStorage()
 
   init() {}
 
-  fileprivate var _name: String? = nil
-  fileprivate var _number: Int32? = nil
-  fileprivate var _options: Google_Protobuf_EnumValueOptions? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a service.
@@ -2253,6 +2299,15 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
   /// Clears the value of `enforceNamingStyle`. Subsequent reads from it will return its default value.
   mutating func clearEnforceNamingStyle() {self._enforceNamingStyle = nil}
 
+  var defaultSymbolVisibility: Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
+    get {return _defaultSymbolVisibility ?? .unknown}
+    set {_defaultSymbolVisibility = newValue}
+  }
+  /// Returns true if `defaultSymbolVisibility` has been explicitly set.
+  var hasDefaultSymbolVisibility: Bool {return self._defaultSymbolVisibility != nil}
+  /// Clears the value of `defaultSymbolVisibility`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSymbolVisibility() {self._defaultSymbolVisibility = nil}
+
   var unknownFields = UnknownStorage()
 
   enum FieldPresence: Int, Enum, Swift.CaseIterable {
@@ -2333,6 +2388,39 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
 
   }
 
+  struct VisibilityFeature: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unknownFields = UnknownStorage()
+
+    enum DefaultSymbolVisibility: Int, Enum, Swift.CaseIterable {
+      case unknown = 0
+
+      /// Default pre-EDITION_2024, all UNSET visibility are export.
+      case exportAll = 1
+
+      /// All top-level symbols default to export, nested default to local.
+      case exportTopLevel = 2
+
+      /// All symbols default to local.
+      case localAll = 3
+
+      /// All symbols local by default. Nested types cannot be exported.
+      /// With special case caveat for message { enum {} reserved 1 to max; }
+      /// This is the recommended setting for new protos.
+      case strict = 4
+
+      init() {
+        self = .unknown
+      }
+
+    }
+
+    init() {}
+  }
+
   init() {}
 
   var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
@@ -2343,6 +2431,7 @@ struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
   fileprivate var _messageEncoding: Google_Protobuf_FeatureSet.MessageEncoding? = nil
   fileprivate var _jsonFormat: Google_Protobuf_FeatureSet.JsonFormat? = nil
   fileprivate var _enforceNamingStyle: Google_Protobuf_FeatureSet.EnforceNamingStyle? = nil
+  fileprivate var _defaultSymbolVisibility: Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility? = nil
 }
 
 /// A compiled specification for the defaults of a set of features.  These
@@ -2384,47 +2473,45 @@ struct Google_Protobuf_FeatureSetDefaults: Sendable {
   /// defaults. Not all editions may be contained here.  For a given edition,
   /// the defaults at the closest matching edition ordered at or before it should
   /// be used.  This field must be in strict ascending order by edition.
-  struct FeatureSetEditionDefault: Sendable {
+  struct FeatureSetEditionDefault: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var edition: Google_Protobuf_Edition {
-      get {return _edition ?? .unknown}
-      set {_edition = newValue}
+      get {return _storage._edition ?? .unknown}
+      set {_uniqueStorage()._edition = newValue}
     }
     /// Returns true if `edition` has been explicitly set.
-    var hasEdition: Bool {return self._edition != nil}
+    var hasEdition: Bool {return _storage._edition != nil}
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
-    mutating func clearEdition() {self._edition = nil}
+    mutating func clearEdition() {_uniqueStorage()._edition = nil}
 
     /// Defaults of features that can be overridden in this edition.
     var overridableFeatures: Google_Protobuf_FeatureSet {
-      get {return _overridableFeatures ?? Google_Protobuf_FeatureSet()}
-      set {_overridableFeatures = newValue}
+      get {return _storage._overridableFeatures ?? Google_Protobuf_FeatureSet()}
+      set {_uniqueStorage()._overridableFeatures = newValue}
     }
     /// Returns true if `overridableFeatures` has been explicitly set.
-    var hasOverridableFeatures: Bool {return self._overridableFeatures != nil}
+    var hasOverridableFeatures: Bool {return _storage._overridableFeatures != nil}
     /// Clears the value of `overridableFeatures`. Subsequent reads from it will return its default value.
-    mutating func clearOverridableFeatures() {self._overridableFeatures = nil}
+    mutating func clearOverridableFeatures() {_uniqueStorage()._overridableFeatures = nil}
 
     /// Defaults of features that can't be overridden in this edition.
     var fixedFeatures: Google_Protobuf_FeatureSet {
-      get {return _fixedFeatures ?? Google_Protobuf_FeatureSet()}
-      set {_fixedFeatures = newValue}
+      get {return _storage._fixedFeatures ?? Google_Protobuf_FeatureSet()}
+      set {_uniqueStorage()._fixedFeatures = newValue}
     }
     /// Returns true if `fixedFeatures` has been explicitly set.
-    var hasFixedFeatures: Bool {return self._fixedFeatures != nil}
+    var hasFixedFeatures: Bool {return _storage._fixedFeatures != nil}
     /// Clears the value of `fixedFeatures`. Subsequent reads from it will return its default value.
-    mutating func clearFixedFeatures() {self._fixedFeatures = nil}
+    mutating func clearFixedFeatures() {_uniqueStorage()._fixedFeatures = nil}
 
     var unknownFields = UnknownStorage()
 
     init() {}
 
-    fileprivate var _edition: Google_Protobuf_Edition? = nil
-    fileprivate var _overridableFeatures: Google_Protobuf_FeatureSet? = nil
-    fileprivate var _fixedFeatures: Google_Protobuf_FeatureSet? = nil
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
@@ -2722,6 +2809,14 @@ extension Google_Protobuf_Edition: _ProtoNameProviding {
   ]
 }
 
+extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
+  static let _protobuf_nameMap: _NameMap = [
+    0: .same(proto: "VISIBILITY_UNSET"),
+    1: .same(proto: "VISIBILITY_LOCAL"),
+    2: .same(proto: "VISIBILITY_EXPORT"),
+  ]
+}
+
 extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileDescriptorSet"
   static let _protobuf_nameMap: _NameMap = [
@@ -2772,6 +2867,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     3: .same(proto: "dependency"),
     10: .standard(proto: "public_dependency"),
     11: .standard(proto: "weak_dependency"),
+    15: .standard(proto: "option_dependency"),
     4: .standard(proto: "message_type"),
     5: .standard(proto: "enum_type"),
     6: .same(proto: "service"),
@@ -2811,6 +2907,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
       case 11: try { try decoder.decodeRepeatedInt32Field(value: &self.weakDependency) }()
       case 12: try { try decoder.decodeSingularStringField(value: &self._syntax) }()
       case 14: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
+      case 15: try { try decoder.decodeRepeatedStringField(value: &self.optionDependency) }()
       default: break
       }
     }
@@ -2860,6 +2957,9 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     try { if let v = self._edition {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 14)
     } }()
+    if !self.optionDependency.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.optionDependency, fieldNumber: 15)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2869,6 +2969,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     if lhs.dependency != rhs.dependency {return false}
     if lhs.publicDependency != rhs.publicDependency {return false}
     if lhs.weakDependency != rhs.weakDependency {return false}
+    if lhs.optionDependency != rhs.optionDependency {return false}
     if lhs.messageType != rhs.messageType {return false}
     if lhs.enumType != rhs.enumType {return false}
     if lhs.service != rhs.service {return false}
@@ -2895,6 +2996,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
     7: .same(proto: "options"),
     9: .standard(proto: "reserved_range"),
     10: .standard(proto: "reserved_name"),
+    11: .same(proto: "visibility"),
   ]
 
   fileprivate class _StorageClass {
@@ -2908,6 +3010,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
     var _options: Google_Protobuf_MessageOptions? = nil
     var _reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
     var _reservedName: [String] = []
+    var _visibility: Google_Protobuf_SymbolVisibility? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -2928,6 +3031,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
       _options = source._options
       _reservedRange = source._reservedRange
       _reservedName = source._reservedName
+      _visibility = source._visibility
     }
   }
 
@@ -2969,6 +3073,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
         case 8: try { try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl) }()
         case 9: try { try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange) }()
         case 10: try { try decoder.decodeRepeatedStringField(value: &_storage._reservedName) }()
+        case 11: try { try decoder.decodeSingularEnumField(value: &_storage._visibility) }()
         default: break
         }
       }
@@ -3011,6 +3116,9 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
       if !_storage._reservedName.isEmpty {
         try visitor.visitRepeatedStringField(value: _storage._reservedName, fieldNumber: 10)
       }
+      try { if let v = _storage._visibility {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 11)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -3030,6 +3138,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
         if _storage._options != rhs_storage._options {return false}
         if _storage._reservedRange != rhs_storage._reservedRange {return false}
         if _storage._reservedName != rhs_storage._reservedName {return false}
+        if _storage._visibility != rhs_storage._visibility {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -3453,59 +3562,117 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
     3: .same(proto: "options"),
     4: .standard(proto: "reserved_range"),
     5: .standard(proto: "reserved_name"),
+    6: .same(proto: "visibility"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
+    var _options: Google_Protobuf_EnumOptions? = nil
+    var _reservedRange: [Google_Protobuf_EnumDescriptorProto.EnumReservedRange] = []
+    var _reservedName: [String] = []
+    var _visibility: Google_Protobuf_SymbolVisibility? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _value = source._value
+      _options = source._options
+      _reservedRange = source._reservedRange
+      _reservedName = source._reservedName
+      _visibility = source._visibility
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public var isInitialized: Bool {
-    if !Internal.areAllInitialized(self.value) {return false}
-    if let v = self._options, !v.isInitialized {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !Internal.areAllInitialized(_storage._value) {return false}
+      if let v = _storage._options, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self._name) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.value) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._options) }()
-      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.reservedRange) }()
-      case 5: try { try decoder.decodeRepeatedStringField(value: &self.reservedName) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeRepeatedMessageField(value: &_storage._value) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._options) }()
+        case 4: try { try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange) }()
+        case 5: try { try decoder.decodeRepeatedStringField(value: &_storage._reservedName) }()
+        case 6: try { try decoder.decodeSingularEnumField(value: &_storage._visibility) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._name {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    if !self.value.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.value, fieldNumber: 2)
-    }
-    try { if let v = self._options {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    if !self.reservedRange.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.reservedRange, fieldNumber: 4)
-    }
-    if !self.reservedName.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.reservedName, fieldNumber: 5)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._name {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      } }()
+      if !_storage._value.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._value, fieldNumber: 2)
+      }
+      try { if let v = _storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      if !_storage._reservedRange.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._reservedRange, fieldNumber: 4)
+      }
+      if !_storage._reservedName.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._reservedName, fieldNumber: 5)
+      }
+      try { if let v = _storage._visibility {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Protobuf_EnumDescriptorProto, rhs: Google_Protobuf_EnumDescriptorProto) -> Bool {
-    if lhs._name != rhs._name {return false}
-    if lhs.value != rhs.value {return false}
-    if lhs._options != rhs._options {return false}
-    if lhs.reservedRange != rhs.reservedRange {return false}
-    if lhs.reservedName != rhs.reservedName {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._value != rhs_storage._value {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._reservedRange != rhs_storage._reservedRange {return false}
+        if _storage._reservedName != rhs_storage._reservedName {return false}
+        if _storage._visibility != rhs_storage._visibility {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3561,46 +3728,92 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
     3: .same(proto: "options"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _number: Int32? = nil
+    var _options: Google_Protobuf_EnumValueOptions? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _number = source._number
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public var isInitialized: Bool {
-    if let v = self._options, !v.isInitialized {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._options, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self._name) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self._number) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._options) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._number) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._options) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._name {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._number {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._options {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._name {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._number {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Protobuf_EnumValueDescriptorProto, rhs: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
-    if lhs._name != rhs._name {return false}
-    if lhs._number != rhs._number {return false}
-    if lhs._options != rhs._options {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._number != rhs_storage._number {return false}
+        if _storage._options != rhs_storage._options {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4853,6 +5066,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     5: .standard(proto: "message_encoding"),
     6: .standard(proto: "json_format"),
     7: .standard(proto: "enforce_naming_style"),
+    8: .standard(proto: "default_symbol_visibility"),
   ]
 
   public var isInitialized: Bool {
@@ -4873,6 +5087,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
       case 5: try { try decoder.decodeSingularEnumField(value: &self._messageEncoding) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jsonFormat) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self._enforceNamingStyle) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self._defaultSymbolVisibility) }()
       case 1000..<10001:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FeatureSet.self, fieldNumber: fieldNumber) }()
       default: break
@@ -4906,6 +5121,9 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     try { if let v = self._enforceNamingStyle {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
     } }()
+    try { if let v = self._defaultSymbolVisibility {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 8)
+    } }()
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 10001)
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4918,6 +5136,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     if lhs._messageEncoding != rhs._messageEncoding {return false}
     if lhs._jsonFormat != rhs._jsonFormat {return false}
     if lhs._enforceNamingStyle != rhs._enforceNamingStyle {return false}
+    if lhs._defaultSymbolVisibility != rhs._defaultSymbolVisibility {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
@@ -4978,6 +5197,35 @@ extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
     0: .same(proto: "ENFORCE_NAMING_STYLE_UNKNOWN"),
     1: .same(proto: "STYLE2024"),
     2: .same(proto: "STYLE_LEGACY"),
+  ]
+}
+
+extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase, _ProtoNameProviding {
+  static let protoMessageName: String = Google_Protobuf_FeatureSet.protoMessageName + ".VisibilityFeature"
+  static let _protobuf_nameMap = _NameMap()
+
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
+  }
+
+  func traverse<V: Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Protobuf_FeatureSet.VisibilityFeature, rhs: Google_Protobuf_FeatureSet.VisibilityFeature) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility: _ProtoNameProviding {
+  static let _protobuf_nameMap: _NameMap = [
+    0: .same(proto: "DEFAULT_SYMBOL_VISIBILITY_UNKNOWN"),
+    1: .same(proto: "EXPORT_ALL"),
+    2: .same(proto: "EXPORT_TOP_LEVEL"),
+    3: .same(proto: "LOCAL_ALL"),
+    4: .same(proto: "STRICT"),
   ]
 }
 
@@ -5042,47 +5290,93 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
     5: .standard(proto: "fixed_features"),
   ]
 
+  fileprivate class _StorageClass {
+    var _edition: Google_Protobuf_Edition? = nil
+    var _overridableFeatures: Google_Protobuf_FeatureSet? = nil
+    var _fixedFeatures: Google_Protobuf_FeatureSet? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _edition = source._edition
+      _overridableFeatures = source._overridableFeatures
+      _fixedFeatures = source._fixedFeatures
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public var isInitialized: Bool {
-    if let v = self._overridableFeatures, !v.isInitialized {return false}
-    if let v = self._fixedFeatures, !v.isInitialized {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._overridableFeatures, !v.isInitialized {return false}
+      if let v = _storage._fixedFeatures, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 3: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._overridableFeatures) }()
-      case 5: try { try decoder.decodeSingularMessageField(value: &self._fixedFeatures) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._edition) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._overridableFeatures) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._fixedFeatures) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._edition {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._overridableFeatures {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    try { if let v = self._fixedFeatures {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    } }()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._edition {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._overridableFeatures {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._fixedFeatures {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault, rhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault) -> Bool {
-    if lhs._edition != rhs._edition {return false}
-    if lhs._overridableFeatures != rhs._overridableFeatures {return false}
-    if lhs._fixedFeatures != rhs._fixedFeatures {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._edition != rhs_storage._edition {return false}
+        if _storage._overridableFeatures != rhs_storage._overridableFeatures {return false}
+        if _storage._fixedFeatures != rhs_storage._fixedFeatures {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

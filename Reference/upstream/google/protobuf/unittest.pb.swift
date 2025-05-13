@@ -7751,6 +7751,412 @@ struct Proto2Unittest_MessageCreatorFunc: Sendable {
   fileprivate var _c: String? = nil
 }
 
+struct Proto2Unittest_FastParseTableCompression: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var importantField1: Int32 {
+    get {return _importantField1 ?? 0}
+    set {_importantField1 = newValue}
+  }
+  /// Returns true if `importantField1` has been explicitly set.
+  var hasImportantField1: Bool {return self._importantField1 != nil}
+  /// Clears the value of `importantField1`. Subsequent reads from it will return its default value.
+  mutating func clearImportantField1() {self._importantField1 = nil}
+
+  var importantField2: Int32 {
+    get {return _importantField2 ?? 0}
+    set {_importantField2 = newValue}
+  }
+  /// Returns true if `importantField2` has been explicitly set.
+  var hasImportantField2: Bool {return self._importantField2 != nil}
+  /// Clears the value of `importantField2`. Subsequent reads from it will return its default value.
+  mutating func clearImportantField2() {self._importantField2 = nil}
+
+  var unimportantField3: Int32 {
+    get {return _unimportantField3 ?? 0}
+    set {_unimportantField3 = newValue}
+  }
+  /// Returns true if `unimportantField3` has been explicitly set.
+  var hasUnimportantField3: Bool {return self._unimportantField3 != nil}
+  /// Clears the value of `unimportantField3`. Subsequent reads from it will return its default value.
+  mutating func clearUnimportantField3() {self._unimportantField3 = nil}
+
+  var unimportantField4: Int32 {
+    get {return _unimportantField4 ?? 0}
+    set {_unimportantField4 = newValue}
+  }
+  /// Returns true if `unimportantField4` has been explicitly set.
+  var hasUnimportantField4: Bool {return self._unimportantField4 != nil}
+  /// Clears the value of `unimportantField4`. Subsequent reads from it will return its default value.
+  mutating func clearUnimportantField4() {self._unimportantField4 = nil}
+
+  var unimportantField5: Int32 {
+    get {return _unimportantField5 ?? 0}
+    set {_unimportantField5 = newValue}
+  }
+  /// Returns true if `unimportantField5` has been explicitly set.
+  var hasUnimportantField5: Bool {return self._unimportantField5 != nil}
+  /// Clears the value of `unimportantField5`. Subsequent reads from it will return its default value.
+  mutating func clearUnimportantField5() {self._unimportantField5 = nil}
+
+  var unimportantField9: Int32 {
+    get {return _unimportantField9 ?? 0}
+    set {_unimportantField9 = newValue}
+  }
+  /// Returns true if `unimportantField9` has been explicitly set.
+  var hasUnimportantField9: Bool {return self._unimportantField9 != nil}
+  /// Clears the value of `unimportantField9`. Subsequent reads from it will return its default value.
+  mutating func clearUnimportantField9() {self._unimportantField9 = nil}
+
+  var importantField11: Int32 {
+    get {return _importantField11 ?? 0}
+    set {_importantField11 = newValue}
+  }
+  /// Returns true if `importantField11` has been explicitly set.
+  var hasImportantField11: Bool {return self._importantField11 != nil}
+  /// Clears the value of `importantField11`. Subsequent reads from it will return its default value.
+  mutating func clearImportantField11() {self._importantField11 = nil}
+
+  var unimportantField12: Int32 {
+    get {return _unimportantField12 ?? 0}
+    set {_unimportantField12 = newValue}
+  }
+  /// Returns true if `unimportantField12` has been explicitly set.
+  var hasUnimportantField12: Bool {return self._unimportantField12 != nil}
+  /// Clears the value of `unimportantField12`. Subsequent reads from it will return its default value.
+  mutating func clearUnimportantField12() {self._unimportantField12 = nil}
+
+  var importantField14: Int32 {
+    get {return _importantField14 ?? 0}
+    set {_importantField14 = newValue}
+  }
+  /// Returns true if `importantField14` has been explicitly set.
+  var hasImportantField14: Bool {return self._importantField14 != nil}
+  /// Clears the value of `importantField14`. Subsequent reads from it will return its default value.
+  mutating func clearImportantField14() {self._importantField14 = nil}
+
+  var unimportantField15: Int32 {
+    get {return _unimportantField15 ?? 0}
+    set {_unimportantField15 = newValue}
+  }
+  /// Returns true if `unimportantField15` has been explicitly set.
+  var hasUnimportantField15: Bool {return self._unimportantField15 != nil}
+  /// Clears the value of `unimportantField15`. Subsequent reads from it will return its default value.
+  mutating func clearUnimportantField15() {self._unimportantField15 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _importantField1: Int32? = nil
+  fileprivate var _importantField2: Int32? = nil
+  fileprivate var _unimportantField3: Int32? = nil
+  fileprivate var _unimportantField4: Int32? = nil
+  fileprivate var _unimportantField5: Int32? = nil
+  fileprivate var _unimportantField9: Int32? = nil
+  fileprivate var _importantField11: Int32? = nil
+  fileprivate var _unimportantField12: Int32? = nil
+  fileprivate var _importantField14: Int32? = nil
+  fileprivate var _unimportantField15: Int32? = nil
+}
+
+struct Proto2Unittest_TestMessageForMove_Small: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var b: Int32 {
+    get {return _b ?? 0}
+    set {_b = newValue}
+  }
+  /// Returns true if `b` has been explicitly set.
+  var hasB: Bool {return self._b != nil}
+  /// Clears the value of `b`. Subsequent reads from it will return its default value.
+  mutating func clearB() {self._b = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _a: Int32? = nil
+  fileprivate var _b: Int32? = nil
+}
+
+struct Proto2Unittest_TestMessageForMove_Large: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a1: Int32 {
+    get {return _storage._a1 ?? 0}
+    set {_uniqueStorage()._a1 = newValue}
+  }
+  /// Returns true if `a1` has been explicitly set.
+  var hasA1: Bool {return _storage._a1 != nil}
+  /// Clears the value of `a1`. Subsequent reads from it will return its default value.
+  mutating func clearA1() {_uniqueStorage()._a1 = nil}
+
+  var a2: Int32 {
+    get {return _storage._a2 ?? 0}
+    set {_uniqueStorage()._a2 = newValue}
+  }
+  /// Returns true if `a2` has been explicitly set.
+  var hasA2: Bool {return _storage._a2 != nil}
+  /// Clears the value of `a2`. Subsequent reads from it will return its default value.
+  mutating func clearA2() {_uniqueStorage()._a2 = nil}
+
+  var a3: Int32 {
+    get {return _storage._a3 ?? 0}
+    set {_uniqueStorage()._a3 = newValue}
+  }
+  /// Returns true if `a3` has been explicitly set.
+  var hasA3: Bool {return _storage._a3 != nil}
+  /// Clears the value of `a3`. Subsequent reads from it will return its default value.
+  mutating func clearA3() {_uniqueStorage()._a3 = nil}
+
+  var a4: Int32 {
+    get {return _storage._a4 ?? 0}
+    set {_uniqueStorage()._a4 = newValue}
+  }
+  /// Returns true if `a4` has been explicitly set.
+  var hasA4: Bool {return _storage._a4 != nil}
+  /// Clears the value of `a4`. Subsequent reads from it will return its default value.
+  mutating func clearA4() {_uniqueStorage()._a4 = nil}
+
+  var a5: Int32 {
+    get {return _storage._a5 ?? 0}
+    set {_uniqueStorage()._a5 = newValue}
+  }
+  /// Returns true if `a5` has been explicitly set.
+  var hasA5: Bool {return _storage._a5 != nil}
+  /// Clears the value of `a5`. Subsequent reads from it will return its default value.
+  mutating func clearA5() {_uniqueStorage()._a5 = nil}
+
+  var a6: Int32 {
+    get {return _storage._a6 ?? 0}
+    set {_uniqueStorage()._a6 = newValue}
+  }
+  /// Returns true if `a6` has been explicitly set.
+  var hasA6: Bool {return _storage._a6 != nil}
+  /// Clears the value of `a6`. Subsequent reads from it will return its default value.
+  mutating func clearA6() {_uniqueStorage()._a6 = nil}
+
+  var a7: Int32 {
+    get {return _storage._a7 ?? 0}
+    set {_uniqueStorage()._a7 = newValue}
+  }
+  /// Returns true if `a7` has been explicitly set.
+  var hasA7: Bool {return _storage._a7 != nil}
+  /// Clears the value of `a7`. Subsequent reads from it will return its default value.
+  mutating func clearA7() {_uniqueStorage()._a7 = nil}
+
+  var a8: Int32 {
+    get {return _storage._a8 ?? 0}
+    set {_uniqueStorage()._a8 = newValue}
+  }
+  /// Returns true if `a8` has been explicitly set.
+  var hasA8: Bool {return _storage._a8 != nil}
+  /// Clears the value of `a8`. Subsequent reads from it will return its default value.
+  mutating func clearA8() {_uniqueStorage()._a8 = nil}
+
+  var a9: Int32 {
+    get {return _storage._a9 ?? 0}
+    set {_uniqueStorage()._a9 = newValue}
+  }
+  /// Returns true if `a9` has been explicitly set.
+  var hasA9: Bool {return _storage._a9 != nil}
+  /// Clears the value of `a9`. Subsequent reads from it will return its default value.
+  mutating func clearA9() {_uniqueStorage()._a9 = nil}
+
+  var a11: [Int32] {
+    get {return _storage._a11}
+    set {_uniqueStorage()._a11 = newValue}
+  }
+
+  var a12: [Int32] {
+    get {return _storage._a12}
+    set {_uniqueStorage()._a12 = newValue}
+  }
+
+  var a13: [Int32] {
+    get {return _storage._a13}
+    set {_uniqueStorage()._a13 = newValue}
+  }
+
+  var a14: [Int32] {
+    get {return _storage._a14}
+    set {_uniqueStorage()._a14 = newValue}
+  }
+
+  var a15: [Int32] {
+    get {return _storage._a15}
+    set {_uniqueStorage()._a15 = newValue}
+  }
+
+  var a16: [Int32] {
+    get {return _storage._a16}
+    set {_uniqueStorage()._a16 = newValue}
+  }
+
+  var a17: [Int32] {
+    get {return _storage._a17}
+    set {_uniqueStorage()._a17 = newValue}
+  }
+
+  var a18: [Int32] {
+    get {return _storage._a18}
+    set {_uniqueStorage()._a18 = newValue}
+  }
+
+  var a19: [Int32] {
+    get {return _storage._a19}
+    set {_uniqueStorage()._a19 = newValue}
+  }
+
+  var s101: String {
+    get {return _storage._s101 ?? String()}
+    set {_uniqueStorage()._s101 = newValue}
+  }
+  /// Returns true if `s101` has been explicitly set.
+  var hasS101: Bool {return _storage._s101 != nil}
+  /// Clears the value of `s101`. Subsequent reads from it will return its default value.
+  mutating func clearS101() {_uniqueStorage()._s101 = nil}
+
+  var s102: String {
+    get {return _storage._s102 ?? String()}
+    set {_uniqueStorage()._s102 = newValue}
+  }
+  /// Returns true if `s102` has been explicitly set.
+  var hasS102: Bool {return _storage._s102 != nil}
+  /// Clears the value of `s102`. Subsequent reads from it will return its default value.
+  mutating func clearS102() {_uniqueStorage()._s102 = nil}
+
+  var s103: String {
+    get {return _storage._s103 ?? String()}
+    set {_uniqueStorage()._s103 = newValue}
+  }
+  /// Returns true if `s103` has been explicitly set.
+  var hasS103: Bool {return _storage._s103 != nil}
+  /// Clears the value of `s103`. Subsequent reads from it will return its default value.
+  mutating func clearS103() {_uniqueStorage()._s103 = nil}
+
+  var s104: String {
+    get {return _storage._s104 ?? String()}
+    set {_uniqueStorage()._s104 = newValue}
+  }
+  /// Returns true if `s104` has been explicitly set.
+  var hasS104: Bool {return _storage._s104 != nil}
+  /// Clears the value of `s104`. Subsequent reads from it will return its default value.
+  mutating func clearS104() {_uniqueStorage()._s104 = nil}
+
+  var s105: String {
+    get {return _storage._s105 ?? String()}
+    set {_uniqueStorage()._s105 = newValue}
+  }
+  /// Returns true if `s105` has been explicitly set.
+  var hasS105: Bool {return _storage._s105 != nil}
+  /// Clears the value of `s105`. Subsequent reads from it will return its default value.
+  mutating func clearS105() {_uniqueStorage()._s105 = nil}
+
+  var s106: String {
+    get {return _storage._s106 ?? String()}
+    set {_uniqueStorage()._s106 = newValue}
+  }
+  /// Returns true if `s106` has been explicitly set.
+  var hasS106: Bool {return _storage._s106 != nil}
+  /// Clears the value of `s106`. Subsequent reads from it will return its default value.
+  mutating func clearS106() {_uniqueStorage()._s106 = nil}
+
+  var s107: String {
+    get {return _storage._s107 ?? String()}
+    set {_uniqueStorage()._s107 = newValue}
+  }
+  /// Returns true if `s107` has been explicitly set.
+  var hasS107: Bool {return _storage._s107 != nil}
+  /// Clears the value of `s107`. Subsequent reads from it will return its default value.
+  mutating func clearS107() {_uniqueStorage()._s107 = nil}
+
+  var s108: String {
+    get {return _storage._s108 ?? String()}
+    set {_uniqueStorage()._s108 = newValue}
+  }
+  /// Returns true if `s108` has been explicitly set.
+  var hasS108: Bool {return _storage._s108 != nil}
+  /// Clears the value of `s108`. Subsequent reads from it will return its default value.
+  mutating func clearS108() {_uniqueStorage()._s108 = nil}
+
+  var s109: String {
+    get {return _storage._s109 ?? String()}
+    set {_uniqueStorage()._s109 = newValue}
+  }
+  /// Returns true if `s109` has been explicitly set.
+  var hasS109: Bool {return _storage._s109 != nil}
+  /// Clears the value of `s109`. Subsequent reads from it will return its default value.
+  mutating func clearS109() {_uniqueStorage()._s109 = nil}
+
+  var s111: [String] {
+    get {return _storage._s111}
+    set {_uniqueStorage()._s111 = newValue}
+  }
+
+  var s112: [String] {
+    get {return _storage._s112}
+    set {_uniqueStorage()._s112 = newValue}
+  }
+
+  var s113: [String] {
+    get {return _storage._s113}
+    set {_uniqueStorage()._s113 = newValue}
+  }
+
+  var s114: [String] {
+    get {return _storage._s114}
+    set {_uniqueStorage()._s114 = newValue}
+  }
+
+  var s115: [String] {
+    get {return _storage._s115}
+    set {_uniqueStorage()._s115 = newValue}
+  }
+
+  var s116: [String] {
+    get {return _storage._s116}
+    set {_uniqueStorage()._s116 = newValue}
+  }
+
+  var s117: [String] {
+    get {return _storage._s117}
+    set {_uniqueStorage()._s117 = newValue}
+  }
+
+  var s118: [String] {
+    get {return _storage._s118}
+    set {_uniqueStorage()._s118 = newValue}
+  }
+
+  var s119: [String] {
+    get {return _storage._s119}
+    set {_uniqueStorage()._s119 = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Extension support defined in unittest.proto.
 
 // MARK: - Extension Properties
@@ -8850,6 +9256,22 @@ extension Proto2Unittest_TestAllExtensions {
     set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_utf8_string_extension, value: newValue)}
   }
 
+  /// Singular message containing required fields; used to test initialization.
+  var Proto2Unittest_requiredMessageExtension: Proto2Unittest_TestRequired {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension) ?? Proto2Unittest_TestRequired()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_Extensions_required_message_extension`
+  /// has been explicitly set.
+  var hasProto2Unittest_requiredMessageExtension: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension)
+  }
+  /// Clears the value of extension `Proto2Unittest_Extensions_required_message_extension`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_requiredMessageExtension() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension)
+  }
+
   /// Check for bug where string extensions declared in tested scope did not
   /// compile.
   var Proto2Unittest_TestNestedExtension_test: String {
@@ -9427,6 +9849,7 @@ let Proto2Unittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_oneof_bytes_extension,
   Proto2Unittest_Extensions_optional_utf8_string_extension,
   Proto2Unittest_Extensions_repeated_utf8_string_extension,
+  Proto2Unittest_Extensions_required_message_extension,
   Proto2Unittest_Extensions_my_extension_string,
   Proto2Unittest_Extensions_my_extension_int,
   Proto2Unittest_Extensions_packed_int32_extension,
@@ -9902,6 +10325,12 @@ let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.Mes
 let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensions>(
   _protobuf_fieldNumber: 116,
   fieldName: "proto2_unittest.repeated_utf8_string_extension"
+)
+
+/// Singular message containing required fields; used to test initialization.
+let Proto2Unittest_Extensions_required_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestRequired>, Proto2Unittest_TestAllExtensions>(
+  _protobuf_fieldNumber: 117,
+  fieldName: "proto2_unittest.required_message_extension"
 )
 
 let Proto2Unittest_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestFieldOrderings>(
@@ -21004,6 +21433,494 @@ extension Proto2Unittest_MessageCreatorFunc: SwiftProtobuf.Message, SwiftProtobu
 
   static func ==(lhs: Proto2Unittest_MessageCreatorFunc, rhs: Proto2Unittest_MessageCreatorFunc) -> Bool {
     if lhs._c != rhs._c {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_FastParseTableCompression: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FastParseTableCompression"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "important_field_1"),
+    2: .standard(proto: "important_field_2"),
+    3: .standard(proto: "unimportant_field_3"),
+    4: .standard(proto: "unimportant_field_4"),
+    5: .standard(proto: "unimportant_field_5"),
+    9: .standard(proto: "unimportant_field_9"),
+    11: .standard(proto: "important_field_11"),
+    12: .standard(proto: "unimportant_field_12"),
+    14: .standard(proto: "important_field_14"),
+    15: .standard(proto: "unimportant_field_15"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._importantField1) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._importantField2) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._unimportantField3) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self._unimportantField4) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self._unimportantField5) }()
+      case 9: try { try decoder.decodeSingularInt32Field(value: &self._unimportantField9) }()
+      case 11: try { try decoder.decodeSingularInt32Field(value: &self._importantField11) }()
+      case 12: try { try decoder.decodeSingularInt32Field(value: &self._unimportantField12) }()
+      case 14: try { try decoder.decodeSingularInt32Field(value: &self._importantField14) }()
+      case 15: try { try decoder.decodeSingularInt32Field(value: &self._unimportantField15) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._importantField1 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._importantField2 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._unimportantField3 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._unimportantField4 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._unimportantField5 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._unimportantField9 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
+    } }()
+    try { if let v = self._importantField11 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
+    } }()
+    try { if let v = self._unimportantField12 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+    } }()
+    try { if let v = self._importantField14 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
+    } }()
+    try { if let v = self._unimportantField15 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_FastParseTableCompression, rhs: Proto2Unittest_FastParseTableCompression) -> Bool {
+    if lhs._importantField1 != rhs._importantField1 {return false}
+    if lhs._importantField2 != rhs._importantField2 {return false}
+    if lhs._unimportantField3 != rhs._unimportantField3 {return false}
+    if lhs._unimportantField4 != rhs._unimportantField4 {return false}
+    if lhs._unimportantField5 != rhs._unimportantField5 {return false}
+    if lhs._unimportantField9 != rhs._unimportantField9 {return false}
+    if lhs._importantField11 != rhs._importantField11 {return false}
+    if lhs._unimportantField12 != rhs._unimportantField12 {return false}
+    if lhs._importantField14 != rhs._importantField14 {return false}
+    if lhs._unimportantField15 != rhs._unimportantField15 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_TestMessageForMove_Small: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageForMove_Small"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._b) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._b {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_TestMessageForMove_Small, rhs: Proto2Unittest_TestMessageForMove_Small) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._b != rhs._b {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_TestMessageForMove_Large: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageForMove_Large"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a1"),
+    2: .same(proto: "a2"),
+    3: .same(proto: "a3"),
+    4: .same(proto: "a4"),
+    5: .same(proto: "a5"),
+    6: .same(proto: "a6"),
+    7: .same(proto: "a7"),
+    8: .same(proto: "a8"),
+    9: .same(proto: "a9"),
+    11: .same(proto: "a11"),
+    12: .same(proto: "a12"),
+    13: .same(proto: "a13"),
+    14: .same(proto: "a14"),
+    15: .same(proto: "a15"),
+    16: .same(proto: "a16"),
+    17: .same(proto: "a17"),
+    18: .same(proto: "a18"),
+    19: .same(proto: "a19"),
+    101: .same(proto: "s101"),
+    102: .same(proto: "s102"),
+    103: .same(proto: "s103"),
+    104: .same(proto: "s104"),
+    105: .same(proto: "s105"),
+    106: .same(proto: "s106"),
+    107: .same(proto: "s107"),
+    108: .same(proto: "s108"),
+    109: .same(proto: "s109"),
+    111: .same(proto: "s111"),
+    112: .same(proto: "s112"),
+    113: .same(proto: "s113"),
+    114: .same(proto: "s114"),
+    115: .same(proto: "s115"),
+    116: .same(proto: "s116"),
+    117: .same(proto: "s117"),
+    118: .same(proto: "s118"),
+    119: .same(proto: "s119"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _a1: Int32? = nil
+    var _a2: Int32? = nil
+    var _a3: Int32? = nil
+    var _a4: Int32? = nil
+    var _a5: Int32? = nil
+    var _a6: Int32? = nil
+    var _a7: Int32? = nil
+    var _a8: Int32? = nil
+    var _a9: Int32? = nil
+    var _a11: [Int32] = []
+    var _a12: [Int32] = []
+    var _a13: [Int32] = []
+    var _a14: [Int32] = []
+    var _a15: [Int32] = []
+    var _a16: [Int32] = []
+    var _a17: [Int32] = []
+    var _a18: [Int32] = []
+    var _a19: [Int32] = []
+    var _s101: String? = nil
+    var _s102: String? = nil
+    var _s103: String? = nil
+    var _s104: String? = nil
+    var _s105: String? = nil
+    var _s106: String? = nil
+    var _s107: String? = nil
+    var _s108: String? = nil
+    var _s109: String? = nil
+    var _s111: [String] = []
+    var _s112: [String] = []
+    var _s113: [String] = []
+    var _s114: [String] = []
+    var _s115: [String] = []
+    var _s116: [String] = []
+    var _s117: [String] = []
+    var _s118: [String] = []
+    var _s119: [String] = []
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _a1 = source._a1
+      _a2 = source._a2
+      _a3 = source._a3
+      _a4 = source._a4
+      _a5 = source._a5
+      _a6 = source._a6
+      _a7 = source._a7
+      _a8 = source._a8
+      _a9 = source._a9
+      _a11 = source._a11
+      _a12 = source._a12
+      _a13 = source._a13
+      _a14 = source._a14
+      _a15 = source._a15
+      _a16 = source._a16
+      _a17 = source._a17
+      _a18 = source._a18
+      _a19 = source._a19
+      _s101 = source._s101
+      _s102 = source._s102
+      _s103 = source._s103
+      _s104 = source._s104
+      _s105 = source._s105
+      _s106 = source._s106
+      _s107 = source._s107
+      _s108 = source._s108
+      _s109 = source._s109
+      _s111 = source._s111
+      _s112 = source._s112
+      _s113 = source._s113
+      _s114 = source._s114
+      _s115 = source._s115
+      _s116 = source._s116
+      _s117 = source._s117
+      _s118 = source._s118
+      _s119 = source._s119
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._a1) }()
+        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._a2) }()
+        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._a3) }()
+        case 4: try { try decoder.decodeSingularInt32Field(value: &_storage._a4) }()
+        case 5: try { try decoder.decodeSingularInt32Field(value: &_storage._a5) }()
+        case 6: try { try decoder.decodeSingularInt32Field(value: &_storage._a6) }()
+        case 7: try { try decoder.decodeSingularInt32Field(value: &_storage._a7) }()
+        case 8: try { try decoder.decodeSingularInt32Field(value: &_storage._a8) }()
+        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._a9) }()
+        case 11: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a11) }()
+        case 12: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a12) }()
+        case 13: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a13) }()
+        case 14: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a14) }()
+        case 15: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a15) }()
+        case 16: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a16) }()
+        case 17: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a17) }()
+        case 18: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a18) }()
+        case 19: try { try decoder.decodeRepeatedInt32Field(value: &_storage._a19) }()
+        case 101: try { try decoder.decodeSingularStringField(value: &_storage._s101) }()
+        case 102: try { try decoder.decodeSingularStringField(value: &_storage._s102) }()
+        case 103: try { try decoder.decodeSingularStringField(value: &_storage._s103) }()
+        case 104: try { try decoder.decodeSingularStringField(value: &_storage._s104) }()
+        case 105: try { try decoder.decodeSingularStringField(value: &_storage._s105) }()
+        case 106: try { try decoder.decodeSingularStringField(value: &_storage._s106) }()
+        case 107: try { try decoder.decodeSingularStringField(value: &_storage._s107) }()
+        case 108: try { try decoder.decodeSingularStringField(value: &_storage._s108) }()
+        case 109: try { try decoder.decodeSingularStringField(value: &_storage._s109) }()
+        case 111: try { try decoder.decodeRepeatedStringField(value: &_storage._s111) }()
+        case 112: try { try decoder.decodeRepeatedStringField(value: &_storage._s112) }()
+        case 113: try { try decoder.decodeRepeatedStringField(value: &_storage._s113) }()
+        case 114: try { try decoder.decodeRepeatedStringField(value: &_storage._s114) }()
+        case 115: try { try decoder.decodeRepeatedStringField(value: &_storage._s115) }()
+        case 116: try { try decoder.decodeRepeatedStringField(value: &_storage._s116) }()
+        case 117: try { try decoder.decodeRepeatedStringField(value: &_storage._s117) }()
+        case 118: try { try decoder.decodeRepeatedStringField(value: &_storage._s118) }()
+        case 119: try { try decoder.decodeRepeatedStringField(value: &_storage._s119) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._a1 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._a2 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._a3 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._a4 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._a5 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
+      } }()
+      try { if let v = _storage._a6 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._a7 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
+      } }()
+      try { if let v = _storage._a8 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
+      } }()
+      try { if let v = _storage._a9 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
+      } }()
+      if !_storage._a11.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a11, fieldNumber: 11)
+      }
+      if !_storage._a12.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a12, fieldNumber: 12)
+      }
+      if !_storage._a13.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a13, fieldNumber: 13)
+      }
+      if !_storage._a14.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a14, fieldNumber: 14)
+      }
+      if !_storage._a15.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a15, fieldNumber: 15)
+      }
+      if !_storage._a16.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a16, fieldNumber: 16)
+      }
+      if !_storage._a17.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a17, fieldNumber: 17)
+      }
+      if !_storage._a18.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a18, fieldNumber: 18)
+      }
+      if !_storage._a19.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._a19, fieldNumber: 19)
+      }
+      try { if let v = _storage._s101 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 101)
+      } }()
+      try { if let v = _storage._s102 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 102)
+      } }()
+      try { if let v = _storage._s103 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 103)
+      } }()
+      try { if let v = _storage._s104 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 104)
+      } }()
+      try { if let v = _storage._s105 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 105)
+      } }()
+      try { if let v = _storage._s106 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 106)
+      } }()
+      try { if let v = _storage._s107 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 107)
+      } }()
+      try { if let v = _storage._s108 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 108)
+      } }()
+      try { if let v = _storage._s109 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 109)
+      } }()
+      if !_storage._s111.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s111, fieldNumber: 111)
+      }
+      if !_storage._s112.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s112, fieldNumber: 112)
+      }
+      if !_storage._s113.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s113, fieldNumber: 113)
+      }
+      if !_storage._s114.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s114, fieldNumber: 114)
+      }
+      if !_storage._s115.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s115, fieldNumber: 115)
+      }
+      if !_storage._s116.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s116, fieldNumber: 116)
+      }
+      if !_storage._s117.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s117, fieldNumber: 117)
+      }
+      if !_storage._s118.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s118, fieldNumber: 118)
+      }
+      if !_storage._s119.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._s119, fieldNumber: 119)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_TestMessageForMove_Large, rhs: Proto2Unittest_TestMessageForMove_Large) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._a1 != rhs_storage._a1 {return false}
+        if _storage._a2 != rhs_storage._a2 {return false}
+        if _storage._a3 != rhs_storage._a3 {return false}
+        if _storage._a4 != rhs_storage._a4 {return false}
+        if _storage._a5 != rhs_storage._a5 {return false}
+        if _storage._a6 != rhs_storage._a6 {return false}
+        if _storage._a7 != rhs_storage._a7 {return false}
+        if _storage._a8 != rhs_storage._a8 {return false}
+        if _storage._a9 != rhs_storage._a9 {return false}
+        if _storage._a11 != rhs_storage._a11 {return false}
+        if _storage._a12 != rhs_storage._a12 {return false}
+        if _storage._a13 != rhs_storage._a13 {return false}
+        if _storage._a14 != rhs_storage._a14 {return false}
+        if _storage._a15 != rhs_storage._a15 {return false}
+        if _storage._a16 != rhs_storage._a16 {return false}
+        if _storage._a17 != rhs_storage._a17 {return false}
+        if _storage._a18 != rhs_storage._a18 {return false}
+        if _storage._a19 != rhs_storage._a19 {return false}
+        if _storage._s101 != rhs_storage._s101 {return false}
+        if _storage._s102 != rhs_storage._s102 {return false}
+        if _storage._s103 != rhs_storage._s103 {return false}
+        if _storage._s104 != rhs_storage._s104 {return false}
+        if _storage._s105 != rhs_storage._s105 {return false}
+        if _storage._s106 != rhs_storage._s106 {return false}
+        if _storage._s107 != rhs_storage._s107 {return false}
+        if _storage._s108 != rhs_storage._s108 {return false}
+        if _storage._s109 != rhs_storage._s109 {return false}
+        if _storage._s111 != rhs_storage._s111 {return false}
+        if _storage._s112 != rhs_storage._s112 {return false}
+        if _storage._s113 != rhs_storage._s113 {return false}
+        if _storage._s114 != rhs_storage._s114 {return false}
+        if _storage._s115 != rhs_storage._s115 {return false}
+        if _storage._s116 != rhs_storage._s116 {return false}
+        if _storage._s117 != rhs_storage._s117 {return false}
+        if _storage._s118 != rhs_storage._s118 {return false}
+        if _storage._s119 != rhs_storage._s119 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

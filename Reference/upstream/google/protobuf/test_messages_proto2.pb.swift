@@ -555,6 +555,11 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
+  var mapInt32Bool: Dictionary<Int32,Bool> {
+    get {return _storage._mapInt32Bool}
+    set {_uniqueStorage()._mapInt32Bool = newValue}
+  }
+
   var mapInt32Float: Dictionary<Int32,Float> {
     get {return _storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
@@ -563,6 +568,11 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   var mapInt32Double: Dictionary<Int32,Double> {
     get {return _storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
+  }
+
+  var mapInt32NestedMessage: Dictionary<Int32,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage> {
+    get {return _storage._mapInt32NestedMessage}
+    set {_uniqueStorage()._mapInt32NestedMessage = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
@@ -2358,8 +2368,10 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
     63: .standard(proto: "map_fixed64_fixed64"),
     64: .standard(proto: "map_sfixed32_sfixed32"),
     65: .standard(proto: "map_sfixed64_sfixed64"),
+    104: .standard(proto: "map_int32_bool"),
     66: .standard(proto: "map_int32_float"),
     67: .standard(proto: "map_int32_double"),
+    103: .standard(proto: "map_int32_nested_message"),
     68: .standard(proto: "map_bool_bool"),
     69: .standard(proto: "map_string_string"),
     70: .standard(proto: "map_string_bytes"),
@@ -2498,8 +2510,10 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
     var _mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:]
     var _mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:]
     var _mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:]
+    var _mapInt32Bool: Dictionary<Int32,Bool> = [:]
     var _mapInt32Float: Dictionary<Int32,Float> = [:]
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
+    var _mapInt32NestedMessage: Dictionary<Int32,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
     var _mapStringBytes: Dictionary<String,Data> = [:]
@@ -2635,8 +2649,10 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       _mapFixed64Fixed64 = source._mapFixed64Fixed64
       _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
       _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
+      _mapInt32Bool = source._mapInt32Bool
       _mapInt32Float = source._mapInt32Float
       _mapInt32Double = source._mapInt32Double
+      _mapInt32NestedMessage = source._mapInt32NestedMessage
       _mapBoolBool = source._mapBoolBool
       _mapStringString = source._mapStringString
       _mapStringBytes = source._mapStringBytes
@@ -2697,6 +2713,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       if let v = _storage._optionalNestedMessage, !v.isInitialized {return false}
       if let v = _storage._recursiveMessage, !v.isInitialized {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedNestedMessage) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapInt32NestedMessage) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapStringNestedMessage) {return false}
       if let v = _storage._oneofField, !v.isInitialized {return false}
       if let v = _storage._messageSetCorrect, !v.isInitialized {return false}
@@ -2802,6 +2819,8 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
         case 100: try { try decoder.decodeRepeatedDoubleField(value: &_storage._unpackedDouble) }()
         case 101: try { try decoder.decodeRepeatedBoolField(value: &_storage._unpackedBool) }()
         case 102: try { try decoder.decodeRepeatedEnumField(value: &_storage._unpackedNestedEnum) }()
+        case 103: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage>.self, value: &_storage._mapInt32NestedMessage) }()
+        case 104: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapInt32Bool) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -3199,6 +3218,12 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       if !_storage._unpackedNestedEnum.isEmpty {
         try visitor.visitRepeatedEnumField(value: _storage._unpackedNestedEnum, fieldNumber: 102)
       }
+      if !_storage._mapInt32NestedMessage.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage>.self, value: _storage._mapInt32NestedMessage, fieldNumber: 103)
+      }
+      if !_storage._mapInt32Bool.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapInt32Bool, fieldNumber: 104)
+      }
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -3437,8 +3462,10 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
         if _storage._mapFixed64Fixed64 != rhs_storage._mapFixed64Fixed64 {return false}
         if _storage._mapSfixed32Sfixed32 != rhs_storage._mapSfixed32Sfixed32 {return false}
         if _storage._mapSfixed64Sfixed64 != rhs_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Bool != rhs_storage._mapInt32Bool {return false}
         if _storage._mapInt32Float != rhs_storage._mapInt32Float {return false}
         if _storage._mapInt32Double != rhs_storage._mapInt32Double {return false}
+        if _storage._mapInt32NestedMessage != rhs_storage._mapInt32NestedMessage {return false}
         if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
         if _storage._mapStringString != rhs_storage._mapStringString {return false}
         if _storage._mapStringBytes != rhs_storage._mapStringBytes {return false}
