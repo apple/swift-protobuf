@@ -16,23 +16,23 @@ let package = Package(
             name: "FuzzCommon",
             dependencies: ["SwiftProtobuf"]
         ),
-        .target(
+        .executableTarget(
             name: "FuzzBinary",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .target(
+        .executableTarget(
             name: "FuzzBinaryDelimited",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .target(
+        .executableTarget(
             name: "FuzzAsyncMessageSequence",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .target(
+        .executableTarget(
             name: "FuzzJSON",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .target(
+        .executableTarget(
             name: "FuzzTextFormat",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
