@@ -7,4 +7,3 @@ final class AccessLevelOnImportTests: XCTestCase {
         XCTAssertEqual(access.dependency.name, "Dependency")
     }
 }
-
