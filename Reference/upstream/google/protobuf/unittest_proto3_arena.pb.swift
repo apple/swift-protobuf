@@ -953,15 +953,11 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _repeatedLazyMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] = []
     var _oneofField: Proto3ArenaUnittest_TestAllTypes.OneOf_OneofField?
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -1739,15 +1735,11 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
     var _repeatedChild: [Proto3ArenaUnittest_NestedTestAllTypes] = []
     var _lazyPayload: Proto3ArenaUnittest_TestAllTypes? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 

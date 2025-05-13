@@ -3505,15 +3505,11 @@ extension Proto2Unittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.
     var _oneofField: Proto2Unittest_TestAllTypesLite.OneOf_OneofField?
     var _deceptivelyNamedList: Int32? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -4575,15 +4571,11 @@ extension Proto2Unittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProtobu
     var _deprecatedField3: String? = nil
     var _deprecatedField4: Proto2Unittest_TestDeprecatedLite? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -5681,15 +5673,11 @@ extension Proto2Unittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.
     var _recurse: Proto2Unittest_RecursiveMessage? = nil
     var _payload: Data? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -5763,15 +5751,11 @@ extension Proto2Unittest_RecursiveGroup: SwiftProtobuf.Message, SwiftProtobuf._M
   fileprivate class _StorageClass {
     var _recurse: Proto2Unittest_RecursiveGroup? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
