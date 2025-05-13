@@ -407,60 +407,60 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
   case generatedCodeInfo // = 378
   case get // = 379
   case getExtensionValue // = 380
-  case googleProtobufAny // = 381
-  case googleProtobufApi // = 382
-  case googleProtobufBoolValue // = 383
-  case googleProtobufBytesValue // = 384
-  case googleProtobufDescriptorProto // = 385
-  case googleProtobufDoubleValue // = 386
-  case googleProtobufDuration // = 387
-  case googleProtobufEdition // = 388
-  case googleProtobufEmpty // = 389
-  case googleProtobufEnum // = 390
-  case googleProtobufEnumDescriptorProto // = 391
-  case googleProtobufEnumOptions // = 392
-  case googleProtobufEnumValue // = 393
-  case googleProtobufEnumValueDescriptorProto // = 394
-  case googleProtobufEnumValueOptions // = 395
-  case googleProtobufExtensionRangeOptions // = 396
-  case googleProtobufFeatureSet // = 397
-  case googleProtobufFeatureSetDefaults // = 398
-  case googleProtobufField // = 399
-  case googleProtobufFieldDescriptorProto // = 400
-  case googleProtobufFieldMask // = 401
-  case googleProtobufFieldOptions // = 402
-  case googleProtobufFileDescriptorProto // = 403
-  case googleProtobufFileDescriptorSet // = 404
-  case googleProtobufFileOptions // = 405
-  case googleProtobufFloatValue // = 406
-  case googleProtobufGeneratedCodeInfo // = 407
-  case googleProtobufInt32Value // = 408
-  case googleProtobufInt64Value // = 409
-  case googleProtobufListValue // = 410
-  case googleProtobufMessageOptions // = 411
-  case googleProtobufMethod // = 412
-  case googleProtobufMethodDescriptorProto // = 413
-  case googleProtobufMethodOptions // = 414
-  case googleProtobufMixin // = 415
-  case googleProtobufNullValue // = 416
-  case googleProtobufOneofDescriptorProto // = 417
-  case googleProtobufOneofOptions // = 418
-  case googleProtobufOption // = 419
-  case googleProtobufServiceDescriptorProto // = 420
-  case googleProtobufServiceOptions // = 421
-  case googleProtobufSourceCodeInfo // = 422
-  case googleProtobufSourceContext // = 423
-  case googleProtobufStringValue // = 424
-  case googleProtobufStruct // = 425
-  case googleProtobufSymbolVisibility // = 426
-  case googleProtobufSyntax // = 427
-  case googleProtobufTimestamp // = 428
-  case googleProtobufType // = 429
-  case googleProtobufUint32Value // = 430
-  case googleProtobufUint64Value // = 431
-  case googleProtobufUninterpretedOption // = 432
-  case googleProtobufValue // = 433
-  case googleapis // = 434
+  case googleapis // = 381
+  case googleProtobufAny // = 382
+  case googleProtobufApi // = 383
+  case googleProtobufBoolValue // = 384
+  case googleProtobufBytesValue // = 385
+  case googleProtobufDescriptorProto // = 386
+  case googleProtobufDoubleValue // = 387
+  case googleProtobufDuration // = 388
+  case googleProtobufEdition // = 389
+  case googleProtobufEmpty // = 390
+  case googleProtobufEnum // = 391
+  case googleProtobufEnumDescriptorProto // = 392
+  case googleProtobufEnumOptions // = 393
+  case googleProtobufEnumValue // = 394
+  case googleProtobufEnumValueDescriptorProto // = 395
+  case googleProtobufEnumValueOptions // = 396
+  case googleProtobufExtensionRangeOptions // = 397
+  case googleProtobufFeatureSet // = 398
+  case googleProtobufFeatureSetDefaults // = 399
+  case googleProtobufField // = 400
+  case googleProtobufFieldDescriptorProto // = 401
+  case googleProtobufFieldMask // = 402
+  case googleProtobufFieldOptions // = 403
+  case googleProtobufFileDescriptorProto // = 404
+  case googleProtobufFileDescriptorSet // = 405
+  case googleProtobufFileOptions // = 406
+  case googleProtobufFloatValue // = 407
+  case googleProtobufGeneratedCodeInfo // = 408
+  case googleProtobufInt32Value // = 409
+  case googleProtobufInt64Value // = 410
+  case googleProtobufListValue // = 411
+  case googleProtobufMessageOptions // = 412
+  case googleProtobufMethod // = 413
+  case googleProtobufMethodDescriptorProto // = 414
+  case googleProtobufMethodOptions // = 415
+  case googleProtobufMixin // = 416
+  case googleProtobufNullValue // = 417
+  case googleProtobufOneofDescriptorProto // = 418
+  case googleProtobufOneofOptions // = 419
+  case googleProtobufOption // = 420
+  case googleProtobufServiceDescriptorProto // = 421
+  case googleProtobufServiceOptions // = 422
+  case googleProtobufSourceCodeInfo // = 423
+  case googleProtobufSourceContext // = 424
+  case googleProtobufStringValue // = 425
+  case googleProtobufStruct // = 426
+  case googleProtobufSymbolVisibility // = 427
+  case googleProtobufSyntax // = 428
+  case googleProtobufTimestamp // = 429
+  case googleProtobufType // = 430
+  case googleProtobufUint32Value // = 431
+  case googleProtobufUint64Value // = 432
+  case googleProtobufUninterpretedOption // = 433
+  case googleProtobufValue // = 434
   case goPackage // = 435
   case gotData // = 436
   case group // = 437
@@ -718,12 +718,12 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
   case numberValue // = 689
   case objcClassPrefix // = 690
   case of // = 691
-  case oneOfKind // = 692
-  case oneofDecl // = 693
-  case oneofDescriptorProto // = 694
-  case oneofIndex // = 695
-  case oneofOptions // = 696
-  case oneofs // = 697
+  case oneofDecl // = 692
+  case oneofDescriptorProto // = 693
+  case oneofIndex // = 694
+  case oneofOptions // = 695
+  case oneofs // = 696
+  case oneOfKind // = 697
   case optimizeFor // = 698
   case optimizeMode // = 699
   case option // = 700
@@ -769,33 +769,33 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
   case proto2 // = 740
   case proto3DefaultValue // = 741
   case proto3Optional // = 742
-  case protobufExtensionFieldValues // = 743
-  case protobufFieldNumber // = 744
-  case protobufGeneratedIsEqualTo // = 745
-  case protobufNameMap // = 746
-  case protobufNewField // = 747
-  case protobufPackage // = 748
-  case protobufApiversion2 // = 749
-  case protobufApiversionCheck // = 750
-  case protobufBool // = 751
-  case protobufBytes // = 752
-  case protobufDouble // = 753
-  case protobufEnumMap // = 754
-  case protobufExtension // = 755
-  case protobufFixed32 // = 756
-  case protobufFixed64 // = 757
-  case protobufFloat // = 758
-  case protobufInt32 // = 759
-  case protobufInt64 // = 760
-  case protobufMap // = 761
-  case protobufMessageMap // = 762
-  case protobufSfixed32 // = 763
-  case protobufSfixed64 // = 764
-  case protobufSint32 // = 765
-  case protobufSint64 // = 766
-  case protobufString // = 767
-  case protobufUint32 // = 768
-  case protobufUint64 // = 769
+  case protobufApiversionCheck // = 743
+  case protobufApiversion2 // = 744
+  case protobufBool // = 745
+  case protobufBytes // = 746
+  case protobufDouble // = 747
+  case protobufEnumMap // = 748
+  case protobufExtension // = 749
+  case protobufFixed32 // = 750
+  case protobufFixed64 // = 751
+  case protobufFloat // = 752
+  case protobufInt32 // = 753
+  case protobufInt64 // = 754
+  case protobufMap // = 755
+  case protobufMessageMap // = 756
+  case protobufSfixed32 // = 757
+  case protobufSfixed64 // = 758
+  case protobufSint32 // = 759
+  case protobufSint64 // = 760
+  case protobufString // = 761
+  case protobufUint32 // = 762
+  case protobufUint64 // = 763
+  case protobufExtensionFieldValues // = 764
+  case protobufFieldNumber // = 765
+  case protobufGeneratedIsEqualTo // = 766
+  case protobufNameMap // = 767
+  case protobufNewField // = 768
+  case protobufPackage // = 769
   case `protocol` // = 770
   case protoFieldName // = 771
   case protoMessageName // = 772
@@ -1449,60 +1449,60 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case 378: self = .generatedCodeInfo
     case 379: self = .get
     case 380: self = .getExtensionValue
-    case 381: self = .googleProtobufAny
-    case 382: self = .googleProtobufApi
-    case 383: self = .googleProtobufBoolValue
-    case 384: self = .googleProtobufBytesValue
-    case 385: self = .googleProtobufDescriptorProto
-    case 386: self = .googleProtobufDoubleValue
-    case 387: self = .googleProtobufDuration
-    case 388: self = .googleProtobufEdition
-    case 389: self = .googleProtobufEmpty
-    case 390: self = .googleProtobufEnum
-    case 391: self = .googleProtobufEnumDescriptorProto
-    case 392: self = .googleProtobufEnumOptions
-    case 393: self = .googleProtobufEnumValue
-    case 394: self = .googleProtobufEnumValueDescriptorProto
-    case 395: self = .googleProtobufEnumValueOptions
-    case 396: self = .googleProtobufExtensionRangeOptions
-    case 397: self = .googleProtobufFeatureSet
-    case 398: self = .googleProtobufFeatureSetDefaults
-    case 399: self = .googleProtobufField
-    case 400: self = .googleProtobufFieldDescriptorProto
-    case 401: self = .googleProtobufFieldMask
-    case 402: self = .googleProtobufFieldOptions
-    case 403: self = .googleProtobufFileDescriptorProto
-    case 404: self = .googleProtobufFileDescriptorSet
-    case 405: self = .googleProtobufFileOptions
-    case 406: self = .googleProtobufFloatValue
-    case 407: self = .googleProtobufGeneratedCodeInfo
-    case 408: self = .googleProtobufInt32Value
-    case 409: self = .googleProtobufInt64Value
-    case 410: self = .googleProtobufListValue
-    case 411: self = .googleProtobufMessageOptions
-    case 412: self = .googleProtobufMethod
-    case 413: self = .googleProtobufMethodDescriptorProto
-    case 414: self = .googleProtobufMethodOptions
-    case 415: self = .googleProtobufMixin
-    case 416: self = .googleProtobufNullValue
-    case 417: self = .googleProtobufOneofDescriptorProto
-    case 418: self = .googleProtobufOneofOptions
-    case 419: self = .googleProtobufOption
-    case 420: self = .googleProtobufServiceDescriptorProto
-    case 421: self = .googleProtobufServiceOptions
-    case 422: self = .googleProtobufSourceCodeInfo
-    case 423: self = .googleProtobufSourceContext
-    case 424: self = .googleProtobufStringValue
-    case 425: self = .googleProtobufStruct
-    case 426: self = .googleProtobufSymbolVisibility
-    case 427: self = .googleProtobufSyntax
-    case 428: self = .googleProtobufTimestamp
-    case 429: self = .googleProtobufType
-    case 430: self = .googleProtobufUint32Value
-    case 431: self = .googleProtobufUint64Value
-    case 432: self = .googleProtobufUninterpretedOption
-    case 433: self = .googleProtobufValue
-    case 434: self = .googleapis
+    case 381: self = .googleapis
+    case 382: self = .googleProtobufAny
+    case 383: self = .googleProtobufApi
+    case 384: self = .googleProtobufBoolValue
+    case 385: self = .googleProtobufBytesValue
+    case 386: self = .googleProtobufDescriptorProto
+    case 387: self = .googleProtobufDoubleValue
+    case 388: self = .googleProtobufDuration
+    case 389: self = .googleProtobufEdition
+    case 390: self = .googleProtobufEmpty
+    case 391: self = .googleProtobufEnum
+    case 392: self = .googleProtobufEnumDescriptorProto
+    case 393: self = .googleProtobufEnumOptions
+    case 394: self = .googleProtobufEnumValue
+    case 395: self = .googleProtobufEnumValueDescriptorProto
+    case 396: self = .googleProtobufEnumValueOptions
+    case 397: self = .googleProtobufExtensionRangeOptions
+    case 398: self = .googleProtobufFeatureSet
+    case 399: self = .googleProtobufFeatureSetDefaults
+    case 400: self = .googleProtobufField
+    case 401: self = .googleProtobufFieldDescriptorProto
+    case 402: self = .googleProtobufFieldMask
+    case 403: self = .googleProtobufFieldOptions
+    case 404: self = .googleProtobufFileDescriptorProto
+    case 405: self = .googleProtobufFileDescriptorSet
+    case 406: self = .googleProtobufFileOptions
+    case 407: self = .googleProtobufFloatValue
+    case 408: self = .googleProtobufGeneratedCodeInfo
+    case 409: self = .googleProtobufInt32Value
+    case 410: self = .googleProtobufInt64Value
+    case 411: self = .googleProtobufListValue
+    case 412: self = .googleProtobufMessageOptions
+    case 413: self = .googleProtobufMethod
+    case 414: self = .googleProtobufMethodDescriptorProto
+    case 415: self = .googleProtobufMethodOptions
+    case 416: self = .googleProtobufMixin
+    case 417: self = .googleProtobufNullValue
+    case 418: self = .googleProtobufOneofDescriptorProto
+    case 419: self = .googleProtobufOneofOptions
+    case 420: self = .googleProtobufOption
+    case 421: self = .googleProtobufServiceDescriptorProto
+    case 422: self = .googleProtobufServiceOptions
+    case 423: self = .googleProtobufSourceCodeInfo
+    case 424: self = .googleProtobufSourceContext
+    case 425: self = .googleProtobufStringValue
+    case 426: self = .googleProtobufStruct
+    case 427: self = .googleProtobufSymbolVisibility
+    case 428: self = .googleProtobufSyntax
+    case 429: self = .googleProtobufTimestamp
+    case 430: self = .googleProtobufType
+    case 431: self = .googleProtobufUint32Value
+    case 432: self = .googleProtobufUint64Value
+    case 433: self = .googleProtobufUninterpretedOption
+    case 434: self = .googleProtobufValue
     case 435: self = .goPackage
     case 436: self = .gotData
     case 437: self = .group
@@ -1760,12 +1760,12 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case 689: self = .numberValue
     case 690: self = .objcClassPrefix
     case 691: self = .of
-    case 692: self = .oneOfKind
-    case 693: self = .oneofDecl
-    case 694: self = .oneofDescriptorProto
-    case 695: self = .oneofIndex
-    case 696: self = .oneofOptions
-    case 697: self = .oneofs
+    case 692: self = .oneofDecl
+    case 693: self = .oneofDescriptorProto
+    case 694: self = .oneofIndex
+    case 695: self = .oneofOptions
+    case 696: self = .oneofs
+    case 697: self = .oneOfKind
     case 698: self = .optimizeFor
     case 699: self = .optimizeMode
     case 700: self = .option
@@ -1811,33 +1811,33 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case 740: self = .proto2
     case 741: self = .proto3DefaultValue
     case 742: self = .proto3Optional
-    case 743: self = .protobufExtensionFieldValues
-    case 744: self = .protobufFieldNumber
-    case 745: self = .protobufGeneratedIsEqualTo
-    case 746: self = .protobufNameMap
-    case 747: self = .protobufNewField
-    case 748: self = .protobufPackage
-    case 749: self = .protobufApiversion2
-    case 750: self = .protobufApiversionCheck
-    case 751: self = .protobufBool
-    case 752: self = .protobufBytes
-    case 753: self = .protobufDouble
-    case 754: self = .protobufEnumMap
-    case 755: self = .protobufExtension
-    case 756: self = .protobufFixed32
-    case 757: self = .protobufFixed64
-    case 758: self = .protobufFloat
-    case 759: self = .protobufInt32
-    case 760: self = .protobufInt64
-    case 761: self = .protobufMap
-    case 762: self = .protobufMessageMap
-    case 763: self = .protobufSfixed32
-    case 764: self = .protobufSfixed64
-    case 765: self = .protobufSint32
-    case 766: self = .protobufSint64
-    case 767: self = .protobufString
-    case 768: self = .protobufUint32
-    case 769: self = .protobufUint64
+    case 743: self = .protobufApiversionCheck
+    case 744: self = .protobufApiversion2
+    case 745: self = .protobufBool
+    case 746: self = .protobufBytes
+    case 747: self = .protobufDouble
+    case 748: self = .protobufEnumMap
+    case 749: self = .protobufExtension
+    case 750: self = .protobufFixed32
+    case 751: self = .protobufFixed64
+    case 752: self = .protobufFloat
+    case 753: self = .protobufInt32
+    case 754: self = .protobufInt64
+    case 755: self = .protobufMap
+    case 756: self = .protobufMessageMap
+    case 757: self = .protobufSfixed32
+    case 758: self = .protobufSfixed64
+    case 759: self = .protobufSint32
+    case 760: self = .protobufSint64
+    case 761: self = .protobufString
+    case 762: self = .protobufUint32
+    case 763: self = .protobufUint64
+    case 764: self = .protobufExtensionFieldValues
+    case 765: self = .protobufFieldNumber
+    case 766: self = .protobufGeneratedIsEqualTo
+    case 767: self = .protobufNameMap
+    case 768: self = .protobufNewField
+    case 769: self = .protobufPackage
     case 770: self = .protocol
     case 771: self = .protoFieldName
     case 772: self = .protoMessageName
@@ -2489,60 +2489,60 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case .generatedCodeInfo: return 378
     case .get: return 379
     case .getExtensionValue: return 380
-    case .googleProtobufAny: return 381
-    case .googleProtobufApi: return 382
-    case .googleProtobufBoolValue: return 383
-    case .googleProtobufBytesValue: return 384
-    case .googleProtobufDescriptorProto: return 385
-    case .googleProtobufDoubleValue: return 386
-    case .googleProtobufDuration: return 387
-    case .googleProtobufEdition: return 388
-    case .googleProtobufEmpty: return 389
-    case .googleProtobufEnum: return 390
-    case .googleProtobufEnumDescriptorProto: return 391
-    case .googleProtobufEnumOptions: return 392
-    case .googleProtobufEnumValue: return 393
-    case .googleProtobufEnumValueDescriptorProto: return 394
-    case .googleProtobufEnumValueOptions: return 395
-    case .googleProtobufExtensionRangeOptions: return 396
-    case .googleProtobufFeatureSet: return 397
-    case .googleProtobufFeatureSetDefaults: return 398
-    case .googleProtobufField: return 399
-    case .googleProtobufFieldDescriptorProto: return 400
-    case .googleProtobufFieldMask: return 401
-    case .googleProtobufFieldOptions: return 402
-    case .googleProtobufFileDescriptorProto: return 403
-    case .googleProtobufFileDescriptorSet: return 404
-    case .googleProtobufFileOptions: return 405
-    case .googleProtobufFloatValue: return 406
-    case .googleProtobufGeneratedCodeInfo: return 407
-    case .googleProtobufInt32Value: return 408
-    case .googleProtobufInt64Value: return 409
-    case .googleProtobufListValue: return 410
-    case .googleProtobufMessageOptions: return 411
-    case .googleProtobufMethod: return 412
-    case .googleProtobufMethodDescriptorProto: return 413
-    case .googleProtobufMethodOptions: return 414
-    case .googleProtobufMixin: return 415
-    case .googleProtobufNullValue: return 416
-    case .googleProtobufOneofDescriptorProto: return 417
-    case .googleProtobufOneofOptions: return 418
-    case .googleProtobufOption: return 419
-    case .googleProtobufServiceDescriptorProto: return 420
-    case .googleProtobufServiceOptions: return 421
-    case .googleProtobufSourceCodeInfo: return 422
-    case .googleProtobufSourceContext: return 423
-    case .googleProtobufStringValue: return 424
-    case .googleProtobufStruct: return 425
-    case .googleProtobufSymbolVisibility: return 426
-    case .googleProtobufSyntax: return 427
-    case .googleProtobufTimestamp: return 428
-    case .googleProtobufType: return 429
-    case .googleProtobufUint32Value: return 430
-    case .googleProtobufUint64Value: return 431
-    case .googleProtobufUninterpretedOption: return 432
-    case .googleProtobufValue: return 433
-    case .googleapis: return 434
+    case .googleapis: return 381
+    case .googleProtobufAny: return 382
+    case .googleProtobufApi: return 383
+    case .googleProtobufBoolValue: return 384
+    case .googleProtobufBytesValue: return 385
+    case .googleProtobufDescriptorProto: return 386
+    case .googleProtobufDoubleValue: return 387
+    case .googleProtobufDuration: return 388
+    case .googleProtobufEdition: return 389
+    case .googleProtobufEmpty: return 390
+    case .googleProtobufEnum: return 391
+    case .googleProtobufEnumDescriptorProto: return 392
+    case .googleProtobufEnumOptions: return 393
+    case .googleProtobufEnumValue: return 394
+    case .googleProtobufEnumValueDescriptorProto: return 395
+    case .googleProtobufEnumValueOptions: return 396
+    case .googleProtobufExtensionRangeOptions: return 397
+    case .googleProtobufFeatureSet: return 398
+    case .googleProtobufFeatureSetDefaults: return 399
+    case .googleProtobufField: return 400
+    case .googleProtobufFieldDescriptorProto: return 401
+    case .googleProtobufFieldMask: return 402
+    case .googleProtobufFieldOptions: return 403
+    case .googleProtobufFileDescriptorProto: return 404
+    case .googleProtobufFileDescriptorSet: return 405
+    case .googleProtobufFileOptions: return 406
+    case .googleProtobufFloatValue: return 407
+    case .googleProtobufGeneratedCodeInfo: return 408
+    case .googleProtobufInt32Value: return 409
+    case .googleProtobufInt64Value: return 410
+    case .googleProtobufListValue: return 411
+    case .googleProtobufMessageOptions: return 412
+    case .googleProtobufMethod: return 413
+    case .googleProtobufMethodDescriptorProto: return 414
+    case .googleProtobufMethodOptions: return 415
+    case .googleProtobufMixin: return 416
+    case .googleProtobufNullValue: return 417
+    case .googleProtobufOneofDescriptorProto: return 418
+    case .googleProtobufOneofOptions: return 419
+    case .googleProtobufOption: return 420
+    case .googleProtobufServiceDescriptorProto: return 421
+    case .googleProtobufServiceOptions: return 422
+    case .googleProtobufSourceCodeInfo: return 423
+    case .googleProtobufSourceContext: return 424
+    case .googleProtobufStringValue: return 425
+    case .googleProtobufStruct: return 426
+    case .googleProtobufSymbolVisibility: return 427
+    case .googleProtobufSyntax: return 428
+    case .googleProtobufTimestamp: return 429
+    case .googleProtobufType: return 430
+    case .googleProtobufUint32Value: return 431
+    case .googleProtobufUint64Value: return 432
+    case .googleProtobufUninterpretedOption: return 433
+    case .googleProtobufValue: return 434
     case .goPackage: return 435
     case .gotData: return 436
     case .group: return 437
@@ -2803,12 +2803,12 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case .numberValue: return 689
     case .objcClassPrefix: return 690
     case .of: return 691
-    case .oneOfKind: return 692
-    case .oneofDecl: return 693
-    case .oneofDescriptorProto: return 694
-    case .oneofIndex: return 695
-    case .oneofOptions: return 696
-    case .oneofs: return 697
+    case .oneofDecl: return 692
+    case .oneofDescriptorProto: return 693
+    case .oneofIndex: return 694
+    case .oneofOptions: return 695
+    case .oneofs: return 696
+    case .oneOfKind: return 697
     case .optimizeFor: return 698
     case .optimizeMode: return 699
     case .option: return 700
@@ -2854,33 +2854,33 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     case .proto2: return 740
     case .proto3DefaultValue: return 741
     case .proto3Optional: return 742
-    case .protobufExtensionFieldValues: return 743
-    case .protobufFieldNumber: return 744
-    case .protobufGeneratedIsEqualTo: return 745
-    case .protobufNameMap: return 746
-    case .protobufNewField: return 747
-    case .protobufPackage: return 748
-    case .protobufApiversion2: return 749
-    case .protobufApiversionCheck: return 750
-    case .protobufBool: return 751
-    case .protobufBytes: return 752
-    case .protobufDouble: return 753
-    case .protobufEnumMap: return 754
-    case .protobufExtension: return 755
-    case .protobufFixed32: return 756
-    case .protobufFixed64: return 757
-    case .protobufFloat: return 758
-    case .protobufInt32: return 759
-    case .protobufInt64: return 760
-    case .protobufMap: return 761
-    case .protobufMessageMap: return 762
-    case .protobufSfixed32: return 763
-    case .protobufSfixed64: return 764
-    case .protobufSint32: return 765
-    case .protobufSint64: return 766
-    case .protobufString: return 767
-    case .protobufUint32: return 768
-    case .protobufUint64: return 769
+    case .protobufApiversionCheck: return 743
+    case .protobufApiversion2: return 744
+    case .protobufBool: return 745
+    case .protobufBytes: return 746
+    case .protobufDouble: return 747
+    case .protobufEnumMap: return 748
+    case .protobufExtension: return 749
+    case .protobufFixed32: return 750
+    case .protobufFixed64: return 751
+    case .protobufFloat: return 752
+    case .protobufInt32: return 753
+    case .protobufInt64: return 754
+    case .protobufMap: return 755
+    case .protobufMessageMap: return 756
+    case .protobufSfixed32: return 757
+    case .protobufSfixed64: return 758
+    case .protobufSint32: return 759
+    case .protobufSint64: return 760
+    case .protobufString: return 761
+    case .protobufUint32: return 762
+    case .protobufUint64: return 763
+    case .protobufExtensionFieldValues: return 764
+    case .protobufFieldNumber: return 765
+    case .protobufGeneratedIsEqualTo: return 766
+    case .protobufNameMap: return 767
+    case .protobufNewField: return 768
+    case .protobufPackage: return 769
     case .protocol: return 770
     case .protoFieldName: return 771
     case .protoMessageName: return 772
@@ -3540,6 +3540,7 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .generatedCodeInfo,
     .get,
     .getExtensionValue,
+    .googleapis,
     .googleProtobufAny,
     .googleProtobufApi,
     .googleProtobufBoolValue,
@@ -3593,7 +3594,6 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .googleProtobufUint64Value,
     .googleProtobufUninterpretedOption,
     .googleProtobufValue,
-    .googleapis,
     .goPackage,
     .gotData,
     .group,
@@ -3851,12 +3851,12 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .numberValue,
     .objcClassPrefix,
     .of,
-    .oneOfKind,
     .oneofDecl,
     .oneofDescriptorProto,
     .oneofIndex,
     .oneofOptions,
     .oneofs,
+    .oneOfKind,
     .optimizeFor,
     .optimizeMode,
     .option,
@@ -3902,14 +3902,8 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .proto2,
     .proto3DefaultValue,
     .proto3Optional,
-    .protobufExtensionFieldValues,
-    .protobufFieldNumber,
-    .protobufGeneratedIsEqualTo,
-    .protobufNameMap,
-    .protobufNewField,
-    .protobufPackage,
-    .protobufApiversion2,
     .protobufApiversionCheck,
+    .protobufApiversion2,
     .protobufBool,
     .protobufBytes,
     .protobufDouble,
@@ -3929,6 +3923,12 @@ enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum,
     .protobufString,
     .protobufUint32,
     .protobufUint64,
+    .protobufExtensionFieldValues,
+    .protobufFieldNumber,
+    .protobufGeneratedIsEqualTo,
+    .protobufNameMap,
+    .protobufNewField,
+    .protobufPackage,
     .protocol,
     .protoFieldName,
     .protoMessageName,
@@ -4210,7 +4210,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     6: .same(proto: "alwaysPrintEnumsAsInts"),
     7: .same(proto: "alwaysPrintInt64sAsNumbers"),
     8: .same(proto: "annotation"),
-    9: .same(proto: "Any"),
+    9: .same(proto: "any"),
     10: .same(proto: "AnyExtensionField"),
     11: .same(proto: "AnyMessageExtension"),
     12: .same(proto: "AnyMessageStorage"),
@@ -4391,7 +4391,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     187: .same(proto: "customCodable"),
     188: .same(proto: "CustomDebugStringConvertible"),
     189: .same(proto: "CustomStringConvertible"),
-    190: .same(proto: "D"),
+    190: .same(proto: "d"),
     191: .same(proto: "Data"),
     192: .same(proto: "dataResult"),
     193: .same(proto: "date"),
@@ -4407,7 +4407,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     203: .same(proto: "decodeJSON"),
     204: .same(proto: "decodeMapField"),
     205: .same(proto: "decodeMessage"),
-    206: .same(proto: "Decoder"),
+    206: .same(proto: "decoder"),
     207: .same(proto: "decodeRepeated"),
     208: .same(proto: "decodeRepeatedBoolField"),
     209: .same(proto: "decodeRepeatedBytesField"),
@@ -4469,7 +4469,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     265: .same(proto: "discardUnknownFields"),
     266: .same(proto: "Double"),
     267: .same(proto: "doubleValue"),
-    268: .same(proto: "Duration"),
+    268: .same(proto: "duration"),
     269: .same(proto: "E"),
     270: .same(proto: "edition"),
     271: .same(proto: "EditionDefault"),
@@ -4582,60 +4582,60 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     378: .same(proto: "GeneratedCodeInfo"),
     379: .same(proto: "get"),
     380: .same(proto: "getExtensionValue"),
-    381: .same(proto: "Google_Protobuf_Any"),
-    382: .same(proto: "Google_Protobuf_Api"),
-    383: .same(proto: "Google_Protobuf_BoolValue"),
-    384: .same(proto: "Google_Protobuf_BytesValue"),
-    385: .same(proto: "Google_Protobuf_DescriptorProto"),
-    386: .same(proto: "Google_Protobuf_DoubleValue"),
-    387: .same(proto: "Google_Protobuf_Duration"),
-    388: .same(proto: "Google_Protobuf_Edition"),
-    389: .same(proto: "Google_Protobuf_Empty"),
-    390: .same(proto: "Google_Protobuf_Enum"),
-    391: .same(proto: "Google_Protobuf_EnumDescriptorProto"),
-    392: .same(proto: "Google_Protobuf_EnumOptions"),
-    393: .same(proto: "Google_Protobuf_EnumValue"),
-    394: .same(proto: "Google_Protobuf_EnumValueDescriptorProto"),
-    395: .same(proto: "Google_Protobuf_EnumValueOptions"),
-    396: .same(proto: "Google_Protobuf_ExtensionRangeOptions"),
-    397: .same(proto: "Google_Protobuf_FeatureSet"),
-    398: .same(proto: "Google_Protobuf_FeatureSetDefaults"),
-    399: .same(proto: "Google_Protobuf_Field"),
-    400: .same(proto: "Google_Protobuf_FieldDescriptorProto"),
-    401: .same(proto: "Google_Protobuf_FieldMask"),
-    402: .same(proto: "Google_Protobuf_FieldOptions"),
-    403: .same(proto: "Google_Protobuf_FileDescriptorProto"),
-    404: .same(proto: "Google_Protobuf_FileDescriptorSet"),
-    405: .same(proto: "Google_Protobuf_FileOptions"),
-    406: .same(proto: "Google_Protobuf_FloatValue"),
-    407: .same(proto: "Google_Protobuf_GeneratedCodeInfo"),
-    408: .same(proto: "Google_Protobuf_Int32Value"),
-    409: .same(proto: "Google_Protobuf_Int64Value"),
-    410: .same(proto: "Google_Protobuf_ListValue"),
-    411: .same(proto: "Google_Protobuf_MessageOptions"),
-    412: .same(proto: "Google_Protobuf_Method"),
-    413: .same(proto: "Google_Protobuf_MethodDescriptorProto"),
-    414: .same(proto: "Google_Protobuf_MethodOptions"),
-    415: .same(proto: "Google_Protobuf_Mixin"),
-    416: .same(proto: "Google_Protobuf_NullValue"),
-    417: .same(proto: "Google_Protobuf_OneofDescriptorProto"),
-    418: .same(proto: "Google_Protobuf_OneofOptions"),
-    419: .same(proto: "Google_Protobuf_Option"),
-    420: .same(proto: "Google_Protobuf_ServiceDescriptorProto"),
-    421: .same(proto: "Google_Protobuf_ServiceOptions"),
-    422: .same(proto: "Google_Protobuf_SourceCodeInfo"),
-    423: .same(proto: "Google_Protobuf_SourceContext"),
-    424: .same(proto: "Google_Protobuf_StringValue"),
-    425: .same(proto: "Google_Protobuf_Struct"),
-    426: .same(proto: "Google_Protobuf_SymbolVisibility"),
-    427: .same(proto: "Google_Protobuf_Syntax"),
-    428: .same(proto: "Google_Protobuf_Timestamp"),
-    429: .same(proto: "Google_Protobuf_Type"),
-    430: .same(proto: "Google_Protobuf_UInt32Value"),
-    431: .same(proto: "Google_Protobuf_UInt64Value"),
-    432: .same(proto: "Google_Protobuf_UninterpretedOption"),
-    433: .same(proto: "Google_Protobuf_Value"),
-    434: .same(proto: "googleapis"),
+    381: .same(proto: "googleapis"),
+    382: .same(proto: "Google_Protobuf_Any"),
+    383: .same(proto: "Google_Protobuf_Api"),
+    384: .same(proto: "Google_Protobuf_BoolValue"),
+    385: .same(proto: "Google_Protobuf_BytesValue"),
+    386: .same(proto: "Google_Protobuf_DescriptorProto"),
+    387: .same(proto: "Google_Protobuf_DoubleValue"),
+    388: .same(proto: "Google_Protobuf_Duration"),
+    389: .same(proto: "Google_Protobuf_Edition"),
+    390: .same(proto: "Google_Protobuf_Empty"),
+    391: .same(proto: "Google_Protobuf_Enum"),
+    392: .same(proto: "Google_Protobuf_EnumDescriptorProto"),
+    393: .same(proto: "Google_Protobuf_EnumOptions"),
+    394: .same(proto: "Google_Protobuf_EnumValue"),
+    395: .same(proto: "Google_Protobuf_EnumValueDescriptorProto"),
+    396: .same(proto: "Google_Protobuf_EnumValueOptions"),
+    397: .same(proto: "Google_Protobuf_ExtensionRangeOptions"),
+    398: .same(proto: "Google_Protobuf_FeatureSet"),
+    399: .same(proto: "Google_Protobuf_FeatureSetDefaults"),
+    400: .same(proto: "Google_Protobuf_Field"),
+    401: .same(proto: "Google_Protobuf_FieldDescriptorProto"),
+    402: .same(proto: "Google_Protobuf_FieldMask"),
+    403: .same(proto: "Google_Protobuf_FieldOptions"),
+    404: .same(proto: "Google_Protobuf_FileDescriptorProto"),
+    405: .same(proto: "Google_Protobuf_FileDescriptorSet"),
+    406: .same(proto: "Google_Protobuf_FileOptions"),
+    407: .same(proto: "Google_Protobuf_FloatValue"),
+    408: .same(proto: "Google_Protobuf_GeneratedCodeInfo"),
+    409: .same(proto: "Google_Protobuf_Int32Value"),
+    410: .same(proto: "Google_Protobuf_Int64Value"),
+    411: .same(proto: "Google_Protobuf_ListValue"),
+    412: .same(proto: "Google_Protobuf_MessageOptions"),
+    413: .same(proto: "Google_Protobuf_Method"),
+    414: .same(proto: "Google_Protobuf_MethodDescriptorProto"),
+    415: .same(proto: "Google_Protobuf_MethodOptions"),
+    416: .same(proto: "Google_Protobuf_Mixin"),
+    417: .same(proto: "Google_Protobuf_NullValue"),
+    418: .same(proto: "Google_Protobuf_OneofDescriptorProto"),
+    419: .same(proto: "Google_Protobuf_OneofOptions"),
+    420: .same(proto: "Google_Protobuf_Option"),
+    421: .same(proto: "Google_Protobuf_ServiceDescriptorProto"),
+    422: .same(proto: "Google_Protobuf_ServiceOptions"),
+    423: .same(proto: "Google_Protobuf_SourceCodeInfo"),
+    424: .same(proto: "Google_Protobuf_SourceContext"),
+    425: .same(proto: "Google_Protobuf_StringValue"),
+    426: .same(proto: "Google_Protobuf_Struct"),
+    427: .same(proto: "Google_Protobuf_SymbolVisibility"),
+    428: .same(proto: "Google_Protobuf_Syntax"),
+    429: .same(proto: "Google_Protobuf_Timestamp"),
+    430: .same(proto: "Google_Protobuf_Type"),
+    431: .same(proto: "Google_Protobuf_UInt32Value"),
+    432: .same(proto: "Google_Protobuf_UInt64Value"),
+    433: .same(proto: "Google_Protobuf_UninterpretedOption"),
+    434: .same(proto: "Google_Protobuf_Value"),
     435: .same(proto: "goPackage"),
     436: .same(proto: "gotData"),
     437: .same(proto: "group"),
@@ -4893,12 +4893,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     689: .same(proto: "numberValue"),
     690: .same(proto: "objcClassPrefix"),
     691: .same(proto: "of"),
-    692: .same(proto: "OneOf_Kind"),
-    693: .same(proto: "oneofDecl"),
-    694: .same(proto: "OneofDescriptorProto"),
-    695: .same(proto: "oneofIndex"),
-    696: .same(proto: "OneofOptions"),
-    697: .same(proto: "oneofs"),
+    692: .same(proto: "oneofDecl"),
+    693: .same(proto: "OneofDescriptorProto"),
+    694: .same(proto: "oneofIndex"),
+    695: .same(proto: "OneofOptions"),
+    696: .same(proto: "oneofs"),
+    697: .same(proto: "OneOf_Kind"),
     698: .same(proto: "optimizeFor"),
     699: .same(proto: "OptimizeMode"),
     700: .same(proto: "Option"),
@@ -4944,33 +4944,33 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     740: .same(proto: "proto2"),
     741: .same(proto: "proto3DefaultValue"),
     742: .same(proto: "proto3Optional"),
-    743: .same(proto: "protobuf_extensionFieldValues"),
-    744: .same(proto: "protobuf_fieldNumber"),
-    745: .same(proto: "protobuf_generated_isEqualTo"),
-    746: .same(proto: "protobuf_nameMap"),
-    747: .same(proto: "protobuf_newField"),
-    748: .same(proto: "protobuf_package"),
-    749: .same(proto: "ProtobufAPIVersion_2"),
-    750: .same(proto: "ProtobufAPIVersionCheck"),
-    751: .same(proto: "ProtobufBool"),
-    752: .same(proto: "ProtobufBytes"),
-    753: .same(proto: "ProtobufDouble"),
-    754: .same(proto: "ProtobufEnumMap"),
-    755: .same(proto: "protobufExtension"),
-    756: .same(proto: "ProtobufFixed32"),
-    757: .same(proto: "ProtobufFixed64"),
-    758: .same(proto: "ProtobufFloat"),
-    759: .same(proto: "ProtobufInt32"),
-    760: .same(proto: "ProtobufInt64"),
-    761: .same(proto: "ProtobufMap"),
-    762: .same(proto: "ProtobufMessageMap"),
-    763: .same(proto: "ProtobufSFixed32"),
-    764: .same(proto: "ProtobufSFixed64"),
-    765: .same(proto: "ProtobufSInt32"),
-    766: .same(proto: "ProtobufSInt64"),
-    767: .same(proto: "ProtobufString"),
-    768: .same(proto: "ProtobufUInt32"),
-    769: .same(proto: "ProtobufUInt64"),
+    743: .same(proto: "ProtobufAPIVersionCheck"),
+    744: .same(proto: "ProtobufAPIVersion_2"),
+    745: .same(proto: "ProtobufBool"),
+    746: .same(proto: "ProtobufBytes"),
+    747: .same(proto: "ProtobufDouble"),
+    748: .same(proto: "ProtobufEnumMap"),
+    749: .same(proto: "protobufExtension"),
+    750: .same(proto: "ProtobufFixed32"),
+    751: .same(proto: "ProtobufFixed64"),
+    752: .same(proto: "ProtobufFloat"),
+    753: .same(proto: "ProtobufInt32"),
+    754: .same(proto: "ProtobufInt64"),
+    755: .same(proto: "ProtobufMap"),
+    756: .same(proto: "ProtobufMessageMap"),
+    757: .same(proto: "ProtobufSFixed32"),
+    758: .same(proto: "ProtobufSFixed64"),
+    759: .same(proto: "ProtobufSInt32"),
+    760: .same(proto: "ProtobufSInt64"),
+    761: .same(proto: "ProtobufString"),
+    762: .same(proto: "ProtobufUInt32"),
+    763: .same(proto: "ProtobufUInt64"),
+    764: .same(proto: "protobuf_extensionFieldValues"),
+    765: .same(proto: "protobuf_fieldNumber"),
+    766: .same(proto: "protobuf_generated_isEqualTo"),
+    767: .same(proto: "protobuf_nameMap"),
+    768: .same(proto: "protobuf_newField"),
+    769: .same(proto: "protobuf_package"),
     770: .same(proto: "protocol"),
     771: .same(proto: "protoFieldName"),
     772: .same(proto: "protoMessageName"),
@@ -5151,7 +5151,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     947: .same(proto: "utf8ToDouble"),
     948: .same(proto: "utf8Validation"),
     949: .same(proto: "UTF8View"),
-    950: .same(proto: "V"),
+    950: .same(proto: "v"),
     951: .same(proto: "value"),
     952: .same(proto: "valueField"),
     953: .same(proto: "values"),
@@ -5159,14 +5159,14 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.
     955: .same(proto: "var"),
     956: .same(proto: "verification"),
     957: .same(proto: "VerificationState"),
-    958: .same(proto: "version"),
+    958: .same(proto: "Version"),
     959: .same(proto: "versionString"),
     960: .same(proto: "visibility"),
     961: .same(proto: "VisibilityFeature"),
     962: .same(proto: "visitExtensionFields"),
     963: .same(proto: "visitExtensionFieldsAsMessageSet"),
     964: .same(proto: "visitMapField"),
-    965: .same(proto: "Visitor"),
+    965: .same(proto: "visitor"),
     966: .same(proto: "visitPacked"),
     967: .same(proto: "visitPackedBoolField"),
     968: .same(proto: "visitPackedDoubleField"),

@@ -3573,15 +3573,11 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
     var _reservedName: [String] = []
     var _visibility: Google_Protobuf_SymbolVisibility? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -3733,15 +3729,11 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
     var _number: Int32? = nil
     var _options: Google_Protobuf_EnumValueOptions? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -5295,15 +5287,11 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
     var _overridableFeatures: Google_Protobuf_FeatureSet? = nil
     var _fixedFeatures: Google_Protobuf_FeatureSet? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 

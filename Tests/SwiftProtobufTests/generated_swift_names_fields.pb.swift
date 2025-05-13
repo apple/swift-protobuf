@@ -1929,6 +1929,11 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
     set {_uniqueStorage()._getExtensionValue = newValue}
   }
 
+  var googleapis: Int32 {
+    get {return _storage._googleapis}
+    set {_uniqueStorage()._googleapis = newValue}
+  }
+
   var googleProtobufAny: Int32 {
     get {return _storage._googleProtobufAny}
     set {_uniqueStorage()._googleProtobufAny = newValue}
@@ -2192,11 +2197,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
   var googleProtobufValue: Int32 {
     get {return _storage._googleProtobufValue}
     set {_uniqueStorage()._googleProtobufValue = newValue}
-  }
-
-  var googleapis: Int32 {
-    get {return _storage._googleapis}
-    set {_uniqueStorage()._googleapis = newValue}
   }
 
   var goPackage: Int32 {
@@ -3484,11 +3484,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
     set {_uniqueStorage()._of = newValue}
   }
 
-  var oneOfKind: Int32 {
-    get {return _storage._oneOfKind}
-    set {_uniqueStorage()._oneOfKind = newValue}
-  }
-
   var oneofDecl: Int32 {
     get {return _storage._oneofDecl}
     set {_uniqueStorage()._oneofDecl = newValue}
@@ -3512,6 +3507,11 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
   var oneofs: Int32 {
     get {return _storage._oneofs}
     set {_uniqueStorage()._oneofs = newValue}
+  }
+
+  var oneOfKind: Int32 {
+    get {return _storage._oneOfKind}
+    set {_uniqueStorage()._oneOfKind = newValue}
   }
 
   var optimizeFor: Int32 {
@@ -3739,44 +3739,14 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
     set {_uniqueStorage()._proto3Optional = newValue}
   }
 
-  var protobufExtensionFieldValues: Int32 {
-    get {return _storage._protobufExtensionFieldValues}
-    set {_uniqueStorage()._protobufExtensionFieldValues = newValue}
-  }
-
-  var protobufFieldNumber: Int32 {
-    get {return _storage._protobufFieldNumber}
-    set {_uniqueStorage()._protobufFieldNumber = newValue}
-  }
-
-  var protobufGeneratedIsEqualTo: Int32 {
-    get {return _storage._protobufGeneratedIsEqualTo}
-    set {_uniqueStorage()._protobufGeneratedIsEqualTo = newValue}
-  }
-
-  var protobufNameMap: Int32 {
-    get {return _storage._protobufNameMap}
-    set {_uniqueStorage()._protobufNameMap = newValue}
-  }
-
-  var protobufNewField: Int32 {
-    get {return _storage._protobufNewField}
-    set {_uniqueStorage()._protobufNewField = newValue}
-  }
-
-  var protobufPackage: Int32 {
-    get {return _storage._protobufPackage}
-    set {_uniqueStorage()._protobufPackage = newValue}
+  var protobufApiversionCheck: Int32 {
+    get {return _storage._protobufApiversionCheck}
+    set {_uniqueStorage()._protobufApiversionCheck = newValue}
   }
 
   var protobufApiversion2: Int32 {
     get {return _storage._protobufApiversion2}
     set {_uniqueStorage()._protobufApiversion2 = newValue}
-  }
-
-  var protobufApiversionCheck: Int32 {
-    get {return _storage._protobufApiversionCheck}
-    set {_uniqueStorage()._protobufApiversionCheck = newValue}
   }
 
   var protobufBool: Int32 {
@@ -3872,6 +3842,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Send
   var protobufUint64: Int32 {
     get {return _storage._protobufUint64}
     set {_uniqueStorage()._protobufUint64 = newValue}
+  }
+
+  var protobufExtensionFieldValues: Int32 {
+    get {return _storage._protobufExtensionFieldValues}
+    set {_uniqueStorage()._protobufExtensionFieldValues = newValue}
+  }
+
+  var protobufFieldNumber: Int32 {
+    get {return _storage._protobufFieldNumber}
+    set {_uniqueStorage()._protobufFieldNumber = newValue}
+  }
+
+  var protobufGeneratedIsEqualTo: Int32 {
+    get {return _storage._protobufGeneratedIsEqualTo}
+    set {_uniqueStorage()._protobufGeneratedIsEqualTo = newValue}
+  }
+
+  var protobufNameMap: Int32 {
+    get {return _storage._protobufNameMap}
+    set {_uniqueStorage()._protobufNameMap = newValue}
+  }
+
+  var protobufNewField: Int32 {
+    get {return _storage._protobufNewField}
+    set {_uniqueStorage()._protobufNewField = newValue}
+  }
+
+  var protobufPackage: Int32 {
+    get {return _storage._protobufPackage}
+    set {_uniqueStorage()._protobufPackage = newValue}
   }
 
   var `protocol`: Int32 {
@@ -5216,7 +5216,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     6: .same(proto: "alwaysPrintEnumsAsInts"),
     7: .same(proto: "alwaysPrintInt64sAsNumbers"),
     8: .same(proto: "annotation"),
-    9: .same(proto: "Any"),
+    9: .same(proto: "any"),
     10: .same(proto: "AnyExtensionField"),
     11: .same(proto: "AnyMessageExtension"),
     12: .same(proto: "AnyMessageStorage"),
@@ -5397,7 +5397,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     187: .same(proto: "customCodable"),
     188: .same(proto: "CustomDebugStringConvertible"),
     189: .same(proto: "CustomStringConvertible"),
-    190: .same(proto: "D"),
+    190: .same(proto: "d"),
     191: .same(proto: "Data"),
     192: .same(proto: "dataResult"),
     193: .same(proto: "date"),
@@ -5413,7 +5413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     203: .same(proto: "decodeJSON"),
     204: .same(proto: "decodeMapField"),
     205: .same(proto: "decodeMessage"),
-    206: .same(proto: "Decoder"),
+    206: .same(proto: "decoder"),
     207: .same(proto: "decodeRepeated"),
     208: .same(proto: "decodeRepeatedBoolField"),
     209: .same(proto: "decodeRepeatedBytesField"),
@@ -5475,7 +5475,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     265: .same(proto: "discardUnknownFields"),
     266: .same(proto: "Double"),
     267: .same(proto: "doubleValue"),
-    268: .same(proto: "Duration"),
+    268: .same(proto: "duration"),
     269: .same(proto: "E"),
     270: .same(proto: "edition"),
     271: .same(proto: "EditionDefault"),
@@ -5588,60 +5588,60 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     378: .same(proto: "GeneratedCodeInfo"),
     379: .same(proto: "get"),
     380: .same(proto: "getExtensionValue"),
-    381: .standard(proto: "Google_Protobuf_Any"),
-    382: .standard(proto: "Google_Protobuf_Api"),
-    383: .standard(proto: "Google_Protobuf_BoolValue"),
-    384: .standard(proto: "Google_Protobuf_BytesValue"),
-    385: .standard(proto: "Google_Protobuf_DescriptorProto"),
-    386: .standard(proto: "Google_Protobuf_DoubleValue"),
-    387: .standard(proto: "Google_Protobuf_Duration"),
-    388: .standard(proto: "Google_Protobuf_Edition"),
-    389: .standard(proto: "Google_Protobuf_Empty"),
-    390: .standard(proto: "Google_Protobuf_Enum"),
-    391: .standard(proto: "Google_Protobuf_EnumDescriptorProto"),
-    392: .standard(proto: "Google_Protobuf_EnumOptions"),
-    393: .standard(proto: "Google_Protobuf_EnumValue"),
-    394: .standard(proto: "Google_Protobuf_EnumValueDescriptorProto"),
-    395: .standard(proto: "Google_Protobuf_EnumValueOptions"),
-    396: .standard(proto: "Google_Protobuf_ExtensionRangeOptions"),
-    397: .standard(proto: "Google_Protobuf_FeatureSet"),
-    398: .standard(proto: "Google_Protobuf_FeatureSetDefaults"),
-    399: .standard(proto: "Google_Protobuf_Field"),
-    400: .standard(proto: "Google_Protobuf_FieldDescriptorProto"),
-    401: .standard(proto: "Google_Protobuf_FieldMask"),
-    402: .standard(proto: "Google_Protobuf_FieldOptions"),
-    403: .standard(proto: "Google_Protobuf_FileDescriptorProto"),
-    404: .standard(proto: "Google_Protobuf_FileDescriptorSet"),
-    405: .standard(proto: "Google_Protobuf_FileOptions"),
-    406: .standard(proto: "Google_Protobuf_FloatValue"),
-    407: .standard(proto: "Google_Protobuf_GeneratedCodeInfo"),
-    408: .standard(proto: "Google_Protobuf_Int32Value"),
-    409: .standard(proto: "Google_Protobuf_Int64Value"),
-    410: .standard(proto: "Google_Protobuf_ListValue"),
-    411: .standard(proto: "Google_Protobuf_MessageOptions"),
-    412: .standard(proto: "Google_Protobuf_Method"),
-    413: .standard(proto: "Google_Protobuf_MethodDescriptorProto"),
-    414: .standard(proto: "Google_Protobuf_MethodOptions"),
-    415: .standard(proto: "Google_Protobuf_Mixin"),
-    416: .standard(proto: "Google_Protobuf_NullValue"),
-    417: .standard(proto: "Google_Protobuf_OneofDescriptorProto"),
-    418: .standard(proto: "Google_Protobuf_OneofOptions"),
-    419: .standard(proto: "Google_Protobuf_Option"),
-    420: .standard(proto: "Google_Protobuf_ServiceDescriptorProto"),
-    421: .standard(proto: "Google_Protobuf_ServiceOptions"),
-    422: .standard(proto: "Google_Protobuf_SourceCodeInfo"),
-    423: .standard(proto: "Google_Protobuf_SourceContext"),
-    424: .standard(proto: "Google_Protobuf_StringValue"),
-    425: .standard(proto: "Google_Protobuf_Struct"),
-    426: .standard(proto: "Google_Protobuf_SymbolVisibility"),
-    427: .standard(proto: "Google_Protobuf_Syntax"),
-    428: .standard(proto: "Google_Protobuf_Timestamp"),
-    429: .standard(proto: "Google_Protobuf_Type"),
-    430: .standard(proto: "Google_Protobuf_UInt32Value"),
-    431: .standard(proto: "Google_Protobuf_UInt64Value"),
-    432: .standard(proto: "Google_Protobuf_UninterpretedOption"),
-    433: .standard(proto: "Google_Protobuf_Value"),
-    434: .same(proto: "googleapis"),
+    381: .same(proto: "googleapis"),
+    382: .standard(proto: "Google_Protobuf_Any"),
+    383: .standard(proto: "Google_Protobuf_Api"),
+    384: .standard(proto: "Google_Protobuf_BoolValue"),
+    385: .standard(proto: "Google_Protobuf_BytesValue"),
+    386: .standard(proto: "Google_Protobuf_DescriptorProto"),
+    387: .standard(proto: "Google_Protobuf_DoubleValue"),
+    388: .standard(proto: "Google_Protobuf_Duration"),
+    389: .standard(proto: "Google_Protobuf_Edition"),
+    390: .standard(proto: "Google_Protobuf_Empty"),
+    391: .standard(proto: "Google_Protobuf_Enum"),
+    392: .standard(proto: "Google_Protobuf_EnumDescriptorProto"),
+    393: .standard(proto: "Google_Protobuf_EnumOptions"),
+    394: .standard(proto: "Google_Protobuf_EnumValue"),
+    395: .standard(proto: "Google_Protobuf_EnumValueDescriptorProto"),
+    396: .standard(proto: "Google_Protobuf_EnumValueOptions"),
+    397: .standard(proto: "Google_Protobuf_ExtensionRangeOptions"),
+    398: .standard(proto: "Google_Protobuf_FeatureSet"),
+    399: .standard(proto: "Google_Protobuf_FeatureSetDefaults"),
+    400: .standard(proto: "Google_Protobuf_Field"),
+    401: .standard(proto: "Google_Protobuf_FieldDescriptorProto"),
+    402: .standard(proto: "Google_Protobuf_FieldMask"),
+    403: .standard(proto: "Google_Protobuf_FieldOptions"),
+    404: .standard(proto: "Google_Protobuf_FileDescriptorProto"),
+    405: .standard(proto: "Google_Protobuf_FileDescriptorSet"),
+    406: .standard(proto: "Google_Protobuf_FileOptions"),
+    407: .standard(proto: "Google_Protobuf_FloatValue"),
+    408: .standard(proto: "Google_Protobuf_GeneratedCodeInfo"),
+    409: .standard(proto: "Google_Protobuf_Int32Value"),
+    410: .standard(proto: "Google_Protobuf_Int64Value"),
+    411: .standard(proto: "Google_Protobuf_ListValue"),
+    412: .standard(proto: "Google_Protobuf_MessageOptions"),
+    413: .standard(proto: "Google_Protobuf_Method"),
+    414: .standard(proto: "Google_Protobuf_MethodDescriptorProto"),
+    415: .standard(proto: "Google_Protobuf_MethodOptions"),
+    416: .standard(proto: "Google_Protobuf_Mixin"),
+    417: .standard(proto: "Google_Protobuf_NullValue"),
+    418: .standard(proto: "Google_Protobuf_OneofDescriptorProto"),
+    419: .standard(proto: "Google_Protobuf_OneofOptions"),
+    420: .standard(proto: "Google_Protobuf_Option"),
+    421: .standard(proto: "Google_Protobuf_ServiceDescriptorProto"),
+    422: .standard(proto: "Google_Protobuf_ServiceOptions"),
+    423: .standard(proto: "Google_Protobuf_SourceCodeInfo"),
+    424: .standard(proto: "Google_Protobuf_SourceContext"),
+    425: .standard(proto: "Google_Protobuf_StringValue"),
+    426: .standard(proto: "Google_Protobuf_Struct"),
+    427: .standard(proto: "Google_Protobuf_SymbolVisibility"),
+    428: .standard(proto: "Google_Protobuf_Syntax"),
+    429: .standard(proto: "Google_Protobuf_Timestamp"),
+    430: .standard(proto: "Google_Protobuf_Type"),
+    431: .standard(proto: "Google_Protobuf_UInt32Value"),
+    432: .standard(proto: "Google_Protobuf_UInt64Value"),
+    433: .standard(proto: "Google_Protobuf_UninterpretedOption"),
+    434: .standard(proto: "Google_Protobuf_Value"),
     435: .same(proto: "goPackage"),
     436: .same(proto: "gotData"),
     437: .same(proto: "group"),
@@ -5899,12 +5899,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     689: .same(proto: "numberValue"),
     690: .same(proto: "objcClassPrefix"),
     691: .same(proto: "of"),
-    692: .standard(proto: "OneOf_Kind"),
-    693: .same(proto: "oneofDecl"),
-    694: .same(proto: "OneofDescriptorProto"),
-    695: .same(proto: "oneofIndex"),
-    696: .same(proto: "OneofOptions"),
-    697: .same(proto: "oneofs"),
+    692: .same(proto: "oneofDecl"),
+    693: .same(proto: "OneofDescriptorProto"),
+    694: .same(proto: "oneofIndex"),
+    695: .same(proto: "OneofOptions"),
+    696: .same(proto: "oneofs"),
+    697: .standard(proto: "OneOf_Kind"),
     698: .same(proto: "optimizeFor"),
     699: .same(proto: "OptimizeMode"),
     700: .same(proto: "Option"),
@@ -5950,33 +5950,33 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     740: .same(proto: "proto2"),
     741: .same(proto: "proto3DefaultValue"),
     742: .same(proto: "proto3Optional"),
-    743: .standard(proto: "protobuf_extensionFieldValues"),
-    744: .standard(proto: "protobuf_fieldNumber"),
-    745: .standard(proto: "protobuf_generated_isEqualTo"),
-    746: .standard(proto: "protobuf_nameMap"),
-    747: .standard(proto: "protobuf_newField"),
-    748: .standard(proto: "protobuf_package"),
-    749: .standard(proto: "ProtobufAPIVersion_2"),
-    750: .same(proto: "ProtobufAPIVersionCheck"),
-    751: .same(proto: "ProtobufBool"),
-    752: .same(proto: "ProtobufBytes"),
-    753: .same(proto: "ProtobufDouble"),
-    754: .same(proto: "ProtobufEnumMap"),
-    755: .same(proto: "protobufExtension"),
-    756: .same(proto: "ProtobufFixed32"),
-    757: .same(proto: "ProtobufFixed64"),
-    758: .same(proto: "ProtobufFloat"),
-    759: .same(proto: "ProtobufInt32"),
-    760: .same(proto: "ProtobufInt64"),
-    761: .same(proto: "ProtobufMap"),
-    762: .same(proto: "ProtobufMessageMap"),
-    763: .same(proto: "ProtobufSFixed32"),
-    764: .same(proto: "ProtobufSFixed64"),
-    765: .same(proto: "ProtobufSInt32"),
-    766: .same(proto: "ProtobufSInt64"),
-    767: .same(proto: "ProtobufString"),
-    768: .same(proto: "ProtobufUInt32"),
-    769: .same(proto: "ProtobufUInt64"),
+    743: .same(proto: "ProtobufAPIVersionCheck"),
+    744: .standard(proto: "ProtobufAPIVersion_2"),
+    745: .same(proto: "ProtobufBool"),
+    746: .same(proto: "ProtobufBytes"),
+    747: .same(proto: "ProtobufDouble"),
+    748: .same(proto: "ProtobufEnumMap"),
+    749: .same(proto: "protobufExtension"),
+    750: .same(proto: "ProtobufFixed32"),
+    751: .same(proto: "ProtobufFixed64"),
+    752: .same(proto: "ProtobufFloat"),
+    753: .same(proto: "ProtobufInt32"),
+    754: .same(proto: "ProtobufInt64"),
+    755: .same(proto: "ProtobufMap"),
+    756: .same(proto: "ProtobufMessageMap"),
+    757: .same(proto: "ProtobufSFixed32"),
+    758: .same(proto: "ProtobufSFixed64"),
+    759: .same(proto: "ProtobufSInt32"),
+    760: .same(proto: "ProtobufSInt64"),
+    761: .same(proto: "ProtobufString"),
+    762: .same(proto: "ProtobufUInt32"),
+    763: .same(proto: "ProtobufUInt64"),
+    764: .standard(proto: "protobuf_extensionFieldValues"),
+    765: .standard(proto: "protobuf_fieldNumber"),
+    766: .standard(proto: "protobuf_generated_isEqualTo"),
+    767: .standard(proto: "protobuf_nameMap"),
+    768: .standard(proto: "protobuf_newField"),
+    769: .standard(proto: "protobuf_package"),
     770: .same(proto: "protocol"),
     771: .same(proto: "protoFieldName"),
     772: .same(proto: "protoMessageName"),
@@ -6157,7 +6157,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     947: .same(proto: "utf8ToDouble"),
     948: .same(proto: "utf8Validation"),
     949: .same(proto: "UTF8View"),
-    950: .same(proto: "V"),
+    950: .same(proto: "v"),
     951: .same(proto: "value"),
     952: .same(proto: "valueField"),
     953: .same(proto: "values"),
@@ -6165,14 +6165,14 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     955: .same(proto: "var"),
     956: .same(proto: "verification"),
     957: .same(proto: "VerificationState"),
-    958: .same(proto: "version"),
+    958: .same(proto: "Version"),
     959: .same(proto: "versionString"),
     960: .same(proto: "visibility"),
     961: .same(proto: "VisibilityFeature"),
     962: .same(proto: "visitExtensionFields"),
     963: .same(proto: "visitExtensionFieldsAsMessageSet"),
     964: .same(proto: "visitMapField"),
-    965: .same(proto: "Visitor"),
+    965: .same(proto: "visitor"),
     966: .same(proto: "visitPacked"),
     967: .same(proto: "visitPackedBoolField"),
     968: .same(proto: "visitPackedDoubleField"),
@@ -6624,6 +6624,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _generatedCodeInfo: Int32 = 0
     var _get: Int32 = 0
     var _getExtensionValue: Int32 = 0
+    var _googleapis: Int32 = 0
     var _googleProtobufAny: Int32 = 0
     var _googleProtobufApi: Int32 = 0
     var _googleProtobufBoolValue: Int32 = 0
@@ -6677,7 +6678,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _googleProtobufUint64Value: Int32 = 0
     var _googleProtobufUninterpretedOption: Int32 = 0
     var _googleProtobufValue: Int32 = 0
-    var _googleapis: Int32 = 0
     var _goPackage: Int32 = 0
     var _gotData: Int32 = 0
     var _group: Int32 = 0
@@ -6935,12 +6935,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _numberValue: Int32 = 0
     var _objcClassPrefix: Int32 = 0
     var _of: Int32 = 0
-    var _oneOfKind: Int32 = 0
     var _oneofDecl: Int32 = 0
     var _oneofDescriptorProto: Int32 = 0
     var _oneofIndex: Int32 = 0
     var _oneofOptions: Int32 = 0
     var _oneofs: Int32 = 0
+    var _oneOfKind: Int32 = 0
     var _optimizeFor: Int32 = 0
     var _optimizeMode: Int32 = 0
     var _option: Int32 = 0
@@ -6986,14 +6986,8 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _proto2: Int32 = 0
     var _proto3DefaultValue: Int32 = 0
     var _proto3Optional: Int32 = 0
-    var _protobufExtensionFieldValues: Int32 = 0
-    var _protobufFieldNumber: Int32 = 0
-    var _protobufGeneratedIsEqualTo: Int32 = 0
-    var _protobufNameMap: Int32 = 0
-    var _protobufNewField: Int32 = 0
-    var _protobufPackage: Int32 = 0
-    var _protobufApiversion2: Int32 = 0
     var _protobufApiversionCheck: Int32 = 0
+    var _protobufApiversion2: Int32 = 0
     var _protobufBool: Int32 = 0
     var _protobufBytes: Int32 = 0
     var _protobufDouble: Int32 = 0
@@ -7013,6 +7007,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
     var _protobufString: Int32 = 0
     var _protobufUint32: Int32 = 0
     var _protobufUint64: Int32 = 0
+    var _protobufExtensionFieldValues: Int32 = 0
+    var _protobufFieldNumber: Int32 = 0
+    var _protobufGeneratedIsEqualTo: Int32 = 0
+    var _protobufNameMap: Int32 = 0
+    var _protobufNewField: Int32 = 0
+    var _protobufPackage: Int32 = 0
     var _protocol: Int32 = 0
     var _protoFieldName: Int32 = 0
     var _protoMessageName: Int32 = 0
@@ -7667,6 +7667,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _generatedCodeInfo = source._generatedCodeInfo
       _get = source._get
       _getExtensionValue = source._getExtensionValue
+      _googleapis = source._googleapis
       _googleProtobufAny = source._googleProtobufAny
       _googleProtobufApi = source._googleProtobufApi
       _googleProtobufBoolValue = source._googleProtobufBoolValue
@@ -7720,7 +7721,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _googleProtobufUint64Value = source._googleProtobufUint64Value
       _googleProtobufUninterpretedOption = source._googleProtobufUninterpretedOption
       _googleProtobufValue = source._googleProtobufValue
-      _googleapis = source._googleapis
       _goPackage = source._goPackage
       _gotData = source._gotData
       _group = source._group
@@ -7978,12 +7978,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _numberValue = source._numberValue
       _objcClassPrefix = source._objcClassPrefix
       _of = source._of
-      _oneOfKind = source._oneOfKind
       _oneofDecl = source._oneofDecl
       _oneofDescriptorProto = source._oneofDescriptorProto
       _oneofIndex = source._oneofIndex
       _oneofOptions = source._oneofOptions
       _oneofs = source._oneofs
+      _oneOfKind = source._oneOfKind
       _optimizeFor = source._optimizeFor
       _optimizeMode = source._optimizeMode
       _option = source._option
@@ -8029,14 +8029,8 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _proto2 = source._proto2
       _proto3DefaultValue = source._proto3DefaultValue
       _proto3Optional = source._proto3Optional
-      _protobufExtensionFieldValues = source._protobufExtensionFieldValues
-      _protobufFieldNumber = source._protobufFieldNumber
-      _protobufGeneratedIsEqualTo = source._protobufGeneratedIsEqualTo
-      _protobufNameMap = source._protobufNameMap
-      _protobufNewField = source._protobufNewField
-      _protobufPackage = source._protobufPackage
-      _protobufApiversion2 = source._protobufApiversion2
       _protobufApiversionCheck = source._protobufApiversionCheck
+      _protobufApiversion2 = source._protobufApiversion2
       _protobufBool = source._protobufBool
       _protobufBytes = source._protobufBytes
       _protobufDouble = source._protobufDouble
@@ -8056,6 +8050,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       _protobufString = source._protobufString
       _protobufUint32 = source._protobufUint32
       _protobufUint64 = source._protobufUint64
+      _protobufExtensionFieldValues = source._protobufExtensionFieldValues
+      _protobufFieldNumber = source._protobufFieldNumber
+      _protobufGeneratedIsEqualTo = source._protobufGeneratedIsEqualTo
+      _protobufNameMap = source._protobufNameMap
+      _protobufNewField = source._protobufNewField
+      _protobufPackage = source._protobufPackage
       _protocol = source._protocol
       _protoFieldName = source._protoFieldName
       _protoMessageName = source._protoMessageName
@@ -8718,60 +8718,60 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         case 378: try { try decoder.decodeSingularInt32Field(value: &_storage._generatedCodeInfo) }()
         case 379: try { try decoder.decodeSingularInt32Field(value: &_storage._get) }()
         case 380: try { try decoder.decodeSingularInt32Field(value: &_storage._getExtensionValue) }()
-        case 381: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufAny) }()
-        case 382: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufApi) }()
-        case 383: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufBoolValue) }()
-        case 384: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufBytesValue) }()
-        case 385: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufDescriptorProto) }()
-        case 386: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufDoubleValue) }()
-        case 387: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufDuration) }()
-        case 388: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEdition) }()
-        case 389: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEmpty) }()
-        case 390: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnum) }()
-        case 391: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumDescriptorProto) }()
-        case 392: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumOptions) }()
-        case 393: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumValue) }()
-        case 394: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumValueDescriptorProto) }()
-        case 395: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumValueOptions) }()
-        case 396: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufExtensionRangeOptions) }()
-        case 397: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFeatureSet) }()
-        case 398: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFeatureSetDefaults) }()
-        case 399: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufField) }()
-        case 400: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFieldDescriptorProto) }()
-        case 401: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFieldMask) }()
-        case 402: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFieldOptions) }()
-        case 403: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFileDescriptorProto) }()
-        case 404: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFileDescriptorSet) }()
-        case 405: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFileOptions) }()
-        case 406: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFloatValue) }()
-        case 407: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufGeneratedCodeInfo) }()
-        case 408: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufInt32Value) }()
-        case 409: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufInt64Value) }()
-        case 410: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufListValue) }()
-        case 411: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMessageOptions) }()
-        case 412: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMethod) }()
-        case 413: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMethodDescriptorProto) }()
-        case 414: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMethodOptions) }()
-        case 415: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMixin) }()
-        case 416: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufNullValue) }()
-        case 417: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufOneofDescriptorProto) }()
-        case 418: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufOneofOptions) }()
-        case 419: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufOption) }()
-        case 420: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufServiceDescriptorProto) }()
-        case 421: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufServiceOptions) }()
-        case 422: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSourceCodeInfo) }()
-        case 423: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSourceContext) }()
-        case 424: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufStringValue) }()
-        case 425: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufStruct) }()
-        case 426: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSymbolVisibility) }()
-        case 427: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSyntax) }()
-        case 428: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufTimestamp) }()
-        case 429: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufType) }()
-        case 430: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufUint32Value) }()
-        case 431: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufUint64Value) }()
-        case 432: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufUninterpretedOption) }()
-        case 433: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufValue) }()
-        case 434: try { try decoder.decodeSingularInt32Field(value: &_storage._googleapis) }()
+        case 381: try { try decoder.decodeSingularInt32Field(value: &_storage._googleapis) }()
+        case 382: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufAny) }()
+        case 383: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufApi) }()
+        case 384: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufBoolValue) }()
+        case 385: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufBytesValue) }()
+        case 386: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufDescriptorProto) }()
+        case 387: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufDoubleValue) }()
+        case 388: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufDuration) }()
+        case 389: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEdition) }()
+        case 390: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEmpty) }()
+        case 391: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnum) }()
+        case 392: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumDescriptorProto) }()
+        case 393: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumOptions) }()
+        case 394: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumValue) }()
+        case 395: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumValueDescriptorProto) }()
+        case 396: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufEnumValueOptions) }()
+        case 397: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufExtensionRangeOptions) }()
+        case 398: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFeatureSet) }()
+        case 399: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFeatureSetDefaults) }()
+        case 400: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufField) }()
+        case 401: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFieldDescriptorProto) }()
+        case 402: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFieldMask) }()
+        case 403: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFieldOptions) }()
+        case 404: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFileDescriptorProto) }()
+        case 405: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFileDescriptorSet) }()
+        case 406: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFileOptions) }()
+        case 407: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufFloatValue) }()
+        case 408: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufGeneratedCodeInfo) }()
+        case 409: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufInt32Value) }()
+        case 410: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufInt64Value) }()
+        case 411: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufListValue) }()
+        case 412: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMessageOptions) }()
+        case 413: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMethod) }()
+        case 414: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMethodDescriptorProto) }()
+        case 415: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMethodOptions) }()
+        case 416: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufMixin) }()
+        case 417: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufNullValue) }()
+        case 418: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufOneofDescriptorProto) }()
+        case 419: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufOneofOptions) }()
+        case 420: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufOption) }()
+        case 421: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufServiceDescriptorProto) }()
+        case 422: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufServiceOptions) }()
+        case 423: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSourceCodeInfo) }()
+        case 424: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSourceContext) }()
+        case 425: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufStringValue) }()
+        case 426: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufStruct) }()
+        case 427: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSymbolVisibility) }()
+        case 428: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufSyntax) }()
+        case 429: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufTimestamp) }()
+        case 430: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufType) }()
+        case 431: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufUint32Value) }()
+        case 432: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufUint64Value) }()
+        case 433: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufUninterpretedOption) }()
+        case 434: try { try decoder.decodeSingularInt32Field(value: &_storage._googleProtobufValue) }()
         case 435: try { try decoder.decodeSingularInt32Field(value: &_storage._goPackage) }()
         case 436: try { try decoder.decodeSingularInt32Field(value: &_storage._gotData) }()
         case 437: try { try decoder.decodeSingularInt32Field(value: &_storage._group) }()
@@ -9029,12 +9029,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         case 689: try { try decoder.decodeSingularInt32Field(value: &_storage._numberValue) }()
         case 690: try { try decoder.decodeSingularInt32Field(value: &_storage._objcClassPrefix) }()
         case 691: try { try decoder.decodeSingularInt32Field(value: &_storage._of) }()
-        case 692: try { try decoder.decodeSingularInt32Field(value: &_storage._oneOfKind) }()
-        case 693: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDecl) }()
-        case 694: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDescriptorProto) }()
-        case 695: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex) }()
-        case 696: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofOptions) }()
-        case 697: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofs) }()
+        case 692: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDecl) }()
+        case 693: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDescriptorProto) }()
+        case 694: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex) }()
+        case 695: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofOptions) }()
+        case 696: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofs) }()
+        case 697: try { try decoder.decodeSingularInt32Field(value: &_storage._oneOfKind) }()
         case 698: try { try decoder.decodeSingularInt32Field(value: &_storage._optimizeFor) }()
         case 699: try { try decoder.decodeSingularInt32Field(value: &_storage._optimizeMode) }()
         case 700: try { try decoder.decodeSingularInt32Field(value: &_storage._option) }()
@@ -9080,33 +9080,33 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         case 740: try { try decoder.decodeSingularInt32Field(value: &_storage._proto2) }()
         case 741: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3DefaultValue) }()
         case 742: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3Optional) }()
-        case 743: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtensionFieldValues) }()
-        case 744: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFieldNumber) }()
-        case 745: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufGeneratedIsEqualTo) }()
-        case 746: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNameMap) }()
-        case 747: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNewField) }()
-        case 748: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufPackage) }()
-        case 749: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversion2) }()
-        case 750: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversionCheck) }()
-        case 751: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBool) }()
-        case 752: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBytes) }()
-        case 753: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufDouble) }()
-        case 754: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufEnumMap) }()
-        case 755: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtension) }()
-        case 756: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed32) }()
-        case 757: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed64) }()
-        case 758: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFloat) }()
-        case 759: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt32) }()
-        case 760: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt64) }()
-        case 761: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMap) }()
-        case 762: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMessageMap) }()
-        case 763: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed32) }()
-        case 764: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed64) }()
-        case 765: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint32) }()
-        case 766: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint64) }()
-        case 767: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufString) }()
-        case 768: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint32) }()
-        case 769: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint64) }()
+        case 743: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversionCheck) }()
+        case 744: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversion2) }()
+        case 745: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBool) }()
+        case 746: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBytes) }()
+        case 747: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufDouble) }()
+        case 748: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufEnumMap) }()
+        case 749: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtension) }()
+        case 750: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed32) }()
+        case 751: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed64) }()
+        case 752: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFloat) }()
+        case 753: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt32) }()
+        case 754: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt64) }()
+        case 755: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMap) }()
+        case 756: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMessageMap) }()
+        case 757: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed32) }()
+        case 758: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed64) }()
+        case 759: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint32) }()
+        case 760: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint64) }()
+        case 761: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufString) }()
+        case 762: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint32) }()
+        case 763: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint64) }()
+        case 764: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtensionFieldValues) }()
+        case 765: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFieldNumber) }()
+        case 766: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufGeneratedIsEqualTo) }()
+        case 767: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNameMap) }()
+        case 768: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNewField) }()
+        case 769: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufPackage) }()
         case 770: try { try decoder.decodeSingularInt32Field(value: &_storage._protocol) }()
         case 771: try { try decoder.decodeSingularInt32Field(value: &_storage._protoFieldName) }()
         case 772: try { try decoder.decodeSingularInt32Field(value: &_storage._protoMessageName) }()
@@ -10519,167 +10519,167 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       if _storage._getExtensionValue != 0 {
         try visitor.visitSingularInt32Field(value: _storage._getExtensionValue, fieldNumber: 380)
       }
+      if _storage._googleapis != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._googleapis, fieldNumber: 381)
+      }
       if _storage._googleProtobufAny != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufAny, fieldNumber: 381)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufAny, fieldNumber: 382)
       }
       if _storage._googleProtobufApi != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufApi, fieldNumber: 382)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufApi, fieldNumber: 383)
       }
       if _storage._googleProtobufBoolValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufBoolValue, fieldNumber: 383)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufBoolValue, fieldNumber: 384)
       }
       if _storage._googleProtobufBytesValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufBytesValue, fieldNumber: 384)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufBytesValue, fieldNumber: 385)
       }
       if _storage._googleProtobufDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufDescriptorProto, fieldNumber: 385)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufDescriptorProto, fieldNumber: 386)
       }
       if _storage._googleProtobufDoubleValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufDoubleValue, fieldNumber: 386)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufDoubleValue, fieldNumber: 387)
       }
       if _storage._googleProtobufDuration != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufDuration, fieldNumber: 387)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufDuration, fieldNumber: 388)
       }
       if _storage._googleProtobufEdition != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEdition, fieldNumber: 388)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEdition, fieldNumber: 389)
       }
       if _storage._googleProtobufEmpty != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEmpty, fieldNumber: 389)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEmpty, fieldNumber: 390)
       }
       if _storage._googleProtobufEnum != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnum, fieldNumber: 390)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnum, fieldNumber: 391)
       }
       if _storage._googleProtobufEnumDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumDescriptorProto, fieldNumber: 391)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumDescriptorProto, fieldNumber: 392)
       }
       if _storage._googleProtobufEnumOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumOptions, fieldNumber: 392)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumOptions, fieldNumber: 393)
       }
       if _storage._googleProtobufEnumValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumValue, fieldNumber: 393)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumValue, fieldNumber: 394)
       }
       if _storage._googleProtobufEnumValueDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumValueDescriptorProto, fieldNumber: 394)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumValueDescriptorProto, fieldNumber: 395)
       }
       if _storage._googleProtobufEnumValueOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumValueOptions, fieldNumber: 395)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufEnumValueOptions, fieldNumber: 396)
       }
       if _storage._googleProtobufExtensionRangeOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufExtensionRangeOptions, fieldNumber: 396)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufExtensionRangeOptions, fieldNumber: 397)
       }
       if _storage._googleProtobufFeatureSet != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFeatureSet, fieldNumber: 397)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFeatureSet, fieldNumber: 398)
       }
       if _storage._googleProtobufFeatureSetDefaults != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFeatureSetDefaults, fieldNumber: 398)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFeatureSetDefaults, fieldNumber: 399)
       }
       if _storage._googleProtobufField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufField, fieldNumber: 399)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufField, fieldNumber: 400)
       }
       if _storage._googleProtobufFieldDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFieldDescriptorProto, fieldNumber: 400)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFieldDescriptorProto, fieldNumber: 401)
       }
       if _storage._googleProtobufFieldMask != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFieldMask, fieldNumber: 401)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFieldMask, fieldNumber: 402)
       }
       if _storage._googleProtobufFieldOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFieldOptions, fieldNumber: 402)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFieldOptions, fieldNumber: 403)
       }
       if _storage._googleProtobufFileDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFileDescriptorProto, fieldNumber: 403)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFileDescriptorProto, fieldNumber: 404)
       }
       if _storage._googleProtobufFileDescriptorSet != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFileDescriptorSet, fieldNumber: 404)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFileDescriptorSet, fieldNumber: 405)
       }
       if _storage._googleProtobufFileOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFileOptions, fieldNumber: 405)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFileOptions, fieldNumber: 406)
       }
       if _storage._googleProtobufFloatValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFloatValue, fieldNumber: 406)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufFloatValue, fieldNumber: 407)
       }
       if _storage._googleProtobufGeneratedCodeInfo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufGeneratedCodeInfo, fieldNumber: 407)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufGeneratedCodeInfo, fieldNumber: 408)
       }
       if _storage._googleProtobufInt32Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufInt32Value, fieldNumber: 408)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufInt32Value, fieldNumber: 409)
       }
       if _storage._googleProtobufInt64Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufInt64Value, fieldNumber: 409)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufInt64Value, fieldNumber: 410)
       }
       if _storage._googleProtobufListValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufListValue, fieldNumber: 410)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufListValue, fieldNumber: 411)
       }
       if _storage._googleProtobufMessageOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMessageOptions, fieldNumber: 411)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMessageOptions, fieldNumber: 412)
       }
       if _storage._googleProtobufMethod != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMethod, fieldNumber: 412)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMethod, fieldNumber: 413)
       }
       if _storage._googleProtobufMethodDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMethodDescriptorProto, fieldNumber: 413)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMethodDescriptorProto, fieldNumber: 414)
       }
       if _storage._googleProtobufMethodOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMethodOptions, fieldNumber: 414)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMethodOptions, fieldNumber: 415)
       }
       if _storage._googleProtobufMixin != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMixin, fieldNumber: 415)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufMixin, fieldNumber: 416)
       }
       if _storage._googleProtobufNullValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufNullValue, fieldNumber: 416)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufNullValue, fieldNumber: 417)
       }
       if _storage._googleProtobufOneofDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufOneofDescriptorProto, fieldNumber: 417)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufOneofDescriptorProto, fieldNumber: 418)
       }
       if _storage._googleProtobufOneofOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufOneofOptions, fieldNumber: 418)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufOneofOptions, fieldNumber: 419)
       }
       if _storage._googleProtobufOption != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufOption, fieldNumber: 419)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufOption, fieldNumber: 420)
       }
       if _storage._googleProtobufServiceDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufServiceDescriptorProto, fieldNumber: 420)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufServiceDescriptorProto, fieldNumber: 421)
       }
       if _storage._googleProtobufServiceOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufServiceOptions, fieldNumber: 421)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufServiceOptions, fieldNumber: 422)
       }
       if _storage._googleProtobufSourceCodeInfo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSourceCodeInfo, fieldNumber: 422)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSourceCodeInfo, fieldNumber: 423)
       }
       if _storage._googleProtobufSourceContext != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSourceContext, fieldNumber: 423)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSourceContext, fieldNumber: 424)
       }
       if _storage._googleProtobufStringValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufStringValue, fieldNumber: 424)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufStringValue, fieldNumber: 425)
       }
       if _storage._googleProtobufStruct != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufStruct, fieldNumber: 425)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufStruct, fieldNumber: 426)
       }
       if _storage._googleProtobufSymbolVisibility != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSymbolVisibility, fieldNumber: 426)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSymbolVisibility, fieldNumber: 427)
       }
       if _storage._googleProtobufSyntax != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSyntax, fieldNumber: 427)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufSyntax, fieldNumber: 428)
       }
       if _storage._googleProtobufTimestamp != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufTimestamp, fieldNumber: 428)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufTimestamp, fieldNumber: 429)
       }
       if _storage._googleProtobufType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufType, fieldNumber: 429)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufType, fieldNumber: 430)
       }
       if _storage._googleProtobufUint32Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufUint32Value, fieldNumber: 430)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufUint32Value, fieldNumber: 431)
       }
       if _storage._googleProtobufUint64Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufUint64Value, fieldNumber: 431)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufUint64Value, fieldNumber: 432)
       }
       if _storage._googleProtobufUninterpretedOption != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufUninterpretedOption, fieldNumber: 432)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufUninterpretedOption, fieldNumber: 433)
       }
       if _storage._googleProtobufValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleProtobufValue, fieldNumber: 433)
-      }
-      if _storage._googleapis != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._googleapis, fieldNumber: 434)
+        try visitor.visitSingularInt32Field(value: _storage._googleProtobufValue, fieldNumber: 434)
       }
       if _storage._goPackage != 0 {
         try visitor.visitSingularInt32Field(value: _storage._goPackage, fieldNumber: 435)
@@ -11452,23 +11452,23 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       if _storage._of != 0 {
         try visitor.visitSingularInt32Field(value: _storage._of, fieldNumber: 691)
       }
-      if _storage._oneOfKind != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneOfKind, fieldNumber: 692)
-      }
       if _storage._oneofDecl != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofDecl, fieldNumber: 693)
+        try visitor.visitSingularInt32Field(value: _storage._oneofDecl, fieldNumber: 692)
       }
       if _storage._oneofDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofDescriptorProto, fieldNumber: 694)
+        try visitor.visitSingularInt32Field(value: _storage._oneofDescriptorProto, fieldNumber: 693)
       }
       if _storage._oneofIndex != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofIndex, fieldNumber: 695)
+        try visitor.visitSingularInt32Field(value: _storage._oneofIndex, fieldNumber: 694)
       }
       if _storage._oneofOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofOptions, fieldNumber: 696)
+        try visitor.visitSingularInt32Field(value: _storage._oneofOptions, fieldNumber: 695)
       }
       if _storage._oneofs != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofs, fieldNumber: 697)
+        try visitor.visitSingularInt32Field(value: _storage._oneofs, fieldNumber: 696)
+      }
+      if _storage._oneOfKind != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._oneOfKind, fieldNumber: 697)
       }
       if _storage._optimizeFor != 0 {
         try visitor.visitSingularInt32Field(value: _storage._optimizeFor, fieldNumber: 698)
@@ -11605,86 +11605,86 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
       if _storage._proto3Optional != 0 {
         try visitor.visitSingularInt32Field(value: _storage._proto3Optional, fieldNumber: 742)
       }
-      if _storage._protobufExtensionFieldValues != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufExtensionFieldValues, fieldNumber: 743)
-      }
-      if _storage._protobufFieldNumber != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFieldNumber, fieldNumber: 744)
-      }
-      if _storage._protobufGeneratedIsEqualTo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufGeneratedIsEqualTo, fieldNumber: 745)
-      }
-      if _storage._protobufNameMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufNameMap, fieldNumber: 746)
-      }
-      if _storage._protobufNewField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufNewField, fieldNumber: 747)
-      }
-      if _storage._protobufPackage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufPackage, fieldNumber: 748)
+      if _storage._protobufApiversionCheck != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufApiversionCheck, fieldNumber: 743)
       }
       if _storage._protobufApiversion2 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufApiversion2, fieldNumber: 749)
-      }
-      if _storage._protobufApiversionCheck != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufApiversionCheck, fieldNumber: 750)
+        try visitor.visitSingularInt32Field(value: _storage._protobufApiversion2, fieldNumber: 744)
       }
       if _storage._protobufBool != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufBool, fieldNumber: 751)
+        try visitor.visitSingularInt32Field(value: _storage._protobufBool, fieldNumber: 745)
       }
       if _storage._protobufBytes != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufBytes, fieldNumber: 752)
+        try visitor.visitSingularInt32Field(value: _storage._protobufBytes, fieldNumber: 746)
       }
       if _storage._protobufDouble != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufDouble, fieldNumber: 753)
+        try visitor.visitSingularInt32Field(value: _storage._protobufDouble, fieldNumber: 747)
       }
       if _storage._protobufEnumMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufEnumMap, fieldNumber: 754)
+        try visitor.visitSingularInt32Field(value: _storage._protobufEnumMap, fieldNumber: 748)
       }
       if _storage._protobufExtension != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufExtension, fieldNumber: 755)
+        try visitor.visitSingularInt32Field(value: _storage._protobufExtension, fieldNumber: 749)
       }
       if _storage._protobufFixed32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFixed32, fieldNumber: 756)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFixed32, fieldNumber: 750)
       }
       if _storage._protobufFixed64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFixed64, fieldNumber: 757)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFixed64, fieldNumber: 751)
       }
       if _storage._protobufFloat != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFloat, fieldNumber: 758)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFloat, fieldNumber: 752)
       }
       if _storage._protobufInt32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufInt32, fieldNumber: 759)
+        try visitor.visitSingularInt32Field(value: _storage._protobufInt32, fieldNumber: 753)
       }
       if _storage._protobufInt64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufInt64, fieldNumber: 760)
+        try visitor.visitSingularInt32Field(value: _storage._protobufInt64, fieldNumber: 754)
       }
       if _storage._protobufMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufMap, fieldNumber: 761)
+        try visitor.visitSingularInt32Field(value: _storage._protobufMap, fieldNumber: 755)
       }
       if _storage._protobufMessageMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufMessageMap, fieldNumber: 762)
+        try visitor.visitSingularInt32Field(value: _storage._protobufMessageMap, fieldNumber: 756)
       }
       if _storage._protobufSfixed32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed32, fieldNumber: 763)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed32, fieldNumber: 757)
       }
       if _storage._protobufSfixed64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed64, fieldNumber: 764)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed64, fieldNumber: 758)
       }
       if _storage._protobufSint32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSint32, fieldNumber: 765)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSint32, fieldNumber: 759)
       }
       if _storage._protobufSint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSint64, fieldNumber: 766)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSint64, fieldNumber: 760)
       }
       if _storage._protobufString != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufString, fieldNumber: 767)
+        try visitor.visitSingularInt32Field(value: _storage._protobufString, fieldNumber: 761)
       }
       if _storage._protobufUint32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufUint32, fieldNumber: 768)
+        try visitor.visitSingularInt32Field(value: _storage._protobufUint32, fieldNumber: 762)
       }
       if _storage._protobufUint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufUint64, fieldNumber: 769)
+        try visitor.visitSingularInt32Field(value: _storage._protobufUint64, fieldNumber: 763)
+      }
+      if _storage._protobufExtensionFieldValues != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufExtensionFieldValues, fieldNumber: 764)
+      }
+      if _storage._protobufFieldNumber != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufFieldNumber, fieldNumber: 765)
+      }
+      if _storage._protobufGeneratedIsEqualTo != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufGeneratedIsEqualTo, fieldNumber: 766)
+      }
+      if _storage._protobufNameMap != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufNameMap, fieldNumber: 767)
+      }
+      if _storage._protobufNewField != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufNewField, fieldNumber: 768)
+      }
+      if _storage._protobufPackage != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._protobufPackage, fieldNumber: 769)
       }
       if _storage._protocol != 0 {
         try visitor.visitSingularInt32Field(value: _storage._protocol, fieldNumber: 770)
@@ -12867,6 +12867,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._generatedCodeInfo != rhs_storage._generatedCodeInfo {return false}
         if _storage._get != rhs_storage._get {return false}
         if _storage._getExtensionValue != rhs_storage._getExtensionValue {return false}
+        if _storage._googleapis != rhs_storage._googleapis {return false}
         if _storage._googleProtobufAny != rhs_storage._googleProtobufAny {return false}
         if _storage._googleProtobufApi != rhs_storage._googleProtobufApi {return false}
         if _storage._googleProtobufBoolValue != rhs_storage._googleProtobufBoolValue {return false}
@@ -12920,7 +12921,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._googleProtobufUint64Value != rhs_storage._googleProtobufUint64Value {return false}
         if _storage._googleProtobufUninterpretedOption != rhs_storage._googleProtobufUninterpretedOption {return false}
         if _storage._googleProtobufValue != rhs_storage._googleProtobufValue {return false}
-        if _storage._googleapis != rhs_storage._googleapis {return false}
         if _storage._goPackage != rhs_storage._goPackage {return false}
         if _storage._gotData != rhs_storage._gotData {return false}
         if _storage._group != rhs_storage._group {return false}
@@ -13178,12 +13178,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._numberValue != rhs_storage._numberValue {return false}
         if _storage._objcClassPrefix != rhs_storage._objcClassPrefix {return false}
         if _storage._of != rhs_storage._of {return false}
-        if _storage._oneOfKind != rhs_storage._oneOfKind {return false}
         if _storage._oneofDecl != rhs_storage._oneofDecl {return false}
         if _storage._oneofDescriptorProto != rhs_storage._oneofDescriptorProto {return false}
         if _storage._oneofIndex != rhs_storage._oneofIndex {return false}
         if _storage._oneofOptions != rhs_storage._oneofOptions {return false}
         if _storage._oneofs != rhs_storage._oneofs {return false}
+        if _storage._oneOfKind != rhs_storage._oneOfKind {return false}
         if _storage._optimizeFor != rhs_storage._optimizeFor {return false}
         if _storage._optimizeMode != rhs_storage._optimizeMode {return false}
         if _storage._option != rhs_storage._option {return false}
@@ -13229,14 +13229,8 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._proto2 != rhs_storage._proto2 {return false}
         if _storage._proto3DefaultValue != rhs_storage._proto3DefaultValue {return false}
         if _storage._proto3Optional != rhs_storage._proto3Optional {return false}
-        if _storage._protobufExtensionFieldValues != rhs_storage._protobufExtensionFieldValues {return false}
-        if _storage._protobufFieldNumber != rhs_storage._protobufFieldNumber {return false}
-        if _storage._protobufGeneratedIsEqualTo != rhs_storage._protobufGeneratedIsEqualTo {return false}
-        if _storage._protobufNameMap != rhs_storage._protobufNameMap {return false}
-        if _storage._protobufNewField != rhs_storage._protobufNewField {return false}
-        if _storage._protobufPackage != rhs_storage._protobufPackage {return false}
-        if _storage._protobufApiversion2 != rhs_storage._protobufApiversion2 {return false}
         if _storage._protobufApiversionCheck != rhs_storage._protobufApiversionCheck {return false}
+        if _storage._protobufApiversion2 != rhs_storage._protobufApiversion2 {return false}
         if _storage._protobufBool != rhs_storage._protobufBool {return false}
         if _storage._protobufBytes != rhs_storage._protobufBytes {return false}
         if _storage._protobufDouble != rhs_storage._protobufDouble {return false}
@@ -13256,6 +13250,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobu
         if _storage._protobufString != rhs_storage._protobufString {return false}
         if _storage._protobufUint32 != rhs_storage._protobufUint32 {return false}
         if _storage._protobufUint64 != rhs_storage._protobufUint64 {return false}
+        if _storage._protobufExtensionFieldValues != rhs_storage._protobufExtensionFieldValues {return false}
+        if _storage._protobufFieldNumber != rhs_storage._protobufFieldNumber {return false}
+        if _storage._protobufGeneratedIsEqualTo != rhs_storage._protobufGeneratedIsEqualTo {return false}
+        if _storage._protobufNameMap != rhs_storage._protobufNameMap {return false}
+        if _storage._protobufNewField != rhs_storage._protobufNewField {return false}
+        if _storage._protobufPackage != rhs_storage._protobufPackage {return false}
         if _storage._protocol != rhs_storage._protocol {return false}
         if _storage._protoFieldName != rhs_storage._protoFieldName {return false}
         if _storage._protoMessageName != rhs_storage._protoMessageName {return false}
