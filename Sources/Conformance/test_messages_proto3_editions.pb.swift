@@ -1465,15 +1465,11 @@ extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3: SwiftProtobuf
     var _fieldName17__: Int32 = 0
     var _fieldName18__: Int32 = 0
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 
@@ -2530,15 +2526,11 @@ extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.NestedMessage:
     var _a: Int32 = 0
     var _corecursive: ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3? = nil
 
-    #if swift(>=5.10)
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
       // This will force a copy to be made of this reference when the first mutation occurs;
       // hence, it is safe to mark this as `nonisolated(unsafe)`.
       static nonisolated(unsafe) let defaultInstance = _StorageClass()
-    #else
-      static let defaultInstance = _StorageClass()
-    #endif
 
     private init() {}
 

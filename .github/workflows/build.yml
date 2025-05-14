@@ -32,10 +32,6 @@ jobs:
         - version: 5.10.1-noble
           # No "hook", see https://github.com/apple/swift-protobuf/issues/1560 for the
           # current issue with using -warnings-as-errors on linux.
-        - version: 5.9.2-focal
-          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
-        - version: 5.8.1-focal
-          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
