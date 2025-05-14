@@ -1,5 +1,6 @@
-// swift-tools-version:5.10
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
+// **NOTE**: 5.3 due to https://github.com/swiftlang/swift/issues/75800
 
 import PackageDescription
 
@@ -16,23 +17,23 @@ let package = Package(
             name: "FuzzCommon",
             dependencies: ["SwiftProtobuf"]
         ),
-        .executableTarget(
+        .target(
             name: "FuzzBinary",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .executableTarget(
+        .target(
             name: "FuzzBinaryDelimited",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .executableTarget(
+        .target(
             name: "FuzzAsyncMessageSequence",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .executableTarget(
+        .target(
             name: "FuzzJSON",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
-        .executableTarget(
+        .target(
             name: "FuzzTextFormat",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]
         ),
