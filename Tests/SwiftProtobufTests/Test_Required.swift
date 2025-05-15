@@ -28,16 +28,15 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 import XCTest
 
-import SwiftProtobuf
-
-class Test_Required: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestAllRequiredTypes
+final class Test_Required: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestAllRequiredTypes
 
     func test_IsInitialized() {
         // message declared in proto2 syntax file with required fields.
-        var msg = ProtobufUnittest_TestRequired()
+        var msg = SwiftProtoTesting_TestRequired()
         XCTAssertFalse(msg.isInitialized)
         msg.a = 1
         XCTAssertFalse(msg.isInitialized)
@@ -50,39 +49,38 @@ class Test_Required: XCTestCase, PBTestHelpers {
     func test_OneOf_IsInitialized() {
         // message declared in proto2 syntax file with a message in a oneof where that message
         // has a required field.
-        var msg = ProtobufUnittest_TestRequiredOneof()
+        var msg = SwiftProtoTesting_TestRequiredOneof()
         XCTAssertTrue(msg.isInitialized)
-        msg.fooMessage = ProtobufUnittest_TestRequiredOneof.NestedMessage()
+        msg.fooMessage = SwiftProtoTesting_TestRequiredOneof.NestedMessage()
         XCTAssertFalse(msg.isInitialized)
         msg.fooInt = 1
         XCTAssertTrue(msg.isInitialized)
-        msg.fooMessage = ProtobufUnittest_TestRequiredOneof.NestedMessage()
+        msg.fooMessage = SwiftProtoTesting_TestRequiredOneof.NestedMessage()
         XCTAssertFalse(msg.isInitialized)
         msg.fooMessage.requiredDouble = 1.1
         XCTAssertTrue(msg.isInitialized)
 
         // group within the oneof that has a required field.
-        var msg2 = ProtobufUnittest_OneOfContainer()
+        var msg2 = SwiftProtoTesting_OneOfContainer()
         XCTAssertTrue(msg2.isInitialized)
-        msg2.option3 = ProtobufUnittest_OneOfContainer.Option3()
+        msg2.option3 = SwiftProtoTesting_OneOfContainer.Option3()
         XCTAssertFalse(msg2.isInitialized)
         msg2.option4 = 1
         XCTAssertTrue(msg2.isInitialized)
-        msg2.option3 = ProtobufUnittest_OneOfContainer.Option3()
+        msg2.option3 = SwiftProtoTesting_OneOfContainer.Option3()
         XCTAssertFalse(msg2.isInitialized)
         msg2.option3.a = 1
         XCTAssertTrue(msg2.isInitialized)
     }
 
-
     func test_NestedInProto2_IsInitialized() {
         // message declared in proto2 syntax file, with fields that are another message that has
         // required fields.
-        var msg = ProtobufUnittest_TestRequiredForeign()
+        var msg = SwiftProtoTesting_TestRequiredForeign()
 
         XCTAssertTrue(msg.isInitialized)
 
-        msg.optionalMessage = ProtobufUnittest_TestRequired()
+        msg.optionalMessage = SwiftProtoTesting_TestRequired()
         XCTAssertFalse(msg.isInitialized)
         msg.optionalMessage.a = 1
         msg.optionalMessage.b = 2
@@ -90,7 +88,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
         msg.optionalMessage.c = 3
         XCTAssertTrue(msg.isInitialized)
 
-        msg.repeatedMessage.append(ProtobufUnittest_TestRequired())
+        msg.repeatedMessage.append(SwiftProtoTesting_TestRequired())
         XCTAssertFalse(msg.isInitialized)
         msg.repeatedMessage[0].a = 1
         msg.repeatedMessage[0].b = 2
@@ -102,11 +100,11 @@ class Test_Required: XCTestCase, PBTestHelpers {
     func test_NestedInProto3_IsInitialized() {
         // message declared in proto3 syntax file, with fields that are another message that has
         // required fields.
-        var msg = Proto2NofieldpresenceUnittest_TestProto2Required()
+        var msg = SwiftProtoTesting_Proto3_TestProto2Required()
 
         XCTAssertTrue(msg.isInitialized)
 
-        msg.proto2 = ProtobufUnittest_TestRequired()
+        msg.proto2 = SwiftProtoTesting_TestRequired()
         XCTAssertFalse(msg.isInitialized)
         msg.proto2.a = 1
         msg.proto2.b = 2
@@ -116,11 +114,11 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     func test_map_isInitialized() {
-        var msg = ProtobufUnittest_TestRequiredMessageMap()
+        var msg = SwiftProtoTesting_TestRequiredMessageMap()
 
         XCTAssertTrue(msg.isInitialized)
 
-        msg.mapField[0] = ProtobufUnittest_TestRequired()
+        msg.mapField[0] = SwiftProtoTesting_TestRequired()
         XCTAssertFalse(msg.isInitialized)
 
         msg.mapField[0]!.a = 1
@@ -131,29 +129,33 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     func test_Extensions_isInitialized() {
-        var msg = ProtobufUnittest_TestAllExtensions()
+        var msg = SwiftProtoTesting_TestAllExtensions()
 
         XCTAssertTrue(msg.isInitialized)
 
-        msg.ProtobufUnittest_TestRequired_single = ProtobufUnittest_TestRequired()
+        msg.SwiftProtoTesting_TestRequired_single = SwiftProtoTesting_TestRequired()
         XCTAssertFalse(msg.isInitialized)
-        msg.ProtobufUnittest_TestRequired_single.a = 1
-        msg.ProtobufUnittest_TestRequired_single.b = 2
+        msg.SwiftProtoTesting_TestRequired_single.a = 1
+        msg.SwiftProtoTesting_TestRequired_single.b = 2
         XCTAssertFalse(msg.isInitialized)
-        msg.ProtobufUnittest_TestRequired_single.c = 3
+        msg.SwiftProtoTesting_TestRequired_single.c = 3
         XCTAssertTrue(msg.isInitialized)
 
-        msg.ProtobufUnittest_TestRequired_multi.append(ProtobufUnittest_TestRequired())
+        msg.SwiftProtoTesting_TestRequired_multi.append(SwiftProtoTesting_TestRequired())
         XCTAssertFalse(msg.isInitialized)
-        msg.ProtobufUnittest_TestRequired_multi[0].a = 1
-        msg.ProtobufUnittest_TestRequired_multi[0].b = 2
+        msg.SwiftProtoTesting_TestRequired_multi[0].a = 1
+        msg.SwiftProtoTesting_TestRequired_multi[0].b = 2
         XCTAssertFalse(msg.isInitialized)
-        msg.ProtobufUnittest_TestRequired_multi[0].c = 3
+        msg.SwiftProtoTesting_TestRequired_multi[0].c = 3
         XCTAssertTrue(msg.isInitialized)
     }
 
     // Helper to assert decoding fails with a not initialized error.
-    fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertDecodeFailsNotInitialized(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
@@ -165,10 +167,15 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert decoding partial succeeds.
-    fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialDecodeSucceeds(
+        _ bytes: [UInt8],
+        _ expectedTextFormat: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let msg = try MessageTestType(serializedBytes: bytes, partial: true)
-            var expected = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
+            var expected = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
             }
@@ -239,18 +246,22 @@ class Test_Required: XCTestCase, PBTestHelpers {
 
         // Glue it all together and it should decode ok as it will be complete.
         var allBytes: [UInt8] = []
-        var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
+        var allTextFormattedField = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytes.append(contentsOf: bytes)
-          allTextFormattedField.append(textFormattedField)
-          allTextFormattedField.append("\n")
+            allBytes.append(contentsOf: bytes)
+            allTextFormattedField.append(textFormattedField)
+            allTextFormattedField.append("\n")
         }
-        let fullMsg = try ProtobufUnittest_TestAllRequiredTypes(serializedBytes: allBytes)
+        let fullMsg = try SwiftProtoTesting_TestAllRequiredTypes(serializedBytes: allBytes)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
-    fileprivate func assertEncodeFailsNotInitialized(_ message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertEncodeFailsNotInitialized(
+        _ message: MessageTestType,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _: [UInt8] = try message.serializedBytes()
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
@@ -262,7 +273,12 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert encoding partial succeeds.
-    fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialEncodeSucceeds(
+        _ message: MessageTestType,
+        _ expectedBytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let data: [UInt8] = try message.serializedBytes(partial: true)
             XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)
@@ -348,12 +364,16 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_SmallRequired: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestSomeRequiredTypes
+final class Test_SmallRequired: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestSomeRequiredTypes
     // Check behavior of a small message (non-heap-stored) with required fields
 
     // Helper to assert decoding fails with a not initialized error.
-    fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertDecodeFailsNotInitialized(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
@@ -365,10 +385,15 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert decoding partial succeeds.
-    fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialDecodeSucceeds(
+        _ bytes: [UInt8],
+        _ expectedTextFormat: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let msg = try MessageTestType(serializedBytes: bytes, partial: true)
-            var expected = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
+            var expected = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
             }
@@ -399,18 +424,22 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
 
         // Glue it all together and it should decode ok as it will be complete.
         var allBytes: [UInt8] = []
-        var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
+        var allTextFormattedField = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytes.append(contentsOf: bytes)
-          allTextFormattedField.append(textFormattedField)
-          allTextFormattedField.append("\n")
+            allBytes.append(contentsOf: bytes)
+            allTextFormattedField.append(textFormattedField)
+            allTextFormattedField.append("\n")
         }
-        let fullMsg = try ProtobufUnittest_TestSomeRequiredTypes(serializedBytes: allBytes)
+        let fullMsg = try SwiftProtoTesting_TestSomeRequiredTypes(serializedBytes: allBytes)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
-    fileprivate func assertEncodeFailsNotInitialized(_ message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertEncodeFailsNotInitialized(
+        _ message: MessageTestType,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _: [UInt8] = try message.serializedBytes()
             XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
@@ -422,7 +451,12 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     }
 
     // Helper to assert encoding partial succeeds.
-    fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    fileprivate func assertPartialEncodeSucceeds(
+        _ message: MessageTestType,
+        _ expectedBytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let data: [UInt8] = try message.serializedBytes(partial: true)
             XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)

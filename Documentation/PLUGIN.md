@@ -19,9 +19,8 @@ Swift runtime library to your project.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A recent Swift 4.0 compiler that includes the Swift Package Manager.
-  We recommend using the latest release build from
-  [Swift.org](https://swift.org) or the command-line tools included
+* A recent Swift compiler. We recommend using the latest release build
+  from [Swift.org](https://swift.org) or the command-line tools included
   with the latest version of Xcode.
 
 * Google's protoc compiler.  You can get recent versions from
@@ -32,18 +31,14 @@ To use Swift with Protocol buffers, you'll need:
 Building the plugin should be simple on any supported Swift platform:
 
 ```
-$ git clone https://github.com/apple/swift-protobuf
-$ cd swift-protobuf
-$ swift build -c release
+git clone https://github.com/apple/swift-protobuf
+cd swift-protobuf
+swift build -c release
 ```
 
 This will create a binary called `protoc-gen-swift` in the
 `.build/release` directory.  To install, just copy this one executable
 anywhere in your PATH.
-
-NOTE: The Swift runtime support is now included with macOS. If you are
-using old Xcode versions or are on older system versions, you might need
-to use also use `--static-swift-stdlib` with `swift build`.
 
 ### Converting .proto files into Swift
 
@@ -51,7 +46,7 @@ To generate Swift output for your .proto files, you run the `protoc`
 command as usual, using the `--swift_out=<directory>` option:
 
 ```
-$ protoc --swift_out=. my.proto
+protoc --swift_out=. my.proto
 ```
 
 The `protoc` program will automatically look for `protoc-gen-swift` in your
@@ -69,13 +64,13 @@ specific needs.
 You can use the `--swift_opt` argument to `protoc` to pass options to the
 Swift code generator as follows:
 ```
-$ protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
 ```
 
 If you need to specify multiple options, you can use more than one
 `--swift_opt` argument:
 ```
-$ protoc \
+protoc \
     --swift_opt=[NAME1]=[VALUE1] \
     --swift_opt=[NAME2]=[VALUE2] \
     --swift_out=. foo/bar/*.proto mumble/*.proto
@@ -96,7 +91,7 @@ supports an option to control the generated file names, the option is
 given as part of the `--swift_opt` argument like this:
 
 ```
-$ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `FileNaming` are:
@@ -117,13 +112,15 @@ up with the default (`internal`) access.  You can change this with the
 `Visibility` option:
 
 ```
-$ protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `Visibility` are:
 
 * `Internal` (default): No visibility is set for the types, so they get the
   default internal visibility.
+* `Package` (Swift 5.9 or later required): The visibility on the types is set to
+ `package` so the types will be exposed across the whole Swift package they belong to.
 * `Public`: The visibility on the types is set to `public` so the types will
   be exposed outside the module they are compiled into.
 
@@ -139,7 +136,7 @@ generation to then `import` the module and scope the types. This option
 takes the path of a file providing the mapping:
 
 ```
-$ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
+protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
 ```
 
 The format of that mapping file is defined in
@@ -165,24 +162,44 @@ The `proto_file_path` values here should match the paths used in the proto file
 ##### Generation Option: `ImplementationOnlyImports` - `@_implementationOnly`-annotated imports
 
 By default, SwiftProtobuf does not annotate any imports with `@_implementationOnly`.
-However, in some scenarios, such as when distributing an `XCFramework`, imports 
-for types used only internally should be annotated as `@_implementationOnly` to 
+However, in some scenarios, such as when distributing an `XCFramework`, imports
+for types used only internally should be annotated as `@_implementationOnly` to
 avoid exposing internal symbols to clients.
 You can change this with the `ImplementationOnlyImports` option:
 
 ```
-$ protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `ImplementationOnlyImports` are:
 
 * `false` (default): The `@_implementationOnly` annotation will never be used.
 * `true`: Imports of internal dependencies and any modules defined in the module
-mappings will be annotated as `@_implementationOnly`. 
+mappings will be annotated as `@_implementationOnly`.
 
-**Important:** Modules cannot be imported as implementation-only if they're 
+**Important:** Modules cannot be imported as implementation-only if they're
 exposed via public API, so even if `ImplementationOnlyImports` is set to `true`,
-this will only work if the `Visibility` is set to `internal`.  
+this will only work if the `Visibility` is set to `internal`.
+
+
+##### Generation Option: `UseAccessLevelOnImports` - imports preceded by a visibility modifier (`public`, `package`, `internal`)
+
+The default behavior depends on the Swift version the plugin is compiled with. 
+For Swift versions below 6.0 the default is `false` and the code generator does not precede any imports with a visibility modifier. 
+You can change this by explicitly setting the `UseAccessLevelOnImports` option:
+
+```
+$ protoc --swift_opt=UseAccessLevelOnImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `UseAccessLevelOnImports` are:
+
+* `false`: Generates plain import directives without a visibility modifier.
+* `true`: Imports of internal dependencies and any modules defined in the module
+mappings will be preceded by a visibility modifier corresponding to the visibility of the generated types - see `Visibility` option. 
+
+**Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports. 
+Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
 
 
 ### Building your project
@@ -213,5 +230,5 @@ If you are using Xcode, then you should:
 
 * Add the Swift source files generated from your protos directly to your
   project.
-* Add this SwiftPM package as dependency of your xcode project:
+* Add this SwiftPM package as dependency of your Xcode project:
   [Apple Docs](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)

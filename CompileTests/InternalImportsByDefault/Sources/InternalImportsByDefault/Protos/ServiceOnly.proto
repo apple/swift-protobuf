@@ -1,0 +1,7 @@
+// This proto file should generate an empty file, since the plugin will ignore
+// service definitions.
+// This is here to make sure we don't import Foundation or SwiftProtobuf when
+// it's not necessary.
+
+service SomeService {
+}

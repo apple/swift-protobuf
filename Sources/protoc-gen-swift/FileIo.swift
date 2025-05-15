@@ -15,12 +15,12 @@
 import Foundation
 
 class Stderr {
-  static func print(_ s: String) {
-    let out = "\(CommandLine.programName): \(s)\n"
-    if let data = out.data(using: .utf8) {
-      FileHandle.standardError.write(data)
+    static func print(_ s: String) {
+        let out = "\(CommandLine.programName): \(s)\n"
+        if let data = out.data(using: .utf8) {
+            FileHandle.standardError.write(data)
+        }
     }
-  }
 }
 
 func readFileData(filename: String) throws -> Data {

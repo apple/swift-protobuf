@@ -69,15 +69,15 @@ internal struct JSONEncoder {
 
     internal init() {}
 
-    internal var dataResult: [UInt8] { return data }
+    internal var dataResult: [UInt8] { data }
 
     internal var stringResult: String {
         get {
-            return String(bytes: data, encoding: String.Encoding.utf8)!
+            String(decoding: data, as: UTF8.self)
         }
     }
 
-    internal var bytesResult: [UInt8] { return data }
+    internal var bytesResult: [UInt8] { data }
 
     /// Append a `StaticString` to the JSON text.  Because
     /// `StaticString` is already UTF8 internally, this is faster
@@ -112,7 +112,7 @@ internal struct JSONEncoder {
         data.append(contentsOf: utf8Bytes)
     }
 
-    /// Begin a new field whose name is given as a `_NameMap.Name`
+    /// Begin a new field whose name is given as a `_NameMap.Name`.
     internal mutating func startField(name: _NameMap.Name) {
         if let s = separator {
             data.append(s)
@@ -135,7 +135,7 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
-    /// Begin a new extension field
+    /// Begin a new extension field.
     internal mutating func startExtensionField(name: String) {
         if let s = separator {
             data.append(s)
@@ -245,7 +245,7 @@ internal struct JSONEncoder {
         }
     }
 
-    /// Write an Enum as an int.
+    /// Write an Enum as an Int.
     internal mutating func putEnumInt(value: Int) {
         appendInt(value: Int64(value))
     }
@@ -328,7 +328,7 @@ internal struct JSONEncoder {
             case 13: append(staticText: "\\r")
             case 34: append(staticText: "\\\"")
             case 92: append(staticText: "\\\\")
-            case 0...31, 127...159: // Hex form for C0 control chars
+            case 0...31, 127...159:  // Hex form for C0 control chars
                 append(staticText: "\\u00")
                 data.append(hexDigits[Int(c.value / 16)])
                 data.append(hexDigits[Int(c.value & 15)])
@@ -356,46 +356,45 @@ internal struct JSONEncoder {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
             value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-              if let p = body.baseAddress, body.count > 0 {
-                var t: Int = 0
-                var bytesInGroup: Int = 0
-                for i in 0..<body.count {
-                    if bytesInGroup == 3 {
+                if let p = body.baseAddress, body.count > 0 {
+                    var t: Int = 0
+                    var bytesInGroup: Int = 0
+                    for i in 0..<body.count {
+                        if bytesInGroup == 3 {
+                            data.append(base64Digits[(t >> 18) & 63])
+                            data.append(base64Digits[(t >> 12) & 63])
+                            data.append(base64Digits[(t >> 6) & 63])
+                            data.append(base64Digits[t & 63])
+                            t = 0
+                            bytesInGroup = 0
+                        }
+                        t = (t << 8) + Int(p[i])
+                        bytesInGroup += 1
+                    }
+                    switch bytesInGroup {
+                    case 3:
                         data.append(base64Digits[(t >> 18) & 63])
                         data.append(base64Digits[(t >> 12) & 63])
                         data.append(base64Digits[(t >> 6) & 63])
                         data.append(base64Digits[t & 63])
-                        t = 0
-                        bytesInGroup = 0
+                    case 2:
+                        t <<= 8
+                        data.append(base64Digits[(t >> 18) & 63])
+                        data.append(base64Digits[(t >> 12) & 63])
+                        data.append(base64Digits[(t >> 6) & 63])
+                        data.append(asciiEquals)
+                    case 1:
+                        t <<= 16
+                        data.append(base64Digits[(t >> 18) & 63])
+                        data.append(base64Digits[(t >> 12) & 63])
+                        data.append(asciiEquals)
+                        data.append(asciiEquals)
+                    default:
+                        break
                     }
-                    t = (t << 8) + Int(p[i])
-                    bytesInGroup += 1
                 }
-                switch bytesInGroup {
-                case 3:
-                    data.append(base64Digits[(t >> 18) & 63])
-                    data.append(base64Digits[(t >> 12) & 63])
-                    data.append(base64Digits[(t >> 6) & 63])
-                    data.append(base64Digits[t & 63])
-                case 2:
-                    t <<= 8
-                    data.append(base64Digits[(t >> 18) & 63])
-                    data.append(base64Digits[(t >> 12) & 63])
-                    data.append(base64Digits[(t >> 6) & 63])
-                    data.append(asciiEquals)
-                case 1:
-                    t <<= 16
-                    data.append(base64Digits[(t >> 18) & 63])
-                    data.append(base64Digits[(t >> 12) & 63])
-                    data.append(asciiEquals)
-                    data.append(asciiEquals)
-                default:
-                    break
-                }
-              }
             }
         }
         data.append(asciiDoubleQuote)
     }
 }
-

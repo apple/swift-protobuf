@@ -41,12 +41,12 @@ else
 fi
 
 # Directory containing this script
-readonly script_dir="."
+readonly script_dir=`pwd`
 
 # Change this if your checkout of github.com/protocolbuffers/protobuf is in a
 # different location.
 readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../../protobuf"}
-readonly PROTOC=${PROTOC:-"${GOOGLE_PROTOBUF_CHECKOUT}/src/protoc"}
+readonly PROTOC=${PROTOC:-"${GOOGLE_PROTOBUF_CHECKOUT}/protoc"}
 
 function usage() {
   cat >&2 <<EOF
@@ -123,7 +123,7 @@ EOF
 
   echo "Running $language test harness alone..."
   sleep 3
-  DYLD_LIBRARY_PATH="$script_dir/_generated" "$harness" "$partial_results"
+  DYLD_LIBRARY_PATH=`dirname $harness` "$harness" "$partial_results"
   sleep 3
 
   cp "$harness" "${harness}_stripped"
@@ -151,8 +151,10 @@ function profile_harness() {
   perf_dir="$3"
 
   echo "Running $description test harness in Instruments..."
-  instruments -t "$script_dir/Protobuf" -D "$results_trace" \
-      "$harness" -e DYLD_LIBRARY_PATH "$perf_dir/_generated"
+  mkdir -p "$results_trace"
+  xctrace record --template 'Time Profiler' --output "$results_trace" \
+          --env DYLD_LIBRARY_PATH="$perf_dir/_generated" \
+          --launch -- "$harness"
 }
 
 # Inserts the partial visualization results from all the languages tested into
@@ -236,9 +238,13 @@ fi
 # Set up a hook to cleanup revision comparison checkouts when the script
 # completes.
 declare -a CLEANUP_WHEN_DONE
+GIT_WORKTREE=""
 function cleanup_revision_checkouts() {
   if [[ "${#CLEANUP_WHEN_DONE[@]}" -ne 0 ]]; then
     rm -rf "${CLEANUP_WHEN_DONE[@]}"
+  fi
+  if [ "$GIT_WORKTREE" != "" ]; then
+    git worktree remove "$GIT_WORKTREE"
   fi
 }
 trap cleanup_revision_checkouts EXIT HUP INT QUIT TERM
@@ -297,7 +303,9 @@ for comparison in "${comparisons[@]}"; do
     echo "==== Building/running C++ harness ===================="
     echo
 
-    ${PROTOC} --cpp_out="$script_dir" "$gen_message_path"
+    ${PROTOC} --cpp_out="$script_dir/_generated" \
+              --proto_path=`dirname $gen_message_path` \
+              "$gen_message_path"
 
     harness_cpp="$script_dir/_generated/harness_cpp"
     run_cpp_harness "$harness_cpp"
@@ -314,19 +322,20 @@ for comparison in "${comparisons[@]}"; do
 
       # Check out the commit to a temporary directory and create its _generated
       # directory. (Results will still go in the working tree.)
-      tmp_checkout="$(mktemp -d -t swiftprotoperf)"
-      CLEANUP_WHEN_DONE+=("$tmp_checkout")
-      git --work-tree="$tmp_checkout" checkout "$comparison" -- .
-      mkdir "$tmp_checkout/Performance/_generated"
+      GIT_WORKTREE="$(mktemp -d `pwd`/_generated/swiftprotoperf.XXXXXX)"
+      CLEANUP_WHEN_DONE+=("$GIT_WORKTREE")
+      git worktree add "$GIT_WORKTREE" "$comparison"
+      mkdir "$GIT_WORKTREE/Performance/_generated"
 
-      build_swift_packages "$tmp_checkout" "ForRev"
-      ${PROTOC} --plugin="$tmp_checkout/.build/release/protoc-gen-swiftForRev" \
-          --swiftForRev_out=FileNaming=DropPath:"$tmp_checkout/Performance/_generated" \
-          "$gen_message_path"
+      build_swift_packages "$GIT_WORKTREE" "ForRev"
+      ${PROTOC} --plugin="$GIT_WORKTREE/.build/release/protoc-gen-swiftForRev" \
+                --swiftForRev_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
+                --proto_path=`dirname $gen_message_path` \
+                "$gen_message_path"
 
-      harness_swift="$tmp_checkout/Performance/_generated/harness_swift"
+      harness_swift="$GIT_WORKTREE/Performance/_generated/harness_swift"
       results_trace="$script_dir/_results/$report_type (swift)"
-      run_swift_harness "$tmp_checkout" "$comparison" "$commit_results"
+      run_swift_harness "$GIT_WORKTREE" "$comparison" "$commit_results"
     else
       echo
       echo "==== Found cached results for Swift ($comparison) ===================="
@@ -341,10 +350,11 @@ echo "==== Building/running Swift harness (working tree) ===================="
 echo
 
 build_swift_packages "$script_dir/.." "ForWorkTree"
-${PROTOC} --plugin="$script_dir/../.build/release/protoc-gen-swiftForWorkTree" \
-    --swiftForWorkTree_out=FileNaming=DropPath:"$script_dir/_generated" \
-    --cpp_out="$script_dir" \
-    "$gen_message_path"
+
+${PROTOC} --plugin="$script_dir/../.build/release/protoc-gen-swift" \
+          --swift_out=FileNaming=DropPath:`dirname $gen_message_path` \
+          --proto_path=`dirname $gen_message_path` \
+          "$gen_message_path"
 
 harness_swift="$script_dir/_generated/harness_swift"
 results_trace="$script_dir/_results/$report_type (swift)"
@@ -359,6 +369,5 @@ EOF
 
 insert_visualization_results "$partial_results" "$results_js"
 
-# Open the Instruments trace and HTML report at the end.
-open -g "$display_results_trace.trace"
+# Open the HTML report at the end.
 open -g "$script_dir/harness-visualization.html"

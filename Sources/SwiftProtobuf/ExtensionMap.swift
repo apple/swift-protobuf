@@ -22,9 +22,10 @@
 /// This is a protocol so that developers can build their own
 /// extension handling if they need something more complex than the
 /// standard `SimpleExtensionMap` implementation.
-public protocol ExtensionMap {
+@preconcurrency
+public protocol ExtensionMap: Sendable {
     /// Returns the extension object describing an extension or nil
-    subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? { get }
+    subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? { get }
 
     /// Returns the field number for a message with a specific field name
     ///
@@ -34,5 +35,5 @@ public protocol ExtensionMap {
     /// for the proto file and `message` is the name of the message in
     /// which the extension was defined. (This is different from the
     /// message that is being extended!)
-    func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int?
+    func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int?
 }

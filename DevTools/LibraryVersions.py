@@ -55,11 +55,11 @@ def UpdateFiles(version_string):
   (major, minor, revision) = ExtractVersion(version_string)
 
   # Update SwiftProtobuf.podspec
-  pod_content = open(_CORE_PODSPEC_PATH).read()
+  pod_content = open(_PODSPEC_PATH).read()
   pod_content = re.sub(r'version = \'(\d+\.\d+\.\d+)\'',
                        'version = \'%s.%s.%s\'' % (major, minor, revision),
                        pod_content)
-  open(_CORE_PODSPEC_PATH, 'w').write(pod_content)
+  open(_PODSPEC_PATH, 'w').write(pod_content)
 
   # Update Sources/SwiftProtobuf/Version.swift
   version_swift_content = open(_VERSION_SWIFT_PATH).read()

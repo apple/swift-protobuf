@@ -15,11 +15,11 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_JSON_Array: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestAllTypes
+final class Test_JSON_Array: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     private func configureTwoObjects(_ o: inout [MessageTestType]) {
         var o1 = MessageTestType()
@@ -41,16 +41,16 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o1.optionalNestedMessage = nested
-        var foreign = Proto3Unittest_ForeignMessage()
+        var foreign = SwiftProtoTesting_Proto3_ForeignMessage()
         foreign.c = 88
         o1.optionalForeignMessage = foreign
-        var importMessage = ProtobufUnittestImport_ImportMessage()
+        var importMessage = SwiftProtoTesting_Import_ImportMessage()
         importMessage.d = -9
         o1.optionalImportMessage = importMessage
         o1.optionalNestedEnum = .baz
         o1.optionalForeignEnum = .foreignBaz
-//        o1.optionalImportEnum = .importBaz
-        var publicImportMessage = ProtobufUnittestImport_PublicImportMessage()
+        //        o1.optionalImportEnum = .importBaz
+        var publicImportMessage = SwiftProtoTesting_Import_PublicImportMessage()
         publicImportMessage.e = -999999
         o1.optionalPublicImportMessage = publicImportMessage
         o1.repeatedInt32 = [1, 2]
@@ -88,65 +88,68 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
     }
 
     func testTwoObjectsWithMultipleFields() {
-        let expected: String = ("[{"
-            + "\"optionalInt32\":1,"
-            + "\"optionalInt64\":\"2\","
-            + "\"optionalUint32\":3,"
-            + "\"optionalUint64\":\"4\","
-            + "\"optionalSint32\":5,"
-            + "\"optionalSint64\":\"6\","
-            + "\"optionalFixed32\":7,"
-            + "\"optionalFixed64\":\"8\","
-            + "\"optionalSfixed32\":9,"
-            + "\"optionalSfixed64\":\"10\","
-            + "\"optionalFloat\":11.0,"
-            + "\"optionalDouble\":12.0,"
-            + "\"optionalBool\":true,"
-            + "\"optionalString\":\"abc\","
-            + "\"optionalBytes\":\"QUI=\","
-            + "\"optionalNestedMessage\":{\"bb\":7},"
-            + "\"optionalForeignMessage\":{\"c\":88},"
-            + "\"optionalImportMessage\":{\"d\":-9},"
-            + "\"optionalNestedEnum\":\"BAZ\","
-            + "\"optionalForeignEnum\":\"FOREIGN_BAZ\","
-//            + "\"optionalImportEnum\":\"IMPORT_BAZ\","
-            + "\"optionalPublicImportMessage\":{\"e\":-999999},"
-            + "\"repeatedInt32\":[1,2],"
-            + "\"repeatedInt64\":[\"3\",\"4\"],"
-            + "\"repeatedUint32\":[5,6],"
-            + "\"repeatedUint64\":[\"7\",\"8\"],"
-            + "\"repeatedSint32\":[9,10],"
-            + "\"repeatedSint64\":[\"11\",\"12\"],"
-            + "\"repeatedFixed32\":[13,14],"
-            + "\"repeatedFixed64\":[\"15\",\"16\"],"
-            + "\"repeatedSfixed32\":[17,18],"
-            + "\"repeatedSfixed64\":[\"19\",\"20\"],"
-            + "\"repeatedFloat\":[21.0,22.0],"
-            + "\"repeatedDouble\":[23.0,24.0],"
-            + "\"repeatedBool\":[true,false],"
-            + "\"repeatedString\":[\"abc\",\"def\"],"
-            + "\"repeatedBytes\":[\"\",\"QUI=\"],"
-            + "\"repeatedNestedMessage\":[{\"bb\":7},{\"bb\":-7}],"
-            + "\"repeatedForeignMessage\":[{\"c\":88},{\"c\":-88}],"
-            + "\"repeatedNestedEnum\":[\"BAR\",\"BAZ\"],"
-            + "\"repeatedForeignEnum\":[\"FOREIGN_BAR\",\"FOREIGN_BAZ\"],"
-            + "\"oneofUint32\":99"
-            + "},{}]")
+        let expected: String =
+            ("[{"
+                + "\"optionalInt32\":1,"
+                + "\"optionalInt64\":\"2\","
+                + "\"optionalUint32\":3,"
+                + "\"optionalUint64\":\"4\","
+                + "\"optionalSint32\":5,"
+                + "\"optionalSint64\":\"6\","
+                + "\"optionalFixed32\":7,"
+                + "\"optionalFixed64\":\"8\","
+                + "\"optionalSfixed32\":9,"
+                + "\"optionalSfixed64\":\"10\","
+                + "\"optionalFloat\":11.0,"
+                + "\"optionalDouble\":12.0,"
+                + "\"optionalBool\":true,"
+                + "\"optionalString\":\"abc\","
+                + "\"optionalBytes\":\"QUI=\","
+                + "\"optionalNestedMessage\":{\"bb\":7},"
+                + "\"optionalForeignMessage\":{\"c\":88},"
+                + "\"optionalImportMessage\":{\"d\":-9},"
+                + "\"optionalNestedEnum\":\"BAZ\","
+                + "\"optionalForeignEnum\":\"FOREIGN_BAZ\","
+                //            + "\"optionalImportEnum\":\"IMPORT_BAZ\","
+                + "\"optionalPublicImportMessage\":{\"e\":-999999},"
+                + "\"repeatedInt32\":[1,2],"
+                + "\"repeatedInt64\":[\"3\",\"4\"],"
+                + "\"repeatedUint32\":[5,6],"
+                + "\"repeatedUint64\":[\"7\",\"8\"],"
+                + "\"repeatedSint32\":[9,10],"
+                + "\"repeatedSint64\":[\"11\",\"12\"],"
+                + "\"repeatedFixed32\":[13,14],"
+                + "\"repeatedFixed64\":[\"15\",\"16\"],"
+                + "\"repeatedSfixed32\":[17,18],"
+                + "\"repeatedSfixed64\":[\"19\",\"20\"],"
+                + "\"repeatedFloat\":[21.0,22.0],"
+                + "\"repeatedDouble\":[23.0,24.0],"
+                + "\"repeatedBool\":[true,false],"
+                + "\"repeatedString\":[\"abc\",\"def\"],"
+                + "\"repeatedBytes\":[\"\",\"QUI=\"],"
+                + "\"repeatedNestedMessage\":[{\"bb\":7},{\"bb\":-7}],"
+                + "\"repeatedForeignMessage\":[{\"c\":88},{\"c\":-88}],"
+                + "\"repeatedNestedEnum\":[\"BAR\",\"BAZ\"],"
+                + "\"repeatedForeignEnum\":[\"FOREIGN_BAR\",\"FOREIGN_BAZ\"],"
+                + "\"oneofUint32\":99"
+                + "},{}]")
         assertJSONArrayEncode(expected, configure: configureTwoObjects)
     }
 
     func testRepeatedNestedMessage() {
-        assertJSONArrayEncode("[{\"repeatedNestedMessage\":[{\"bb\":1}]},{\"repeatedNestedMessage\":[{\"bb\":1},{\"bb\":2}]}]") {(o: inout [MessageTestType]) in
+        assertJSONArrayEncode(
+            "[{\"repeatedNestedMessage\":[{\"bb\":1}]},{\"repeatedNestedMessage\":[{\"bb\":1},{\"bb\":2}]}]"
+        ) { (o: inout [MessageTestType]) in
             var o1 = MessageTestType()
-            var sub1 = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub1 = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub1.bb = 1
             o1.repeatedNestedMessage = [sub1]
             o.append(o1)
 
             var o2 = MessageTestType()
-            var sub2 = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub2 = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub2.bb = 1
-            var sub3 = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub3 = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub3.bb = 2
             o2.repeatedNestedMessage = [sub2, sub3]
             o.append(o2)

@@ -16,72 +16,75 @@
 // -----------------------------------------------------------------------------
 
 /// Generated enum types conform to this protocol.
-public protocol Enum: RawRepresentable, Hashable, CaseIterable, _ProtoSendable {
-  /// Creates a new instance of the enum initialized to its default value.
-  init()
+@preconcurrency
+public protocol Enum: RawRepresentable, Hashable, Sendable {
+    /// Creates a new instance of the enum initialized to its default value.
+    init()
 
-  /// Creates a new instance of the enum from the given raw integer value.
-  ///
-  /// For proto2 enums, this initializer will fail if the raw value does not
-  /// correspond to a valid enum value. For proto3 enums, this initializer never
-  /// fails; unknown values are created as instances of the `UNRECOGNIZED` case.
-  ///
-  /// - Parameter rawValue: The raw integer value from which to create the enum
-  ///   value.
-  init?(rawValue: Int)
+    /// Creates a new instance of the enum from the given raw integer value.
+    ///
+    /// For proto2 enums, this initializer will fail if the raw value does not
+    /// correspond to a valid enum value. For proto3 enums, this initializer never
+    /// fails; unknown values are created as instances of the `UNRECOGNIZED` case.
+    ///
+    /// - Parameter rawValue: The raw integer value from which to create the enum
+    ///   value.
+    init?(rawValue: Int)
 
-  /// The raw integer value of the enum value.
-  ///
-  /// For a recognized enum case, this is the integer value of the case as
-  /// defined in the .proto file. For `UNRECOGNIZED` cases in proto3, this is
-  /// the value that was originally decoded.
-  var rawValue: Int { get }
+    /// The raw integer value of the enum value.
+    ///
+    /// For a recognized enum case, this is the integer value of the case as
+    /// defined in the .proto file. For `UNRECOGNIZED` cases in proto3, this is
+    /// the value that was originally decoded.
+    var rawValue: Int { get }
 }
 
 extension Enum {
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(rawValue)
-  }
-
-  /// Internal convenience property representing the name of the enum value (or
-  /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
-  ///
-  /// Since the text format and JSON names are always identical, we don't need
-  /// to distinguish them.
-  internal var name: _NameMap.Name? {
-    guard let nameProviding = Self.self as? _ProtoNameProviding.Type else {
-      return nil
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(rawValue)
     }
-    return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
-  }
 
-  /// Internal convenience initializer that returns the enum value with the
-  /// given name, if it provides names.
-  ///
-  /// Since the text format and JSON names are always identical, we don't need
-  /// to distinguish them.
-  ///
-  /// - Parameter name: The name of the enum case.
-  internal init?(name: String) {
-    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
-      let number = nameProviding._protobuf_nameMap.number(forJSONName: name) else {
-      return nil
+    /// Internal convenience property representing the name of the enum value (or
+    /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
+    ///
+    /// Since the text format and JSON names are always identical, we don't need
+    /// to distinguish them.
+    internal var name: _NameMap.Name? {
+        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type else {
+            return nil
+        }
+        return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
     }
-    self.init(rawValue: number)
-  }
 
-  /// Internal convenience initializer that returns the enum value with the
-  /// given name, if it provides names.
-  ///
-  /// Since the text format and JSON names are always identical, we don't need
-  /// to distinguish them.
-  ///
-  /// - Parameter name: Buffer holding the UTF-8 bytes of the desired name.
-  internal init?(rawUTF8: UnsafeRawBufferPointer) {
-    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
-      let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8) else {
-      return nil
+    /// Internal convenience initializer that returns the enum value with the
+    /// given name, if it provides names.
+    ///
+    /// Since the text format and JSON names are always identical, we don't need
+    /// to distinguish them.
+    ///
+    /// - Parameter name: The name of the enum case.
+    internal init?(name: String) {
+        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
+            let number = nameProviding._protobuf_nameMap.number(forJSONName: name)
+        else {
+            return nil
+        }
+        self.init(rawValue: number)
     }
-    self.init(rawValue: number)
-  }
+
+    /// Internal convenience initializer that returns the enum value with the
+    /// given name, if it provides names.
+    ///
+    /// Since the text format and JSON names are always identical, we don't need
+    /// to distinguish them.
+    ///
+    /// - Parameter name: Buffer holding the UTF-8 bytes of the desired name.
+    internal init?(rawUTF8: UnsafeRawBufferPointer) {
+        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
+            let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8)
+        else {
+            return nil
+        }
+        self.init(rawValue: number)
+    }
 }

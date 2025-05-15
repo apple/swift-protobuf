@@ -9,11 +9,19 @@ xcbaselines
 /docs
 /build
 mined_words.txt
+/CompileTests/MultiModule/.build
+/CompileTests/MultiModule/.swiftpm
+/CompileTests/InternalImportsByDefault/.build
+/CompileTests/InternalImportsByDefault/.swiftpm
 /*DescriptorTestData.bin
 /Package.resolved
+/PluginLibEditionDefaults.bin
+/PluginLibTestingEditionDefaults.bin
 
 # Intermediate conformance test outputs
 failing_tests.txt
 nonexistent_tests.txt
+succeeding_tests.txt
+
 PluginExamples/.build
 PluginExamples/.swiftpm/

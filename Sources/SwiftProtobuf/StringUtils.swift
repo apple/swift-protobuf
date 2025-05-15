@@ -26,42 +26,41 @@ import Foundation
 // Note: We're trying to avoid Foundation's String(format:) since that's not
 // universally available.
 
-fileprivate func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
-  precondition(value >= 0)
-  let s = String(value)
-  if s.count >= digits {
-    return s
-  } else {
-    let pad = String(repeating: "0", count: digits - s.count)
-    return pad + s
-  }
+private func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
+    precondition(value >= 0)
+    let s = String(value)
+    if s.count >= digits {
+        return s
+    } else {
+        let pad = String(repeating: "0", count: digits - s.count)
+        return pad + s
+    }
 }
 
 internal func twoDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 2)
+    formatZeroPaddedInt(value, digits: 2)
 }
 internal func threeDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 3)
+    formatZeroPaddedInt(value, digits: 3)
 }
 internal func fourDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 4)
+    formatZeroPaddedInt(value, digits: 4)
 }
 internal func sixDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 6)
+    formatZeroPaddedInt(value, digits: 6)
 }
 internal func nineDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 9)
+    formatZeroPaddedInt(value, digits: 9)
 }
 
 // Wrapper that takes a buffer and start/end offsets
 internal func utf8ToString(
-  bytes: UnsafeRawBufferPointer,
-  start: UnsafeRawBufferPointer.Index,
-  end: UnsafeRawBufferPointer.Index
+    bytes: UnsafeRawBufferPointer,
+    start: UnsafeRawBufferPointer.Index,
+    end: UnsafeRawBufferPointer.Index
 ) -> String? {
-  return utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
+    utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
 }
-
 
 // Swift 4 introduced new faster String facilities
 // that seem to work consistently across all platforms.
@@ -79,28 +78,27 @@ internal func utf8ToString(
 // slower than on macOS, so this is a much bigger
 // win there.
 internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
-  if count == 0 {
-    return String()
-  }
-  let codeUnits = UnsafeRawBufferPointer(start: bytes, count: count)
-  let sourceEncoding = Unicode.UTF8.self
-
-  // Verify that the UTF-8 is valid.
-  var p = sourceEncoding.ForwardParser()
-  var i = codeUnits.makeIterator()
-  Loop:
-  while true {
-    switch p.parseScalar(from: &i) {
-    case .valid(_):
-      break
-    case .error:
-      return nil
-    case .emptyInput:
-      break Loop
+    if count == 0 {
+        return String()
     }
-  }
+    let codeUnits = UnsafeRawBufferPointer(start: bytes, count: count)
+    let sourceEncoding = Unicode.UTF8.self
 
-  // This initializer is fast but does not reject broken
-  // UTF-8 (which is why we validate the UTF-8 above).
-  return String(decoding: codeUnits, as: sourceEncoding)
- }
+    // Verify that the UTF-8 is valid.
+    var p = sourceEncoding.ForwardParser()
+    var i = codeUnits.makeIterator()
+    Loop: while true {
+        switch p.parseScalar(from: &i) {
+        case .valid(_):
+            break
+        case .error:
+            return nil
+        case .emptyInput:
+            break Loop
+        }
+    }
+
+    // This initializer is fast but does not reject broken
+    // UTF-8 (which is why we validate the UTF-8 above).
+    return String(decoding: codeUnits, as: sourceEncoding)
+}

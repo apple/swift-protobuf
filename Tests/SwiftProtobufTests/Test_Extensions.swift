@@ -13,16 +13,21 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 // Exercise the support for Proto2 extensions.
 
-class Test_Extensions: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestAllExtensions
+final class Test_Extensions: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
     var extensions = SwiftProtobuf.SimpleExtensionMap()
 
-    func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertEncode(
+        _ expected: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -32,7 +37,12 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(serializedBytes: encoded, extensions: extensions)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
             } catch {
                 XCTFail("Failed to decode protobuf: \(encoded)", file: file, line: line)
             }
@@ -41,7 +51,12 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
-    func assertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertDecodeSucceeds(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
         do {
             let decoded = try MessageTestType(serializedBytes: bytes, extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
@@ -69,29 +84,30 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     }
 
-
     override func setUp() {
         // Start with all the extensions from the unittest.proto file:
-        extensions = ProtobufUnittest_Unittest_Extensions
+        extensions = SwiftProtoTesting_Unittest_Extensions
         // Append another file's worth:
-        extensions.formUnion(ProtobufUnittest_UnittestCustomOptions_Extensions)
+        extensions.formUnion(SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions)
         // Append an array of extensions
-        extensions.insert(contentsOf:
-            [
-                Extensions_RepeatedExtensionGroup,
-                Extensions_ExtensionGroup
-            ]
+        extensions.insert(contentsOf: [
+            Extensions_RepeatedExtensionGroup,
+            Extensions_ExtensionGroup,
+        ]
         )
     }
 
     func test_optionalInt32Extension() throws {
         assertEncode([8, 17]) { (o: inout MessageTestType) in
-            o.ProtobufUnittest_optionalInt32Extension = 17
+            o.SwiftProtoTesting_optionalInt32Extension = 17
         }
-        assertDecodeSucceeds([8, 99]) {$0.ProtobufUnittest_optionalInt32Extension == 99}
+        assertDecodeSucceeds([8, 99]) { $0.SwiftProtoTesting_optionalInt32Extension == 99 }
         assertDecodeFails([9])
         assertDecodeFails([9, 0])
-        assertDecodesAsUnknownFields([9, 0, 0, 0, 0, 0, 0, 0, 0])  // Wrong wire type (fixed64), valid as an unknown field
+        assertDecodesAsUnknownFields([
+            9,  // Wrong wire type (fixed64), valid as an unknown field
+            0, 0, 0, 0, 0, 0, 0, 0,
+        ])
         assertDecodeFails([10])
         assertDecodesAsUnknownFields([10, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([11])
@@ -108,14 +124,17 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         assertDecodeFails([15, 0])
 
         // Decoded extension should correctly compare to a manually-set extension
-        let m1 = try ProtobufUnittest_TestAllExtensions(serializedBytes: [8, 17], extensions: extensions)
-        var m2 = ProtobufUnittest_TestAllExtensions()
-        m2.ProtobufUnittest_optionalInt32Extension = 17
+        let m1 = try SwiftProtoTesting_TestAllExtensions(serializedBytes: [8, 17], extensions: extensions)
+        var m2 = SwiftProtoTesting_TestAllExtensions()
+        m2.SwiftProtoTesting_optionalInt32Extension = 17
         XCTAssertEqual(m1, m2)
-        m2.ProtobufUnittest_optionalInt32Extension = 18
+        m2.SwiftProtoTesting_optionalInt32Extension = 18
         XCTAssertNotEqual(m1, m2)
 
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.optional_int32_extension]: 18\n", m2)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_int32_extension]: 18\n",
+            m2
+        )
         XCTAssertNotEqual(m1.hashValue, m2.hashValue)
     }
 
@@ -123,71 +142,83 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // An extension set with two extensions for field #5, but for
         // different messages and with different types
         var extensions = SimpleExtensionMap()
-        extensions.insert(ProtobufUnittest_Extensions_optional_sint32_extension)
-        extensions.insert(ProtobufUnittest_Extensions_my_extension_int)
+        extensions.insert(SwiftProtoTesting_Extensions_optional_sint32_extension)
+        extensions.insert(SwiftProtoTesting_Extensions_my_extension_int)
 
         // This should decode with optionalSint32Extension
-        let m1 = try ProtobufUnittest_TestAllExtensions(serializedBytes: [40, 1], extensions: extensions)
-        XCTAssertEqual(m1.ProtobufUnittest_optionalSint32Extension, -1)
+        let m1 = try SwiftProtoTesting_TestAllExtensions(serializedBytes: [40, 1], extensions: extensions)
+        XCTAssertEqual(m1.SwiftProtoTesting_optionalSint32Extension, -1)
 
         // This should decode with myExtensionInt
-        let m2 = try ProtobufUnittest_TestFieldOrderings(serializedBytes: [40, 1], extensions: extensions)
-        XCTAssertEqual(m2.ProtobufUnittest_myExtensionInt, 1)
+        let m2 = try SwiftProtoTesting_TestFieldOrderings(serializedBytes: [40, 1], extensions: extensions)
+        XCTAssertEqual(m2.SwiftProtoTesting_myExtensionInt, 1)
     }
 
     func test_optionalStringExtension() throws {
         assertEncode([114, 5, 104, 101, 108, 108, 111]) { (o: inout MessageTestType) in
-            o.ProtobufUnittest_optionalStringExtension = "hello"
+            o.SwiftProtoTesting_optionalStringExtension = "hello"
         }
-        assertDecodeSucceeds([114, 2, 97, 98]) {$0.ProtobufUnittest_optionalStringExtension == "ab"}
+        assertDecodeSucceeds([114, 2, 97, 98]) { $0.SwiftProtoTesting_optionalStringExtension == "ab" }
 
-        var m1 = ProtobufUnittest_TestAllExtensions()
-        m1.ProtobufUnittest_optionalStringExtension = "ab"
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.optional_string_extension]: \"ab\"\n", m1)
+        var m1 = SwiftProtoTesting_TestAllExtensions()
+        m1.SwiftProtoTesting_optionalStringExtension = "ab"
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_string_extension]: \"ab\"\n",
+            m1
+        )
     }
 
     func test_repeatedInt32Extension() throws {
         assertEncode([248, 1, 7, 248, 1, 8]) { (o: inout MessageTestType) in
-            o.ProtobufUnittest_repeatedInt32Extension = [7, 8]
+            o.SwiftProtoTesting_repeatedInt32Extension = [7, 8]
         }
-        assertDecodeSucceeds([248, 1, 7]) {$0.ProtobufUnittest_repeatedInt32Extension == [7]}
-        assertDecodeSucceeds([248, 1, 7, 248, 1, 8]) {$0.ProtobufUnittest_repeatedInt32Extension == [7, 8]}
-        assertDecodeSucceeds([250, 1, 2, 7, 8]) {$0.ProtobufUnittest_repeatedInt32Extension == [7, 8]}
+        assertDecodeSucceeds([248, 1, 7]) { $0.SwiftProtoTesting_repeatedInt32Extension == [7] }
+        assertDecodeSucceeds([248, 1, 7, 248, 1, 8]) { $0.SwiftProtoTesting_repeatedInt32Extension == [7, 8] }
+        assertDecodeSucceeds([250, 1, 2, 7, 8]) { $0.SwiftProtoTesting_repeatedInt32Extension == [7, 8] }
 
         // Verify that the usual array access/modification operations work correctly
-        var m = ProtobufUnittest_TestAllExtensions()
-        m.ProtobufUnittest_repeatedInt32Extension = [7]
-        m.ProtobufUnittest_repeatedInt32Extension.append(8)
-        XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 8])
-        XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension[0], 7)
-        m.ProtobufUnittest_repeatedInt32Extension[1] = 9
-        XCTAssertNotEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 8])
-        XCTAssertEqual(m.ProtobufUnittest_repeatedInt32Extension, [7, 9])
+        var m = SwiftProtoTesting_TestAllExtensions()
+        m.SwiftProtoTesting_repeatedInt32Extension = [7]
+        m.SwiftProtoTesting_repeatedInt32Extension.append(8)
+        XCTAssertEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 8])
+        XCTAssertEqual(m.SwiftProtoTesting_repeatedInt32Extension[0], 7)
+        m.SwiftProtoTesting_repeatedInt32Extension[1] = 9
+        XCTAssertNotEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 8])
+        XCTAssertEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 9])
 
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.repeated_int32_extension]: 7\n[protobuf_unittest.repeated_int32_extension]: 9\n", m)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.repeated_int32_extension]: 7\n[swift_proto_testing.repeated_int32_extension]: 9\n",
+            m
+        )
 
-        XCTAssertFalse(m.ProtobufUnittest_repeatedInt32Extension.isEmpty)
-        m.ProtobufUnittest_repeatedInt32Extension = []
-        XCTAssertTrue(m.ProtobufUnittest_repeatedInt32Extension.isEmpty)
+        XCTAssertFalse(m.SwiftProtoTesting_repeatedInt32Extension.isEmpty)
+        m.SwiftProtoTesting_repeatedInt32Extension = []
+        XCTAssertTrue(m.SwiftProtoTesting_repeatedInt32Extension.isEmpty)
     }
 
     func test_defaultInt32Extension() throws {
-        var m = ProtobufUnittest_TestAllExtensions()
-        XCTAssertEqual(m.ProtobufUnittest_defaultInt32Extension, 41)
+        var m = SwiftProtoTesting_TestAllExtensions()
+        XCTAssertEqual(m.SwiftProtoTesting_defaultInt32Extension, 41)
         XCTAssertEqual(try m.serializedBytes(), [])
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n", m)
-        m.ProtobufUnittest_defaultInt32Extension = 100
+        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n", m)
+        m.SwiftProtoTesting_defaultInt32Extension = 100
         XCTAssertEqual(try m.serializedBytes(), [232, 3, 100])
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.default_int32_extension]: 100\n", m)
-        m.clearProtobufUnittest_defaultInt32Extension()
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 100\n",
+            m
+        )
+        m.clearSwiftProtoTesting_defaultInt32Extension()
         XCTAssertEqual(try m.serializedBytes(), [])
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n", m)
-        m.ProtobufUnittest_defaultInt32Extension = 41 // Default value
+        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n", m)
+        m.SwiftProtoTesting_defaultInt32Extension = 41  // Default value
         XCTAssertEqual(try m.serializedBytes(), [232, 3, 41])
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.default_int32_extension]: 41\n", m)
+        assertDebugDescription(
+            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 41\n",
+            m
+        )
 
         assertEncode([232, 3, 17]) { (o: inout MessageTestType) in
-            o.ProtobufUnittest_defaultInt32Extension = 17
+            o.SwiftProtoTesting_defaultInt32Extension = 17
         }
     }
 
@@ -219,7 +250,6 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTFail("Decoding into unextended message failed for \(coded)")
         }
     }
-
 
     func test_repeatedGroupExtension() throws {
         var m = SwiftTestGroupExtensions()
@@ -258,136 +288,136 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     }
 
     func test_MessageNoStorageClass() {
-        var msg1 = ProtobufUnittest_Extend_MsgNoStorage()
-        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 0)
-        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 0)
+        var msg1 = SwiftProtoTesting_Extend_MsgNoStorage()
+        XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extA, 0)
+        XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extB, 0)
 
-        msg1.ProtobufUnittest_Extend_extA = 1
-        msg1.ProtobufUnittest_Extend_extB = 2
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 2)
+        msg1.SwiftProtoTesting_Extend_extA = 1
+        msg1.SwiftProtoTesting_Extend_extB = 2
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extB, 2)
 
         var msg2 = msg1
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 2)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extB, 2)
 
-        msg2.ProtobufUnittest_Extend_extA = 10
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 10)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 2)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 2)
+        msg2.SwiftProtoTesting_Extend_extA = 10
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extA, 10)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extB, 2)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extB, 2)
 
-        msg1.ProtobufUnittest_Extend_extB = 3
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 10)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 2)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 3)
+        msg1.SwiftProtoTesting_Extend_extB = 3
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extA, 10)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extB, 2)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extB, 3)
 
         msg2 = msg1
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 3)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extB, 3)
 
-        msg2.clearProtobufUnittest_Extend_extA()
-        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 0)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 3)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 3)
+        msg2.clearSwiftProtoTesting_Extend_extA()
+        XCTAssertFalse(msg2.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extA, 0)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extB, 3)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extB, 3)
 
-        msg1.clearProtobufUnittest_Extend_extB()
-        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 0)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 3)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
-        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extB)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 0)
+        msg1.clearSwiftProtoTesting_Extend_extB()
+        XCTAssertFalse(msg2.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extA, 0)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extB, 3)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extA)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extA, 1)
+        XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extB)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extB, 0)
     }
 
     func test_MessageUsingStorageClass() {
-        var msg1 = ProtobufUnittest_Extend_MsgUsesStorage()
-        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 0)
-        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 0)
+        var msg1 = SwiftProtoTesting_Extend_MsgUsesStorage()
+        XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extC, 0)
+        XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 0)
 
-        msg1.ProtobufUnittest_Extend_extC = 1
-        msg1.ProtobufUnittest_Extend_extD = 2
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 2)
+        msg1.SwiftProtoTesting_Extend_extC = 1
+        msg1.SwiftProtoTesting_Extend_extD = 2
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 2)
 
         var msg2 = msg1
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 2)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extD, 2)
 
-        msg2.ProtobufUnittest_Extend_extC = 10
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 10)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 2)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 2)
+        msg2.SwiftProtoTesting_Extend_extC = 10
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extC, 10)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extD, 2)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 2)
 
-        msg1.ProtobufUnittest_Extend_extD = 3
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 10)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 2)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 3)
+        msg1.SwiftProtoTesting_Extend_extD = 3
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extC, 10)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extD, 2)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 3)
 
         msg2 = msg1
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 3)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extD, 3)
 
-        msg2.clearProtobufUnittest_Extend_extC()
-        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 0)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 3)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 3)
+        msg2.clearSwiftProtoTesting_Extend_extC()
+        XCTAssertFalse(msg2.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extC, 0)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extD, 3)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 3)
 
-        msg1.clearProtobufUnittest_Extend_extD()
-        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 0)
-        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 3)
-        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
-        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extD)
-        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 0)
+        msg1.clearSwiftProtoTesting_Extend_extD()
+        XCTAssertFalse(msg2.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extC, 0)
+        XCTAssertTrue(msg2.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg2.SwiftProtoTesting_Extend_extD, 3)
+        XCTAssertTrue(msg1.hasSwiftProtoTesting_Extend_extC)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extC, 1)
+        XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extD)
+        XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 0)
     }
 }

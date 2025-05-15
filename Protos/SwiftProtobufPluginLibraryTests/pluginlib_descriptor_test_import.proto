@@ -1,0 +1,37 @@
+// Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test_import.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2024 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test proto for Tests/SwiftProtobufPluginLibraryTests/Test_Descriptor.swift
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+package swift_descriptor_test.import;
+
+message Version {
+  optional int32 major = 1;
+  optional int32 minor = 2;
+  optional int32 patch = 3;
+  optional string suffix = 4;
+}
+
+message ExtendableOne {
+
+  message ExtendableTwo {
+    extensions 1000 to max;
+  }
+
+  optional ExtendableTwo sub_msg_field = 1;
+
+  extensions 1000 to max;
+}

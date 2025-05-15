@@ -23,35 +23,36 @@ import Foundation
 internal struct TextFormatDecoder: Decoder {
     internal var scanner: TextFormatScanner
     private var fieldCount = 0
-    private var terminator: UInt8?
-    private var fieldNameMap: _NameMap?
-    private var messageType: Message.Type?
+    private let terminator: UInt8?
+    private let fieldNameMap: _NameMap
+    private let messageType: any Message.Type
 
-    internal var complete: Bool {
-        mutating get {
-            return scanner.complete
-        }
+    internal var options: TextFormatDecodingOptions {
+        scanner.options
     }
 
+    internal var complete: Bool { scanner.complete }
+
     internal init(
-      messageType: Message.Type,
-      utf8Pointer: UnsafeRawPointer,
-      count: Int,
-      options: TextFormatDecodingOptions,
-      extensions: ExtensionMap?
+        messageType: any Message.Type,
+        utf8Pointer: UnsafeRawPointer,
+        count: Int,
+        options: TextFormatDecodingOptions,
+        extensions: (any ExtensionMap)?
     ) throws {
         scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, options: options, extensions: extensions)
-        guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
+        self.terminator = nil
     }
 
-    internal init(messageType: Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
+    internal init(messageType: any Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
         self.scanner = scanner
         self.terminator = terminator
-        guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? any _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
@@ -63,31 +64,19 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     mutating func nextFieldNumber() throws -> Int? {
-        if let terminator = terminator {
-            if scanner.skipOptionalObjectEnd(terminator) {
-                return nil
-            }
-        }
         if fieldCount > 0 {
             scanner.skipOptionalSeparator()
         }
-        if let key = try scanner.nextOptionalExtensionKey() {
-            // Extension key; look up in the extension registry
-            if let fieldNumber = scanner.extensions?.fieldNumberForProto(messageType: messageType!, protoFieldName: key) {
-                fieldCount += 1
-                return fieldNumber
-            } else {
-                throw TextFormatDecodingError.unknownField
-            }
-        } else if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
+        if let fieldNumber = try scanner.nextFieldNumber(
+            names: fieldNameMap,
+            messageType: messageType,
+            terminator: terminator
+        ) {
             fieldCount += 1
             return fieldNumber
-        } else if terminator == nil {
-            return nil
         } else {
-            throw TextFormatDecodingError.truncated
+            return nil
         }
-
     }
 
     mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -559,10 +548,14 @@ internal struct TextFormatDecoder: Decoder {
         try decodeRepeatedMessageField(value: &value)
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType: MapValueType>(mapType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType, ValueType: MapValueType>(
+        mapType: _ProtobufMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMap<KeyType, ValueType>.BaseType
+    ) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
+        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -572,14 +565,20 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey() {
+            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
-                    throw TextFormatDecodingError.unknownField
+                    if ignoreExtensionFields && key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
                 scanner.skipOptionalSeparator()
             } else {
@@ -588,7 +587,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    mutating func decodeMapField<KeyType, ValueType: MapValueType>(
+        fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMap<KeyType, ValueType>.BaseType
+    ) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -608,10 +610,14 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType>(mapType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    private mutating func decodeMapEntry<KeyType, ValueType>(
+        mapType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
+    ) throws where ValueType.RawValue == Int {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
+        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -621,14 +627,20 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey() {
+            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try decodeSingularEnumField(value: &valueField)
                 default:
-                    throw TextFormatDecodingError.unknownField
+                    if ignoreExtensionFields && key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
                 scanner.skipOptionalSeparator()
             } else {
@@ -637,7 +649,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    mutating func decodeMapField<KeyType, ValueType>(
+        fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
+    ) throws where ValueType.RawValue == Int {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -657,10 +672,14 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType, ValueType>(mapType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType, ValueType>(
+        mapType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
+    ) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
+        let ignoreExtensionFields = options.ignoreUnknownExtensionFields
         while true {
             if scanner.skipOptionalObjectEnd(terminator) {
                 if let keyField = keyField, let valueField = valueField {
@@ -670,14 +689,20 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.malformedText
                 }
             }
-            if let key = try scanner.nextKey() {
+            if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
                     try decodeSingularMessageField(value: &valueField)
                 default:
-                    throw TextFormatDecodingError.unknownField
+                    if ignoreExtensionFields && key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else if options.ignoreUnknownFields && !key.hasPrefix("[") {
+                        try scanner.skipUnknownFieldValue()
+                    } else {
+                        throw TextFormatDecodingError.unknownField
+                    }
                 }
                 scanner.skipOptionalSeparator()
             } else {
@@ -686,7 +711,10 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    mutating func decodeMapField<KeyType, ValueType>(
+        fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+        value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
+    ) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -706,7 +734,11 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
+    mutating func decodeExtensionField(
+        values: inout ExtensionFieldValueSet,
+        messageType: any Message.Type,
+        fieldNumber: Int
+    ) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
             try values.modify(index: fieldNumber) { fieldValue in
                 if fieldValue != nil {

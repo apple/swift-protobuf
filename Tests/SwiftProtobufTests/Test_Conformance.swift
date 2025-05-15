@@ -14,19 +14,19 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_Conformance: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufTestMessages_Proto3_TestAllTypesProto3
+final class Test_Conformance: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_Test3_TestAllTypesProto3
 
     func testFieldNaming() throws {
         let json = "{\n  \"fieldname1\": 1,\n  \"fieldName2\": 2,\n   \"FieldName3\": 3\n  }"
         assertJSONDecodeSucceeds(json) { (m: MessageTestType) -> Bool in
-            return (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
+            (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
         }
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
         } catch let e {
@@ -38,10 +38,10 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
         // Also accept the names in the .proto when decoding
         let json = "{\n  \"fieldname1\": 1,\n  \"field_name2\": 2,\n   \"_field_name3\": 3\n  }"
         assertJSONDecodeSucceeds(json) { (m: MessageTestType) -> Bool in
-            return (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
+            (m.fieldname1 == 1) && (m.fieldName2 == 2) && (m.fieldName3 == 3)
         }
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"fieldname1\":1,\"fieldName2\":2,\"FieldName3\":3}")
         } catch let e {
@@ -51,14 +51,14 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
 
     func testFieldNaming_escapeInName() throws {
         assertJSONDecodeSucceeds("{\"fieldn\\u0061me1\": 1}") {
-            return $0.fieldname1 == 1
+            $0.fieldname1 == 1
         }
     }
 
     func testInt32_min_roundtrip() throws {
         let json = "{\"optionalInt32\": -2147483648}"
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{\"optionalInt32\":-2147483648}")
         } catch {
@@ -72,17 +72,17 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
 
     func testRepeatedBoolWrapper() {
         assertJSONDecodeSucceeds("{\"repeatedBoolWrapper\": [true, false]}") {
-            (o: ProtobufTestMessages_Proto3_TestAllTypesProto3) -> Bool in
-            return o.repeatedBoolWrapper == [Google_Protobuf_BoolValue(true), Google_Protobuf_BoolValue(false)]
+            (o: SwiftProtoTesting_Test3_TestAllTypesProto3) -> Bool in
+            o.repeatedBoolWrapper == [Google_Protobuf_BoolValue(true), Google_Protobuf_BoolValue(false)]
         }
     }
 
     func testString_unicodeEscape() {
         assertTextFormatDecodeSucceeds("optional_string: \"\\u1234\"") {
-            return $0.optionalString == "\u{1234}"
+            $0.optionalString == "\u{1234}"
         }
         assertTextFormatDecodeSucceeds("optional_string: \"\\U0001F601\"") {
-            return $0.optionalString == "\u{1F601}"
+            $0.optionalString == "\u{1F601}"
         }
 
         assertTextFormatDecodeFails("optional_string: \"\\u")
@@ -95,7 +95,7 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_string: \"\\U1234DCXY\"")
 
         assertJSONDecodeSucceeds("{\"optional_string\": \"\\u1234\"}") {
-            return $0.optionalString == "\u{1234}"
+            $0.optionalString == "\u{1234}"
         }
 
         assertJSONDecodeFails("{\"optionalString\": \"\\u")
@@ -140,16 +140,16 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"optionalString\": \"\\uDE01\\uD83D\"}")
         // Correct surrogate
         assertJSONDecodeSucceeds("{\"optionalString\": \"\\uD83D\\uDE01\"}") {
-            return $0.optionalString == "\u{1F601}"
+            $0.optionalString == "\u{1F601}"
         }
     }
 
     func testBytes_unicodeEscape() {
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\u1234\"") {
-          return $0.optionalBytes == Data("\u{1234}".utf8)
+            $0.optionalBytes == Data("\u{1234}".utf8)
         }
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\U0001F601\"") {
-          return $0.optionalBytes == Data("\u{1F601}".utf8)
+            $0.optionalBytes == Data("\u{1F601}".utf8)
         }
 
         assertTextFormatDecodeFails("optional_bytes: \"\\u")
@@ -195,13 +195,19 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
     }
 
     func testMaps_TextFormatKeysSorted() {
-        assertTextFormatEncode("map_string_string {\n  key: \"a\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"b\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"c\"\n  value: \"value\"\n}\n") {(o: inout MessageTestType) in
-            o.mapStringString = ["c":"value", "b":"value", "a":"value"]
+        assertTextFormatEncode(
+            "map_string_string {\n  key: \"a\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"b\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"c\"\n  value: \"value\"\n}\n"
+        ) { (o: inout MessageTestType) in
+            o.mapStringString = ["c": "value", "b": "value", "a": "value"]
         }
-        assertTextFormatEncode("map_int32_int32 {\n  key: 1\n  value: 0\n}\nmap_int32_int32 {\n  key: 2\n  value: 0\n}\nmap_int32_int32 {\n  key: 3\n  value: 0\n}\n") {(o: inout MessageTestType) in
-            o.mapInt32Int32 = [3:0, 2:0, 1:0]
+        assertTextFormatEncode(
+            "map_int32_int32 {\n  key: 1\n  value: 0\n}\nmap_int32_int32 {\n  key: 2\n  value: 0\n}\nmap_int32_int32 {\n  key: 3\n  value: 0\n}\n"
+        ) { (o: inout MessageTestType) in
+            o.mapInt32Int32 = [3: 0, 2: 0, 1: 0]
         }
-        assertTextFormatEncode("map_bool_bool {\n  key: false\n  value: false\n}\nmap_bool_bool {\n  key: true\n  value: false\n}\n") {(o: inout MessageTestType) in
+        assertTextFormatEncode(
+            "map_bool_bool {\n  key: false\n  value: false\n}\nmap_bool_bool {\n  key: true\n  value: false\n}\n"
+        ) { (o: inout MessageTestType) in
             o.mapBoolBool = [true: false, false: false]
         }
     }

@@ -37,7 +37,7 @@ systems:
   value semantics.
 * Efficient binary serialization: The `.serializedBytes()`
   method returns a bag of bytes with a compact binary form of your data.
-  You can deserialize the data using the `init(serializedBytes:)`
+  You can deserialize the data using the `init(contiguousBytes:)`
   initializer.
 * Standard JSON serialization: The `.jsonUTF8Bytes()` method returns a JSON
   form of your data that can be parsed with the `init(jsonUTF8Bytes:)`
@@ -90,9 +90,9 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A Swift 5.0 or later compiler (Xcode 10.2 or later).  Support is included for
-  the Swift Package Manager. The Swift protobuf project is being developed and
-  tested against the latest release version of Swift available from
+* A Swift 5.10 or later compiler (or, if building with Xcode, Xcode 15.3 or later
+  as required by the App Store). The Swift protobuf project is being developed
+  and tested against the latest release version of Swift available from
   [Swift.org](https://swift.org)
 
 * Google's protoc compiler.  The Swift protoc plugin is being actively developed
@@ -109,24 +109,24 @@ protoc compiler and the SwiftProtobuf code generator plugin.
 
 Building the plugin should be simple on any supported Swift platform:
 
-```
-$ git clone https://github.com/apple/swift-protobuf.git
-$ cd swift-protobuf
+```bash
+git clone https://github.com/apple/swift-protobuf.git
+cd swift-protobuf
 ```
 
 Pick what released version of SwiftProtobuf you are going to use.  You can get
 a list of tags with:
 
-```
-$ git tag -l
+```bash
+git tag -l
 ```
 
 Once you pick the version you will use, set your local state to match, and
 build the protoc plugin:
 
-```
-$ git checkout tags/[tag_name]
-$ swift build -c release
+```bash
+git checkout tags/[tag_name]
+swift build -c release
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/release`
@@ -143,8 +143,8 @@ to use also use `--static-swift-stdlib` with `swift build`.
 
 If you prefer using [Homebrew](https://brew.sh):
 
-```
-$ brew install swift-protobuf
+```bash
+brew install swift-protobuf
 ```
 
 This will install `protoc` compiler and Swift code generator plugin.
@@ -154,8 +154,8 @@ This will install `protoc` compiler and Swift code generator plugin.
 To generate Swift output for your .proto files, you run the `protoc` command as
 usual, using the `--swift_out=<directory>` option:
 
-```
-$ protoc --swift_out=. my.proto
+```bash
+protoc --swift_out=. my.proto
 ```
 
 The `protoc` program will automatically look for `protoc-gen-swift` in your
@@ -182,12 +182,12 @@ After copying the `.pb.swift` files into your project, you will need to add the
 project to support the generated code.
 If you are using the Swift Package Manager, add a dependency to your
 `Package.swift` file and import the `SwiftProtobuf` library into the desired
-targets.  Adjust the `"1.6.0"` here to match the `[tag_name]` you used to build
+targets.  Adjust the `"1.27.0"` here to match the `[tag_name]` you used to build
 the plugin above:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.27.0"),
 ],
 targets: [
     .target(
@@ -240,8 +240,8 @@ message BookInfo {
 ```
 
 Then generate Swift code using:
-```
-$ protoc --swift_out=. DataModel.proto
+```bash
+protoc --swift_out=. DataModel.proto
 ```
 
 The generated code will expose a Swift property for
@@ -262,9 +262,18 @@ let info2 = BookInfo.with {
   }
 
 // Serialize to binary protobuf format: you can choose to serialize into
-// any type conforming to SwiftProtobufContiguousBytes. For example:
+// any type conforming to `SwiftProtobufContiguousBytes`. For example:
+// Resolve the `SwiftProtobufContiguousBytes` return value to `Data`
 let binaryData: Data = try info.serializedBytes()
+// Resolve the `SwiftProtobufContiguousBytes` return value to `[UInt8]`
 let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
+
+// Note that while the `serializedBytes()` spelling is generally preferred,
+// you may also use `serializedData()` to get the bytes as an instance of 
+// `Data` where required.
+// This means that the following two statements are equivalent:
+// let binaryData: Data = try info.serializedBytes()
+// let binaryData: Data = try info.serializedData()
 
 // Deserialize a received Data object from `binaryData`
 let decodedInfo = try BookInfo(serializedData: binaryData)

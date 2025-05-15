@@ -8,270 +8,278 @@
 //
 // -----------------------------------------------------------------------------
 
-import XCTest
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import SwiftProtobufTestHelpers
+import XCTest
 
-class Test_SwiftProtobufNamer: XCTestCase {
+final class Test_SwiftProtobufNamer: XCTestCase {
 
-  func testEnumValueHandling_AliasNameMatches() throws {
-    let txt = [
-      "name: \"test.proto\"",
-      "syntax: \"proto2\"",
-      "enum_type {",
-      "  name: \"TestEnum\"",
-      "  options {",
-      "     allow_alias: true",
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_FOO\"",
-      "    number: 0",  // Primary
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_BAR\"",
-      "    number: 1",
-      "  }",
-      "  value {",
-      "    name: \"TESTENUM_FOO\"",
-      "    number: 0",  // Alias
-      "  }",
-      "  value {",
-      "    name: \"_FOO\"",
-      "    number: 0",  // Alias
-      "  }",
-      "  value {",
-      "    name: \"FOO\"",
-      "    number: 0",  // Alias
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_ALIAS\"",
-      "    number: 0",  // Alias (unique name)
-      "  }",
-      "}"
-    ]
+    func testEnumValueHandling_AliasNameMatches() throws {
+        let txt = [
+            "name: \"test.proto\"",
+            "syntax: \"proto2\"",
+            "enum_type {",
+            "  name: \"TestEnum\"",
+            "  options {",
+            "     allow_alias: true",
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_FOO\"",
+            "    number: 0",  // Primary
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_BAR\"",
+            "    number: 1",
+            "  }",
+            "  value {",
+            "    name: \"TESTENUM_FOO\"",
+            "    number: 0",  // Alias
+            "  }",
+            "  value {",
+            "    name: \"_FOO\"",
+            "    number: 0",  // Alias
+            "  }",
+            "  value {",
+            "    name: \"FOO\"",
+            "    number: 0",  // Alias
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_ALIAS\"",
+            "    number: 0",  // Alias (unique name)
+            "  }",
+            "}",
+        ]
 
-    let fileProto: Google_Protobuf_FileDescriptorProto
-    do {
-     fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
-    } catch let e {
-      XCTFail("Error: \(e)")
-      return
+        let fileProto: Google_Protobuf_FileDescriptorProto
+        do {
+            fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+        } catch let e {
+            XCTFail("Error: \(e)")
+            return
+        }
+
+        let descriptorSet = DescriptorSet(protos: [fileProto])
+        let namer =
+            SwiftProtobufNamer(
+                currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
+                protoFileToModuleMappings: ProtoFileToModuleMappings()
+            )
+
+        let e = descriptorSet.enumDescriptor(named: "TestEnum")!
+        let values = e.values
+        XCTAssertEqual(values.count, 6)
+
+        // Test relativeName(enumValue:)
+
+        XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo")
+        XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
+        XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo")
+        XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo")
+        XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo")
+        XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
     }
 
-    let descriptorSet = DescriptorSet(protos: [fileProto])
-    let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+    func testEnumValueHandling_NameCollisions() {
+        let txt = [
+            "name: \"test.proto\"",
+            "syntax: \"proto2\"",
+            "enum_type {",
+            "  name: \"TestEnum\"",
+            "  value {",
+            "    name: \"TEST_ENUM_FOO\"",
+            "    number: 0",  // Collision
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_BAR\"",
+            "    number: 1",
+            "  }",
+            "  value {",
+            "    name: \"TESTENUM_FOO\"",
+            "    number: 2",  // Collision
+            "  }",
+            "  value {",
+            "    name: \"_FOO\"",
+            "    number: -1",  // Collision - negative value
+            "  }",
+            "}",
+        ]
 
-    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
-    let values = e.values
-    XCTAssertEqual(values.count, 6)
+        let fileProto: Google_Protobuf_FileDescriptorProto
+        do {
+            fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+        } catch let e {
+            XCTFail("Error: \(e)")
+            return
+        }
 
-    // Test relativeName(enumValue:)
+        let descriptorSet = DescriptorSet(protos: [fileProto])
+        let namer =
+            SwiftProtobufNamer(
+                currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
+                protoFileToModuleMappings: ProtoFileToModuleMappings()
+            )
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
-  }
+        let e = descriptorSet.enumDescriptor(named: "TestEnum")!
+        let values = e.values
+        XCTAssertEqual(values.count, 4)
 
-  func testEnumValueHandling_NameCollisions() {
-    let txt = [
-      "name: \"test.proto\"",
-      "syntax: \"proto2\"",
-      "enum_type {",
-      "  name: \"TestEnum\"",
-      "  value {",
-      "    name: \"TEST_ENUM_FOO\"",
-      "    number: 0",  // Collision
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_BAR\"",
-      "    number: 1",
-      "  }",
-      "  value {",
-      "    name: \"TESTENUM_FOO\"",
-      "    number: 2",  // Collision
-      "  }",
-      "  value {",
-      "    name: \"_FOO\"",
-      "    number: -1",  // Collision - negative value
-      "  }",
-      "}"
-    ]
+        // Test relativeName(enumValue:)
 
-    let fileProto: Google_Protobuf_FileDescriptorProto
-    do {
-      fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
-    } catch let e {
-      XCTFail("Error: \(e)")
-      return
+        XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
+        XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
+        XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_2")
+        XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_n1")
     }
 
-    let descriptorSet = DescriptorSet(protos: [fileProto])
-    let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+    func testEnumValueHandling_NameCollisionsAndAliasMatches() {
+        let txt = [
+            "name: \"test.proto\"",
+            "syntax: \"proto2\"",
+            "enum_type {",
+            "  name: \"TestEnum\"",
+            "  options {",
+            "     allow_alias: true",
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_FOO\"",
+            "    number: 0",  // Collision/Primary0
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_BAR\"",
+            "    number: 1",
+            "  }",
+            "  value {",
+            "    name: \"TESTENUM_FOO\"",
+            "    number: 0",  // Alias 0
+            "  }",
+            "  value {",
+            "    name: \"_FOO\"",
+            "    number: 2",  // Collision/Primary2
+            "  }",
+            "  value {",
+            "    name: \"FOO\"",
+            "    number: 2",  // Alias 2
+            "  }",
+            "  value {",
+            "    name: \"TEST_ENUM_ALIAS\"",
+            "    number: 0",  // Alias 0 - Unique name
+            "  }",
+            "  value {",
+            "    name: \"mumble\"",
+            "    number: 1",  // Alias 1 - Collision with next alias
+            "  }",
+            "  value {",
+            "    name: \"MUMBLE\"",
+            "    number: 0",  // Alias 0 - Collision with previous alias
+            "  }",
+            "}",
+        ]
 
-    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
-    let values = e.values
-    XCTAssertEqual(values.count, 4)
+        let fileProto: Google_Protobuf_FileDescriptorProto
+        do {
+            fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+        } catch let e {
+            XCTFail("Error: \(e)")
+            return
+        }
 
-    // Test relativeName(enumValue:)
+        let descriptorSet = DescriptorSet(protos: [fileProto])
+        let namer =
+            SwiftProtobufNamer(
+                currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
+                protoFileToModuleMappings: ProtoFileToModuleMappings()
+            )
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_2")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_n1")
-  }
+        let e = descriptorSet.enumDescriptor(named: "TestEnum")!
+        let values = e.values
+        XCTAssertEqual(values.count, 8)
 
-  func testEnumValueHandling_NameCollisionsAndAliasMatches() {
-    let txt = [
-      "name: \"test.proto\"",
-      "syntax: \"proto2\"",
-      "enum_type {",
-      "  name: \"TestEnum\"",
-      "  options {",
-      "     allow_alias: true",
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_FOO\"",
-      "    number: 0",  // Collision/Primary0
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_BAR\"",
-      "    number: 1",
-      "  }",
-      "  value {",
-      "    name: \"TESTENUM_FOO\"",
-      "    number: 0",  // Alias 0
-      "  }",
-      "  value {",
-      "    name: \"_FOO\"",
-      "    number: 2",  // Collision/Primary2
-      "  }",
-      "  value {",
-      "    name: \"FOO\"",
-      "    number: 2",  // Alias 2
-      "  }",
-      "  value {",
-      "    name: \"TEST_ENUM_ALIAS\"",
-      "    number: 0",  // Alias 0 - Unique name
-      "  }",
-      "  value {",
-      "    name: \"mumble\"",
-      "    number: 1",  // Alias 1 - Collision with next alias
-      "  }",
-      "  value {",
-      "    name: \"MUMBLE\"",
-      "    number: 0",  // Alias 0 - Collision with previous alias
-      "  }",
-      "}"
-    ]
+        // Test relativeName(enumValue:)
 
-    let fileProto: Google_Protobuf_FileDescriptorProto
-    do {
-      fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
-    } catch let e {
-      XCTFail("Error: \(e)")
-      return
+        XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
+        XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
+        XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_0")
+        XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_2")
+        XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo_2")
+        XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
+        XCTAssertEqual(namer.relativeName(enumValue: values[6]), "mumble_1")
+        XCTAssertEqual(namer.relativeName(enumValue: values[7]), "mumble_0")
     }
 
-    let descriptorSet = DescriptorSet(protos: [fileProto])
-    let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+    func testEnumValueHandling_UniqueAliasNameCollisions() {
+        // Tests were the aliases collided in naming, but not with
+        // the original.
 
-    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
-    let values = e.values
-    XCTAssertEqual(values.count, 8)
+        let txt = [
+            "name: \"test.proto\"",
+            "syntax: \"proto2\"",
+            "enum_type {",
+            "  name: \"AliasedEnum\"",
+            "  options {",
+            "     allow_alias: true",
+            "  }",
+            "  value {",
+            "    name: \"ALIAS_FOO\"",
+            "    number: 0",
+            "  }",
+            "  value {",
+            "    name: \"ALIAS_BAR\"",
+            "    number: 1",
+            "  }",
+            "  value {",
+            "    name: \"ALIAS_BAZ\"",
+            "    number: 2",
+            "  }",
+            "  value {",
+            "    name: \"QUX\"",
+            "    number: 2",  // short name merged with the next because they have the same value.
+            "  }",
+            "  value {",
+            "    name: \"qux\"",
+            "    number: 2",
+            "  }",
+            "  value {",
+            "    name: \"bAz\"",
+            "    number: 2",
+            "  }",
+            "}",
+        ]
 
-    // Test relativeName(enumValue:)
+        let fileProto: Google_Protobuf_FileDescriptorProto
+        do {
+            fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+        } catch let e {
+            XCTFail("Error: \(e)")
+            return
+        }
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_0")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_2")
-    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo_2")
-    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
-    XCTAssertEqual(namer.relativeName(enumValue: values[6]), "mumble_1")
-    XCTAssertEqual(namer.relativeName(enumValue: values[7]), "mumble_0")
-  }
+        let descriptorSet = DescriptorSet(protos: [fileProto])
+        let namer =
+            SwiftProtobufNamer(
+                currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
+                protoFileToModuleMappings: ProtoFileToModuleMappings()
+            )
 
-  func testEnumValueHandling_UniqueAliasNameCollisions() {
-    // Tests were the aliases collided in naming, but not with
-    // the original.
+        let e = descriptorSet.enumDescriptor(named: "AliasedEnum")!
+        let values = e.values
+        XCTAssertEqual(values.count, 6)
 
-    let txt = [
-      "name: \"test.proto\"",
-      "syntax: \"proto2\"",
-      "enum_type {",
-      "  name: \"AliasedEnum\"",
-      "  options {",
-      "     allow_alias: true",
-      "  }",
-      "  value {",
-      "    name: \"ALIAS_FOO\"",
-      "    number: 0",
-      "  }",
-      "  value {",
-      "    name: \"ALIAS_BAR\"",
-      "    number: 1",
-      "  }",
-      "  value {",
-      "    name: \"ALIAS_BAZ\"",
-      "    number: 2",
-      "  }",
-      "  value {",
-      "    name: \"QUX\"",
-      "    number: 2",  // short name merged with the next because they have the same value.
-      "  }",
-      "  value {",
-      "    name: \"qux\"",
-      "    number: 2",
-      "  }",
-      "  value {",
-      "    name: \"bAz\"",
-      "    number: 2",
-      "  }",
-      "}"
-    ]
+        XCTAssertEqual(values[0].name, "ALIAS_FOO")
+        XCTAssertEqual(values[1].name, "ALIAS_BAR")
+        XCTAssertEqual(values[2].name, "ALIAS_BAZ")
+        XCTAssertEqual(values[3].name, "QUX")
+        XCTAssertEqual(values[4].name, "qux")
+        XCTAssertEqual(values[5].name, "bAz")
 
-    let fileProto: Google_Protobuf_FileDescriptorProto
-    do {
-      fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
-    } catch let e {
-      XCTFail("Error: \(e)")
-      return
+        // Test relativeName(enumValue:)
+
+        XCTAssertEqual(namer.relativeName(enumValue: values[0]), "aliasFoo")
+        XCTAssertEqual(namer.relativeName(enumValue: values[1]), "aliasBar")
+        XCTAssertEqual(namer.relativeName(enumValue: values[2]), "aliasBaz")
+        XCTAssertEqual(namer.relativeName(enumValue: values[3]), "qux")
+        XCTAssertEqual(namer.relativeName(enumValue: values[4]), "qux")
+        XCTAssertEqual(namer.relativeName(enumValue: values[5]), "bAz")
     }
-
-    let descriptorSet = DescriptorSet(protos: [fileProto])
-    let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
-
-    let e = descriptorSet.enumDescriptor(named: "AliasedEnum")!
-    let values = e.values
-    XCTAssertEqual(values.count, 6)
-
-    XCTAssertEqual(values[0].name, "ALIAS_FOO")
-    XCTAssertEqual(values[1].name, "ALIAS_BAR")
-    XCTAssertEqual(values[2].name, "ALIAS_BAZ")
-    XCTAssertEqual(values[3].name, "QUX")
-    XCTAssertEqual(values[4].name, "qux")
-    XCTAssertEqual(values[5].name, "bAz")
-
-    // Test relativeName(enumValue:)
-
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "aliasFoo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "aliasBar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "aliasBaz")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "qux")
-    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "qux")
-    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "bAz")
-  }
 
 }

@@ -13,19 +13,21 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 // Since Type is purely compiled (there is no hand-coding
 // in it) this is a fairly thin test just to ensure that the proto
 // does get into the runtime:
 
-class Test_Type: XCTestCase, PBTestHelpers {
+final class Test_Type: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Type
 
     func testExists() {
-        assertEncode([18,13,8,1,16,3,24,1,34,3,102,111,111,64,1,
-            18,9,8,8,24,2,34,3,98,97,114]) { (o: inout MessageTestType) in
+        assertEncode([
+            18, 13, 8, 1, 16, 3, 24, 1, 34, 3, 102, 111, 111, 64, 1,
+            18, 9, 8, 8, 24, 2, 34, 3, 98, 97, 114,
+        ]) { (o: inout MessageTestType) in
             var field1 = Google_Protobuf_Field()
             field1.kind = .typeDouble
             field1.cardinality = .repeated

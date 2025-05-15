@@ -1,0 +1,14 @@
+enum E {
+  E_UNSET = 0;
+  E_A = 1;
+  E_B = 2;
+}
+
+message A {
+  optional E e = 1;
+  extensions 100 to 1000;
+}
+
+extend A {
+  optional string ext_str = 100;
+}

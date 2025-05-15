@@ -17,14 +17,24 @@
 import Foundation
 import XCTest
 
-class Test_JSON_Group: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestAllTypes
+final class Test_JSON_Group: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     func testOptionalGroup() {
-        assertJSONDecodeFails("{\"optionalgroup\":{\"a\":3}}")
+        assertJSONEncode("{\"optionalgroup\":{\"a\":3}}") { (o: inout MessageTestType) in
+            o.optionalGroup.a = 3
+        }
     }
 
     func testRepeatedGroup() {
-        assertJSONDecodeFails("{\"repeatedgroup\":[{\"a\":1},{\"a\":2}]}")
+        assertJSONEncode("{\"repeatedgroup\":[{\"a\":1},{\"a\":2}]}") { (o: inout MessageTestType) in
+            let one = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {
+                $0.a = 1
+            }
+            let two = SwiftProtoTesting_TestAllTypes.RepeatedGroup.with {
+                $0.a = 2
+            }
+            o.repeatedGroup = [one, two]
+        }
     }
 }

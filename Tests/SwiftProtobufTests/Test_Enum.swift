@@ -15,11 +15,11 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_Enum: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestAllTypes
+final class Test_Enum: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     func testEqual() {
         // The message from unittest.proto doesn't exist in unittest_proto3.proto
@@ -27,7 +27,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
 
     func testJSONsingular() {
         assertJSONEncode("{\"optionalNestedEnum\":\"FOO\"}") { (m: inout MessageTestType) in
-            m.optionalNestedEnum = Proto3Unittest_TestAllTypes.NestedEnum.foo
+            m.optionalNestedEnum = SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo
         }
 
         assertJSONEncode("{\"optionalNestedEnum\":777}") { (m: inout MessageTestType) in
@@ -57,14 +57,14 @@ class Test_Enum: XCTestCase, PBTestHelpers {
             m.optionalNestedEnum == .zero
         }
         assertJSONDecodeSucceeds(json_with_unknown_enum_repeated, options: options) { (m: MessageTestType) -> Bool in
-          m.repeatedNestedEnum == [.foo, .bar]
+            m.repeatedNestedEnum == [.foo, .bar]
         }
 
-        // Proto3Unittest_TestAllTypes doesn't have a map<>, Test_Map_JSON covers this case.
+        // SwiftProtoTesting_Proto3_TestAllTypes doesn't have a map<>, Test_Map_JSON covers this case.
     }
 
     func testUnknownValues() throws {
-        let orig = Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.with {
+        let orig = SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra.with {
             $0.e = .eExtra
             $0.repeatedE.append(.eExtra)
             $0.repeatedPackedE.append(.eExtra)
@@ -72,7 +72,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
         }
 
         let origSerialized: [UInt8] = try orig.serializedBytes()
-        let msg = try Proto3PreserveUnknownEnumUnittest_MyMessage(serializedBytes: origSerialized)
+        let msg = try SwiftProtoTesting_UnknownEnum_Proto3_MyMessage(serializedBytes: origSerialized)
 
         // Nothing in unknowns, they should just be unrecognized.
         XCTAssertEqual(msg.e, .UNRECOGNIZED(3))
@@ -90,108 +90,108 @@ class Test_Enum: XCTestCase, PBTestHelpers {
         // generated, and compile failures mean things didn't generate as expected.
 
         // Note: "firstValue" and "secondValue" on these, the enum name has been removed.
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTest1.firstValue.rawValue, 0)
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTest1.secondValue.rawValue, 2)
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTest2.firstValue.rawValue, 0)
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTest2.secondValue.rawValue, 2)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1.firstValue.rawValue, 0)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1.secondValue.rawValue, 2)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2.firstValue.rawValue, 0)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2.secondValue.rawValue, 2)
         // And these don't use the enum name in the value names, so nothing is trimmed.
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem.enumTestNoStem1.rawValue, 0)
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem.enumTestNoStem2.rawValue, 2)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem.enumTestNoStem1.rawValue, 0)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem.enumTestNoStem2.rawValue, 2)
         // And this checks handing of reversed words, which means backticks are needed around
         // some of the generated code.
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord.var.rawValue, 0)
-        XCTAssertEqual(Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord.notReserved.rawValue, 2)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord.var.rawValue, 0)
+        XCTAssertEqual(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord.notReserved.rawValue, 2)
     }
 
     func testEnumPrefixStripping_TextFormat() throws {
         var txt = "values1: [ENUM_TEST_1_FIRST_VALUE, ENUM_TEST_1_SECOND_VALUE]\n"
-        var msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values1 = [ .firstValue, .secondValue ]
+        var msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values1 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
-        var msg2 = try Protobuf3Unittest_SwiftEnumTest(textFormatString: txt)
+        var msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
         XCTAssertEqual(msg2, msg)
 
         txt = "values2: [ENUM_TEST_2_FIRST_VALUE, SECOND_VALUE]\n"
-        msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values2 = [ .firstValue, .secondValue ]
+        msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values2 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
-        msg2 = try Protobuf3Unittest_SwiftEnumTest(textFormatString: txt)
+        msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
         XCTAssertEqual(msg2, msg)
 
         txt = "values3: [ENUM_TEST_NO_STEM_1, ENUM_TEST_NO_STEM_2]\n"
-        msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values3 = [ .enumTestNoStem1, .enumTestNoStem2 ]
+        msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values3 = [.enumTestNoStem1, .enumTestNoStem2]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
-        msg2 = try Protobuf3Unittest_SwiftEnumTest(textFormatString: txt)
+        msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
         XCTAssertEqual(msg2, msg)
 
         txt = "values4: [ENUM_TEST_RESERVED_WORD_VAR, ENUM_TEST_RESERVED_WORD_NOT_RESERVED]\n"
-        msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values4 = [ .var, .notReserved ]
+        msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values4 = [.var, .notReserved]
         }
         XCTAssertEqual(msg.textFormatString(), txt)
-        msg2 = try Protobuf3Unittest_SwiftEnumTest(textFormatString: txt)
+        msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(textFormatString: txt)
         XCTAssertEqual(msg2, msg)
     }
 
     func testEnumPrefixStripping_JSON() throws {
         var json = "{\"values1\":[\"ENUM_TEST_1_FIRST_VALUE\",\"ENUM_TEST_1_SECOND_VALUE\"]}"
-        var msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values1 = [ .firstValue, .secondValue ]
+        var msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values1 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(try msg.jsonString(), json)
-        var msg2 = try Protobuf3Unittest_SwiftEnumTest(jsonString: json)
+        var msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
         XCTAssertEqual(msg2, msg)
 
         json = "{\"values2\":[\"ENUM_TEST_2_FIRST_VALUE\",\"SECOND_VALUE\"]}"
-        msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values2 = [ .firstValue, .secondValue ]
+        msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values2 = [.firstValue, .secondValue]
         }
         XCTAssertEqual(try msg.jsonString(), json)
-        msg2 = try Protobuf3Unittest_SwiftEnumTest(jsonString: json)
+        msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
         XCTAssertEqual(msg2, msg)
 
         json = "{\"values3\":[\"ENUM_TEST_NO_STEM_1\",\"ENUM_TEST_NO_STEM_2\"]}"
-        msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values3 = [ .enumTestNoStem1, .enumTestNoStem2 ]
+        msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values3 = [.enumTestNoStem1, .enumTestNoStem2]
         }
         XCTAssertEqual(try msg.jsonString(), json)
-        msg2 = try Protobuf3Unittest_SwiftEnumTest(jsonString: json)
+        msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
         XCTAssertEqual(msg2, msg)
 
         json = "{\"values4\":[\"ENUM_TEST_RESERVED_WORD_VAR\",\"ENUM_TEST_RESERVED_WORD_NOT_RESERVED\"]}"
-        msg = Protobuf3Unittest_SwiftEnumTest.with {
-            $0.values4 = [ .var, .notReserved ]
+        msg = SwiftProtoTesting_Enum3_SwiftEnumTest.with {
+            $0.values4 = [.var, .notReserved]
         }
         XCTAssertEqual(try msg.jsonString(), json)
-        msg2 = try Protobuf3Unittest_SwiftEnumTest(jsonString: json)
+        msg2 = try SwiftProtoTesting_Enum3_SwiftEnumTest(jsonString: json)
         XCTAssertEqual(msg2, msg)
     }
 
     func testCaseIterable() {
-      // proto3 syntax enums require the generator to create allCases,
-      // ensure it is works as expected (order of the file, no aliases).
-      var i = Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias.allCases.makeIterator()
-      guard let e1 = i.next() else {
-          XCTFail("Couldn't get first value")
-          return
-      }
-      guard let e2 = i.next() else {
-          XCTFail("Couldn't get second value")
-          return
-      }
-      guard let e3 = i.next() else {
-          XCTFail("Couldn't get third value")
-          return
-      }
-      // Should be the end.
-      XCTAssertNil(i.next())
+        // Open enums require the generator to create allCases,
+        // ensure it is works as expected (order of the file, no aliases).
+        var i = SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias.allCases.makeIterator()
+        guard let e1 = i.next() else {
+            XCTFail("Couldn't get first value")
+            return
+        }
+        guard let e2 = i.next() else {
+            XCTFail("Couldn't get second value")
+            return
+        }
+        guard let e3 = i.next() else {
+            XCTFail("Couldn't get third value")
+            return
+        }
+        // Should be the end.
+        XCTAssertNil(i.next())
 
-      XCTAssertEqual(e1, .foo1)
-      XCTAssertEqual(e2, .baz1)
-      XCTAssertEqual(e3, .bar1)
+        XCTAssertEqual(e1, .foo1)
+        XCTAssertEqual(e2, .baz1)
+        XCTAssertEqual(e3, .bar1)
     }
 }

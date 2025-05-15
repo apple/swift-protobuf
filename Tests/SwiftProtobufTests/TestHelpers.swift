@@ -12,9 +12,10 @@
 ///
 // -----------------------------------------------------------------------------
 
-import XCTest
 import Foundation
-import SwiftProtobuf
+import XCTest
+
+@testable import SwiftProtobuf
 
 typealias XCTestFileArgType = StaticString
 
@@ -25,20 +26,35 @@ protocol PBTestHelpers {
 extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable {
 
     private func string(from data: [UInt8]) -> String {
-        return "[" + data.map { String($0) }.joined(separator: ", ") + "]"
+        "[" + data.map { String($0) }.joined(separator: ", ") + "]"
     }
 
-    func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertEncode(
+        _ expected: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded: [UInt8] = try configured.serializedBytes()
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
+            XCTAssert(
+                expected == encoded,
+                "Did not encode correctly: got \(string(from: encoded))",
+                file: file,
+                line: line
+            )
             do {
                 let decoded = try MessageTestType(serializedBytes: encoded)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
             } catch {
                 XCTFail("Failed to decode protobuf: \(string(from: encoded))", file: file, line: line)
             }
@@ -47,7 +63,12 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func baseAssertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func baseAssertDecodeSucceeds(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
         do {
             let decoded = try MessageTestType(serializedBytes: bytes)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
@@ -69,13 +90,23 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertDecodeSucceeds(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
     }
 
     // Helper to check that decode succeeds by the data ended up in unknown fields.
     // Supports an optional `check` to do additional validation.
-    func assertDecodesAsUnknownFields(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: ((MessageTestType) -> Bool)? = nil) {
+    func assertDecodesAsUnknownFields(
+        _ bytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: ((MessageTestType) -> Bool)? = nil
+    ) {
         assertDecodeSucceeds(bytes, file: file, line: line) {
             if $0.unknownFields.data != Data(bytes) {
                 return false
@@ -87,7 +118,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertMergesAsUnknownFields(_ bytes: [UInt8], inTo message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line, check: ((MessageTestType) -> Bool)? = nil) {
+    func assertMergesAsUnknownFields(
+        _ bytes: [UInt8],
+        inTo message: MessageTestType,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: ((MessageTestType) -> Bool)? = nil
+    ) {
         var msgCopy = message
         do {
             try msgCopy.merge(serializedBytes: bytes)
@@ -100,14 +137,26 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertDecodeSucceeds(inputBytes bytes: [UInt8], recodedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertDecodeSucceeds(
+        inputBytes bytes: [UInt8],
+        recodedBytes: [UInt8],
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
         do {
             let decoded = try MessageTestType(serializedBytes: bytes)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
                 let encoded: [UInt8] = try decoded.serializedBytes()
-                XCTAssertEqual(recodedBytes, encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
+                XCTAssertEqual(
+                    recodedBytes,
+                    encoded,
+                    "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)",
+                    file: file,
+                    line: line
+                )
                 do {
                     let redecoded = try MessageTestType(serializedBytes: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
@@ -123,7 +172,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-
     func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
@@ -134,19 +182,40 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     }
 
-    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), encodingOptions: JSONEncodingOptions = .init(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertJSONEncode(
+        _ expected: String,
+        extensions: any ExtensionMap = SimpleExtensionMap(),
+        encodingOptions: JSONEncodingOptions = .init(),
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.jsonString(options: encodingOptions)
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded) but expected \(expected)", file: file, line: line)
+            XCTAssert(
+                expected == encoded,
+                "Did not encode correctly: got \(encoded) but expected \(expected)",
+                file: file,
+                line: line
+            )
             do {
                 let decoded = try MessageTestType(jsonString: encoded, extensions: extensions)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
             } catch {
-                XCTFail("Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)", file: file, line: line)
+                XCTFail(
+                    "Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)",
+                    file: file,
+                    line: line
+                )
             }
         } catch let e {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
@@ -157,12 +226,26 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             let encodedOptString = String(bytes: encodedData, encoding: String.Encoding.utf8)
             XCTAssertNotNil(encodedOptString)
             let encodedString = encodedOptString!
-            XCTAssert(expected == encodedString, "Did not encode correctly: got \(encodedString)", file: file, line: line)
+            XCTAssert(
+                expected == encodedString,
+                "Did not encode correctly: got \(encodedString)",
+                file: file,
+                line: line
+            )
             do {
                 let decoded = try MessageTestType(jsonUTF8Bytes: encodedData, extensions: extensions)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
             } catch {
-                XCTFail("Encode/decode cycle should not throw error decoding: \(encodedString), but it threw \(error)", file: file, line: line)
+                XCTFail(
+                    "Encode/decode cycle should not throw error decoding: \(encodedString), but it threw \(error)",
+                    file: file,
+                    line: line
+                )
             }
         } catch let e {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
@@ -173,7 +256,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     /// This uses the provided block to initialize the object, then:
     /// * Encodes the object and checks that the result is the expected result
     /// * Decodes it again and verifies that the round-trip gives an equal object
-    func assertTextFormatEncode(_ expected: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertTextFormatEncode(
+        _ expected: String,
+        extensions: (any ExtensionMap)? = nil,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -183,15 +272,24 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         XCTAssertEqual(expected, encoded, "Did not encode correctly", file: file, line: line)
         do {
             let decoded = try MessageTestType(textFormatString: encoded, extensions: extensions)
-            XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+            XCTAssert(
+                decoded == configured,
+                "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                file: file,
+                line: line
+            )
         } catch {
-            XCTFail("Encode/decode cycle should not throw error but got \(error) while decoding \(encoded)", file: file, line: line)
+            XCTFail(
+                "Encode/decode cycle should not throw error but got \(error) while decoding \(encoded)",
+                file: file,
+                line: line
+            )
         }
     }
 
     func assertJSONArrayEncode(
         _ expected: String,
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         configure: (inout [MessageTestType]) -> Void
@@ -204,11 +302,22 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             let encoded = try MessageTestType.jsonString(from: configured)
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType.array(fromJSONString: encoded,
-                                                 extensions: extensions)
-                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+                let decoded = try MessageTestType.array(
+                    fromJSONString: encoded,
+                    extensions: extensions
+                )
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
             } catch {
-                XCTFail("Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)", file: file, line: line)
+                XCTFail(
+                    "Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)",
+                    file: file,
+                    line: line
+                )
             }
         } catch let e {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
@@ -218,20 +327,29 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertJSONDecodeSucceeds(
         _ json: String,
         options: JSONDecodingOptions = JSONDecodingOptions(),
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
         do {
-            let decoded: MessageTestType = try MessageTestType(jsonString: json, extensions: extensions, options: options)
+            let decoded: MessageTestType = try MessageTestType(
+                jsonString: json,
+                extensions: extensions,
+                options: options
+            )
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
                 let encoded = try decoded.jsonString()
                 do {
                     let redecoded = try MessageTestType(jsonString: encoded, extensions: extensions, options: options)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from \(encoded)", file: file, line: line)
+                    XCTAssert(
+                        check(redecoded),
+                        "Condition failed for redecoded \(redecoded) from \(encoded)",
+                        file: file,
+                        line: line
+                    )
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
                     XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
@@ -246,18 +364,35 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
         do {
             let jsonData = json.data(using: String.Encoding.utf8)!
-            let decoded: MessageTestType = try MessageTestType(jsonUTF8Bytes: jsonData, extensions: extensions, options: options)
+            let decoded: MessageTestType = try MessageTestType(
+                jsonUTF8Bytes: jsonData,
+                extensions: extensions,
+                options: options
+            )
             XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
 
             do {
                 let encoded: [UInt8] = try decoded.jsonUTF8Bytes()
-                let encodedString = String(bytes: encoded, encoding: String.Encoding.utf8)!
+                let encodedString = String(decoding: encoded, as: UTF8.self)
                 do {
-                    let redecoded = try MessageTestType(jsonUTF8Bytes: encoded, extensions: extensions, options: options)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)
+                    let redecoded = try MessageTestType(
+                        jsonUTF8Bytes: encoded,
+                        extensions: extensions,
+                        options: options
+                    )
+                    XCTAssert(
+                        check(redecoded),
+                        "Condition failed for redecoded \(redecoded) from binary \(encodedString)",
+                        file: file,
+                        line: line
+                    )
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
-                    XCTFail("Swift should have recoded/redecoded without error: \(encodedString)", file: file, line: line)
+                    XCTFail(
+                        "Swift should have recoded/redecoded without error: \(encodedString)",
+                        file: file,
+                        line: line
+                    )
                 }
             } catch let e {
                 XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
@@ -268,9 +403,15 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertTextFormatDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
+    func assertTextFormatDecodeSucceeds(
+        _ text: String,
+        options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) throws -> Bool
+    ) {
         do {
-            let decoded: MessageTestType = try MessageTestType(textFormatString: text)
+            let decoded: MessageTestType = try MessageTestType(textFormatString: text, options: options)
             do {
                 let r = try check(decoded)
                 XCTAssert(r, "Condition failed for \(decoded)", file: file, line: line)
@@ -279,7 +420,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             }
             let encoded = decoded.textFormatString()
             do {
-                let redecoded = try MessageTestType(textFormatString: text)
+                let redecoded = try MessageTestType(textFormatString: encoded)
                 do {
                     let r = try check(redecoded)
                     XCTAssert(r, "Condition failed for redecoded \(redecoded)", file: file, line: line)
@@ -326,7 +467,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONDecodeFails(
         _ json: String,
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         options: JSONDecodingOptions = JSONDecodingOptions(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
@@ -358,7 +499,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONArrayDecodeFails(
         _ json: String,
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
     ) {
@@ -370,7 +511,12 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertDebugDescription(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> ()) {
+    func assertDebugDescription(
+        _ expected: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
         // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
         #if DEBUG
         var m = MessageTestType()
@@ -382,7 +528,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 }
 
 extension XCTestCase {
-    func assertDebugDescription(_ expected: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDebugDescription(
+        _ expected: String,
+        _ m: any SwiftProtobuf.Message,
+        fmt: String? = nil,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
         #if DEBUG
         let actual = m.debugDescription
@@ -392,12 +544,22 @@ extension XCTestCase {
     /// Like ``assertDebugDescription``, but only checks the the ``debugDescription`` ends with
     /// ``expectedSuffix``, mainly useful where you want to be agnotics to some preable like
     /// the module name.
-    func assertDebugDescriptionSuffix(_ expectedSuffix: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDebugDescriptionSuffix(
+        _ expectedSuffix: String,
+        _ m: any SwiftProtobuf.Message,
+        fmt: String? = nil,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         // `assertDebugDescriptionSuffix` is a no-op in release as `debugDescription` is unavailable.
-#if DEBUG
+        #if DEBUG
         let actual = m.debugDescription
         XCTAssertTrue(actual.hasSuffix(expectedSuffix), fmt ?? "debugDescription did not match", file: file, line: line)
-#endif
+        #endif
+    }
+
+    func isSwiftProtobufErrorEqual(_ actual: SwiftProtobufError, _ expected: SwiftProtobufError) -> Bool {
+        (actual.code == expected.code) && (actual.message == expected.message)
     }
 }
 
@@ -405,67 +567,67 @@ extension XCTestCase {
 /// that will cause a failure if anything gets called.  This way specific tests can
 /// just hook the methods they intend to validate.
 protocol PBTestVisitor: Visitor {
-  // Adds nothing.
+    // Adds nothing.
 }
 
 extension PBTestVisitor {
-  mutating func visitUnknown(bytes: Data) throws {
-    XCTFail("Unexpected unknowns: \(bytes)")
-  }
+    mutating func visitUnknown(bytes: Data) throws {
+        XCTFail("Unexpected unknowns: \(bytes)")
+    }
 
-  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-    XCTFail("Unexpected bool: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+        XCTFail("Unexpected bool: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-    XCTFail("Unexpected bytes: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+        XCTFail("Unexpected bytes: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-    XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+        XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
-    XCTFail("Unexpected Enum: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+        XCTFail("Unexpected Enum: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-    XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+        XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
-    XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+        XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-    XCTFail("Unexpected String: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+        XCTFail("Unexpected String: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-    XCTFail("Unexpected UInt64: \(fieldNumber) = \(value)")
-  }
+    mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+        XCTFail("Unexpected UInt64: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitMapField<KeyType, ValueType: MapValueType>(
-    fieldType: _ProtobufMap<KeyType, ValueType>.Type,
-    value: _ProtobufMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int
-  ) throws {
-    XCTFail("Unexpected map<*, *>: \(fieldNumber) = \(value)")
-  }
+    mutating func visitMapField<KeyType, ValueType: MapValueType>(
+        fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+        value: _ProtobufMap<KeyType, ValueType>.BaseType,
+        fieldNumber: Int
+    ) throws {
+        XCTFail("Unexpected map<*, *>: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitMapField<KeyType, ValueType>(
-    fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
-    value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int
-  ) throws where ValueType.RawValue == Int {
-    XCTFail("Unexpected map<*, Enum>: \(fieldNumber) = \(value)")
-  }
+    mutating func visitMapField<KeyType, ValueType>(
+        fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+        value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
+        fieldNumber: Int
+    ) throws where ValueType.RawValue == Int {
+        XCTFail("Unexpected map<*, Enum>: \(fieldNumber) = \(value)")
+    }
 
-  mutating func visitMapField<KeyType, ValueType>(
-    fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
-    value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int
-  ) throws {
-    XCTFail("Unexpected map<*, Message>: \(fieldNumber) = \(value)")
-  }
+    mutating func visitMapField<KeyType, ValueType>(
+        fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+        value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
+        fieldNumber: Int
+    ) throws {
+        XCTFail("Unexpected map<*, Message>: \(fieldNumber) = \(value)")
+    }
 }

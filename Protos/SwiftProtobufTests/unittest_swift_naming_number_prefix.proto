@@ -1,0 +1,25 @@
+// Protos/unittest_swift_naming_number_prefix.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2020 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+// A package that starts with an underscore and number so if the generator just
+// stripped the underscore, it would result in invalid Swift.
+package _4fun.swift_proto_testing.mumble;
+
+message MyMessage {
+  optional int32 a = 1;
+}

@@ -15,14 +15,14 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_Api: XCTestCase, PBTestHelpers {
+final class Test_Api: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Api
 
     func testExists() {
-        assertEncode([10,7,97,112,105,78,97,109,101,34,1,49]) { (o: inout MessageTestType) in
+        assertEncode([10, 7, 97, 112, 105, 78, 97, 109, 101, 34, 1, 49]) { (o: inout MessageTestType) in
             o.name = "apiName"
             o.version = "1"
         }
@@ -41,7 +41,9 @@ class Test_Api: XCTestCase, PBTestHelpers {
         m.version = "1.0.0"
         m.syntax = .proto3
 
-        XCTAssertEqual(try m.jsonString(), "{\"name\":\"apiName\",\"methods\":[{\"name\":\"method1\"}],\"options\":[{\"name\":\"option1\",\"value\":{\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"value1\"}}],\"version\":\"1.0.0\",\"syntax\":\"SYNTAX_PROTO3\"}")
+        XCTAssertEqual(
+            try m.jsonString(),
+            "{\"name\":\"apiName\",\"methods\":[{\"name\":\"method1\"}],\"options\":[{\"name\":\"option1\",\"value\":{\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"value1\"}}],\"version\":\"1.0.0\",\"syntax\":\"SYNTAX_PROTO3\"}"
+        )
     }
 }
-

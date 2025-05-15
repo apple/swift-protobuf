@@ -1,0 +1,60 @@
+// Protos/unittest_swift_deprecated_file.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2023 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test generation support of deprecated attributes.
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+package swift_proto_testing.deprecated_file;
+
+// The source generated from this file needs to be inspect to confirm it has all
+// of the expected comments. See
+// https://github.com/apple/swift-protobuf/issues/151 for why things currently
+// don't generate annotations. If/when that is resolved, this file should be
+// compiled also to confirm everything works as intended.
+
+option deprecated = true;
+
+// Message comment
+message MyMsg {
+  extensions 100 to max;
+
+  optional string string_field = 1;
+}
+
+// These fields will all catch the deprecation from the file.
+extend MyMsg {
+  // Extension field comment
+  optional string string_ext_field = 101;
+  optional int32 int_ext_field = 102;
+  repeated fixed32 fixed_ext_field = 103;
+  optional MyMsg msg_ext_field = 104;
+}
+
+message MsgScope {
+  // These extension fields (scoped within a message) will all catch the deprecation from the file.
+  extend MyMsg {
+    // Another extension field comment
+    optional string string_ext2_field = 201;
+    optional int32 int_ext2_field = 202;
+    repeated fixed32 fixed_ext2_field = 203;
+    optional MyMsg msg_ext2_field = 204;
+  }
+}
+
+enum MyEnum {
+  MYENUM_ONE   = 1;
+  MYENUM_TWO   = 2;
+  MYENUM_THREE = 3;
+}

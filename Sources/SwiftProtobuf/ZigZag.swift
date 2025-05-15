@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 /// Contains helper methods to ZigZag encode and decode signed integers.
 internal enum ZigZag {
 
@@ -25,7 +24,7 @@ internal enum ZigZag {
     /// - Parameter value: A signed 32-bit integer.
     /// - Returns: An unsigned 32-bit integer representing the ZigZag-encoded value.
     static func encoded(_ value: Int32) -> UInt32 {
-        return UInt32(bitPattern: (value << 1) ^ (value >> 31))
+        UInt32(bitPattern: (value << 1) ^ (value >> 31))
     }
 
     /// Return a 64-bit ZigZag-encoded value.
@@ -37,7 +36,7 @@ internal enum ZigZag {
     /// - Parameter value: A signed 64-bit integer.
     /// - Returns: An unsigned 64-bit integer representing the ZigZag-encoded value.
     static func encoded(_ value: Int64) -> UInt64 {
-        return UInt64(bitPattern: (value << 1) ^ (value >> 63))
+        UInt64(bitPattern: (value << 1) ^ (value >> 63))
     }
 
     /// Return a 32-bit ZigZag-decoded value.
@@ -49,7 +48,7 @@ internal enum ZigZag {
     /// - Parameter value: An unsigned 32-bit ZagZag-encoded integer.
     /// - Returns: The signed 32-bit decoded value.
     static func decoded(_ value: UInt32) -> Int32 {
-        return Int32(value >> 1) ^ -Int32(value & 1)
+        Int32(value >> 1) ^ -Int32(value & 1)
     }
 
     /// Return a 64-bit ZigZag-decoded value.
@@ -61,6 +60,6 @@ internal enum ZigZag {
     /// - Parameter value: An unsigned 64-bit ZigZag-encoded integer.
     /// - Returns: The signed 64-bit decoded value.
     static func decoded(_ value: UInt64) -> Int64 {
-        return Int64(value >> 1) ^ -Int64(value & 1)
+        Int64(value >> 1) ^ -Int64(value & 1)
     }
 }

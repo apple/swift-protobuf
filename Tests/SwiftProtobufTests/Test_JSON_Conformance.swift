@@ -14,14 +14,20 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_JSON_Conformance: XCTestCase {
-    func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) -> () {
+final class Test_JSON_Conformance: XCTestCase {
+    func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
-            XCTAssertEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3(), "Decoded object should be equal to empty object: \(decoded)", file: file, line: line)
+            let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
+            XCTAssertEqual(
+                decoded,
+                SwiftProtoTesting_Test3_TestAllTypesProto3(),
+                "Decoded object should be equal to empty object: \(decoded)",
+                file: file,
+                line: line
+            )
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{}", file: file, line: line)
             let protobuf: [UInt8] = try decoded.serializedBytes()
@@ -87,10 +93,10 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullSupport_Value() throws {
         // BUT: Value fields treat null as a regular value
         let valueNull = "{\"optionalValue\": null}"
-        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let decoded: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
-            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
             return
@@ -114,12 +120,12 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullSupport_optionalNullValue() throws {
         // BUT: NullValue fields treat null as a regular value
         let valueNull = "{\"optionalNullValue\": null}"
-        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let decoded: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
+            decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: valueNull)
             // Since NullValue is a single-value enum, the decoded
             // value is already the default...
-            XCTAssertEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            XCTAssertEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
             return
@@ -145,10 +151,10 @@ class Test_JSON_Conformance: XCTestCase {
         // In a oneof, parsing a null value changes the oneof,
         // so there are observable effects...
         let valueNull = "{\"oneofNullValue\": null}"
-        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let decoded: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
-            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
             XCTAssertNotNil(decoded.oneofNullValue)
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
@@ -174,10 +180,10 @@ class Test_JSON_Conformance: XCTestCase {
         // As above, except verify that we decode the enum
         // value name like any other enum.
         let valueNull = "{\"oneofNullValue\": \"NULL_VALUE\"}"
-        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let decoded: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
-            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
             XCTAssertNotNil(decoded.oneofNullValue)
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
@@ -189,10 +195,10 @@ class Test_JSON_Conformance: XCTestCase {
         // As above, except verify that we decode the enum
         // numeric value like any other enum.
         let valueNull = "{\"oneofNullValue\": 0}"
-        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let decoded: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
-            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
             XCTAssertNotNil(decoded.oneofNullValue)
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
@@ -202,10 +208,10 @@ class Test_JSON_Conformance: XCTestCase {
 
     func testNullSupport_repeatedNullValue() throws {
         let valueNull = "{\"repeatedNullValue\": [0, \"NULL_VALUE\", null]}"
-        let decoded: ProtobufUnittest_SwiftJSONTest
+        let decoded: SwiftProtoTesting_SwiftJSONTest
         do {
-            decoded = try ProtobufUnittest_SwiftJSONTest(jsonString: valueNull)
-            XCTAssertNotEqual(decoded, ProtobufUnittest_SwiftJSONTest())
+            decoded = try SwiftProtoTesting_SwiftJSONTest(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, SwiftProtoTesting_SwiftJSONTest())
             XCTAssertEqual(3, decoded.repeatedNullValue.count)
         } catch let e {
             XCTFail("Decode failed with error \(e): \(valueNull)")
@@ -223,24 +229,27 @@ class Test_JSON_Conformance: XCTestCase {
     func testNullSupport_Repeated() throws {
         // Nulls within repeated lists are errors
         let json1 = "{\"repeatedBoolWrapper\":[true, null, false]}"
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json1))
+        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json1))
         let json2 = "{\"repeatedNestedMessage\":[{}, null]}"
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json2))
+        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json2))
         // Make sure the above is failing for the right reason:
         let json3 = "{\"repeatedNestedMessage\":[{}]}"
-        let _ = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json3)
+        let _ = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json3)
         let json4 = "{\"repeatedNestedMessage\":[null]}"
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json4))
+        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json4))
     }
 
     func testNullSupport_RepeatedValue() throws {
         // BUT: null is valid within repeated Value fields
         let repeatedValueWithNull = "{\"repeatedValue\": [1, null]}"
-        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let decoded: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: repeatedValueWithNull)
-            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
-            XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), nil as Google_Protobuf_Value])
+            decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: repeatedValueWithNull)
+            XCTAssertNotEqual(decoded, SwiftProtoTesting_Test3_TestAllTypesProto3())
+            XCTAssertEqual(
+                decoded.repeatedValue,
+                [Google_Protobuf_Value(numberValue: 1), nil as Google_Protobuf_Value]
+            )
         } catch {
             XCTFail("Decode failed with error \(error): \(repeatedValueWithNull)")
             return
@@ -260,9 +269,10 @@ class Test_JSON_Conformance: XCTestCase {
     }
 
     func testNullConformance() {
-        let start = "{\n        \"optionalBoolWrapper\": null,\n        \"optionalInt32Wrapper\": null,\n        \"optionalUint32Wrapper\": null,\n        \"optionalInt64Wrapper\": null,\n        \"optionalUint64Wrapper\": null,\n        \"optionalFloatWrapper\": null,\n        \"optionalDoubleWrapper\": null,\n        \"optionalStringWrapper\": null,\n        \"optionalBytesWrapper\": null,\n        \"repeatedBoolWrapper\": null,\n        \"repeatedInt32Wrapper\": null,\n        \"repeatedUint32Wrapper\": null,\n        \"repeatedInt64Wrapper\": null,\n        \"repeatedUint64Wrapper\": null,\n        \"repeatedFloatWrapper\": null,\n        \"repeatedDoubleWrapper\": null,\n        \"repeatedStringWrapper\": null,\n        \"repeatedBytesWrapper\": null\n      }"
+        let start =
+            "{\n        \"optionalBoolWrapper\": null,\n        \"optionalInt32Wrapper\": null,\n        \"optionalUint32Wrapper\": null,\n        \"optionalInt64Wrapper\": null,\n        \"optionalUint64Wrapper\": null,\n        \"optionalFloatWrapper\": null,\n        \"optionalDoubleWrapper\": null,\n        \"optionalStringWrapper\": null,\n        \"optionalBytesWrapper\": null,\n        \"repeatedBoolWrapper\": null,\n        \"repeatedInt32Wrapper\": null,\n        \"repeatedUint32Wrapper\": null,\n        \"repeatedInt64Wrapper\": null,\n        \"repeatedUint64Wrapper\": null,\n        \"repeatedFloatWrapper\": null,\n        \"repeatedDoubleWrapper\": null,\n        \"repeatedStringWrapper\": null,\n        \"repeatedBytesWrapper\": null\n      }"
         do {
-            let t = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+            let t = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
             XCTAssertEqual(try t.jsonString(), "{}")
         } catch {
             XCTFail()
@@ -271,9 +281,9 @@ class Test_JSON_Conformance: XCTestCase {
 
     func testValueList() {
         let start = "{\"optionalValue\":[0.0,\"hello\"]}"
-        let t: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let t: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            t = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+            t = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
         } catch {
             XCTFail("Failed to decode: \(start)")
             return
@@ -281,38 +291,45 @@ class Test_JSON_Conformance: XCTestCase {
         XCTAssertEqual(try t.jsonString(), start)
     }
 
-  func testValue_DoubleNonFinite() {
-    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
-      XCTAssertEqual($0 as? JSONEncodingError,
-                     JSONEncodingError.valueNumberNotFinite,
-                     "Wrong error? - \($0)")
-    }
+    func testValue_DoubleNonFinite() {
+        XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
+            XCTAssertEqual(
+                $0 as? JSONEncodingError,
+                JSONEncodingError.valueNumberNotFinite,
+                "Wrong error? - \($0)"
+            )
+        }
 
-    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
-      XCTAssertEqual($0 as? JSONEncodingError,
-                     JSONEncodingError.valueNumberNotFinite,
-                     "Wrong error? - \($0)")
-    }
+        XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
+            XCTAssertEqual(
+                $0 as? JSONEncodingError,
+                JSONEncodingError.valueNumberNotFinite,
+                "Wrong error? - \($0)"
+            )
+        }
 
-    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
-      XCTAssertEqual($0 as? JSONEncodingError,
-                     JSONEncodingError.valueNumberNotFinite,
-                     "Wrong error? - \($0)")
+        XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
+            XCTAssertEqual(
+                $0 as? JSONEncodingError,
+                JSONEncodingError.valueNumberNotFinite,
+                "Wrong error? - \($0)"
+            )
+        }
     }
-  }
 
     func testNestedAny() {
-        let start = ("{\n"
-                     + "        \"optionalAny\": {\n"
-                     + "          \"@type\": \"type.googleapis.com/google.protobuf.Any\",\n"
-                     + "          \"value\": {\n"
-                     + "            \"@type\": \"type.googleapis.com/protobuf_test_messages.proto3.TestAllTypes\",\n"
-                     + "            \"optionalInt32\": 12345\n"
-                     + "          }\n"
-                     + "        }\n"
-                     + "      }")
+        let start =
+            ("{\n"
+                + "        \"optionalAny\": {\n"
+                + "          \"@type\": \"type.googleapis.com/google.protobuf.Any\",\n"
+                + "          \"value\": {\n"
+                + "            \"@type\": \"type.googleapis.com/swift_proto_testing.test3.TestAllTypes\",\n"
+                + "            \"optionalInt32\": 12345\n"
+                + "          }\n"
+                + "        }\n"
+                + "      }")
         do {
-            _ = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+            _ = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
         } catch {
             XCTFail("Failed to decode: \(start)")
             return

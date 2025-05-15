@@ -16,76 +16,99 @@ import Foundation
 
 /// Text format encoding and decoding methods for messages.
 extension Message {
-  /// Returns a string containing the Protocol Buffer text format serialization
-  /// of the message.
-  ///
-  /// Unlike binary encoding, presence of required fields is not enforced when
-  /// serializing to text format.
-  ///
-  /// - Returns: A string containing the text format serialization of the
-  ///   message.
-  public func textFormatString() -> String {
-    // This is implemented as a separate zero-argument function
-    // to preserve binary compatibility.
-    return textFormatString(options: TextFormatEncodingOptions())
-  }
-
-  /// Returns a string containing the Protocol Buffer text format serialization
-  /// of the message.
-  ///
-  /// Unlike binary encoding, presence of required fields is not enforced when
-  /// serializing to JSON.
-  ///
-  /// - Returns: A string containing the text format serialization of the message.
-  /// - Parameters:
-  ///   - options: The TextFormatEncodingOptions to use.
-  public func textFormatString(
-    options: TextFormatEncodingOptions
-  ) -> String {
-    var visitor = TextFormatEncodingVisitor(message: self, options: options)
-    if let any = self as? Google_Protobuf_Any {
-      any._storage.textTraverse(visitor: &visitor)
-    } else {
-      // Although the general traversal/encoding infrastructure supports
-      // throwing errors (needed for JSON/Binary WKTs support, binary format
-      // missing required fields); TextEncoding never actually does throw.
-      try! traverse(visitor: &visitor)
+    /// Returns a string containing the Protocol Buffer text format serialization
+    /// of the message.
+    ///
+    /// Unlike binary encoding, presence of required fields is not enforced when
+    /// serializing to text format.
+    ///
+    /// - Returns: A string containing the text format serialization of the
+    ///   message.
+    public func textFormatString() -> String {
+        // This is implemented as a separate zero-argument function
+        // to preserve binary compatibility.
+        textFormatString(options: TextFormatEncodingOptions())
     }
-    return visitor.result
-  }
 
-  /// Creates a new message by decoding the given string containing a
-  /// serialized message in Protocol Buffer text format.
-  ///
-  /// - Parameters:
-  ///   - textFormatString: The text format string to decode.
-  ///   - options: The `TextFormatDencodingOptions` to use.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
-  ///     extensions in this message or messages nested within this message's
-  ///     fields.
-  /// - Throws: an instance of `TextFormatDecodingError` on failure.
-  public init(
-    textFormatString: String,
-    options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-    extensions: ExtensionMap? = nil
-  ) throws {
-    self.init()
-    if !textFormatString.isEmpty {
-      if let data = textFormatString.data(using: String.Encoding.utf8) {
-        try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-          if let baseAddress = body.baseAddress, body.count > 0 {
-            var decoder = try TextFormatDecoder(messageType: Self.self,
-                                                utf8Pointer: baseAddress,
-                                                count: body.count,
-                                                options: options,
-                                                extensions: extensions)
-            try decodeMessage(decoder: &decoder)
-            if !decoder.complete {
-              throw TextFormatDecodingError.trailingGarbage
-            }
-          }
+    /// Returns a string containing the Protocol Buffer text format serialization
+    /// of the message.
+    ///
+    /// Unlike binary encoding, presence of required fields is not enforced when
+    /// serializing to text format.
+    ///
+    /// - Returns: A string containing the text format serialization of the message.
+    /// - Parameters:
+    ///   - options: The TextFormatEncodingOptions to use.
+    public func textFormatString(
+        options: TextFormatEncodingOptions
+    ) -> String {
+        var visitor = TextFormatEncodingVisitor(message: self, options: options)
+        if let any = self as? Google_Protobuf_Any {
+            any._storage.textTraverse(visitor: &visitor)
+        } else {
+            // Although the general traversal/encoding infrastructure supports
+            // throwing errors (needed for JSON/Binary WKTs support, binary format
+            // missing required fields); TextEncoding never actually does throw.
+            try! traverse(visitor: &visitor)
         }
-      }
+        return visitor.result
     }
-  }
+
+    /// Creates a new message by decoding the given string containing a
+    /// serialized message in Protocol Buffer text format.
+    ///
+    /// - Parameters:
+    ///   - textFormatString: The text format string to decode.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    /// - Throws: ``SwiftProtobufError`` on failure.
+    // TODO: delete this (and keep the one with the extra param instead) when we break API
+    public init(
+        textFormatString: String,
+        extensions: (any ExtensionMap)? = nil
+    ) throws {
+        try self.init(
+            textFormatString: textFormatString,
+            options: TextFormatDecodingOptions(),
+            extensions: extensions
+        )
+    }
+
+    /// Creates a new message by decoding the given string containing a
+    /// serialized message in Protocol Buffer text format.
+    ///
+    /// - Parameters:
+    ///   - textFormatString: The text format string to decode.
+    ///   - options: The ``TextFormatDecodingOptions`` to use.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    /// - Throws: ``TextFormatDecodingError`` on failure.
+    public init(
+        textFormatString: String,
+        options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
+        extensions: (any ExtensionMap)? = nil
+    ) throws {
+        self.init()
+        if !textFormatString.isEmpty {
+            if let data = textFormatString.data(using: String.Encoding.utf8) {
+                try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+                    if let baseAddress = body.baseAddress, body.count > 0 {
+                        var decoder = try TextFormatDecoder(
+                            messageType: Self.self,
+                            utf8Pointer: baseAddress,
+                            count: body.count,
+                            options: options,
+                            extensions: extensions
+                        )
+                        try decodeMessage(decoder: &decoder)
+                        if !decoder.complete {
+                            throw TextFormatDecodingError.trailingGarbage
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -16,45 +16,34 @@ jobs:
       fail-fast: false
       matrix:
         # Looking at https://hub.docker.com/_/swift, the version only tags (i.e.
-        # - 5.6.3) use different Ubuntu releases. Generally we want to avoid
-        # bionic as it is older then we want to deal with having to build
-        # protobuf on.
+        # - 5.9.2) can use different Ubuntu releases. But just to be safe we use
+        # the specific OS release.
         #
-        # We also could use less specific tags (i.e. - 5.6), so they "float" as
+        # We could use less specific tags (i.e. - 5.9), so they "float" as
         # new point release come, but to help make history/logs more clear,
         # being explicit (at the cost of having to update with point releases)
         # seems better. This should also ensure protobuf caching changes with
         # each new image incase system in the Swift image are changed/updated.
         swift:
-        - 5.8.0-jammy
-        - 5.7.2-jammy
-        - 5.6.3-focal
-        - 5.5.3-focal
-        - 5.4.3-focal
+        - version: 6.1.0-noble
+          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
+        - version: 6.0.3-noble
+          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
+        - version: 5.10.1-noble
+          # No "hook", see https://github.com/apple/swift-protobuf/issues/1560 for the
+          # current issue with using -warnings-as-errors on linux.
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
-        # We are not testing the SPM plugins on Swift version that don't support SPM plugins
-        include:
-          - swift: 5.8.0-jammy
-            test_spm_plugin: true
-          - swift: 5.7.2-jammy
-            test_spm_plugin: true
-          - swift: 5.6.3-focal
-            test_spm_plugin: true
-          - swift: 5.5.3-focal
-            test_spm_plugin: false
-          - swift: 5.4.3-focal
-            test_spm_plugin: false
     container:
-      image: swift:${{ matrix.swift }}
+      image: swift:${{ matrix.swift.version }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        path: main
+        path: swift-protobuf
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
@@ -73,21 +62,21 @@ jobs:
           ;;
         esac
     - name: Build
-      working-directory: main
-      run: make build
+      working-directory: swift-protobuf
+      run: make build ${{ matrix.swift.hook }}
     - name: Test runtime
-      working-directory: main
-      run: make test-runtime
+      working-directory: swift-protobuf
+      run: make test-runtime ${{ matrix.swift.hook }}
     - name: Cache protobuf
       id: cache-protobuf
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf
         # NOTE: for refs that can float like 'main' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
+        key: ${{ runner.os }}-${{ matrix.swift.version}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: protocolbuffers/protobuf
         ref: ${{ steps.get-sha.outputs.sha }}
@@ -96,10 +85,12 @@ jobs:
     - name: Build protobuf
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       working-directory: protobuf
+      # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
       run: |
         mkdir cmake_build
         cd cmake_build
         cmake \
+          -DCMAKE_CXX_STANDARD=17 \
           -DCMAKE_BUILD_TYPE=Release \
           -Dprotobuf_BUILD_TESTS=OFF \
           -Dprotobuf_INSTALL=OFF \
@@ -108,15 +99,64 @@ jobs:
         NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
         make -j "${NUM_CPUS}" protoc conformance_test_runner
     - name: Test plugin
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-plugin PROTOC=../protobuf/cmake_build/protoc
     - name: Test conformance
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
     - name: Test SPM plugin
-      if: ${{ matrix.test_spm_plugin }}
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
+    - name: Compilation Tests
+      working-directory: swift-protobuf
+      run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
+
+  api-breakage:
+    name: Api Breakage Compared to main branch
+    # Only on pull requests
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    container:
+      # Test on the latest Swift release. This could run on all the support
+      # Swift versions, but that doesn't seem worth it until there are Swift
+      # version specific conditionals to justify it.
+      image: swift:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Mark the workspace as safe
+      # https://github.com/actions/checkout/issues/766
+      run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
+    - name: Check for API breaking changes
+      run: swift package diagnose-api-breaking-changes origin/main
+
+  format-check:
+    name: swift-format Check
+    # Only on pull requests
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    container:
+      # Use use the latest Swift release and that's the version of swift-format
+      # people should use.
+      image: swift:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Mark the workspace as safe
+      # https://github.com/actions/checkout/issues/766
+      run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
+    - name: Run format check
+      run:  |
+        set -eu
+        git ls-files -z '*.swift' | xargs -0 swift format format --parallel --in-place
+        GIT_PAGER='' git diff --exit-code '*.swift'
+    # Disabled as it produces multiple warnings at the moment.
+    # - name: Run format lint check
+    #   run:  |
+    #     set -eu
+    #     git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
 
   sanitizer_testing:
     runs-on: ubuntu-latest
@@ -129,7 +169,7 @@ jobs:
       # Test on the latest Swift release.
       image: swift:latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Test
       run: |
         set -eu
@@ -158,6 +198,6 @@ jobs:
       # Test on the latest Swift release.
       image: swift:latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions

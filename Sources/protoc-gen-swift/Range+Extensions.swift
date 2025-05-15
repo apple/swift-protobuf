@@ -14,56 +14,56 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufPluginLibrary
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 
 extension Range where Bound == Int32 {
 
-  /// A `String` containing the Swift expression that represents this range to
-  /// be used in a `case` statement.
-  var swiftCaseExpression: String {
-    if lowerBound == upperBound - 1 {
-      return "\(lowerBound)"
+    /// A `String` containing the Swift expression that represents this range to
+    /// be used in a `case` statement.
+    var swiftCaseExpression: String {
+        if lowerBound == upperBound - 1 {
+            return "\(lowerBound)"
+        }
+        return "\(lowerBound)..<\(upperBound)"
     }
-    return "\(lowerBound)..<\(upperBound)"
-  }
 
-  /// A `String` containing the Swift Boolean expression that tests the given
-  /// variable for containment within this range.
-  ///
-  /// - Parameter variable: The name of the variable to test in the expression.
-  /// - Returns: A `String` containing the Boolean expression.
-  func swiftBooleanExpression(variable: String) -> String {
-    if lowerBound == upperBound - 1 {
-      return "\(lowerBound) == \(variable)"
+    /// A `String` containing the Swift Boolean expression that tests the given
+    /// variable for containment within this range.
+    ///
+    /// - Parameter variable: The name of the variable to test in the expression.
+    /// - Returns: A `String` containing the Boolean expression.
+    func swiftBooleanExpression(variable: String) -> String {
+        if lowerBound == upperBound - 1 {
+            return "\(lowerBound) == \(variable)"
+        }
+        return "\(lowerBound) <= \(variable) && \(variable) < \(upperBound)"
     }
-    return "\(lowerBound) <= \(variable) && \(variable) < \(upperBound)"
-  }
 
 }
 
 extension Array where Element == Range<Int32> {
 
-  /// A `String` containing a comma-delimited list of Swift expressions for
-  /// the ranges.
-  ///
-  /// This expression list is suitable as a pattern match in a `case`
-  /// statement. For example, `"case 5..<10, 15, 20..<30:"`.
-  ///
-  /// - Returns: A `String` containing the comma-delimted expressions.
-  var swiftCaseExpression: String {
-    return map { $0.swiftCaseExpression }.joined(separator: ", ")
-  }
+    /// A `String` containing a comma-delimited list of Swift expressions for
+    /// the ranges.
+    ///
+    /// This expression list is suitable as a pattern match in a `case`
+    /// statement. For example, `"case 5..<10, 15, 20..<30:"`.
+    ///
+    /// - Returns: A `String` containing the comma-delimited expressions.
+    var swiftCaseExpression: String {
+        map { $0.swiftCaseExpression }.joined(separator: ", ")
+    }
 
-  /// A `String` containing a Swift Boolean expression that tests if the given
-  /// variable is in any of ranges.
-  ///
-  /// - Parameter variable: The name of the variable to test in the expression.
-  /// - Returns: A `String` containing the Boolean expression.
-  func swiftBooleanExpression(variable: String) -> String {
-    return map {
-      "(\($0.swiftBooleanExpression(variable: variable)))"
-    }.joined(separator: " || ")
-  }
+    /// A `String` containing a Swift Boolean expression that tests if the given
+    /// variable is in any of ranges.
+    ///
+    /// - Parameter variable: The name of the variable to test in the expression.
+    /// - Returns: A `String` containing the Boolean expression.
+    func swiftBooleanExpression(variable: String) -> String {
+        map {
+            "(\($0.swiftBooleanExpression(variable: variable)))"
+        }.joined(separator: " || ")
+    }
 
 }

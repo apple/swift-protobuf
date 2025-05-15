@@ -21,165 +21,165 @@ import Foundation
 /// as `fieldNumber:1`, values should be identified as `fieldNumber:2`
 ///
 internal struct JSONMapEncodingVisitor: SelectiveVisitor {
-  private var separator: StaticString?
-  internal var encoder: JSONEncoder
-  private let options: JSONEncodingOptions
+    private var separator: StaticString?
+    internal var encoder: JSONEncoder
+    private let options: JSONEncodingOptions
 
-  init(encoder: JSONEncoder, options: JSONEncodingOptions) {
-      self.encoder = encoder
-      self.options = options
-  }
+    init(encoder: JSONEncoder, options: JSONEncodingOptions) {
+        self.encoder = encoder
+        self.options = options
+    }
 
-  internal var bytesResult: [UInt8] {
-      get {
-          return encoder.bytesResult
-      }
-  }
+    internal var bytesResult: [UInt8] {
+        get {
+            encoder.bytesResult
+        }
+    }
 
-  private mutating func startKey() {
-      if let s = separator {
-          encoder.append(staticText: s)
-      } else {
-          separator = ","
-      }
-  }
+    private mutating func startKey() {
+        if let s = separator {
+            encoder.append(staticText: s)
+        } else {
+            separator = ","
+        }
+    }
 
-  private mutating func startValue() {
-      encoder.append(staticText: ":")
-  }
+    private mutating func startValue() {
+        encoder.append(staticText: ":")
+    }
 
-  mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
-      // Doubles/Floats can never be map keys, only values
-      assert(fieldNumber == 2)
-      startValue()
-      encoder.putFloatValue(value: value)
-  }
+    mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
+        // Doubles/Floats can never be map keys, only values
+        assert(fieldNumber == 2)
+        startValue()
+        encoder.putFloatValue(value: value)
+    }
 
-  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-      // Doubles/Floats can never be map keys, only values
-      assert(fieldNumber == 2)
-      startValue()
-      encoder.putDoubleValue(value: value)
-  }
+    mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+        // Doubles/Floats can never be map keys, only values
+        assert(fieldNumber == 2)
+        startValue()
+        encoder.putDoubleValue(value: value)
+    }
 
-  mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
-      if fieldNumber == 1 {
-          startKey()
-          encoder.putQuotedInt32(value: value)
-      } else {
-          startValue()
-          encoder.putNonQuotedInt32(value: value)
-      }
-  }
+    mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
+        if fieldNumber == 1 {
+            startKey()
+            encoder.putQuotedInt32(value: value)
+        } else {
+            startValue()
+            encoder.putNonQuotedInt32(value: value)
+        }
+    }
 
-  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-      if fieldNumber == 1 {
-          startKey()
-          encoder.putQuotedInt64(value: value)
-      } else {
-          startValue()
-          options.alwaysPrintInt64sAsNumbers
-            ? encoder.putNonQuotedInt64(value: value)
-            : encoder.putQuotedInt64(value: value)
-      }
-  }
+    mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+        if fieldNumber == 1 {
+            startKey()
+            encoder.putQuotedInt64(value: value)
+        } else {
+            startValue()
+            options.alwaysPrintInt64sAsNumbers
+                ? encoder.putNonQuotedInt64(value: value)
+                : encoder.putQuotedInt64(value: value)
+        }
+    }
 
-  mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
-      if fieldNumber == 1 {
-          startKey()
-          encoder.putQuotedUInt32(value: value)
-      } else {
-          startValue()
-          encoder.putNonQuotedUInt32(value: value)
-      }
-  }
+    mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
+        if fieldNumber == 1 {
+            startKey()
+            encoder.putQuotedUInt32(value: value)
+        } else {
+            startValue()
+            encoder.putNonQuotedUInt32(value: value)
+        }
+    }
 
-  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-      if fieldNumber == 1 {
-          startKey()
-          encoder.putQuotedUInt64(value: value)
-      } else {
-          startValue()
-          options.alwaysPrintInt64sAsNumbers
-            ? encoder.putNonQuotedUInt64(value: value)
-            : encoder.putQuotedUInt64(value: value)
-      }
-  }
+    mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+        if fieldNumber == 1 {
+            startKey()
+            encoder.putQuotedUInt64(value: value)
+        } else {
+            startValue()
+            options.alwaysPrintInt64sAsNumbers
+                ? encoder.putNonQuotedUInt64(value: value)
+                : encoder.putQuotedUInt64(value: value)
+        }
+    }
 
-  mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
-      try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
-  }
+    mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
+        try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
+    }
 
-  mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
-      try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
-  }
+    mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
+        try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
+    }
 
-  mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
-      try visitSingularUInt32Field(value: value, fieldNumber: fieldNumber)
-  }
+    mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
+        try visitSingularUInt32Field(value: value, fieldNumber: fieldNumber)
+    }
 
-  mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
-      try visitSingularUInt64Field(value: value, fieldNumber: fieldNumber)
-  }
+    mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
+        try visitSingularUInt64Field(value: value, fieldNumber: fieldNumber)
+    }
 
-  mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
-      try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
-  }
+    mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
+        try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
+    }
 
-  mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
-      try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
-  }
+    mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
+        try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
+    }
 
-  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-      if fieldNumber == 1 {
-          startKey()
-          encoder.putQuotedBoolValue(value: value)
-      } else {
-          startValue()
-          encoder.putNonQuotedBoolValue(value: value)
-      }
-  }
+    mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+        if fieldNumber == 1 {
+            startKey()
+            encoder.putQuotedBoolValue(value: value)
+        } else {
+            startValue()
+            encoder.putNonQuotedBoolValue(value: value)
+        }
+    }
 
-  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-      if fieldNumber == 1 {
-          startKey()
-      } else {
-          startValue()
-      }
-      encoder.putStringValue(value: value)
-  }
+    mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+        if fieldNumber == 1 {
+            startKey()
+        } else {
+            startValue()
+        }
+        encoder.putStringValue(value: value)
+    }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-      // Bytes can only be map values, never keys
-      assert(fieldNumber == 2)
-      startValue()
-      encoder.putBytesValue(value: value)
-  }
+    mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+        // Bytes can only be map values, never keys
+        assert(fieldNumber == 2)
+        startValue()
+        encoder.putBytesValue(value: value)
+    }
 
-  mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
-      // Enums can only be map values, never keys
-      assert(fieldNumber == 2)
-      startValue()
-      if !options.alwaysPrintEnumsAsInts, let n = value.name {
-          encoder.putStringValue(value: String(describing: n))
-      } else {
-          encoder.putEnumInt(value: value.rawValue)
-      }
-  }
+    mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+        // Enums can only be map values, never keys
+        assert(fieldNumber == 2)
+        startValue()
+        if !options.alwaysPrintEnumsAsInts, let n = value.name {
+            encoder.putStringValue(value: String(describing: n))
+        } else {
+            encoder.putEnumInt(value: value.rawValue)
+        }
+    }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
-      // Messages can only be map values, never keys
-      assert(fieldNumber == 2)
-      startValue()
-      let json = try value.jsonString(options: options)
-      encoder.append(text: json)
-  }
+    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+        // Messages can only be map values, never keys
+        assert(fieldNumber == 2)
+        startValue()
+        let json = try value.jsonString(options: options)
+        encoder.append(text: json)
+    }
 
-  // SelectiveVisitor will block:
-  // - single Groups
-  // - everything repeated
-  // - everything packed
-  // - all maps
-  // - unknown fields
-  // - extensions
+    // SelectiveVisitor will block:
+    // - single Groups
+    // - everything repeated
+    // - everything packed
+    // - all maps
+    // - unknown fields
+    // - extensions
 }

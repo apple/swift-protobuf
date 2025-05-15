@@ -13,13 +13,18 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestWellKnownTypes
+final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestWellKnownTypes
 
-    func assertAnyTest<M: Message & Equatable>(_ message: M, expected: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertAnyTest<M: Message & Equatable>(
+        _ message: M,
+        expected: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         let empty = MessageTestType()
         var configured = empty
         do {
@@ -34,7 +39,12 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             let decoded = try MessageTestType(textFormatString: encoded)
             let decodedMessage = try M(unpackingAny: decoded.anyField)
             let r = (message == decodedMessage)
-            XCTAssert(r, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+            XCTAssert(
+                r,
+                "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                file: file,
+                line: line
+            )
         } catch {
             XCTFail("Encode/decode cycle should not throw error, decoding: \(error)", file: file, line: line)
         }
@@ -43,32 +53,45 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
     // Any equality is a little tricky, so this directly tests the inner
     // contained object after unpacking the Any.
     func testAny() throws {
-        assertAnyTest(Google_Protobuf_Duration(seconds: 123, nanos: 123456789),
-                      expected: "any_field {\n  [type.googleapis.com/google.protobuf.Duration] {\n    seconds: 123\n    nanos: 123456789\n  }\n}\n")
-        assertAnyTest(Google_Protobuf_Empty(),
-                      expected: "any_field {\n  [type.googleapis.com/google.protobuf.Empty] {\n  }\n}\n")
+        assertAnyTest(
+            Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789),
+            expected:
+                "any_field {\n  [type.googleapis.com/google.protobuf.Duration] {\n    seconds: 123\n    nanos: 123456789\n  }\n}\n"
+        )
+        assertAnyTest(
+            Google_Protobuf_Empty(),
+            expected: "any_field {\n  [type.googleapis.com/google.protobuf.Empty] {\n  }\n}\n"
+        )
 
         // Nested any
-        let a = try ProtobufUnittest_TestWellKnownTypes.with {
-            $0.anyField = try Google_Protobuf_Any(message: Google_Protobuf_Any(message: Google_Protobuf_Duration(seconds: 123, nanos: 234567890)))
+        let a = try SwiftProtoTesting_TestWellKnownTypes.with {
+            $0.anyField = try Google_Protobuf_Any(
+                message: Google_Protobuf_Any(message: Google_Protobuf_Duration(seconds: 123, nanos: 234_567_890))
+            )
         }
         let a_encoded = a.textFormatString()
-        XCTAssertEqual(a_encoded, "any_field {\n  [type.googleapis.com/google.protobuf.Any] {\n    [type.googleapis.com/google.protobuf.Duration] {\n      seconds: 123\n      nanos: 234567890\n    }\n  }\n}\n")
+        XCTAssertEqual(
+            a_encoded,
+            "any_field {\n  [type.googleapis.com/google.protobuf.Any] {\n    [type.googleapis.com/google.protobuf.Duration] {\n      seconds: 123\n      nanos: 234567890\n    }\n  }\n}\n"
+        )
 
-        let a_decoded = try ProtobufUnittest_TestWellKnownTypes(textFormatString: a_encoded)
+        let a_decoded = try SwiftProtoTesting_TestWellKnownTypes(textFormatString: a_encoded)
         let a_decoded_any = a_decoded.anyField
         let a_decoded_any_any = try Google_Protobuf_Any(unpackingAny: a_decoded_any)
         let a_decoded_any_any_duration = try Google_Protobuf_Duration(unpackingAny: a_decoded_any_any)
         XCTAssertEqual(a_decoded_any_any_duration.seconds, 123)
-        XCTAssertEqual(a_decoded_any_any_duration.nanos, 234567890)
+        XCTAssertEqual(a_decoded_any_any_duration.nanos, 234_567_890)
     }
 
     // Any supports a "verbose" text encoding that uses the URL as the key
     // and then encloses the serialization of the object.
     func testAny_verbose() {
-        let a: ProtobufUnittest_TestWellKnownTypes
+        let a: SwiftProtoTesting_TestWellKnownTypes
         do {
-            a = try ProtobufUnittest_TestWellKnownTypes(textFormatString: "any_field {[type.googleapis.com/google.protobuf.Duration] {seconds:77,nanos:123456789}}")
+            a = try SwiftProtoTesting_TestWellKnownTypes(
+                textFormatString:
+                    "any_field {[type.googleapis.com/google.protobuf.Duration] {seconds:77,nanos:123456789}}"
+            )
         } catch let e {
             XCTFail("Decoding failed: \(e)")
             return
@@ -77,15 +100,18 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             let a_any = a.anyField
             let a_duration = try Google_Protobuf_Duration(unpackingAny: a_any)
             XCTAssertEqual(a_duration.seconds, 77)
-            XCTAssertEqual(a_duration.nanos, 123456789)
+            XCTAssertEqual(a_duration.nanos, 123_456_789)
         } catch let e {
             XCTFail("Any field doesn't hold a duration?: \(e)")
         }
 
         // Nested Any is a particularly tricky decode problem
-        let b: ProtobufUnittest_TestWellKnownTypes
+        let b: SwiftProtoTesting_TestWellKnownTypes
         do {
-            b = try ProtobufUnittest_TestWellKnownTypes(textFormatString: "any_field {[type.googleapis.com/google.protobuf.Any]{[type.googleapis.com/google.protobuf.Duration] {seconds:88,nanos:987654321}}}")
+            b = try SwiftProtoTesting_TestWellKnownTypes(
+                textFormatString:
+                    "any_field {[type.googleapis.com/google.protobuf.Any]{[type.googleapis.com/google.protobuf.Duration] {seconds:88,nanos:987654321}}}"
+            )
         } catch let e {
             XCTFail("Decoding failed: \(e)")
             return
@@ -100,7 +126,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         do {
             let b_duration = try Google_Protobuf_Duration(unpackingAny: b_any)
             XCTAssertEqual(b_duration.seconds, 88)
-            XCTAssertEqual(b_duration.nanos, 987654321)
+            XCTAssertEqual(b_duration.nanos, 987_654_321)
         } catch let e {
             XCTFail("Inner Any field doesn't hold a Duration: \(e)")
         }
@@ -114,7 +140,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             "duration_field {\n  seconds: 123\n  nanos: 123456789\n}\n"
         ) {
             (o: inout MessageTestType) in
-            o.durationField = Google_Protobuf_Duration(seconds: 123, nanos: 123456789)
+            o.durationField = Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789)
         }
     }
 
@@ -147,7 +173,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             "timestamp_field {\n  seconds: 123\n  nanos: 123456789\n}\n"
         ) {
             (o: inout MessageTestType) in
-            o.timestampField = Google_Protobuf_Timestamp(seconds: 123, nanos: 123456789)
+            o.timestampField = Google_Protobuf_Timestamp(seconds: 123, nanos: 123_456_789)
         }
     }
 

@@ -21,25 +21,21 @@ import Foundation
 /// implementation or were valid field numbers but with mismatching wire
 /// formats (for example, a field encoded as a varint when a fixed32 integer
 /// was expected).
-public struct UnknownStorage: Equatable {
-  /// The raw protocol buffer binary-encoded bytes that represent the unknown
-  /// fields of a decoded message.
-  public private(set) var data = Data()
+public struct UnknownStorage: Equatable, Sendable {
 
-  public init() {}
+    /// The raw protocol buffer binary-encoded bytes that represent the unknown
+    /// fields of a decoded message.
+    public private(set) var data = Data()
 
-  internal mutating func append(protobufData: Data) {
-    data.append(protobufData)
-  }
+    public init() {}
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !data.isEmpty {
-      try visitor.visitUnknown(bytes: data)
+    internal mutating func append(protobufData: Data) {
+        data.append(protobufData)
     }
-  }
-}
 
-#if swift(>=5.5) && canImport(_Concurrency)
-// Once our minimum supported version has Data be Sendable, @unchecked could be removed.
-extension UnknownStorage: @unchecked Sendable {}
-#endif
+    public func traverse<V: Visitor>(visitor: inout V) throws {
+        if !data.isEmpty {
+            try visitor.visitUnknown(bytes: data)
+        }
+    }
+}

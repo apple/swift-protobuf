@@ -18,55 +18,46 @@ When doing a release:
    and include a reference '#XYZ', this tells you what pull request it was part of.  This is useful
    for doing the release notes in the next section.
 
-1. Validate the versions numbers
+1. Update the version on _main_
 
-   1. Inspect `Sources/SwiftProtobuf/Version.swift` and ensure the number is what you expect for
-      the next release.
+   ```
+   DevTools/LibraryVersions.py [a.b.c]
+   ```
 
-      Normally we try to bump _main_ to a new revision after each release, so this number may
-      be fine, but if this release includes import things (api changes, etc.), it may make sense
-      to go back and bump the _major_ or _minor_ number instead.  If you do need to change the
-      number: `DevTools/LibraryVersions.py a.b.c`.
+   If you aren't sure if `b` or `c`, rather then checking all the _semver_ tags on the
+   PRs, you can use the [project's releases page](https://github.com/apple/swift-protobuf/releases)
+   and _Draft a new release_; fill in _99.99_ for that tag, and then click the _Generate
+   release notes_ button, it will include sections based on the _semver_ tags to indicate
+   which segment *must* be updated. If you do this *discard* this draft as you don't
+   actually want to create a _99.99_ release later on.
 
-   1. Run our tool to ensure the versions are all in sync:
+   _Note:__ `a` is really rare since it is a major version bump usually reserved for
+   breaking changes as it has a cost on all things that depend on this repo.
 
-      ```
-      $ DevTools/LibraryVersions.py --validate
-      ```
-
-      This will run silently if everything was ok; if something was wrong, you'll need to figure
-      out why and get things back in sync.
+   *Import* Make sure to commit/merge this _main_ on github.
 
 1. Create a release on github
 
    Top left of the [project's releases page](https://github.com/apple/swift-protobuf/releases)
    is _Draft a new release_.
 
-   The tag should be `[a.b.c]` where the number *exactly* matches one you examined in
-   `Sources/SwiftProtobuf/Version.swift`.
+   The tag should be `[a.b.c]` where the number *exactly* matches one you used in the
+   previous step (and just committed to the repo).
 
-   For the description call out any major things in that release.  Usually a short summary and
-   then a reference to the pull request for more info is enough.
+   For the description click the _Generate release notes_ button. That should do
+   everything based on the PR descriptions and _semver_ tags in the repo. Just read
+   though was was generate to see if any tweaks are needed.
+
+   When everything is good, click on _Publish release_.
 
 1. Publish the `SwiftProtobuf.podspec`
 
+      _Note:_ You must be an _owner_ of the pod to do this, see `pod trunk info SwiftProtobuf`
+      for who are owners.
+
       ```
-      $ pod trunk push SwiftProtobuf.podspec
+      pod trunk push SwiftProtobuf.podspec
       ```
 
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
       against the sources on github.
-
-1. Bump the version on _main_
-
-   To help tell if someone is using _main_ before it has been cut as a release, go ahead and
-   bump it to a new revision:
-
-   ```
-   $ DevTools/LibraryVersions.py [a.b.c]
-   ```
-
-   Where _c_ is one higher than the release that was just done.
-
-   Make sure to commit/merge this _main_ on github.
-

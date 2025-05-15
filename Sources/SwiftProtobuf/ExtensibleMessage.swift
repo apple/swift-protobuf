@@ -13,6 +13,7 @@
 // -----------------------------------------------------------------------------
 
 // Messages that support extensions implement this protocol
+@preconcurrency
 public protocol ExtensibleMessage: Message {
     var _protobuf_extensionFieldValues: ExtensionFieldValueSet { get set }
 }
@@ -24,13 +25,13 @@ extension ExtensibleMessage {
 
     public func getExtensionValue<F: ExtensionField>(ext: MessageExtension<F, Self>) -> F.ValueType? {
         if let fieldValue = _protobuf_extensionFieldValues[ext.fieldNumber] as? F {
-          return fieldValue.value
+            return fieldValue.value
         }
         return nil
     }
 
     public func hasExtensionValue<F: ExtensionField>(ext: MessageExtension<F, Self>) -> Bool {
-        return _protobuf_extensionFieldValues[ext.fieldNumber] is F
+        _protobuf_extensionFieldValues[ext.fieldNumber] is F
     }
 
     public mutating func clearExtensionValue<F: ExtensionField>(ext: MessageExtension<F, Self>) {
@@ -41,12 +42,16 @@ extension ExtensibleMessage {
 // Additional specializations for the different types of repeated fields so
 // setting them to an empty array clears them from the map.
 extension ExtensibleMessage {
-    public mutating func setExtensionValue<T>(ext: MessageExtension<RepeatedExtensionField<T>, Self>, value: [T.BaseType]) {
+    public mutating func setExtensionValue<T>(
+        ext: MessageExtension<RepeatedExtensionField<T>, Self>,
+        value: [T.BaseType]
+    ) {
         _protobuf_extensionFieldValues[ext.fieldNumber] =
             value.isEmpty ? nil : RepeatedExtensionField<T>(protobufExtension: ext, value: value)
     }
 
-    public mutating func setExtensionValue<T>(ext: MessageExtension<PackedExtensionField<T>, Self>, value: [T.BaseType]) {
+    public mutating func setExtensionValue<T>(ext: MessageExtension<PackedExtensionField<T>, Self>, value: [T.BaseType])
+    {
         _protobuf_extensionFieldValues[ext.fieldNumber] =
             value.isEmpty ? nil : PackedExtensionField<T>(protobufExtension: ext, value: value)
     }
@@ -61,7 +66,8 @@ extension ExtensibleMessage {
             value.isEmpty ? nil : PackedEnumExtensionField<E>(protobufExtension: ext, value: value)
     }
 
-    public mutating func setExtensionValue<M>(ext: MessageExtension<RepeatedMessageExtensionField<M>, Self>, value: [M]) {
+    public mutating func setExtensionValue<M>(ext: MessageExtension<RepeatedMessageExtensionField<M>, Self>, value: [M])
+    {
         _protobuf_extensionFieldValues[ext.fieldNumber] =
             value.isEmpty ? nil : RepeatedMessageExtensionField<M>(protobufExtension: ext, value: value)
     }

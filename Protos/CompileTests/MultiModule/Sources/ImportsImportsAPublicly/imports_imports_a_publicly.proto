@@ -1,0 +1,6 @@
+import public "Sources/ImportsAPublicly/imports_a_publicly.proto";
+
+message ImportsImportsAPublicly {
+  optional A a = 21;
+  optional E e = 22;
+}

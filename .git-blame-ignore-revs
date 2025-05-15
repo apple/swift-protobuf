@@ -1,0 +1,5 @@
+# Ignore the commit where all the sources were reformatted with no other changes.
+ac8da77c937f3c98c3959f72e76184b6b577cf38
+# Ignore some followup commits for things swift-format lint reported.
+e1c4ca3714b1d423b2257a4f4050b73d7a46f04d
+10ed2c6e30d5ea7982590f6424e161386bfc444d

@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.10
 
 // Package.swift
 //
@@ -12,71 +12,87 @@
 import PackageDescription
 
 let package = Package(
-  name: "SwiftProtobuf",
-  products: [
-    .executable(
-        name: "protoc-gen-swift",
-        targets: ["protoc-gen-swift"]
-    ),
-    .library(
-        name: "SwiftProtobuf",
-        targets: ["SwiftProtobuf"]
-    ),
-    .library(
-        name: "SwiftProtobufPluginLibrary",
-        targets: ["SwiftProtobufPluginLibrary"]
-    ),
-    .plugin(
-        name: "SwiftProtobufPlugin",
-        targets: ["SwiftProtobufPlugin"]
-    ),
-  ],
-  dependencies: [
-    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
-  ],
-  targets: [
-    .target(
-        name: "SwiftProtobuf",
-        exclude: ["CMakeLists.txt"]
-    ),
-    .target(
-        name: "SwiftProtobufPluginLibrary",
-        dependencies: ["SwiftProtobuf"],
-        exclude: ["CMakeLists.txt"]
-    ),
-    .target(
-        name: "SwiftProtobufTestHelpers",
-        dependencies: ["SwiftProtobuf"]
-    ),
-    .executableTarget(
-        name: "protoc-gen-swift",
-        dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"],
-        exclude: ["CMakeLists.txt"]
-    ),
-    .executableTarget(
-        name: "Conformance",
-        dependencies: ["SwiftProtobuf"],
-        exclude: ["failure_list_swift.txt", "text_format_failure_list_swift.txt"]
-    ),
-    .plugin(
-        name: "SwiftProtobufPlugin",
-        capability: .buildTool(),
-        dependencies: [
-            "protoc-gen-swift"
-        ]
-    ),
-    .testTarget(
-        name: "SwiftProtobufTests",
-        dependencies: ["SwiftProtobuf"]
-    ),
-    .testTarget(
-        name: "SwiftProtobufPluginLibraryTests",
-        dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobufTestHelpers"]
-    ),
-    .testTarget(
-        name: "protoc-gen-swiftTests",
-        dependencies: ["protoc-gen-swift", "SwiftProtobufTestHelpers"]
-    ),
-  ],
-  swiftLanguageVersions: [.v5]
+    name: "SwiftProtobuf",
+    products: [
+        .executable(
+            name: "protoc-gen-swift",
+            targets: ["protoc-gen-swift"]
+        ),
+        .library(
+            name: "SwiftProtobuf",
+            targets: ["SwiftProtobuf"]
+        ),
+        .library(
+            name: "SwiftProtobufPluginLibrary",
+            targets: ["SwiftProtobufPluginLibrary"]
+        ),
+        .plugin(
+            name: "SwiftProtobufPlugin",
+            targets: ["SwiftProtobufPlugin"]
+        ),
+    ],
+    targets: [
+        .target(
+            name: "SwiftProtobuf",
+            exclude: ["CMakeLists.txt"],
+            resources: [.copy("PrivacyInfo.xcprivacy")],
+            swiftSettings: .packageSettings
+        ),
+        .target(
+            name: "SwiftProtobufPluginLibrary",
+            dependencies: ["SwiftProtobuf"],
+            exclude: ["CMakeLists.txt"],
+            resources: [.copy("PrivacyInfo.xcprivacy")],
+            swiftSettings: .packageSettings
+        ),
+        .target(
+            name: "SwiftProtobufTestHelpers",
+            dependencies: ["SwiftProtobuf"],
+            swiftSettings: .packageSettings
+        ),
+        .executableTarget(
+            name: "protoc-gen-swift",
+            dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"],
+            exclude: ["CMakeLists.txt"],
+            swiftSettings: .packageSettings
+        ),
+        .executableTarget(
+            name: "Conformance",
+            dependencies: ["SwiftProtobuf"],
+            exclude: ["failure_list_swift.txt", "text_format_failure_list_swift.txt"],
+            swiftSettings: .packageSettings
+        ),
+        .plugin(
+            name: "SwiftProtobufPlugin",
+            capability: .buildTool(),
+            dependencies: ["protoc-gen-swift"]
+        ),
+        .testTarget(
+            name: "SwiftProtobufTests",
+            dependencies: ["SwiftProtobuf"],
+            swiftSettings: .packageSettings
+        ),
+        .testTarget(
+            name: "SwiftProtobufPluginLibraryTests",
+            dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobufTestHelpers"],
+            swiftSettings: .packageSettings
+        ),
+        .testTarget(
+            name: "protoc-gen-swiftTests",
+            dependencies: ["protoc-gen-swift", "SwiftProtobufTestHelpers"],
+            swiftSettings: .packageSettings
+        ),
+    ],
+    swiftLanguageVersions: [.v5]
 )
+
+// Settings for every Swift target in this package, like project-level settings
+// in an Xcode project.
+extension Array where Element == PackageDescription.SwiftSetting {
+    static var packageSettings: Self {
+        [
+            .enableExperimentalFeature("StrictConcurrency=complete"),
+            .enableUpcomingFeature("ExistentialAny"),
+        ]
+    }
+}

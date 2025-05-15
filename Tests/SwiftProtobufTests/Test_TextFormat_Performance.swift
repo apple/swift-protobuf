@@ -12,11 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Fuzz_Testing_Message
+final class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_Fuzz_Message
 
     // Each of the following should be under 1s on a reasonably
     // fast machine (originally developed on an M1 MacBook Pro).
@@ -26,31 +26,30 @@ class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
     func testEncoding_manyMapsEncoding_shouldBeUnder1s() {
         let repeats = 50000
 
-        let child = (
-            "repeated_message {\n"
-            + "  map_fixed64_sint64 {\n"
-            + "    key: 20\n"
-            + "    value: 8\n"
-            + "  }\n"
-            + "  map_fixed64_sint64 {\n"
-            + "    key: 30\n"
-            + "    value: 4\n"
-            + "  }\n"
-            + "  map_fixed64_sint64 {\n"
-            + "    key: 40\n"
-            + "    value: 2\n"
-            + "  }\n"
-            + "}\n"
-        )
+        let child =
+            ("repeated_message {\n"
+                + "  map_fixed64_sint64 {\n"
+                + "    key: 20\n"
+                + "    value: 8\n"
+                + "  }\n"
+                + "  map_fixed64_sint64 {\n"
+                + "    key: 30\n"
+                + "    value: 4\n"
+                + "  }\n"
+                + "  map_fixed64_sint64 {\n"
+                + "    key: 40\n"
+                + "    value: 2\n"
+                + "  }\n"
+                + "}\n")
         let expected = String(repeating: child, count: repeats)
 
-        let msg = Fuzz_Testing_Message.with {
-            let child = Fuzz_Testing_Message.with {
-               $0.mapFixed64Sint64[20] = 8
-               $0.mapFixed64Sint64[30] = 4
-               $0.mapFixed64Sint64[40] = 2
+        let msg = MessageTestType.with {
+            let child = MessageTestType.with {
+                $0.mapFixed64Sint64[20] = 8
+                $0.mapFixed64Sint64[30] = 4
+                $0.mapFixed64Sint64[40] = 2
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: repeats)
+            let array = [MessageTestType](repeating: child, count: repeats)
             $0.repeatedMessage = array
         }
 
@@ -67,24 +66,23 @@ class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
     func testEncoding_manyAnyEncoding_shouldBeUnder1s() {
         let repeats = 50000
 
-        let child = (
-            "repeated_message {\n"
-            + "  wkt_any {\n"
-            + "    [type.googleapis.com/google.protobuf.Duration] {\n"
-            + "      seconds: 123\n"
-            + "      nanos: 123456789\n"
-            + "    }\n"
-            + "  }\n"
-            + "}\n"
-        )
+        let child =
+            ("repeated_message {\n"
+                + "  wkt_any {\n"
+                + "    [type.googleapis.com/google.protobuf.Duration] {\n"
+                + "      seconds: 123\n"
+                + "      nanos: 123456789\n"
+                + "    }\n"
+                + "  }\n"
+                + "}\n")
         let expected = String(repeating: child, count: repeats)
 
-        let msg = Fuzz_Testing_Message.with {
-            let child = Fuzz_Testing_Message.with {
-                let duration = Google_Protobuf_Duration(seconds: 123, nanos: 123456789)
+        let msg = MessageTestType.with {
+            let child = MessageTestType.with {
+                let duration = Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789)
                 $0.wktAny = try! Google_Protobuf_Any(message: duration)
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: repeats)
+            let array = [MessageTestType](repeating: child, count: repeats)
             $0.repeatedMessage = array
         }
 

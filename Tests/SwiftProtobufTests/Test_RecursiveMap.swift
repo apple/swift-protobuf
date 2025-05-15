@@ -15,19 +15,19 @@
 import Foundation
 import XCTest
 
-class Test_RecursiveMap: XCTestCase {
+final class Test_RecursiveMap: XCTestCase {
     func test_RecursiveMap() throws {
-        let inner = ProtobufUnittest_TestRecursiveMapMessage()
-        var mid = ProtobufUnittest_TestRecursiveMapMessage()
+        let inner = SwiftProtoTesting_TestRecursiveMapMessage()
+        var mid = SwiftProtoTesting_TestRecursiveMapMessage()
         mid.a = ["1": inner]
-        var outer = ProtobufUnittest_TestRecursiveMapMessage()
+        var outer = SwiftProtoTesting_TestRecursiveMapMessage()
         outer.a = ["2": mid]
 
         do {
             let encoded: [UInt8] = try outer.serializedBytes()
             XCTAssertEqual(encoded, [10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0])
 
-            let decodedOuter = try ProtobufUnittest_TestRecursiveMapMessage(serializedBytes: encoded)
+            let decodedOuter = try SwiftProtoTesting_TestRecursiveMapMessage(serializedBytes: encoded)
             if let decodedMid = decodedOuter.a["2"] {
                 if let decodedInner = decodedMid.a["1"] {
                     XCTAssertEqual(decodedOuter.a.count, 1)

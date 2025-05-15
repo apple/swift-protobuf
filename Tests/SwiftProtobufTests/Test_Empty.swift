@@ -15,10 +15,10 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_Empty: XCTestCase, PBTestHelpers {
+final class Test_Empty: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Empty
 
     func testExists() throws {

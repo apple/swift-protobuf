@@ -13,10 +13,10 @@ import Foundation
 /// Protocol that all the Descriptors conform to for original .proto file
 /// location lookup.
 public protocol ProvidesLocationPath {
-  /// Updates `path` to the source location of the complete extent of
-  /// the object conforming to this protocol. This is a replacement for
-  /// `GetSourceLocation()` in the C++ Descriptor apis.
-  func getLocationPath(path: inout IndexPath)
-  /// Returns the File this conforming object is in.
-  var file: FileDescriptor { get }
+    /// Updates `path` to the source location of the complete extent of
+    /// the object conforming to this protocol. This is a replacement for
+    /// `GetSourceLocation()` in the C++ Descriptor apis.
+    func getLocationPath(path: inout IndexPath)
+    /// Returns the File this conforming object is in.
+    var file: FileDescriptor! { get }
 }

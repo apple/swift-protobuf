@@ -26,17 +26,16 @@ jobs:
     strategy:
       matrix:
         # Looking at https://hub.docker.com/_/swift, the version only tags (i.e.
-        # - 5.6.3) use different Ubuntu releases. Generally we want to avoid
-        # bionic as it is older then we want to deal with having to build
-        # protobuf on.
+        # - 5.9.2) can use different Ubuntu releases. But just to be safe we use
+        # the specific OS release.
         #
-        # We also could use less specific tags (i.e. - 5.6), so they "float" as
+        # We could use less specific tags (i.e. - 5.9), so they "float" as
         # new point release come, but to help make history/logs more clear,
         # being explicit (at the cost of having to update with point releases)
         # seems better. This should also ensure protobuf caching changes with
         # each new image incase system in the Swift image are changed/updated.
         swift:
-        - 5.8.0-jammy
+        - 6.1.0-noble
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
@@ -46,9 +45,9 @@ jobs:
       image: swift:${{ matrix.swift }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        path: main
+        path: swift-protobuf
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
@@ -68,14 +67,14 @@ jobs:
         esac
     - name: Cache protobuf
       id: cache-protobuf
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: protobuf
         # NOTE: for refs that can float like 'main' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
+        key: ${{ runner.os }}-${{ matrix.swift }}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: protocolbuffers/protobuf
         ref: ${{ steps.get-sha.outputs.sha }}
@@ -84,10 +83,12 @@ jobs:
     - name: Build protobuf
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       working-directory: protobuf
+      # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
       run: |
         mkdir cmake_build
         cd cmake_build
         cmake \
+          -DCMAKE_CXX_STANDARD=17 \
           -DCMAKE_BUILD_TYPE=Release \
           -Dprotobuf_BUILD_TESTS=OFF \
           -Dprotobuf_INSTALL=OFF \
@@ -96,5 +97,5 @@ jobs:
         NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
         make -j "${NUM_CPUS}" protoc conformance_test_runner
     - name: Test conformance
-      working-directory: main
+      working-directory: swift-protobuf
       run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner

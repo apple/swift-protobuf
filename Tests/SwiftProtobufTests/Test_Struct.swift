@@ -14,14 +14,14 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
-class Test_Struct: XCTestCase, PBTestHelpers {
+final class Test_Struct: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Struct
 
     func testStruct_pbencode() {
-        assertEncode([10, 12, 10, 3, 102, 111, 111, 18, 5, 26, 3, 98, 97, 114]) {(o: inout MessageTestType) in
+        assertEncode([10, 12, 10, 3, 102, 111, 111, 18, 5, 26, 3, 98, 97, 114]) { (o: inout MessageTestType) in
             var v = Google_Protobuf_Value()
             v.stringValue = "bar"
             o.fields["foo"] = v
@@ -37,7 +37,8 @@ class Test_Struct: XCTestCase, PBTestHelpers {
             var different = Google_Protobuf_Struct()
             different.fields = ["a": vTrue, "b": vNull, "c": vNull]
 
-            return (m.fields.count == 2
+            return
+                (m.fields.count == 2
                 && m.fields["a"] == vTrue
                 && m.fields["a"] != vNull
                 && m.fields["b"] == vNull
@@ -48,7 +49,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
     }
 
     func test_JSON() {
-        assertJSONDecodeSucceeds("{}") {$0.fields == [:]}
+        assertJSONDecodeSucceeds("{}") { $0.fields == [:] }
         assertJSONDecodeFails("null")
         assertJSONDecodeFails("false")
         assertJSONDecodeFails("true")
@@ -65,7 +66,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         // "null" as a field value indicates the field is missing
         // (Except for Value, where "null" indicates NullValue)
         do {
-            let c1 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":null}")
+            let c1 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalStruct\":null}")
             // null here decodes to an empty field.
             // See github.com/protocolbuffers/protobuf Issue #1327
             XCTAssertEqual(try c1.jsonString(), "{}")
@@ -74,7 +75,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         }
 
         do {
-            let c2 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":{}}")
+            let c2 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalStruct\":{}}")
             XCTAssertNotNil(c2.optionalStruct)
             XCTAssertEqual(c2.optionalStruct.fields, [:])
         } catch let e {
@@ -103,14 +104,15 @@ class Test_Struct: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
+final class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_ListValue
 
     // Since ProtobufJSONList is handbuilt rather than generated,
     // we need to verify all the basic functionality, including
     // serialization, equality, hash, etc.
     func testProtobuf() {
-        assertEncode([10, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 10, 5, 26, 3, 97, 98, 99, 10, 2, 32, 1]) { (o: inout MessageTestType) in
+        assertEncode([10, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 10, 5, 26, 3, 97, 98, 99, 10, 2, 32, 1]) {
+            (o: inout MessageTestType) in
             o.values.append(Google_Protobuf_Value(numberValue: 1))
             o.values.append(Google_Protobuf_Value(stringValue: "abc"))
             o.values.append(Google_Protobuf_Value(boolValue: true))
@@ -130,7 +132,7 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
             o.values.append(Google_Protobuf_Value(listValue: [1, nil]))
             o.values.append(Google_Protobuf_Value(listValue: []))
         }
-        assertJSONDecodeSucceeds("[]") {$0.values == []}
+        assertJSONDecodeSucceeds("[]") { $0.values == [] }
         assertJSONDecodeFails("")
         assertJSONDecodeFails("true")
         assertJSONDecodeFails("false")
@@ -140,20 +142,20 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("[}")
         assertJSONDecodeFails("[,]")
         assertJSONDecodeFails("[true,]")
-        assertJSONDecodeSucceeds("[true]") {$0.values == [Google_Protobuf_Value(boolValue: true)]}
+        assertJSONDecodeSucceeds("[true]") { $0.values == [Google_Protobuf_Value(boolValue: true)] }
     }
 
     func test_JSON_nested_list() throws {
         let limit = JSONDecodingOptions().messageDepthLimit
         let depths = [
             // Small lists
-            1,2,3,4,5,
+            1, 2, 3, 4, 5,
             // Little less than default messageDepthLimit, should succeed
             limit - 3, limit - 2, limit - 1, limit,
             // Little bigger than default messageDepthLimit, should fail
             limit + 1, limit + 2, limit + 3, limit + 4,
             // Really big, should fail cleanly (not crash)
-            1000,10000,100000,1000000
+            1000, 10000, 100000, 1_000_000,
         ]
         for depth in depths {
             var s = ""
@@ -172,7 +174,7 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
             // Recursion limits should cause this to
             // fail cleanly without crashing
             if depth <= limit {
-                assertJSONDecodeSucceeds(s) {_ in true}
+                assertJSONDecodeSucceeds(s) { _ in true }
             } else {
                 assertJSONDecodeFails(s)
             }
@@ -193,8 +195,7 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     }
 }
 
-
-class Test_Value: XCTestCase, PBTestHelpers {
+final class Test_Value: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Value
 
     func testValue_empty() throws {
@@ -211,9 +212,8 @@ class Test_Value: XCTestCase, PBTestHelpers {
     }
 }
 
-
 // TODO: Should have convenience initializers on Google_Protobuf_Value
-class Test_JSON_Value: XCTestCase, PBTestHelpers {
+final class Test_JSON_Value: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Value
 
     func testValue_emptyShouldThrow() throws {
@@ -235,12 +235,12 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         XCTAssertEqual([8, 0], try null.serializedBytes())
         XCTAssertEqual(nullFromLiteral, null)
         XCTAssertNotEqual(nullFromLiteral, Google_Protobuf_Value(numberValue: 1))
-        assertJSONDecodeSucceeds("null") {$0.nullValue == .nullValue}
-        assertJSONDecodeSucceeds("  null  ") {$0.nullValue == .nullValue}
+        assertJSONDecodeSucceeds("null") { $0.nullValue == .nullValue }
+        assertJSONDecodeSucceeds("  null  ") { $0.nullValue == .nullValue }
         assertJSONDecodeFails("numb")
 
         do {
-            let m1 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalValue\": null}")
+            let m1 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalValue\": null}")
             XCTAssertEqual(try m1.jsonString(), "{\"optionalValue\":null}")
             XCTAssertEqual(try m1.serializedBytes(), [146, 19, 2, 8, 0])
         } catch {
@@ -258,11 +258,11 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(oneFromIntegerLiteral, twoFromFloatLiteral)
         XCTAssertEqual("1.0", try oneFromIntegerLiteral.jsonString())
         XCTAssertEqual([17, 0, 0, 0, 0, 0, 0, 240, 63], try oneFromIntegerLiteral.serializedBytes())
-        assertJSONEncode("3.25") {(o: inout MessageTestType) in
+        assertJSONEncode("3.25") { (o: inout MessageTestType) in
             o.numberValue = 3.25
         }
-        assertJSONDecodeSucceeds("3.25") {$0.numberValue == 3.25}
-        assertJSONDecodeSucceeds("  3.25  ") {$0.numberValue == 3.25}
+        assertJSONDecodeSucceeds("3.25") { $0.numberValue == 3.25 }
+        assertJSONDecodeSucceeds("  3.25  ") { $0.numberValue == 3.25 }
         assertJSONDecodeFails("3.2.5")
 
         assertDebugDescriptionSuffix(".Google_Protobuf_Value:\nnumber_value: 1.0\n", oneFromIntegerLiteral)
@@ -276,14 +276,14 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(fromStringLiteral, Google_Protobuf_Value())
 
         // JSON serialization
-        assertJSONEncode("\"abcd\"") {(o: inout MessageTestType) in
+        assertJSONEncode("\"abcd\"") { (o: inout MessageTestType) in
             o.stringValue = "abcd"
         }
-        assertJSONEncode("\"\"") {(o: inout MessageTestType) in
+        assertJSONEncode("\"\"") { (o: inout MessageTestType) in
             o.stringValue = ""
         }
-        assertJSONDecodeSucceeds("\"abcd\"") {$0.stringValue == "abcd"}
-        assertJSONDecodeSucceeds("  \"abcd\"  ") {$0.stringValue == "abcd"}
+        assertJSONDecodeSucceeds("\"abcd\"") { $0.stringValue == "abcd" }
+        assertJSONDecodeSucceeds("  \"abcd\"  ") { $0.stringValue == "abcd" }
         assertJSONDecodeFails("\"abcd\"  XXX")
         assertJSONDecodeFails("\"abcd")
 
@@ -311,14 +311,14 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         XCTAssertEqual(trueFromLiteral, Google_Protobuf_Value(boolValue: true))
         XCTAssertEqual(falseFromLiteral, Google_Protobuf_Value(boolValue: false))
         XCTAssertNotEqual(falseFromLiteral, trueFromLiteral)
-        assertJSONEncode("true") {(o: inout MessageTestType) in
+        assertJSONEncode("true") { (o: inout MessageTestType) in
             o.boolValue = true
         }
-        assertJSONEncode("false") {(o: inout MessageTestType) in
+        assertJSONEncode("false") { (o: inout MessageTestType) in
             o.boolValue = false
         }
-        assertJSONDecodeSucceeds("true") {$0.boolValue == true}
-        assertJSONDecodeSucceeds("  false  ") {$0.boolValue == false}
+        assertJSONDecodeSucceeds("true") { $0.boolValue == true }
+        assertJSONDecodeSucceeds("  false  ") { $0.boolValue == false }
         assertJSONDecodeFails("yes")
         assertJSONDecodeFails("  true false   ")
 
@@ -326,17 +326,23 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
     }
 
     func testValue_struct() throws {
-        assertJSONEncode("{\"a\":1.0}") {(o: inout MessageTestType) in
-            o.structValue = Google_Protobuf_Struct(fields:["a": Google_Protobuf_Value(numberValue: 1)])
+        assertJSONEncode("{\"a\":1.0}") { (o: inout MessageTestType) in
+            o.structValue = Google_Protobuf_Struct(fields: ["a": Google_Protobuf_Value(numberValue: 1)])
         }
 
         let structValue = try Google_Protobuf_Value(jsonString: "{\"a\":1.0}")
-        assertDebugDescriptionSuffix(".Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1.0\n    }\n  }\n}\n", structValue)
+        assertDebugDescriptionSuffix(
+            ".Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1.0\n    }\n  }\n}\n",
+            structValue
+        )
     }
 
     func testValue_list() throws {
         let listValue = try Google_Protobuf_Value(jsonString: "[1, true, \"abc\"]")
-        assertDebugDescriptionSuffix(".Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1.0\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n", listValue)
+        assertDebugDescriptionSuffix(
+            ".Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1.0\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n",
+            listValue
+        )
     }
 
     func testValue_complex() {
@@ -344,7 +350,8 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             let outer = $0.structValue.fields
             let a = outer["a"]?.structValue.fields
             let c = outer["c"]?.listValue.values
-            return (a?["b"]?.numberValue == 1.0
+            return
+                (a?["b"]?.numberValue == 1.0
                 && c?.count == 4
                 && c?[0].numberValue == 7
                 && c?[1].boolValue == true
@@ -354,22 +361,23 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
     }
 
     func testStruct_conformance() throws {
-        let json = ("{\n"
-            + "  \"optionalStruct\": {\n"
-            + "    \"nullValue\": null,\n"
-            + "    \"intValue\": 1234,\n"
-            + "    \"boolValue\": true,\n"
-            + "    \"doubleValue\": 1234.5678,\n"
-            + "    \"stringValue\": \"Hello world!\",\n"
-            + "    \"listValue\": [1234, \"5678\"],\n"
-            + "    \"objectValue\": {\n"
-            + "      \"value\": 0\n"
-            + "    }\n"
-            + "  }\n"
-            + "}\n")
-        let m: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let json =
+            ("{\n"
+                + "  \"optionalStruct\": {\n"
+                + "    \"nullValue\": null,\n"
+                + "    \"intValue\": 1234,\n"
+                + "    \"boolValue\": true,\n"
+                + "    \"doubleValue\": 1234.5678,\n"
+                + "    \"stringValue\": \"Hello world!\",\n"
+                + "    \"listValue\": [1234, \"5678\"],\n"
+                + "    \"objectValue\": {\n"
+                + "      \"value\": 0\n"
+                + "    }\n"
+                + "  }\n"
+                + "}\n")
+        let m: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            m = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            m = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
         } catch {
             XCTFail("Decoding failed: \(json)")
             return
@@ -402,9 +410,13 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         }
         XCTAssertNotNil(s.fields["listValue"])
         if let lv = s.fields["listValue"] {
-            XCTAssertEqual(lv.listValue,
-                           [Google_Protobuf_Value(numberValue: 1234),
-                            Google_Protobuf_Value(stringValue: "5678")])
+            XCTAssertEqual(
+                lv.listValue,
+                [
+                    Google_Protobuf_Value(numberValue: 1234),
+                    Google_Protobuf_Value(stringValue: "5678"),
+                ]
+            )
         }
         XCTAssertNotNil(s.fields["objectValue"])
         if let ov = s.fields["objectValue"] {
@@ -417,11 +429,12 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
     }
 
     func testStruct_null() throws {
-        let json = ("{\n"
-            + "  \"optionalStruct\": null\n"
-            + "}\n")
+        let json =
+            ("{\n"
+                + "  \"optionalStruct\": null\n"
+                + "}\n")
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{}")
         } catch {

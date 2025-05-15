@@ -22,22 +22,10 @@ There are multiple ways to do this. Some of the easiest are:
 1. If you are on macOS, installing it via `brew install protobuf`
 2. Download the binary from [Google's github repository](https://github.com/protocolbuffers/protobuf).
 
-### Adding the proto files to your target
-
-Next, you need to add the `.proto` files for which you want to generate your Swift types to your target's
-source directory. You should also commit these files to your git repository since the generated types
-are now generated on demand.
-
-> Note: imports on your `.proto` files will have to include the relative path from the target source to the `.proto` file you wish to import.
-
 ### Adding the plugin to your manifest
 
-After adding the `.proto` files you can now add the plugin to the target inside your `Package.swift` manifest.
 First, you need to add a dependency on `swift-protobuf`. Afterwards, you can declare the usage of the plugin
 for your target. Here is an example snippet of a `Package.swift` manifest:
-
-> Note: imports on your `.proto` files will have to include the relative path from the target source to the `.proto` file you wish to import. 
-> Files **must** be contained within the target source directory.
 
 ```swift
 let package = Package(
@@ -63,9 +51,25 @@ let package = Package(
 
 ### Configuring the plugin
 
-Lastly, after you have added the `.proto` files and modified your `Package.swift` manifest, you can now
-configure the plugin to invoke the `protoc` compiler. This is done by adding a `swift-protobuf-config.json`
-to the root of your target's source folder. An example configuration file looks like this:
+Configuring the plugin is done by adding a `swift-protobuf-config.json` file anywhere in your target's sources.
+Before you start configuring the plugin, you need to add the `.proto` files to your sources. You should also commit these
+files to your git repository since the generated types are now generated on demand.
+It's also important to note that the proto files in your configuration should be in
+the same directory as the config file. Let's see an example to have a better understanding.
+
+Here's an example file structure that looks like this:
+
+```text
+Sources
+├── main.swift
+├── ProtoBuf
+    ├── swift-protobuf-config.json
+    ├── foo.proto
+    └── Bar
+        └── Bar.proto
+```
+
+So, the configuration file would look something like this:
 
 ```json
 {
@@ -79,7 +83,7 @@ to the root of your target's source folder. An example configuration file looks 
         },
         {
             "protoFiles": [
-                "Bar.proto"
+                "Bar/Bar.proto"
             ],
             "visibility": "public",
             "fileNaming": "pathToUnderscores"
@@ -88,9 +92,12 @@ to the root of your target's source folder. An example configuration file looks 
 }
 
 ```
+As you can see in the above configuration, the paths are relative with respect to the `ProtoBuf` folder and not the root folder.
+If you add a file in the `Sources` folder, the plugin would be unable to access it as the path is computed relative to
+the `swift-protobuf-config.json` file.
 
-> Note: paths to your `.proto` files will have to include the relative path from the target source to the `.proto` file location.
-> Files **must** be contained within the target source directory.
+> Note: paths to your `.proto` files will have to include the relative path from the config file directory to the `.proto` file location.
+> Files **must** be contained within the same directory as the config file.
 
 In the above configuration, you declared two invocations to the `protoc` compiler. The first invocation
 is generating Swift types for the `Foo.proto` file with `internal` visibility. The second invocation
@@ -98,14 +105,12 @@ is generating Swift types for the `Bar.proto` file with the `public` visibility.
 invocation is using the `pathToUnderscores` file naming option. This option can be used to solve
 problems where a single target contains two or more proto files with the same name.
 
-> Note: paths to your `.proto` files will have to include the relative path from the target source to the `.proto` file location. 
-
 ### Defining the path to the protoc binary
 
-The plugin needs to be able to invoke the `protoc` binary to generate the Swift types. There are several ways to achieve this. 
+The plugin needs to be able to invoke the `protoc` binary to generate the Swift types. There are several ways to achieve this.
 
-First, by default, the package manager looks into the `$PATH` to find binaries named `protoc`. 
-This works immediately if you use `swift build` to build your package and `protoc` is installed 
+First, by default, the package manager looks into the `$PATH` to find binaries named `protoc`.
+This works immediately if you use `swift build` to build your package and `protoc` is installed
 in the `$PATH` (`brew` is adding it to your `$PATH` automatically).
 However, this doesn't work if you want to compile from Xcode since Xcode is not passed the `$PATH`.
 
@@ -135,7 +140,15 @@ env PROTOC_PATH=/opt/homebrew/bin/protoc xcodebuild <Here goes your command>
 }
 ```
 
-> Warning: The configuration file option only solves the problem for leaf packages that are using the Swift package manager
-plugin since there you can point the package manager to the right binary. The environment variable
-does solve the problem for transitive packages as well; however, it requires your users to set
-the variable now. In general we advise against adopting the plugin as a non-leaf package!
+### Known Issues
+
+- The configuration file _must not_ be excluded from the list of sources for the
+  target in the package manifest (that is, it should not be present in the
+  `exclude` argument for the target). The build system does not have access to
+  the file if it is excluded, however, `swift build` will result in a warning
+  that the file should be excluded.
+- The plugin should only be used for leaf packages. The configuration file option
+  only solves the problem for leaf packages that are using the Swift package
+  manager plugin since there you can point the package manager to the right
+  binary. The environment variable does solve the problem for transitive
+  packages as well; however, it requires your users to set the variable now.

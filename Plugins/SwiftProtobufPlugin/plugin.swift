@@ -2,13 +2,29 @@ import Foundation
 import PackagePlugin
 
 @main
-struct SwiftProtobufPlugin: BuildToolPlugin {
+struct SwiftProtobufPlugin {
     /// Errors thrown by the `SwiftProtobufPlugin`
-    enum PluginError: Error {
+    enum PluginError: Error, CustomStringConvertible {
         /// Indicates that the target where the plugin was applied to was not `SourceModuleTarget`.
-        case invalidTarget
+        case invalidTarget(Target)
         /// Indicates that the file extension of an input file was not `.proto`.
-        case invalidInputFileExtension
+        case invalidInputFileExtension(String)
+        /// Indicates that there was no configuration file at the required location.
+        case noConfigFound(String)
+
+        var description: String {
+            switch self {
+            case let .invalidTarget(target):
+                return "Expected a SwiftSourceModuleTarget but got '\(type(of: target))'."
+            case let .invalidInputFileExtension(path):
+                return "The input file '\(path)' does not have a '.proto' extension."
+            case let .noConfigFound(path):
+                return """
+                    No configuration file found named '\(path)'. The file must not be listed in the \
+                    'exclude:' argument for the target in Package.swift.
+                    """
+            }
+        }
     }
 
     /// The configuration of the plugin.
@@ -21,6 +37,9 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
                 case `internal` = "Internal"
                 /// The generated files should have `public` access level.
                 case `public` = "Public"
+                /// The generated files should have `package` access level.
+                /// - Note: Swift 5.9 or later is needed to use this option.
+                case `package` = "Package"
 
                 init?(rawValue: String) {
                     switch rawValue.lowercased() {
@@ -28,6 +47,8 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
                         self = .internal
                     case "public":
                         self = .public
+                    case "package":
+                        self = .package
                     default:
                         return nil
                     }
@@ -64,6 +85,8 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             var fileNaming: FileNaming?
             /// Whether internal imports should be annotated as `@_implementationOnly`.
             var implementationOnlyImports: Bool?
+            /// Whether import statements should be preceded with visibility.
+            var useAccessLevelOnImports: Bool?
         }
 
         /// The path to the `protoc` binary.
@@ -77,17 +100,29 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
 
     static let configurationFileName = "swift-protobuf-config.json"
 
-    func createBuildCommands(context: PluginContext, target: Target) throws -> [Command] {
-        // Let's check that this is a source target
-        guard let target = target as? SourceModuleTarget else {
-            throw PluginError.invalidTarget
+    /// Create build commands for the given arguments
+    /// - Parameters:
+    ///   - pluginWorkDirectory: The path of a writable directory into which the plugin or the build
+    ///   commands it constructs can write anything it wants.
+    ///   - sourceFiles: The input files that are associated with the target.
+    ///   - tool: The tool method from the context.
+    /// - Returns: The build commands configured based on the arguments.
+    func createBuildCommands(
+        pluginWorkDirectory: PackagePlugin.Path,
+        sourceFiles: FileList,
+        tool: (String) throws -> PackagePlugin.PluginContext.Tool
+    ) throws -> [Command] {
+        guard
+            let configurationFilePath = sourceFiles.first(
+                where: {
+                    $0.path.lastComponent == Self.configurationFileName
+                }
+            )?.path
+        else {
+            throw PluginError.noConfigFound(Self.configurationFileName)
         }
-
-        // We need to find the configuration file at the root of the target
-        let configurationFilePath = target.directory.appending(subpath: Self.configurationFileName)
         let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
-
         try validateConfiguration(configuration)
 
         // We need to find the path of protoc and protoc-gen-swift
@@ -100,20 +135,17 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             protocPath = Path(environmentPath)
         } else {
             // The user didn't set anything so let's try see if SPM can find a binary for us
-            protocPath = try context.tool(named: "protoc").path
+            protocPath = try tool("protoc").path
         }
-        let protocGenSwiftPath = try context.tool(named: "protoc-gen-swift").path
-
-        // This plugin generates its output into GeneratedSources
-        let outputDirectory = context.pluginWorkDirectory
+        let protocGenSwiftPath = try tool("protoc-gen-swift").path
 
         return configuration.invocations.map { invocation in
             self.invokeProtoc(
-                target: target,
+                directory: configurationFilePath.removingLastComponent(),
                 invocation: invocation,
                 protocPath: protocPath,
                 protocGenSwiftPath: protocGenSwiftPath,
-                outputDirectory: outputDirectory
+                outputDirectory: pluginWorkDirectory
             )
         }
     }
@@ -121,14 +153,14 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     /// Invokes `protoc` with the given inputs
     ///
     /// - Parameters:
-    ///   - target: The plugin's target.
+    ///   - directory: The plugin's target directory.
     ///   - invocation: The `protoc` invocation.
     ///   - protocPath: The path to the `protoc` binary.
     ///   - protocGenSwiftPath: The path to the `protoc-gen-swift` binary.
     ///   - outputDirectory: The output directory for the generated files.
-    /// - Returns: The build command.
+    /// - Returns: The build command configured based on the arguments.
     private func invokeProtoc(
-        target: Target,
+        directory: PackagePlugin.Path,
         invocation: Configuration.Invocation,
         protocPath: Path,
         protocGenSwiftPath: Path,
@@ -143,7 +175,7 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         // We need to add the target directory as a search path since we require the user to specify
         // the proto files relative to it.
         protocArgs.append("-I")
-        protocArgs.append("\(target.directory)")
+        protocArgs.append("\(directory)")
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -155,17 +187,23 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue)")
         }
 
-        var inputFiles = [Path]()
-        var outputFiles = [Path]()
-
+        // Add the implementation only imports flag if it was set
         if let implementationOnlyImports = invocation.implementationOnlyImports {
             protocArgs.append("--swift_opt=ImplementationOnlyImports=\(implementationOnlyImports)")
         }
 
+        // Add the useAccessLevelOnImports only imports flag if it was set
+        if let useAccessLevelOnImports = invocation.useAccessLevelOnImports {
+            protocArgs.append("--swift_opt=UseAccessLevelOnImports=\(useAccessLevelOnImports)")
+        }
+
+        var inputFiles = [Path]()
+        var outputFiles = [Path]()
+
         for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append("\(file)")
-            inputFiles.append(target.directory.appending(file))
+            inputFiles.append(directory.appending(file))
 
             // The name of the output file is based on the name of the input file.
             // We validated in the beginning that every file has the suffix of .proto
@@ -195,9 +233,42 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         for invocation in configuration.invocations {
             for protoFile in invocation.protoFiles {
                 if !protoFile.hasSuffix(".proto") {
-                    throw PluginError.invalidInputFileExtension
+                    throw PluginError.invalidInputFileExtension(protoFile)
                 }
             }
         }
     }
 }
+
+extension SwiftProtobufPlugin: BuildToolPlugin {
+    func createBuildCommands(
+        context: PluginContext,
+        target: Target
+    ) async throws -> [Command] {
+        guard let swiftTarget = target as? SwiftSourceModuleTarget else {
+            throw PluginError.invalidTarget(target)
+        }
+        return try createBuildCommands(
+            pluginWorkDirectory: context.pluginWorkDirectory,
+            sourceFiles: swiftTarget.sourceFiles,
+            tool: context.tool
+        )
+    }
+}
+
+#if canImport(XcodeProjectPlugin)
+import XcodeProjectPlugin
+
+extension SwiftProtobufPlugin: XcodeBuildToolPlugin {
+    func createBuildCommands(
+        context: XcodePluginContext,
+        target: XcodeTarget
+    ) throws -> [Command] {
+        try createBuildCommands(
+            pluginWorkDirectory: context.pluginWorkDirectory,
+            sourceFiles: target.inputFiles,
+            tool: context.tool
+        )
+    }
+}
+#endif

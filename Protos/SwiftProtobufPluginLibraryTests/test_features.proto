@@ -1,0 +1,103 @@
+// Protos/SwiftProtobufPluginLibraryTests/test_features.proto - test proto for Features
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2024 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+package swift_feature_test;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FeatureSet {
+  optional TestFeatures test = 9999;
+}
+
+message TestFeatures {
+  enum EnumFeature {
+    ENUM_FEATURE_UNKNOWN = 0;
+    ENUM_FEATURE_VALUE1 = 1;
+    ENUM_FEATURE_VALUE2 = 2;
+    ENUM_FEATURE_VALUE3 = 3;
+    ENUM_FEATURE_VALUE4 = 4;
+    ENUM_FEATURE_VALUE5 = 5;
+    ENUM_FEATURE_VALUE6 = 6;
+  }
+  optional EnumFeature feature1 = 1 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FILE,
+    targets = TARGET_TYPE_FIELD,
+    targets = TARGET_TYPE_MESSAGE,
+    targets = TARGET_TYPE_ENUM,
+    targets = TARGET_TYPE_ENUM_ENTRY,
+    targets = TARGET_TYPE_SERVICE,
+    targets = TARGET_TYPE_METHOD,
+    targets = TARGET_TYPE_ONEOF,
+    targets = TARGET_TYPE_EXTENSION_RANGE,
+    feature_support.edition_introduced = EDITION_2023,
+    edition_defaults = { edition: EDITION_LEGACY, value: "ENUM_FEATURE_VALUE1" }
+  ];
+  optional EnumFeature feature2 = 2 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FILE,
+    targets = TARGET_TYPE_FIELD,
+    targets = TARGET_TYPE_MESSAGE,
+    targets = TARGET_TYPE_ENUM,
+    targets = TARGET_TYPE_ENUM_ENTRY,
+    targets = TARGET_TYPE_SERVICE,
+    targets = TARGET_TYPE_METHOD,
+    targets = TARGET_TYPE_ONEOF,
+    targets = TARGET_TYPE_EXTENSION_RANGE,
+    feature_support.edition_introduced = EDITION_2023,
+    edition_defaults = { edition: EDITION_LEGACY, value: "ENUM_FEATURE_VALUE1" }
+  ];
+  optional EnumFeature feature3 = 3 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FILE,
+    targets = TARGET_TYPE_FIELD,
+    targets = TARGET_TYPE_MESSAGE,
+    targets = TARGET_TYPE_ENUM,
+    targets = TARGET_TYPE_ENUM_ENTRY,
+    targets = TARGET_TYPE_SERVICE,
+    targets = TARGET_TYPE_METHOD,
+    targets = TARGET_TYPE_ONEOF,
+    targets = TARGET_TYPE_EXTENSION_RANGE,
+    feature_support.edition_introduced = EDITION_2023,
+    edition_defaults = { edition: EDITION_LEGACY, value: "ENUM_FEATURE_VALUE1" }
+  ];
+  optional EnumFeature feature4 = 4 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FILE,
+    targets = TARGET_TYPE_FIELD,
+    targets = TARGET_TYPE_MESSAGE,
+    targets = TARGET_TYPE_ENUM,
+    targets = TARGET_TYPE_ENUM_ENTRY,
+    targets = TARGET_TYPE_SERVICE,
+    targets = TARGET_TYPE_METHOD,
+    targets = TARGET_TYPE_ONEOF,
+    targets = TARGET_TYPE_EXTENSION_RANGE,
+    feature_support.edition_introduced = EDITION_2023,
+    edition_defaults = { edition: EDITION_LEGACY, value: "ENUM_FEATURE_VALUE1" }
+  ];
+  optional EnumFeature feature5 = 5 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FILE,
+    targets = TARGET_TYPE_FIELD,
+    targets = TARGET_TYPE_MESSAGE,
+    targets = TARGET_TYPE_ENUM,
+    targets = TARGET_TYPE_ENUM_ENTRY,
+    targets = TARGET_TYPE_SERVICE,
+    targets = TARGET_TYPE_METHOD,
+    targets = TARGET_TYPE_ONEOF,
+    targets = TARGET_TYPE_EXTENSION_RANGE,
+    feature_support.edition_introduced = EDITION_2023,
+    edition_defaults = { edition: EDITION_LEGACY, value: "ENUM_FEATURE_VALUE1" }
+  ];
+}
