@@ -320,7 +320,8 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// Returns if the given name was reserved.
     internal func isReserved(name: UnsafeRawBufferPointer) -> Bool {
         guard !reservedNames.isEmpty,
-            let s = utf8ToString(bytes: name.baseAddress!, count: name.count)
+            let baseAddress = name.baseAddress,
+            let s = utf8ToString(bytes: baseAddress, count: name.count)
         else {
             return false
         }
