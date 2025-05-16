@@ -66,4 +66,18 @@ extension Array where Element == Range<Int32> {
         }.joined(separator: " || ")
     }
 
+    /// Helper tha will take an array of Ranges and sort them and then merge any that are
+    /// continuous (i.e. - [(21,30),(10,20)] -> [(10,30)])
+    func sortAndMergeContinuous() -> [Range<Int32>] {
+        var ordered = self.sorted(by: { $0.lowerBound < $1.lowerBound })
+        if ordered.count > 1 {
+            for i in (0..<(ordered.count - 1)).reversed() {
+                if ordered[i].upperBound == ordered[i + 1].lowerBound {
+                    ordered[i] = ordered[i].lowerBound..<ordered[i + 1].upperBound
+                    ordered.remove(at: i + 1)
+                }
+            }
+        }
+        return ordered
+    }
 }

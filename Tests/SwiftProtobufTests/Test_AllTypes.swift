@@ -2910,4 +2910,73 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
         }
     }
+
+    func testReservedFields() {
+        let setOptionalInt = "optional_int32: 1"
+        let expected = try! SwiftProtoTesting_TestAllTypes(textFormatString: setOptionalInt)
+        XCTAssertEqual(expected.optionalInt32, 1)
+
+        let testFields: [String] = [
+            "reserved_field",  // by name
+            "999999",  // by number
+        ]
+
+        let testValues: [String] = [
+            "2",
+            "\"foo\"",
+            "ENUM_VALUE",
+            "-1.2",
+            "true",
+            "{ something: 1 }",
+            "< something: 1 >",
+        ]
+
+        let testValueWrappers: [(String, String)] = [
+            ("", ""),  // Bare value
+            ("[", "]"),  // Into an array
+        ]
+
+        let unknownFieldInput = "mumble_nope: 1"
+
+        var options = TextFormatDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        for testField in testFields {
+            for testValue in testValues {
+                for (pre, post) in testValueWrappers {
+
+                    // parse with something valid after the input to confirm that works
+                    let validInput = "\(testField): \(pre)\(testValue)\(post)\n\(setOptionalInt)"
+                    do {
+                        let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: validInput)
+                        XCTAssertEqual(msg, expected, "Not equal for \(validInput): \(msg)")
+                    } catch let e {
+                        XCTFail("Parsing \(validInput) failed with error: \(e)")
+                    }
+
+                    // Add something unknown and confirm it errors
+                    let withUnknownInput = "\(testField): \(testValue)\n\(unknownFieldInput)\n\(setOptionalInt)"
+                    do {
+                        let _ = try SwiftProtoTesting_TestAllTypes(textFormatString: withUnknownInput)
+                        XCTFail("Shouldn't get here")
+                    } catch TextFormatDecodingError.unknownField {
+                        // This is what should have happened.
+                    } catch let e {
+                        XCTFail("Parsing \(withUnknownInput) failed with error: \(e)")
+                    }
+
+                    // With something unknown, but skip unknowns.
+                    do {
+                        let msg = try SwiftProtoTesting_TestAllTypes(
+                            textFormatString: withUnknownInput,
+                            options: options
+                        )
+                        XCTAssertEqual(msg, expected, "Not equal for \(withUnknownInput): \(msg)")
+                    } catch let e {
+                        XCTFail("Parsing \(withUnknownInput) failed with error: \(e)")
+                    }
+                }
+            }
+        }
+    }
 }

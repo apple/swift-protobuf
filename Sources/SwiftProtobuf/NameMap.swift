@@ -190,11 +190,38 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// as required by Google's spec for protobuf JSON.
     private var jsonToNumberMap: [Name: Int] = [:]
 
+    /// The reserved names in for this object. Currently only used for Message to
+    /// support TextFormat's requirement to skip these names in all cases.
+    private var reservedNames: [String] = []
+
+    /// The reserved numbers in for this object. Currently only used for Message to
+    /// support TextFormat's requirement to skip these numbers in all cases.
+    private var reservedRanges: [Range<Int32>] = []
+
     /// Creates a new empty field/enum-case name/number mapping.
     public init() {}
 
     /// Build the bidirectional maps between numbers and proto/JSON names.
+    public init(
+        reservedNames: [String],
+        reservedRanges: [Range<Int32>],
+        numberNameMappings: KeyValuePairs<Int, NameDescription>
+    ) {
+        self.reservedNames = reservedNames
+        self.reservedRanges = reservedRanges
+
+        initHelper(numberNameMappings)
+    }
+
+    /// Build the bidirectional maps between numbers and proto/JSON names.
     public init(dictionaryLiteral elements: (Int, NameDescription)...) {
+        initHelper(elements)
+    }
+
+    /// Helper to share the building of mappings between the two initializers.
+    private mutating func initHelper<Pairs: Collection>(
+        _ elements: Pairs
+    ) where Pairs.Element == (key: Int, value: NameDescription) {
         for (number, description) in elements {
             switch description {
 
@@ -288,6 +315,27 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// Returns all proto names
     internal var names: [Name] {
         numberToNameMap.map(\.value.proto)
+    }
+
+    /// Returns if the given name was reserved.
+    internal func isReserved(name: UnsafeRawBufferPointer) -> Bool {
+        guard !reservedNames.isEmpty,
+            let baseAddress = name.baseAddress,
+            let s = utf8ToString(bytes: baseAddress, count: name.count)
+        else {
+            return false
+        }
+        return reservedNames.contains(s)
+    }
+
+    /// Returns if the given number was reserved.
+    internal func isReserved(number: Int32) -> Bool {
+        for range in reservedRanges {
+            if range.contains(number) {
+                return true
+            }
+        }
+        return false
     }
 }
 

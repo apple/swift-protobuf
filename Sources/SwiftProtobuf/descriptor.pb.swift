@@ -3317,13 +3317,16 @@ extension Google_Protobuf_ExtensionRangeOptions.VerificationState: _ProtoNamePro
 
 extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = Google_Protobuf_ExtensionRangeOptions.protoMessageName + ".Declaration"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "number"),
-    2: .standard(proto: "full_name"),
-    3: .same(proto: "type"),
-    5: .same(proto: "reserved"),
-    6: .same(proto: "repeated"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: [],
+      reservedRanges: [4..<5],
+      numberNameMappings: [
+        1: .same(proto: "number"),
+        2: .standard(proto: "full_name"),
+        3: .same(proto: "type"),
+        5: .same(proto: "reserved"),
+        6: .same(proto: "repeated"),
+  ])
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3938,29 +3941,32 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
 
 extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FileOptions"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "java_package"),
-    8: .standard(proto: "java_outer_classname"),
-    10: .standard(proto: "java_multiple_files"),
-    20: .standard(proto: "java_generate_equals_and_hash"),
-    27: .standard(proto: "java_string_check_utf8"),
-    9: .standard(proto: "optimize_for"),
-    11: .standard(proto: "go_package"),
-    16: .standard(proto: "cc_generic_services"),
-    17: .standard(proto: "java_generic_services"),
-    18: .standard(proto: "py_generic_services"),
-    23: .same(proto: "deprecated"),
-    31: .standard(proto: "cc_enable_arenas"),
-    36: .standard(proto: "objc_class_prefix"),
-    37: .standard(proto: "csharp_namespace"),
-    39: .standard(proto: "swift_prefix"),
-    40: .standard(proto: "php_class_prefix"),
-    41: .standard(proto: "php_namespace"),
-    44: .standard(proto: "php_metadata_namespace"),
-    45: .standard(proto: "ruby_package"),
-    50: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: ["php_generic_services"],
+      reservedRanges: [38..<39, 42..<43],
+      numberNameMappings: [
+        1: .standard(proto: "java_package"),
+        8: .standard(proto: "java_outer_classname"),
+        10: .standard(proto: "java_multiple_files"),
+        20: .standard(proto: "java_generate_equals_and_hash"),
+        27: .standard(proto: "java_string_check_utf8"),
+        9: .standard(proto: "optimize_for"),
+        11: .standard(proto: "go_package"),
+        16: .standard(proto: "cc_generic_services"),
+        17: .standard(proto: "java_generic_services"),
+        18: .standard(proto: "py_generic_services"),
+        23: .same(proto: "deprecated"),
+        31: .standard(proto: "cc_enable_arenas"),
+        36: .standard(proto: "objc_class_prefix"),
+        37: .standard(proto: "csharp_namespace"),
+        39: .standard(proto: "swift_prefix"),
+        40: .standard(proto: "php_class_prefix"),
+        41: .standard(proto: "php_namespace"),
+        44: .standard(proto: "php_metadata_namespace"),
+        45: .standard(proto: "ruby_package"),
+        50: .same(proto: "features"),
+        999: .standard(proto: "uninterpreted_option"),
+  ])
 
   fileprivate class _StorageClass {
     var _javaPackage: String? = nil
@@ -4191,15 +4197,18 @@ extension Google_Protobuf_FileOptions.OptimizeMode: _ProtoNameProviding {
 
 extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MessageOptions"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "message_set_wire_format"),
-    2: .standard(proto: "no_standard_descriptor_accessor"),
-    3: .same(proto: "deprecated"),
-    7: .standard(proto: "map_entry"),
-    11: .standard(proto: "deprecated_legacy_json_field_conflicts"),
-    12: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: [],
+      reservedRanges: [4..<7, 8..<10],
+      numberNameMappings: [
+        1: .standard(proto: "message_set_wire_format"),
+        2: .standard(proto: "no_standard_descriptor_accessor"),
+        3: .same(proto: "deprecated"),
+        7: .standard(proto: "map_entry"),
+        11: .standard(proto: "deprecated_legacy_json_field_conflicts"),
+        12: .same(proto: "features"),
+        999: .standard(proto: "uninterpreted_option"),
+  ])
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4274,22 +4283,25 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FieldOptions"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "ctype"),
-    2: .same(proto: "packed"),
-    6: .same(proto: "jstype"),
-    5: .same(proto: "lazy"),
-    15: .standard(proto: "unverified_lazy"),
-    3: .same(proto: "deprecated"),
-    10: .same(proto: "weak"),
-    16: .standard(proto: "debug_redact"),
-    17: .same(proto: "retention"),
-    19: .same(proto: "targets"),
-    20: .standard(proto: "edition_defaults"),
-    21: .same(proto: "features"),
-    22: .standard(proto: "feature_support"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: [],
+      reservedRanges: [4..<5, 18..<19],
+      numberNameMappings: [
+        1: .same(proto: "ctype"),
+        2: .same(proto: "packed"),
+        6: .same(proto: "jstype"),
+        5: .same(proto: "lazy"),
+        15: .standard(proto: "unverified_lazy"),
+        3: .same(proto: "deprecated"),
+        10: .same(proto: "weak"),
+        16: .standard(proto: "debug_redact"),
+        17: .same(proto: "retention"),
+        19: .same(proto: "targets"),
+        20: .standard(proto: "edition_defaults"),
+        21: .same(proto: "features"),
+        22: .standard(proto: "feature_support"),
+        999: .standard(proto: "uninterpreted_option"),
+  ])
 
   fileprivate class _StorageClass {
     var _ctype: Google_Protobuf_FieldOptions.CType? = nil
@@ -4651,13 +4663,16 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
 
 extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".EnumOptions"
-  public static let _protobuf_nameMap: _NameMap = [
-    2: .standard(proto: "allow_alias"),
-    3: .same(proto: "deprecated"),
-    6: .standard(proto: "deprecated_legacy_json_field_conflicts"),
-    7: .same(proto: "features"),
-    999: .standard(proto: "uninterpreted_option"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: [],
+      reservedRanges: [5..<6],
+      numberNameMappings: [
+        2: .standard(proto: "allow_alias"),
+        3: .same(proto: "deprecated"),
+        6: .standard(proto: "deprecated_legacy_json_field_conflicts"),
+        7: .same(proto: "features"),
+        999: .standard(proto: "uninterpreted_option"),
+  ])
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -5050,16 +5065,19 @@ extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImpleme
 
 extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FeatureSet"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "field_presence"),
-    2: .standard(proto: "enum_type"),
-    3: .standard(proto: "repeated_field_encoding"),
-    4: .standard(proto: "utf8_validation"),
-    5: .standard(proto: "message_encoding"),
-    6: .standard(proto: "json_format"),
-    7: .standard(proto: "enforce_naming_style"),
-    8: .standard(proto: "default_symbol_visibility"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: [],
+      reservedRanges: [999..<1000],
+      numberNameMappings: [
+        1: .standard(proto: "field_presence"),
+        2: .standard(proto: "enum_type"),
+        3: .standard(proto: "repeated_field_encoding"),
+        4: .standard(proto: "utf8_validation"),
+        5: .standard(proto: "message_encoding"),
+        6: .standard(proto: "json_format"),
+        7: .standard(proto: "enforce_naming_style"),
+        8: .standard(proto: "default_symbol_visibility"),
+  ])
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -5194,7 +5212,10 @@ extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
 
 extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = Google_Protobuf_FeatureSet.protoMessageName + ".VisibilityFeature"
-  public static let _protobuf_nameMap = _NameMap()
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: [],
+      reservedRanges: [1..<536870912],
+      numberNameMappings: [:])
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -5276,11 +5297,14 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
 
 extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
-  public static let _protobuf_nameMap: _NameMap = [
-    3: .same(proto: "edition"),
-    4: .standard(proto: "overridable_features"),
-    5: .standard(proto: "fixed_features"),
-  ]
+  public static let _protobuf_nameMap = _NameMap(
+      reservedNames: ["features"],
+      reservedRanges: [1..<3],
+      numberNameMappings: [
+        3: .same(proto: "edition"),
+        4: .standard(proto: "overridable_features"),
+        5: .standard(proto: "fixed_features"),
+  ])
 
   fileprivate class _StorageClass {
     var _edition: Google_Protobuf_Edition? = nil

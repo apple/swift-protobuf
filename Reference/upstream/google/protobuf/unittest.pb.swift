@@ -12027,7 +12027,10 @@ extension Proto2Unittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Proto2Unittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestReservedFields"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
+      reservedNames: ["bar", "baz"],
+      reservedRanges: [2..<3, 9..<12, 15..<16],
+      numberNameMappings: [:])
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -21440,18 +21443,21 @@ extension Proto2Unittest_MessageCreatorFunc: SwiftProtobuf.Message, SwiftProtobu
 
 extension Proto2Unittest_FastParseTableCompression: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FastParseTableCompression"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "important_field_1"),
-    2: .standard(proto: "important_field_2"),
-    3: .standard(proto: "unimportant_field_3"),
-    4: .standard(proto: "unimportant_field_4"),
-    5: .standard(proto: "unimportant_field_5"),
-    9: .standard(proto: "unimportant_field_9"),
-    11: .standard(proto: "important_field_11"),
-    12: .standard(proto: "unimportant_field_12"),
-    14: .standard(proto: "important_field_14"),
-    15: .standard(proto: "unimportant_field_15"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
+      reservedNames: [],
+      reservedRanges: [6..<9, 10..<11, 13..<14, 16..<17],
+      numberNameMappings: [
+        1: .standard(proto: "important_field_1"),
+        2: .standard(proto: "important_field_2"),
+        3: .standard(proto: "unimportant_field_3"),
+        4: .standard(proto: "unimportant_field_4"),
+        5: .standard(proto: "unimportant_field_5"),
+        9: .standard(proto: "unimportant_field_9"),
+        11: .standard(proto: "important_field_11"),
+        12: .standard(proto: "unimportant_field_12"),
+        14: .standard(proto: "important_field_14"),
+        15: .standard(proto: "unimportant_field_15"),
+  ])
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
