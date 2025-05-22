@@ -55,7 +55,7 @@ class GeneratorOptions {
         var snippet: String {
             switch self {
             case let .accessLevel(visibility):
-                return "\(visibility) import"
+                return "\(visibility.rawValue) import"
             case .plain:
                 return "import"
             case .implementationOnly:
