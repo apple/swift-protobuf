@@ -71,6 +71,57 @@ private class InternPool {
     }
 }
 
+/// Instructions used in bytecode streams that define proto name mappings.
+///
+/// This has package visibility so that it is also visible to the generator.
+package enum ProtoNameInstruction: UInt64 {
+    /// The proto (text format) name and the JSON name are the same string.
+    ///
+    /// ## Operands
+    /// * An integer representing the field or enum case number.
+    /// * A string containing the single text format and JSON name.
+    case same = 1
+
+    /// The JSON name can be computed from the proto string.
+    ///
+    /// ## Operands
+    /// * An integer representing the field or enum case number.
+    /// * A string containing the single text format name, from which the JSON name will be
+    ///   dynamically computed.
+    case standard = 2
+
+    /// The JSON and text format names are just different.
+    ///
+    /// ## Operands
+    /// * An integer representing the field or enum case number.
+    /// * A string containing the text format name.
+    /// * A string containing the JSON name.
+    case unique = 3
+
+    /// Used for enum cases only to represent a value's primary proto name (the first defined case)
+    /// and its aliases. The JSON and text format names for enums are always the same.
+    ///
+    /// ## Operands
+    /// * An integer representing the enum case number.
+    /// * An integer `aliasCount` representing the number of aliases.
+    /// * A string containing the text format/JSON name (the first defined case with this number).
+    /// * `aliasCount` strings containing other text format/JSON names that are aliases.
+    case alias = 4
+
+    /// Represents a reserved name in a proto message.
+    ///
+    /// ## Operands
+    /// * The name of a reserved field.
+    case reservedName = 5
+
+    /// Represents a range of reserved field numbers in a proto message.
+    ///
+    /// ## Operands
+    /// * An integer representing the lower bound (inclusive) of the reserved field number range.
+    /// * An integer representing the upper bound (exclusive) of the reserved field number range.
+    case reservedFields = 6
+}
+
 /// An immutable bidirectional mapping between field/enum-case names
 /// and numbers, used to record field names for text-based
 /// serialization (JSON and text).  These maps are lazily instantiated
@@ -120,11 +171,19 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
             self.utf8Buffer = transientUtf8Buffer
         }
 
+        // This is for building a `Name` object from a slice of a bytecode `StaticString`.
+        // It MUST NOT be exposed outside of this file.
+        fileprivate init(bytecodeUtf8Buffer: UnsafeBufferPointer<UInt8>) {
+            self.nameString = .immortalBuffer(bytecodeUtf8Buffer)
+            self.utf8Buffer = UnsafeRawBufferPointer(bytecodeUtf8Buffer)
+        }
+
         private(set) var utf8Buffer: UnsafeRawBufferPointer
 
         private enum NameString {
             case string(String)
             case staticString(StaticString)
+            case immortalBuffer(UnsafeBufferPointer<UInt8>)
         }
         private var nameString: NameString
 
@@ -132,6 +191,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
             switch nameString {
             case .string(let s): return s
             case .staticString(let s): return s.description
+            case .immortalBuffer(let b): return String(decoding: b, as: UTF8.self)
             }
         }
 
@@ -262,6 +322,68 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
                     protoToNumberMap[protoName] = number
                     jsonToNumberMap[protoName] = number
                 }
+            }
+        }
+    }
+
+    public init(bytecode: StaticString) {
+        BytecodeInterpreter<ProtoNameInstruction>(program: bytecode).execute { instruction, reader in
+            switch instruction {
+            case .same:
+                let number = Int(reader.nextInt32())
+                let p = reader.nextNullTerminatedString()
+                let protoName = Name(bytecodeUtf8Buffer: p)
+                let names = Names(json: protoName, proto: protoName)
+                numberToNameMap[number] = names
+                protoToNumberMap[protoName] = number
+                jsonToNumberMap[protoName] = number
+
+            case .standard:
+                let number = Int(reader.nextInt32())
+                let p = reader.nextNullTerminatedString()
+                let protoName = Name(bytecodeUtf8Buffer: p)
+                let jsonString = toJsonFieldName(protoName.description)
+                let jsonName = Name(string: jsonString, pool: internPool)
+                let names = Names(json: jsonName, proto: protoName)
+                numberToNameMap[number] = names
+                protoToNumberMap[protoName] = number
+                jsonToNumberMap[protoName] = number
+                jsonToNumberMap[jsonName] = number
+
+            case .unique:
+                let number = Int(reader.nextInt32())
+                let p = reader.nextNullTerminatedString()
+                let j = reader.nextNullTerminatedString()
+                let jsonName = Name(bytecodeUtf8Buffer: j)
+                let protoName = Name(bytecodeUtf8Buffer: p)
+                let names = Names(json: jsonName, proto: protoName)
+                numberToNameMap[number] = names
+                protoToNumberMap[protoName] = number
+                jsonToNumberMap[protoName] = number
+                jsonToNumberMap[jsonName] = number
+
+            case .alias:
+                let number = Int(reader.nextInt32())
+                let p = reader.nextNullTerminatedString()
+                let protoName = Name(bytecodeUtf8Buffer: p)
+                let names = Names(json: protoName, proto: protoName)
+                numberToNameMap[number] = names
+                protoToNumberMap[protoName] = number
+                jsonToNumberMap[protoName] = number
+                for alias in reader.nextNullTerminatedStringArray() {
+                    let protoName = Name(bytecodeUtf8Buffer: alias)
+                    protoToNumberMap[protoName] = number
+                    jsonToNumberMap[protoName] = number
+                }
+
+            case .reservedName:
+                let name = String(decoding: reader.nextNullTerminatedString(), as: UTF8.self)
+                reservedNames.append(name)
+
+            case .reservedFields:
+                let lowerBound = reader.nextInt32()
+                let upperBound = reader.nextInt32()
+                reservedRanges.append(lowerBound..<upperBound)
             }
         }
     }

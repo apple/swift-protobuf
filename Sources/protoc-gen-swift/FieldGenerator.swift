@@ -24,6 +24,9 @@ protocol FieldGenerator {
     /// Name mapping entries for the field.
     var fieldMapNames: [String] { get }
 
+    /// Writes the field's name information to the given bytecode stream.
+    func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter)
+
     /// Generate the interface for this field, this is includes any extra methods (has/clear).
     func generateInterface(printer: inout CodePrinter)
 
@@ -107,6 +110,50 @@ class FieldGeneratorBase {
             }
         } else {
             return [result]
+        }
+    }
+
+    func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {
+        // Protobuf Text uses the unqualified group name for the field
+        // name instead of the field name provided by protoc.  As far
+        // as I can tell, no one uses the fieldname provided by protoc,
+        // so let's just put the field name that Protobuf Text
+        // actually uses here.
+        let protoName: String
+        if fieldDescriptor.internal_isGroupLike {
+            protoName = fieldDescriptor.messageType!.name
+        } else {
+            protoName = fieldDescriptor.name
+        }
+        let jsonName = fieldDescriptor.jsonName
+
+        // TODO: Create a separate instruction for the group being able to match
+        // the raw field name or the name based on the group's name. Until then
+        // we write the instructions for the non-preferred one first so when the
+        // runtime builds up the mappings, it will become the default for what
+        // gets used when generating TextFormat.
+        if fieldDescriptor.internal_isGroupLike && protoName != fieldDescriptor.name {
+            let nameLowercase = protoName.lowercased()
+            if nameLowercase == jsonName {
+                writer.writeSame(number: Int32(number), name: nameLowercase)
+            } else {
+                writer.writeUnique(number: Int32(number), protoName: nameLowercase, jsonName: jsonName)
+            }
+        }
+
+        if jsonName == protoName {
+            /// The proto and JSON names are identical:
+            writer.writeSame(number: Int32(number), name: protoName)
+        } else {
+            let libraryGeneratedJsonName = NamingUtils.toJsonFieldName(protoName)
+            if jsonName == libraryGeneratedJsonName {
+                /// The library will generate the same thing protoc gave, so
+                /// we can let the library recompute this:
+                writer.writeStandard(number: Int32(number), name: protoName)
+            } else {
+                /// The library's generation didn't match, so specify this explicitly.
+                writer.writeUnique(number: Int32(number), protoName: protoName, jsonName: jsonName)
+            }
         }
     }
 
