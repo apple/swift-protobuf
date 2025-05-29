@@ -38,7 +38,6 @@ struct SwiftProtobufPlugin {
                 /// The generated files should have `public` access level.
                 case `public` = "Public"
                 /// The generated files should have `package` access level.
-                /// - Note: Swift 5.9 or later is needed to use this option.
                 case `package` = "Package"
 
                 init?(rawValue: String) {
