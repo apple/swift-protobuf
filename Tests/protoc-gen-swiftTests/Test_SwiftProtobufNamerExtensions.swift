@@ -12,8 +12,7 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import SwiftProtobufTestHelpers
 import XCTest
-
-@testable import protoc_gen_swift
+import protoc_gen_swift
 
 final class Test_SwiftProtobufNamer: XCTestCase {
 

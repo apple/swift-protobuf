@@ -9,10 +9,9 @@
 // -----------------------------------------------------------------------------
 
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 import SwiftProtobufTestHelpers
 import XCTest
-
-@testable import SwiftProtobufPluginLibrary
 
 // Helpers to make test cases.
 

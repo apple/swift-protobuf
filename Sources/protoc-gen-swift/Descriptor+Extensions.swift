@@ -65,7 +65,7 @@ extension FileDescriptor {
     // Aside: This could be moved into the plugin library, but it doesn't seem
     // like anyone else would need the logic. Swift GRPC support probably stick
     // with the support for the module mappings.
-    func computeImports(
+    package func computeImports(
         namer: SwiftProtobufNamer,
         directive: GeneratorOptions.ImportDirective,
         reexportPublicImports: Bool
@@ -250,7 +250,7 @@ extension Descriptor {
     ///
     /// This also uses Range<> since the options that could be on
     /// `extensionRanges` no longer can apply as the things have been merged.
-    var _normalizedExtensionRanges: [Range<Int32>] {
+    package var _normalizedExtensionRanges: [Range<Int32>] {
         self.messageExtensionRanges.map({ $0.start..<$0.end }).sortAndMergeContinuous()
     }
 
@@ -261,7 +261,7 @@ extension Descriptor {
     ///
     /// This also uses Range<> since the options that could be on
     /// `extensionRanges` no longer can apply as the things have been merged.
-    var _ambitiousExtensionRanges: [Range<Int32>] {
+    package var _ambitiousExtensionRanges: [Range<Int32>] {
         var merged = self._normalizedExtensionRanges
         if merged.count > 1 {
             var fieldNumbersReversedIterator =
@@ -466,17 +466,17 @@ extension EnumDescriptor {
 
     /// Helper object that computes the alias relationships of
     /// `EnumValueDescriptor`s for a given `EnumDescriptor`.
-    final class ValueAliasInfo {
+    package final class ValueAliasInfo {
         /// The `EnumValueDescriptor`s that are not aliases of another value. In
         /// the same order as the values on the `EnumDescriptor`.
-        let mainValues: [EnumValueDescriptor]
+        package let mainValues: [EnumValueDescriptor]
 
         /// Find the alias values for the given value.
         ///
         /// - Parameter value: The value descriptor to look up.
         /// - Returns The list of value descriptors that are aliases for this
         ///     value, or `nil` if there are no alias (or if this was an alias).
-        func aliases(_ value: EnumValueDescriptor) -> [EnumValueDescriptor]? {
+        package func aliases(_ value: EnumValueDescriptor) -> [EnumValueDescriptor]? {
             assert(mainValues.first!.enumType === value.enumType)
             return aliasesMap[value.index]
         }
@@ -485,7 +485,7 @@ extension EnumDescriptor {
         ///
         /// - Parameter value: The value descriptor to look up.
         /// - Returns The original/main value if this was an alias otherwise `nil`.
-        func original(of: EnumValueDescriptor) -> EnumValueDescriptor? {
+        package func original(of: EnumValueDescriptor) -> EnumValueDescriptor? {
             assert(mainValues.first!.enumType === of.enumType)
             return aliasOfMap[of.index]
         }
@@ -497,7 +497,7 @@ extension EnumDescriptor {
         private let aliasOfMap: [Int: EnumValueDescriptor]
 
         /// Initialize the mappings for the given `EnumDescriptor`.
-        init(enumDescriptor descriptor: EnumDescriptor) {
+        package init(enumDescriptor descriptor: EnumDescriptor) {
             var mainValues = [EnumValueDescriptor]()
             var aliasesMap = [Int: [EnumValueDescriptor]]()
             var aliasOfMap = [Int: EnumValueDescriptor]()

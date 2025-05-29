@@ -20,7 +20,7 @@ extension SwiftProtobufNamer {
     /// names. Only poorly named proto enum alias values get filtered
     /// away, so the assumption is they aren't really needed from an
     /// api pov.
-    func uniquelyNamedValues(
+    package func uniquelyNamedValues(
         valueAliasInfo aliasInfo: EnumDescriptor.ValueAliasInfo
     ) -> [EnumValueDescriptor] {
         aliasInfo.mainValues.first!.enumType.values.filter {
