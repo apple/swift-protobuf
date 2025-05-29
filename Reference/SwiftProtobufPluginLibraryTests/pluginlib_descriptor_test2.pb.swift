@@ -209,24 +209,8 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto3MessageForPresence"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "str_field"),
-    2: .standard(proto: "int32_field"),
-    3: .standard(proto: "enum_field"),
-    4: .standard(proto: "message_field"),
-    11: .standard(proto: "opt_str_field"),
-    12: .standard(proto: "opt_int32_field"),
-    13: .standard(proto: "opt_enum_field"),
-    14: .standard(proto: "opt_message_field"),
-    21: .standard(proto: "repeat_str_field"),
-    22: .standard(proto: "repeat_int32_field"),
-    23: .standard(proto: "repeat_enum_field"),
-    24: .standard(proto: "repeat_message_field"),
-    31: .standard(proto: "oneof_str_field"),
-    32: .standard(proto: "oneof_int32_field"),
-    33: .standard(proto: "oneof_enum_field"),
-    34: .standard(proto: "oneof_message_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}str_field\u{0}\u{2}\u{2}int32_field\u{0}\u{2}\u{3}enum_field\u{0}\u{2}\u{4}message_field\u{0}\u{2}\u{b}opt_str_field\u{0}\u{2}\u{c}opt_int32_field\u{0}\u{2}\u{d}opt_enum_field\u{0}\u{2}\u{e}opt_message_field\u{0}\u{2}\u{15}repeat_str_field\u{0}\u{2}\u{16}repeat_int32_field\u{0}\u{2}\u{17}repeat_enum_field\u{0}\u{2}\u{18}repeat_message_field\u{0}\u{2}\u{1f}oneof_str_field\u{0}\u{2} oneof_int32_field\u{0}\u{2}!oneof_enum_field\u{0}\u{2}\"oneof_message_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -371,18 +355,14 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
 }
 
 extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SUB_VALUE_0"),
-    1: .same(proto: "SUB_VALUE_1"),
-    2: .same(proto: "SUB_VALUE_2"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}SUB_VALUE_0\u{0}\u{1}\u{1}SUB_VALUE_1\u{0}\u{1}\u{2}SUB_VALUE_2\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OtherMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

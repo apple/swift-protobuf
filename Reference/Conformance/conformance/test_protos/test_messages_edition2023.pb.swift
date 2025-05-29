@@ -998,18 +998,14 @@ let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftProtobuf.Messa
 fileprivate let _protobuf_package = "protobuf_test_messages.editions"
 
 extension ProtobufTestMessages_Editions_ForeignEnumEdition2023: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOREIGN_FOO"),
-    1: .same(proto: "FOREIGN_BAR"),
-    2: .same(proto: "FOREIGN_BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}FOREIGN_FOO\u{0}\u{1}\u{1}FOREIGN_BAR\u{0}\u{1}\u{2}FOREIGN_BAZ\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ComplexMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}d\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1043,110 +1039,8 @@ extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.Message, S
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesEdition2023"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_int32"),
-    2: .standard(proto: "optional_int64"),
-    3: .standard(proto: "optional_uint32"),
-    4: .standard(proto: "optional_uint64"),
-    5: .standard(proto: "optional_sint32"),
-    6: .standard(proto: "optional_sint64"),
-    7: .standard(proto: "optional_fixed32"),
-    8: .standard(proto: "optional_fixed64"),
-    9: .standard(proto: "optional_sfixed32"),
-    10: .standard(proto: "optional_sfixed64"),
-    11: .standard(proto: "optional_float"),
-    12: .standard(proto: "optional_double"),
-    13: .standard(proto: "optional_bool"),
-    14: .standard(proto: "optional_string"),
-    15: .standard(proto: "optional_bytes"),
-    18: .standard(proto: "optional_nested_message"),
-    19: .standard(proto: "optional_foreign_message"),
-    21: .standard(proto: "optional_nested_enum"),
-    22: .standard(proto: "optional_foreign_enum"),
-    24: .standard(proto: "optional_string_piece"),
-    25: .standard(proto: "optional_cord"),
-    27: .standard(proto: "recursive_message"),
-    31: .standard(proto: "repeated_int32"),
-    32: .standard(proto: "repeated_int64"),
-    33: .standard(proto: "repeated_uint32"),
-    34: .standard(proto: "repeated_uint64"),
-    35: .standard(proto: "repeated_sint32"),
-    36: .standard(proto: "repeated_sint64"),
-    37: .standard(proto: "repeated_fixed32"),
-    38: .standard(proto: "repeated_fixed64"),
-    39: .standard(proto: "repeated_sfixed32"),
-    40: .standard(proto: "repeated_sfixed64"),
-    41: .standard(proto: "repeated_float"),
-    42: .standard(proto: "repeated_double"),
-    43: .standard(proto: "repeated_bool"),
-    44: .standard(proto: "repeated_string"),
-    45: .standard(proto: "repeated_bytes"),
-    48: .standard(proto: "repeated_nested_message"),
-    49: .standard(proto: "repeated_foreign_message"),
-    51: .standard(proto: "repeated_nested_enum"),
-    52: .standard(proto: "repeated_foreign_enum"),
-    54: .standard(proto: "repeated_string_piece"),
-    55: .standard(proto: "repeated_cord"),
-    75: .standard(proto: "packed_int32"),
-    76: .standard(proto: "packed_int64"),
-    77: .standard(proto: "packed_uint32"),
-    78: .standard(proto: "packed_uint64"),
-    79: .standard(proto: "packed_sint32"),
-    80: .standard(proto: "packed_sint64"),
-    81: .standard(proto: "packed_fixed32"),
-    82: .standard(proto: "packed_fixed64"),
-    83: .standard(proto: "packed_sfixed32"),
-    84: .standard(proto: "packed_sfixed64"),
-    85: .standard(proto: "packed_float"),
-    86: .standard(proto: "packed_double"),
-    87: .standard(proto: "packed_bool"),
-    88: .standard(proto: "packed_nested_enum"),
-    89: .standard(proto: "unpacked_int32"),
-    90: .standard(proto: "unpacked_int64"),
-    91: .standard(proto: "unpacked_uint32"),
-    92: .standard(proto: "unpacked_uint64"),
-    93: .standard(proto: "unpacked_sint32"),
-    94: .standard(proto: "unpacked_sint64"),
-    95: .standard(proto: "unpacked_fixed32"),
-    96: .standard(proto: "unpacked_fixed64"),
-    97: .standard(proto: "unpacked_sfixed32"),
-    98: .standard(proto: "unpacked_sfixed64"),
-    99: .standard(proto: "unpacked_float"),
-    100: .standard(proto: "unpacked_double"),
-    101: .standard(proto: "unpacked_bool"),
-    102: .standard(proto: "unpacked_nested_enum"),
-    56: .standard(proto: "map_int32_int32"),
-    57: .standard(proto: "map_int64_int64"),
-    58: .standard(proto: "map_uint32_uint32"),
-    59: .standard(proto: "map_uint64_uint64"),
-    60: .standard(proto: "map_sint32_sint32"),
-    61: .standard(proto: "map_sint64_sint64"),
-    62: .standard(proto: "map_fixed32_fixed32"),
-    63: .standard(proto: "map_fixed64_fixed64"),
-    64: .standard(proto: "map_sfixed32_sfixed32"),
-    65: .standard(proto: "map_sfixed64_sfixed64"),
-    66: .standard(proto: "map_int32_float"),
-    67: .standard(proto: "map_int32_double"),
-    68: .standard(proto: "map_bool_bool"),
-    69: .standard(proto: "map_string_string"),
-    70: .standard(proto: "map_string_bytes"),
-    71: .standard(proto: "map_string_nested_message"),
-    72: .standard(proto: "map_string_foreign_message"),
-    73: .standard(proto: "map_string_nested_enum"),
-    74: .standard(proto: "map_string_foreign_enum"),
-    111: .standard(proto: "oneof_uint32"),
-    112: .standard(proto: "oneof_nested_message"),
-    113: .standard(proto: "oneof_string"),
-    114: .standard(proto: "oneof_bytes"),
-    115: .standard(proto: "oneof_bool"),
-    116: .standard(proto: "oneof_uint64"),
-    117: .standard(proto: "oneof_float"),
-    118: .standard(proto: "oneof_double"),
-    119: .standard(proto: "oneof_enum"),
-    201: .same(proto: "groupliketype"),
-    201: .unique(proto: "GroupLikeType", json: "groupliketype"),
-    202: .standard(proto: "delimited_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}optional_int32\u{0}\u{2}\u{2}optional_int64\u{0}\u{2}\u{3}optional_uint32\u{0}\u{2}\u{4}optional_uint64\u{0}\u{2}\u{5}optional_sint32\u{0}\u{2}\u{6}optional_sint64\u{0}\u{2}\u{7}optional_fixed32\u{0}\u{2}\u{8}optional_fixed64\u{0}\u{2}\u{9}optional_sfixed32\u{0}\u{2}\u{a}optional_sfixed64\u{0}\u{2}\u{b}optional_float\u{0}\u{2}\u{c}optional_double\u{0}\u{2}\u{d}optional_bool\u{0}\u{2}\u{e}optional_string\u{0}\u{2}\u{f}optional_bytes\u{0}\u{2}\u{12}optional_nested_message\u{0}\u{2}\u{13}optional_foreign_message\u{0}\u{2}\u{15}optional_nested_enum\u{0}\u{2}\u{16}optional_foreign_enum\u{0}\u{2}\u{18}optional_string_piece\u{0}\u{2}\u{19}optional_cord\u{0}\u{2}\u{1b}recursive_message\u{0}\u{2}\u{1f}repeated_int32\u{0}\u{2} repeated_int64\u{0}\u{2}!repeated_uint32\u{0}\u{2}\"repeated_uint64\u{0}\u{2}#repeated_sint32\u{0}\u{2}$repeated_sint64\u{0}\u{2}%repeated_fixed32\u{0}\u{2}&repeated_fixed64\u{0}\u{2}'repeated_sfixed32\u{0}\u{2}(repeated_sfixed64\u{0}\u{2})repeated_float\u{0}\u{2}*repeated_double\u{0}\u{2}+repeated_bool\u{0}\u{2},repeated_string\u{0}\u{2}-repeated_bytes\u{0}\u{2}0repeated_nested_message\u{0}\u{2}1repeated_foreign_message\u{0}\u{2}3repeated_nested_enum\u{0}\u{2}4repeated_foreign_enum\u{0}\u{2}6repeated_string_piece\u{0}\u{2}7repeated_cord\u{0}\u{2}K\u{1}packed_int32\u{0}\u{2}L\u{1}packed_int64\u{0}\u{2}M\u{1}packed_uint32\u{0}\u{2}N\u{1}packed_uint64\u{0}\u{2}O\u{1}packed_sint32\u{0}\u{2}P\u{1}packed_sint64\u{0}\u{2}Q\u{1}packed_fixed32\u{0}\u{2}R\u{1}packed_fixed64\u{0}\u{2}S\u{1}packed_sfixed32\u{0}\u{2}T\u{1}packed_sfixed64\u{0}\u{2}U\u{1}packed_float\u{0}\u{2}V\u{1}packed_double\u{0}\u{2}W\u{1}packed_bool\u{0}\u{2}X\u{1}packed_nested_enum\u{0}\u{2}Y\u{1}unpacked_int32\u{0}\u{2}Z\u{1}unpacked_int64\u{0}\u{2}[\u{1}unpacked_uint32\u{0}\u{2}\\\u{1}unpacked_uint64\u{0}\u{2}]\u{1}unpacked_sint32\u{0}\u{2}^\u{1}unpacked_sint64\u{0}\u{2}_\u{1}unpacked_fixed32\u{0}\u{2}`\u{1}unpacked_fixed64\u{0}\u{2}a\u{1}unpacked_sfixed32\u{0}\u{2}b\u{1}unpacked_sfixed64\u{0}\u{2}c\u{1}unpacked_float\u{0}\u{2}d\u{1}unpacked_double\u{0}\u{2}e\u{1}unpacked_bool\u{0}\u{2}f\u{1}unpacked_nested_enum\u{0}\u{2}8map_int32_int32\u{0}\u{2}9map_int64_int64\u{0}\u{2}:map_uint32_uint32\u{0}\u{2};map_uint64_uint64\u{0}\u{2}<map_sint32_sint32\u{0}\u{2}=map_sint64_sint64\u{0}\u{2}>map_fixed32_fixed32\u{0}\u{2}?map_fixed64_fixed64\u{0}\u{2}@\u{1}map_sfixed32_sfixed32\u{0}\u{2}A\u{1}map_sfixed64_sfixed64\u{0}\u{2}B\u{1}map_int32_float\u{0}\u{2}C\u{1}map_int32_double\u{0}\u{2}D\u{1}map_bool_bool\u{0}\u{2}E\u{1}map_string_string\u{0}\u{2}F\u{1}map_string_bytes\u{0}\u{2}G\u{1}map_string_nested_message\u{0}\u{2}H\u{1}map_string_foreign_message\u{0}\u{2}I\u{1}map_string_nested_enum\u{0}\u{2}J\u{1}map_string_foreign_enum\u{0}\u{2}o\u{1}oneof_uint32\u{0}\u{2}p\u{1}oneof_nested_message\u{0}\u{2}q\u{1}oneof_string\u{0}\u{2}r\u{1}oneof_bytes\u{0}\u{2}s\u{1}oneof_bool\u{0}\u{2}t\u{1}oneof_uint64\u{0}\u{2}u\u{1}oneof_float\u{0}\u{2}v\u{1}oneof_double\u{0}\u{2}w\u{1}oneof_enum\u{0}\u{1}I\u{3}groupliketype\u{0}\u{3}I\u{3}GroupLikeType\u{0}groupliketype\u{0}\u{2}J\u{3}delimited_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -1987,20 +1881,14 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    -1: .same(proto: "NEG"),
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\u{0}\u{1}\u{0}FOO\u{0}\u{1}\u{1}BAR\u{0}\u{1}\u{2}BAZ\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "corecursive"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}a\u{0}\u{1}\u{2}corecursive\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _a: Int32? = nil
@@ -2084,10 +1972,8 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: S
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".GroupLikeType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    202: .standard(proto: "group_int32"),
-    203: .standard(proto: "group_uint32"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}J\u{3}group_int32\u{0}\u{2}K\u{3}group_uint32\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2126,9 +2012,8 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: S
 
 extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageEdition2023"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}c\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2162,9 +2047,8 @@ extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf
 
 extension ProtobufTestMessages_Editions_GroupLikeType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GroupLikeType"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}c\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

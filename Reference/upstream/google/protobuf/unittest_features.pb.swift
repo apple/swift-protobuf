@@ -458,41 +458,19 @@ extension Pb_TestMessage.Nested {
 fileprivate let _protobuf_package = "pb"
 
 extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_ENUM_FEATURE_UNKNOWN"),
-    1: .same(proto: "VALUE1"),
-    2: .same(proto: "VALUE2"),
-    3: .same(proto: "VALUE3"),
-    4: .same(proto: "VALUE4"),
-    5: .same(proto: "VALUE5"),
-    6: .same(proto: "VALUE6"),
-    7: .same(proto: "VALUE7"),
-    8: .same(proto: "VALUE8"),
-    9: .same(proto: "VALUE9"),
-    10: .same(proto: "VALUE10"),
-    11: .same(proto: "VALUE11"),
-    12: .same(proto: "VALUE12"),
-    13: .same(proto: "VALUE13"),
-    14: .same(proto: "VALUE14"),
-    15: .same(proto: "VALUE15"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}TEST_ENUM_FEATURE_UNKNOWN\u{0}\u{1}\u{1}VALUE1\u{0}\u{1}\u{2}VALUE2\u{0}\u{1}\u{3}VALUE3\u{0}\u{1}\u{4}VALUE4\u{0}\u{1}\u{5}VALUE5\u{0}\u{1}\u{6}VALUE6\u{0}\u{1}\u{7}VALUE7\u{0}\u{1}\u{8}VALUE8\u{0}\u{1}\u{9}VALUE9\u{0}\u{1}\u{a}VALUE10\u{0}\u{1}\u{b}VALUE11\u{0}\u{1}\u{c}VALUE12\u{0}\u{1}\u{d}VALUE13\u{0}\u{1}\u{e}VALUE14\u{0}\u{1}\u{f}VALUE15\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_VALUE_LIFETIME_UNKNOWN"),
-    1: .same(proto: "VALUE_LIFETIME_INHERITED"),
-    2: .same(proto: "VALUE_LIFETIME_SUPPORT"),
-    3: .same(proto: "VALUE_LIFETIME_EMPTY_SUPPORT"),
-    4: .same(proto: "VALUE_LIFETIME_FUTURE"),
-    5: .same(proto: "VALUE_LIFETIME_DEPRECATED"),
-    6: .same(proto: "VALUE_LIFETIME_REMOVED"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}TEST_VALUE_LIFETIME_UNKNOWN\u{0}\u{1}\u{1}VALUE_LIFETIME_INHERITED\u{0}\u{1}\u{2}VALUE_LIFETIME_SUPPORT\u{0}\u{1}\u{3}VALUE_LIFETIME_EMPTY_SUPPORT\u{0}\u{1}\u{4}VALUE_LIFETIME_FUTURE\u{0}\u{1}\u{5}VALUE_LIFETIME_DEPRECATED\u{0}\u{1}\u{6}VALUE_LIFETIME_REMOVED\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -511,7 +489,8 @@ extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 
 extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_TestMessage.protoMessageName + ".Nested"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -530,25 +509,8 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "file_feature"),
-    2: .standard(proto: "extension_range_feature"),
-    3: .standard(proto: "message_feature"),
-    4: .standard(proto: "field_feature"),
-    5: .standard(proto: "oneof_feature"),
-    6: .standard(proto: "enum_feature"),
-    7: .standard(proto: "enum_entry_feature"),
-    8: .standard(proto: "service_feature"),
-    9: .standard(proto: "method_feature"),
-    10: .standard(proto: "multiple_feature"),
-    11: .standard(proto: "bool_field_feature"),
-    15: .standard(proto: "source_feature"),
-    16: .standard(proto: "source_feature2"),
-    17: .standard(proto: "removed_feature"),
-    18: .standard(proto: "future_feature"),
-    19: .standard(proto: "legacy_feature"),
-    20: .standard(proto: "value_lifetime_feature"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}file_feature\u{0}\u{2}\u{2}extension_range_feature\u{0}\u{2}\u{3}message_feature\u{0}\u{2}\u{4}field_feature\u{0}\u{2}\u{5}oneof_feature\u{0}\u{2}\u{6}enum_feature\u{0}\u{2}\u{7}enum_entry_feature\u{0}\u{2}\u{8}service_feature\u{0}\u{2}\u{9}method_feature\u{0}\u{2}\u{a}multiple_feature\u{0}\u{2}\u{b}bool_field_feature\u{0}\u{2}\u{f}source_feature\u{0}\u{2}\u{10}source_feature2\u{0}\u{2}\u{11}removed_feature\u{0}\u{2}\u{12}future_feature\u{0}\u{2}\u{13}legacy_feature\u{0}\u{2}\u{14}value_lifetime_feature\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _fileFeature: Pb_EnumFeature? = nil
