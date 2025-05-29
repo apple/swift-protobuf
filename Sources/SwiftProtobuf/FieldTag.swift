@@ -19,21 +19,21 @@
 /// improper field number (such as zero) or wire format (such as 6 or 7) to
 /// exist. In other words, a `FieldTag`'s properties never need to be tested
 /// for validity because they are guaranteed correct at initialization time.
-internal struct FieldTag: RawRepresentable {
+package struct FieldTag: RawRepresentable {
 
-    typealias RawValue = UInt32
+    package typealias RawValue = UInt32
 
     /// The raw numeric value of the tag, which contains both the field number and
     /// wire format.
-    let rawValue: UInt32
+    package let rawValue: UInt32
 
     /// The field number component of the tag.
-    var fieldNumber: Int {
+    package var fieldNumber: Int {
         Int(rawValue >> 3)
     }
 
     /// The wire format component of the tag.
-    var wireFormat: WireFormat {
+    package var wireFormat: WireFormat {
         // This force-unwrap is safe because there are only two initialization
         // paths: one that takes a WireFormat directly (and is guaranteed valid at
         // compile-time), or one that takes a raw value but which only lets valid
@@ -43,7 +43,7 @@ internal struct FieldTag: RawRepresentable {
 
     /// A helper property that returns the number of bytes required to
     /// varint-encode this tag.
-    var encodedSize: Int {
+    package var encodedSize: Int {
         Varint.encodedSize(of: rawValue)
     }
 
@@ -51,7 +51,7 @@ internal struct FieldTag: RawRepresentable {
     ///
     /// Note that if the raw value given here is not a valid tag (for example, it
     /// has an invalid wire format), this initializer will fail.
-    init?(rawValue: UInt32) {
+    package init?(rawValue: UInt32) {
         // Verify that the field number and wire format are valid and fail if they
         // are not.
         guard rawValue & ~0x07 != 0,
@@ -63,7 +63,7 @@ internal struct FieldTag: RawRepresentable {
     }
 
     /// Creates a new tag by composing the given field number and wire format.
-    init(fieldNumber: Int, wireFormat: WireFormat) {
+    package init(fieldNumber: Int, wireFormat: WireFormat) {
         self.rawValue = UInt32(truncatingIfNeeded: fieldNumber) << 3 | UInt32(wireFormat.rawValue)
     }
 }

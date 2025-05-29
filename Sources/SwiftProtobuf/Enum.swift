@@ -49,7 +49,7 @@ extension Enum {
     ///
     /// Since the text format and JSON names are always identical, we don't need
     /// to distinguish them.
-    internal var name: _NameMap.Name? {
+    package var name: _NameMap.Name? {
         guard let nameProviding = Self.self as? any _ProtoNameProviding.Type else {
             return nil
         }

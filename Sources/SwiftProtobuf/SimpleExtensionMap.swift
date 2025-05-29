@@ -17,7 +17,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
     public typealias Element = AnyMessageExtension
 
     // Since type objects aren't Hashable, we can't do much better than this...
-    internal var fields = [Int: [any AnyMessageExtension]]()
+    package var fields = [Int: [any AnyMessageExtension]]()
 
     public init() {}
 

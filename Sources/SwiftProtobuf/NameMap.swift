@@ -88,7 +88,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// block of UTF-8 data) where possible.  In cases where the string
     /// has to be computed, it caches the UTF-8 bytes in an
     /// unmovable and immutable heap area.
-    internal struct Name: Hashable, CustomStringConvertible {
+    package struct Name: Hashable, CustomStringConvertible {
         // This should not be used outside of this file, as it requires
         // coordinating the lifecycle with the lifecycle of the pool
         // where the raw UTF8 gets interned.

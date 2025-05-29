@@ -13,9 +13,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 import XCTest
-
-@testable import SwiftProtobuf
 
 extension AnyMessageExtension {
     // Support equality to simplify testing of getting the correct errors.

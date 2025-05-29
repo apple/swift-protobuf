@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 /// Denotes the wire format by which a value is encoded in binary form.
-internal enum WireFormat: UInt8 {
+package enum WireFormat: UInt8 {
     case varint = 0
     case fixed64 = 1
     case lengthDelimited = 2
