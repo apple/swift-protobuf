@@ -119,8 +119,8 @@ The possible values for `Visibility` are:
 
 * `Internal` (default): No visibility is set for the types, so they get the
   default internal visibility.
-* `Package` (Swift 5.9 or later required): The visibility on the types is set to
- `package` so the types will be exposed across the whole Swift package they belong to.
+* `Package`: The visibility on the types is set to`package` so the types
+  will be exposed across the whole Swift package they belong to.
 * `Public`: The visibility on the types is set to `public` so the types will
   be exposed outside the module they are compiled into.
 
