@@ -237,7 +237,7 @@ struct Proto2Unittest_RawMessageSet: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Item: @unchecked Sendable {
+  struct Item: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.

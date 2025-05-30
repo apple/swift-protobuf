@@ -516,7 +516,7 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftProtoTesting_TestAllRequiredTypes.NestedMessage)
     case oneofString(String)
@@ -593,7 +593,7 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Sendable {
+struct SwiftProtoTesting_TestSomeRequiredTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.

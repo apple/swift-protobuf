@@ -696,7 +696,7 @@ struct Proto2Unittest_TestAllTypesLite: @unchecked Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto2Unittest_TestAllTypesLite.NestedMessage)
     case oneofString(String)
@@ -1272,7 +1272,7 @@ struct Proto2Unittest_V2MessageLite: Sendable {
   fileprivate var _enumField: Proto2Unittest_V2EnumLite? = nil
 }
 
-struct Proto2Unittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct Proto2Unittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1382,7 +1382,7 @@ struct Proto2Unittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage,
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(Proto2Unittest_TestAllTypesLite)
     case oneofString(String)
@@ -1423,7 +1423,7 @@ struct Proto2Unittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage,
   fileprivate var _optionalGroup: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
 }
 
-struct Proto2Unittest_TestOneofParsingLite: @unchecked Sendable {
+struct Proto2Unittest_TestOneofParsingLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1504,7 +1504,7 @@ struct Proto2Unittest_TestOneofParsingLite: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofInt32(Int32)
     case oneofSubmessage(Proto2Unittest_TestAllTypesLite)
     case oneofString(String)

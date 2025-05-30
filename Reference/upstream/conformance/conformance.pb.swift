@@ -183,7 +183,7 @@ struct Conformance_FailureSet: Sendable {
 ///   1. parse this proto (which should always succeed)
 ///   2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///   3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: @unchecked Sendable {
+struct Conformance_ConformanceRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -261,7 +261,7 @@ struct Conformance_ConformanceRequest: @unchecked Sendable {
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
-  enum OneOf_Payload: Equatable, @unchecked Sendable {
+  enum OneOf_Payload: Equatable, Sendable {
     case protobufPayload(Data)
     case jsonPayload(String)
     /// Only used inside Google.  Opensource testees just skip it.
@@ -276,7 +276,7 @@ struct Conformance_ConformanceRequest: @unchecked Sendable {
 }
 
 /// Represents a single test case's output.
-struct Conformance_ConformanceResponse: @unchecked Sendable {
+struct Conformance_ConformanceResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -382,7 +382,7 @@ struct Conformance_ConformanceResponse: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Result: Equatable, @unchecked Sendable {
+  enum OneOf_Result: Equatable, Sendable {
     /// This string should be set to indicate parsing failed.  The string can
     /// provide more information about the parse error if it is available.
     ///

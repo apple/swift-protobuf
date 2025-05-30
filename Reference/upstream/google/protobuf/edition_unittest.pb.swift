@@ -834,7 +834,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(EditionUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -3386,7 +3386,7 @@ struct EditionUnittest_MoreString: Sendable {
   init() {}
 }
 
-struct EditionUnittest_OneBytes: @unchecked Sendable {
+struct EditionUnittest_OneBytes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3407,7 +3407,7 @@ struct EditionUnittest_OneBytes: @unchecked Sendable {
   fileprivate var _data: Data? = nil
 }
 
-struct EditionUnittest_MoreBytes: @unchecked Sendable {
+struct EditionUnittest_MoreBytes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3991,7 +3991,7 @@ struct EditionUnittest_TestOneofBackwardsCompatible: Sendable {
   fileprivate var _fooGroup: EditionUnittest_TestOneofBackwardsCompatible.FooGroup? = nil
 }
 
-struct EditionUnittest_TestOneof2: @unchecked Sendable {
+struct EditionUnittest_TestOneof2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4180,7 +4180,7 @@ struct EditionUnittest_TestOneof2: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable, @unchecked Sendable {
+  enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooCord(String)
@@ -4194,7 +4194,7 @@ struct EditionUnittest_TestOneof2: @unchecked Sendable {
 
   }
 
-  enum OneOf_Bar: Equatable, @unchecked Sendable {
+  enum OneOf_Bar: Equatable, Sendable {
     case barInt(Int32)
     case barString(String)
     case barCord(String)
@@ -4573,7 +4573,7 @@ struct EditionUnittest_TestDynamicExtensions: Sendable {
   fileprivate var _dynamicMessageExtension: EditionUnittest_TestDynamicExtensions.DynamicMessageType? = nil
 }
 
-struct EditionUnittest_TestRepeatedString: @unchecked Sendable {
+struct EditionUnittest_TestRepeatedString: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4915,7 +4915,7 @@ struct EditionUnittest_TestEagerlyVerifiedLazyMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct LazyMessage: @unchecked Sendable {
+  struct LazyMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5083,7 +5083,7 @@ struct EditionUnittest_TestJsonName: Sendable {
   fileprivate var _fieldname7: Int32? = nil
 }
 
-struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5193,7 +5193,7 @@ struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, @u
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(EditionUnittest_TestAllTypes)
     case oneofString(String)
@@ -7089,7 +7089,7 @@ struct EditionUnittest_RedactedFields: Sendable {
   fileprivate var _optionalUnredactedMessage: EditionUnittest_TestNestedMessageRedaction? = nil
 }
 
-struct EditionUnittest_TestCord: @unchecked Sendable {
+struct EditionUnittest_TestCord: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.

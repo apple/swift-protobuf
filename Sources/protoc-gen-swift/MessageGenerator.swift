@@ -129,13 +129,8 @@ class MessageGenerator {
             conformances.append("\(namer.swiftProtobufModulePrefix)ExtensibleMessage")
         }
 
-        // Data isn't marked as Sendable on linux until Swift 5.9, so until then
-        // all messages with Data fields need to be manually marked as @unchecked.
-        //
         // Messages that have a storage class will always need @unchecked.
-        let needsUnchecked =
-            storage != nil
-            || descriptor.fields.contains { $0.type == .bytes }
+        let needsUnchecked = storage != nil
         conformances.append(needsUnchecked ? "@unchecked Sendable" : "Sendable")
 
         p.print(

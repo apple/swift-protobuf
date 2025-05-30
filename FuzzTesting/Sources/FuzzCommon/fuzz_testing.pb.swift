@@ -1644,7 +1644,7 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// oneof
-  public enum OneOf_O: Equatable, @unchecked Sendable {
+  public enum OneOf_O: Equatable, Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
