@@ -264,12 +264,8 @@ fileprivate let _protobuf_package = "swift_proto_testing.enum3"
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "values1"),
-    2: .same(proto: "values2"),
-    3: .same(proto: "values3"),
-    4: .same(proto: "values4"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}values1\u{0}\u{1}\u{2}values2\u{0}\u{1}\u{3}values3\u{0}\u{1}\u{4}values4\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -313,38 +309,29 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_1_FIRST_VALUE"),
-    2: .same(proto: "ENUM_TEST_1_SECOND_VALUE"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}ENUM_TEST_1_FIRST_VALUE\u{0}\u{1}\u{2}ENUM_TEST_1_SECOND_VALUE\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_2_FIRST_VALUE"),
-    2: .same(proto: "SECOND_VALUE"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}ENUM_TEST_2_FIRST_VALUE\u{0}\u{1}\u{2}SECOND_VALUE\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_NO_STEM_1"),
-    2: .same(proto: "ENUM_TEST_NO_STEM_2"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}ENUM_TEST_NO_STEM_1\u{0}\u{1}\u{2}ENUM_TEST_NO_STEM_2\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_RESERVED_WORD_VAR"),
-    2: .same(proto: "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}ENUM_TEST_RESERVED_WORD_VAR\u{0}\u{1}\u{2}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "values"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}values\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -373,9 +360,6 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .aliased(proto: "FOO1", aliases: ["FOO2"]),
-    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
-    3: .same(proto: "BAZ1"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{4}\u{0}FOO1\u{0}\u{1}FOO2\u{0}\u{4}\u{2}BAR1\u{0}\u{1}BAR2\u{0}\u{1}\u{3}BAZ1\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }

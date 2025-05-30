@@ -351,20 +351,14 @@ let Proto2Unittest_Extensions_test_nested_message_enum = SwiftProtobuf.MessageEx
 fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_NULL"),
-    1: .same(proto: "TEST_REDACTABLE"),
-    2: .same(proto: "TEST_NO_REDACT"),
-    3: .same(proto: "TEST_NO_REDACT_AGAIN"),
-    4: .same(proto: "TEST_REDACTABLE_FALSE"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}TEST_NULL\u{0}\u{1}\u{1}TEST_REDACTABLE\u{0}\u{1}\u{2}TEST_NO_REDACT\u{0}\u{1}\u{3}TEST_NO_REDACT_AGAIN\u{0}\u{1}\u{4}TEST_REDACTABLE_FALSE\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRedactedNestMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "foo"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}foo\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -398,9 +392,8 @@ extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.Message, SwiftPr
 
 extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedRedactedNestMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bar"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}bar\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -434,9 +427,8 @@ extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.Message,
 
 extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageEnum"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "redactable_enum"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}redactable_enum\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -466,11 +458,8 @@ extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageEnum"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "direct_enum"),
-    2: .standard(proto: "nested_enum"),
-    3: .standard(proto: "redacted_string"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}direct_enum\u{0}\u{2}\u{2}nested_enum\u{0}\u{2}\u{3}redacted_string\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -514,18 +503,8 @@ extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.Message, SwiftProt
 
 extension Proto2Unittest_TestRedactedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRedactedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "text_field"),
-    8: .standard(proto: "meta_annotated"),
-    9: .standard(proto: "repeated_meta_annotated"),
-    10: .standard(proto: "unredacted_repeated_annotations"),
-    17: .standard(proto: "unreported_non_meta_debug_redact_field"),
-    18: .standard(proto: "any_field"),
-    19: .standard(proto: "redactable_false"),
-    22: .standard(proto: "test_direct_message_enum"),
-    23: .standard(proto: "test_nested_message_enum"),
-    24: .standard(proto: "test_redacted_message_enum"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}text_field\u{0}\u{2}\u{8}meta_annotated\u{0}\u{2}\u{9}repeated_meta_annotated\u{0}\u{2}\u{a}unredacted_repeated_annotations\u{0}\u{2}\u{11}unreported_non_meta_debug_redact_field\u{0}\u{2}\u{12}any_field\u{0}\u{2}\u{13}redactable_false\u{0}\u{2}\u{16}test_direct_message_enum\u{0}\u{2}\u{17}test_nested_message_enum\u{0}\u{2}\u{18}test_redacted_message_enum\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

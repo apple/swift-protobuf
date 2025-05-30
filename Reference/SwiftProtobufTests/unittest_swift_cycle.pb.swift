@@ -172,11 +172,8 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_foo"),
-    2: .standard(proto: "a_bar"),
-    3: .standard(proto: "a_baz"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}a_foo\u{0}\u{2}\u{2}a_bar\u{0}\u{2}\u{3}a_baz\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _aFoo: SwiftProtoTesting_CycleFoo? = nil
@@ -260,11 +257,8 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_bar"),
-    2: .standard(proto: "a_baz"),
-    3: .standard(proto: "a_foo"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}a_bar\u{0}\u{2}\u{2}a_baz\u{0}\u{2}\u{3}a_foo\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _aBar: SwiftProtoTesting_CycleBar? = nil
@@ -348,11 +342,8 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_baz"),
-    2: .standard(proto: "a_foo"),
-    3: .standard(proto: "a_bar"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}a_baz\u{0}\u{2}\u{2}a_foo\u{0}\u{2}\u{3}a_bar\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _aBaz: SwiftProtoTesting_CycleBaz? = nil

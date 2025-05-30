@@ -95,23 +95,14 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: Sendable {
 fileprivate let _protobuf_package = "proto2_preserve_unknown_enum_unittest"
 
 extension Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}FOO\u{0}\u{1}\u{1}BAR\u{0}\u{1}\u{2}BAZ\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "e"),
-    2: .standard(proto: "repeated_e"),
-    3: .standard(proto: "repeated_packed_e"),
-    4: .standard(proto: "repeated_packed_unexpected_e"),
-    5: .standard(proto: "oneof_e_1"),
-    6: .standard(proto: "oneof_e_2"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}e\u{0}\u{2}\u{2}repeated_e\u{0}\u{2}\u{3}repeated_packed_e\u{0}\u{2}\u{4}repeated_packed_unexpected_e\u{0}\u{2}\u{5}oneof_e_1\u{0}\u{2}\u{6}oneof_e_2\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

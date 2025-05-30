@@ -485,23 +485,14 @@ extension SDTScoperForExt {
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "VALUE_ZERO"),
-    1: .same(proto: "VALUE_ONE"),
-    2: .same(proto: "VALUE_TWO"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}VALUE_ZERO\u{0}\u{1}\u{1}VALUE_ONE\u{0}\u{1}\u{2}VALUE_TWO\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-    4: .same(proto: "field4"),
-    5: .same(proto: "field5"),
-    6: .same(proto: "field6"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}field1\u{0}\u{1}\u{2}field2\u{0}\u{1}\u{3}field3\u{0}\u{1}\u{4}field4\u{0}\u{1}\u{5}field5\u{0}\u{1}\u{6}field6\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _field1: String? = nil
@@ -641,20 +632,14 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SUB_VALUE_0"),
-    1: .same(proto: "SUB_VALUE_1"),
-    2: .same(proto: "SUB_VALUE_2"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}SUB_VALUE_0\u{0}\u{1}\u{1}SUB_VALUE_1\u{0}\u{1}\u{2}SUB_VALUE_2\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}field1\u{0}\u{1}\u{2}field2\u{0}\u{1}\u{3}field3\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _field1: Int32? = nil
@@ -738,10 +723,8 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "left"),
-    2: .same(proto: "right"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}left\u{0}\u{1}\u{2}right\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _left: SDTTopLevelMessage? = nil
@@ -818,10 +801,8 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
 extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "one"),
-    2: .same(proto: "ver"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}one\u{0}\u{1}\u{2}ver\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if let v = self._one, !v.isInitialized {return false}
@@ -865,7 +846,8 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ScoperForExt"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -884,24 +866,8 @@ extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto2MessageForPresence"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "req_str_field"),
-    2: .standard(proto: "req_int32_field"),
-    3: .standard(proto: "req_enum_field"),
-    4: .standard(proto: "req_message_field"),
-    11: .standard(proto: "opt_str_field"),
-    12: .standard(proto: "opt_int32_field"),
-    13: .standard(proto: "opt_enum_field"),
-    14: .standard(proto: "opt_message_field"),
-    21: .standard(proto: "repeat_str_field"),
-    22: .standard(proto: "repeat_int32_field"),
-    23: .standard(proto: "repeat_enum_field"),
-    24: .standard(proto: "repeat_message_field"),
-    31: .standard(proto: "oneof_str_field"),
-    32: .standard(proto: "oneof_int32_field"),
-    33: .standard(proto: "oneof_enum_field"),
-    34: .standard(proto: "oneof_message_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}req_str_field\u{0}\u{2}\u{2}req_int32_field\u{0}\u{2}\u{3}req_enum_field\u{0}\u{2}\u{4}req_message_field\u{0}\u{2}\u{b}opt_str_field\u{0}\u{2}\u{c}opt_int32_field\u{0}\u{2}\u{d}opt_enum_field\u{0}\u{2}\u{e}opt_message_field\u{0}\u{2}\u{15}repeat_str_field\u{0}\u{2}\u{16}repeat_int32_field\u{0}\u{2}\u{17}repeat_enum_field\u{0}\u{2}\u{18}repeat_message_field\u{0}\u{2}\u{1f}oneof_str_field\u{0}\u{2} oneof_int32_field\u{0}\u{2}!oneof_enum_field\u{0}\u{2}\"oneof_message_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if self._reqStrField == nil {return false}

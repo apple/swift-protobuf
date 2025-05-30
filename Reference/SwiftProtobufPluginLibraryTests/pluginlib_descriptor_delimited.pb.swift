@@ -91,13 +91,8 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EditionsMessageForDelimited"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "scalar_field"),
-    2: .standard(proto: "map_field"),
-    3: .standard(proto: "message_map_field"),
-    4: .standard(proto: "delimited_field"),
-    5: .standard(proto: "length_prefixed_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}scalar_field\u{0}\u{2}\u{2}map_field\u{0}\u{2}\u{3}message_map_field\u{0}\u{2}\u{4}delimited_field\u{0}\u{2}\u{5}length_prefixed_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _scalarField: Int32? = nil

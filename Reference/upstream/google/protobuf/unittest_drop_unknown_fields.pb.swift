@@ -143,10 +143,8 @@ fileprivate let _protobuf_package = "unittest_drop_unknown_fields"
 
 extension UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Foo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int32_value"),
-    2: .standard(proto: "enum_value"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}int32_value\u{0}\u{2}\u{2}enum_value\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -180,20 +178,14 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension UnittestDropUnknownFields_Foo.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}FOO\u{0}\u{1}\u{1}BAR\u{0}\u{1}\u{2}BAZ\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FooWithExtraFields"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int32_value"),
-    2: .standard(proto: "enum_value"),
-    3: .standard(proto: "extra_int32_value"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}int32_value\u{0}\u{2}\u{2}enum_value\u{0}\u{2}\u{3}extra_int32_value\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -232,10 +224,6 @@ extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, S
 }
 
 extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-    3: .same(proto: "MOO"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}FOO\u{0}\u{1}\u{1}BAR\u{0}\u{1}\u{2}BAZ\u{0}\u{1}\u{3}MOO\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
