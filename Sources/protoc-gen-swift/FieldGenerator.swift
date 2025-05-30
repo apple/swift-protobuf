@@ -69,7 +69,7 @@ class FieldGeneratorBase {
         // so let's just put the field name that Protobuf Text
         // actually uses here.
         let protoName: String
-        if fieldDescriptor.internal_isGroupLike {
+        if fieldDescriptor.isGroupLike {
             protoName = fieldDescriptor.messageType!.name
         } else {
             protoName = fieldDescriptor.name
@@ -98,7 +98,7 @@ class FieldGeneratorBase {
         // we add two entries, to provide both options for TextFormat, but we add
         // the preferred one second, so when the runtime builds up the mappings,
         // it will become the default for what gets used when generating TextFormat.
-        if fieldDescriptor.internal_isGroupLike && protoName != fieldDescriptor.name {
+        if fieldDescriptor.isGroupLike && protoName != fieldDescriptor.name {
             let nameLowercase = protoName.lowercased()
             if nameLowercase == jsonName {
                 return [".same(proto: \"\(nameLowercase)\")", result]

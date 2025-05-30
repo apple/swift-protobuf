@@ -389,8 +389,8 @@ final class Test_Descriptor: XCTestCase {
         let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
         let file = try XCTUnwrap(msg.file)
 
-        XCTAssertTrue(try XCTUnwrap(msg.field(named: "grouplike")).internal_isGroupLike)
-        XCTAssertTrue(try XCTUnwrap(file.extensionField(named: "grouplikefilescope")).internal_isGroupLike)
+        XCTAssertTrue(try XCTUnwrap(msg.field(named: "grouplike")).isGroupLike)
+        XCTAssertTrue(try XCTUnwrap(file.extensionField(named: "grouplikefilescope")).isGroupLike)
     }
 
     func testIsGroupLike_GroupLikeNotDelimited() throws {
@@ -400,8 +400,8 @@ final class Test_Descriptor: XCTestCase {
         let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
         let file = try XCTUnwrap(msg.file)
 
-        XCTAssertFalse(try XCTUnwrap(msg.field(named: "lengthprefixed")).internal_isGroupLike)
-        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "lengthprefixed")).internal_isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(msg.field(named: "lengthprefixed")).isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "lengthprefixed")).isGroupLike)
     }
 
     func testIsGroupLike_GroupLikeMismatchedName() throws {
@@ -411,8 +411,8 @@ final class Test_Descriptor: XCTestCase {
         let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
         let file = try XCTUnwrap(msg.file)
 
-        XCTAssertFalse(try XCTUnwrap(msg.field(named: "notgrouplike")).internal_isGroupLike)
-        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "not_group_like_scope")).internal_isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(msg.field(named: "notgrouplike")).isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "not_group_like_scope")).isGroupLike)
     }
 
     func testIsGroupLike_GroupLikeMismatchedScope() throws {
@@ -422,8 +422,8 @@ final class Test_Descriptor: XCTestCase {
         let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
         let file = try XCTUnwrap(msg.file)
 
-        XCTAssertFalse(try XCTUnwrap(msg.field(named: "notgrouplikescope")).internal_isGroupLike)
-        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "grouplike")).internal_isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(msg.field(named: "notgrouplikescope")).isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "grouplike")).isGroupLike)
     }
 
     func testIsGroupLike_GroupLikeMismatchedFile() throws {
@@ -433,8 +433,8 @@ final class Test_Descriptor: XCTestCase {
         let msg = try XCTUnwrap(descriptorSet.descriptor(named: EditionsUnittest_TestDelimited.protoMessageName))
         let file = try XCTUnwrap(msg.file)
 
-        XCTAssertFalse(try XCTUnwrap(msg.field(named: "messageimport")).internal_isGroupLike)
-        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "messageimport")).internal_isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(msg.field(named: "messageimport")).isGroupLike)
+        XCTAssertFalse(try XCTUnwrap(file.extensionField(named: "messageimport")).isGroupLike)
     }
 
     func testExtractProto_Options() throws {

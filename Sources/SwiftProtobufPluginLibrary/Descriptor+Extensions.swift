@@ -121,19 +121,18 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
     /// Groups use the underlying message's name. The way groups are declared in
     /// proto files, the filed names is derived by lowercasing the Group's name,
     /// so there are no underscores, etc. to rebuild a camel case name from.
-    var namingBase: String {
-        internal_isGroupLike ? messageType!.name : name
-    }
+    var namingBase: String { isGroupLike ? messageType!.name : name }
+
+    /// TODO: Remove this when it is safe to make breaking changes.
+    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    public var internal_isGroupLike: Bool { isGroupLike }
 
     /// Helper to see if this is "group-like". Edition 2024 will likely provide
     /// a new feature to better deal with this. See upsteam protobuf for more
     /// details on the problem.
     ///
-    ///  This models upstream internal::cpp::IsGroupLike().
-    ///
-    ///  TODO(thomasvl): make this `package` instead of `public` and drop the
-    ///  "internal" part from the name when 5.9 is the baseline.
-    public var internal_isGroupLike: Bool {
+    /// This models upstream internal::cpp::IsGroupLike().
+    package var isGroupLike: Bool {
         guard type == .group else {
             return false
         }
