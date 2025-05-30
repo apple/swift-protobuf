@@ -1137,7 +1137,7 @@ public final class FieldDescriptor {
 
     /// Returns true if this field was syntactically written with "optional" in the
     /// .proto file. Excludes singular proto3 fields that do not have a label.
-    var _hasOptionalKeyword: Bool {
+    package var _hasOptionalKeyword: Bool {
         // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
         // impl.
         proto3Optional || (file.edition == .proto2 && !isRequired && !isRepeated && oneofIndex == nil)

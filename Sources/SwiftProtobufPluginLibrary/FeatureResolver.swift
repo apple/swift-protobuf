@@ -27,9 +27,9 @@ extension Google_Protobuf_MethodOptions: ProvidesFeatureSets {}
 
 /// Encapsulates the process of Feature resolution, sorta like the upstream
 /// `feature_resolver.cpp`.
-class FeatureResolver {
+package class FeatureResolver {
 
-    enum Error: Swift.Error, Equatable, CustomStringConvertible {
+    package enum Error: Swift.Error, Equatable, CustomStringConvertible {
         case unsupported(
             edition: Google_Protobuf_Edition,
             supported: ClosedRange<Google_Protobuf_Edition>
@@ -37,7 +37,7 @@ class FeatureResolver {
         case noDefault(edition: Google_Protobuf_Edition)
         case invalidExtension(type: String)
 
-        var description: String {
+        package var description: String {
             switch self {
             case .unsupported(let edition, let supported):
                 return "Edition \(edition) is not in the supported range (\(supported))"
@@ -50,9 +50,9 @@ class FeatureResolver {
     }
 
     /// The requested Edition.
-    let edition: Google_Protobuf_Edition
+    package let edition: Google_Protobuf_Edition
     /// The detaults to use for this edition.
-    let defaultFeatureSet: Google_Protobuf_FeatureSet
+    package let defaultFeatureSet: Google_Protobuf_FeatureSet
 
     private let extensionMap: (any ExtensionMap)?
 
@@ -70,7 +70,7 @@ class FeatureResolver {
     /// - Returns: A configured resolver for the given edition/defaults.
     /// - Throws: `FeatureResolver.Error` if there edition requested can't be
     ///           supported by the given defaults.
-    init(
+    package init(
         edition: Google_Protobuf_Edition,
         featureSetDefaults defaults: Google_Protobuf_FeatureSetDefaults,
         featureExtensions extensions: [any AnyMessageExtension] = []
@@ -127,7 +127,7 @@ class FeatureResolver {
     ///
     /// This needs to the full FieldDescriptorProto incase it has to do fallback
     /// inference.
-    func resolve(
+    package func resolve(
         _ proto: Google_Protobuf_FieldDescriptorProto,
         resolvedParent: Google_Protobuf_FeatureSet
     ) -> Google_Protobuf_FeatureSet {
@@ -172,7 +172,7 @@ class FeatureResolver {
     }
 
     /// Helper to do the merging.
-    func resolve(
+    package func resolve(
         features: Google_Protobuf_FeatureSet?,
         resolvedParent: Google_Protobuf_FeatureSet
     ) -> Google_Protobuf_FeatureSet {

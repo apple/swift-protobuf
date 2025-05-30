@@ -9,9 +9,8 @@
 // -----------------------------------------------------------------------------
 
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 import XCTest
-
-@testable import SwiftProtobufPluginLibrary
 
 extension FileDescriptor {
     func extensionField(named: String) -> FieldDescriptor? {
