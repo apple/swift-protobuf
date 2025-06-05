@@ -203,6 +203,12 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	@mkdir -p _test/CompileTests/Proto3OptionalAsSwiftOptional
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/Proto3OptionalAsSwiftOptional \
+		--tfiws_opt=Proto3OptionalAsSwiftOptional=true \
+		--tfiws_out=_test/CompileTests/Proto3OptionalAsSwiftOptional \
+		`(find Protos/CompileTests/Proto3OptionalAsSwiftOptional -type f -name "*.proto")`
 	diff -ru _test Reference
 
 # Test the SPM plugin.
@@ -536,7 +542,7 @@ regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT}
 # We use the plugin for the InternalImportsByDefault test, so we don't actually need to regenerate
 # anything. However, to keep the protos centralised in a single place (the Protos directory),
 # this simply copies those files to the InternalImportsByDefault package in case they change.
-copy-compiletests-internalimportsbydefault-protos: 
+copy-compiletests-internalimportsbydefault-protos:
 	@cp Protos/CompileTests/InternalImportsByDefault/* CompileTests/InternalImportsByDefault/Sources/InternalImportsByDefault/Protos
 
 # Helper to check if there is a protobuf checkout as expected.

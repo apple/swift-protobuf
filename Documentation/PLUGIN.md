@@ -201,6 +201,20 @@ mappings will be preceded by a visibility modifier corresponding to the visibili
 **Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports. 
 Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
 
+##### Generation Option: `Proto3OptionalAsSwiftOptional` - generates proto3 optionals as swift optionals
+
+By default the code generator does not generate swift optionals for proto3 optionals, this option changes that by generating swift optionals **only** for proto3 optionals
+
+```
+$ protoc --swift_opt=Proto3OptionalAsSwiftOptional=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `Proto3OptionalAsSwiftOptional` are:
+
+* `false`: Default option, no swift optionals are generated.
+* `true`: Swift optionals are generated for proto3 optionals
+
+**Important:** This goes against the design principles of proto3, so should be used with caution. A detailed explanation can be found [here](./INTERNALS.md#field-storage).
 
 ### Building your project
 
