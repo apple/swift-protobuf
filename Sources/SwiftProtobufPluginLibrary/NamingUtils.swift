@@ -366,7 +366,7 @@ private enum CamelCaser {
 public enum NamingUtils {
 
     // Returns the type prefix to use for a given
-    static func typePrefix(protoPackage: String, fileOptions: Google_Protobuf_FileOptions) -> String {
+    package static func typePrefix(protoPackage: String, fileOptions: Google_Protobuf_FileOptions) -> String {
         // Explicit option (including blank), wins.
         if fileOptions.hasSwiftPrefix {
             return fileOptions.swiftPrefix
@@ -420,16 +420,16 @@ public enum NamingUtils {
     /// NOTE: Since this is acting on proto enum names and enum cases, we know
     /// the values must be _identifier_s which is defined (in Tokenizer::Next() as
     /// `[a-zA-Z_][a-zA-Z0-9_]*`, so this code is based on that limited input.
-    struct PrefixStripper {
+    package struct PrefixStripper {
         private let prefixChars: String.UnicodeScalarView
 
-        init(prefix: String) {
+        package init(prefix: String) {
             self.prefixChars = prefix.lowercased().replacingOccurrences(of: "_", with: "").unicodeScalars
         }
 
         /// Strip the prefix and return the result, or return nil if it can't
         /// be stripped.
-        func strip(from: String) -> String? {
+        package func strip(from: String) -> String? {
             var prefixIndex = prefixChars.startIndex
             let prefixEnd = prefixChars.endIndex
 
@@ -483,19 +483,19 @@ public enum NamingUtils {
         }
     }
 
-    static func sanitize(messageName s: String, forbiddenTypeNames: Set<String>) -> String {
+    package static func sanitize(messageName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Message", forbiddenTypeNames: forbiddenTypeNames)
     }
 
-    static func sanitize(enumName s: String, forbiddenTypeNames: Set<String>) -> String {
+    package static func sanitize(enumName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Enum", forbiddenTypeNames: forbiddenTypeNames)
     }
 
-    static func sanitize(oneofName s: String, forbiddenTypeNames: Set<String>) -> String {
+    package static func sanitize(oneofName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Oneof", forbiddenTypeNames: forbiddenTypeNames)
     }
 
-    static func sanitize(fieldName s: String, basedOn: String) -> String {
+    package static func sanitize(fieldName s: String, basedOn: String) -> String {
         if basedOn.hasPrefix("clear") && isCharacterUppercase(basedOn, index: 5) {
             return s + "_p"
         } else if basedOn.hasPrefix("has") && isCharacterUppercase(basedOn, index: 3) {
@@ -513,11 +513,11 @@ public enum NamingUtils {
         }
     }
 
-    static func sanitize(fieldName s: String) -> String {
+    package static func sanitize(fieldName s: String) -> String {
         sanitize(fieldName: s, basedOn: s)
     }
 
-    static func sanitize(enumCaseName s: String) -> String {
+    package static func sanitize(enumCaseName s: String) -> String {
         if reservedEnumCases.contains(s) {
             return "\(s)_"
         } else if quotableEnumCases.contains(s) {
@@ -529,7 +529,7 @@ public enum NamingUtils {
         }
     }
 
-    static func sanitize(messageScopedExtensionName s: String) -> String {
+    package static func sanitize(messageScopedExtensionName s: String) -> String {
         if reservedMessageScopedExtensionNames.contains(s) {
             return "\(s)_"
         } else if quotableMessageScopedExtensionNames.contains(s) {
@@ -545,7 +545,7 @@ public enum NamingUtils {
     /// the rest of the characters in their existing case.
     ///
     /// Use toUpperCamelCase() to get leading "HTTP", "URL", etc. correct.
-    static func uppercaseFirstCharacter(_ s: String) -> String {
+    package static func uppercaseFirstCharacter(_ s: String) -> String {
         let out = s.unicodeScalars
         if let first = out.first {
             var result = makeUnicodeScalarView(from: first.ascUppercased())
@@ -572,7 +572,7 @@ public enum NamingUtils {
         CamelCaser.transform(s, initialUpperCase: false)
     }
 
-    static func trimBackticks(_ s: String) -> String {
+    package static func trimBackticks(_ s: String) -> String {
         // This only has to deal with the backticks added when computing relative names, so
         // they are always matched and a single set.
         let backtick = "`"

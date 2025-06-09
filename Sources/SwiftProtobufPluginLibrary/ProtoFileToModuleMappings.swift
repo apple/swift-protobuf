@@ -36,7 +36,7 @@ public struct ProtoFileToModuleMappings {
     /// Proto file name to module name.
     /// This is really `private` to this type, it is just `internal` so the tests can
     /// access it to verify things.
-    let mappings: [String: String]
+    package let mappings: [String: String]
 
     /// A Boolean value that indicates that there were developer provided
     /// mappings.

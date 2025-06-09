@@ -10,7 +10,7 @@
 
 import SwiftProtobufPluginLibrary
 
-class GeneratorOptions {
+package class GeneratorOptions {
     enum OutputNaming {
         case fullPath
         case pathToUnderscores
@@ -30,7 +30,7 @@ class GeneratorOptions {
         }
     }
 
-    enum Visibility: String {
+    package enum Visibility: String {
         case `internal`
         case `public`
         case `package`
@@ -40,7 +40,7 @@ class GeneratorOptions {
         }
     }
 
-    enum ImportDirective: Equatable {
+    package enum ImportDirective: Equatable {
         case accessLevel(Visibility)
         case plain
         case implementationOnly

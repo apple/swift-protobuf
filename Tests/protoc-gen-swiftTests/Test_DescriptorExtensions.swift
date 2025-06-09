@@ -11,8 +11,7 @@
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import XCTest
-
-@testable import protoc_gen_swift
+import protoc_gen_swift
 
 private typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
 
