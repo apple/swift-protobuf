@@ -684,7 +684,7 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable, @unchecked Sendable {
+  enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftProtoTesting_TestAllTypes.NestedMessage)
     case oneofString(String)

@@ -226,7 +226,7 @@ struct Google_Protobuf_StringValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_BytesValue: @unchecked Sendable {
+struct Google_Protobuf_BytesValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.

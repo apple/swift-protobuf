@@ -2114,7 +2114,7 @@ struct Google_Protobuf_MethodOptions: ExtensibleMessage, Sendable {
 /// options protos in descriptor objects (e.g. returned by Descriptor::options(),
 /// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
 /// in them.
-struct Google_Protobuf_UninterpretedOption: @unchecked Sendable {
+struct Google_Protobuf_UninterpretedOption: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
