@@ -342,7 +342,8 @@ extension SwiftReservedTestExt2 {
 
 extension SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftReservedTestExt2"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields

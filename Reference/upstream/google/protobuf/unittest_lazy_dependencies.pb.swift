@@ -80,9 +80,8 @@ fileprivate let _protobuf_package = "proto2_unittest.lazy_imports"
 
 extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "lazy_message"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}lazy_message\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -116,7 +115,8 @@ extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, Swi
 
 extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -135,7 +135,8 @@ extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message,
 
 extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption2"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields

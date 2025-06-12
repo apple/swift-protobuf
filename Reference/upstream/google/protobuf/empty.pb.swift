@@ -73,7 +73,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Empty: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Empty"
-  static let _protobuf_nameMap = _NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields

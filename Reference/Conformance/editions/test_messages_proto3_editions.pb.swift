@@ -1158,171 +1158,14 @@ struct ProtobufTestMessages_Editions_Proto3_EnumOnlyProto3: Sendable {
 fileprivate let _protobuf_package = "protobuf_test_messages.editions.proto3"
 
 extension ProtobufTestMessages_Editions_Proto3_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOREIGN_FOO"),
-    1: .same(proto: "FOREIGN_BAR"),
-    2: .same(proto: "FOREIGN_BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}FOREIGN_FOO\u{0}\u{1}\u{1}FOREIGN_BAR\u{0}\u{1}\u{2}FOREIGN_BAZ\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesProto3"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
-      reservedNames: ["reserved_field"],
-      reservedRanges: [501..<511, 999999..<1000000],
-      numberNameMappings: [
-        1: .standard(proto: "optional_int32"),
-        2: .standard(proto: "optional_int64"),
-        3: .standard(proto: "optional_uint32"),
-        4: .standard(proto: "optional_uint64"),
-        5: .standard(proto: "optional_sint32"),
-        6: .standard(proto: "optional_sint64"),
-        7: .standard(proto: "optional_fixed32"),
-        8: .standard(proto: "optional_fixed64"),
-        9: .standard(proto: "optional_sfixed32"),
-        10: .standard(proto: "optional_sfixed64"),
-        11: .standard(proto: "optional_float"),
-        12: .standard(proto: "optional_double"),
-        13: .standard(proto: "optional_bool"),
-        14: .standard(proto: "optional_string"),
-        15: .standard(proto: "optional_bytes"),
-        18: .standard(proto: "optional_nested_message"),
-        19: .standard(proto: "optional_foreign_message"),
-        21: .standard(proto: "optional_nested_enum"),
-        22: .standard(proto: "optional_foreign_enum"),
-        23: .standard(proto: "optional_aliased_enum"),
-        24: .standard(proto: "optional_string_piece"),
-        25: .standard(proto: "optional_cord"),
-        27: .standard(proto: "recursive_message"),
-        31: .standard(proto: "repeated_int32"),
-        32: .standard(proto: "repeated_int64"),
-        33: .standard(proto: "repeated_uint32"),
-        34: .standard(proto: "repeated_uint64"),
-        35: .standard(proto: "repeated_sint32"),
-        36: .standard(proto: "repeated_sint64"),
-        37: .standard(proto: "repeated_fixed32"),
-        38: .standard(proto: "repeated_fixed64"),
-        39: .standard(proto: "repeated_sfixed32"),
-        40: .standard(proto: "repeated_sfixed64"),
-        41: .standard(proto: "repeated_float"),
-        42: .standard(proto: "repeated_double"),
-        43: .standard(proto: "repeated_bool"),
-        44: .standard(proto: "repeated_string"),
-        45: .standard(proto: "repeated_bytes"),
-        48: .standard(proto: "repeated_nested_message"),
-        49: .standard(proto: "repeated_foreign_message"),
-        51: .standard(proto: "repeated_nested_enum"),
-        52: .standard(proto: "repeated_foreign_enum"),
-        54: .standard(proto: "repeated_string_piece"),
-        55: .standard(proto: "repeated_cord"),
-        75: .standard(proto: "packed_int32"),
-        76: .standard(proto: "packed_int64"),
-        77: .standard(proto: "packed_uint32"),
-        78: .standard(proto: "packed_uint64"),
-        79: .standard(proto: "packed_sint32"),
-        80: .standard(proto: "packed_sint64"),
-        81: .standard(proto: "packed_fixed32"),
-        82: .standard(proto: "packed_fixed64"),
-        83: .standard(proto: "packed_sfixed32"),
-        84: .standard(proto: "packed_sfixed64"),
-        85: .standard(proto: "packed_float"),
-        86: .standard(proto: "packed_double"),
-        87: .standard(proto: "packed_bool"),
-        88: .standard(proto: "packed_nested_enum"),
-        89: .standard(proto: "unpacked_int32"),
-        90: .standard(proto: "unpacked_int64"),
-        91: .standard(proto: "unpacked_uint32"),
-        92: .standard(proto: "unpacked_uint64"),
-        93: .standard(proto: "unpacked_sint32"),
-        94: .standard(proto: "unpacked_sint64"),
-        95: .standard(proto: "unpacked_fixed32"),
-        96: .standard(proto: "unpacked_fixed64"),
-        97: .standard(proto: "unpacked_sfixed32"),
-        98: .standard(proto: "unpacked_sfixed64"),
-        99: .standard(proto: "unpacked_float"),
-        100: .standard(proto: "unpacked_double"),
-        101: .standard(proto: "unpacked_bool"),
-        102: .standard(proto: "unpacked_nested_enum"),
-        56: .standard(proto: "map_int32_int32"),
-        57: .standard(proto: "map_int64_int64"),
-        58: .standard(proto: "map_uint32_uint32"),
-        59: .standard(proto: "map_uint64_uint64"),
-        60: .standard(proto: "map_sint32_sint32"),
-        61: .standard(proto: "map_sint64_sint64"),
-        62: .standard(proto: "map_fixed32_fixed32"),
-        63: .standard(proto: "map_fixed64_fixed64"),
-        64: .standard(proto: "map_sfixed32_sfixed32"),
-        65: .standard(proto: "map_sfixed64_sfixed64"),
-        66: .standard(proto: "map_int32_float"),
-        67: .standard(proto: "map_int32_double"),
-        68: .standard(proto: "map_bool_bool"),
-        69: .standard(proto: "map_string_string"),
-        70: .standard(proto: "map_string_bytes"),
-        71: .standard(proto: "map_string_nested_message"),
-        72: .standard(proto: "map_string_foreign_message"),
-        73: .standard(proto: "map_string_nested_enum"),
-        74: .standard(proto: "map_string_foreign_enum"),
-        111: .standard(proto: "oneof_uint32"),
-        112: .standard(proto: "oneof_nested_message"),
-        113: .standard(proto: "oneof_string"),
-        114: .standard(proto: "oneof_bytes"),
-        115: .standard(proto: "oneof_bool"),
-        116: .standard(proto: "oneof_uint64"),
-        117: .standard(proto: "oneof_float"),
-        118: .standard(proto: "oneof_double"),
-        119: .standard(proto: "oneof_enum"),
-        120: .standard(proto: "oneof_null_value"),
-        201: .standard(proto: "optional_bool_wrapper"),
-        202: .standard(proto: "optional_int32_wrapper"),
-        203: .standard(proto: "optional_int64_wrapper"),
-        204: .standard(proto: "optional_uint32_wrapper"),
-        205: .standard(proto: "optional_uint64_wrapper"),
-        206: .standard(proto: "optional_float_wrapper"),
-        207: .standard(proto: "optional_double_wrapper"),
-        208: .standard(proto: "optional_string_wrapper"),
-        209: .standard(proto: "optional_bytes_wrapper"),
-        211: .standard(proto: "repeated_bool_wrapper"),
-        212: .standard(proto: "repeated_int32_wrapper"),
-        213: .standard(proto: "repeated_int64_wrapper"),
-        214: .standard(proto: "repeated_uint32_wrapper"),
-        215: .standard(proto: "repeated_uint64_wrapper"),
-        216: .standard(proto: "repeated_float_wrapper"),
-        217: .standard(proto: "repeated_double_wrapper"),
-        218: .standard(proto: "repeated_string_wrapper"),
-        219: .standard(proto: "repeated_bytes_wrapper"),
-        301: .standard(proto: "optional_duration"),
-        302: .standard(proto: "optional_timestamp"),
-        303: .standard(proto: "optional_field_mask"),
-        304: .standard(proto: "optional_struct"),
-        305: .standard(proto: "optional_any"),
-        306: .standard(proto: "optional_value"),
-        307: .standard(proto: "optional_null_value"),
-        311: .standard(proto: "repeated_duration"),
-        312: .standard(proto: "repeated_timestamp"),
-        313: .standard(proto: "repeated_fieldmask"),
-        324: .standard(proto: "repeated_struct"),
-        315: .standard(proto: "repeated_any"),
-        316: .standard(proto: "repeated_value"),
-        317: .standard(proto: "repeated_list_value"),
-        401: .same(proto: "fieldname1"),
-        402: .standard(proto: "field_name2"),
-        403: .standard(proto: "_field_name3"),
-        404: .standard(proto: "field__name4_"),
-        405: .same(proto: "field0name5"),
-        406: .standard(proto: "field_0_name6"),
-        407: .same(proto: "fieldName7"),
-        408: .same(proto: "FieldName8"),
-        409: .standard(proto: "field_Name9"),
-        410: .standard(proto: "Field_Name10"),
-        411: .standard(proto: "FIELD_NAME11"),
-        412: .standard(proto: "FIELD_name12"),
-        413: .standard(proto: "__field_name13"),
-        414: .standard(proto: "__Field_name14"),
-        415: .standard(proto: "field__name15"),
-        416: .standard(proto: "field__Name16"),
-        417: .standard(proto: "field_name17__"),
-        418: .standard(proto: "Field_name18__"),
-  ])
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}optional_int32\u{0}\u{2}\u{2}optional_int64\u{0}\u{2}\u{3}optional_uint32\u{0}\u{2}\u{4}optional_uint64\u{0}\u{2}\u{5}optional_sint32\u{0}\u{2}\u{6}optional_sint64\u{0}\u{2}\u{7}optional_fixed32\u{0}\u{2}\u{8}optional_fixed64\u{0}\u{2}\u{9}optional_sfixed32\u{0}\u{2}\u{a}optional_sfixed64\u{0}\u{2}\u{b}optional_float\u{0}\u{2}\u{c}optional_double\u{0}\u{2}\u{d}optional_bool\u{0}\u{2}\u{e}optional_string\u{0}\u{2}\u{f}optional_bytes\u{0}\u{2}\u{12}optional_nested_message\u{0}\u{2}\u{13}optional_foreign_message\u{0}\u{2}\u{15}optional_nested_enum\u{0}\u{2}\u{16}optional_foreign_enum\u{0}\u{2}\u{17}optional_aliased_enum\u{0}\u{2}\u{18}optional_string_piece\u{0}\u{2}\u{19}optional_cord\u{0}\u{2}\u{1b}recursive_message\u{0}\u{2}\u{1f}repeated_int32\u{0}\u{2} repeated_int64\u{0}\u{2}!repeated_uint32\u{0}\u{2}\"repeated_uint64\u{0}\u{2}#repeated_sint32\u{0}\u{2}$repeated_sint64\u{0}\u{2}%repeated_fixed32\u{0}\u{2}&repeated_fixed64\u{0}\u{2}'repeated_sfixed32\u{0}\u{2}(repeated_sfixed64\u{0}\u{2})repeated_float\u{0}\u{2}*repeated_double\u{0}\u{2}+repeated_bool\u{0}\u{2},repeated_string\u{0}\u{2}-repeated_bytes\u{0}\u{2}0repeated_nested_message\u{0}\u{2}1repeated_foreign_message\u{0}\u{2}3repeated_nested_enum\u{0}\u{2}4repeated_foreign_enum\u{0}\u{2}6repeated_string_piece\u{0}\u{2}7repeated_cord\u{0}\u{2}K\u{1}packed_int32\u{0}\u{2}L\u{1}packed_int64\u{0}\u{2}M\u{1}packed_uint32\u{0}\u{2}N\u{1}packed_uint64\u{0}\u{2}O\u{1}packed_sint32\u{0}\u{2}P\u{1}packed_sint64\u{0}\u{2}Q\u{1}packed_fixed32\u{0}\u{2}R\u{1}packed_fixed64\u{0}\u{2}S\u{1}packed_sfixed32\u{0}\u{2}T\u{1}packed_sfixed64\u{0}\u{2}U\u{1}packed_float\u{0}\u{2}V\u{1}packed_double\u{0}\u{2}W\u{1}packed_bool\u{0}\u{2}X\u{1}packed_nested_enum\u{0}\u{2}Y\u{1}unpacked_int32\u{0}\u{2}Z\u{1}unpacked_int64\u{0}\u{2}[\u{1}unpacked_uint32\u{0}\u{2}\\\u{1}unpacked_uint64\u{0}\u{2}]\u{1}unpacked_sint32\u{0}\u{2}^\u{1}unpacked_sint64\u{0}\u{2}_\u{1}unpacked_fixed32\u{0}\u{2}`\u{1}unpacked_fixed64\u{0}\u{2}a\u{1}unpacked_sfixed32\u{0}\u{2}b\u{1}unpacked_sfixed64\u{0}\u{2}c\u{1}unpacked_float\u{0}\u{2}d\u{1}unpacked_double\u{0}\u{2}e\u{1}unpacked_bool\u{0}\u{2}f\u{1}unpacked_nested_enum\u{0}\u{2}8map_int32_int32\u{0}\u{2}9map_int64_int64\u{0}\u{2}:map_uint32_uint32\u{0}\u{2};map_uint64_uint64\u{0}\u{2}<map_sint32_sint32\u{0}\u{2}=map_sint64_sint64\u{0}\u{2}>map_fixed32_fixed32\u{0}\u{2}?map_fixed64_fixed64\u{0}\u{2}@\u{1}map_sfixed32_sfixed32\u{0}\u{2}A\u{1}map_sfixed64_sfixed64\u{0}\u{2}B\u{1}map_int32_float\u{0}\u{2}C\u{1}map_int32_double\u{0}\u{2}D\u{1}map_bool_bool\u{0}\u{2}E\u{1}map_string_string\u{0}\u{2}F\u{1}map_string_bytes\u{0}\u{2}G\u{1}map_string_nested_message\u{0}\u{2}H\u{1}map_string_foreign_message\u{0}\u{2}I\u{1}map_string_nested_enum\u{0}\u{2}J\u{1}map_string_foreign_enum\u{0}\u{2}o\u{1}oneof_uint32\u{0}\u{2}p\u{1}oneof_nested_message\u{0}\u{2}q\u{1}oneof_string\u{0}\u{2}r\u{1}oneof_bytes\u{0}\u{2}s\u{1}oneof_bool\u{0}\u{2}t\u{1}oneof_uint64\u{0}\u{2}u\u{1}oneof_float\u{0}\u{2}v\u{1}oneof_double\u{0}\u{2}w\u{1}oneof_enum\u{0}\u{2}x\u{1}oneof_null_value\u{0}\u{2}I\u{3}optional_bool_wrapper\u{0}\u{2}J\u{3}optional_int32_wrapper\u{0}\u{2}K\u{3}optional_int64_wrapper\u{0}\u{2}L\u{3}optional_uint32_wrapper\u{0}\u{2}M\u{3}optional_uint64_wrapper\u{0}\u{2}N\u{3}optional_float_wrapper\u{0}\u{2}O\u{3}optional_double_wrapper\u{0}\u{2}P\u{3}optional_string_wrapper\u{0}\u{2}Q\u{3}optional_bytes_wrapper\u{0}\u{2}S\u{3}repeated_bool_wrapper\u{0}\u{2}T\u{3}repeated_int32_wrapper\u{0}\u{2}U\u{3}repeated_int64_wrapper\u{0}\u{2}V\u{3}repeated_uint32_wrapper\u{0}\u{2}W\u{3}repeated_uint64_wrapper\u{0}\u{2}X\u{3}repeated_float_wrapper\u{0}\u{2}Y\u{3}repeated_double_wrapper\u{0}\u{2}Z\u{3}repeated_string_wrapper\u{0}\u{2}[\u{3}repeated_bytes_wrapper\u{0}\u{2}m\u{4}optional_duration\u{0}\u{2}n\u{4}optional_timestamp\u{0}\u{2}o\u{4}optional_field_mask\u{0}\u{2}p\u{4}optional_struct\u{0}\u{2}q\u{4}optional_any\u{0}\u{2}r\u{4}optional_value\u{0}\u{2}s\u{4}optional_null_value\u{0}\u{2}w\u{4}repeated_duration\u{0}\u{2}x\u{4}repeated_timestamp\u{0}\u{2}y\u{4}repeated_fieldmask\u{0}\u{2}D\u{5}repeated_struct\u{0}\u{2}{\u{4}repeated_any\u{0}\u{2}|\u{4}repeated_value\u{0}\u{2}}\u{4}repeated_list_value\u{0}\u{1}Q\u{6}fieldname1\u{0}\u{2}R\u{6}field_name2\u{0}\u{2}S\u{6}_field_name3\u{0}\u{2}T\u{6}field__name4_\u{0}\u{1}U\u{6}field0name5\u{0}\u{2}V\u{6}field_0_name6\u{0}\u{1}W\u{6}fieldName7\u{0}\u{1}X\u{6}FieldName8\u{0}\u{2}Y\u{6}field_Name9\u{0}\u{2}Z\u{6}Field_Name10\u{0}\u{2}[\u{6}FIELD_NAME11\u{0}\u{2}\\\u{6}FIELD_name12\u{0}\u{2}]\u{6}__field_name13\u{0}\u{2}^\u{6}__Field_name14\u{0}\u{2}_\u{6}field__name15\u{0}\u{2}`\u{6}field__Name16\u{0}\u{2}a\u{6}field_name17__\u{0}\u{2}b\u{6}Field_name18__\u{0}\u{5}reserved_field\u{0}\u{6}u\u{7}\u{7f}\u{7}\u{6}\u{7f}Ht\u{3}@It\u{3}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32 = 0
@@ -2502,28 +2345,19 @@ extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3: SwiftProtobuf
 }
 
 extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    -1: .same(proto: "NEG"),
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\u{0}\u{1}\u{0}FOO\u{0}\u{1}\u{1}BAR\u{0}\u{1}\u{2}BAZ\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.AliasedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ALIAS_FOO"),
-    1: .same(proto: "ALIAS_BAR"),
-    2: .aliased(proto: "ALIAS_BAZ", aliases: ["MOO", "moo", "bAz"]),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}ALIAS_FOO\u{0}\u{1}\u{1}ALIAS_BAR\u{0}\u{4}\u{2}ALIAS_BAZ\u{0}\u{3}MOO\u{0}moo\u{0}bAz\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "corecursive"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}a\u{0}\u{1}\u{2}corecursive\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _a: Int32 = 0
@@ -2600,9 +2434,8 @@ extension ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.NestedMessage:
 
 extension ProtobufTestMessages_Editions_Proto3_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{1}c\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2632,7 +2465,8 @@ extension ProtobufTestMessages_Editions_Proto3_ForeignMessage: SwiftProtobuf.Mes
 
 extension ProtobufTestMessages_Editions_Proto3_NullHypothesisProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NullHypothesisProto3"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -2651,7 +2485,8 @@ extension ProtobufTestMessages_Editions_Proto3_NullHypothesisProto3: SwiftProtob
 
 extension ProtobufTestMessages_Editions_Proto3_EnumOnlyProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumOnlyProto3"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -2669,8 +2504,6 @@ extension ProtobufTestMessages_Editions_Proto3_EnumOnlyProto3: SwiftProtobuf.Mes
 }
 
 extension ProtobufTestMessages_Editions_Proto3_EnumOnlyProto3.BoolEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "kFalse"),
-    1: .same(proto: "kTrue"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}\u{0}kFalse\u{0}\u{1}\u{1}kTrue\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }

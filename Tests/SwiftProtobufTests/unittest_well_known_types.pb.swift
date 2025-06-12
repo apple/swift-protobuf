@@ -630,27 +630,8 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-    19: .standard(proto: "value_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}any_field\u{0}\u{2}\u{2}api_field\u{0}\u{2}\u{3}duration_field\u{0}\u{2}\u{4}empty_field\u{0}\u{2}\u{5}field_mask_field\u{0}\u{2}\u{6}source_context_field\u{0}\u{2}\u{7}struct_field\u{0}\u{2}\u{8}timestamp_field\u{0}\u{2}\u{9}type_field\u{0}\u{2}\u{a}double_field\u{0}\u{2}\u{b}float_field\u{0}\u{2}\u{c}int64_field\u{0}\u{2}\u{d}uint64_field\u{0}\u{2}\u{e}int32_field\u{0}\u{2}\u{f}uint32_field\u{0}\u{2}\u{10}bool_field\u{0}\u{2}\u{11}string_field\u{0}\u{2}\u{12}bytes_field\u{0}\u{2}\u{13}value_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _anyField: SwiftProtobuf.Google_Protobuf_Any? = nil
@@ -846,26 +827,8 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}any_field\u{0}\u{2}\u{2}api_field\u{0}\u{2}\u{3}duration_field\u{0}\u{2}\u{4}empty_field\u{0}\u{2}\u{5}field_mask_field\u{0}\u{2}\u{6}source_context_field\u{0}\u{2}\u{7}struct_field\u{0}\u{2}\u{8}timestamp_field\u{0}\u{2}\u{9}type_field\u{0}\u{2}\u{a}double_field\u{0}\u{2}\u{b}float_field\u{0}\u{2}\u{c}int64_field\u{0}\u{2}\u{d}uint64_field\u{0}\u{2}\u{e}int32_field\u{0}\u{2}\u{f}uint32_field\u{0}\u{2}\u{10}bool_field\u{0}\u{2}\u{11}string_field\u{0}\u{2}\u{12}bytes_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _anyField: [SwiftProtobuf.Google_Protobuf_Any] = []
@@ -1050,26 +1013,8 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}any_field\u{0}\u{2}\u{2}api_field\u{0}\u{2}\u{3}duration_field\u{0}\u{2}\u{4}empty_field\u{0}\u{2}\u{5}field_mask_field\u{0}\u{2}\u{6}source_context_field\u{0}\u{2}\u{7}struct_field\u{0}\u{2}\u{8}timestamp_field\u{0}\u{2}\u{9}type_field\u{0}\u{2}\u{a}double_field\u{0}\u{2}\u{b}float_field\u{0}\u{2}\u{c}int64_field\u{0}\u{2}\u{d}uint64_field\u{0}\u{2}\u{e}int32_field\u{0}\u{2}\u{f}uint32_field\u{0}\u{2}\u{10}bool_field\u{0}\u{2}\u{11}string_field\u{0}\u{2}\u{12}bytes_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1408,26 +1353,8 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}any_field\u{0}\u{2}\u{2}api_field\u{0}\u{2}\u{3}duration_field\u{0}\u{2}\u{4}empty_field\u{0}\u{2}\u{5}field_mask_field\u{0}\u{2}\u{6}source_context_field\u{0}\u{2}\u{7}struct_field\u{0}\u{2}\u{8}timestamp_field\u{0}\u{2}\u{9}type_field\u{0}\u{2}\u{a}double_field\u{0}\u{2}\u{b}float_field\u{0}\u{2}\u{c}int64_field\u{0}\u{2}\u{d}uint64_field\u{0}\u{2}\u{e}int32_field\u{0}\u{2}\u{f}uint32_field\u{0}\u{2}\u{10}bool_field\u{0}\u{2}\u{11}string_field\u{0}\u{2}\u{12}bytes_field\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _anyField: Dictionary<Int32,SwiftProtobuf.Google_Protobuf_Any> = [:]

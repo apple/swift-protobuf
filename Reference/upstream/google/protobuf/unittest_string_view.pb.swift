@@ -167,13 +167,8 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringView"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "singular_string"),
-    2: .standard(proto: "singular_bytes"),
-    5: .standard(proto: "implicit_presence"),
-    3: .standard(proto: "repeated_string"),
-    4: .standard(proto: "repeated_bytes"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{2}\u{1}singular_string\u{0}\u{2}\u{2}singular_bytes\u{0}\u{2}\u{5}implicit_presence\u{0}\u{2}\u{3}repeated_string\u{0}\u{2}\u{4}repeated_bytes\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -227,7 +222,8 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringViewExtension"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

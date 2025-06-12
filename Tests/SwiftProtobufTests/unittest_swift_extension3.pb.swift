@@ -210,7 +210,8 @@ fileprivate let _protobuf_package = "swift_proto_testing.extend3"
 
 extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -229,9 +230,8 @@ extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProto
 
 extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend3_MyMessage.protoMessageName + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1310: .same(proto: "c"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}^\u{14}c\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -265,9 +265,8 @@ extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1320: .same(proto: "c"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\u{0}\u{1}h\u{14}c\u{0}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
