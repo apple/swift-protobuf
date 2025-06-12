@@ -13,9 +13,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 import XCTest
-
-@testable import SwiftProtobuf
 
 final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestEmptyMessage
@@ -333,7 +332,6 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
 
         // If we try to parse `data`, the binary decode recursion budget will
         // come into play, instead directly add the data into the unknown fields
-        // (via the @testable interface).
         var msg = MessageTestType()
         msg.unknownFields.append(protobufData: bytes)
 
