@@ -206,9 +206,47 @@ class MessageGenerator {
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+        generateMessageExtension(printer: &p, file: file, parent: parent)
+        
+        let equatableConfiguration = generatorOptions.equatableOutputConfiguration.configuration(for: swiftFullName)
+        equatableConfiguration.generateExtension(
+            printer: &p,
+            typeFullName: swiftFullName,
+            extensionFullName: "\(namer.swiftProtobufModulePrefix)_MessageEquatable"
+        ) { p in
+            self.generateMessageEquality(printer: &p)
+        }
+        
+        let hashableConfiguration = generatorOptions.hashableOutputConfiguration.configuration(for: swiftFullName)
+        hashableConfiguration.generateExtension(
+            printer: &p,
+            typeFullName: swiftFullName,
+            extensionFullName: "\(namer.swiftProtobufModulePrefix)_MessageHashable",
+            extensionBody: nil
+        )
+        
+        let nameProvidingConfiguration = generatorOptions.nameProvidingOutputConfiguration.configuration(for: swiftFullName)
+        nameProvidingConfiguration.generateExtension(
+            printer: &p,
+            typeFullName: swiftFullName,
+            extensionFullName: "\(namer.swiftProtobufModulePrefix)_ProtoNameProviding",
+        ) { p in
+            self.generateProtoNameProviding(printer: &p)
+        }
+
+        // Nested enums and messages
+        for e in enums {
+            e.generateRuntimeSupport(printer: &p)
+        }
+        for m in messages {
+            m.generateRuntimeSupport(printer: &p, file: file, parent: self)
+        }
+    }
+    
+    private func generateMessageExtension(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
         p.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase, \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
+            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message {"
         )
         p.withIndentation { p in
             if let parent = parent {
@@ -222,7 +260,6 @@ class MessageGenerator {
             } else {
                 p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
             }
-            generateProtoNameProviding(printer: &p)
             if let storage = storage {
                 p.print()
                 storage.generateTypeDeclaration(printer: &p)
@@ -235,18 +272,8 @@ class MessageGenerator {
             generateDecodeMessage(printer: &p)
             p.print()
             generateTraverse(printer: &p)
-            p.print()
-            generateMessageEquality(printer: &p)
         }
         p.print("}")
-
-        // Nested enums and messages
-        for e in enums {
-            e.generateRuntimeSupport(printer: &p)
-        }
-        for m in messages {
-            m.generateRuntimeSupport(printer: &p, file: file, parent: self)
-        }
     }
 
     private func generateProtoNameProviding(printer p: inout CodePrinter) {
