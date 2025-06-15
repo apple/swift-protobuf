@@ -170,22 +170,23 @@ extension Message {
     }
 }
 
-/// Implementation base for all messages; not intended for client use.
+// Legacy protocol; no longer used, but left to maintain source compatibility.
+@preconcurrency
+public protocol _MessageImplementationBase: _MessageEquatable, _MessageHashable {}
+
+/// Not intended for client use.
 ///
 /// In general, use `SwiftProtobuf.Message` instead when you need a variable or
 /// argument that can hold any type of message. Occasionally, you can use
-/// `SwiftProtobuf.Message & Equatable` or `SwiftProtobuf.Message & Hashable` as
-/// generic constraints if you need to write generic code that can be applied to
-/// multiple message types that uses equality tests, puts messages in a `Set`,
-/// or uses them as `Dictionary` keys.
+/// `SwiftProtobuf.Message & Equatable` as generic constraint.
 @preconcurrency
-public protocol _MessageImplementationBase: Message, Hashable {
+public protocol _MessageEquatable: Equatable {
 
     // Legacy function; no longer used, but left to maintain source compatibility.
     func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
-extension _MessageImplementationBase {
+extension _MessageEquatable {
     public func isEqualTo(message: any Message) -> Bool {
         guard let other = message as? Self else {
             return false
@@ -206,3 +207,11 @@ extension _MessageImplementationBase {
         self == other
     }
 }
+
+/// Not intended for client use.
+///
+/// In general, use `SwiftProtobuf.Message` instead when you need a variable or
+/// argument that can hold any type of message. Occasionally, you can use
+/// `SwiftProtobuf.Message & Hashable` as generic constraint.
+@preconcurrency
+public protocol _MessageHashable: Hashable {}

@@ -63,12 +63,58 @@ package class GeneratorOptions {
             }
         }
     }
+    
+    package enum ExtensionType {
+        case equatable
+        case hashable
+        case nameProviding
+        
+        init?(flag: String) {
+            switch flag.lowercased() {
+            case "equatable":
+                self = .equatable
+            case "hashable":
+                self = .hashable
+            case "nameproviding", "name_providing":
+                self = .nameProviding
+            default:
+                return nil
+            }
+        }
+    }
+    
+    package enum ExtensionOutputConfiguration {
+        case normal
+        case debugOnly
+        case skip
+        
+        init?(flag: String) {
+            switch flag.lowercased() {
+            case "normal":
+                self = .normal
+            case "debugonly", "debug_only":
+                self = .debugOnly
+            case "skip":
+                self = .skip
+            default:
+                return nil
+            }
+        }
+    }
+    
+    package struct ExtensionOutputConfigurationStorage {
+        var defaultValue: ExtensionOutputConfiguration
+        var typeSpecificValue: [String: ExtensionOutputConfiguration]
+    }
 
     let outputNaming: OutputNaming
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
+    let equatableOutputConfiguration: ExtensionOutputConfigurationStorage
+    let hashableOutputConfiguration: ExtensionOutputConfigurationStorage
+    let nameProvidingOutputConfiguration: ExtensionOutputConfigurationStorage
 
     /// A string snippet to insert for the visibility
     let visibilitySourceSnippet: String
@@ -81,6 +127,18 @@ package class GeneratorOptions {
         var implementationOnlyImports: Bool = false
         var useAccessLevelOnImports = false
         var experimentalStripNonfunctionalCodegen: Bool = false
+        var equatableOutputConfiguration = ExtensionOutputConfigurationStorage(
+            defaultValue: .normal,
+            typeSpecificValue: [:]
+        )
+        var hashableOutputConfiguration = ExtensionOutputConfigurationStorage(
+            defaultValue: .normal,
+            typeSpecificValue: [:]
+        )
+        var nameProvidingOutputConfiguration = ExtensionOutputConfigurationStorage(
+            defaultValue: .normal,
+            typeSpecificValue: [:]
+        )
 
         for pair in parameter.parsedPairs {
             switch pair.key {
@@ -146,6 +204,54 @@ package class GeneratorOptions {
                         value: pair.value
                     )
                 }
+            case "GenerateExtensions":
+                for config in pair.value.split(separator: ";") {
+                    let configPair = config.split(separator: "=")
+                    if configPair.count == 2 {
+                        let extensionType: ExtensionType?
+                        var typeName: String?
+                        
+                        let configKey = configPair[0].split(separator: ":")
+                        if configKey.count == 1 {
+                            extensionType = ExtensionType(flag: String(configKey[0]))
+                        } else if configKey.count == 2 {
+                            typeName = String(configKey[0])
+                            extensionType = ExtensionType(flag: String(configKey[1]))
+                        } else {
+                            continue
+                        }
+                        
+                        let outputValue = ExtensionOutputConfiguration(flag: String(configPair[1]))
+                        
+                        guard
+                            let extensionType = extensionType,
+                            let outputValue = outputValue
+                        else {
+                            continue
+                        }
+                        
+                        if let typeName = typeName {
+                            switch extensionType {
+                            case .equatable:
+                                equatableOutputConfiguration.typeSpecificValue[typeName] = outputValue
+                            case .hashable:
+                                hashableOutputConfiguration.typeSpecificValue[typeName] = outputValue
+                            case .nameProviding:
+                                nameProvidingOutputConfiguration.typeSpecificValue[typeName] = outputValue
+                            }
+                        } else {
+                            switch extensionType {
+                            case .equatable:
+                                equatableOutputConfiguration.defaultValue = outputValue
+                            case .hashable:
+                                hashableOutputConfiguration.defaultValue = outputValue
+                            case .nameProviding:
+                                nameProvidingOutputConfiguration.defaultValue = outputValue
+                            }
+                        }
+                    }
+                }
+                break
             default:
                 throw GenerationError.unknownParameter(name: pair.key)
             }
@@ -224,5 +330,51 @@ package class GeneratorOptions {
         // this out via the compiler errors around missing type (when bar.pb.swift
         // gets unknown reference for thing that should be in module One via
         // foo.pb.swift).
+        
+        self.equatableOutputConfiguration = equatableOutputConfiguration
+        self.hashableOutputConfiguration = hashableOutputConfiguration
+        self.nameProvidingOutputConfiguration = nameProvidingOutputConfiguration
+    }
+}
+
+extension GeneratorOptions.ExtensionOutputConfigurationStorage {
+    func configuration(for typeName: String) -> GeneratorOptions.ExtensionOutputConfiguration {
+        return typeSpecificValue[typeName] ?? defaultValue
+    }
+}
+
+extension GeneratorOptions.ExtensionOutputConfiguration {
+    func generateExtension(
+        printer p: inout CodePrinter,
+        typeFullName: String,
+        extensionFullName: String,
+        extensionBody: ((_ p: inout CodePrinter) -> Void)?
+    ) {
+        switch self {
+        case .normal:
+            p.print(
+                "",
+                "extension \(typeFullName): \(extensionFullName) {"
+            )
+            p.withIndentation { p in
+                extensionBody?(&p)
+            }
+            p.print("}")
+        case .debugOnly:
+            p.print(
+                "",
+                "#if DEBUG",
+                "extension \(typeFullName): \(extensionFullName) {"
+            )            
+            p.withIndentation { p in
+                extensionBody?(&p)
+            }
+            p.print(
+                "}",
+                "#endif"
+            )
+        case .skip:
+            return
+        }
     }
 }
