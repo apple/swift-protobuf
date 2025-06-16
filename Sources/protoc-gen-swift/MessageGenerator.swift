@@ -205,12 +205,12 @@ class MessageGenerator {
         p.print("}")
     }
 
-    func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
-        p.print(
+    func generateRuntimeSupport(filePrinter fp: inout FilePrinter, file: FileGenerator, parent: MessageGenerator?) {
+        fp.main.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase, \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
+            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message {"
         )
-        p.withIndentation { p in
+        fp.main.withIndentation { p in
             if let parent = parent {
                 p.print(
                     "\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\""
@@ -222,7 +222,6 @@ class MessageGenerator {
             } else {
                 p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
             }
-            generateProtoNameProviding(printer: &p)
             if let storage = storage {
                 p.print()
                 storage.generateTypeDeclaration(printer: &p)
@@ -235,17 +234,33 @@ class MessageGenerator {
             generateDecodeMessage(printer: &p)
             p.print()
             generateTraverse(printer: &p)
-            p.print()
+        }
+        fp.main.print("}")
+        
+        fp.hashable.print(
+            "",
+            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_MessageImplementationBase {"
+        )
+        fp.hashable.withIndentation { p in
             generateMessageEquality(printer: &p)
         }
-        p.print("}")
+        fp.hashable.print("}")
+        
+        fp.nameProviding.print(
+            "",
+            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
+        )
+        fp.nameProviding.withIndentation { p in
+            generateProtoNameProviding(printer: &p)
+        }
+        fp.nameProviding.print("}")
 
         // Nested enums and messages
         for e in enums {
-            e.generateRuntimeSupport(printer: &p)
+            e.generateRuntimeSupport(filePrinter: &fp)
         }
         for m in messages {
-            m.generateRuntimeSupport(printer: &p, file: file, parent: self)
+            m.generateRuntimeSupport(filePrinter: &fp, file: file, parent: self)
         }
     }
 

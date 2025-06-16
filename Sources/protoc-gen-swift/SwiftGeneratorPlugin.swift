@@ -35,14 +35,29 @@ struct SwiftGeneratorPlugin: CodeGenerator {
         var errorString: String? = nil
         for fileDescriptor in files {
             let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
-            var printer = CodePrinter(addNewlines: true)
-            fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
+            var filePrinter = FilePrinter(
+                main: CodePrinter(addNewlines: true),
+                hashable: CodePrinter(addNewlines: true),
+                nameProviding: CodePrinter(addNewlines: true)
+            )
+            fileGenerator.generateOutputFile(filePrinter: &filePrinter, errorString: &errorString)
             if let errorString = errorString {
                 // If generating multiple files, scope the message with the file that triggered it.
                 let fullError = files.count > 1 ? "\(fileDescriptor.name): \(errorString)" : errorString
                 throw GenerationError.message(message: fullError)
             }
-            try generatorOutputs.add(fileName: fileGenerator.outputFilename, contents: printer.content)
+            try generatorOutputs.add(
+                fileName: fileGenerator.outputFilename(".pb.swift"),
+                contents: filePrinter.main.content
+            )
+            try generatorOutputs.add(
+                fileName: fileGenerator.outputFilename(".pb.hashable.swift"),
+                contents: filePrinter.hashable.content
+            )
+            try generatorOutputs.add(
+                fileName: fileGenerator.outputFilename(".pb.nameproviding.swift"),
+                contents: filePrinter.nameProviding.content
+            )
         }
     }
 
