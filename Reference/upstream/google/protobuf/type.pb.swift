@@ -467,24 +467,14 @@ struct Google_Protobuf_Option: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Syntax: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "SYNTAX_PROTO2"),
-    1: .same(proto: "SYNTAX_PROTO3"),
-    2: .same(proto: "SYNTAX_EDITIONS"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0SYNTAX_PROTO2\0\u{1}SYNTAX_PROTO3\0\u{1}SYNTAX_EDITIONS\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Type"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "fields"),
-    3: .same(proto: "oneofs"),
-    4: .same(proto: "options"),
-    5: .standard(proto: "source_context"),
-    6: .same(proto: "syntax"),
-    7: .same(proto: "edition"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}fields\0\u{1}oneofs\0\u{1}options\0\u{3}source_context\0\u{1}syntax\0\u{1}edition\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -548,18 +538,8 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
 
 extension Google_Protobuf_Field: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Field"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "kind"),
-    2: .same(proto: "cardinality"),
-    3: .same(proto: "number"),
-    4: .same(proto: "name"),
-    6: .standard(proto: "type_url"),
-    7: .standard(proto: "oneof_index"),
-    8: .same(proto: "packed"),
-    9: .same(proto: "options"),
-    10: .standard(proto: "json_name"),
-    11: .standard(proto: "default_value"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}kind\0\u{1}cardinality\0\u{1}number\0\u{1}name\0\u{4}\u{2}type_url\0\u{3}oneof_index\0\u{1}packed\0\u{1}options\0\u{3}json_name\0\u{3}default_value\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -633,48 +613,19 @@ extension Google_Protobuf_Field: Message, _MessageImplementationBase, _ProtoName
 }
 
 extension Google_Protobuf_Field.Kind: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "TYPE_UNKNOWN"),
-    1: .same(proto: "TYPE_DOUBLE"),
-    2: .same(proto: "TYPE_FLOAT"),
-    3: .same(proto: "TYPE_INT64"),
-    4: .same(proto: "TYPE_UINT64"),
-    5: .same(proto: "TYPE_INT32"),
-    6: .same(proto: "TYPE_FIXED64"),
-    7: .same(proto: "TYPE_FIXED32"),
-    8: .same(proto: "TYPE_BOOL"),
-    9: .same(proto: "TYPE_STRING"),
-    10: .same(proto: "TYPE_GROUP"),
-    11: .same(proto: "TYPE_MESSAGE"),
-    12: .same(proto: "TYPE_BYTES"),
-    13: .same(proto: "TYPE_UINT32"),
-    14: .same(proto: "TYPE_ENUM"),
-    15: .same(proto: "TYPE_SFIXED32"),
-    16: .same(proto: "TYPE_SFIXED64"),
-    17: .same(proto: "TYPE_SINT32"),
-    18: .same(proto: "TYPE_SINT64"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0TYPE_UNKNOWN\0\u{1}TYPE_DOUBLE\0\u{1}TYPE_FLOAT\0\u{1}TYPE_INT64\0\u{1}TYPE_UINT64\0\u{1}TYPE_INT32\0\u{1}TYPE_FIXED64\0\u{1}TYPE_FIXED32\0\u{1}TYPE_BOOL\0\u{1}TYPE_STRING\0\u{1}TYPE_GROUP\0\u{1}TYPE_MESSAGE\0\u{1}TYPE_BYTES\0\u{1}TYPE_UINT32\0\u{1}TYPE_ENUM\0\u{1}TYPE_SFIXED32\0\u{1}TYPE_SFIXED64\0\u{1}TYPE_SINT32\0\u{1}TYPE_SINT64\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Google_Protobuf_Field.Cardinality: _ProtoNameProviding {
-  static let _protobuf_nameMap: _NameMap = [
-    0: .same(proto: "CARDINALITY_UNKNOWN"),
-    1: .same(proto: "CARDINALITY_OPTIONAL"),
-    2: .same(proto: "CARDINALITY_REQUIRED"),
-    3: .same(proto: "CARDINALITY_REPEATED"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0CARDINALITY_UNKNOWN\0\u{1}CARDINALITY_OPTIONAL\0\u{1}CARDINALITY_REQUIRED\0\u{1}CARDINALITY_REPEATED\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Enum"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "enumvalue"),
-    3: .same(proto: "options"),
-    4: .standard(proto: "source_context"),
-    5: .same(proto: "syntax"),
-    6: .same(proto: "edition"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}enumvalue\0\u{1}options\0\u{3}source_context\0\u{1}syntax\0\u{1}edition\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -733,11 +684,8 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
 
 extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumValue"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "number"),
-    3: .same(proto: "options"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}number\0\u{1}options\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -777,10 +725,8 @@ extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase, _Proto
 
 extension Google_Protobuf_Option: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Option"
-  static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "value"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}value\0"
+  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

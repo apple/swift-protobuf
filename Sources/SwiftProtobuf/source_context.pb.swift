@@ -72,9 +72,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_SourceContext: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SourceContext"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .standard(proto: "file_name"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}file_name\0"
+  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -137,11 +137,8 @@ fileprivate let _protobuf_package = "pb"
 
 extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "legacy_closed_enum"),
-    2: .standard(proto: "string_type"),
-    3: .standard(proto: "enum_name_uses_string_view"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}legacy_closed_enum\0\u{3}string_type\0\u{3}enum_name_uses_string_view\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -184,10 +181,6 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "STRING_TYPE_UNKNOWN"),
-    1: .same(proto: "VIEW"),
-    2: .same(proto: "CORD"),
-    3: .same(proto: "STRING"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0STRING_TYPE_UNKNOWN\0\u{1}VIEW\0\u{1}CORD\0\u{1}STRING\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }

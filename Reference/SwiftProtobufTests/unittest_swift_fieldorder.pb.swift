@@ -364,16 +364,8 @@ fileprivate let _protobuf_package = "swift_proto_testing.order"
 
 extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    11: .standard(proto: "my_string"),
-    1: .standard(proto: "my_int"),
-    101: .standard(proto: "my_float"),
-    60: .standard(proto: "oneof_int64"),
-    9: .standard(proto: "oneof_bool"),
-    150: .standard(proto: "oneof_string"),
-    10: .standard(proto: "oneof_int32"),
-    200: .standard(proto: "optional_nested_message"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}\u{b}my_string\0\u{4}v\u{7f}\u{7f}\u{7f}\u{7f}\u{3}my_int\0\u{4}d\u{1}my_float\0\u{4}W\u{7f}\u{7f}\u{7f}\u{7f}\u{3}oneof_int64\0\u{4}M\u{7f}\u{7f}\u{7f}\u{7f}\u{3}oneof_bool\0\u{4}M\u{2}oneof_string\0\u{4}t}\u{7f}\u{7f}\u{7f}\u{3}oneof_int32\0\u{4}~\u{2}optional_nested_message\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -482,10 +474,8 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
 
 extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Order_TestFieldOrderings.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .same(proto: "oo"),
-    1: .same(proto: "bb"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}oo\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}bb\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -524,17 +514,8 @@ extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobu
 
 extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofTraversalGeneration"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    26: .same(proto: "b"),
-    101: .same(proto: "a2"),
-    126: .same(proto: "b2"),
-    113: .same(proto: "m"),
-    201: .same(proto: "a3"),
-    226: .same(proto: "b3"),
-    301: .same(proto: "a4"),
-    326: .same(proto: "b4"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{2}\u{19}b\0\u{2}K\u{1}a2\0\u{2}\u{19}b2\0\u{2}s\u{7f}\u{7f}\u{7f}\u{7f}\u{3}m\0\u{2}X\u{1}a3\0\u{2}\u{19}b3\0\u{2}K\u{1}a4\0\u{2}\u{19}b4\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

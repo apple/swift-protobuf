@@ -161,13 +161,8 @@ fileprivate let _protobuf_package = "swift_feature_test"
 
 extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "feature1"),
-    2: .same(proto: "feature2"),
-    3: .same(proto: "feature3"),
-    4: .same(proto: "feature4"),
-    5: .same(proto: "feature5"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}feature1\0\u{1}feature2\0\u{1}feature3\0\u{1}feature4\0\u{1}feature5\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -220,13 +215,6 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension SwiftFeatureTest_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_FEATURE_UNKNOWN"),
-    1: .same(proto: "ENUM_FEATURE_VALUE1"),
-    2: .same(proto: "ENUM_FEATURE_VALUE2"),
-    3: .same(proto: "ENUM_FEATURE_VALUE3"),
-    4: .same(proto: "ENUM_FEATURE_VALUE4"),
-    5: .same(proto: "ENUM_FEATURE_VALUE5"),
-    6: .same(proto: "ENUM_FEATURE_VALUE6"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0ENUM_FEATURE_UNKNOWN\0\u{1}ENUM_FEATURE_VALUE1\0\u{1}ENUM_FEATURE_VALUE2\0\u{1}ENUM_FEATURE_VALUE3\0\u{1}ENUM_FEATURE_VALUE4\0\u{1}ENUM_FEATURE_VALUE5\0\u{1}ENUM_FEATURE_VALUE6\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }

@@ -64,6 +64,9 @@ message GeneratedSwiftReservedMessages {
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
   message boolValue { int32 boolValue = 1; }
   message buffer { int32 buffer = 1; }
+  message byte { int32 byte = 1; }
+  message bytecode { int32 bytecode = 1; }
+  message BytecodeReader { int32 BytecodeReader = 1; }
   message bytes { int32 bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
   message bytesNeeded { int32 bytesNeeded = 1; }
@@ -310,6 +313,7 @@ message GeneratedSwiftReservedMessages {
   message EnumValueOptions { int32 EnumValueOptions = 1; }
   message Equatable { int32 Equatable = 1; }
   message Error { int32 Error = 1; }
+  message execute { int32 execute = 1; }
   message ExpressibleByArrayLiteral { int32 ExpressibleByArrayLiteral = 1; }
   message ExpressibleByDictionaryLiteral { int32 ExpressibleByDictionaryLiteral = 1; }
   message ext { int32 ext = 1; }
@@ -446,6 +450,7 @@ message GeneratedSwiftReservedMessages {
   message guard { int32 guard = 1; }
   message hadOneofValue { int32 hadOneofValue = 1; }
   message handleConflictingOneOf { int32 handleConflictingOneOf = 1; }
+  message handleInstruction { int32 handleInstruction = 1; }
   message hasAggregateValue { int32 hasAggregateValue = 1; }
   message hasAllowAlias { int32 hasAllowAlias = 1; }
   message hasBegin { int32 hasBegin = 1; }
@@ -454,6 +459,7 @@ message GeneratedSwiftReservedMessages {
   message hasClientStreaming { int32 hasClientStreaming = 1; }
   message hasCsharpNamespace { int32 hasCsharpNamespace = 1; }
   message hasCtype { int32 hasCtype = 1; }
+  message hasData { int32 hasData = 1; }
   message hasDebugRedact { int32 hasDebugRedact = 1; }
   message hasDefaultSymbolVisibility { int32 hasDefaultSymbolVisibility = 1; }
   message hasDefaultValue { int32 hasDefaultValue = 1; }
@@ -468,6 +474,7 @@ message GeneratedSwiftReservedMessages {
   message hasEnd { int32 hasEnd = 1; }
   message hasEnforceNamingStyle { int32 hasEnforceNamingStyle = 1; }
   message hasEnumType { int32 hasEnumType = 1; }
+  message hasExplicitDelta { int32 hasExplicitDelta = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
   message hasExtensionValue { int32 hasExtensionValue = 1; }
   message hasFeatures { int32 hasFeatures = 1; }
@@ -555,6 +562,7 @@ message GeneratedSwiftReservedMessages {
   message inout { int32 inout = 1; }
   message inputType { int32 inputType = 1; }
   message insert { int32 insert = 1; }
+  message Instruction { int32 Instruction = 1; }
   message Int { int32 Int = 1; }
   message Int32 { int32 Int32 = 1; }
   message Int32Value { int32 Int32Value = 1; }
@@ -686,6 +694,12 @@ message GeneratedSwiftReservedMessages {
   message next { int32 next = 1; }
   message nextByte { int32 nextByte = 1; }
   message nextFieldNumber { int32 nextFieldNumber = 1; }
+  message nextInstruction { int32 nextInstruction = 1; }
+  message nextInt32 { int32 nextInt32 = 1; }
+  message nextNullTerminatedString { int32 nextNullTerminatedString = 1; }
+  message nextNullTerminatedStringArray { int32 nextNullTerminatedStringArray = 1; }
+  message nextNumber { int32 nextNumber = 1; }
+  message nextUInt64 { int32 nextUInt64 = 1; }
   message nextVarInt { int32 nextVarInt = 1; }
   message nil { int32 nil = 1; }
   message nilLiteral { int32 nilLiteral = 1; }
@@ -742,8 +756,10 @@ message GeneratedSwiftReservedMessages {
   message prefix { int32 prefix = 1; }
   message preserveProtoFieldNames { int32 preserveProtoFieldNames = 1; }
   message preTraverse { int32 preTraverse = 1; }
+  message previousNumber { int32 previousNumber = 1; }
   message prevPath { int32 prevPath = 1; }
   message printUnknownFields { int32 printUnknownFields = 1; }
+  message programBuffer { int32 programBuffer = 1; }
   message proto2 { int32 proto2 = 1; }
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
   message proto3Optional { int32 proto3Optional = 1; }
@@ -751,6 +767,7 @@ message GeneratedSwiftReservedMessages {
   message protobuf_fieldNumber { int32 protobuf_fieldNumber = 1; }
   message protobuf_generated_isEqualTo { int32 protobuf_generated_isEqualTo = 1; }
   message protobuf_nameMap { int32 protobuf_nameMap = 1; }
+  message protobuf_nameMap_bytecode { int32 protobuf_nameMap_bytecode = 1; }
   message protobuf_newField { int32 protobuf_newField = 1; }
   message protobuf_package { int32 protobuf_package = 1; }
   message ProtobufAPIVersion_2 { int32 ProtobufAPIVersion_2 = 1; }
@@ -801,7 +818,9 @@ message GeneratedSwiftReservedMessages {
   message RawValue { int32 RawValue = 1; }
   message read4HexDigits { int32 read4HexDigits = 1; }
   message readBytes { int32 readBytes = 1; }
+  message reader { int32 reader = 1; }
   message register { int32 register = 1; }
+  message remainingProgram { int32 remainingProgram = 1; }
   message removingAllFieldsOf { int32 removingAllFieldsOf = 1; }
   message repeated { int32 repeated = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
@@ -1024,6 +1043,7 @@ message GeneratedSwiftReservedMessages {
   message visitSingularUInt32Field { int32 visitSingularUInt32Field = 1; }
   message visitSingularUInt64Field { int32 visitSingularUInt64Field = 1; }
   message visitUnknown { int32 visitUnknown = 1; }
+  message Void { int32 Void = 1; }
   message wasDecoded { int32 wasDecoded = 1; }
   message weak { int32 weak = 1; }
   message weakDependency { int32 weakDependency = 1; }
