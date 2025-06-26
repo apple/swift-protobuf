@@ -351,3 +351,177 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 extension _NameMap: Sendable {}
 extension _NameMap.Name: @unchecked Sendable {}
 extension InternPool: @unchecked Sendable {}
+
+// MARK: - Public API for external access to NameMap data
+
+extension _NameMap {
+    /// Information about a field or enum case in the name map.
+    ///
+    /// This structure provides read-only access to the name mapping information
+    /// for a specific field or enum case, including both the proto/text format
+    /// name and the JSON name if different.
+    public struct FieldInfo: Sendable {
+        /// The field or enum case number.
+        public let number: Int
+        
+        /// The proto/text format name as it appears in the .proto file.
+        public let protoName: String
+        
+        /// The JSON name if different from the proto name, or `nil` if they are the same.
+        ///
+        /// For fields with `.same` naming, this will be `nil`.
+        /// For fields with `.standard` naming, this will be the camelCase version.
+        /// For fields with `.unique` naming, this will be the explicitly specified JSON name.
+        /// For enum cases (`.aliased`), this will always be `nil` since enums use proto names for JSON.
+        public let jsonName: String?
+        
+        /// Creates a new `FieldInfo` instance.
+        ///
+        /// - Parameters:
+        ///   - number: The field or enum case number.
+        ///   - protoName: The proto/text format name.
+        ///   - jsonName: The JSON name if different from the proto name, or `nil` if they are the same.
+        public init(number: Int, protoName: String, jsonName: String?) {
+            self.number = number
+            self.protoName = protoName
+            self.jsonName = jsonName
+        }
+        
+        /// The effective JSON name for this field or enum case.
+        ///
+        /// This is the name that should be used when serializing to JSON format.
+        /// It returns the `jsonName` if different from proto name, otherwise returns `protoName`.
+        public var effectiveJSONName: String {
+            return jsonName ?? protoName
+        }
+        
+        /// Whether this field or enum case has a custom JSON name different from its proto name.
+        public var hasCustomJSONName: Bool {
+            return jsonName != nil
+        }
+    }
+    
+    /// Returns information about the field or enum case with the given number.
+    ///
+    /// - Parameter number: The field or enum case number to look up.
+    /// - Returns: A `FieldInfo` structure containing the name mapping information,
+    ///   or `nil` if no field or enum case has the specified number.
+    public func fieldInfo(for number: Int) -> FieldInfo? {
+        guard let names = names(for: number) else { return nil }
+        
+        // Check if JSON name is different from proto name
+        let jsonName: String?
+        if let jsonNameObj = names.json, jsonNameObj != names.proto {
+            jsonName = jsonNameObj.description
+        } else {
+            jsonName = nil
+        }
+        
+        return FieldInfo(
+            number: number,
+            protoName: names.proto.description,
+            jsonName: jsonName
+        )
+    }
+    
+    /// Returns the field or enum case number for the given proto/text format name.
+    ///
+    /// This method searches for fields or enum cases that match the given proto name,
+    /// including aliases for enum cases.
+    ///
+    /// - Parameter name: The proto/text format name to look up.
+    /// - Returns: The field or enum case number, or `nil` if no match is found.
+    public func fieldNumber(forProtoName name: String) -> Int? {
+        return name.utf8.withContiguousStorageIfAvailable { utf8 in
+            return number(forProtoName: UnsafeRawBufferPointer(utf8))
+        } ?? {
+            // Fallback for non-contiguous UTF-8 storage
+            let utf8Array = Array(name.utf8)
+            return utf8Array.withUnsafeBytes { buffer in
+                return number(forProtoName: buffer)
+            }
+        }()
+    }
+    
+    /// Returns the field or enum case number for the given JSON name.
+    ///
+    /// This method searches for fields or enum cases that match the given JSON name.
+    /// Note that according to the protobuf JSON specification, both the JSON name
+    /// and the original proto name are accepted during parsing.
+    ///
+    /// - Parameter name: The JSON name to look up.
+    /// - Returns: The field or enum case number, or `nil` if no match is found.
+    public func fieldNumber(forJSONName name: String) -> Int? {
+        return number(forJSONName: name)
+    }
+    
+    /// Returns all field or enum case numbers present in this name map.
+    ///
+    /// The returned array is sorted in ascending numerical order.
+    ///
+    /// - Returns: An array of all field or enum case numbers.
+    public var fieldNumbers: [Int] {
+        var numbers: Set<Int> = []
+        
+        // Use the internal `names` property to get all proto names,
+        // then look up their numbers
+        for name in names {
+            if let num = number(forProtoName: name.utf8Buffer) {
+                numbers.insert(num)
+            }
+        }
+        
+        return Array(numbers).sorted()
+    }
+    
+    /// Returns information about all fields or enum cases in this name map.
+    ///
+    /// The returned array is sorted by field number in ascending order.
+    ///
+    /// - Returns: An array of `FieldInfo` structures for all fields or enum cases.
+    public var allFields: [FieldInfo] {
+        return fieldNumbers.compactMap { fieldInfo(for: $0) }
+    }
+    
+    /// Checks whether the given name is reserved.
+    ///
+    /// Reserved names are specified in the protobuf definition and cannot be used
+    /// as field names. This is primarily used by text format parsing to skip
+    /// reserved names.
+    ///
+    /// - Parameter name: The name to check.
+    /// - Returns: `true` if the name is reserved, `false` otherwise.
+    public func isReservedName(_ name: String) -> Bool {
+        return name.utf8.withContiguousStorageIfAvailable { utf8 in
+            return isReserved(name: UnsafeRawBufferPointer(utf8))
+        } ?? {
+            // Fallback for non-contiguous UTF-8 storage
+            let utf8Array = Array(name.utf8)
+            return utf8Array.withUnsafeBytes { buffer in
+                return isReserved(name: buffer)
+            }
+        }()
+    }
+    
+    /// Checks whether the given number is reserved.
+    ///
+    /// Reserved numbers are specified in the protobuf definition and cannot be used
+    /// as field numbers. This is primarily used by text format parsing to skip
+    /// reserved numbers.
+    ///
+    /// - Parameter number: The field number to check.
+    /// - Returns: `true` if the number is reserved, `false` otherwise.
+    public func isReservedNumber(_ number: Int32) -> Bool {
+        return isReserved(number: number)
+    }
+    
+    /// Checks whether the given number is reserved.
+    ///
+    /// This is a convenience overload that accepts `Int` instead of `Int32`.
+    ///
+    /// - Parameter number: The field number to check.
+    /// - Returns: `true` if the number is reserved, `false` otherwise.
+    public func isReservedNumber(_ number: Int) -> Bool {
+        return isReserved(number: Int32(number))
+    }
+}
