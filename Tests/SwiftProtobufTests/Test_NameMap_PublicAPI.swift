@@ -253,4 +253,110 @@ final class Test_NameMap_PublicAPI: XCTestCase {
         XCTAssertNotNil(nameMap.fieldInfo(for: 536870911))
         XCTAssertEqual(nameMap.fieldNumber(forProtoName: "max_field"), 536870911)
     }
+    
+    func testRawRepresentableAPI() {
+        // Define test field enums
+        enum TestFields: Int {
+            case id = 1
+            case name = 2
+            case email = 3
+            case reserved = 999
+        }
+        
+        enum Int32Fields: Int32 {
+            case score = 10
+            case rank = 20
+        }
+        
+        let nameMap = _NameMap(
+            reservedNames: [],
+            reservedRanges: [999..<1000],
+            numberNameMappings: [
+                1: .same(proto: "id"),
+                2: .standard(proto: "user_name"),
+                3: .unique(proto: "email_address", json: "email"),
+                10: .same(proto: "score"),
+                20: .standard(proto: "user_rank")
+            ]
+        )
+        
+        // Test fieldInfo with custom enum
+        let idInfo = nameMap.fieldInfo(for: TestFields.id)
+        XCTAssertNotNil(idInfo)
+        XCTAssertEqual(idInfo?.number, 1)
+        XCTAssertEqual(idInfo?.protoName, "id")
+        XCTAssertNil(idInfo?.jsonName)
+        
+        let nameInfo = nameMap.fieldInfo(for: TestFields.name)
+        XCTAssertNotNil(nameInfo)
+        XCTAssertEqual(nameInfo?.number, 2)
+        XCTAssertEqual(nameInfo?.protoName, "user_name")
+        XCTAssertEqual(nameInfo?.jsonName, "userName")
+        
+        let emailInfo = nameMap.fieldInfo(for: TestFields.email)
+        XCTAssertNotNil(emailInfo)
+        XCTAssertEqual(emailInfo?.number, 3)
+        XCTAssertEqual(emailInfo?.protoName, "email_address")
+        XCTAssertEqual(emailInfo?.jsonName, "email")
+        
+        // Test with Int32 enum
+        let scoreInfo = nameMap.fieldInfo(for: Int32Fields.score)
+        XCTAssertNotNil(scoreInfo)
+        XCTAssertEqual(scoreInfo?.number, 10)
+        XCTAssertEqual(scoreInfo?.protoName, "score")
+        
+        let rankInfo = nameMap.fieldInfo(for: Int32Fields.rank)
+        XCTAssertNotNil(rankInfo)
+        XCTAssertEqual(rankInfo?.number, 20)
+        XCTAssertEqual(rankInfo?.protoName, "user_rank")
+        XCTAssertEqual(rankInfo?.jsonName, "userRank")
+        
+        // Test reserved number checking with enum
+        XCTAssertTrue(nameMap.isReservedNumber(TestFields.reserved))
+        XCTAssertFalse(nameMap.isReservedNumber(TestFields.id))
+        XCTAssertFalse(nameMap.isReservedNumber(TestFields.name))
+        
+        // Test with Int32 enum (should also work)
+        XCTAssertFalse(nameMap.isReservedNumber(Int32Fields.score))
+        XCTAssertFalse(nameMap.isReservedNumber(Int32Fields.rank))
+        
+        // Test nonexistent field
+        enum NonexistentFields: Int {
+            case missing = 42
+        }
+        XCTAssertNil(nameMap.fieldInfo(for: NonexistentFields.missing))
+        XCTAssertFalse(nameMap.isReservedNumber(NonexistentFields.missing))
+    }
+    
+    func testRawRepresentableWithStringEnum() {
+        // Test that the API works with any RawRepresentable where RawValue == Int
+        struct StringBasedField: RawRepresentable {
+            let rawValue: Int
+            let name: String
+            
+            init?(rawValue: Int) {
+                self.rawValue = rawValue
+                self.name = "field_\(rawValue)"
+            }
+            
+            static let first = StringBasedField(rawValue: 1)!
+            static let second = StringBasedField(rawValue: 2)!
+        }
+        
+        let nameMap = _NameMap(dictionaryLiteral:
+            (1, .same(proto: "first_field")),
+            (2, .standard(proto: "second_field"))
+        )
+        
+        let firstInfo = nameMap.fieldInfo(for: StringBasedField.first)
+        XCTAssertNotNil(firstInfo)
+        XCTAssertEqual(firstInfo?.number, 1)
+        XCTAssertEqual(firstInfo?.protoName, "first_field")
+        
+        let secondInfo = nameMap.fieldInfo(for: StringBasedField.second)
+        XCTAssertNotNil(secondInfo)
+        XCTAssertEqual(secondInfo?.number, 2)
+        XCTAssertEqual(secondInfo?.protoName, "second_field")
+        XCTAssertEqual(secondInfo?.jsonName, "secondField")
+    }
 }

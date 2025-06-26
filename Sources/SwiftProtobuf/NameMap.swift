@@ -525,3 +525,87 @@ extension _NameMap {
         return isReserved(number: Int32(number))
     }
 }
+
+// MARK: - RawRepresentable API Overloads
+
+extension _NameMap {
+    /// Returns information about the field or enum case with the given field identifier.
+    ///
+    /// This convenience method allows using custom field enums or other `RawRepresentable` types
+    /// where the `RawValue` is `Int`, instead of hardcoded field numbers.
+    ///
+    /// Example usage:
+    /// ```swift
+    /// enum MyMessageFields: Int {
+    ///     case name = 1
+    ///     case age = 2
+    ///     case email = 3
+    /// }
+    ///
+    /// let info = nameMap.fieldInfo(for: MyMessageFields.name)
+    /// ```
+    ///
+    /// - Parameter field: A field identifier whose raw value is the field number.
+    /// - Returns: A `FieldInfo` structure containing the name mapping information,
+    ///   or `nil` if no field or enum case has the specified number.
+    public func fieldInfo<T: RawRepresentable>(for field: T) -> FieldInfo? where T.RawValue == Int {
+        return fieldInfo(for: field.rawValue)
+    }
+    
+    /// Returns information about the field or enum case with the given field identifier.
+    ///
+    /// This convenience method allows using custom field enums or other `RawRepresentable` types
+    /// where the `RawValue` is `Int32`, instead of hardcoded field numbers.
+    ///
+    /// Example usage:
+    /// ```swift
+    /// enum MyMessageFields: Int32 {
+    ///     case name = 1
+    ///     case age = 2
+    ///     case email = 3
+    /// }
+    ///
+    /// let info = nameMap.fieldInfo(for: MyMessageFields.name)
+    /// ```
+    ///
+    /// - Parameter field: A field identifier whose raw value is the field number.
+    /// - Returns: A `FieldInfo` structure containing the name mapping information,
+    ///   or `nil` if no field or enum case has the specified number.
+    public func fieldInfo<T: RawRepresentable>(for field: T) -> FieldInfo? where T.RawValue == Int32 {
+        return fieldInfo(for: Int(field.rawValue))
+    }
+    
+    /// Checks whether the given field identifier represents a reserved number.
+    ///
+    /// This convenience method allows using custom field enums or other `RawRepresentable` types
+    /// where the `RawValue` is `Int`, instead of hardcoded field numbers.
+    ///
+    /// Example usage:
+    /// ```swift
+    /// enum MyMessageFields: Int {
+    ///     case name = 1
+    ///     case reserved = 999  // Reserved field number
+    /// }
+    ///
+    /// if nameMap.isReservedNumber(MyMessageFields.reserved) {
+    ///     print("Field is reserved")
+    /// }
+    /// ```
+    ///
+    /// - Parameter field: A field identifier whose raw value is the field number to check.
+    /// - Returns: `true` if the field number is reserved, `false` otherwise.
+    public func isReservedNumber<T: RawRepresentable>(_ field: T) -> Bool where T.RawValue == Int {
+        return isReservedNumber(field.rawValue)
+    }
+    
+    /// Checks whether the given field identifier represents a reserved number.
+    ///
+    /// This convenience method allows using custom field enums or other `RawRepresentable` types
+    /// where the `RawValue` is `Int32`, instead of hardcoded field numbers.
+    ///
+    /// - Parameter field: A field identifier whose raw value is the field number to check.
+    /// - Returns: `true` if the field number is reserved, `false` otherwise.
+    public func isReservedNumber<T: RawRepresentable>(_ field: T) -> Bool where T.RawValue == Int32 {
+        return isReservedNumber(field.rawValue)
+    }
+}
