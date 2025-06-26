@@ -258,10 +258,18 @@ class MessageGenerator {
             writer.writeReservedName(name)
         }
         for range in descriptor.reservedRanges {
-            writer.writeReservedFields(range)
+            writer.writeReservedNumbers(range)
         }
-        p.print("private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)")
-        p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)")
+        if fields.isEmpty && descriptor.reservedNames.isEmpty && descriptor.reservedRanges.isEmpty {
+            p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
+        } else {
+            p.print(
+                "private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)"
+            )
+            p.print(
+                "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
+            )
+        }
     }
 
     /// Generates the `decodeMessage` method for the message.

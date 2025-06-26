@@ -27,7 +27,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         // future-proofs us if we ever want to change the way programs themselves are encoded
         // (for example, compressing them).
         let programFormat = nextUInt64()
-        if programFormat != 0 {
+        if programFormat > latestBytecodeProgramFormat {
             fatalError("Unexpected bytecode program format \(programFormat)")
         }
     }
@@ -55,7 +55,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     /// as field numbers (0 to 2^29-1) and enum cases (-2^31 to 2^31-1). In particular for enum
     /// cases, using this function specifically for those cases avoids making mistakes involving
     /// sign- vs. zero-extension between differently-sized integers.
-    /// 
+    ///
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
     /// - Returns: The signed 32-bit integer that was read from the bytecode stream.
@@ -95,6 +95,9 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
                 return value
             }
             shift += 6
+            guard shift < 64 else {
+                fatalError("Bytecode value too large to fit into UInt64")
+            }
         }
     }
 
@@ -137,3 +140,11 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         }
     }
 }
+
+/// Indicates the latest bytecode program format supported by `BytecodeReader`.
+///
+/// Programs written by a `BytecodeWriter` (see protoc-gen-swift) should *only* support this
+/// version; there is no reason to generate an older version than the latest that the runtime
+/// supports. Readers, on the other hand, must support the latest and all previous formats (unless
+/// making breaking changes).
+package let latestBytecodeProgramFormat: UInt64 = 0

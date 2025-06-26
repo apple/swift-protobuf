@@ -160,13 +160,13 @@ class EnumGenerator {
             if let aliases = aliasInfo.aliases(v) {
                 writer.writeAliased(v, aliases: aliases)
             } else {
-                // Note that we must use `UInt32(bitPattern:)` here and below because enum cases can
-                // be negative, but the bytecode API requires `UInt64`s.
                 writer.writeSame(number: v.number, name: v.name)
             }
         }
         p.print("private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)")
-        p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)")
+        p.print(
+            "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
+        )
     }
 
     /// Generates `init?(rawValue:)` for the enum.

@@ -21,9 +21,6 @@ import SwiftProtobufPluginLibrary
 protocol FieldGenerator {
     var number: Int { get }
 
-    /// Name mapping entries for the field.
-    var fieldMapNames: [String] { get }
-
     /// Writes the field's name information to the given bytecode stream.
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter)
 
@@ -65,7 +62,7 @@ class FieldGeneratorBase {
     let number: Int
     let fieldDescriptor: FieldDescriptor
 
-    var fieldMapNames: [String] {
+    func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {
         // Protobuf Text uses the unqualified group name for the field
         // name instead of the field name provided by protoc.  As far
         // as I can tell, no one uses the fieldname provided by protoc,
@@ -77,81 +74,27 @@ class FieldGeneratorBase {
         } else {
             protoName = fieldDescriptor.name
         }
-
-        var result: String
-        let jsonName = fieldDescriptor.jsonName
-        if jsonName == protoName {
-            /// The proto and JSON names are identical:
-            result = ".same(proto: \"\(protoName)\")"
-        } else {
-            let libraryGeneratedJsonName = NamingUtils.toJsonFieldName(protoName)
-            if jsonName == libraryGeneratedJsonName {
-                /// The library will generate the same thing protoc gave, so
-                /// we can let the library recompute this:
-                result = ".standard(proto: \"\(protoName)\")"
-            } else {
-                /// The library's generation didn't match, so specify this explicitly.
-                result = ".unique(proto: \"\(protoName)\", json: \"\(jsonName ?? "")\")"
-            }
-        }
-
-        // TODO: When the library can take a breaking change there should be a new
-        // enum for the nametable to handle the group being able to match the
-        // raw fieldname or the name based on the group's name. But until then
-        // we add two entries, to provide both options for TextFormat, but we add
-        // the preferred one second, so when the runtime builds up the mappings,
-        // it will become the default for what gets used when generating TextFormat.
-        if fieldDescriptor.isGroupLike && protoName != fieldDescriptor.name {
-            let nameLowercase = protoName.lowercased()
-            if nameLowercase == jsonName {
-                return [".same(proto: \"\(nameLowercase)\")", result]
-            } else {
-                return [".unique(proto: \"\(nameLowercase)\", json: \"\(jsonName ?? "")\")", result]
-            }
-        } else {
-            return [result]
-        }
-    }
-
-    func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {
-        // Protobuf Text uses the unqualified group name for the field
-        // name instead of the field name provided by protoc.  As far
-        // as I can tell, no one uses the fieldname provided by protoc,
-        // so let's just put the field name that Protobuf Text
-        // actually uses here.
-        let protoName: String
-        if fieldDescriptor.internal_isGroupLike {
-            protoName = fieldDescriptor.messageType!.name
-        } else {
-            protoName = fieldDescriptor.name
-        }
         let jsonName = fieldDescriptor.jsonName
 
-        // TODO: Create a separate instruction for the group being able to match
-        // the raw field name or the name based on the group's name. Until then
-        // we write the instructions for the non-preferred one first so when the
-        // runtime builds up the mappings, it will become the default for what
-        // gets used when generating TextFormat.
-        if fieldDescriptor.internal_isGroupLike && protoName != fieldDescriptor.name {
-            let nameLowercase = protoName.lowercased()
-            if nameLowercase == jsonName {
-                writer.writeSame(number: Int32(number), name: nameLowercase)
-            } else {
-                writer.writeUnique(number: Int32(number), protoName: nameLowercase, jsonName: jsonName)
-            }
-        }
-
-        if jsonName == protoName {
-            /// The proto and JSON names are identical:
+        if fieldDescriptor.isGroupLike {
+            // This behavior is guaranteed by the spec/proto compiler, so we
+            // rely on it. Fail if this is ever not the case.
+            assert(
+                jsonName == protoName.lowercased(),
+                "The JSON name of a group should always be the lowercased message name"
+            )
+            writer.writeGroup(number: Int32(number), name: protoName)
+        } else if jsonName == protoName {
+            // The proto and JSON names are identical.
             writer.writeSame(number: Int32(number), name: protoName)
         } else {
             let libraryGeneratedJsonName = NamingUtils.toJsonFieldName(protoName)
             if jsonName == libraryGeneratedJsonName {
-                /// The library will generate the same thing protoc gave, so
-                /// we can let the library recompute this:
+                // The library will generate the same thing protoc gave, so
+                // we can let the library recompute this.
                 writer.writeStandard(number: Int32(number), name: protoName)
             } else {
-                /// The library's generation didn't match, so specify this explicitly.
+                // The library's generation didn't match, so specify this explicitly.
                 writer.writeUnique(number: Int32(number), protoName: protoName, jsonName: jsonName)
             }
         }

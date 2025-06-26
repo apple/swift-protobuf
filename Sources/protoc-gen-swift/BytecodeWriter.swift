@@ -9,33 +9,28 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 
 /// Writes bytecode into a string that is suitable for use as a Swift string literal (i.e., for
 /// appending to generated code).
 ///
 /// See `SwiftProtobuf.BytecodeInterpreter` for more information on the format used here.
-public struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.RawValue == UInt64 {
+package struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.RawValue == UInt64 {
     /// The Swift string literal that represents the written bytecode, including the delimiting
     /// quotes.
-    public var stringLiteral: String { #""\#(code)""# }
+    package var stringLiteral: String { #""\#(code)""# }
 
     /// The contents of the Swift string literal representing the written bytecode, without the
     /// delimiting quotes.
     private var code: String = ""
 
-    /// Creates a bytecode writer that uses the given program format.
-    ///
-    /// - Parameter programFormat: The program format of the bytecode stream to write. Currently,
-    ///   the only valid value is zero.
-    public init(programFormat: Int = 0) {
-        if programFormat != 0 {
-            fatalError("Unexpected bytecode program format \(programFormat)")
-        }
-        writeUInt64(UInt64(programFormat))
+    /// Creates a new bytecode writer, writing the program format as the first value in the stream.
+    package init() {
+        writeUInt64(latestBytecodeProgramFormat)
     }
 
     /// Writes the integer opcode corresponding to the given instruction to the bytecode stream.
-    public mutating func writeOpcode(of instruction: Instruction) {
+    package mutating func writeOpcode(of instruction: Instruction) {
         writeUInt64(instruction.rawValue)
     }
 
@@ -45,18 +40,20 @@ public struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.Ra
     /// as field numbers (0 to 2^29-1) and enum cases (-2^31 to 2^31-1). In particular for enum
     /// cases, using this function specifically for those cases avoids making mistakes involving
     /// sign- vs. zero-extension between differently-sized integers.
-    public mutating func writeInt32(_ value: Int32) {
+    package mutating func writeInt32(_ value: Int32) {
         // `Int32`s are stored by converting them bit-wise to a `UInt32` and then zero-extended to
         // `UInt64`, since this representation is smaller than sign-extending them to 64 bits.
         writeUInt64(UInt64(UInt32(bitPattern: value)))
     }
 
     /// Writes an unsigned 64-bit integer to the bytecode stream.
-    public mutating func writeUInt64(_ value: UInt64) {
+    package mutating func writeUInt64(_ value: UInt64) {
         func append(_ value: UInt64) {
             // Print the normal scalar if it's ASCII-printable so that we only use longer `\u{...}`
             // sequences for those that are not.
-            if isprint(Int32(truncatingIfNeeded: value)) != 0 {
+            if value == 0 {
+                code.append("\\0")
+            } else if isprint(Int32(truncatingIfNeeded: value)) != 0 {
                 self.append(escapingIfNecessary: UnicodeScalar(UInt32(truncatingIfNeeded: value))!)
             } else {
                 code.append(String(format: "\\u{%x}", value))
@@ -73,7 +70,7 @@ public struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.Ra
     /// Writes the given string literal into the bytecode stream with null termination.
     ///
     /// - Precondition: `string` must not have any embedded zero code points.
-    public mutating func writeNullTerminatedString(_ string: String) {
+    package mutating func writeNullTerminatedString(_ string: String) {
         for scalar in string.unicodeScalars {
             append(escapingIfNecessary: scalar)
         }
@@ -84,7 +81,7 @@ public struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.Ra
     ///
     /// The format of a string collection is to write the number of strings first as an integer,
     /// then write that many null-terminated strings without delimiters.
-    public mutating func writeNullTerminatedStringArray(_ strings: some Collection<String>) {
+    package mutating func writeNullTerminatedStringArray(_ strings: some Collection<String>) {
         writeUInt64(UInt64(strings.count))
         for string in strings {
             writeNullTerminatedString(string)

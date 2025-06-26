@@ -11,6 +11,7 @@
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import XCTest
+import protoc_gen_swift
 
 /// All tests for the bytecode are in this test target even though the interpreter and reader are
 /// defined in the SwiftProtobuf module so that we can test everything end-to-end in one place.
@@ -27,12 +28,15 @@ final class Test_Bytecode: XCTestCase {
         var writer = BytecodeWriter<TestInstruction>()
         writer.writeOpcode(of: .first)
         writer.writeOpcode(of: .second)
-        XCTAssertEqual(writer.stringLiteral, #"""
-            "\u{0}\#
-            \u{1}\#
-            \u{2}\#
+        XCTAssertEqual(
+            writer.stringLiteral,
+            """
+            "\\0\
+            \\u{1}\
+            \\u{2}\
             "
-            """#)
+            """
+        )
     }
 
     func testWriter_integers() {
@@ -43,33 +47,55 @@ final class Test_Bytecode: XCTestCase {
         writer.writeUInt64(123_456_789)
         writer.writeInt32(0)
         writer.writeInt32(-1)
-        XCTAssertEqual(writer.stringLiteral, #"""
-            "\u{0}\#
-            \u{0}\#
-            ?\#
-            @\u{1}\#
-            Ut|V\u{7}\#
-            \u{0}\#
-            \u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}\#
+        XCTAssertEqual(
+            writer.stringLiteral,
+            """
+            "\\0\
+            \\0\
+            ?\
+            @\\u{1}\
+            Ut|V\\u{7}\
+            \\0\
+            \\u{7f}\\u{7f}\\u{7f}\\u{7f}\\u{7f}\\u{3}\
             "
-            """#)
+            """
+        )
     }
 
     func testWriter_strings() {
         var writer = BytecodeWriter<TestInstruction>()
         writer.writeNullTerminatedString("hello")
         writer.writeNullTerminatedString("ütf-èíght")
-        XCTAssertEqual(writer.stringLiteral, #"""
-            "\u{0}\#
-            hello\u{0}\#
-            ütf-èíght\u{0}\#
+        XCTAssertEqual(
+            writer.stringLiteral,
+            """
+            "\\0\
+            hello\\0\
+            ütf-èíght\\0\
             "
-            """#)
+            """
+        )
+    }
+
+    func testWriter_stringArray() {
+        var writer = BytecodeWriter<TestInstruction>()
+        writer.writeNullTerminatedStringArray(["hello", "ütf-èíght", "world"])
+        XCTAssertEqual(
+            writer.stringLiteral,
+            """
+            "\\0\
+            \\u{3}\
+            hello\\0\
+            ütf-èíght\\0\
+            world\\0\
+            "
+            """
+        )
     }
 
     func testReader_opcodes() {
         let program: StaticString = """
-            \u{0}\
+            \0\
             \u{1}\
             \u{2}
             """
@@ -85,12 +111,12 @@ final class Test_Bytecode: XCTestCase {
 
     func testReader_integers() {
         let program: StaticString = """
-            \u{0}\
-            \u{0}\
+            \0\
+            \0\
             ?\
             @\u{1}\
             Ut|V\u{7}\
-            \u{0}\
+            \0\
             \u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}
             """
         program.withUTF8Buffer { buffer in
@@ -113,18 +139,41 @@ final class Test_Bytecode: XCTestCase {
 
     func testReader_strings() {
         let program: StaticString = """
-            \u{0}\
-            hello\u{0}\
-            ütf-èíght\u{0}
+            \0\
+            hello\0\
+            ütf-èíght\0
             """
         program.withUTF8Buffer { buffer in
             var reader = BytecodeReader<TestInstruction>(remainingProgram: buffer[...])
             XCTAssertTrue(reader.hasData)
             XCTAssertEqual(
-                String(decoding: reader.nextNullTerminatedString(), as: UTF8.self), "hello")
+                String(decoding: reader.nextNullTerminatedString(), as: UTF8.self),
+                "hello"
+            )
             XCTAssertTrue(reader.hasData)
             XCTAssertEqual(
-                String(decoding: reader.nextNullTerminatedString(), as: UTF8.self), "ütf-èíght")
+                String(decoding: reader.nextNullTerminatedString(), as: UTF8.self),
+                "ütf-èíght"
+            )
+            XCTAssertFalse(reader.hasData)
+        }
+    }
+
+    func testReader_stringArray() {
+        let program: StaticString = """
+            \0\
+            \u{3}\
+            hello\0\
+            ütf-èíght\0\
+            world\0
+            """
+        program.withUTF8Buffer { buffer in
+            var reader = BytecodeReader<TestInstruction>(remainingProgram: buffer[...])
+            XCTAssertTrue(reader.hasData)
+            XCTAssertEqual(
+                reader.nextNullTerminatedStringArray().map { String(decoding: $0, as: UTF8.self) },
+                ["hello", "ütf-èíght", "world"]
+            )
             XCTAssertFalse(reader.hasData)
         }
     }
@@ -143,13 +192,15 @@ final class Test_Bytecode: XCTestCase {
 
         // The program below contains the following instructions:
         // push(integer 1), push(integer 37), add, print
-        let interpreter = BytecodeInterpreter<CalculatorInstruction>(program: """
-            \u{0}\
-            \u{1}\u{5}\
-            \u{1}!\
-            \u{2}\
-            \u{3}
-            """)
+        let interpreter = BytecodeInterpreter<CalculatorInstruction>(
+            program: """
+                \0\
+                \u{1}\u{5}\
+                \u{1}!\
+                \u{2}\
+                \u{3}
+                """
+        )
         interpreter.execute { instruction, reader in
             switch instruction {
             case .push:
