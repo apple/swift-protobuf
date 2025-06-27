@@ -264,8 +264,7 @@ class MessageGenerator {
             p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
         } else {
             p.print(
-                "private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)",
-                "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
+                "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: \(writer.bytecode.stringLiteral))"
             )
         }
     }
