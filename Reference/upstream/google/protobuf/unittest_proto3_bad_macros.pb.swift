@@ -265,50 +265,16 @@ enum ProtobufUnittest_BadNames: SwiftProtobuf.Enum, Swift.CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension ProtobufUnittest_GID: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "GID_UNUSED"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0GID_UNUSED\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufUnittest_UID: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UID_UNUSED"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0UID_UNUSED\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension ProtobufUnittest_BadNames: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PACKAGE"),
-    1: .same(proto: "PACKED"),
-    2: .same(proto: "linux"),
-    3: .same(proto: "DOMAIN"),
-    4: .same(proto: "TRUE"),
-    5: .same(proto: "FALSE"),
-    6: .same(proto: "CREATE_NEW"),
-    7: .same(proto: "DELETE"),
-    8: .same(proto: "DOUBLE_CLICK"),
-    9: .same(proto: "ERROR"),
-    10: .same(proto: "ERROR_BUSY"),
-    11: .same(proto: "ERROR_INSTALL_FAILED"),
-    12: .same(proto: "ERROR_NOT_FOUND"),
-    13: .same(proto: "GetClassName"),
-    14: .same(proto: "GetCurrentTime"),
-    15: .same(proto: "GetMessage"),
-    16: .same(proto: "GetObject"),
-    17: .same(proto: "IGNORE"),
-    18: .same(proto: "IN"),
-    19: .same(proto: "INPUT_KEYBOARD"),
-    20: .same(proto: "NO_ERROR"),
-    21: .same(proto: "OUT"),
-    22: .same(proto: "OPTIONAL"),
-    23: .same(proto: "NEAR"),
-    24: .same(proto: "NO_DATA"),
-    25: .same(proto: "REASON_UNKNOWN"),
-    26: .same(proto: "SERVICE_DISABLED"),
-    27: .same(proto: "SEVERITY_ERROR"),
-    28: .same(proto: "STATUS_PENDING"),
-    29: .same(proto: "STRICT"),
-    30: .same(proto: "TYPE_BOOL"),
-    31: .same(proto: "DEBUG"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0PACKAGE\0\u{1}PACKED\0\u{1}linux\0\u{1}DOMAIN\0\u{1}TRUE\0\u{1}FALSE\0\u{1}CREATE_NEW\0\u{1}DELETE\0\u{1}DOUBLE_CLICK\0\u{1}ERROR\0\u{1}ERROR_BUSY\0\u{1}ERROR_INSTALL_FAILED\0\u{1}ERROR_NOT_FOUND\0\u{1}GetClassName\0\u{1}GetCurrentTime\0\u{1}GetMessage\0\u{1}GetObject\0\u{1}IGNORE\0\u{1}IN\0\u{1}INPUT_KEYBOARD\0\u{1}NO_ERROR\0\u{1}OUT\0\u{1}OPTIONAL\0\u{1}NEAR\0\u{1}NO_DATA\0\u{1}REASON_UNKNOWN\0\u{1}SERVICE_DISABLED\0\u{1}SEVERITY_ERROR\0\u{1}STATUS_PENDING\0\u{1}STRICT\0\u{1}TYPE_BOOL\0\u{1}DEBUG\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }

@@ -182,10 +182,8 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrdering"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
-      reservedNames: [],
-      reservedRanges: [8..<9, 121..<126],
-      numberNameMappings: [:])
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{5}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -219,15 +217,8 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, 
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingWithFields"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(
-      reservedNames: [],
-      reservedRanges: [8..<9, 121..<124],
-      numberNameMappings: [
-        6: .same(proto: "field6"),
-        124: .same(proto: "field124"),
-        125: .same(proto: "field125"),
-        200: .same(proto: "field200"),
-  ])
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{6}field6\0\u{2}v\u{1}field124\0\u{1}field125\0\u{2}K\u{1}field200\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{3}"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -287,14 +278,8 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingNoMerging"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    6: .same(proto: "field6"),
-    13: .same(proto: "field13"),
-    15: .same(proto: "field15"),
-    21: .same(proto: "field21"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}field1\0\u{1}field2\0\u{2}\u{4}field6\0\u{2}\u{7}field13\0\u{2}\u{2}field15\0\u{2}\u{6}field21\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

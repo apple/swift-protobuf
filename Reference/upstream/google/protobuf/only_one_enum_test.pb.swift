@@ -57,8 +57,6 @@ enum Proto2Unittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_OnlyOneEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ONLY_ONE_ENUM_DEFAULT"),
-    10: .same(proto: "ONLY_ONE_ENUM_VALID"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0ONLY_ONE_ENUM_DEFAULT\0\u{2}\u{a}ONLY_ONE_ENUM_VALID\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }

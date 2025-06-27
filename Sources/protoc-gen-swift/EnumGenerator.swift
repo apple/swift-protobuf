@@ -155,18 +155,18 @@ class EnumGenerator {
     private func generateProtoNameProviding(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
-        p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
-        p.withIndentation { p in
-            for v in mainEnumValueDescriptorsSorted {
-                if let aliases = aliasInfo.aliases(v) {
-                    let aliasNames = aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
-                    p.print("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),")
-                } else {
-                    p.print("\(v.number): .same(proto: \"\(v.name)\"),")
-                }
+        var writer = ProtoNameInstructionWriter()
+        for v in mainEnumValueDescriptorsSorted {
+            if let aliases = aliasInfo.aliases(v) {
+                writer.writeAliased(v, aliases: aliases)
+            } else {
+                writer.writeSame(number: v.number, name: v.name)
             }
         }
-        p.print("]")
+        p.print("private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)")
+        p.print(
+            "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
+        )
     }
 
     /// Generates `init?(rawValue:)` for the enum.

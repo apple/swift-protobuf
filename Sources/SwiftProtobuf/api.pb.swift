@@ -252,15 +252,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Api"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "methods"),
-    3: .same(proto: "options"),
-    4: .same(proto: "version"),
-    5: .standard(proto: "source_context"),
-    6: .same(proto: "mixins"),
-    7: .same(proto: "syntax"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0"
+  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -324,15 +317,8 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
 
 extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Method"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "request_type_url"),
-    3: .standard(proto: "request_streaming"),
-    4: .standard(proto: "response_type_url"),
-    5: .standard(proto: "response_streaming"),
-    6: .same(proto: "options"),
-    7: .same(proto: "syntax"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0"
+  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -392,10 +378,8 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
 
 extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
-  public static let _protobuf_nameMap: _NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "root"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}root\0"
+  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

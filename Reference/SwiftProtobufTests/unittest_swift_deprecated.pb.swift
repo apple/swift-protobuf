@@ -385,29 +385,19 @@ extension SwiftProtoTesting_Deprecated_MsgScope {
 fileprivate let _protobuf_package = "swift_proto_testing.deprecated"
 
 extension SwiftProtoTesting_Deprecated_MyEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "MYENUM_ONE"),
-    2: .same(proto: "MYENUM_TWO"),
-    3: .same(proto: "MYENUM_THREE"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MYENUM_ONE\0\u{1}MYENUM_TWO\0\u{1}MYENUM_THREE\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftProtoTesting_Deprecated_MyEnum2: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "MYENUM2_ONE"),
-    2: .same(proto: "MYENUM2_TWO"),
-    3: .same(proto: "MYENUM2_THREE"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MYENUM2_ONE\0\u{1}MYENUM2_TWO\0\u{1}MYENUM2_THREE\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "string_field"),
-    2: .standard(proto: "int_field"),
-    3: .standard(proto: "fixed_field"),
-    4: .standard(proto: "msg_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}string_field\0\u{3}int_field\0\u{3}fixed_field\0\u{3}msg_field\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _stringField: String? = nil
@@ -530,12 +520,8 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "string_field"),
-    2: .standard(proto: "int_field"),
-    3: .standard(proto: "fixed_field"),
-    4: .standard(proto: "msg_field"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}string_field\0\u{3}int_field\0\u{3}fixed_field\0\u{3}msg_field\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {
     var _stringField: String? = nil

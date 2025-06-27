@@ -68,18 +68,14 @@ struct Proto2UnittestImport_ImportMessageLite: Sendable {
 fileprivate let _protobuf_package = "proto2_unittest_import"
 
 extension Proto2UnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    7: .same(proto: "IMPORT_LITE_FOO"),
-    8: .same(proto: "IMPORT_LITE_BAR"),
-    9: .same(proto: "IMPORT_LITE_BAZ"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{7}IMPORT_LITE_FOO\0\u{1}IMPORT_LITE_BAR\0\u{1}IMPORT_LITE_BAZ\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
 extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}d\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

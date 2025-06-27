@@ -250,61 +250,23 @@ class MessageGenerator {
     }
 
     private func generateProtoNameProviding(printer p: inout CodePrinter) {
-        if descriptor.reservedNames.isEmpty && descriptor.reservedRanges.isEmpty {
-            if fields.isEmpty {
-                p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
-            } else {
-                p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
-                p.withIndentation { p in
-                    for f in fields {
-                        for n in f.fieldMapNames {
-                            p.print("\(f.number): \(n),")
-                        }
-                    }
-                }
-                p.print("]")
-            }
+        var writer = ProtoNameInstructionWriter()
+        for f in fieldsSortedByNumber {
+            f.writeProtoNameInstruction(to: &writer)
+        }
+        for name in descriptor.reservedNames {
+            writer.writeReservedName(name)
+        }
+        for range in descriptor.reservedRanges {
+            writer.writeReservedNumbers(range)
+        }
+        if writer.shouldUseEmptyNameMapInitializer {
+            p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
         } else {
-            p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(")
-            if descriptor.reservedNames.isEmpty {
-                p.print("    reservedNames: [],")
-            } else {
-                p.print("    reservedNames: [", newlines: false)
-                p.withIndentation { p in
-                    var first = true
-                    for name in descriptor.reservedNames {
-                        p.print("\(first ? "" : ", ")\"\(name)\"", newlines: false)
-                        first = false
-                    }
-                }
-                p.print("],")
-            }
-            if descriptor.reservedRanges.isEmpty {
-                p.print("    reservedRanges: [],")
-            } else {
-                p.print("    reservedRanges: [", newlines: false)
-                p.withIndentation { p in
-                    var first = true
-                    for range in descriptor.reservedRanges.sortAndMergeContinuous() {
-                        p.print("\(first ? "" : ", ")\(range)", newlines: false)
-                        first = false
-                    }
-                }
-                p.print("],")
-            }
-            if fields.isEmpty {
-                p.print("    numberNameMappings: [:])")
-            } else {
-                p.print("    numberNameMappings: [")
-                p.withIndentation { p in
-                    for f in fields {
-                        for n in f.fieldMapNames {
-                            p.print("    \(f.number): \(n),")
-                        }
-                    }
-                }
-                p.print("])")
-            }
+            p.print(
+                "private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)",
+                "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
+            )
         }
     }
 
