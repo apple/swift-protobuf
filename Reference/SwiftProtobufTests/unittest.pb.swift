@@ -5464,7 +5464,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
 
 extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}\u{b}my_string\0\u{4}v\u{7f}\u{7f}\u{7f}\u{7f}\u{3}my_int\0\u{4}d\u{1}my_float\0\u{4}c\u{1}optional_nested_message\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}my_int\0\u{4}\u{a}my_string\0\u{4}Z\u{1}my_float\0\u{4}c\u{1}optional_nested_message\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {
@@ -5524,7 +5524,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestFieldOrderings.protoMessageName + ".NestedMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}oo\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}bb\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bb\0\u{1}oo\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5564,7 +5564,7 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
 
 extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtremeDefaultValues"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}escaped_bytes\0\u{3}large_uint32\0\u{3}large_uint64\0\u{3}small_int32\0\u{3}small_int64\0\u{4}\u{10}really_small_int32\0\u{3}really_small_int64\0\u{4}p\u{7f}\u{7f}\u{7f}\u{7f}\u{3}utf8_string\0\u{3}zero_float\0\u{3}one_float\0\u{3}small_float\0\u{3}negative_one_float\0\u{3}negative_float\0\u{3}large_float\0\u{3}small_negative_float\0\u{3}inf_double\0\u{3}neg_inf_double\0\u{3}nan_double\0\u{3}inf_float\0\u{3}neg_inf_float\0\u{3}nan_float\0\u{3}cpp_trigraph\0\u{4}\u{3}string_with_zero\0\u{3}bytes_with_zero\0\u{3}string_piece_with_zero\0\u{3}cord_with_zero\0\u{3}replacement_string\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}escaped_bytes\0\u{3}large_uint32\0\u{3}large_uint64\0\u{3}small_int32\0\u{3}small_int64\0\u{3}utf8_string\0\u{3}zero_float\0\u{3}one_float\0\u{3}small_float\0\u{3}negative_one_float\0\u{3}negative_float\0\u{3}large_float\0\u{3}small_negative_float\0\u{3}inf_double\0\u{3}neg_inf_double\0\u{3}nan_double\0\u{3}inf_float\0\u{3}neg_inf_float\0\u{3}nan_float\0\u{3}cpp_trigraph\0\u{3}really_small_int32\0\u{3}really_small_int64\0\u{3}string_with_zero\0\u{3}bytes_with_zero\0\u{3}string_piece_with_zero\0\u{3}cord_with_zero\0\u{3}replacement_string\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {

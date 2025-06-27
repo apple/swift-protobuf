@@ -167,7 +167,7 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringView"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}singular_string\0\u{3}singular_bytes\0\u{4}\u{3}implicit_presence\0\u{4}~\u{7f}\u{7f}\u{7f}\u{7f}\u{3}repeated_string\0\u{3}repeated_bytes\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}singular_string\0\u{3}singular_bytes\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{3}implicit_presence\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

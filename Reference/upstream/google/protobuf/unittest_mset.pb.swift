@@ -512,7 +512,7 @@ extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.Message, S
 
 extension Proto2Unittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestInt"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{2}\u{2}b\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}child\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}child\0\u{1}b\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   fileprivate class _StorageClass {

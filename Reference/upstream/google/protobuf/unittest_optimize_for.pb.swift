@@ -209,7 +209,7 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}i\0\u{2}\u{12}msg\0\u{4}o\u{7f}\u{7f}\u{7f}\u{7f}\u{3}integer_field\0\u{3}string_field\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}i\0\u{3}integer_field\0\u{3}string_field\0\u{2}\u{10}msg\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {

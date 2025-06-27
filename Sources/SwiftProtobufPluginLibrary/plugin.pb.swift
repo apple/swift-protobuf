@@ -403,7 +403,7 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}file_to_generate\0\u{1}parameter\0\u{4}\u{d}proto_file\0\u{4}\u{2}source_file_descriptors\0\u{4}r\u{7f}\u{7f}\u{7f}\u{7f}\u{3}compiler_version\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}file_to_generate\0\u{1}parameter\0\u{3}compiler_version\0\u{4}\u{c}proto_file\0\u{4}\u{2}source_file_descriptors\0"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   public var isInitialized: Bool {

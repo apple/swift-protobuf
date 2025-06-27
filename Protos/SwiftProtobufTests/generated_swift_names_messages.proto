@@ -18,6 +18,7 @@ message GeneratedSwiftReservedMessages {
   message AnyMessageStorage { int32 AnyMessageStorage = 1; }
   message AnyUnpackError { int32 AnyUnpackError = 1; }
   message Api { int32 Api = 1; }
+  message append { int32 append = 1; }
   message appended { int32 appended = 1; }
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
@@ -82,6 +83,7 @@ message GeneratedSwiftReservedMessages {
   message ccGenericServices { int32 ccGenericServices = 1; }
   message Character { int32 Character = 1; }
   message chars { int32 chars = 1; }
+  message checkProgramFormat { int32 checkProgramFormat = 1; }
   message chunk { int32 chunk = 1; }
   message class { int32 class = 1; }
   message clearAggregateValue { int32 clearAggregateValue = 1; }
@@ -760,6 +762,7 @@ message GeneratedSwiftReservedMessages {
   message prevPath { int32 prevPath = 1; }
   message printUnknownFields { int32 printUnknownFields = 1; }
   message programBuffer { int32 programBuffer = 1; }
+  message programFormat { int32 programFormat = 1; }
   message proto2 { int32 proto2 = 1; }
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
   message proto3Optional { int32 proto3Optional = 1; }
@@ -774,6 +777,7 @@ message GeneratedSwiftReservedMessages {
   message ProtobufAPIVersionCheck { int32 ProtobufAPIVersionCheck = 1; }
   message ProtobufBool { int32 ProtobufBool = 1; }
   message ProtobufBytes { int32 ProtobufBytes = 1; }
+  message protobufData { int32 protobufData = 1; }
   message ProtobufDouble { int32 ProtobufDouble = 1; }
   message ProtobufEnumMap { int32 ProtobufEnumMap = 1; }
   message protobufExtension { int32 protobufExtension = 1; }

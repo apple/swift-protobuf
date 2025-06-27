@@ -451,6 +451,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum append: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneAppend // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAppend
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAppend
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAppend: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.append] = [
+      .noneAppend,
+    ]
+
+  }
+
   enum appended: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAppended // = 0
@@ -2367,6 +2397,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars] = [
       .noneChars,
+    ]
+
+  }
+
+  enum checkProgramFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneCheckProgramFormat // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCheckProgramFormat
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCheckProgramFormat
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCheckProgramFormat: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.checkProgramFormat] = [
+      .noneCheckProgramFormat,
     ]
 
   }
@@ -22711,6 +22771,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum programFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneProgramFormat // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneProgramFormat
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneProgramFormat
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneProgramFormat: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.programFormat] = [
+      .noneProgramFormat,
+    ]
+
+  }
+
   enum proto2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProto2 // = 0
@@ -23127,6 +23217,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufBytes] = [
       .noneProtobufBytes,
+    ]
+
+  }
+
+  enum protobufData: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneProtobufData // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneProtobufData
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneProtobufData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobufData] = [
+      .noneProtobufData,
     ]
 
   }
@@ -31747,6 +31867,11 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Api: SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.append: SwiftProtobuf._ProtoNameProviding {
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_append\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appended: SwiftProtobuf._ProtoNameProviding {
   private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_appended\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
@@ -32064,6 +32189,11 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Character: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars: SwiftProtobuf._ProtoNameProviding {
   private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_chars\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.checkProgramFormat: SwiftProtobuf._ProtoNameProviding {
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_checkProgramFormat\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
@@ -35457,6 +35587,11 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.programBuffer:
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.programFormat: SwiftProtobuf._ProtoNameProviding {
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_programFormat\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.proto2: SwiftProtobuf._ProtoNameProviding {
   private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_proto2\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
@@ -35524,6 +35659,11 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufBool: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufBytes: SwiftProtobuf._ProtoNameProviding {
   private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_ProtobufBytes\0"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobufData: SwiftProtobuf._ProtoNameProviding {
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE_protobufData\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 }
 

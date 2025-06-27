@@ -525,7 +525,7 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{4}\u{5}jspb_payload\0\u{3}text_payload\0\u{4}{\u{7f}\u{7f}\u{7f}\u{7f}\u{3}requested_output_format\0\u{3}message_type\0\u{3}test_category\0\u{3}jspb_encoding_options\0\u{4}\u{3}print_unknown_fields\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{3}requested_output_format\0\u{3}message_type\0\u{3}test_category\0\u{3}jspb_encoding_options\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}print_unknown_fields\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -635,7 +635,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}parse_error\0\u{4}\u{5}serialize_error\0\u{4}\u{3}timeout_error\0\u{4}y\u{7f}\u{7f}\u{7f}\u{7f}\u{3}runtime_error\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{1}skipped\0\u{4}\u{2}jspb_payload\0\u{3}text_payload\0"
+  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}parse_error\0\u{3}runtime_error\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{1}skipped\0\u{3}serialize_error\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}timeout_error\0"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

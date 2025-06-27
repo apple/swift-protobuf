@@ -18,6 +18,7 @@ message GeneratedSwiftReservedEnums {
   enum AnyMessageStorage { NONE_AnyMessageStorage = 0; }
   enum AnyUnpackError { NONE_AnyUnpackError = 0; }
   enum Api { NONE_Api = 0; }
+  enum append { NONE_append = 0; }
   enum appended { NONE_appended = 0; }
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
@@ -82,6 +83,7 @@ message GeneratedSwiftReservedEnums {
   enum ccGenericServices { NONE_ccGenericServices = 0; }
   enum Character { NONE_Character = 0; }
   enum chars { NONE_chars = 0; }
+  enum checkProgramFormat { NONE_checkProgramFormat = 0; }
   enum chunk { NONE_chunk = 0; }
   enum class { NONE_class = 0; }
   enum clearAggregateValue { NONE_clearAggregateValue = 0; }
@@ -760,6 +762,7 @@ message GeneratedSwiftReservedEnums {
   enum prevPath { NONE_prevPath = 0; }
   enum printUnknownFields { NONE_printUnknownFields = 0; }
   enum programBuffer { NONE_programBuffer = 0; }
+  enum programFormat { NONE_programFormat = 0; }
   enum proto2 { NONE_proto2 = 0; }
   enum proto3DefaultValue { NONE_proto3DefaultValue = 0; }
   enum proto3Optional { NONE_proto3Optional = 0; }
@@ -774,6 +777,7 @@ message GeneratedSwiftReservedEnums {
   enum ProtobufAPIVersionCheck { NONE_ProtobufAPIVersionCheck = 0; }
   enum ProtobufBool { NONE_ProtobufBool = 0; }
   enum ProtobufBytes { NONE_ProtobufBytes = 0; }
+  enum protobufData { NONE_protobufData = 0; }
   enum ProtobufDouble { NONE_ProtobufDouble = 0; }
   enum ProtobufEnumMap { NONE_ProtobufEnumMap = 0; }
   enum protobufExtension { NONE_protobufExtension = 0; }
