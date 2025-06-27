@@ -57,7 +57,7 @@ protocol FieldGenerator {
     func generateIsInitializedCheck(printer: inout CodePrinter)
 }
 
-/// Simple base class for FieldGenerators that also provides fieldMapNames.
+/// Simple base class for FieldGenerators that also provides `writeProtoNameInstruction(to:)`.
 class FieldGeneratorBase {
     let number: Int
     let fieldDescriptor: FieldDescriptor
