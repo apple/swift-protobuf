@@ -251,7 +251,7 @@ class MessageGenerator {
 
     private func generateProtoNameProviding(printer p: inout CodePrinter) {
         var writer = ProtoNameInstructionWriter()
-        for f in fields {
+        for f in fieldsSortedByNumber {
             f.writeProtoNameInstruction(to: &writer)
         }
         for name in descriptor.reservedNames {
@@ -260,13 +260,11 @@ class MessageGenerator {
         for range in descriptor.reservedRanges {
             writer.writeReservedNumbers(range)
         }
-        if fields.isEmpty && descriptor.reservedNames.isEmpty && descriptor.reservedRanges.isEmpty {
+        if writer.shouldUseEmptyNameMapInitializer {
             p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
         } else {
             p.print(
-                "private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)"
-            )
-            p.print(
+                "private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)",
                 "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
             )
         }

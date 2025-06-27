@@ -26,7 +26,12 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         // We reserve the first integer of the program text as a "format specifier". This
         // future-proofs us if we ever want to change the way programs themselves are encoded
         // (for example, compressing them).
-        let programFormat = nextUInt64()
+        Self.checkProgramFormat(nextUInt64())
+    }
+
+    /// Checks that the given program format is valid (i.e., not greater than the runtime supports),
+    /// trapping if it is invalid.
+    static func checkProgramFormat(_ programFormat: UInt64) {
         if programFormat > latestBytecodeProgramFormat {
             fatalError("Unexpected bytecode program format \(programFormat)")
         }
@@ -62,7 +67,9 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     package mutating func nextInt32() -> Int32 {
         // `Int32`s are stored by converting them bit-wise to a `UInt32` and then zero-extended to
         // `UInt64`, since this representation is smaller than sign-extending them to 64 bits.
-        Int32(bitPattern: UInt32(truncatingIfNeeded: nextUInt64()))
+        let uint64Value = nextUInt64()
+        assert(uint64Value < 1 &<< 32, "nextInt32() read a value larger than 32 bits")
+        return Int32(bitPattern: UInt32(truncatingIfNeeded: uint64Value))
     }
 
     /// Reads and returns the next unsigned 64-bit integer from the bytecode stream.
@@ -89,12 +96,12 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         while true {
             let byte = remainingProgram.first!
             remainingProgram = remainingProgram.dropFirst()
-            value |= UInt64(byte & 0x3f) << shift
+            value |= UInt64(byte & 0x3f) &<< shift
             precondition(byte & 0x80 == 0, "Invalid integer leading byte \(byte)")
             if byte & 0x40 == 0 {
                 return value
             }
-            shift += 6
+            shift &+= 6
             guard shift < 64 else {
                 fatalError("Bytecode value too large to fit into UInt64")
             }

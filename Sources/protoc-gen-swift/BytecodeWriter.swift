@@ -22,11 +22,23 @@ package struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.R
 
     /// The contents of the Swift string literal representing the written bytecode, without the
     /// delimiting quotes.
-    private var code: String = ""
+    private var code: String = "" {
+        didSet {
+            hasData = true
+        }
+    }
+
+    /// Indicates whether any data other than the program format identifier has been written to the
+    /// bytecode stream.
+    package var hasData: Bool = false
 
     /// Creates a new bytecode writer, writing the program format as the first value in the stream.
     package init() {
         writeUInt64(latestBytecodeProgramFormat)
+
+        // Clear this back out, because we only want to track writes that come after the program
+        // format.
+        self.hasData = false
     }
 
     /// Writes the integer opcode corresponding to the given instruction to the bytecode stream.
@@ -62,7 +74,7 @@ package struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.R
         var v = value
         while v > 0x3f {
             append(v & 0x3f | 0x40)
-            v >>= 6
+            v &>>= 6
         }
         append(v)
     }

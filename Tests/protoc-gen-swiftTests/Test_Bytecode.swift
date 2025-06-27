@@ -93,6 +93,13 @@ final class Test_Bytecode: XCTestCase {
         )
     }
 
+    func testWriter_hasInstructions() {
+        var writer = BytecodeWriter<TestInstruction>()
+        XCTAssertFalse(writer.hasData)
+        writer.writeUInt64(10)
+        XCTAssertTrue(writer.hasData)
+    }
+
     func testReader_opcodes() {
         let program: StaticString = """
             \0\

@@ -80,7 +80,7 @@ private class InternPool {
 /// number, and a second form that takes an arbitrary delta from the previous number.
 ///
 /// This has package visibility so that it is also visible to the generator.
-package enum ProtoNameInstruction: UInt64 {
+package enum ProtoNameInstruction: UInt64, CaseIterable {
     /// The proto (text format) name and the JSON name are the same string.
     ///
     /// ## Operands

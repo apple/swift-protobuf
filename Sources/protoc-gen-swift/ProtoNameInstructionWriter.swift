@@ -17,11 +17,16 @@ struct ProtoNameInstructionWriter {
     private(set) var bytecode = BytecodeWriter<ProtoNameInstruction>()
 
     /// The previous field or case number written to the stream, which is used to compute deltas.
-    private var previousNumber: Int32 = 0
+    private var previousNumber: Int32? = nil
+
+    /// Indicates whether the parameterless `NameMap` initializer can be use because no instructions
+    /// were written to the bytecode stream.
+    var shouldUseEmptyNameMapInitializer: Bool {
+        !bytecode.hasData
+    }
 
     mutating func writeSame(number: Int32, name: String) {
-        let delta = number - previousNumber
-        previousNumber = number
+        let delta = delta(updatingToNextNumber: number)
         if delta == 1 {
             bytecode.writeOpcode(of: .sameNext)
         } else {
@@ -32,8 +37,7 @@ struct ProtoNameInstructionWriter {
     }
 
     mutating func writeStandard(number: Int32, name: String) {
-        let delta = number - previousNumber
-        previousNumber = number
+        let delta = delta(updatingToNextNumber: number)
         if delta == 1 {
             bytecode.writeOpcode(of: .standardNext)
         } else {
@@ -44,8 +48,7 @@ struct ProtoNameInstructionWriter {
     }
 
     mutating func writeUnique(number: Int32, protoName: String, jsonName: String?) {
-        let delta = number - previousNumber
-        previousNumber = number
+        let delta = delta(updatingToNextNumber: number)
         if delta == 1 {
             bytecode.writeOpcode(of: .uniqueNext)
         } else {
@@ -57,8 +60,7 @@ struct ProtoNameInstructionWriter {
     }
 
     mutating func writeGroup(number: Int32, name: String) {
-        let delta = number - previousNumber
-        previousNumber = number
+        let delta = delta(updatingToNextNumber: number)
         if delta == 1 {
             bytecode.writeOpcode(of: .groupNext)
         } else {
@@ -69,8 +71,7 @@ struct ProtoNameInstructionWriter {
     }
 
     mutating func writeAliased(_ descriptor: EnumValueDescriptor, aliases: [EnumValueDescriptor]) {
-        let delta = descriptor.number - previousNumber
-        previousNumber = descriptor.number
+        let delta = delta(updatingToNextNumber: descriptor.number)
         if delta == 1 {
             bytecode.writeOpcode(of: .aliasNext)
         } else {
@@ -90,5 +91,18 @@ struct ProtoNameInstructionWriter {
         bytecode.writeOpcode(of: .reservedNumbers)
         bytecode.writeInt32(range.lowerBound)
         bytecode.writeInt32(range.upperBound - range.lowerBound)
+    }
+
+    /// Returns the delta between the given field/case number and the previous number, updating the
+    /// previous number afterwards to the new value.
+    private mutating func delta(updatingToNextNumber number: Int32) -> Int32 {
+        guard let previousNumber else {
+            previousNumber = number
+            return number
+        }
+        precondition(number >= previousNumber, "field/case numbers must be written in ascending order")
+        let delta = number - previousNumber
+        self.previousNumber = number
+        return delta
     }
 }

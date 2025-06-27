@@ -47,7 +47,9 @@ where Instruction.RawValue == UInt64 {
         guard program.hasPointerRepresentation else {
             // The only way this could happen is if the program were a single byte, meaning that it
             // only has a 6-bits-or-fewer format specifier and nothing else. In other words, there
-            // are no instructions, and we can simply return as there is nothing to execute.
+            // are no instructions, and we can simply return as there is nothing to execute. We
+            // should still verify that the program format is valid, however.
+            BytecodeReader<Instruction>.checkProgramFormat(UInt64(program.unicodeScalar.value))
             return
         }
         program.withUTF8Buffer { programBuffer in
