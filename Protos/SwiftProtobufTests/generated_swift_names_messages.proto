@@ -821,6 +821,7 @@ message GeneratedSwiftReservedMessages {
   message sawBackslash { int32 sawBackslash = 1; }
   message sawSection4Characters { int32 sawSection4Characters = 1; }
   message sawSection5Characters { int32 sawSection5Characters = 1; }
+  message Scalar { int32 Scalar = 1; }
   message scan { int32 scan = 1; }
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
@@ -916,6 +917,7 @@ message GeneratedSwiftReservedMessages {
   message UInt64 { int32 UInt64 = 1; }
   message UInt8 { int32 UInt8 = 1; }
   message unchecked { int32 unchecked = 1; }
+  message Unicode { int32 Unicode = 1; }
   message unicodeScalarLiteral { int32 unicodeScalarLiteral = 1; }
   message UnicodeScalarLiteralType { int32 UnicodeScalarLiteralType = 1; }
   message unicodeScalars { int32 unicodeScalars = 1; }
@@ -934,6 +936,7 @@ message GeneratedSwiftReservedMessages {
   message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
   message unverifiedLazy { int32 unverifiedLazy = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
+  message uppercasedAssumingASCII { int32 uppercasedAssumingASCII = 1; }
   message url { int32 url = 1; }
   message useDeterministicOrdering { int32 useDeterministicOrdering = 1; }
   message utf8 { int32 utf8 = 1; }

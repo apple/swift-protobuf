@@ -821,6 +821,7 @@ message GeneratedSwiftReservedEnums {
   enum sawBackslash { NONE_sawBackslash = 0; }
   enum sawSection4Characters { NONE_sawSection4Characters = 0; }
   enum sawSection5Characters { NONE_sawSection5Characters = 0; }
+  enum Scalar { NONE_Scalar = 0; }
   enum scan { NONE_scan = 0; }
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }
@@ -916,6 +917,7 @@ message GeneratedSwiftReservedEnums {
   enum UInt64 { NONE_UInt64 = 0; }
   enum UInt8 { NONE_UInt8 = 0; }
   enum unchecked { NONE_unchecked = 0; }
+  enum Unicode { NONE_Unicode = 0; }
   enum unicodeScalarLiteral { NONE_unicodeScalarLiteral = 0; }
   enum UnicodeScalarLiteralType { NONE_UnicodeScalarLiteralType = 0; }
   enum unicodeScalars { NONE_unicodeScalars = 0; }
@@ -934,6 +936,7 @@ message GeneratedSwiftReservedEnums {
   enum UnsafeRawPointer { NONE_UnsafeRawPointer = 0; }
   enum unverifiedLazy { NONE_unverifiedLazy = 0; }
   enum updatedOptions { NONE_updatedOptions = 0; }
+  enum uppercasedAssumingASCII { NONE_uppercasedAssumingASCII = 0; }
   enum url { NONE_url = 0; }
   enum useDeterministicOrdering { NONE_useDeterministicOrdering = 0; }
   enum utf8 { NONE_utf8 = 0; }
