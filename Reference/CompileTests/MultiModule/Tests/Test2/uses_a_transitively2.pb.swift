@@ -57,8 +57,7 @@ public struct UsesATransitively2: Sendable {
 
 extension UsesATransitively2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "UsesATransitively2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}o\u{1}a\0\u{2}\u{b}e\0"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}o\u{1}a\0\u{2}\u{b}e\0")
 
   public var isInitialized: Bool {
     if let v = self._a, !v.isInitialized {return false}

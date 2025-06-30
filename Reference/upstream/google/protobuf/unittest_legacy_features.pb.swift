@@ -65,8 +65,7 @@ fileprivate let _protobuf_package = "legacy_features_unittest"
 
 extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEditionsMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}required_field\0\u{3}delimited_field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_field\0\u{3}delimited_field\0")
 
   fileprivate class _StorageClass {
     var _requiredField: Int32? = nil

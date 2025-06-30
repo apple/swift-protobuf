@@ -202,8 +202,7 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage1"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}requiredField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requiredField\0")
 
   public var isInitialized: Bool {
     if self._requiredField == nil {return false}
@@ -242,8 +241,7 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}requiredField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requiredField\0")
 
   public var isInitialized: Bool {
     if self._requiredField == nil {return false}
@@ -282,8 +280,7 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}option1\0\u{1}option2\0\u{7}Option3\0\u{2}\u{3}option4\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}option1\0\u{1}option2\0\u{7}Option3\0\u{2}\u{3}option4\0")
 
   public var isInitialized: Bool {
     if let v = self.option, !v.isInitialized {return false}
@@ -384,8 +381,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf
 
 extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_OneOfContainer.protoMessageName + ".Option3"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{4}a\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}a\0\u{1}b\0")
 
   public var isInitialized: Bool {
     if self._a == nil {return false}

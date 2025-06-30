@@ -291,14 +291,12 @@ extension SwiftProtoTesting_DeprecatedFile_MsgScope {
 fileprivate let _protobuf_package = "swift_proto_testing.deprecated_file"
 
 extension SwiftProtoTesting_DeprecatedFile_MyEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MYENUM_ONE\0\u{1}MYENUM_TWO\0\u{1}MYENUM_THREE\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MYENUM_ONE\0\u{1}MYENUM_TWO\0\u{1}MYENUM_THREE\0")
 }
 
 extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}string_field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}string_field\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

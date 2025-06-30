@@ -327,8 +327,7 @@ let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProt
 
 extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestGroupExtensions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -371,8 +370,7 @@ extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ExtensionGroup"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -406,8 +404,7 @@ extension ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 
 extension RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "RepeatedExtensionGroup"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -441,8 +438,7 @@ extension RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestGroupUnextended"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -476,8 +472,7 @@ extension SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
 extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}outer_a\0\u{7}SubGroup1\0\u{7}SubGroup3\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}outer_a\0\u{7}SubGroup1\0\u{7}SubGroup3\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -521,8 +516,7 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}sub1_a\0\u{7}SubGroup2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub1_a\0\u{7}SubGroup2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -561,8 +555,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftP
 
 extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}sub2_a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub2_a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -596,8 +589,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Messa
 
 extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}sub3_a\0\u{7}SubGroup4\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub3_a\0\u{7}SubGroup4\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -636,8 +628,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
 
 extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}sub4_a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub4_a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

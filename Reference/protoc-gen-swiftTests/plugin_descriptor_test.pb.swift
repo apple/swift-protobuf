@@ -182,8 +182,7 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrdering"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{5}"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{5}")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -217,8 +216,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, 
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingWithFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{6}field6\0\u{2}v\u{1}field124\0\u{1}field125\0\u{2}K\u{1}field200\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{3}"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{6}field6\0\u{2}v\u{1}field124\0\u{1}field125\0\u{2}K\u{1}field200\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{3}")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -278,8 +276,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingNoMerging"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}field1\0\u{1}field2\0\u{2}\u{4}field6\0\u{2}\u{7}field13\0\u{2}\u{2}field15\0\u{2}\u{6}field21\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{2}\u{4}field6\0\u{2}\u{7}field13\0\u{2}\u{2}field15\0\u{2}\u{6}field21\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

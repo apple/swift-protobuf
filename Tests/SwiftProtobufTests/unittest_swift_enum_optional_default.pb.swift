@@ -142,8 +142,7 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}message\0\u{4}\u{10}optional_enum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}message\0\u{4}\u{10}optional_enum\0")
 
   fileprivate class _StorageClass {
     var _message: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage? = nil
@@ -219,14 +218,12 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0FOO\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}\u{11}optional_enum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{11}optional_enum\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -259,6 +256,5 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProt
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0FOO\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }

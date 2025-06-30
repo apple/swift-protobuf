@@ -252,8 +252,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Api"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0")
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -317,8 +316,7 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
 
 extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Method"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0")
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -378,8 +376,7 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
 
 extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}root\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}root\0")
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

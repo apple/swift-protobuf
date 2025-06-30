@@ -245,8 +245,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DoubleValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -276,8 +275,7 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
 
 extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FloatValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -307,8 +305,7 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
 
 extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int64Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -338,8 +335,7 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _Prot
 
 extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UInt64Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -369,8 +365,7 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _Pro
 
 extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int32Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -400,8 +395,7 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _Prot
 
 extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UInt32Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -431,8 +425,7 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _Pro
 
 extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BoolValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -462,8 +455,7 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _Proto
 
 extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".StringValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -493,8 +485,7 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _Pro
 
 extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BytesValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

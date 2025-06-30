@@ -102,8 +102,7 @@ extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Proto2Unittest_TestExtensionSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionSetContainer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extension\0")
 
   public var isInitialized: Bool {
     if let v = self._extension, !v.isInitialized {return false}

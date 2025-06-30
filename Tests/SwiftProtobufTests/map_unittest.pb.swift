@@ -227,14 +227,12 @@ struct SwiftProtoTesting_TestRecursiveMapMessage: Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_MapEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0MAP_ENUM_FOO\0\u{1}MAP_ENUM_BAR\0\u{1}MAP_ENUM_BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0MAP_ENUM_FOO\0\u{1}MAP_ENUM_BAR\0\u{1}MAP_ENUM_BAZ\0")
 }
 
 extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0\u{3}map_string_foreign_message\0\u{3}map_int32_all_types\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0\u{3}map_string_foreign_message\0\u{3}map_int32_all_types\0")
 
   fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -426,8 +424,7 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
 extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_field\0")
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.mapField) {return false}
@@ -462,8 +459,7 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, Swift
 
 extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMapMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -64,8 +64,7 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmbedOptimizedForSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}optional_message\0\u{3}repeated_message\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_message\0\u{3}repeated_message\0")
 
   public var isInitialized: Bool {
     if let v = self._optionalMessage, !v.isInitialized {return false}

@@ -46,6 +46,5 @@ enum Proto2Unittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIte
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0LAZY_ENUM_0\0\u{1}LAZY_ENUM_1\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0LAZY_ENUM_0\0\u{1}LAZY_ENUM_1\0")
 }

@@ -378,8 +378,7 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}message_set\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}message_set\0")
 
   public var isInitialized: Bool {
     if let v = self._messageSet, !v.isInitialized {return false}
@@ -418,8 +417,7 @@ extension Proto2Unittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPr
 
 extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestMessageSetContainer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}container\0\u{1}child\0\u{3}lazy_child\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}container\0\u{1}child\0\u{3}lazy_child\0")
 
   fileprivate class _StorageClass {
     var _container: Proto2Unittest_TestMessageSetContainer? = nil
@@ -512,8 +510,7 @@ extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.Message, S
 
 extension Proto2Unittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestInt"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}child\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}child\0\u{1}b\0")
 
   fileprivate class _StorageClass {
     var _a: UInt32? = nil
@@ -597,8 +594,7 @@ extension Proto2Unittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Proto2Unittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{f}i\0\u{1}recursive\0\u{3}test_aliasing\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{f}i\0\u{1}recursive\0\u{3}test_aliasing\0")
 
   public var isInitialized: Bool {
     if let v = self._recursive, !v.isInitialized {return false}
@@ -647,8 +643,7 @@ extension Proto2Unittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftP
 
 extension Proto2Unittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{19}str\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{19}str\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -682,8 +677,7 @@ extension Proto2Unittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftP
 
 extension Proto2Unittest_TestMessageSetExtension3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension3"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}#msg\0\u{3}required_int\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}#msg\0\u{3}required_int\0")
 
   public var isInitialized: Bool {
     if self._requiredInt == nil {return false}
@@ -727,8 +721,7 @@ extension Proto2Unittest_TestMessageSetExtension3: SwiftProtobuf.Message, SwiftP
 
 extension Proto2Unittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RawMessageSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{7}Item\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{7}Item\0")
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.item) {return false}
@@ -763,8 +756,7 @@ extension Proto2Unittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._Me
 
 extension Proto2Unittest_RawMessageSet.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_RawMessageSet.protoMessageName + ".Item"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}\u{2}type_id\0\u{1}message\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{2}type_id\0\u{1}message\0")
 
   public var isInitialized: Bool {
     if self._typeID == nil {return false}

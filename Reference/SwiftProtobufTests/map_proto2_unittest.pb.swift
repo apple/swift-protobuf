@@ -156,19 +156,16 @@ struct SwiftProtoTesting_TestEnumMapPlusExtra: Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0PROTO2_MAP_ENUM_FOO\0\u{1}PROTO2_MAP_ENUM_BAR\0\u{1}PROTO2_MAP_ENUM_BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTO2_MAP_ENUM_FOO\0\u{1}PROTO2_MAP_ENUM_BAR\0\u{1}PROTO2_MAP_ENUM_BAZ\0")
 }
 
 extension SwiftProtoTesting_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0E_PROTO2_MAP_ENUM_FOO\0\u{1}E_PROTO2_MAP_ENUM_BAR\0\u{1}E_PROTO2_MAP_ENUM_BAZ\0\u{1}E_PROTO2_MAP_ENUM_EXTRA\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_PROTO2_MAP_ENUM_FOO\0\u{1}E_PROTO2_MAP_ENUM_BAR\0\u{1}E_PROTO2_MAP_ENUM_BAZ\0\u{1}E_PROTO2_MAP_ENUM_EXTRA\0")
 }
 
 extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}e\u{1}known_map_field\0\u{3}unknown_map_field\0\u{4}b\u{1}unknown_map_field_int64\0\u{3}unknown_map_field_uint64\0\u{3}unknown_map_field_int32\0\u{3}unknown_map_field_uint32\0\u{3}unknown_map_field_fixed32\0\u{3}unknown_map_field_fixed64\0\u{3}unknown_map_field_bool\0\u{3}unknown_map_field_string\0\u{3}unknown_map_field_sint32\0\u{3}unknown_map_field_sint64\0\u{3}unknown_map_field_sfixed32\0\u{3}unknown_map_field_sfixed64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}e\u{1}known_map_field\0\u{3}unknown_map_field\0\u{4}b\u{1}unknown_map_field_int64\0\u{3}unknown_map_field_uint64\0\u{3}unknown_map_field_int32\0\u{3}unknown_map_field_uint32\0\u{3}unknown_map_field_fixed32\0\u{3}unknown_map_field_fixed64\0\u{3}unknown_map_field_bool\0\u{3}unknown_map_field_string\0\u{3}unknown_map_field_sint32\0\u{3}unknown_map_field_sint64\0\u{3}unknown_map_field_sfixed32\0\u{3}unknown_map_field_sfixed64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -263,8 +260,7 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}e\u{1}known_map_field\0\u{3}unknown_map_field\0\u{4}b\u{1}unknown_map_field_int64\0\u{3}unknown_map_field_uint64\0\u{3}unknown_map_field_int32\0\u{3}unknown_map_field_uint32\0\u{3}unknown_map_field_fixed32\0\u{3}unknown_map_field_fixed64\0\u{3}unknown_map_field_bool\0\u{3}unknown_map_field_string\0\u{3}unknown_map_field_sint32\0\u{3}unknown_map_field_sint64\0\u{3}unknown_map_field_sfixed32\0\u{3}unknown_map_field_sfixed64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}e\u{1}known_map_field\0\u{3}unknown_map_field\0\u{4}b\u{1}unknown_map_field_int64\0\u{3}unknown_map_field_uint64\0\u{3}unknown_map_field_int32\0\u{3}unknown_map_field_uint32\0\u{3}unknown_map_field_fixed32\0\u{3}unknown_map_field_fixed64\0\u{3}unknown_map_field_bool\0\u{3}unknown_map_field_string\0\u{3}unknown_map_field_sint32\0\u{3}unknown_map_field_sint64\0\u{3}unknown_map_field_sfixed32\0\u{3}unknown_map_field_sfixed64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
