@@ -102,3 +102,14 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
     // UTF-8 (which is why we validate the UTF-8 above).
     return String(decoding: codeUnits, as: sourceEncoding)
 }
+
+extension Unicode.Scalar {
+    /// Assuming the given scalar is ASCII, this is the uppercased equivalent (unchanged if it is
+    /// not a lowercase alphabetic character).
+    var uppercasedAssumingASCII: Unicode.Scalar {
+        guard "a" <= self && self <= "z" else {
+            return self
+        }
+        return Self(value & 0x5f)!
+    }
+}

@@ -14,26 +14,34 @@
 /// use this data.  We should develop and publicize a suitable API
 /// for that purpose.  (Which might be the same as the internal API.)
 
-/// This must be exactly the same as the corresponding code in the
-/// protoc-gen-swift code generator.  Changing it will break
-/// compatibility of the library with older generated code.
+/// This must produce exactly the same outputs as the corresponding
+/// code in the protoc-gen-swift code generator. Changing it will
+/// break compatibility of the library with older generated code.
 ///
 /// It does not necessarily need to match protoc's JSON field naming
 /// logic, however.
-private func toJsonFieldName(_ s: String) -> String {
-    var result = String()
+private func toJSONFieldName(_ s: UnsafeBufferPointer<UInt8>) -> String {
+    var result = String.UnicodeScalarView()
     var capitalizeNext = false
     for c in s {
-        if c == "_" {
+        if c == UInt8(ascii: "_") {
             capitalizeNext = true
         } else if capitalizeNext {
-            result.append(String(c).uppercased())
+            result.append(Unicode.Scalar(c).uppercasedAssumingASCII)
             capitalizeNext = false
         } else {
-            result.append(String(c))
+            result.append(Unicode.Scalar(c))
         }
     }
-    return result
+    return String(result)
+}
+private func toJSONFieldName(_ s: StaticString) -> String {
+    guard s.hasPointerRepresentation else {
+        // If it's a single code point, it wouldn't be changed by the above algorithm.
+        // Return it as-is.
+        return s.description
+    }
+    return toJSONFieldName(UnsafeBufferPointer(start: s.utf8Start, count: s.utf8CodeUnitCount))
 }
 
 /// Allocate static memory buffers to intern UTF-8
@@ -326,7 +334,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
             case .standard(proto: let p):
                 let protoName = Name(staticString: p, pool: internPool)
-                let jsonString = toJsonFieldName(protoName.description)
+                let jsonString = toJSONFieldName(p)
                 let jsonName = Name(string: jsonString, pool: internPool)
                 let names = Names(json: jsonName, proto: protoName)
                 numberToNameMap[number] = names
@@ -382,8 +390,9 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
             case .standardNext, .standardDelta:
                 let number = nextNumber()
-                let protoName = Name(bytecodeUTF8Buffer: reader.nextNullTerminatedString())
-                let jsonString = toJsonFieldName(protoName.description)
+                let protoNameBuffer = reader.nextNullTerminatedString()
+                let protoName = Name(bytecodeUTF8Buffer: protoNameBuffer)
+                let jsonString = toJSONFieldName(protoNameBuffer)
                 let jsonName = Name(string: jsonString, pool: internPool)
                 numberToNameMap[number] = Names(json: jsonName, proto: protoName)
                 protoToNumberMap[protoName] = number
