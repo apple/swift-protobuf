@@ -162,6 +162,9 @@ struct Proto2Unittest_TestMap: @unchecked Sendable {
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
+  /// Caveat emptor: be careful adding new fields here.
+  /// The TestMap proto is used to generate additional tests and couples tightly
+  /// with map_test_util.h, which in turn couples tightly with TestMapLite.
   var mapInt32AllTypes: Dictionary<Int32,Proto2Unittest_TestAllTypes> {
     get {return _storage._mapInt32AllTypes}
     set {_uniqueStorage()._mapInt32AllTypes = newValue}
