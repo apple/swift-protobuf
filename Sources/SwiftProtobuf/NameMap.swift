@@ -228,11 +228,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         private var nameString: NameString
 
         public var description: String {
-            switch nameString {
-            case .string(let s): return s
-            case .staticString(let s): return s.description
-            case .immortalBuffer(let b): return String(decoding: b, as: UTF8.self)
-            }
+            String(decoding: utf8Buffer, as: UTF8.self)
         }
 
         public func hash(into hasher: inout Hasher) {
