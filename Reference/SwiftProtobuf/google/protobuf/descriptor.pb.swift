@@ -1585,7 +1585,10 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
   /// Clears the value of `deprecated`. Subsequent reads from it will return its default value.
   mutating func clearDeprecated() {_uniqueStorage()._deprecated = nil}
 
+  /// DEPRECATED. DO NOT USE!
   /// For Google-internal migration only. Do not use.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var weak: Bool {
     get {return _storage._weak ?? false}
     set {_uniqueStorage()._weak = newValue}
