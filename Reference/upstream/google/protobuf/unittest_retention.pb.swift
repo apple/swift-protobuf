@@ -513,14 +513,12 @@ extension Proto2Unittest_TopLevelMessage {
 fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0TOP_LEVEL_UNKNOWN\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TOP_LEVEL_UNKNOWN\0")
 }
 
 extension Proto2Unittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionsMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}plain_field\0\u{3}runtime_retention_field\0\u{3}source_retention_field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}plain_field\0\u{3}runtime_retention_field\0\u{3}source_retention_field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -593,8 +591,7 @@ extension Proto2Unittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._Message
 
 extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}f\0\u{1}i\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}f\0\u{1}i\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -648,8 +645,7 @@ extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Proto2Unittest_TopLevelMessage.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NESTED_UNKNOWN\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NESTED_UNKNOWN\0")
 }
 
 extension Proto2Unittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

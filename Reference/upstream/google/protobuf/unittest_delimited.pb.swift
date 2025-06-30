@@ -395,8 +395,7 @@ fileprivate let _protobuf_package = "editions_unittest"
 
 extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".LengthPrefixed"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -435,8 +434,7 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NotGroupLikeScope"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -475,8 +473,7 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtob
 
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GroupLikeFileScope"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -515,8 +512,7 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProto
 
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDelimited"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}lengthprefixed\0\u{1}nested\0\u{7}GroupLike\0\u{1}notgrouplike\0\u{1}notgrouplikescope\0\u{1}messageimport\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}lengthprefixed\0\u{1}nested\0\u{7}GroupLike\0\u{1}notgrouplike\0\u{1}notgrouplikescope\0\u{1}messageimport\0")
 
   fileprivate class _StorageClass {
     var _lengthprefixed: EditionsUnittest_TestDelimited.LengthPrefixed? = nil
@@ -633,8 +629,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -673,8 +668,7 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, 
 
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

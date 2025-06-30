@@ -426,8 +426,7 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3Optional"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_cord\0\u{4}\u{2}optional_nested_message\0\u{3}lazy_nested_message\0\u{4}\u{2}optional_nested_enum\0\u{3}singular_int32\0\u{3}singular_int64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_cord\0\u{4}\u{2}optional_nested_message\0\u{3}lazy_nested_message\0\u{4}\u{2}optional_nested_enum\0\u{3}singular_int32\0\u{3}singular_int64\0")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -636,14 +635,12 @@ extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Proto2Unittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
 extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestProto3Optional.protoMessageName + ".NestedMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bb\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -677,8 +674,7 @@ extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message
 
 extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3OptionalMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}nested_message\0\u{3}optional_nested_message\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}nested_message\0\u{3}optional_nested_message\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -717,8 +713,7 @@ extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.Message, Swift
 
 extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestProto3OptionalMessage.protoMessageName + ".NestedMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}s\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}s\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

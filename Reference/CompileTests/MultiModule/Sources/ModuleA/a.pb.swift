@@ -103,14 +103,12 @@ public let Extensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.Opt
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension E: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0E_UNSET\0\u{1}E_A\0\u{1}E_B\0"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_UNSET\0\u{1}E_A\0\u{1}E_B\0")
 }
 
 extension A: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "A"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}e\0"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

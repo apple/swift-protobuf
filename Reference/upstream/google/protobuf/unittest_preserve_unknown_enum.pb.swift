@@ -197,19 +197,16 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: Sendable {
 fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
 
 extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
 extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0E_FOO\0\u{1}E_BAR\0\u{1}E_BAZ\0\u{1}E_EXTRA\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_FOO\0\u{1}E_BAR\0\u{1}E_BAZ\0\u{1}E_EXTRA\0")
 }
 
 extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -286,8 +283,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
 
 extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

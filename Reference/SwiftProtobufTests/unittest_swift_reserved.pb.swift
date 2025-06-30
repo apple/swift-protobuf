@@ -501,8 +501,7 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}\u{a}proto_message_name\0\u{3}proto_package_name\0\u{3}any_type_prefix\0\u{3}any_type_url\0\u{4}\u{7}is_initialized\0\u{3}hash_value\0\u{3}debug_description\0\u{4}\u{8}required_int\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{a}proto_message_name\0\u{3}proto_package_name\0\u{3}any_type_prefix\0\u{3}any_type_url\0\u{4}\u{7}is_initialized\0\u{3}hash_value\0\u{3}debug_description\0\u{4}\u{8}required_int\0")
 
   public var isInitialized: Bool {
     if self._requiredInt == nil {return false}
@@ -575,13 +574,11 @@ extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProto
 }
 
 extension SwiftProtoTesting_SwiftReservedTest.Enum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}DOUBLE\0\u{1}JSON\0\u{1}CLASS\0\u{1}_\0\u{1}SELF\0\u{1}TYPE\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}DOUBLE\0\u{1}JSON\0\u{1}CLASS\0\u{1}_\0\u{1}SELF\0\u{1}TYPE\0")
 }
 
 extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 }
 
 extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

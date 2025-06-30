@@ -2796,19 +2796,16 @@ struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Edition: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}tJ\u{18}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}tJ\u{18}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
 }
 
 extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0VISIBILITY_UNSET\0\u{1}VISIBILITY_LOCAL\0\u{1}VISIBILITY_EXPORT\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0VISIBILITY_UNSET\0\u{1}VISIBILITY_LOCAL\0\u{1}VISIBILITY_EXPORT\0")
 }
 
 extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileDescriptorSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}file\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}file\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -2848,8 +2845,7 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
 
 extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}package\0\u{1}dependency\0\u{3}message_type\0\u{3}enum_type\0\u{1}service\0\u{1}extension\0\u{1}options\0\u{3}source_code_info\0\u{3}public_dependency\0\u{3}weak_dependency\0\u{1}syntax\0\u{2}\u{2}edition\0\u{3}option_dependency\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}package\0\u{1}dependency\0\u{3}message_type\0\u{3}enum_type\0\u{1}service\0\u{1}extension\0\u{1}options\0\u{3}source_code_info\0\u{3}public_dependency\0\u{3}weak_dependency\0\u{1}syntax\0\u{2}\u{2}edition\0\u{3}option_dependency\0")
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.messageType) {return false}
@@ -2958,8 +2954,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
 
 extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}field\0\u{3}nested_type\0\u{3}enum_type\0\u{3}extension_range\0\u{1}extension\0\u{1}options\0\u{3}oneof_decl\0\u{3}reserved_range\0\u{3}reserved_name\0\u{1}visibility\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}field\0\u{3}nested_type\0\u{3}enum_type\0\u{3}extension_range\0\u{1}extension\0\u{1}options\0\u{3}oneof_decl\0\u{3}reserved_range\0\u{3}reserved_name\0\u{1}visibility\0")
 
   fileprivate class _StorageClass {
     var _name: String? = nil
@@ -3112,8 +3107,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ExtensionRange"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}start\0\u{1}end\0\u{1}options\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}start\0\u{1}end\0\u{1}options\0")
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3162,8 +3156,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImple
 
 extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ReservedRange"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}start\0\u{1}end\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}start\0\u{1}end\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3202,8 +3195,7 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplem
 
 extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionRangeOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}declaration\0\u{1}verification\0\u{2}/features\0\u{4}u\u{e}uninterpreted_option\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\u{2}declaration\0\u{1}verification\0\u{2}/features\0\u{4}u\u{e}uninterpreted_option\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -3262,14 +3254,12 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
 }
 
 extension Google_Protobuf_ExtensionRangeOptions.VerificationState: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0DECLARATION\0\u{1}UNVERIFIED\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0DECLARATION\0\u{1}UNVERIFIED\0")
 }
 
 extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_ExtensionRangeOptions.protoMessageName + ".Declaration"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}number\0\u{3}full_name\0\u{1}type\0\u{2}\u{2}reserved\0\u{1}repeated\0\u{c}\u{4}\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}number\0\u{3}full_name\0\u{1}type\0\u{2}\u{2}reserved\0\u{1}repeated\0\u{c}\u{4}\u{1}")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3323,8 +3313,7 @@ extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageIm
 
 extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}extendee\0\u{1}number\0\u{1}label\0\u{1}type\0\u{3}type_name\0\u{3}default_value\0\u{1}options\0\u{3}oneof_index\0\u{3}json_name\0\u{4}\u{7}proto3_optional\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}extendee\0\u{1}number\0\u{1}label\0\u{1}type\0\u{3}type_name\0\u{3}default_value\0\u{1}options\0\u{3}oneof_index\0\u{3}json_name\0\u{4}\u{7}proto3_optional\0")
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3412,19 +3401,16 @@ extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationB
 }
 
 extension Google_Protobuf_FieldDescriptorProto.TypeEnum: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TYPE_DOUBLE\0\u{1}TYPE_FLOAT\0\u{1}TYPE_INT64\0\u{1}TYPE_UINT64\0\u{1}TYPE_INT32\0\u{1}TYPE_FIXED64\0\u{1}TYPE_FIXED32\0\u{1}TYPE_BOOL\0\u{1}TYPE_STRING\0\u{1}TYPE_GROUP\0\u{1}TYPE_MESSAGE\0\u{1}TYPE_BYTES\0\u{1}TYPE_UINT32\0\u{1}TYPE_ENUM\0\u{1}TYPE_SFIXED32\0\u{1}TYPE_SFIXED64\0\u{1}TYPE_SINT32\0\u{1}TYPE_SINT64\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}TYPE_DOUBLE\0\u{1}TYPE_FLOAT\0\u{1}TYPE_INT64\0\u{1}TYPE_UINT64\0\u{1}TYPE_INT32\0\u{1}TYPE_FIXED64\0\u{1}TYPE_FIXED32\0\u{1}TYPE_BOOL\0\u{1}TYPE_STRING\0\u{1}TYPE_GROUP\0\u{1}TYPE_MESSAGE\0\u{1}TYPE_BYTES\0\u{1}TYPE_UINT32\0\u{1}TYPE_ENUM\0\u{1}TYPE_SFIXED32\0\u{1}TYPE_SFIXED64\0\u{1}TYPE_SINT32\0\u{1}TYPE_SINT64\0")
 }
 
 extension Google_Protobuf_FieldDescriptorProto.Label: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}LABEL_OPTIONAL\0\u{1}LABEL_REQUIRED\0\u{1}LABEL_REPEATED\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}LABEL_OPTIONAL\0\u{1}LABEL_REQUIRED\0\u{1}LABEL_REPEATED\0")
 }
 
 extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}options\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}options\0")
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3468,8 +3454,7 @@ extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationB
 
 extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}value\0\u{1}options\0\u{3}reserved_range\0\u{3}reserved_name\0\u{1}visibility\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}value\0\u{1}options\0\u{3}reserved_range\0\u{3}reserved_name\0\u{1}visibility\0")
 
   fileprivate class _StorageClass {
     var _name: String? = nil
@@ -3582,8 +3567,7 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
 
 extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_EnumDescriptorProto.protoMessageName + ".EnumReservedRange"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}start\0\u{1}end\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}start\0\u{1}end\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3622,8 +3606,7 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _Messa
 
 extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumValueDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}number\0\u{1}options\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}number\0\u{1}options\0")
 
   fileprivate class _StorageClass {
     var _name: String? = nil
@@ -3714,8 +3697,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
 
 extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{1}method\0\u{1}options\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}method\0\u{1}options\0")
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.method) {return false}
@@ -3765,8 +3747,7 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
 
 extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{3}input_type\0\u{3}output_type\0\u{1}options\0\u{3}client_streaming\0\u{3}server_streaming\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{3}input_type\0\u{3}output_type\0\u{1}options\0\u{3}client_streaming\0\u{3}server_streaming\0")
 
   public var isInitialized: Bool {
     if let v = self._options, !v.isInitialized {return false}
@@ -3830,8 +3811,7 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
 
 extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}java_package\0\u{4}\u{7}java_outer_classname\0\u{3}optimize_for\0\u{3}java_multiple_files\0\u{3}go_package\0\u{4}\u{5}cc_generic_services\0\u{3}java_generic_services\0\u{3}py_generic_services\0\u{4}\u{2}java_generate_equals_and_hash\0\u{2}\u{3}deprecated\0\u{4}\u{4}java_string_check_utf8\0\u{4}\u{4}cc_enable_arenas\0\u{4}\u{5}objc_class_prefix\0\u{3}csharp_namespace\0\u{4}\u{2}swift_prefix\0\u{3}php_class_prefix\0\u{3}php_namespace\0\u{4}\u{3}php_metadata_namespace\0\u{3}ruby_package\0\u{2}\u{5}features\0\u{4}u\u{e}uninterpreted_option\0\u{b}php_generic_services\0\u{c}*\u{1}\u{c}&\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}java_package\0\u{4}\u{7}java_outer_classname\0\u{3}optimize_for\0\u{3}java_multiple_files\0\u{3}go_package\0\u{4}\u{5}cc_generic_services\0\u{3}java_generic_services\0\u{3}py_generic_services\0\u{4}\u{2}java_generate_equals_and_hash\0\u{2}\u{3}deprecated\0\u{4}\u{4}java_string_check_utf8\0\u{4}\u{4}cc_enable_arenas\0\u{4}\u{5}objc_class_prefix\0\u{3}csharp_namespace\0\u{4}\u{2}swift_prefix\0\u{3}php_class_prefix\0\u{3}php_namespace\0\u{4}\u{3}php_metadata_namespace\0\u{3}ruby_package\0\u{2}\u{5}features\0\u{4}u\u{e}uninterpreted_option\0\u{b}php_generic_services\0\u{c}*\u{1}\u{c}&\u{1}")
 
   fileprivate class _StorageClass {
     var _javaPackage: String? = nil
@@ -4053,14 +4033,12 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
 }
 
 extension Google_Protobuf_FileOptions.OptimizeMode: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}SPEED\0\u{1}CODE_SIZE\0\u{1}LITE_RUNTIME\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}SPEED\0\u{1}CODE_SIZE\0\u{1}LITE_RUNTIME\0")
 }
 
 extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}message_set_wire_format\0\u{3}no_standard_descriptor_accessor\0\u{1}deprecated\0\u{4}\u{4}map_entry\0\u{4}\u{4}deprecated_legacy_json_field_conflicts\0\u{1}features\0\u{4}[\u{f}uninterpreted_option\0\u{c}\u{4}\u{1}\u{c}\u{5}\u{1}\u{c}\u{6}\u{1}\u{c}\u{8}\u{1}\u{c}\u{9}\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}message_set_wire_format\0\u{3}no_standard_descriptor_accessor\0\u{1}deprecated\0\u{4}\u{4}map_entry\0\u{4}\u{4}deprecated_legacy_json_field_conflicts\0\u{1}features\0\u{4}[\u{f}uninterpreted_option\0\u{c}\u{4}\u{1}\u{c}\u{5}\u{1}\u{c}\u{6}\u{1}\u{c}\u{8}\u{1}\u{c}\u{9}\u{1}")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4135,8 +4113,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ctype\0\u{1}packed\0\u{1}deprecated\0\u{2}\u{2}lazy\0\u{1}jstype\0\u{2}\u{4}weak\0\u{4}\u{5}unverified_lazy\0\u{3}debug_redact\0\u{1}retention\0\u{2}\u{2}targets\0\u{3}edition_defaults\0\u{1}features\0\u{3}feature_support\0\u{4}Q\u{f}uninterpreted_option\0\u{c}\u{4}\u{1}\u{c}\u{12}\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}ctype\0\u{1}packed\0\u{1}deprecated\0\u{2}\u{2}lazy\0\u{1}jstype\0\u{2}\u{4}weak\0\u{4}\u{5}unverified_lazy\0\u{3}debug_redact\0\u{1}retention\0\u{2}\u{2}targets\0\u{3}edition_defaults\0\u{1}features\0\u{3}feature_support\0\u{4}Q\u{f}uninterpreted_option\0\u{c}\u{4}\u{1}\u{c}\u{12}\u{1}")
 
   fileprivate class _StorageClass {
     var _ctype: Google_Protobuf_FieldOptions.CType? = nil
@@ -4309,29 +4286,24 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
 }
 
 extension Google_Protobuf_FieldOptions.CType: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0STRING\0\u{1}CORD\0\u{1}STRING_PIECE\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0STRING\0\u{1}CORD\0\u{1}STRING_PIECE\0")
 }
 
 extension Google_Protobuf_FieldOptions.JSType: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0JS_NORMAL\0\u{1}JS_STRING\0\u{1}JS_NUMBER\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0JS_NORMAL\0\u{1}JS_STRING\0\u{1}JS_NUMBER\0")
 }
 
 extension Google_Protobuf_FieldOptions.OptionRetention: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0RETENTION_UNKNOWN\0\u{1}RETENTION_RUNTIME\0\u{1}RETENTION_SOURCE\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0RETENTION_UNKNOWN\0\u{1}RETENTION_RUNTIME\0\u{1}RETENTION_SOURCE\0")
 }
 
 extension Google_Protobuf_FieldOptions.OptionTargetType: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0TARGET_TYPE_UNKNOWN\0\u{1}TARGET_TYPE_FILE\0\u{1}TARGET_TYPE_EXTENSION_RANGE\0\u{1}TARGET_TYPE_MESSAGE\0\u{1}TARGET_TYPE_FIELD\0\u{1}TARGET_TYPE_ONEOF\0\u{1}TARGET_TYPE_ENUM\0\u{1}TARGET_TYPE_ENUM_ENTRY\0\u{1}TARGET_TYPE_SERVICE\0\u{1}TARGET_TYPE_METHOD\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0TARGET_TYPE_UNKNOWN\0\u{1}TARGET_TYPE_FILE\0\u{1}TARGET_TYPE_EXTENSION_RANGE\0\u{1}TARGET_TYPE_MESSAGE\0\u{1}TARGET_TYPE_FIELD\0\u{1}TARGET_TYPE_ONEOF\0\u{1}TARGET_TYPE_ENUM\0\u{1}TARGET_TYPE_ENUM_ENTRY\0\u{1}TARGET_TYPE_SERVICE\0\u{1}TARGET_TYPE_METHOD\0")
 }
 
 extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".EditionDefault"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}value\0\u{1}edition\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\u{2}value\0\u{1}edition\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4370,8 +4342,7 @@ extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplemen
 
 extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".FeatureSupport"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}edition_introduced\0\u{3}edition_deprecated\0\u{3}deprecation_warning\0\u{3}edition_removed\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}edition_introduced\0\u{3}edition_deprecated\0\u{3}deprecation_warning\0\u{3}edition_removed\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4420,8 +4391,7 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplemen
 
 extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}features\0\u{4}f\u{f}uninterpreted_option\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}features\0\u{4}f\u{f}uninterpreted_option\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4471,8 +4441,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
 
 extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{4}\u{2}allow_alias\0\u{1}deprecated\0\u{4}\u{3}deprecated_legacy_json_field_conflicts\0\u{1}features\0\u{4}`\u{f}uninterpreted_option\0\u{c}\u{5}\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{4}\u{2}allow_alias\0\u{1}deprecated\0\u{4}\u{3}deprecated_legacy_json_field_conflicts\0\u{1}features\0\u{4}`\u{f}uninterpreted_option\0\u{c}\u{5}\u{1}")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4537,8 +4506,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
 
 extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumValueOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}deprecated\0\u{1}features\0\u{3}debug_redact\0\u{3}feature_support\0\u{4}c\u{f}uninterpreted_option\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}deprecated\0\u{1}features\0\u{3}debug_redact\0\u{3}feature_support\0\u{4}c\u{f}uninterpreted_option\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4603,8 +4571,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
 
 extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}!deprecated\0\u{1}features\0\u{4}E\u{f}uninterpreted_option\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}!deprecated\0\u{1}features\0\u{4}E\u{f}uninterpreted_option\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4659,8 +4626,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MethodOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}!deprecated\0\u{3}idempotency_level\0\u{1}features\0\u{4}D\u{f}uninterpreted_option\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}!deprecated\0\u{3}idempotency_level\0\u{1}features\0\u{4}D\u{f}uninterpreted_option\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4719,14 +4685,12 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
 }
 
 extension Google_Protobuf_MethodOptions.IdempotencyLevel: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0IDEMPOTENCY_UNKNOWN\0\u{1}NO_SIDE_EFFECTS\0\u{1}IDEMPOTENT\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0IDEMPOTENCY_UNKNOWN\0\u{1}NO_SIDE_EFFECTS\0\u{1}IDEMPOTENT\0")
 }
 
 extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UninterpretedOption"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}name\0\u{3}identifier_value\0\u{3}positive_int_value\0\u{3}negative_int_value\0\u{3}double_value\0\u{3}string_value\0\u{3}aggregate_value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\u{2}name\0\u{3}identifier_value\0\u{3}positive_int_value\0\u{3}negative_int_value\0\u{3}double_value\0\u{3}string_value\0\u{3}aggregate_value\0")
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.name) {return false}
@@ -4795,8 +4759,7 @@ extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBa
 
 extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_UninterpretedOption.protoMessageName + ".NamePart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}name_part\0\u{3}is_extension\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}name_part\0\u{3}is_extension\0")
 
   public var isInitialized: Bool {
     if self._namePart == nil {return false}
@@ -4841,8 +4804,7 @@ extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImpleme
 
 extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FeatureSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}field_presence\0\u{3}enum_type\0\u{3}repeated_field_encoding\0\u{3}utf8_validation\0\u{3}message_encoding\0\u{3}json_format\0\u{3}enforce_naming_style\0\u{3}default_symbol_visibility\0\u{c}g\u{f}\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}field_presence\0\u{3}enum_type\0\u{3}repeated_field_encoding\0\u{3}utf8_validation\0\u{3}message_encoding\0\u{3}json_format\0\u{3}enforce_naming_style\0\u{3}default_symbol_visibility\0\u{c}g\u{f}\u{1}")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -4919,44 +4881,36 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
 }
 
 extension Google_Protobuf_FeatureSet.FieldPresence: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0FIELD_PRESENCE_UNKNOWN\0\u{1}EXPLICIT\0\u{1}IMPLICIT\0\u{1}LEGACY_REQUIRED\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0FIELD_PRESENCE_UNKNOWN\0\u{1}EXPLICIT\0\u{1}IMPLICIT\0\u{1}LEGACY_REQUIRED\0")
 }
 
 extension Google_Protobuf_FeatureSet.EnumType: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0ENUM_TYPE_UNKNOWN\0\u{1}OPEN\0\u{1}CLOSED\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENUM_TYPE_UNKNOWN\0\u{1}OPEN\0\u{1}CLOSED\0")
 }
 
 extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0REPEATED_FIELD_ENCODING_UNKNOWN\0\u{1}PACKED\0\u{1}EXPANDED\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0REPEATED_FIELD_ENCODING_UNKNOWN\0\u{1}PACKED\0\u{1}EXPANDED\0")
 }
 
 extension Google_Protobuf_FeatureSet.Utf8Validation: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0UTF8_VALIDATION_UNKNOWN\0\u{2}\u{2}VERIFY\0\u{1}NONE\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0UTF8_VALIDATION_UNKNOWN\0\u{2}\u{2}VERIFY\0\u{1}NONE\0")
 }
 
 extension Google_Protobuf_FeatureSet.MessageEncoding: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0MESSAGE_ENCODING_UNKNOWN\0\u{1}LENGTH_PREFIXED\0\u{1}DELIMITED\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0MESSAGE_ENCODING_UNKNOWN\0\u{1}LENGTH_PREFIXED\0\u{1}DELIMITED\0")
 }
 
 extension Google_Protobuf_FeatureSet.JsonFormat: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0JSON_FORMAT_UNKNOWN\0\u{1}ALLOW\0\u{1}LEGACY_BEST_EFFORT\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0JSON_FORMAT_UNKNOWN\0\u{1}ALLOW\0\u{1}LEGACY_BEST_EFFORT\0")
 }
 
 extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0")
 }
 
 extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FeatureSet.protoMessageName + ".VisibilityFeature"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{c}\u{1}\u{7f}\u{7f}\u{7f}\u{7f}\u{1f}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{c}\u{1}\u{7f}\u{7f}\u{7f}\u{7f}\u{1f}")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
@@ -4974,14 +4928,12 @@ extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImpleme
 }
 
 extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0DEFAULT_SYMBOL_VISIBILITY_UNKNOWN\0\u{1}EXPORT_ALL\0\u{1}EXPORT_TOP_LEVEL\0\u{1}LOCAL_ALL\0\u{1}STRICT\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0DEFAULT_SYMBOL_VISIBILITY_UNKNOWN\0\u{1}EXPORT_ALL\0\u{1}EXPORT_TOP_LEVEL\0\u{1}LOCAL_ALL\0\u{1}STRICT\0")
 }
 
 extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FeatureSetDefaults"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}defaults\0\u{4}\u{3}minimum_edition\0\u{3}maximum_edition\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}defaults\0\u{4}\u{3}minimum_edition\0\u{3}maximum_edition\0")
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.defaults) {return false}
@@ -5030,8 +4982,7 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
 
 extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{3}edition\0\u{3}overridable_features\0\u{3}fixed_features\0\u{b}features\0\u{c}\u{1}\u{1}\u{c}\u{2}\u{1}"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\u{3}edition\0\u{3}overridable_features\0\u{3}fixed_features\0\u{b}features\0\u{c}\u{1}\u{1}\u{c}\u{2}\u{1}")
 
   fileprivate class _StorageClass {
     var _edition: Google_Protobuf_Edition? = nil
@@ -5123,8 +5074,7 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
 
 extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SourceCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}location\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}location\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -5163,8 +5113,7 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
 
 extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_SourceCodeInfo.protoMessageName + ".Location"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}path\0\u{1}span\0\u{3}leading_comments\0\u{3}trailing_comments\0\u{4}\u{2}leading_detached_comments\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}path\0\u{1}span\0\u{3}leading_comments\0\u{3}trailing_comments\0\u{4}\u{2}leading_detached_comments\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5218,8 +5167,7 @@ extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementati
 
 extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GeneratedCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}annotation\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}annotation\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5249,8 +5197,7 @@ extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase
 
 extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_GeneratedCodeInfo.protoMessageName + ".Annotation"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}path\0\u{3}source_file\0\u{1}begin\0\u{1}end\0\u{1}semantic\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}path\0\u{3}source_file\0\u{1}begin\0\u{1}end\0\u{1}semantic\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -5303,6 +5250,5 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImpleme
 }
 
 extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NONE\0\u{1}SET\0\u{1}ALIAS\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0NONE\0\u{1}SET\0\u{1}ALIAS\0")
 }

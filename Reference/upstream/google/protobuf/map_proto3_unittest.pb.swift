@@ -60,8 +60,7 @@ fileprivate let _protobuf_package = "proto3_unittest"
 
 extension Proto3Unittest_TestProto3BytesMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3BytesMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_bytes\0\u{3}map_string\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_bytes\0\u{3}map_string\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -96,8 +95,7 @@ extension Proto3Unittest_TestProto3BytesMap: SwiftProtobuf.Message, SwiftProtobu
 
 extension Proto3Unittest_TestI32StrMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestI32StrMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}m_32_str\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}m_32_str\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -218,14 +218,12 @@ public struct Google_Protobuf_ListValue: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_NullValue: _ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0NULL_VALUE\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0NULL_VALUE\0")
 }
 
 extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Struct"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fields\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}fields\0")
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -255,8 +253,7 @@ extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNam
 
 extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}null_value\0\u{3}number_value\0\u{3}string_value\0\u{3}bool_value\0\u{3}struct_value\0\u{3}list_value\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}null_value\0\u{3}number_value\0\u{3}string_value\0\u{3}bool_value\0\u{3}struct_value\0\u{3}list_value\0")
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -371,8 +368,7 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
 
 extension Google_Protobuf_ListValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".ListValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}values\0"
-  public static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}values\0")
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

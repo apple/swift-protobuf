@@ -449,8 +449,7 @@ extension SwiftProtoTesting_Extend_Foo.Bar: SwiftProtobuf.Message, SwiftProtobuf
 
 extension SwiftProtoTesting_Extend_Foo.Bar.Baz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend_Foo.Bar.protoMessageName + ".Baz"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -493,8 +492,7 @@ extension SwiftProtoTesting_Extend_Foo.Bar.Baz: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_Extend_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".C"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}g\u{f}c\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}g\u{f}c\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -586,8 +584,7 @@ extension SwiftProtoTesting_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension SwiftProtoTesting_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgNoStorage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}x\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}x\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -630,8 +627,7 @@ extension SwiftProtoTesting_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftPro
 
 extension SwiftProtoTesting_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgUsesStorage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}x\0\u{1}y\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}x\0\u{1}y\0")
 
   fileprivate class _StorageClass {
     var _x: Int32? = nil

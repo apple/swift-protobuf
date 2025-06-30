@@ -209,8 +209,7 @@ fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}i\0\u{3}integer_field\0\u{3}string_field\0\u{2}\u{10}msg\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}i\0\u{3}integer_field\0\u{3}string_field\0\u{2}\u{10}msg\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -286,8 +285,7 @@ extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProto
 
 extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOptimizedForSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}x\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}x\0")
 
   public var isInitialized: Bool {
     if self._x == nil {return false}
@@ -326,8 +324,7 @@ extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Sw
 
 extension Proto2Unittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}o\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}o\0")
 
   public var isInitialized: Bool {
     if let v = self._o, !v.isInitialized {return false}

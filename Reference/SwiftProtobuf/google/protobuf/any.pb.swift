@@ -193,8 +193,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Any"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}type_url\0\u{1}value\0"
-  static let _protobuf_nameMap = _NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}type_url\0\u{1}value\0")
 
   typealias _StorageClass = AnyMessageStorage
 

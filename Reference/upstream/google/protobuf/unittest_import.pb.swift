@@ -82,19 +82,16 @@ struct Proto2UnittestImport_ImportMessage: Sendable {
 fileprivate let _protobuf_package = "proto2_unittest_import"
 
 extension Proto2UnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0")
 }
 
 extension Proto2UnittestImport_ImportEnumForMap: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0UNKNOWN\0\u{1}FOO\0\u{1}BAR\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}FOO\0\u{1}BAR\0")
 }
 
 extension Proto2UnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}d\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

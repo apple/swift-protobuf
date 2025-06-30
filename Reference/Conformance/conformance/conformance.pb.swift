@@ -442,19 +442,16 @@ struct Conformance_JspbEncodingConfig: Sendable {
 fileprivate let _protobuf_package = "conformance"
 
 extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0UNSPECIFIED\0\u{1}PROTOBUF\0\u{1}JSON\0\u{1}JSPB\0\u{1}TEXT_FORMAT\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}PROTOBUF\0\u{1}JSON\0\u{1}JSPB\0\u{1}TEXT_FORMAT\0")
 }
 
 extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0UNSPECIFIED_TEST\0\u{1}BINARY_TEST\0\u{1}JSON_TEST\0\u{1}JSON_IGNORE_UNKNOWN_PARSING_TEST\0\u{1}JSPB_TEST\0\u{1}TEXT_FORMAT_TEST\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED_TEST\0\u{1}BINARY_TEST\0\u{1}JSON_TEST\0\u{1}JSON_IGNORE_UNKNOWN_PARSING_TEST\0\u{1}JSPB_TEST\0\u{1}TEXT_FORMAT_TEST\0")
 }
 
 extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStatus"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0\u{3}failure_message\0\u{3}matched_name\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}failure_message\0\u{3}matched_name\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -494,8 +491,7 @@ extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FailureSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}test\0\u{c}\u{1}\u{1}"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}test\0\u{c}\u{1}\u{1}")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -525,8 +521,7 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{3}requested_output_format\0\u{3}message_type\0\u{3}test_category\0\u{3}jspb_encoding_options\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}print_unknown_fields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{3}requested_output_format\0\u{3}message_type\0\u{3}test_category\0\u{3}jspb_encoding_options\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}print_unknown_fields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -635,8 +630,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}parse_error\0\u{3}runtime_error\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{1}skipped\0\u{3}serialize_error\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}timeout_error\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}parse_error\0\u{3}runtime_error\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{1}skipped\0\u{3}serialize_error\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}timeout_error\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -777,8 +771,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".JspbEncodingConfig"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}use_jspb_array_any_format\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}use_jspb_array_any_format\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

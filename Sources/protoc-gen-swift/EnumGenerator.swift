@@ -163,9 +163,8 @@ class EnumGenerator {
                 writer.writeSame(number: v.number, name: v.name)
             }
         }
-        p.print("private static let _protobuf_nameMap_bytecode: Swift.StaticString = \(writer.bytecode.stringLiteral)")
         p.print(
-            "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: _protobuf_nameMap_bytecode)"
+            "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: \(writer.bytecode.stringLiteral))"
         )
     }
 

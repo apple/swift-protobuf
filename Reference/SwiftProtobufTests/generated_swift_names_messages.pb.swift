@@ -127,7 +127,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct AnyMessage: Sendable {
+  struct any: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -181,18 +181,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var anyUnpackError: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct Api: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var api: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -841,18 +829,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var bytesRead: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct BytesValue: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var bytesValue: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2191,18 +2167,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct com: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var com: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct comma: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3139,18 +3103,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct DescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var descriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct Dictionary: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3295,7 +3247,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct Duration: Sendable {
+  struct duration: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3457,18 +3409,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var emitFieldNumber: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct Empty: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var empty: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3655,30 +3595,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct EnumDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var enumDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct EnumOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var enumOptions: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct EnumReservedRange: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3709,30 +3625,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var enumvalue: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct EnumValueDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var enumValueDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct EnumValueOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var enumValueOptions: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3943,18 +3835,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct ExtensionRangeOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var extensionRangeOptions: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct extensions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4015,30 +3895,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct FeatureSet: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var featureSet: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FeatureSetDefaults: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var featureSetDefaults: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct FeatureSetEditionDefault: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4081,30 +3937,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var fieldData: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FieldDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fieldDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FieldMask: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fieldMask: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4183,18 +4015,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct FieldOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fieldOptions: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct fieldPresence: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4267,48 +4087,12 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct FileDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fileDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FileDescriptorSet: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fileDescriptorSet: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct fileName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var fileName: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FileOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var fileOptions: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4417,18 +4201,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var floatLiteralType: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct FloatValue: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var floatValue: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4621,18 +4393,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var g: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct GeneratedCodeInfo: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var generatedCodeInfo: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5293,18 +5053,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var googleProtobufValue: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct googleapis: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var googleapis: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6787,36 +6535,12 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct Int32Value: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var int32Value: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct Int64Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var int64: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct Int64Value: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var int64Value: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7915,18 +7639,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct MessageOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var messageOptions: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct MessageSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -7975,36 +7687,12 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct Method: Sendable {
+  struct method: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var method: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct MethodDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var methodDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct MethodOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var methodOptions: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8053,18 +7741,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var minor: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct Mixin: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var mixin: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8551,36 +8227,12 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct OneofDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var oneofDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct oneofIndex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var oneofIndex: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct OneofOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var oneofOptions: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8617,18 +8269,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var optimizeMode: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct Option: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var option: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9217,18 +8857,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var protobufNameMap: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct protobuf_nameMap_bytecode: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var protobufNameMapBytecode: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10363,30 +9991,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct ServiceDescriptorProto: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var serviceDescriptorProto: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct ServiceOptions: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var serviceOptions: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct set: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -11107,18 +10711,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct Timestamp: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var timestamp: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct tmp: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -11347,36 +10939,12 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct UInt32Value: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var uint32Value: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct UInt64Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var uint64: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct UInt64Value: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var uint64Value: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -12755,8 +12323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: SwiftProto
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.addPath: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".addPath"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}addPath\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}addPath\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12786,8 +12353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.addPath: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.adjusted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".adjusted"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}adjusted\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}adjusted\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12817,8 +12383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.adjusted: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.aggregateValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".aggregateValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}aggregateValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}aggregateValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12848,8 +12413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.aggregateVa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.allCases: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".allCases"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}allCases\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}allCases\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12879,8 +12443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.allCases: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.allowAlias: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".allowAlias"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}allowAlias\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}allowAlias\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12910,8 +12473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.allowAlias:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.alwaysPrintEnumsAsInts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".alwaysPrintEnumsAsInts"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}alwaysPrintEnumsAsInts\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}alwaysPrintEnumsAsInts\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12941,8 +12503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.alwaysPrint
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.alwaysPrintInt64sAsNumbers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".alwaysPrintInt64sAsNumbers"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}alwaysPrintInt64sAsNumbers\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}alwaysPrintInt64sAsNumbers\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -12972,8 +12533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.alwaysPrint
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.annotation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".annotation"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}annotation\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}annotation\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13001,10 +12561,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.annotation:
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Any"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Any\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".any"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}any\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13025,7 +12584,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessage:
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessage, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.any, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.any) -> Bool {
     if lhs.any != rhs.any {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -13034,8 +12593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AnyExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AnyExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AnyExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13065,8 +12623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyExtensio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessageExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AnyMessageExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AnyMessageExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AnyMessageExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13096,8 +12653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessageE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessageStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AnyMessageStorage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AnyMessageStorage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AnyMessageStorage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13127,8 +12683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessageS
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyUnpackError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AnyUnpackError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AnyUnpackError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AnyUnpackError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13156,41 +12711,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyUnpackEr
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Api"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Api\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.api) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.api != 0 {
-      try visitor.visitSingularInt32Field(value: self.api, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Api, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Api) -> Bool {
-    if lhs.api != rhs.api {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.append: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".append"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}append\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}append\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13220,8 +12743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.append: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".appended"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}appended\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}appended\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13251,8 +12773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appended: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appendUIntHex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".appendUIntHex"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}appendUIntHex\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}appendUIntHex\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13282,8 +12803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appendUIntH
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appendUnknown: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".appendUnknown"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}appendUnknown\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}appendUnknown\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13313,8 +12833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appendUnkno
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.areAllInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".areAllInitialized"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}areAllInitialized\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}areAllInitialized\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13344,8 +12863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.areAllIniti
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Array: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Array"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Array\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Array\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13375,8 +12893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Array: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arrayDepth: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".arrayDepth"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}arrayDepth\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}arrayDepth\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13406,8 +12923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arrayDepth:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arrayLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".arrayLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}arrayLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}arrayLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13437,8 +12953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arrayLitera
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arraySeparator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".arraySeparator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}arraySeparator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}arraySeparator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13468,8 +12983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arraySepara
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".as"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}as\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}as\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13499,8 +13013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asMessage: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asciiOpenCurlyBracket: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".asciiOpenCurlyBracket"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}asciiOpenCurlyBracket\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}asciiOpenCurlyBracket\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13530,8 +13043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asciiOpenCu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asciiZero: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".asciiZero"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}asciiZero\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}asciiZero\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13561,8 +13073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asciiZero: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.async: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".async"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}async\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}async\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13592,8 +13103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.async: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncIterator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AsyncIterator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AsyncIterator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AsyncIterator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13623,8 +13133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncIterat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncIteratorProtocol: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AsyncIteratorProtocol"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AsyncIteratorProtocol\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AsyncIteratorProtocol\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13654,8 +13163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncIterat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncMessageSequence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".AsyncMessageSequence"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}AsyncMessageSequence\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}AsyncMessageSequence\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13685,8 +13193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.available: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".available"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}available\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}available\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13716,8 +13223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.available: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.b: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".b"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}b\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}b\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13747,8 +13253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.b: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Base: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Base"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Base\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Base\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13778,8 +13283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Base: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.base64Values: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".base64Values"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}base64Values\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}base64Values\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13809,8 +13313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.base64Value
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.baseAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".baseAddress"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}baseAddress\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}baseAddress\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13840,8 +13343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.baseAddress
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BaseType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BaseType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BaseType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BaseType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13871,8 +13373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BaseType: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.begin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".begin"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}begin\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}begin\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13902,8 +13403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.begin: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binary: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".binary"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}binary\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}binary\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13933,8 +13433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binary: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13964,8 +13463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryDecoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryDecoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryDecoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -13995,8 +13493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryDecodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryDecodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryDecodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14026,8 +13523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryDecodingOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryDecodingOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryDecodingOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14057,8 +13553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryDelimited"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryDelimited\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryDelimited\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14088,8 +13583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDelim
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14119,8 +13613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14150,8 +13643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncodingMessageSetSizeVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncodingMessageSetSizeVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncodingMessageSetSizeVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14181,8 +13673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingMessageSetVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncodingMessageSetVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncodingMessageSetVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncodingMessageSetVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14212,8 +13703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncodingOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncodingOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncodingOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14243,8 +13733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingSizeVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncodingSizeVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncodingSizeVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncodingSizeVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14274,8 +13763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryEncodingVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryEncodingVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryEncodingVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14305,8 +13793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".binaryOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}binaryOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}binaryOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14336,8 +13823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryOptio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryProtobufDelimitedMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".binaryProtobufDelimitedMessages"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}binaryProtobufDelimitedMessages\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}binaryProtobufDelimitedMessages\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14367,8 +13853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryProto
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryStreamDecoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BinaryStreamDecoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BinaryStreamDecoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BinaryStreamDecoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14398,8 +13883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryStrea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryStreamDecodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".binaryStreamDecodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}binaryStreamDecodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}binaryStreamDecodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14429,8 +13913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryStrea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bitPattern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".bitPattern"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bitPattern\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bitPattern\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14460,8 +13943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bitPattern:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.body: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".body"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}body\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}body\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14491,8 +13973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.body: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BoolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Bool"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Bool\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Bool\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14522,8 +14003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BoolMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.booleanLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".booleanLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}booleanLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}booleanLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14553,8 +14033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.booleanLite
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BooleanLiteralType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BooleanLiteralType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BooleanLiteralType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BooleanLiteralType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14584,8 +14063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BooleanLite
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.boolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".boolValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}boolValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}boolValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14615,8 +14093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.boolValue: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.buffer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".buffer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}buffer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}buffer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14646,8 +14123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.buffer: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.byte: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".byte"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}byte\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}byte\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14677,8 +14153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.byte: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytecode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".bytecode"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bytecode\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bytecode\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14708,8 +14183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytecode: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BytecodeReader: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BytecodeReader"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BytecodeReader\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}BytecodeReader\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14739,8 +14213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BytecodeRea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".bytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14770,8 +14243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytes: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesInGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".bytesInGroup"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bytesInGroup\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bytesInGroup\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14801,8 +14273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesInGrou
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesNeeded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".bytesNeeded"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bytesNeeded\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bytesNeeded\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14832,8 +14303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesNeeded
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesRead: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".bytesRead"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bytesRead\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bytesRead\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14861,41 +14331,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesRead: 
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BytesValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".BytesValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}BytesValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.bytesValue) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.bytesValue != 0 {
-      try visitor.visitSingularInt32Field(value: self.bytesValue, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BytesValue, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BytesValue) -> Bool {
-    if lhs.bytesValue != rhs.bytesValue {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.c: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".c"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}c\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14925,8 +14363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.c: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.canonical: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".canonical"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}canonical\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}canonical\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14956,8 +14393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.canonical: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.capitalizeNext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".capitalizeNext"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}capitalizeNext\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}capitalizeNext\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14987,8 +14423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.capitalizeN
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.cardinality: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".cardinality"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}cardinality\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}cardinality\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15018,8 +14453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.cardinality
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CaseIterable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".CaseIterable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}CaseIterable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}CaseIterable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15049,8 +14483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CaseIterabl
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.castedValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".castedValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}castedValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}castedValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15080,8 +14513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.castedValue
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ccEnableArenas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ccEnableArenas"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ccEnableArenas\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ccEnableArenas\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15111,8 +14543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ccEnableAre
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ccGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ccGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ccGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ccGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15142,8 +14573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ccGenericSe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Character: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Character"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Character\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Character\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15173,8 +14603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Character: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.chars: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".chars"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}chars\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}chars\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15204,8 +14633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.chars: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.checkProgramFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".checkProgramFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}checkProgramFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}checkProgramFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15235,8 +14663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.checkProgra
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.chunk: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".chunk"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}chunk\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}chunk\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15266,8 +14693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.chunk: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".class"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}class\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}class\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15297,8 +14723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.classMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearAggregateValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearAggregateValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearAggregateValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearAggregateValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15328,8 +14753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearAggreg
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearAllowAlias: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearAllowAlias"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearAllowAlias\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearAllowAlias\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15359,8 +14783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearAllowA
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearBegin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearBegin"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearBegin\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearBegin\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15390,8 +14813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearBegin:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCcEnableArenas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearCcEnableArenas"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearCcEnableArenas\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearCcEnableArenas\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15421,8 +14843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCcEnab
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCcGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearCcGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearCcGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearCcGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15452,8 +14873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCcGene
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearClientStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearClientStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearClientStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearClientStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15483,8 +14903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearClient
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCsharpNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearCsharpNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearCsharpNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearCsharpNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15514,8 +14933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCsharp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCtype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearCtype"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearCtype\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearCtype\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15545,8 +14963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCtype:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDebugRedact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDebugRedact"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDebugRedact\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDebugRedact\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15576,8 +14993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDebugR
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDefaultSymbolVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDefaultSymbolVisibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDefaultSymbolVisibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDefaultSymbolVisibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15607,8 +15023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDefaul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDefaultValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDefaultValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDefaultValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDefaultValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15638,8 +15053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDefaul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprecated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDeprecated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDeprecated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDeprecated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15669,8 +15083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprec
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDeprecatedLegacyJsonFieldConflicts"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDeprecatedLegacyJsonFieldConflicts\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDeprecatedLegacyJsonFieldConflicts\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15700,8 +15113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprec
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprecationWarning: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDeprecationWarning"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDeprecationWarning\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDeprecationWarning\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15731,8 +15143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprec
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearDoubleValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearDoubleValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearDoubleValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15762,8 +15173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDouble
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15793,8 +15203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditionDeprecated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEditionDeprecated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEditionDeprecated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEditionDeprecated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15824,8 +15233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditionIntroduced: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEditionIntroduced"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEditionIntroduced\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEditionIntroduced\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15855,8 +15263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditionRemoved: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEditionRemoved"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEditionRemoved\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEditionRemoved\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15886,8 +15293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnd"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEnd\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEnd\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15917,8 +15323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnd: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceNamingStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnforceNamingStyle"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEnforceNamingStyle\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEnforceNamingStyle\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15948,8 +15353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforc
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnumType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnumType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearEnumType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEnumType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -15979,8 +15383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnumTy
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearExtendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearExtendee"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearExtendee\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearExtendee\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16010,8 +15413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearExtend
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearExtensionValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearExtensionValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearExtensionValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearExtensionValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16041,8 +15443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearExtens
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16072,8 +15473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFeatur
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFeatureSupport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearFeatureSupport"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearFeatureSupport\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearFeatureSupport\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16103,8 +15503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFeatur
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFieldPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearFieldPresence"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearFieldPresence\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearFieldPresence\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16134,8 +15533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFieldP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFixedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearFixedFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearFixedFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearFixedFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16165,8 +15563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFixedF
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFullName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearFullName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearFullName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearFullName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16196,8 +15593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFullNa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearGoPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearGoPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearGoPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearGoPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16227,8 +15623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearGoPack
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIdempotencyLevel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearIdempotencyLevel"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearIdempotencyLevel\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearIdempotencyLevel\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16258,8 +15653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIdempo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIdentifierValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearIdentifierValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearIdentifierValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearIdentifierValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16289,8 +15683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIdenti
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearInputType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearInputType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearInputType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearInputType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16320,8 +15713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearInputT
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIsExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearIsExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearIsExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearIsExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16351,8 +15743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIsExte
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaGenerateEqualsAndHash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJavaGenerateEqualsAndHash"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJavaGenerateEqualsAndHash\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJavaGenerateEqualsAndHash\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16382,8 +15773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaGe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJavaGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJavaGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJavaGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16413,8 +15803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaGe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaMultipleFiles: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJavaMultipleFiles"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJavaMultipleFiles\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJavaMultipleFiles\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16444,8 +15833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaMu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaOuterClassname: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJavaOuterClassname"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJavaOuterClassname\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJavaOuterClassname\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16475,8 +15863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaOu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJavaPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJavaPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJavaPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16506,8 +15893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaPa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaStringCheckUtf8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJavaStringCheckUtf8"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJavaStringCheckUtf8\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJavaStringCheckUtf8\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16537,8 +15923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaSt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJsonFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJsonFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJsonFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJsonFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16568,8 +15953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJsonFo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJsonName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJsonName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJsonName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJsonName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16599,8 +15983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJsonNa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJstype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearJstype"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearJstype\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearJstype\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16630,8 +16013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJstype
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLabel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearLabel"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearLabel\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearLabel\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16661,8 +16043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLabel:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearLazy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearLazy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearLazy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16692,8 +16073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLazy: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLeadingComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearLeadingComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearLeadingComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearLeadingComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16723,8 +16103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLeadin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMapEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearMapEntry"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearMapEntry\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearMapEntry\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16754,8 +16133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMapEnt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMaximumEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearMaximumEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearMaximumEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearMaximumEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16785,8 +16163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMaximu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMessageEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearMessageEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearMessageEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearMessageEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16816,8 +16193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMessageSetWireFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearMessageSetWireFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearMessageSetWireFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearMessageSetWireFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16847,8 +16223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMinimumEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearMinimumEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearMinimumEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearMinimumEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16878,8 +16253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMinimu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16909,8 +16283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearName: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNamePart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearNamePart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearNamePart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearNamePart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16940,8 +16313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNamePa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNegativeIntValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearNegativeIntValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearNegativeIntValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearNegativeIntValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -16971,8 +16343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNegati
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNoStandardDescriptorAccessor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearNoStandardDescriptorAccessor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearNoStandardDescriptorAccessor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearNoStandardDescriptorAccessor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17002,8 +16373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNoStan
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17033,8 +16403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNumber
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearObjcClassPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearObjcClassPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearObjcClassPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearObjcClassPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17064,8 +16433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearObjcCl
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOneofIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearOneofIndex"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearOneofIndex\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearOneofIndex\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17095,8 +16463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOneofI
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOptimizeFor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearOptimizeFor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearOptimizeFor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearOptimizeFor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17126,8 +16493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOptimi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17157,8 +16523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOption
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOutputType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearOutputType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearOutputType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearOutputType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17188,8 +16553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOutput
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOverridableFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearOverridableFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearOverridableFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearOverridableFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17219,8 +16583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOverri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17250,8 +16613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPackag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPacked: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPacked"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPacked\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPacked\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17281,8 +16643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpClassPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPhpClassPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPhpClassPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPhpClassPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17312,8 +16673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpCla
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpMetadataNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPhpMetadataNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPhpMetadataNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPhpMetadataNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17343,8 +16703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpMet
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPhpNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPhpNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPhpNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17374,8 +16733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpNam
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPositiveIntValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPositiveIntValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPositiveIntValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPositiveIntValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17405,8 +16763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPositi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearProto3Optional"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearProto3Optional\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearProto3Optional\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17436,8 +16793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearProto3
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPyGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPyGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearPyGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearPyGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17467,8 +16823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPyGene
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearRepeated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearRepeated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearRepeated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17498,8 +16853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRepeatedFieldEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearRepeatedFieldEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearRepeatedFieldEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearRepeatedFieldEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17529,8 +16883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearReserved: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearReserved"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearReserved\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearReserved\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17560,8 +16913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearReserv
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRetention: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearRetention"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearRetention\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearRetention\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17591,8 +16943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRetent
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRubyPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearRubyPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearRubyPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearRubyPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17622,8 +16973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRubyPa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSemantic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearSemantic"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearSemantic\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearSemantic\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17653,8 +17003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSemant
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearServerStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearServerStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearServerStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearServerStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17684,8 +17033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearServer
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearSourceCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearSourceCodeInfo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearSourceCodeInfo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17715,8 +17063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSource
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearSourceContext"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearSourceContext\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearSourceContext\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17746,8 +17093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSource
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSourceFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearSourceFile"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearSourceFile\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearSourceFile\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17777,8 +17123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSource
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearStart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearStart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearStart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearStart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17808,8 +17153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearStart:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearStringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearStringValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearStringValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearStringValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17839,8 +17183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearString
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSwiftPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearSwiftPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearSwiftPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearSwiftPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17870,8 +17213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSyntax: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearSyntax"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearSyntax\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearSyntax\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17901,8 +17243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSyntax
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearTrailingComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearTrailingComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearTrailingComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearTrailingComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17932,8 +17273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearTraili
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17963,8 +17303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearType: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearTypeName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearTypeName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearTypeName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearTypeName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -17994,8 +17333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearTypeNa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearUnverifiedLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearUnverifiedLazy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearUnverifiedLazy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearUnverifiedLazy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18025,8 +17363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearUnveri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearUtf8Validation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearUtf8Validation"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearUtf8Validation\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearUtf8Validation\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18056,8 +17393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearUtf8Va
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18087,8 +17423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearValue:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearVerification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearVerification"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearVerification\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearVerification\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18118,8 +17453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearVerifi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearVisibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearVisibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearVisibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18149,8 +17483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearVisibi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearWeak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearWeak"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clearWeak\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearWeak\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18180,8 +17513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearWeak: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clientStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clientStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}clientStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clientStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18211,8 +17543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clientStrea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.code: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".code"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}code\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18242,8 +17573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.code: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.codePoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".codePoint"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}codePoint\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}codePoint\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18273,8 +17603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.codePoint: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.codeUnits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".codeUnits"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}codeUnits\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}codeUnits\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18304,8 +17633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.codeUnits: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Collection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Collection"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Collection\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Collection\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18333,41 +17661,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Collection:
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.com: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".com"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}com\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.com) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.com != 0 {
-      try visitor.visitSingularInt32Field(value: self.com, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.com, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.com) -> Bool {
-    if lhs.com != rhs.com {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.comma: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".comma"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}comma\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}comma\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18397,8 +17693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.comma: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.consumedBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".consumedBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}consumedBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}consumedBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18428,8 +17723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.consumedByt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.contains: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".contains"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}contains\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}contains\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18459,8 +17753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.contains: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.contentsOf: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".contentsOf"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}contentsOf\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}contentsOf\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18490,8 +17783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.contentsOf:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ContiguousBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ContiguousBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ContiguousBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ContiguousBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18521,8 +17813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ContiguousB
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.copy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".copy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}copy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}copy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18552,8 +17843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.copy: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.count: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".count"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}count\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}count\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18583,8 +17873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.count: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.countVarintsInBuffer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".countVarintsInBuffer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}countVarintsInBuffer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}countVarintsInBuffer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18614,8 +17903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.countVarint
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.csharpNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".csharpNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}csharpNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}csharpNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18645,8 +17933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.csharpNames
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ctype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ctype"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ctype\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ctype\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18676,8 +17963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ctype: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.customCodable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".customCodable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}customCodable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}customCodable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18707,8 +17993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.customCodab
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomDebugStringConvertible: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".CustomDebugStringConvertible"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}CustomDebugStringConvertible\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}CustomDebugStringConvertible\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18738,8 +18023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomDebug
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomStringConvertible: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".CustomStringConvertible"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}CustomStringConvertible\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}CustomStringConvertible\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18769,8 +18053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomStrin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.D: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".D"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}D\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}D\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18800,8 +18083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.D: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Data"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Data\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Data\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18831,8 +18113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DataMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dataResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".dataResult"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}dataResult\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}dataResult\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18862,8 +18143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dataResult:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.date: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".date"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}date\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}date\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18893,8 +18173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.date: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.daySec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".daySec"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}daySec\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}daySec\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18924,8 +18203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.daySec: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.daysSinceEpoch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".daysSinceEpoch"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}daysSinceEpoch\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}daysSinceEpoch\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18955,8 +18233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.daysSinceEp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".debugDescription"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}debugDescription\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}debugDescription\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -18986,8 +18263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.debugDescri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.debugRedact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".debugRedact"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}debugRedact\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}debugRedact\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19017,8 +18293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.debugRedact
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.declaration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".declaration"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}declaration\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}declaration\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19048,8 +18323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.declaration
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decoded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decoded"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decoded\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decoded\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19079,8 +18353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decoded: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodedFromJSONNull: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodedFromJSONNull"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodedFromJSONNull\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodedFromJSONNull\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19110,8 +18383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodedFrom
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19141,8 +18413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeExten
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeExtensionFieldsAsMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeExtensionFieldsAsMessageSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeExtensionFieldsAsMessageSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeExtensionFieldsAsMessageSet\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19172,8 +18443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeExten
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeJSON: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeJSON"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeJSON\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeJSON\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19203,8 +18473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeJSON:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeMapField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeMapField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeMapField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeMapField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19234,8 +18503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeMapFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeMessageMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeMessage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeMessage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19265,8 +18533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Decoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Decoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Decoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Decoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19296,8 +18563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Decoder: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19327,8 +18593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedBoolField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedBoolField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedBoolField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedBoolField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19358,8 +18623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedBytesField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedBytesField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedBytesField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedBytesField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19389,8 +18653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedDoubleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedDoubleField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedDoubleField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedDoubleField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19420,8 +18683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedEnumField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedEnumField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedEnumField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedEnumField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19451,8 +18713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19482,8 +18743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19513,8 +18773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedFloatField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedFloatField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedFloatField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedFloatField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19544,8 +18803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedGroupField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedGroupField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedGroupField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedGroupField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19575,8 +18833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19606,8 +18863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19637,8 +18893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedMessageField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedMessageField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedMessageField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedMessageField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19668,8 +18923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedSFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedSFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedSFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19699,8 +18953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedSFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedSFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedSFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19730,8 +18983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedSInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedSInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedSInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19761,8 +19013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedSInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedSInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedSInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19792,8 +19043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedStringField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedStringField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedStringField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedStringField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19823,8 +19073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedUInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedUInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedUInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedUInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19854,8 +19103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedUInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeRepeatedUInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeRepeatedUInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeRepeatedUInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19885,8 +19133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingular: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingular"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingular\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingular\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19916,8 +19163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularBoolField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularBoolField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularBoolField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularBoolField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19947,8 +19193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularBytesField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularBytesField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularBytesField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularBytesField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -19978,8 +19223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularDoubleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularDoubleField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularDoubleField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularDoubleField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20009,8 +19253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularEnumField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularEnumField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularEnumField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularEnumField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20040,8 +19283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20071,8 +19313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20102,8 +19343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularFloatField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularFloatField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularFloatField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularFloatField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20133,8 +19373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularGroupField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularGroupField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularGroupField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularGroupField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20164,8 +19403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20195,8 +19433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20226,8 +19463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularMessageField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularMessageField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularMessageField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularMessageField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20257,8 +19493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularSFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularSFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularSFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20288,8 +19523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularSFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularSFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularSFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20319,8 +19553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularSInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularSInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularSInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20350,8 +19583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularSInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularSInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularSInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20381,8 +19613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularStringField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularStringField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularStringField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularStringField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20412,8 +19643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularUInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularUInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularUInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularUInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20443,8 +19673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularUInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeSingularUInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeSingularUInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeSingularUInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20474,8 +19703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeTextFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".decodeTextFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}decodeTextFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}decodeTextFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20505,8 +19733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeTextF
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultAnyTypeURLPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".defaultAnyTypeURLPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}defaultAnyTypeURLPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}defaultAnyTypeURLPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20536,8 +19763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultAnyT
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaults: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".defaults"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}defaults\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}defaults\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20567,8 +19793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaults: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultSymbolVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".defaultSymbolVisibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}defaultSymbolVisibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}defaultSymbolVisibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20598,8 +19823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultSymb
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".defaultValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}defaultValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}defaultValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20629,8 +19853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultValu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dependency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".dependency"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}dependency\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}dependency\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20660,8 +19883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dependency:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".deprecated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}deprecated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}deprecated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20691,8 +19913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecated:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".deprecatedLegacyJsonFieldConflicts"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}deprecatedLegacyJsonFieldConflicts\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}deprecatedLegacyJsonFieldConflicts\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20722,8 +19943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecatedL
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecationWarning: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".deprecationWarning"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}deprecationWarning\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}deprecationWarning\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20753,8 +19973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecation
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".description"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}description\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}description\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20782,41 +20001,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.description
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".DescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}DescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.descriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.descriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.descriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DescriptorProto) -> Bool {
-    if lhs.descriptorProto != rhs.descriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Dictionary: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Dictionary"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Dictionary\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Dictionary\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20846,8 +20033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Dictionary:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dictionaryLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".dictionaryLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}dictionaryLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}dictionaryLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20877,8 +20063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dictionaryL
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".digit"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}digit\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}digit\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20908,8 +20093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit0: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".digit0"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}digit0\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}digit0\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20939,8 +20123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit0: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".digit1"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}digit1\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}digit1\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -20970,8 +20153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit1: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digitCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".digitCount"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}digitCount\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}digitCount\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21001,8 +20183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digitCount:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".digits"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}digits\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}digits\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21032,8 +20213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digits: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digitValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".digitValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}digitValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}digitValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21063,8 +20243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digitValue:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.discardableResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".discardableResult"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}discardableResult\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}discardableResult\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21094,8 +20273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.discardable
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.discardUnknownFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".discardUnknownFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}discardUnknownFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}discardUnknownFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21125,8 +20303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.discardUnkn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Double"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Double\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Double\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21156,8 +20333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DoubleMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.doubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".doubleValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}doubleValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}doubleValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21185,10 +20361,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.doubleValue
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Duration"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Duration\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".duration"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}duration\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21209,7 +20384,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Duration: S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Duration, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Duration) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duration, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duration) -> Bool {
     if lhs.duration != rhs.duration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -21218,8 +20393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Duration: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.E: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".E"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}E\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}E\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21249,8 +20423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.E: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.edition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".edition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}edition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}edition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21280,8 +20453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.edition: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EditionDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".EditionDefault"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}EditionDefault\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}EditionDefault\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21311,8 +20483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EditionDefa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionDefaults: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".editionDefaults"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}editionDefaults\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}editionDefaults\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21342,8 +20513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionDefa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionDeprecated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".editionDeprecated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}editionDeprecated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}editionDeprecated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21373,8 +20543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionDepr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionIntroduced: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".editionIntroduced"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}editionIntroduced\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}editionIntroduced\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21404,8 +20573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionIntr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionRemoved: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".editionRemoved"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}editionRemoved\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}editionRemoved\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21435,8 +20603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionRemo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Element: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Element"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Element\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Element\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21466,8 +20633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Element: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.elements: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".elements"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}elements\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}elements\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21497,8 +20663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.elements: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.elseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".else"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}else\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}else\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21528,8 +20693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.elseMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitExtensionFieldName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".emitExtensionFieldName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}emitExtensionFieldName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}emitExtensionFieldName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21559,8 +20723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitExtensi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitFieldName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".emitFieldName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}emitFieldName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}emitFieldName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21590,8 +20753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitFieldNa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".emitFieldNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}emitFieldNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}emitFieldNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21619,41 +20781,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitFieldNu
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Empty"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Empty\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.empty) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.empty != 0 {
-      try visitor.visitSingularInt32Field(value: self.empty, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Empty, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Empty) -> Bool {
-    if lhs.empty != rhs.empty {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emptyAnyTypeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".emptyAnyTypeURL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}emptyAnyTypeURL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}emptyAnyTypeURL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21683,8 +20813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emptyAnyTyp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emptyData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".emptyData"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}emptyData\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}emptyData\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21714,8 +20843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emptyData: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodeAsBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".encodeAsBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}encodeAsBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}encodeAsBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21745,8 +20873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodeAsByt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encoded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".encoded"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}encoded\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}encoded\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21776,8 +20903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encoded: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodedJSONString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".encodedJSONString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}encodedJSONString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}encodedJSONString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21807,8 +20933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodedJSON
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".encodedSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}encodedSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}encodedSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21838,8 +20963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodedSize
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodeField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".encodeField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}encodeField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}encodeField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21869,8 +20993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodeField
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".encoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}encoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}encoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21900,8 +21023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encoder: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.end: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".end"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}end\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}end\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21931,8 +21053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.end: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endArray: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".endArray"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}endArray\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}endArray\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21962,8 +21083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endArray: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endMessageField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".endMessageField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}endMessageField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}endMessageField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -21993,8 +21113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endMessageF
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endObject: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".endObject"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}endObject\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}endObject\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22024,8 +21143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endObject: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endRegularField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".endRegularField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}endRegularField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}endRegularField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22055,8 +21173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endRegularF
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceNamingStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enforceNamingStyle"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}enforceNamingStyle\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}enforceNamingStyle\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22086,8 +21203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceNami
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enum"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}enum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}enum\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22115,72 +21231,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumMessage
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".EnumDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}EnumDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.enumDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.enumDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.enumDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumDescriptorProto) -> Bool {
-    if lhs.enumDescriptorProto != rhs.enumDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".EnumOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}EnumOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.enumOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.enumOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.enumOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumOptions) -> Bool {
-    if lhs.enumOptions != rhs.enumOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumReservedRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".EnumReservedRange"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}EnumReservedRange\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}EnumReservedRange\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22210,8 +21263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumReserve
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enumType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}enumType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}enumType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22241,8 +21293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumType: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumvalue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enumvalue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}enumvalue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}enumvalue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22270,72 +21321,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumvalue: 
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".EnumValueDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}EnumValueDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.enumValueDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.enumValueDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.enumValueDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueDescriptorProto) -> Bool {
-    if lhs.enumValueDescriptorProto != rhs.enumValueDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".EnumValueOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}EnumValueOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.enumValueOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.enumValueOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.enumValueOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueOptions) -> Bool {
-    if lhs.enumValueOptions != rhs.enumValueOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EquatableMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Equatable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Equatable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Equatable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22365,8 +21353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EquatableMe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Error"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Error\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Error\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22396,8 +21383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Error: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.execute: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".execute"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}execute\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}execute\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22427,8 +21413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.execute: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExpressibleByArrayLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExpressibleByArrayLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExpressibleByArrayLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExpressibleByArrayLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22458,8 +21443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Expressible
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExpressibleByDictionaryLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExpressibleByDictionaryLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExpressibleByDictionaryLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExpressibleByDictionaryLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22489,8 +21473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Expressible
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ext"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ext\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ext\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22520,8 +21503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ext: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22551,8 +21533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extDecoder:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extendedGraphemeClusterLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extendedGraphemeClusterLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extendedGraphemeClusterLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extendedGraphemeClusterLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22582,8 +21563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extendedGra
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtendedGraphemeClusterLiteralType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExtendedGraphemeClusterLiteralType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExtendedGraphemeClusterLiteralType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExtendedGraphemeClusterLiteralType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22613,8 +21593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtendedGra
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extendee"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extendee\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extendee\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22644,8 +21623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extendee: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensibleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExtensibleMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExtensibleMessage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExtensibleMessage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22675,8 +21653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensibleM
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22706,8 +21683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionMe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22737,8 +21713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extensionFieldNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extensionFieldNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extensionFieldNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22768,8 +21743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionFieldValueSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExtensionFieldValueSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExtensionFieldValueSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExtensionFieldValueSet\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22799,8 +21773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExtensionMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExtensionMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ExtensionMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22830,8 +21803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionMa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extensionRange"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extensionRange\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extensionRange\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22859,41 +21831,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionRa
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionRangeOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ExtensionRangeOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ExtensionRangeOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.extensionRangeOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.extensionRangeOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.extensionRangeOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionRangeOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionRangeOptions) -> Bool {
-    if lhs.extensionRangeOptions != rhs.extensionRangeOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extensions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extensions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extensions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22923,8 +21863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensions:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extras: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".extras"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}extras\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}extras\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22954,8 +21893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extras: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.F: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".F"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}F\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}F\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -22985,8 +21923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.F: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.falseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".false"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}false\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}false\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23016,8 +21953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.falseMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.features: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".features"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}features\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}features\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23045,72 +21981,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.features: S
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FeatureSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FeatureSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.featureSet) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.featureSet != 0 {
-      try visitor.visitSingularInt32Field(value: self.featureSet, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSet, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSet) -> Bool {
-    if lhs.featureSet != rhs.featureSet {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FeatureSetDefaults"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FeatureSetDefaults\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.featureSetDefaults) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.featureSetDefaults != 0 {
-      try visitor.visitSingularInt32Field(value: self.featureSetDefaults, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetDefaults, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetDefaults) -> Bool {
-    if lhs.featureSetDefaults != rhs.featureSetDefaults {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetEditionDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FeatureSetEditionDefault"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FeatureSetEditionDefault\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FeatureSetEditionDefault\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23140,8 +22013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.featureSupport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".featureSupport"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}featureSupport\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}featureSupport\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23171,8 +22043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.featureSupp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23202,8 +22073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.field: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldData"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldData\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldData\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23231,72 +22101,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldData: 
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FieldDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FieldDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fieldDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.fieldDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.fieldDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldDescriptorProto) -> Bool {
-    if lhs.fieldDescriptorProto != rhs.fieldDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FieldMask"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FieldMask\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fieldMask) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.fieldMask != 0 {
-      try visitor.visitSingularInt32Field(value: self.fieldMask, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldMask, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldMask) -> Bool {
-    if lhs.fieldMask != rhs.fieldMask {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldMaskError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FieldMaskError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FieldMaskError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FieldMaskError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23326,8 +22133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldMaskEr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23357,8 +22163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldName: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNameCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldNameCount"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldNameCount\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldNameCount\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23388,8 +22193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNameCo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldNum"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldNum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldNum\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23419,8 +22223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNum: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23450,8 +22253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNumber
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNumberForProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldNumberForProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldNumberForProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldNumberForProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23479,41 +22281,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNumber
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FieldOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FieldOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fieldOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.fieldOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.fieldOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldOptions) -> Bool {
-    if lhs.fieldOptions != rhs.fieldOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldPresence"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldPresence\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldPresence\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23543,8 +22313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldPresen
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23574,8 +22343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fields: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fieldSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fieldSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fieldSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23605,8 +22373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldSize: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldTag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FieldTag"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FieldTag\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FieldTag\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23636,8 +22403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldTag: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FieldType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FieldType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FieldType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23667,8 +22433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldType: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.file: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".file"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}file\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}file\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23696,72 +22461,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.file: Swift
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FileDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FileDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fileDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.fileDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.fileDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorProto) -> Bool {
-    if lhs.fileDescriptorProto != rhs.fileDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FileDescriptorSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FileDescriptorSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fileDescriptorSet) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.fileDescriptorSet != 0 {
-      try visitor.visitSingularInt32Field(value: self.fileDescriptorSet, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorSet, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorSet) -> Bool {
-    if lhs.fileDescriptorSet != rhs.fileDescriptorSet {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fileName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fileName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fileName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fileName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23789,41 +22491,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fileName: S
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FileOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FileOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fileOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.fileOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.fileOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileOptions) -> Bool {
-    if lhs.fileOptions != rhs.fileOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.filter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".filter"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}filter\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}filter\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23853,8 +22523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.filter: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.final: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".final"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}final\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}final\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23884,8 +22553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.final: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.finiteOnly: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".finiteOnly"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}finiteOnly\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}finiteOnly\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23915,8 +22583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.finiteOnly:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.first: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".first"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}first\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}first\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23946,8 +22613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.first: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.firstItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".firstItem"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}firstItem\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}firstItem\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -23977,8 +22643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.firstItem: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fixedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fixedFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fixedFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fixedFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24008,8 +22673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fixedFeatur
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Float"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Float\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Float\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24039,8 +22703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.floatLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".floatLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}floatLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}floatLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24070,8 +22733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.floatLitera
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatLiteralType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FloatLiteralType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FloatLiteralType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FloatLiteralType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24099,41 +22761,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatLitera
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".FloatValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FloatValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.floatValue) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.floatValue != 0 {
-      try visitor.visitSingularInt32Field(value: self.floatValue, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatValue, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatValue) -> Bool {
-    if lhs.floatValue != rhs.floatValue {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".for"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}for\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}for\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24163,8 +22793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forMessageName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".forMessageName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}forMessageName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}forMessageName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24194,8 +22823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forMessageN
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.formUnion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".formUnion"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}formUnion\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}formUnion\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24225,8 +22853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.formUnion: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forReadingFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".forReadingFrom"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}forReadingFrom\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}forReadingFrom\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24256,8 +22883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forReadingF
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forTypeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".forTypeURL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}forTypeURL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}forTypeURL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24287,8 +22913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forTypeURL:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ForwardParser: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ForwardParser"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ForwardParser\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ForwardParser\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24318,8 +22943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ForwardPars
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forWritingInto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".forWritingInto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}forWritingInto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}forWritingInto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24349,8 +22973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forWritingI
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.from: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".from"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}from\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}from\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24380,8 +23003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.from: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromAscii2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fromAscii2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fromAscii2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fromAscii2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24411,8 +23033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromAscii2:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromAscii4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fromAscii4"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fromAscii4\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fromAscii4\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24442,8 +23063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromAscii4:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fromByteOffset"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fromByteOffset\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fromByteOffset\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24473,8 +23093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromByteOff
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromHexDigit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fromHexDigit"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fromHexDigit\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fromHexDigit\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24504,8 +23123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromHexDigi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fullName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fullName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}fullName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fullName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24535,8 +23153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fullName: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.funcMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".func"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}func\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}func\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24566,8 +23183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.funcMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.function: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".function"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}function\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}function\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24597,8 +23213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.function: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.G: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".G"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}G\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}G\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24626,41 +23241,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.G: SwiftPro
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".GeneratedCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}GeneratedCodeInfo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.generatedCodeInfo) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.generatedCodeInfo != 0 {
-      try visitor.visitSingularInt32Field(value: self.generatedCodeInfo, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.GeneratedCodeInfo, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.GeneratedCodeInfo) -> Bool {
-    if lhs.generatedCodeInfo != rhs.generatedCodeInfo {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.get: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".get"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}get\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}get\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24690,8 +23273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.get: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.getExtensionValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".getExtensionValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}getExtensionValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}getExtensionValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24721,8 +23303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.getExtensio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Any"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Any\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Any\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24752,8 +23333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Api"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Api\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Api\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24783,8 +23363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_BoolValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_BoolValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_BoolValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24814,8 +23393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_BytesValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_BytesValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_BytesValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24845,8 +23423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_DescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_DescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_DescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24876,8 +23453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_DoubleValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_DoubleValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_DoubleValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24907,8 +23483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Duration"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Duration\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Duration\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24938,8 +23513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Edition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Edition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Edition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Edition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -24969,8 +23543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Empty"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Empty\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Empty\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25000,8 +23573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Enum"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Enum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Enum\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25031,8 +23603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_EnumDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_EnumDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_EnumDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25062,8 +23633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_EnumOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_EnumOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_EnumOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25093,8 +23663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_EnumValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_EnumValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_EnumValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25124,8 +23693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_EnumValueDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_EnumValueDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_EnumValueDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25155,8 +23723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_EnumValueOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_EnumValueOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_EnumValueOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25186,8 +23753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_ExtensionRangeOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_ExtensionRangeOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_ExtensionRangeOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25217,8 +23783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FeatureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FeatureSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FeatureSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FeatureSet\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25248,8 +23813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FeatureSetDefaults"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FeatureSetDefaults\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FeatureSetDefaults\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25279,8 +23843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25310,8 +23873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FieldDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FieldDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FieldDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25341,8 +23903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FieldMask"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FieldMask\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FieldMask\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25372,8 +23933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FieldOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FieldOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FieldOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25403,8 +23963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FileDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FileDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FileDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25434,8 +23993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FileDescriptorSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FileDescriptorSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FileDescriptorSet\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25465,8 +24023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FileOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FileOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FileOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25496,8 +24053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_FloatValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_FloatValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_FloatValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25527,8 +24083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_GeneratedCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_GeneratedCodeInfo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_GeneratedCodeInfo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25558,8 +24113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Int32Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Int32Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Int32Value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25589,8 +24143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Int64Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Int64Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Int64Value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25620,8 +24173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_ListValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_ListValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_ListValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25651,8 +24203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_MessageOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_MessageOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_MessageOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25682,8 +24233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Method"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Method\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Method\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25713,8 +24263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_MethodDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_MethodDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_MethodDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25744,8 +24293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_MethodOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_MethodOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_MethodOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25775,8 +24323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Mixin"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Mixin\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Mixin\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25806,8 +24353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_NullValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_NullValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_NullValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_NullValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25837,8 +24383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_OneofDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_OneofDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_OneofDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25868,8 +24413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_OneofOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_OneofOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_OneofOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25899,8 +24443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Option"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Option\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Option\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25930,8 +24473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_ServiceDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_ServiceDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_ServiceDescriptorProto\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25961,8 +24503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_ServiceOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_ServiceOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_ServiceOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -25992,8 +24533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_SourceCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_SourceCodeInfo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_SourceCodeInfo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26023,8 +24563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_SourceContext"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_SourceContext\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_SourceContext\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26054,8 +24593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_StringValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_StringValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_StringValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26085,8 +24623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Struct"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Struct\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Struct\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26116,8 +24653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_SymbolVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_SymbolVisibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_SymbolVisibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_SymbolVisibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26147,8 +24683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Syntax: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Syntax"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Syntax\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Syntax\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26178,8 +24713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Timestamp"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Timestamp\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Timestamp\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26209,8 +24743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Type"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Type\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Type\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26240,8 +24773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_UInt32Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_UInt32Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_UInt32Value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26271,8 +24803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_UInt64Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_UInt64Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_UInt64Value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26302,8 +24833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_UninterpretedOption"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_UninterpretedOption\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_UninterpretedOption\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26333,8 +24863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Google_Protobuf_Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}Google_Protobuf_Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}Google_Protobuf_Value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26362,41 +24891,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Prot
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.googleapis: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".googleapis"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}googleapis\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.googleapis) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.googleapis != 0 {
-      try visitor.visitSingularInt32Field(value: self.googleapis, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.googleapis, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.googleapis) -> Bool {
-    if lhs.googleapis != rhs.googleapis {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.goPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".goPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}goPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}goPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26426,8 +24923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.goPackage: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.gotData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".gotData"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}gotData\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}gotData\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26457,8 +24953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.gotData: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.group: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".group"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}group\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}group\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26488,8 +24983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.group: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.groupFieldNumberStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".groupFieldNumberStack"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}groupFieldNumberStack\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}groupFieldNumberStack\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26519,8 +25013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.groupFieldN
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.groupSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".groupSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}groupSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}groupSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26550,8 +25043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.groupSize: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.guardMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".guard"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}guard\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}guard\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26581,8 +25073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.guardMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hadOneofValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hadOneofValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hadOneofValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hadOneofValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26612,8 +25103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hadOneofVal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.handleConflictingOneOf: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".handleConflictingOneOf"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}handleConflictingOneOf\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}handleConflictingOneOf\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26643,8 +25133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.handleConfl
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.handleInstruction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".handleInstruction"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}handleInstruction\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}handleInstruction\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26674,8 +25163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.handleInstr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasAggregateValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasAggregateValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasAggregateValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasAggregateValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26705,8 +25193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasAggregat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasAllowAlias: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasAllowAlias"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasAllowAlias\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasAllowAlias\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26736,8 +25223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasAllowAli
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasBegin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasBegin"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasBegin\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasBegin\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26767,8 +25253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasBegin: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCcEnableArenas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasCcEnableArenas"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasCcEnableArenas\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasCcEnableArenas\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26798,8 +25283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCcEnable
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCcGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasCcGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasCcGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasCcGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26829,8 +25313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCcGeneri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasClientStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasClientStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasClientStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasClientStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26860,8 +25343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasClientSt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCsharpNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasCsharpNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasCsharpNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasCsharpNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26891,8 +25373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCsharpNa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCtype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasCtype"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasCtype\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasCtype\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26922,8 +25403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCtype: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasData"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasData\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasData\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26953,8 +25433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasData: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDebugRedact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDebugRedact"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDebugRedact\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDebugRedact\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -26984,8 +25463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDebugRed
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDefaultSymbolVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDefaultSymbolVisibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDefaultSymbolVisibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDefaultSymbolVisibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27015,8 +25493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDefaultS
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDefaultValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDefaultValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDefaultValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDefaultValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27046,8 +25523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDefaultV
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDeprecated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDeprecated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDeprecated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27077,8 +25553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDeprecatedLegacyJsonFieldConflicts"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDeprecatedLegacyJsonFieldConflicts\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDeprecatedLegacyJsonFieldConflicts\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27108,8 +25583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecationWarning: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDeprecationWarning"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDeprecationWarning\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDeprecationWarning\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27139,8 +25613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasDoubleValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasDoubleValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasDoubleValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27170,8 +25643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDoubleVa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27201,8 +25673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEdition:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionDeprecated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEditionDeprecated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEditionDeprecated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEditionDeprecated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27232,8 +25703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionIntroduced: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEditionIntroduced"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEditionIntroduced\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEditionIntroduced\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27263,8 +25733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionI
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionRemoved: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEditionRemoved"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEditionRemoved\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEditionRemoved\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27294,8 +25763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionR
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEnd"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEnd\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEnd\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27325,8 +25793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnd: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceNamingStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEnforceNamingStyle"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEnforceNamingStyle\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEnforceNamingStyle\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27356,8 +25823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceN
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnumType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEnumType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasEnumType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEnumType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27387,8 +25853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnumType
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExplicitDelta: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasExplicitDelta"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasExplicitDelta\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasExplicitDelta\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27418,8 +25883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExplicit
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExtendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasExtendee"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasExtendee\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasExtendee\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27449,8 +25913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExtendee
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExtensionValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasExtensionValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasExtensionValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasExtensionValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27480,8 +25943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExtensio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27511,8 +25973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFeatures
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFeatureSupport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasFeatureSupport"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasFeatureSupport\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasFeatureSupport\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27542,8 +26003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFeatureS
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFieldPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasFieldPresence"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasFieldPresence\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasFieldPresence\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27573,8 +26033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFieldPre
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFixedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasFixedFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasFixedFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasFixedFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27604,8 +26063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFixedFea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFullName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasFullName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasFullName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasFullName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27635,8 +26093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFullName
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasGoPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasGoPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasGoPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasGoPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27666,8 +26123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasGoPackag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hash"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hash\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hash\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27697,8 +26153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hash: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.HashableMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Hashable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Hashable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Hashable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27728,8 +26183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.HashableMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasher: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasher"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasher\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasher\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27759,8 +26213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasher: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.HashVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".HashVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}HashVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}HashVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27790,8 +26243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.HashVisitor
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIdempotencyLevel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasIdempotencyLevel"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasIdempotencyLevel\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasIdempotencyLevel\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27821,8 +26273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIdempote
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIdentifierValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasIdentifierValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasIdentifierValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasIdentifierValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27852,8 +26303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIdentifi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasInputType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasInputType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasInputType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasInputType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27883,8 +26333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasInputTyp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIsExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasIsExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasIsExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasIsExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27914,8 +26363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIsExtens
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaGenerateEqualsAndHash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJavaGenerateEqualsAndHash"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJavaGenerateEqualsAndHash\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJavaGenerateEqualsAndHash\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27945,8 +26393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaGene
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJavaGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJavaGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJavaGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -27976,8 +26423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaGene
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaMultipleFiles: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJavaMultipleFiles"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJavaMultipleFiles\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJavaMultipleFiles\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28007,8 +26453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaMult
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaOuterClassname: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJavaOuterClassname"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJavaOuterClassname\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJavaOuterClassname\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28038,8 +26483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaOute
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJavaPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJavaPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJavaPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28069,8 +26513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaPack
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaStringCheckUtf8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJavaStringCheckUtf8"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJavaStringCheckUtf8\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJavaStringCheckUtf8\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28100,8 +26543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaStri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJsonFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJsonFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJsonFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJsonFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28131,8 +26573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJsonForm
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJsonName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJsonName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJsonName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJsonName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28162,8 +26603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJsonName
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJstype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasJstype"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasJstype\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasJstype\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28193,8 +26633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJstype: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLabel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasLabel"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasLabel\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasLabel\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28224,8 +26663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLabel: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasLazy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasLazy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasLazy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28255,8 +26693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLazy: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLeadingComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasLeadingComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasLeadingComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasLeadingComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28286,8 +26723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLeadingC
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMapEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasMapEntry"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasMapEntry\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasMapEntry\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28317,8 +26753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMapEntry
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMaximumEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasMaximumEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasMaximumEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasMaximumEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28348,8 +26783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMaximumE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMessageEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasMessageEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasMessageEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasMessageEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28379,8 +26813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMessageE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMessageSetWireFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasMessageSetWireFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasMessageSetWireFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasMessageSetWireFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28410,8 +26843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMessageS
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMinimumEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasMinimumEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasMinimumEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasMinimumEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28441,8 +26873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMinimumE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28472,8 +26903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasName: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNamePart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasNamePart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasNamePart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasNamePart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28503,8 +26933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNamePart
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNegativeIntValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasNegativeIntValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasNegativeIntValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasNegativeIntValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28534,8 +26963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNegative
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNoStandardDescriptorAccessor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasNoStandardDescriptorAccessor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasNoStandardDescriptorAccessor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasNoStandardDescriptorAccessor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28565,8 +26993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNoStanda
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28596,8 +27023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNumber: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasObjcClassPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasObjcClassPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasObjcClassPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasObjcClassPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28627,8 +27053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasObjcClas
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOneofIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasOneofIndex"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasOneofIndex\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasOneofIndex\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28658,8 +27083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOneofInd
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOptimizeFor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasOptimizeFor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasOptimizeFor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasOptimizeFor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28689,8 +27113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOptimize
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28720,8 +27143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOptions:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOutputType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasOutputType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasOutputType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasOutputType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28751,8 +27173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOutputTy
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOverridableFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasOverridableFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasOverridableFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasOverridableFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28782,8 +27203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOverrida
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28813,8 +27233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPackage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPacked: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPacked"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPacked\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPacked\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28844,8 +27263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPacked: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpClassPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpClassPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPhpClassPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPhpClassPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28875,8 +27293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpClass
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpMetadataNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpMetadataNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPhpMetadataNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPhpMetadataNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28906,8 +27323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpMetad
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPhpNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPhpNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28937,8 +27353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpNames
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPositiveIntValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPositiveIntValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPositiveIntValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPositiveIntValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28968,8 +27383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPositive
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasProto3Optional"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasProto3Optional\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasProto3Optional\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -28999,8 +27413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasProto3Op
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPyGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPyGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasPyGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasPyGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29030,8 +27443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPyGeneri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRepeated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasRepeated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasRepeated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29061,8 +27473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeated
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeatedFieldEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRepeatedFieldEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasRepeatedFieldEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasRepeatedFieldEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29092,8 +27503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeated
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasReserved: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasReserved"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasReserved\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasReserved\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29123,8 +27533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasReserved
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRetention: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRetention"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasRetention\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasRetention\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29154,8 +27563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRetentio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRubyPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRubyPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasRubyPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasRubyPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29185,8 +27593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRubyPack
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSemantic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasSemantic"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasSemantic\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasSemantic\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29216,8 +27623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSemantic
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasServerStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasServerStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasServerStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasServerStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29247,8 +27653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasServerSt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasSourceCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasSourceCodeInfo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasSourceCodeInfo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29278,8 +27683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceCo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasSourceContext"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasSourceContext\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasSourceContext\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29309,8 +27713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceCo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasSourceFile"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasSourceFile\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasSourceFile\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29340,8 +27743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasStart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasStart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasStart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasStart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29371,8 +27773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasStart: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasStringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasStringValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasStringValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasStringValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29402,8 +27803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasStringVa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSwiftPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasSwiftPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasSwiftPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasSwiftPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29433,8 +27833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSwiftPre
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSyntax: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasSyntax"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasSyntax\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasSyntax\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29464,8 +27863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSyntax: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasTrailingComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasTrailingComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasTrailingComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasTrailingComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29495,8 +27893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasTrailing
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29526,8 +27923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasType: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasTypeName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasTypeName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasTypeName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasTypeName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29557,8 +27953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasTypeName
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasUnverifiedLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasUnverifiedLazy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasUnverifiedLazy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasUnverifiedLazy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29588,8 +27983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasUnverifi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasUtf8Validation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasUtf8Validation"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasUtf8Validation\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasUtf8Validation\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29619,8 +28013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasUtf8Vali
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29650,8 +28043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasValue: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasVerification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasVerification"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasVerification\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasVerification\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29681,8 +28073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasVerifica
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasVisibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasVisibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasVisibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29712,8 +28103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasVisibili
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasWeak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasWeak"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hasWeak\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasWeak\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29743,8 +28133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasWeak: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hour: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hour"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}hour\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hour\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29774,8 +28163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hour: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.i: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".i"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}i\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}i\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29805,8 +28193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.i: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.idempotencyLevel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".idempotencyLevel"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}idempotencyLevel\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}idempotencyLevel\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29836,8 +28223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.idempotency
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.identifierValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".identifierValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}identifierValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}identifierValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29867,8 +28253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.identifierV
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".if"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}if\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}if\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29898,8 +28283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ifMessage: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ignoreUnknownExtensionFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ignoreUnknownExtensionFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ignoreUnknownExtensionFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ignoreUnknownExtensionFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29929,8 +28313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ignoreUnkno
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ignoreUnknownFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ignoreUnknownFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ignoreUnknownFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ignoreUnknownFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29960,8 +28343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ignoreUnkno
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.index: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".index"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}index\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}index\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -29991,8 +28373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.index: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.initMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".init"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}init\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}init\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30022,8 +28403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.initMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.inoutMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".inout"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}inout\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}inout\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30053,8 +28433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.inoutMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.inputType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".inputType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}inputType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}inputType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30084,8 +28463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.inputType: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.insert: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".insert"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}insert\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}insert\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30115,8 +28493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.insert: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Instruction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Instruction"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Instruction\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Instruction\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30146,8 +28523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Instruction
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.IntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Int"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Int\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Int\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30177,8 +28553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.IntMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Int32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Int32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Int32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30206,41 +28581,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Messag
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Int32Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Int32Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.int32Value) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.int32Value != 0 {
-      try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Value, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Value) -> Bool {
-    if lhs.int32Value != rhs.int32Value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Int64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Int64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Int64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30268,41 +28611,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Messag
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Int64Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Int64Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.int64Value) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.int64Value != 0 {
-      try visitor.visitSingularInt32Field(value: self.int64Value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Value, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Value) -> Bool {
-    if lhs.int64Value != rhs.int64Value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Int8"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Int8\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Int8\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30332,8 +28643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int8: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.integerLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".integerLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}integerLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}integerLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30363,8 +28673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.integerLite
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.IntegerLiteralType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".IntegerLiteralType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}IntegerLiteralType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}IntegerLiteralType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30394,8 +28703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.IntegerLite
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.intern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".intern"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}intern\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}intern\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30425,8 +28733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.intern: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Internal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Internal"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Internal\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Internal\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30456,8 +28763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Internal: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.InternalState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".InternalState"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}InternalState\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}InternalState\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30487,8 +28793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.InternalSta
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.intersect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".intersect"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}intersect\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}intersect\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30518,8 +28823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.intersect: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.into: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".into"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}into\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}into\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30549,8 +28853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.into: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ints: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ints"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ints\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ints\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30580,8 +28883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ints: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.invalidAnyTypeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".invalidAnyTypeURL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}invalidAnyTypeURL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}invalidAnyTypeURL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30611,8 +28913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.invalidAnyT
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isA: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isA"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isA\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isA\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30642,8 +28943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isA: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isEqual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isEqual"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isEqual\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isEqual\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30673,8 +28973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isEqual: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isEqualTo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isEqualTo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isEqualTo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isEqualTo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30704,8 +29003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isEqualTo: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30735,8 +29033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isExtension
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isInitializedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isInitialized"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isInitialized\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isInitialized\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30766,8 +29063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isInitializ
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isNegative: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isNegative"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isNegative\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isNegative\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30797,8 +29093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isNegative:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isPathValid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isPathValid"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isPathValid\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isPathValid\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30828,8 +29123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isPathValid
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isReserved: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isReserved"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isReserved\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isReserved\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30859,8 +29153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isReserved:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isValid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isValid"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}isValid\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isValid\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30890,8 +29183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isValid: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.itemTagsEncodedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".itemTagsEncodedSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}itemTagsEncodedSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}itemTagsEncodedSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30921,8 +29213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.itemTagsEnc
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.iterator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".iterator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}iterator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}iterator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30952,8 +29243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.iterator: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaGenerateEqualsAndHash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".javaGenerateEqualsAndHash"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}javaGenerateEqualsAndHash\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}javaGenerateEqualsAndHash\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -30983,8 +29273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaGenerat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".javaGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}javaGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}javaGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31014,8 +29303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaGeneric
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaMultipleFiles: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".javaMultipleFiles"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}javaMultipleFiles\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}javaMultipleFiles\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31045,8 +29333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaMultipl
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaOuterClassname: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".javaOuterClassname"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}javaOuterClassname\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}javaOuterClassname\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31076,8 +29363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaOuterCl
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".javaPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}javaPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}javaPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31107,8 +29393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaPackage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaStringCheckUtf8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".javaStringCheckUtf8"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}javaStringCheckUtf8\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}javaStringCheckUtf8\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31138,8 +29423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaStringC
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31169,8 +29453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecoder
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONDecoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONDecoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONDecoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31200,8 +29483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONDecodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONDecodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONDecodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31231,8 +29513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONDecodingOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONDecodingOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONDecodingOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31262,8 +29543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonEncoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonEncoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonEncoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonEncoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31293,8 +29573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonEncoder
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31324,8 +29603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONEncodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONEncodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONEncodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31355,8 +29633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONEncodingOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONEncodingOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONEncodingOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31386,8 +29663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodingVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONEncodingVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONEncodingVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONEncodingVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31417,8 +29693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31448,8 +29723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonFormat:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONMapEncodingVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONMapEncodingVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONMapEncodingVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONMapEncodingVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31479,8 +29753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONMapEnco
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31510,8 +29783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonName: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonPath: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonPath"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonPath\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonPath\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31541,8 +29813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonPath: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonPaths: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonPaths"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonPaths\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonPaths\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31572,8 +29843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonPaths: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONScanner: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".JSONScanner"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}JSONScanner\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}JSONScanner\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31603,8 +29873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONScanner
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31634,8 +29903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonString:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonText: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonText"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonText\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonText\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31665,8 +29933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonText: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonUTF8Bytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonUTF8Bytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonUTF8Bytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonUTF8Bytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31696,8 +29963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonUTF8Byt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonUTF8Data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jsonUTF8Data"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jsonUTF8Data\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jsonUTF8Data\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31727,8 +29993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonUTF8Dat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jstype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".jstype"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}jstype\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}jstype\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31758,8 +30023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jstype: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.k: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".k"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}k\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}k\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31789,8 +30053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.k: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.kChunkSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".kChunkSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}kChunkSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}kChunkSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31820,8 +30083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.kChunkSize:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Key: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Key"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Key\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Key\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31851,8 +30113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Key: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.keyField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".keyField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}keyField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}keyField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31882,8 +30143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.keyField: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.keyFieldOpt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".keyFieldOpt"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}keyFieldOpt\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}keyFieldOpt\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31913,8 +30173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.keyFieldOpt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.KeyType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".KeyType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}KeyType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}KeyType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31944,8 +30203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.KeyType: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.kind: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".kind"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}kind\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}kind\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -31975,8 +30233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.kind: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.l: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".l"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}l\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}l\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32006,8 +30263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.l: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.label: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".label"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}label\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}label\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32037,8 +30293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.label: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".lazy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}lazy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}lazy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32068,8 +30323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lazy: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.leadingComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".leadingComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}leadingComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}leadingComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32099,8 +30353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.leadingComm
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.leadingDetachedComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".leadingDetachedComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}leadingDetachedComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}leadingDetachedComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32130,8 +30383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.leadingDeta
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.length: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".length"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}length\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}length\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32161,8 +30413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.length: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lessThan: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".lessThan"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}lessThan\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}lessThan\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32192,8 +30443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lessThan: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.letMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".let"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}let\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}let\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32223,8 +30473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.letMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lhs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".lhs"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}lhs\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}lhs\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32254,8 +30503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lhs: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.line: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".line"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}line\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}line\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32285,8 +30533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.line: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.list: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".list"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}list\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}list\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32316,8 +30563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.list: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.listOfMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".listOfMessages"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}listOfMessages\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}listOfMessages\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32347,8 +30593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.listOfMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.listValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".listValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}listValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}listValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32378,8 +30623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.listValue: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndian: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".littleEndian"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}littleEndian\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}littleEndian\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32409,8 +30653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndia
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.load: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".load"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}load\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}load\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32440,8 +30683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.load: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.localHasher: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".localHasher"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}localHasher\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}localHasher\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32471,8 +30713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.localHasher
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".location"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}location\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}location\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32502,8 +30743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.location: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.M: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".M"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}M\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}M\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32533,8 +30773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.M: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.major: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".major"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}major\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}major\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32564,8 +30803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.major: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.makeAsyncIterator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".makeAsyncIterator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}makeAsyncIterator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}makeAsyncIterator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32595,8 +30833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.makeAsyncIt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.makeIterator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".makeIterator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}makeIterator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}makeIterator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32626,8 +30863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.makeIterato
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.malformedLength: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".malformedLength"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}malformedLength\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}malformedLength\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32657,8 +30893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.malformedLe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mapEntry"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mapEntry\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mapEntry\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32688,8 +30923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapEntry: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MapKeyType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MapKeyType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MapKeyType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MapKeyType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32719,8 +30953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MapKeyType:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapToMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mapToMessages"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mapToMessages\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mapToMessages\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32750,8 +30983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapToMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MapValueType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MapValueType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MapValueType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MapValueType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32781,8 +31013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MapValueTyp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mapVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mapVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mapVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32812,8 +31043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapVisitor:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mask"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mask\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mask\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32843,8 +31073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mask: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.maximumEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".maximumEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}maximumEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}maximumEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32874,8 +31103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.maximumEdit
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mdayStart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mdayStart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mdayStart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mdayStart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32905,8 +31133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mdayStart: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.merge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".merge"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}merge\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}merge\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32936,8 +31163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.merge: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MergeOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MergeOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MergeOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MergeOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32967,8 +31193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MergeOption
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".message"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}message\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}message\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -32998,8 +31223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.message: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageDepthLimit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".messageDepthLimit"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}messageDepthLimit\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}messageDepthLimit\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33029,8 +31253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageDept
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".messageEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}messageEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}messageEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33060,8 +31283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageEnco
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MessageExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MessageExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MessageExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33091,8 +31313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageExte
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageImplementationBase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MessageImplementationBase"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MessageImplementationBase\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MessageImplementationBase\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33120,41 +31341,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageImpl
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MessageOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MessageOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.messageOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.messageOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.messageOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageOptions) -> Bool {
-    if lhs.messageOptions != rhs.messageOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MessageSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MessageSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MessageSet\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33184,8 +31373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageSet:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageSetWireFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".messageSetWireFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}messageSetWireFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}messageSetWireFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33215,8 +31403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageSetW
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".messageSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}messageSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}messageSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33246,8 +31433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageSize
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".messageType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}messageType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}messageType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33275,10 +31461,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageType
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Method"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Method\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".method"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}method\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33299,70 +31484,8 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Method: Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Method, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Method) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.method, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.method) -> Bool {
     if lhs.method != rhs.method {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MethodDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MethodDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.methodDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.methodDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.methodDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodDescriptorProto) -> Bool {
-    if lhs.methodDescriptorProto != rhs.methodDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".MethodOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}MethodOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.methodOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.methodOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.methodOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodOptions) -> Bool {
-    if lhs.methodOptions != rhs.methodOptions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -33370,8 +31493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodOptio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.methods: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".methods"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}methods\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}methods\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33401,8 +31523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.methods: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.min: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".min"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}min\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}min\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33432,8 +31553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.min: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minimumEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".minimumEdition"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}minimumEdition\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}minimumEdition\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33463,8 +31583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minimumEdit
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".minor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}minor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}minor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33492,41 +31611,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minor: Swif
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Mixin"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Mixin\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.mixin) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.mixin != 0 {
-      try visitor.visitSingularInt32Field(value: self.mixin, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Mixin, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Mixin) -> Bool {
-    if lhs.mixin != rhs.mixin {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mixins: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mixins"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mixins\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mixins\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33556,8 +31643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mixins: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.modify: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".modify"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}modify\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}modify\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33587,8 +31673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.modify: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.month: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".month"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}month\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}month\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33618,8 +31703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.month: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.msgExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".msgExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}msgExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}msgExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33649,8 +31733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.msgExtensio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".mutating"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}mutating\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mutating\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33680,8 +31763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mutating: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.n: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".n"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}n\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}n\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33711,8 +31793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.n: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.name: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".name"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}name\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33742,8 +31823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.name: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NameDescription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".NameDescription"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}NameDescription\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}NameDescription\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33773,8 +31853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NameDescrip
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NameMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".NameMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}NameMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}NameMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33804,8 +31883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NameMap: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NamePart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".NamePart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}NamePart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}NamePart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33835,8 +31913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NamePart: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.names: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".names"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}names\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}names\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33866,8 +31943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.names: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nanos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nanos"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nanos\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nanos\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33897,8 +31973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nanos: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.negativeIntValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".negativeIntValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}negativeIntValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}negativeIntValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33928,8 +32003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.negativeInt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nestedType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nestedType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nestedType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nestedType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33959,8 +32033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nestedType:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newExtensible: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".newExtensible"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}newExtensible\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}newExtensible\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -33990,8 +32063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newExtensib
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".newL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}newL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}newL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34021,8 +32093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newL: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newList: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".newList"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}newList\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}newList\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34052,8 +32123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newList: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".newMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}newMessage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}newMessage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34083,8 +32153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".newValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}newValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}newValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34114,8 +32183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newValue: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.next: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".next"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}next\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}next\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34145,8 +32213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.next: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextByte: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextByte"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextByte\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextByte\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34176,8 +32243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextByte: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextFieldNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextFieldNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextFieldNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34207,8 +32273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextFieldNu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextInstruction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextInstruction"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextInstruction\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextInstruction\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34238,8 +32303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextInstruc
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextInt32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextInt32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextInt32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34269,8 +32333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextInt32: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextNullTerminatedString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextNullTerminatedString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextNullTerminatedString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextNullTerminatedString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34300,8 +32363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextNullTer
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextNullTerminatedStringArray: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextNullTerminatedStringArray"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextNullTerminatedStringArray\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextNullTerminatedStringArray\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34331,8 +32393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextNullTer
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34362,8 +32423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextNumber:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextUInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextUInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextUInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextUInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34393,8 +32453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextUInt64:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextVarInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nextVarInt"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nextVarInt\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nextVarInt\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34424,8 +32483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextVarInt:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nilMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nil"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nil\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nil\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34455,8 +32513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nilMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nilLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nilLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nilLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nilLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34486,8 +32543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nilLiteral:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.noBytesAvailable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".noBytesAvailable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}noBytesAvailable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}noBytesAvailable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34517,8 +32573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.noBytesAvai
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.noStandardDescriptorAccessor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".noStandardDescriptorAccessor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}noStandardDescriptorAccessor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}noStandardDescriptorAccessor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34548,8 +32603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.noStandardD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nullValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".nullValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}nullValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nullValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34579,8 +32633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nullValue: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.number: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".number"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}number\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}number\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34610,8 +32663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.number: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.numberValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".numberValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}numberValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}numberValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34641,8 +32693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.numberValue
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.objcClassPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".objcClassPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}objcClassPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}objcClassPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34672,8 +32723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.objcClassPr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.of: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".of"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}of\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}of\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34703,8 +32753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.of: SwiftPr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneOf_Kind: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OneOf_Kind"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}OneOf_Kind\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}OneOf_Kind\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34734,8 +32783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneOf_Kind:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofDecl: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".oneofDecl"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}oneofDecl\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}oneofDecl\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34763,41 +32811,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofDecl: 
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OneofDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OneofDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.oneofDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.oneofDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.oneofDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofDescriptorProto) -> Bool {
-    if lhs.oneofDescriptorProto != rhs.oneofDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".oneofIndex"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}oneofIndex\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}oneofIndex\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34825,41 +32841,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofIndex:
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OneofOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OneofOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.oneofOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.oneofOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.oneofOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofOptions) -> Bool {
-    if lhs.oneofOptions != rhs.oneofOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".oneofs"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}oneofs\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}oneofs\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34889,8 +32873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofs: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.optimizeFor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".optimizeFor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}optimizeFor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}optimizeFor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34920,8 +32903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.optimizeFor
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptimizeMode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptimizeMode"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptimizeMode\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptimizeMode\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -34949,41 +32931,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptimizeMod
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Option"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Option\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.option) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.option != 0 {
-      try visitor.visitSingularInt32Field(value: self.option, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Option, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Option) -> Bool {
-    if lhs.option != rhs.option {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalEnumExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptionalEnumExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptionalEnumExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionalEnumExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35013,8 +32963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalEnu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptionalExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptionalExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionalExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35044,8 +32993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalExt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalGroupExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptionalGroupExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptionalGroupExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionalGroupExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35075,8 +33023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalGro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalMessageExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptionalMessageExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptionalMessageExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionalMessageExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35106,8 +33053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.optionDependency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".optionDependency"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}optionDependency\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}optionDependency\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35137,8 +33083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.optionDepen
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionRetention: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptionRetention"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptionRetention\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionRetention\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35168,8 +33113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionReten
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.options: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".options"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}options\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}options\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35199,8 +33143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.options: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionTargetType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".OptionTargetType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}OptionTargetType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionTargetType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35230,8 +33173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionTarge
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.other: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".other"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}other\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}other\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35261,8 +33203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.other: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.others: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".others"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}others\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}others\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35292,8 +33233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.others: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.out: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".out"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}out\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}out\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35323,8 +33263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.out: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.outputType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".outputType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}outputType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}outputType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35354,8 +33293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.outputType:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.overridableFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".overridableFeatures"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}overridableFeatures\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}overridableFeatures\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35385,8 +33323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.overridable
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.p: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".p"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}p\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}p\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35416,8 +33353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.p: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.package: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".package"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}package\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}package\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35447,8 +33383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.package: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.packed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".packed"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}packed\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}packed\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35478,8 +33413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.packed: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PackedEnumExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".PackedEnumExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}PackedEnumExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}PackedEnumExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35509,8 +33443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PackedEnumE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PackedExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".PackedExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}PackedExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}PackedExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35540,8 +33473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PackedExten
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.padding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".padding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}padding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}padding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35571,8 +33503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.padding: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.parent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".parent"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}parent\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}parent\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35602,8 +33533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.parent: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.parse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".parse"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}parse\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}parse\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35633,8 +33563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.parse: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.partial: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".partial"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}partial\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}partial\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35664,8 +33593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.partial: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.path: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".path"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}path\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}path\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35695,8 +33623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.path: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PathDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".PathDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}PathDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}PathDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35726,8 +33653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PathDecoder
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PathDecodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".PathDecodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}PathDecodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}PathDecodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35757,8 +33683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PathDecodin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.paths: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".paths"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}paths\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}paths\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35788,8 +33713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.paths: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PathVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".PathVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}PathVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}PathVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35819,8 +33743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PathVisitor
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.payload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".payload"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}payload\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}payload\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35850,8 +33773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.payload: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.payloadSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".payloadSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}payloadSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}payloadSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35881,8 +33803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.payloadSize
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpClassPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".phpClassPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}phpClassPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}phpClassPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35912,8 +33833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpClassPre
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpMetadataNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".phpMetadataNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}phpMetadataNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}phpMetadataNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35943,8 +33863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpMetadata
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".phpNamespace"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}phpNamespace\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}phpNamespace\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -35974,8 +33893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpNamespac
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".pos"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}pos\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}pos\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36005,8 +33923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pos: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.positiveIntValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".positiveIntValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}positiveIntValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}positiveIntValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36036,8 +33953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.positiveInt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.prefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".prefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}prefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}prefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36067,8 +33983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.prefix: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.preserveProtoFieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".preserveProtoFieldNames"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}preserveProtoFieldNames\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}preserveProtoFieldNames\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36098,8 +34013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.preservePro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.preTraverse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".preTraverse"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}preTraverse\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}preTraverse\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36129,8 +34043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.preTraverse
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.previousNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".previousNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}previousNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}previousNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36160,8 +34073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.previousNum
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.prevPath: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".prevPath"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}prevPath\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}prevPath\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36191,8 +34103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.prevPath: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.printUnknownFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".printUnknownFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}printUnknownFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}printUnknownFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36222,8 +34133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.printUnknow
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.programBuffer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".programBuffer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}programBuffer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}programBuffer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36253,8 +34163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.programBuff
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.programFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".programFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}programFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}programFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36284,8 +34193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.programForm
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".proto2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}proto2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}proto2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36315,8 +34223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto2: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto3DefaultValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".proto3DefaultValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}proto3DefaultValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}proto3DefaultValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36346,8 +34253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto3Defau
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".proto3Optional"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}proto3Optional\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}proto3Optional\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36377,8 +34283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto3Optio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_extensionFieldValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_extensionFieldValues"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_extensionFieldValues\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_extensionFieldValues\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36408,8 +34313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_ex
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_fieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_fieldNumber"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_fieldNumber\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_fieldNumber\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36439,8 +34343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_fi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_generated_isEqualTo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_generated_isEqualTo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_generated_isEqualTo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_generated_isEqualTo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36470,8 +34373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_ge
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_nameMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_nameMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_nameMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_nameMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36499,41 +34401,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_na
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_nameMap_bytecode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_nameMap_bytecode"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_nameMap_bytecode\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.protobufNameMapBytecode) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.protobufNameMapBytecode != 0 {
-      try visitor.visitSingularInt32Field(value: self.protobufNameMapBytecode, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_nameMap_bytecode, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_nameMap_bytecode) -> Bool {
-    if lhs.protobufNameMapBytecode != rhs.protobufNameMapBytecode {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_newField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_newField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_newField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_newField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36563,8 +34433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_ne
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_package: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobuf_package"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}protobuf_package\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_package\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36594,8 +34463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_pa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufAPIVersion_2"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}ProtobufAPIVersion_2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}ProtobufAPIVersion_2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36625,8 +34493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPI
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersionCheck: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufAPIVersionCheck"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufAPIVersionCheck\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufAPIVersionCheck\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36656,8 +34523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPI
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufBool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufBool"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufBool\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufBool\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36687,8 +34553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufBoo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36718,8 +34583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufByt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobufData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobufData"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}protobufData\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}protobufData\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36749,8 +34613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobufDat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufDouble: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufDouble"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufDouble\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufDouble\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36780,8 +34643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufDou
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufEnumMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufEnumMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufEnumMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36811,8 +34673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufEnu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobufExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protobufExtension"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}protobufExtension\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}protobufExtension\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36842,8 +34703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobufExt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFixed32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufFixed32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufFixed32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufFixed32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36873,8 +34733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFix
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFixed64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufFixed64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufFixed64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufFixed64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36904,8 +34763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFix
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFloat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufFloat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufFloat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufFloat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36935,8 +34793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFlo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufInt32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufInt32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufInt32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36966,8 +34823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufInt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -36997,8 +34853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufInt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37028,8 +34883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufMap
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufMessageMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufMessageMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufMessageMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37059,8 +34913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSFixed32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufSFixed32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufSFixed32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufSFixed32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37090,8 +34943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSFixed64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufSFixed64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufSFixed64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufSFixed64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37121,8 +34973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSFi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufSInt32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufSInt32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufSInt32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37152,8 +35003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSIn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufSInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufSInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufSInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37183,8 +35033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSIn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37214,8 +35063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufStr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufUInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufUInt32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufUInt32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufUInt32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37245,8 +35093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufUIn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufUInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtobufUInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtobufUInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtobufUInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37276,8 +35123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufUIn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protocol"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}protocol\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}protocol\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37307,8 +35153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protocolMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoFieldName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protoFieldName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}protoFieldName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}protoFieldName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37338,8 +35183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoFieldN
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageNameMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protoMessageName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}protoMessageName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}protoMessageName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37369,8 +35213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtoNameProviding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtoNameProviding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ProtoNameProviding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtoNameProviding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37400,8 +35243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtoNamePr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoPaths: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".protoPaths"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}protoPaths\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}protoPaths\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37431,8 +35273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoPaths:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.publicMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".public"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}public\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}public\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37462,8 +35303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.publicMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.publicDependency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".publicDependency"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}publicDependency\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}publicDependency\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37493,8 +35333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.publicDepen
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putBoolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putBoolValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putBoolValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putBoolValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37524,8 +35363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putBoolValu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putBytesValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putBytesValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putBytesValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putBytesValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37555,8 +35393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putBytesVal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putDoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putDoubleValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putDoubleValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putDoubleValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37586,8 +35423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putDoubleVa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putEnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putEnumValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putEnumValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putEnumValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37617,8 +35453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putEnumValu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFixedUInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putFixedUInt32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putFixedUInt32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putFixedUInt32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37648,8 +35483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFixedUIn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFixedUInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putFixedUInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putFixedUInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putFixedUInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37679,8 +35513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFixedUIn
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFloatValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putFloatValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putFloatValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putFloatValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37710,8 +35543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFloatVal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37741,8 +35573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putInt64: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putStringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putStringValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putStringValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putStringValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37772,8 +35603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putStringVa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putUInt64: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putUInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putUInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putUInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37803,8 +35633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putUInt64: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putUInt64Hex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putUInt64Hex"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putUInt64Hex\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putUInt64Hex\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37834,8 +35663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putUInt64He
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putVarInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putVarInt"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putVarInt\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putVarInt\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37865,8 +35693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putVarInt: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putZigZagVarInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".putZigZagVarInt"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}putZigZagVarInt\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}putZigZagVarInt\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37896,8 +35723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putZigZagVa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pyGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".pyGenericServices"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}pyGenericServices\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}pyGenericServices\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37927,8 +35753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pyGenericSe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.R: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".R"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}R\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}R\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37958,8 +35783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.R: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rawChars: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".rawChars"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}rawChars\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rawChars\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -37989,8 +35813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rawChars: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RawRepresentable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".RawRepresentable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}RawRepresentable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}RawRepresentable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38020,8 +35843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RawRepresen
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RawValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".RawValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}RawValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}RawValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38051,8 +35873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RawValue: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.read4HexDigits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".read4HexDigits"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}read4HexDigits\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}read4HexDigits\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38082,8 +35903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.read4HexDig
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.readBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".readBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}readBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}readBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38113,8 +35933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.readBytes: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.reader: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".reader"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}reader\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}reader\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38144,8 +35963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.reader: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.register: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".register"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}register\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}register\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38175,8 +35993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.register: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.remainingProgram: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".remainingProgram"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}remainingProgram\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}remainingProgram\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38206,8 +36023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.remainingPr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.removingAllFieldsOf: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".removingAllFieldsOf"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}removingAllFieldsOf\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}removingAllFieldsOf\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38237,8 +36053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.removingAll
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".repeated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}repeated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}repeated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38268,8 +36083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeated: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedEnumExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".RepeatedEnumExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}RepeatedEnumExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}RepeatedEnumExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38299,8 +36113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedEnu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".RepeatedExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}RepeatedExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}RepeatedExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38330,8 +36143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedExt
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeatedFieldEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".repeatedFieldEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}repeatedFieldEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}repeatedFieldEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38361,8 +36173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeatedFie
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedGroupExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".RepeatedGroupExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}RepeatedGroupExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}RepeatedGroupExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38392,8 +36203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedGro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedMessageExtensionField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".RepeatedMessageExtensionField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}RepeatedMessageExtensionField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}RepeatedMessageExtensionField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38423,8 +36233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".repeating"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}repeating\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}repeating\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38454,8 +36263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeating: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.replaceRepeatedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".replaceRepeatedFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}replaceRepeatedFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}replaceRepeatedFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38485,8 +36293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.replaceRepe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requestStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".requestStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}requestStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requestStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38516,8 +36323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requestStre
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requestTypeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".requestTypeURL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}requestTypeURL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requestTypeURL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38547,8 +36353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requestType
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requiredSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".requiredSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}requiredSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requiredSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38578,8 +36383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requiredSiz
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.responseStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".responseStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}responseStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}responseStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38609,8 +36413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.responseStr
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.responseTypeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".responseTypeURL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}responseTypeURL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}responseTypeURL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38640,8 +36443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.responseTyp
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.result: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".result"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}result\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}result\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38671,8 +36473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.result: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.retention: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".retention"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}retention\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}retention\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38702,8 +36503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.retention: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".rethrows"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}rethrows\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rethrows\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38733,8 +36533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rethrowsMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.returnMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".return"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}return\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}return\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38764,8 +36563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.returnMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ReturnType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ReturnType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ReturnType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ReturnType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38795,8 +36593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ReturnType:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.revision: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".revision"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}revision\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}revision\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38826,8 +36623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.revision: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rhs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".rhs"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}rhs\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rhs\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38857,8 +36653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rhs: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.root: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".root"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}root\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}root\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38888,8 +36683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.root: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rubyPackage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".rubyPackage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}rubyPackage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rubyPackage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38919,8 +36713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rubyPackage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.s: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".s"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}s\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}s\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38950,8 +36743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.s: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawBackslash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sawBackslash"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sawBackslash\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sawBackslash\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -38981,8 +36773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawBackslas
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawSection4Characters: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sawSection4Characters"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sawSection4Characters\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sawSection4Characters\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39012,8 +36803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawSection4
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawSection5Characters: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sawSection5Characters"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sawSection5Characters\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sawSection5Characters\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39043,8 +36833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawSection5
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.scan: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".scan"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}scan\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}scan\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39074,8 +36863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.scan: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.scanner: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".scanner"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}scanner\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}scanner\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39105,8 +36893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.scanner: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.seconds: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".seconds"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}seconds\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}seconds\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39136,8 +36923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.seconds: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.selfMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".self"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}self\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}self\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39167,8 +36953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.selfMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.semantic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".semantic"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}semantic\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}semantic\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39198,8 +36983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.semantic: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SendableMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Sendable"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Sendable\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Sendable\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39229,8 +37013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SendableMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.separator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".separator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}separator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}separator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39260,8 +37043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.separator: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serialize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".serialize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}serialize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}serialize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39291,8 +37073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serialize: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".serializedBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}serializedBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}serializedBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39322,8 +37103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedB
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".serializedData"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}serializedData\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}serializedData\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39353,8 +37133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".serializedSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}serializedSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}serializedSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39384,8 +37163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedS
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serverStreaming: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".serverStreaming"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}serverStreaming\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}serverStreaming\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39415,8 +37193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serverStrea
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.service: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".service"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}service\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}service\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39444,72 +37221,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.service: Sw
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ServiceDescriptorProto"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ServiceDescriptorProto\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.serviceDescriptorProto) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.serviceDescriptorProto != 0 {
-      try visitor.visitSingularInt32Field(value: self.serviceDescriptorProto, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceDescriptorProto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceDescriptorProto) -> Bool {
-    if lhs.serviceDescriptorProto != rhs.serviceDescriptorProto {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ServiceOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ServiceOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.serviceOptions) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.serviceOptions != 0 {
-      try visitor.visitSingularInt32Field(value: self.serviceOptions, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceOptions, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceOptions) -> Bool {
-    if lhs.serviceOptions != rhs.serviceOptions {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.set: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".set"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}set\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}set\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39539,8 +37253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.set: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.setExtensionValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".setExtensionValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}setExtensionValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}setExtensionValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39570,8 +37283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.setExtensio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.shift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".shift"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}shift\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}shift\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39601,8 +37313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.shift: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SimpleExtensionMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".SimpleExtensionMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}SimpleExtensionMap\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}SimpleExtensionMap\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39632,8 +37343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SimpleExten
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.size: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".size"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}size\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}size\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39663,8 +37373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.size: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sizer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sizer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sizer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sizer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39694,8 +37403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sizer: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.source: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".source"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}source\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}source\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39725,8 +37433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.source: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sourceCodeInfo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sourceCodeInfo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sourceCodeInfo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39756,8 +37463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceCodeI
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sourceContext"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sourceContext\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sourceContext\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39787,8 +37493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceConte
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceEncoding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sourceEncoding"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sourceEncoding\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sourceEncoding\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39818,8 +37523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceEncod
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceFile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".sourceFile"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}sourceFile\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}sourceFile\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39849,8 +37553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceFile:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SourceLocation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".SourceLocation"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}SourceLocation\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}SourceLocation\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39880,8 +37583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SourceLocat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.span: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".span"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}span\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}span\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39911,8 +37613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.span: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.split: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".split"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}split\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}split\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39942,8 +37643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.split: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.start: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".start"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}start\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}start\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -39973,8 +37673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.start: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startArray: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startArray"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startArray\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startArray\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40004,8 +37703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startArray:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startArrayObject: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startArrayObject"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startArrayObject\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startArrayObject\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40035,8 +37733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startArrayO
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40066,8 +37763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startField:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startIndex: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startIndex"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startIndex\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startIndex\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40097,8 +37793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startIndex:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startMessageField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startMessageField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startMessageField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startMessageField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40128,8 +37823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startObject: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startObject"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startObject\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startObject\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40159,8 +37853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startObject
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startRegularField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".startRegularField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}startRegularField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}startRegularField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40190,8 +37883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startRegula
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.state: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".state"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}state\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}state\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40221,8 +37913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.state: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.staticMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".static"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}static\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}static\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40252,8 +37943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.staticMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StaticString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".StaticString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}StaticString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}StaticString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40283,8 +37973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StaticStrin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.storage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".storage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}storage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}storage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40314,8 +38003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.storage: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StringMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".String"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}String\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}String\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40345,8 +38033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StringMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".stringLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}stringLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stringLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40376,8 +38063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringLiter
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StringLiteralType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".StringLiteralType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}StringLiteralType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}StringLiteralType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40407,8 +38093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StringLiter
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".stringResult"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}stringResult\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stringResult\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40438,8 +38123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringResul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".stringValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}stringValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stringValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40469,8 +38153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringValue
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.structMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".struct"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}struct\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}struct\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40500,8 +38183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.structMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.structValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".structValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}structValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}structValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40531,8 +38213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.structValue
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".subDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}subDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}subDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40562,8 +38243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subDecoder:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".subscript"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}subscript\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}subscript\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40593,8 +38273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subscriptMe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subtract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".subtract"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}subtract\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}subtract\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40624,8 +38303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subtract: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".subVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}subVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}subVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40655,8 +38333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subVisitor:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Swift"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Swift\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Swift\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40686,8 +38363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.swiftPrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".swiftPrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}swiftPrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}swiftPrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40717,8 +38393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.swiftPrefix
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftProtobufContiguousBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".SwiftProtobufContiguousBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}SwiftProtobufContiguousBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}SwiftProtobufContiguousBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40748,8 +38423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftProtob
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftProtobufError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".SwiftProtobufError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}SwiftProtobufError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}SwiftProtobufError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40779,8 +38453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftProtob
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.syntax: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".syntax"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}syntax\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}syntax\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40810,8 +38483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.syntax: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.T: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".T"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}T\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}T\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40841,8 +38513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.T: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tag: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".tag"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}tag\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tag\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40872,8 +38543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tag: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.targets: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".targets"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}targets\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}targets\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40903,8 +38573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.targets: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.terminator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".terminator"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}terminator\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}terminator\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40934,8 +38603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.terminator:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.testDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".testDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}testDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}testDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40965,8 +38633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.testDecoder
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.text: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".text"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}text\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}text\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -40996,8 +38663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.text: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.textDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".textDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}textDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}textDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41027,8 +38693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.textDecoder
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatDecoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".TextFormatDecoder"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TextFormatDecoder\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}TextFormatDecoder\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41058,8 +38723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatDecodingError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".TextFormatDecodingError"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TextFormatDecodingError\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}TextFormatDecodingError\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41089,8 +38753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatDecodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".TextFormatDecodingOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TextFormatDecodingOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}TextFormatDecodingOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41120,8 +38783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatEncodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".TextFormatEncodingOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TextFormatEncodingOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}TextFormatEncodingOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41151,8 +38813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatEncodingVisitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".TextFormatEncodingVisitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TextFormatEncodingVisitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}TextFormatEncodingVisitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41182,8 +38843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatE
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.textFormatString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".textFormatString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}textFormatString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}textFormatString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41213,8 +38873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.textFormatS
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.throwOrIgnore: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".throwOrIgnore"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}throwOrIgnore\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}throwOrIgnore\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41244,8 +38903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.throwOrIgno
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.throwsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".throws"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}throws\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}throws\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41275,8 +38933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.throwsMessa
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeInterval: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".timeInterval"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}timeInterval\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}timeInterval\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41306,8 +38963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeInterva
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeIntervalSince1970: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".timeIntervalSince1970"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}timeIntervalSince1970\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}timeIntervalSince1970\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41337,8 +38993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeInterva
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeIntervalSinceReferenceDate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".timeIntervalSinceReferenceDate"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}timeIntervalSinceReferenceDate\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}timeIntervalSinceReferenceDate\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41366,41 +39021,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeInterva
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Timestamp"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Timestamp\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.timestamp) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.timestamp != 0 {
-      try visitor.visitSingularInt32Field(value: self.timestamp, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Timestamp, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Timestamp) -> Bool {
-    if lhs.timestamp != rhs.timestamp {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tmp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".tmp"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}tmp\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tmp\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41430,8 +39053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tmp: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tooLarge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".tooLarge"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}tooLarge\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}tooLarge\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41461,8 +39083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tooLarge: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.total: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".total"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}total\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}total\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41492,8 +39113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.total: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.totalArrayDepth: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".totalArrayDepth"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}totalArrayDepth\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}totalArrayDepth\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41523,8 +39143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.totalArrayD
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.totalSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".totalSize"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}totalSize\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}totalSize\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41554,8 +39173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.totalSize: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trailingComments: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".trailingComments"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}trailingComments\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}trailingComments\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41585,8 +39203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trailingCom
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.traverseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".traverse"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}traverse\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}traverse\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41616,8 +39233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.traverseMes
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trim: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".trim"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}trim\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}trim\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41647,8 +39263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trim: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".true"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}true\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}true\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41678,8 +39293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trueMessage
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tryMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".try"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}try\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}try\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41709,8 +39323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tryMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".type"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}type\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41740,8 +39353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.type: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".typealias"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}typealias\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}typealias\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41771,8 +39383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typealiasMe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TypeEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".TypeEnum"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}TypeEnum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}TypeEnum\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41802,8 +39413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TypeEnum: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".typeName"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}typeName\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}typeName\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41833,8 +39443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeName: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typePrefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".typePrefix"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}typePrefix\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}typePrefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41864,8 +39473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typePrefix:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeStart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".typeStart"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}typeStart\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}typeStart\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41895,8 +39503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeStart: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeUnknown: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".typeUnknown"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}typeUnknown\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}typeUnknown\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41926,8 +39533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeUnknown
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".typeURL"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}typeURL\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}typeURL\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41957,8 +39563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeURL: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UInt32"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UInt32\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UInt32\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -41986,41 +39591,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Messa
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UInt32Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UInt32Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.uint32Value) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.uint32Value != 0 {
-      try visitor.visitSingularInt32Field(value: self.uint32Value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Value, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Value) -> Bool {
-    if lhs.uint32Value != rhs.uint32Value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UInt64"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UInt64\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UInt64\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42048,41 +39621,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Messa
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UInt64Value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UInt64Value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.uint64Value) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.uint64Value != 0 {
-      try visitor.visitSingularInt32Field(value: self.uint64Value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Value, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Value) -> Bool {
-    if lhs.uint64Value != rhs.uint64Value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UInt8"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UInt8\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UInt8\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42112,8 +39653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt8: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unchecked: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unchecked"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unchecked\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unchecked\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42143,8 +39683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unchecked: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unicodeScalarLiteral: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unicodeScalarLiteral"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unicodeScalarLiteral\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unicodeScalarLiteral\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42174,8 +39713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unicodeScal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnicodeScalarLiteralType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnicodeScalarLiteralType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnicodeScalarLiteralType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnicodeScalarLiteralType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42205,8 +39743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnicodeScal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unicodeScalars: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unicodeScalars"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unicodeScalars\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unicodeScalars\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42236,8 +39773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unicodeScal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnicodeScalarView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnicodeScalarView"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnicodeScalarView\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnicodeScalarView\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42267,8 +39803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnicodeScal
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.uninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".uninterpretedOption"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}uninterpretedOption\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}uninterpretedOption\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42298,8 +39833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.uninterpret
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.union: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".union"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}union\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}union\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42329,8 +39863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.union: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.uniqueStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".uniqueStorage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}uniqueStorage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}uniqueStorage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42360,8 +39893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.uniqueStora
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unknown: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unknown"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unknown\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unknown\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42391,8 +39923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unknown: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unknownFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unknownFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unknownFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42422,8 +39953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unknownFiel
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnknownStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnknownStorage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnknownStorage\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnknownStorage\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42453,8 +39983,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnknownStor
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unpackTo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unpackTo"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unpackTo\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unpackTo\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42484,8 +40013,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unpackTo: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeBufferPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeBufferPointer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnsafeBufferPointer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnsafeBufferPointer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42515,8 +40043,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeBuffe
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutablePointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeMutablePointer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnsafeMutablePointer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnsafeMutablePointer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42546,8 +40073,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutab
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutableRawBufferPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeMutableRawBufferPointer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnsafeMutableRawBufferPointer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnsafeMutableRawBufferPointer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42577,8 +40103,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutab
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeRawBufferPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeRawBufferPointer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnsafeRawBufferPointer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnsafeRawBufferPointer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42608,8 +40133,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeRawBu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeRawPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeRawPointer"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UnsafeRawPointer\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UnsafeRawPointer\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42639,8 +40163,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeRawPo
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unverifiedLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".unverifiedLazy"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}unverifiedLazy\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}unverifiedLazy\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42670,8 +40193,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unverifiedL
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updatedOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".updatedOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}updatedOptions\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}updatedOptions\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42701,8 +40223,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updatedOpti
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.url: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".url"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}url\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}url\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42732,8 +40253,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.url: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.useDeterministicOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".useDeterministicOrdering"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}useDeterministicOrdering\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}useDeterministicOrdering\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42763,8 +40283,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.useDetermin
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".utf8"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}utf8\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}utf8\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42794,8 +40313,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8Ptr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".utf8Ptr"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}utf8Ptr\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}utf8Ptr\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42825,8 +40343,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8Ptr: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8ToDouble: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".utf8ToDouble"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}utf8ToDouble\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}utf8ToDouble\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42856,8 +40373,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8ToDoubl
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8Validation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".utf8Validation"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}utf8Validation\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}utf8Validation\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42887,8 +40403,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8Validat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UTF8View: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".UTF8View"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}UTF8View\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}UTF8View\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42918,8 +40433,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UTF8View: S
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.V: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".V"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}V\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}V\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42949,8 +40463,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.V: SwiftPro
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".value"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}value\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -42980,8 +40493,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.value: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.valueField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".valueField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}valueField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}valueField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43011,8 +40523,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.valueField:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.values: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".values"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}values\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43042,8 +40553,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.values: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ValueType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ValueType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}ValueType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ValueType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43073,8 +40583,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ValueType: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.varMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".var"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}var\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}var\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43104,8 +40613,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.varMessage:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.verification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".verification"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}verification\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}verification\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43135,8 +40643,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.verificatio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.VerificationState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".VerificationState"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}VerificationState\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}VerificationState\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43166,8 +40673,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Verificatio
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".version"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}version\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}version\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43197,8 +40703,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.version: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.versionString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".versionString"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}versionString\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}versionString\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43228,8 +40733,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.versionStri
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visibility"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visibility\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visibility\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43259,8 +40763,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visibility:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.VisibilityFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".VisibilityFeature"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}VisibilityFeature\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}VisibilityFeature\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43290,8 +40793,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.VisibilityF
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitExtensionFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitExtensionFields"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitExtensionFields\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitExtensionFields\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43321,8 +40823,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitExtens
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitExtensionFieldsAsMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitExtensionFieldsAsMessageSet"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitExtensionFieldsAsMessageSet\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitExtensionFieldsAsMessageSet\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43352,8 +40853,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitExtens
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitMapField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitMapField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitMapField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitMapField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43383,8 +40883,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitMapFie
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Visitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Visitor"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Visitor\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Visitor\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43414,8 +40913,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Visitor: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPacked"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPacked\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPacked\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43445,8 +40943,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedBoolField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedBoolField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedBoolField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedBoolField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43476,8 +40973,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedDoubleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedDoubleField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedDoubleField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedDoubleField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43507,8 +41003,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedEnumField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedEnumField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedEnumField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedEnumField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43538,8 +41033,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43569,8 +41063,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43600,8 +41093,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedFloatField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedFloatField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedFloatField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedFloatField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43631,8 +41123,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43662,8 +41153,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43693,8 +41183,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedSFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedSFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedSFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43724,8 +41213,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedSFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedSFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedSFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43755,8 +41243,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedSInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedSInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedSInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43786,8 +41273,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedSInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedSInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedSInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43817,8 +41303,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedUInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedUInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedUInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedUInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43848,8 +41333,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedUInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitPackedUInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitPackedUInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitPackedUInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43879,8 +41363,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeated"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeated\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeated\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43910,8 +41393,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedBoolField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedBoolField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedBoolField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedBoolField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43941,8 +41423,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedBytesField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedBytesField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedBytesField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedBytesField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -43972,8 +41453,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedDoubleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedDoubleField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedDoubleField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedDoubleField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44003,8 +41483,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedEnumField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedEnumField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedEnumField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedEnumField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44034,8 +41513,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44065,8 +41543,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44096,8 +41573,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedFloatField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedFloatField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedFloatField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedFloatField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44127,8 +41603,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedGroupField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedGroupField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedGroupField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedGroupField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44158,8 +41633,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44189,8 +41663,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44220,8 +41693,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedMessageField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedMessageField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedMessageField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedMessageField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44251,8 +41723,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedSFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedSFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedSFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44282,8 +41753,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedSFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedSFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedSFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44313,8 +41783,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedSInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedSInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedSInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44344,8 +41813,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedSInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedSInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedSInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44375,8 +41843,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedStringField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedStringField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedStringField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedStringField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44406,8 +41873,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedUInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedUInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedUInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedUInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44437,8 +41903,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedUInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitRepeatedUInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitRepeatedUInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitRepeatedUInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44468,8 +41933,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeat
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingular: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingular"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingular\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingular\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44499,8 +41963,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularBoolField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularBoolField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularBoolField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularBoolField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44530,8 +41993,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularBytesField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularBytesField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularBytesField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularBytesField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44561,8 +42023,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularDoubleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularDoubleField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularDoubleField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularDoubleField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44592,8 +42053,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularEnumField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularEnumField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularEnumField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularEnumField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44623,8 +42083,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44654,8 +42113,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44685,8 +42143,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularFloatField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularFloatField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularFloatField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularFloatField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44716,8 +42173,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularGroupField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularGroupField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularGroupField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularGroupField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44747,8 +42203,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44778,8 +42233,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44809,8 +42263,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularMessageField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularMessageField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularMessageField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularMessageField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44840,8 +42293,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSFixed32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularSFixed32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularSFixed32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularSFixed32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44871,8 +42323,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSFixed64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularSFixed64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularSFixed64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularSFixed64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44902,8 +42353,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularSInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularSInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularSInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44933,8 +42383,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularSInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularSInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularSInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44964,8 +42413,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularStringField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularStringField"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularStringField\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularStringField\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -44995,8 +42443,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularUInt32Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularUInt32Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularUInt32Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularUInt32Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45026,8 +42473,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularUInt64Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitSingularUInt64Field"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitSingularUInt64Field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitSingularUInt64Field\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45057,8 +42503,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingul
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitUnknown: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".visitUnknown"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}visitUnknown\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}visitUnknown\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45088,8 +42533,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitUnknow
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Void"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Void\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Void\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45119,8 +42563,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Void: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wasDecoded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".wasDecoded"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}wasDecoded\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}wasDecoded\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45150,8 +42593,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wasDecoded:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.weak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".weak"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}weak\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}weak\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45181,8 +42623,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.weak: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.weakDependency: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".weakDependency"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}weakDependency\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}weakDependency\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45212,8 +42653,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.weakDepende
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.whereMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".where"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}where\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}where\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45243,8 +42683,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.whereMessag
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wireFormat: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".wireFormat"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}wireFormat\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}wireFormat\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45274,8 +42713,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wireFormat:
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.with: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".with"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}with\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}with\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45305,8 +42743,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.with: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.withUnsafeBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".withUnsafeBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}withUnsafeBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}withUnsafeBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45336,8 +42773,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.withUnsafeB
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".withUnsafeMutableBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}withUnsafeMutableBytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}withUnsafeMutableBytes\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45367,8 +42803,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.withUnsafeM
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.work: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".work"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}work\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}work\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45398,8 +42833,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.work: Swift
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Wrapped: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".Wrapped"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}Wrapped\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}Wrapped\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45429,8 +42863,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Wrapped: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.WrappedType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".WrappedType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}WrappedType\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}WrappedType\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45460,8 +42893,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.WrappedType
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wrappedValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".wrappedValue"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}wrappedValue\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}wrappedValue\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45491,8 +42923,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wrappedValu
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.written: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".written"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}written\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}written\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -45522,8 +42953,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.written: Sw
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.yday: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".yday"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}yday\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}yday\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

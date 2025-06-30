@@ -177,8 +177,7 @@ extension Pb_InternalOptionsForce: SwiftProtobuf.Message, SwiftProtobuf._Message
 }
 
 extension Pb_InternalOptionsForce.Enum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0UNSPECIFIED\0\u{1}FORCE_ON\0\u{1}FORCE_OFF\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FORCE_ON\0\u{1}FORCE_OFF\0")
 }
 
 extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -202,8 +201,7 @@ extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 extension Pb_InternalFieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InternalFieldOptions"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}cpp\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}cpp\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

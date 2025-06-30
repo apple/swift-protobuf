@@ -455,14 +455,12 @@ struct Proto2Unittest_TestI32StrMap: Sendable {
 fileprivate let _protobuf_package = "proto2_unittest"
 
 extension Proto2Unittest_MapEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0MAP_ENUM_FOO\0\u{1}MAP_ENUM_BAR\0\u{1}MAP_ENUM_BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0MAP_ENUM_FOO\0\u{1}MAP_ENUM_BAR\0\u{1}MAP_ENUM_BAZ\0")
 }
 
 extension Proto2Unittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0\u{3}map_string_foreign_message\0\u{3}map_int32_all_types\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0\u{3}map_string_foreign_message\0\u{3}map_int32_all_types\0")
 
   fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -654,8 +652,7 @@ extension Proto2Unittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
 extension Proto2Unittest_TestMapWithMessages: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMapWithMessages"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_int32_all_types\0\u{3}map_int64_all_types\0\u{3}map_uint32_all_types\0\u{3}map_uint64_all_types\0\u{3}map_sint32_all_types\0\u{3}map_sint64_all_types\0\u{3}map_fixed32_all_types\0\u{3}map_fixed64_all_types\0\u{3}map_sfixed32_all_types\0\u{3}map_sfixed64_all_types\0\u{3}map_bool_all_types\0\u{3}map_string_all_types\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_int32_all_types\0\u{3}map_int64_all_types\0\u{3}map_uint32_all_types\0\u{3}map_uint64_all_types\0\u{3}map_sint32_all_types\0\u{3}map_sint64_all_types\0\u{3}map_fixed32_all_types\0\u{3}map_fixed64_all_types\0\u{3}map_sfixed32_all_types\0\u{3}map_sfixed64_all_types\0\u{3}map_bool_all_types\0\u{3}map_string_all_types\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -740,8 +737,7 @@ extension Proto2Unittest_TestMapWithMessages: SwiftProtobuf.Message, SwiftProtob
 
 extension Proto2Unittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMapSubmessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}test_map\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}test_map\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -775,8 +771,7 @@ extension Proto2Unittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf
 
 extension Proto2Unittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_int32_message\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_int32_message\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -806,8 +801,7 @@ extension Proto2Unittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf._M
 
 extension Proto2Unittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestSameTypeMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}map1\0\u{1}map2\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}map1\0\u{1}map2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -842,8 +836,7 @@ extension Proto2Unittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Proto2Unittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_field\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_field\0")
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.mapField) {return false}
@@ -878,8 +871,7 @@ extension Proto2Unittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftPro
 
 extension Proto2Unittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestArenaMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0")
 
   fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -1057,8 +1049,7 @@ extension Proto2Unittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Proto2Unittest_MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageContainingEnumCalledType"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}type\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1087,14 +1078,12 @@ extension Proto2Unittest_MessageContainingEnumCalledType: SwiftProtobuf.Message,
 }
 
 extension Proto2Unittest_MessageContainingEnumCalledType.TypeEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\0TYPE_FOO\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TYPE_FOO\0")
 }
 
 extension Proto2Unittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageContainingMapCalledEntry"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}entry\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}entry\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1124,8 +1113,7 @@ extension Proto2Unittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message,
 
 extension Proto2Unittest_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMapMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1155,8 +1143,7 @@ extension Proto2Unittest_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftPr
 
 extension Proto2Unittest_TestI32StrMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestI32StrMap"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}m_32_str\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}m_32_str\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

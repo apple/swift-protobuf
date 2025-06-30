@@ -56,8 +56,7 @@ public struct SomeProtoWithBytes: Sendable {
 
 extension SomeProtoWithBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "SomeProtoWithBytes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{2}someBytes\0\u{4}b\u{1}ext_str\0"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}someBytes\0\u{4}b\u{1}ext_str\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

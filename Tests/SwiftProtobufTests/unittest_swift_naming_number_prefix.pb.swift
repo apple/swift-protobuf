@@ -63,8 +63,7 @@ fileprivate let _protobuf_package = "_4fun.swift_proto_testing.mumble"
 
 extension _4fun_SwiftProtoTesting_Mumble_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

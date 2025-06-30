@@ -680,8 +680,7 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllRequiredTypes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}required_int32\0\u{3}required_int64\0\u{3}required_uint32\0\u{3}required_uint64\0\u{3}required_sint32\0\u{3}required_sint64\0\u{3}required_fixed32\0\u{3}required_fixed64\0\u{3}required_sfixed32\0\u{3}required_sfixed64\0\u{3}required_float\0\u{3}required_double\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{7}RequiredGroup\0\u{4}\u{2}required_nested_message\0\u{3}required_foreign_message\0\u{3}required_import_message\0\u{3}required_nested_enum\0\u{3}required_foreign_enum\0\u{3}required_import_enum\0\u{3}required_string_piece\0\u{3}required_cord\0\u{3}required_public_import_message\0\u{3}required_lazy_message\0\u{4}\"default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{3}default_string_piece\0\u{3}default_cord\0\u{4}\u{1a}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_int32\0\u{3}required_int64\0\u{3}required_uint32\0\u{3}required_uint64\0\u{3}required_sint32\0\u{3}required_sint64\0\u{3}required_fixed32\0\u{3}required_fixed64\0\u{3}required_sfixed32\0\u{3}required_sfixed64\0\u{3}required_float\0\u{3}required_double\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{7}RequiredGroup\0\u{4}\u{2}required_nested_message\0\u{3}required_foreign_message\0\u{3}required_import_message\0\u{3}required_nested_enum\0\u{3}required_foreign_enum\0\u{3}required_import_enum\0\u{3}required_string_piece\0\u{3}required_cord\0\u{3}required_public_import_message\0\u{3}required_lazy_message\0\u{4}\"default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{3}default_string_piece\0\u{3}default_cord\0\u{4}\u{1a}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0")
 
   fileprivate class _StorageClass {
     var _requiredInt32: Int32? = nil
@@ -1180,14 +1179,12 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
 }
 
 extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
 extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllRequiredTypes.protoMessageName + ".NestedMessage"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}bb\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
 
   public var isInitialized: Bool {
     if self._bb == nil {return false}
@@ -1226,8 +1223,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllRequiredTypes.protoMessageName + ".RequiredGroup"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{2}\u{11}a\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 
   public var isInitialized: Bool {
     if self._a == nil {return false}
@@ -1266,8 +1262,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Me
 
 extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestSomeRequiredTypes"
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{3}required_int32\0\u{3}required_float\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{3}required_nested_enum\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_int32\0\u{3}required_float\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{3}required_nested_enum\0")
 
   public var isInitialized: Bool {
     if self._requiredInt32 == nil {return false}
@@ -1335,6 +1330,5 @@ extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftP
 }
 
 extension SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  private static let _protobuf_nameMap_bytecode: Swift.StaticString = "\0\u{1}FOO\0"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: _protobuf_nameMap_bytecode)
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FOO\0")
 }
