@@ -24541,6 +24541,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum Scalar: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneScalar // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneScalar
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneScalar
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneScalar: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Scalar] = [
+      .noneScalar,
+    ]
+
+  }
+
   enum scan: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneScan // = 0
@@ -27391,6 +27421,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum Unicode: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneUnicode // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUnicode
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUnicode
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUnicode: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Unicode] = [
+      .noneUnicode,
+    ]
+
+  }
+
   enum unicodeScalarLiteral: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneUnicodeScalarLiteral // = 0
@@ -27927,6 +27987,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.updatedOptions] = [
       .noneUpdatedOptions,
+    ]
+
+  }
+
+  enum uppercasedAssumingASCII: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneUppercasedAssumingAscii // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUppercasedAssumingAscii
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUppercasedAssumingAscii
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUppercasedAssumingAscii: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.uppercasedAssumingASCII] = [
+      .noneUppercasedAssumingAscii,
     ]
 
   }
@@ -33985,6 +34075,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection5Cha
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_sawSection5Characters\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Scalar: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_Scalar\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scan: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_scan\0")
 }
@@ -34365,6 +34459,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unchecked: Swi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_unchecked\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Unicode: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_Unicode\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unicodeScalarLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_unicodeScalarLiteral\0")
 }
@@ -34435,6 +34533,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unverifiedLazy
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.updatedOptions: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_updatedOptions\0")
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.uppercasedAssumingASCII: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_uppercasedAssumingASCII\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.url: SwiftProtobuf._ProtoNameProviding {
