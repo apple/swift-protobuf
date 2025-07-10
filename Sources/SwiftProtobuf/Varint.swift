@@ -67,15 +67,15 @@ package enum Varint {
         var n = 2
 
         if (value & (~0 << 35)) != 0 {
-            n += 4
+            n &+= 4
             value >>= 28
         }
         if (value & (~0 << 21)) != 0 {
-            n += 2
+            n &+= 2
             value >>= 14
         }
         if (value & (~0 << 14)) != 0 {
-            n += 1
+            n &+= 1
         }
         return n
     }
@@ -98,9 +98,9 @@ package enum Varint {
         var ints = 0
         while n < count {
             if start.load(fromByteOffset: n, as: UInt8.self) < 128 {
-                ints += 1
+                ints &+= 1
             }
-            n += 1
+            n &+= 1
         }
         return ints
     }

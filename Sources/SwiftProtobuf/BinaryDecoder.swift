@@ -155,27 +155,27 @@ internal struct BinaryDecoder: Decoder {
             let c1 = start[1]
             if (c1 & 0x80) == 0 {
                 p += 2
-                available -= 2
-                fieldNumber |= Int(c1) << 4
+                available &-= 2
+                fieldNumber |= Int(c1) &<< 4
             } else {
-                fieldNumber |= Int(c1 & 0x7f) << 4
+                fieldNumber |= Int(c1 & 0x7f) &<< 4
                 if available < 3 {
                     throw BinaryDecodingError.malformedProtobuf
                 }
                 let c2 = start[2]
-                fieldNumber |= Int(c2 & 0x7f) << 11
+                fieldNumber |= Int(c2 & 0x7f) &<< 11
                 if (c2 & 0x80) == 0 {
                     p += 3
-                    available -= 3
+                    available &-= 3
                 } else {
                     if available < 4 {
                         throw BinaryDecodingError.malformedProtobuf
                     }
                     let c3 = start[3]
-                    fieldNumber |= Int(c3 & 0x7f) << 18
+                    fieldNumber |= Int(c3 & 0x7f) &<< 18
                     if (c3 & 0x80) == 0 {
                         p += 4
-                        available -= 4
+                        available &-= 4
                     } else {
                         if available < 5 {
                             throw BinaryDecodingError.malformedProtobuf
@@ -184,9 +184,9 @@ internal struct BinaryDecoder: Decoder {
                         if c4 > 15 {
                             throw BinaryDecodingError.malformedProtobuf
                         }
-                        fieldNumber |= Int(c4 & 0x7f) << 25
+                        fieldNumber |= Int(c4 & 0x7f) &<< 25
                         p += 5
-                        available -= 5
+                        available &-= 5
                     }
                 }
             }
@@ -1376,7 +1376,7 @@ internal struct BinaryDecoder: Decoder {
         var length = available
         var c = start.load(fromByteOffset: 0, as: UInt8.self)
         start += 1
-        length -= 1
+        length &-= 1
         if c & 0x80 == 0 {
             p = start
             available = length
@@ -1390,14 +1390,14 @@ internal struct BinaryDecoder: Decoder {
             }
             c = start.load(fromByteOffset: 0, as: UInt8.self)
             start += 1
-            length -= 1
-            value |= UInt64(c & 0x7f) << shift
+            length &-= 1
+            value |= UInt64(c & 0x7f) &<< shift
             if c & 0x80 == 0 {
                 p = start
                 available = length
                 return value
             }
-            shift += 7
+            shift &+= 7
         }
     }
 
