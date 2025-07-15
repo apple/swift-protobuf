@@ -112,6 +112,9 @@ struct Google_Protobuf_Api: Sendable {
   /// The source syntax of the service.
   var syntax: Google_Protobuf_Syntax = .proto2
 
+  /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
+  var edition: String = String()
+
   var unknownFields = UnknownStorage()
 
   init() {}
@@ -145,6 +148,9 @@ struct Google_Protobuf_Method: Sendable {
 
   /// The source syntax of this method.
   var syntax: Google_Protobuf_Syntax = .proto2
+
+  /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
+  var edition: String = String()
 
   var unknownFields = UnknownStorage()
 
@@ -252,7 +258,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Api"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0\u{1}edition\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -267,6 +273,7 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
       case 5: try { try decoder.decodeSingularMessageField(value: &self._sourceContext) }()
       case 6: try { try decoder.decodeRepeatedMessageField(value: &self.mixins) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.syntax) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.edition) }()
       default: break
       }
     }
@@ -298,6 +305,9 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
     if self.syntax != .proto2 {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
     }
+    if !self.edition.isEmpty {
+      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -309,6 +319,7 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
     if lhs._sourceContext != rhs._sourceContext {return false}
     if lhs.mixins != rhs.mixins {return false}
     if lhs.syntax != rhs.syntax {return false}
+    if lhs.edition != rhs.edition {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -316,7 +327,7 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
 
 extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Method"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0\u{1}edition\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -331,6 +342,7 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
       case 5: try { try decoder.decodeSingularBoolField(value: &self.responseStreaming) }()
       case 6: try { try decoder.decodeRepeatedMessageField(value: &self.options) }()
       case 7: try { try decoder.decodeSingularEnumField(value: &self.syntax) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.edition) }()
       default: break
       }
     }
@@ -358,6 +370,9 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
     if self.syntax != .proto2 {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
     }
+    if !self.edition.isEmpty {
+      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -369,6 +384,7 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
     if lhs.responseStreaming != rhs.responseStreaming {return false}
     if lhs.options != rhs.options {return false}
     if lhs.syntax != rhs.syntax {return false}
+    if lhs.edition != rhs.edition {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
