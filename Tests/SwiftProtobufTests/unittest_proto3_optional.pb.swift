@@ -192,15 +192,6 @@ struct SwiftProtoTesting_TestProto3Optional: @unchecked Sendable {
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
-  var optionalCord: String {
-    get {return _storage._optionalCord ?? String()}
-    set {_uniqueStorage()._optionalCord = newValue}
-  }
-  /// Returns true if `optionalCord` has been explicitly set.
-  var hasOptionalCord: Bool {return _storage._optionalCord != nil}
-  /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
-
   var optionalNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage {
     get {return _storage._optionalNestedMessage ?? SwiftProtoTesting_TestProto3Optional.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
@@ -209,15 +200,6 @@ struct SwiftProtoTesting_TestProto3Optional: @unchecked Sendable {
   var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
-
-  var lazyNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage {
-    get {return _storage._lazyNestedMessage ?? SwiftProtoTesting_TestProto3Optional.NestedMessage()}
-    set {_uniqueStorage()._lazyNestedMessage = newValue}
-  }
-  /// Returns true if `lazyNestedMessage` has been explicitly set.
-  var hasLazyNestedMessage: Bool {return _storage._lazyNestedMessage != nil}
-  /// Clears the value of `lazyNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearLazyNestedMessage() {_uniqueStorage()._lazyNestedMessage = nil}
 
   var optionalNestedEnum: SwiftProtoTesting_TestProto3Optional.NestedEnum {
     get {return _storage._optionalNestedEnum ?? .unspecified}
@@ -324,7 +306,7 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3Optional"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_cord\0\u{4}\u{2}optional_nested_message\0\u{3}lazy_nested_message\0\u{4}\u{2}optional_nested_enum\0\u{3}singular_int32\0\u{3}singular_int64\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{4}\u{3}optional_nested_enum\0\u{3}singular_int32\0\u{3}singular_int64\0")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -342,9 +324,7 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
     var _optionalBytes: Data? = nil
-    var _optionalCord: String? = nil
     var _optionalNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage? = nil
-    var _lazyNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage? = nil
     var _optionalNestedEnum: SwiftProtoTesting_TestProto3Optional.NestedEnum? = nil
     var _singularInt32: Int32 = 0
     var _singularInt64: Int64 = 0
@@ -373,9 +353,7 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
       _optionalBool = source._optionalBool
       _optionalString = source._optionalString
       _optionalBytes = source._optionalBytes
-      _optionalCord = source._optionalCord
       _optionalNestedMessage = source._optionalNestedMessage
-      _lazyNestedMessage = source._lazyNestedMessage
       _optionalNestedEnum = source._optionalNestedEnum
       _singularInt32 = source._singularInt32
       _singularInt64 = source._singularInt64
@@ -412,9 +390,7 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
         case 13: try { try decoder.decodeSingularBoolField(value: &_storage._optionalBool) }()
         case 14: try { try decoder.decodeSingularStringField(value: &_storage._optionalString) }()
         case 15: try { try decoder.decodeSingularBytesField(value: &_storage._optionalBytes) }()
-        case 16: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 18: try { try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage) }()
-        case 19: try { try decoder.decodeSingularMessageField(value: &_storage._lazyNestedMessage) }()
         case 21: try { try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum) }()
         case 22: try { try decoder.decodeSingularInt32Field(value: &_storage._singularInt32) }()
         case 23: try { try decoder.decodeSingularInt64Field(value: &_storage._singularInt64) }()
@@ -475,14 +451,8 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
       try { if let v = _storage._optionalBytes {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
       } }()
-      try { if let v = _storage._optionalCord {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 16)
-      } }()
       try { if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      } }()
-      try { if let v = _storage._lazyNestedMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       } }()
       try { if let v = _storage._optionalNestedEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
@@ -517,9 +487,7 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProt
         if _storage._optionalBool != rhs_storage._optionalBool {return false}
         if _storage._optionalString != rhs_storage._optionalString {return false}
         if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
-        if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalNestedMessage != rhs_storage._optionalNestedMessage {return false}
-        if _storage._lazyNestedMessage != rhs_storage._lazyNestedMessage {return false}
         if _storage._optionalNestedEnum != rhs_storage._optionalNestedEnum {return false}
         if _storage._singularInt32 != rhs_storage._singularInt32 {return false}
         if _storage._singularInt64 != rhs_storage._singularInt64 {return false}

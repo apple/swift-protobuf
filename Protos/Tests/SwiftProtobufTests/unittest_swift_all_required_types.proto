@@ -80,14 +80,9 @@ message TestAllRequiredTypes {
   required ForeignEnum                          required_foreign_enum    = 22;
   required swift_proto_testing.import.ImportEnum    required_import_enum     = 23;
 
-  required string required_string_piece = 24 [ctype=STRING_PIECE];
-  required string required_cord = 25 [ctype=CORD];
-
   // Defined in unittest_import_public.proto
   required swift_proto_testing.import.PublicImportMessage
       required_public_import_message = 26;
-
-  required NestedMessage required_lazy_message = 27 [lazy=true];
 
   // Singular with defaults
   required    int32 default_int32    = 61 [default =  41    ];
@@ -110,9 +105,6 @@ message TestAllRequiredTypes {
   required ForeignEnum default_foreign_enum = 82 [default = FOREIGN_BAR];
   required swift_proto_testing.import.ImportEnum
       default_import_enum = 83 [default = IMPORT_BAR];
-
-  required string default_string_piece = 84 [ctype=STRING_PIECE,default="abc"];
-  required string default_cord = 85 [ctype=CORD,default="123"];
 
   // For oneof test
   oneof oneof_field {

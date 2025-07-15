@@ -148,16 +148,6 @@ final class Test_ExtremeDefaultValues: XCTestCase {
         XCTAssertEqual(m.bytesWithZero, Data([119, 111, 114, 0, 108, 100]))
     }
 
-    func test_stringPieceWithZero() {
-        let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.stringPieceWithZero, "ab\0c")
-    }
-
-    func test_cordWithZero() {
-        let m = SwiftProtoTesting_TestExtremeDefaultValues()
-        XCTAssertEqual(m.cordWithZero, "12\03")
-    }
-
     func test_replacementString() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()
         XCTAssertEqual(m.replacementString, "${unknown}")

@@ -1341,44 +1341,6 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertFalse(d.hasOptionalImportEnum)
     }
 
-    func testEncoding_optionalStringPiece() {
-        assertEncode([194, 1, 6, 97, 98, 99, 100, 101, 102]) { (o: inout MessageTestType) in
-            o.optionalStringPiece = "abcdef"
-        }
-
-        // Ensure storage is uniqued for clear.
-        let c = MessageTestType.with {
-            $0.optionalStringPiece = "mumble"
-        }
-        var d = c
-        XCTAssertEqual(c, d)
-        XCTAssertTrue(c.hasOptionalStringPiece)
-        XCTAssertTrue(d.hasOptionalStringPiece)
-        d.clearOptionalStringPiece()
-        XCTAssertNotEqual(c, d)
-        XCTAssertTrue(c.hasOptionalStringPiece)
-        XCTAssertFalse(d.hasOptionalStringPiece)
-    }
-
-    func testEncoding_optionalCord() {
-        assertEncode([202, 1, 6, 102, 101, 100, 99, 98, 97]) { (o: inout MessageTestType) in
-            o.optionalCord = "fedcba"
-        }
-
-        // Ensure storage is uniqued for clear.
-        let c = MessageTestType.with {
-            $0.optionalCord = "mumble"
-        }
-        var d = c
-        XCTAssertEqual(c, d)
-        XCTAssertTrue(c.hasOptionalCord)
-        XCTAssertTrue(d.hasOptionalCord)
-        d.clearOptionalCord()
-        XCTAssertNotEqual(c, d)
-        XCTAssertTrue(c.hasOptionalCord)
-        XCTAssertFalse(d.hasOptionalCord)
-    }
-
     func testEncoding_optionalPublicImportMessage() {
         assertEncode([210, 1, 2, 8, 12]) { (o: inout MessageTestType) in
             var sub = SwiftProtoTesting_Import_PublicImportMessage()
@@ -1391,14 +1353,6 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             var sub = SwiftProtoTesting_Import_PublicImportMessage()
             sub.e = 9999
             o.optionalPublicImportMessage = sub
-        }
-    }
-
-    func testEncoding_optionalLazyMessage() {
-        assertEncode([218, 1, 2, 8, 7]) { (o: inout MessageTestType) in
-            var m = MessageTestType.NestedMessage()
-            m.bb = 7
-            o.optionalLazyMessage = m
         }
     }
 
@@ -2440,26 +2394,6 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([152, 5, 9]) { (o: inout MessageTestType) in o.defaultImportEnum = .importBaz }
         assertDecodeSucceeds([]) { $0.defaultImportEnum == .importBar }
         assertDecodeSucceeds([152, 5, 9]) { $0.defaultImportEnum == .importBaz }
-    }
-
-    func testEncoding_defaultStringPiece() throws {
-        let empty = MessageTestType()
-        XCTAssertEqual(empty.defaultStringPiece, "abc")
-        XCTAssertEqual(try empty.serializedBytes(), [])
-
-        var a = empty
-        a.defaultStringPiece = "abc"
-        XCTAssertEqual([162, 5, 3, 97, 98, 99], try a.serializedBytes())
-    }
-
-    func testEncoding_defaultCord() {
-        let empty = MessageTestType()
-        XCTAssertEqual(empty.defaultCord, "123")
-        XCTAssertEqual(try empty.serializedBytes(), [])
-
-        var a = empty
-        a.defaultCord = "123"
-        XCTAssertEqual([170, 5, 3, 49, 50, 51], try a.serializedBytes())
     }
 
     func testEncoding_oneofUint32() throws {

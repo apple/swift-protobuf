@@ -213,16 +213,6 @@ struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
-  var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece}
-    set {_uniqueStorage()._optionalStringPiece = newValue}
-  }
-
-  var optionalCord: String {
-    get {return _storage._optionalCord}
-    set {_uniqueStorage()._optionalCord = newValue}
-  }
-
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
     get {return _storage._optionalPublicImportMessage ?? SwiftProtoTesting_Import_PublicImportMessage()}
@@ -232,33 +222,6 @@ struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Sendable {
   var hasOptionalPublicImportMessage: Bool {return _storage._optionalPublicImportMessage != nil}
   /// Clears the value of `optionalPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalPublicImportMessage() {_uniqueStorage()._optionalPublicImportMessage = nil}
-
-  var optionalLazyMessage: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage {
-    get {return _storage._optionalLazyMessage ?? SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()}
-    set {_uniqueStorage()._optionalLazyMessage = newValue}
-  }
-  /// Returns true if `optionalLazyMessage` has been explicitly set.
-  var hasOptionalLazyMessage: Bool {return _storage._optionalLazyMessage != nil}
-  /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
-
-  var optionalUnverifiedLazyMessage: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage {
-    get {return _storage._optionalUnverifiedLazyMessage ?? SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()}
-    set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
-  }
-  /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
-  var hasOptionalUnverifiedLazyMessage: Bool {return _storage._optionalUnverifiedLazyMessage != nil}
-  /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
-
-  var optionalLazyImportMessage: SwiftProtoTesting_Import_ImportMessage {
-    get {return _storage._optionalLazyImportMessage ?? SwiftProtoTesting_Import_ImportMessage()}
-    set {_uniqueStorage()._optionalLazyImportMessage = newValue}
-  }
-  /// Returns true if `optionalLazyImportMessage` has been explicitly set.
-  var hasOptionalLazyImportMessage: Bool {return _storage._optionalLazyImportMessage != nil}
-  /// Clears the value of `optionalLazyImportMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalLazyImportMessage() {_uniqueStorage()._optionalLazyImportMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
@@ -359,21 +322,6 @@ struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Sendable {
   var repeatedForeignEnum: [SwiftProtoTesting_Proto3_ForeignEnum] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
-  }
-
-  var repeatedStringPiece: [String] {
-    get {return _storage._repeatedStringPiece}
-    set {_uniqueStorage()._repeatedStringPiece = newValue}
-  }
-
-  var repeatedCord: [String] {
-    get {return _storage._repeatedCord}
-    set {_uniqueStorage()._repeatedCord = newValue}
-  }
-
-  var repeatedLazyMessage: [SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage] {
-    get {return _storage._repeatedLazyMessage}
-    set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
   var oneofField: OneOf_OneofField? {
@@ -656,7 +604,7 @@ extension SwiftProtoTesting_Proto3_ForeignEnum: SwiftProtobuf._ProtoNameProvidin
 
 extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{4}\u{2}optional_string_piece\0\u{3}optional_cord\0\u{3}optional_public_import_message\0\u{3}optional_lazy_message\0\u{3}optional_unverified_lazy_message\0\u{4}\u{3}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4}\u{2}repeated_string_piece\0\u{3}repeated_cord\0\u{4}\u{2}repeated_lazy_message\0\u{4}6oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}optional_lazy_import_message\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{4}\u{4}optional_public_import_message\0\u{4}\u{5}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4};oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32 = 0
@@ -679,12 +627,7 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     var _optionalImportMessage: SwiftProtoTesting_Import_ImportMessage? = nil
     var _optionalNestedEnum: SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum = .zero
     var _optionalForeignEnum: SwiftProtoTesting_Proto3_ForeignEnum = .foreignZero
-    var _optionalStringPiece: String = String()
-    var _optionalCord: String = String()
     var _optionalPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage? = nil
-    var _optionalLazyMessage: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage? = nil
-    var _optionalUnverifiedLazyMessage: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage? = nil
-    var _optionalLazyImportMessage: SwiftProtoTesting_Import_ImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -705,9 +648,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     var _repeatedImportMessage: [SwiftProtoTesting_Import_ImportMessage] = []
     var _repeatedNestedEnum: [SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum] = []
     var _repeatedForeignEnum: [SwiftProtoTesting_Proto3_ForeignEnum] = []
-    var _repeatedStringPiece: [String] = []
-    var _repeatedCord: [String] = []
-    var _repeatedLazyMessage: [SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage] = []
     var _oneofField: SwiftProtoTesting_Proto3_TestAllTypes.OneOf_OneofField?
 
       // This property is used as the initial default value for new instances of the type.
@@ -739,12 +679,7 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       _optionalImportMessage = source._optionalImportMessage
       _optionalNestedEnum = source._optionalNestedEnum
       _optionalForeignEnum = source._optionalForeignEnum
-      _optionalStringPiece = source._optionalStringPiece
-      _optionalCord = source._optionalCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
-      _optionalLazyMessage = source._optionalLazyMessage
-      _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
-      _optionalLazyImportMessage = source._optionalLazyImportMessage
       _repeatedInt32 = source._repeatedInt32
       _repeatedInt64 = source._repeatedInt64
       _repeatedUint32 = source._repeatedUint32
@@ -765,9 +700,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       _repeatedImportMessage = source._repeatedImportMessage
       _repeatedNestedEnum = source._repeatedNestedEnum
       _repeatedForeignEnum = source._repeatedForeignEnum
-      _repeatedStringPiece = source._repeatedStringPiece
-      _repeatedCord = source._repeatedCord
-      _repeatedLazyMessage = source._repeatedLazyMessage
       _oneofField = source._oneofField
     }
   }
@@ -807,11 +739,7 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         case 20: try { try decoder.decodeSingularMessageField(value: &_storage._optionalImportMessage) }()
         case 21: try { try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum) }()
         case 22: try { try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum) }()
-        case 24: try { try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece) }()
-        case 25: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage) }()
-        case 27: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyMessage) }()
-        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._optionalUnverifiedLazyMessage) }()
         case 31: try { try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32) }()
         case 32: try { try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64) }()
         case 33: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32) }()
@@ -832,9 +760,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         case 50: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedImportMessage) }()
         case 51: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedNestedEnum) }()
         case 52: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum) }()
-        case 54: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece) }()
-        case 55: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord) }()
-        case 57: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -872,7 +797,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
             _storage._oneofField = .oneofBytes(v)
           }
         }()
-        case 115: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyImportMessage) }()
         default: break
         }
       }
@@ -945,20 +869,8 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       if _storage._optionalForeignEnum != .foreignZero {
         try visitor.visitSingularEnumField(value: _storage._optionalForeignEnum, fieldNumber: 22)
       }
-      if !_storage._optionalStringPiece.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._optionalStringPiece, fieldNumber: 24)
-      }
-      if !_storage._optionalCord.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._optionalCord, fieldNumber: 25)
-      }
       try { if let v = _storage._optionalPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
-      } }()
-      try { if let v = _storage._optionalLazyMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
-      } }()
-      try { if let v = _storage._optionalUnverifiedLazyMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitPackedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
@@ -1020,15 +932,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       if !_storage._repeatedForeignEnum.isEmpty {
         try visitor.visitPackedEnumField(value: _storage._repeatedForeignEnum, fieldNumber: 52)
       }
-      if !_storage._repeatedStringPiece.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._repeatedStringPiece, fieldNumber: 54)
-      }
-      if !_storage._repeatedCord.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._repeatedCord, fieldNumber: 55)
-      }
-      if !_storage._repeatedLazyMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
-      }
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -1048,9 +951,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       }()
       case nil: break
       }
-      try { if let v = _storage._optionalLazyImportMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
-      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1080,12 +980,7 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         if _storage._optionalImportMessage != rhs_storage._optionalImportMessage {return false}
         if _storage._optionalNestedEnum != rhs_storage._optionalNestedEnum {return false}
         if _storage._optionalForeignEnum != rhs_storage._optionalForeignEnum {return false}
-        if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
-        if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
-        if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
-        if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}
-        if _storage._optionalLazyImportMessage != rhs_storage._optionalLazyImportMessage {return false}
         if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
         if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}
         if _storage._repeatedUint32 != rhs_storage._repeatedUint32 {return false}
@@ -1106,9 +1001,6 @@ extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         if _storage._repeatedImportMessage != rhs_storage._repeatedImportMessage {return false}
         if _storage._repeatedNestedEnum != rhs_storage._repeatedNestedEnum {return false}
         if _storage._repeatedForeignEnum != rhs_storage._repeatedForeignEnum {return false}
-        if _storage._repeatedStringPiece != rhs_storage._repeatedStringPiece {return false}
-        if _storage._repeatedCord != rhs_storage._repeatedCord {return false}
-        if _storage._repeatedLazyMessage != rhs_storage._repeatedLazyMessage {return false}
         if _storage._oneofField != rhs_storage._oneofField {return false}
         return true
       }
