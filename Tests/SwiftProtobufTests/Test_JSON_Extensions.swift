@@ -27,8 +27,8 @@ final class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
         extensions.formUnion(SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions)
         // Append an array of extensions
         extensions.insert(contentsOf: [
-            Extensions_RepeatedExtensionGroup,
-            Extensions_ExtensionGroup,
+            SwiftProtoTesting_Extensions_RepeatedExtensionGroup,
+            SwiftProtoTesting_Extensions_ExtensionGroup,
         ]
         )
     }
