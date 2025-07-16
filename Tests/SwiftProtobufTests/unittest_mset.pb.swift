@@ -116,22 +116,12 @@ struct SwiftProtoTesting_TestMessageSetExtension1: Sendable {
   /// Clears the value of `recursive`. Subsequent reads from it will return its default value.
   mutating func clearRecursive() {self._recursive = nil}
 
-  var testAliasing: String {
-    get {return _testAliasing ?? String()}
-    set {_testAliasing = newValue}
-  }
-  /// Returns true if `testAliasing` has been explicitly set.
-  var hasTestAliasing: Bool {return self._testAliasing != nil}
-  /// Clears the value of `testAliasing`. Subsequent reads from it will return its default value.
-  mutating func clearTestAliasing() {self._testAliasing = nil}
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
   fileprivate var _i: Int32? = nil
   fileprivate var _recursive: SwiftProtoTesting_WireFormat_TestMessageSet? = nil
-  fileprivate var _testAliasing: String? = nil
 }
 
 struct SwiftProtoTesting_TestMessageSetExtension2: Sendable {
@@ -449,7 +439,7 @@ extension SwiftProtoTesting_MessageEx: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{f}i\0\u{1}recursive\0\u{3}test_aliasing\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{f}i\0\u{1}recursive\0")
 
   public var isInitialized: Bool {
     if let v = self._recursive, !v.isInitialized {return false}
@@ -464,7 +454,6 @@ extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message, Swi
       switch fieldNumber {
       case 15: try { try decoder.decodeSingularInt32Field(value: &self._i) }()
       case 16: try { try decoder.decodeSingularMessageField(value: &self._recursive) }()
-      case 17: try { try decoder.decodeSingularStringField(value: &self._testAliasing) }()
       default: break
       }
     }
@@ -481,16 +470,12 @@ extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message, Swi
     try { if let v = self._recursive {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
     } }()
-    try { if let v = self._testAliasing {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 17)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestMessageSetExtension1, rhs: SwiftProtoTesting_TestMessageSetExtension1) -> Bool {
     if lhs._i != rhs._i {return false}
     if lhs._recursive != rhs._recursive {return false}
-    if lhs._testAliasing != rhs._testAliasing {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

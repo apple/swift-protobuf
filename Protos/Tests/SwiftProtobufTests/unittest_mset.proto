@@ -62,7 +62,6 @@ message TestMessageSetExtension1 {
   }
   optional int32 i = 15;
   optional swift_proto_testing.wire_format.TestMessageSet recursive = 16;
-  optional string test_aliasing = 17 [ctype = STRING_PIECE];
 }
 
 message TestMessageSetExtension2 {
