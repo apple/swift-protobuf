@@ -299,30 +299,6 @@ final class Test_BasicFields_Access_Proto2: XCTestCase {
         XCTAssertFalse(msg.hasOptionalImportEnum)
     }
 
-    func testOptionalStringPiece() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.optionalStringPiece, "")
-        XCTAssertFalse(msg.hasOptionalStringPiece)
-        msg.optionalStringPiece = "24"
-        XCTAssertTrue(msg.hasOptionalStringPiece)
-        XCTAssertEqual(msg.optionalStringPiece, "24")
-        msg.clearOptionalStringPiece()
-        XCTAssertEqual(msg.optionalStringPiece, "")
-        XCTAssertFalse(msg.hasOptionalStringPiece)
-    }
-
-    func testOptionalCord() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.optionalCord, "")
-        XCTAssertFalse(msg.hasOptionalCord)
-        msg.optionalCord = "25"
-        XCTAssertTrue(msg.hasOptionalCord)
-        XCTAssertEqual(msg.optionalCord, "25")
-        msg.clearOptionalCord()
-        XCTAssertEqual(msg.optionalCord, "")
-        XCTAssertFalse(msg.hasOptionalCord)
-    }
-
     func testOptionalPublicImportMessage() {
         var msg = SwiftProtoTesting_TestAllTypes()
         XCTAssertEqual(msg.optionalPublicImportMessage.e, 0)
@@ -336,21 +312,6 @@ final class Test_BasicFields_Access_Proto2: XCTestCase {
         msg.clearOptionalPublicImportMessage()
         XCTAssertEqual(msg.optionalPublicImportMessage.e, 0)
         XCTAssertFalse(msg.hasOptionalPublicImportMessage)
-    }
-
-    func testOptionalLazyMessage() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.optionalLazyMessage.bb, 0)
-        XCTAssertFalse(msg.hasOptionalLazyMessage)
-        var nestedMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
-        nestedMsg.bb = 27
-        msg.optionalLazyMessage = nestedMsg
-        XCTAssertTrue(msg.hasOptionalLazyMessage)
-        XCTAssertEqual(msg.optionalLazyMessage.bb, 27)
-        XCTAssertEqual(msg.optionalLazyMessage, nestedMsg)
-        msg.clearOptionalLazyMessage()
-        XCTAssertEqual(msg.optionalLazyMessage.bb, 0)
-        XCTAssertFalse(msg.hasOptionalLazyMessage)
     }
 
     // Optional with explicit default values (non zero)
@@ -569,30 +530,6 @@ final class Test_BasicFields_Access_Proto2: XCTestCase {
         msg.clearDefaultImportEnum()
         XCTAssertEqual(msg.defaultImportEnum, .importBar)
         XCTAssertFalse(msg.hasDefaultImportEnum)
-    }
-
-    func testDefaultStringPiece() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.defaultStringPiece, "abc")
-        XCTAssertFalse(msg.hasDefaultStringPiece)
-        msg.defaultStringPiece = "84"
-        XCTAssertTrue(msg.hasDefaultStringPiece)
-        XCTAssertEqual(msg.defaultStringPiece, "84")
-        msg.clearDefaultStringPiece()
-        XCTAssertEqual(msg.defaultStringPiece, "abc")
-        XCTAssertFalse(msg.hasDefaultStringPiece)
-    }
-
-    func testDefaultCord() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.defaultCord, "123")
-        XCTAssertFalse(msg.hasDefaultCord)
-        msg.defaultCord = "85"
-        XCTAssertTrue(msg.hasDefaultCord)
-        XCTAssertEqual(msg.defaultCord, "85")
-        msg.clearDefaultCord()
-        XCTAssertEqual(msg.defaultCord, "123")
-        XCTAssertFalse(msg.hasDefaultCord)
     }
 
     // Repeated
@@ -829,42 +766,6 @@ final class Test_BasicFields_Access_Proto2: XCTestCase {
         XCTAssertEqual(msg.repeatedImportEnum, [.importBar])
         msg.repeatedImportEnum.append(.importBaz)
         XCTAssertEqual(msg.repeatedImportEnum, [.importBar, .importBaz])
-    }
-
-    func testRepeatedStringPiece() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.repeatedStringPiece, [])
-        msg.repeatedStringPiece = ["54"]
-        XCTAssertEqual(msg.repeatedStringPiece, ["54"])
-        msg.repeatedStringPiece.append("154")
-        XCTAssertEqual(msg.repeatedStringPiece, ["54", "154"])
-    }
-
-    func testRepeatedCord() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.repeatedCord, [])
-        msg.repeatedCord = ["55"]
-        XCTAssertEqual(msg.repeatedCord, ["55"])
-        msg.repeatedCord.append("155")
-        XCTAssertEqual(msg.repeatedCord, ["55", "155"])
-    }
-
-    func testRepeatedLazyMessage() {
-        var msg = SwiftProtoTesting_TestAllTypes()
-        XCTAssertEqual(msg.repeatedLazyMessage, [])
-        var nestedMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
-        nestedMsg.bb = 57
-        msg.repeatedLazyMessage = [nestedMsg]
-        XCTAssertEqual(msg.repeatedLazyMessage.count, 1)
-        XCTAssertEqual(msg.repeatedLazyMessage[0].bb, 57)
-        XCTAssertEqual(msg.repeatedLazyMessage, [nestedMsg])
-        var nestedMsg2 = SwiftProtoTesting_TestAllTypes.NestedMessage()
-        nestedMsg2.bb = 157
-        msg.repeatedLazyMessage.append(nestedMsg2)
-        XCTAssertEqual(msg.repeatedLazyMessage.count, 2)
-        XCTAssertEqual(msg.repeatedLazyMessage[0].bb, 57)
-        XCTAssertEqual(msg.repeatedLazyMessage[1].bb, 157)
-        XCTAssertEqual(msg.repeatedLazyMessage, [nestedMsg, nestedMsg2])
     }
 
 }

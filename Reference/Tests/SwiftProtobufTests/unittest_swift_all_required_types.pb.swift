@@ -257,24 +257,6 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   /// Clears the value of `requiredImportEnum`. Subsequent reads from it will return its default value.
   mutating func clearRequiredImportEnum() {_uniqueStorage()._requiredImportEnum = nil}
 
-  var requiredStringPiece: String {
-    get {return _storage._requiredStringPiece ?? String()}
-    set {_uniqueStorage()._requiredStringPiece = newValue}
-  }
-  /// Returns true if `requiredStringPiece` has been explicitly set.
-  var hasRequiredStringPiece: Bool {return _storage._requiredStringPiece != nil}
-  /// Clears the value of `requiredStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredStringPiece() {_uniqueStorage()._requiredStringPiece = nil}
-
-  var requiredCord: String {
-    get {return _storage._requiredCord ?? String()}
-    set {_uniqueStorage()._requiredCord = newValue}
-  }
-  /// Returns true if `requiredCord` has been explicitly set.
-  var hasRequiredCord: Bool {return _storage._requiredCord != nil}
-  /// Clears the value of `requiredCord`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredCord() {_uniqueStorage()._requiredCord = nil}
-
   /// Defined in unittest_import_public.proto
   var requiredPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
     get {return _storage._requiredPublicImportMessage ?? SwiftProtoTesting_Import_PublicImportMessage()}
@@ -284,15 +266,6 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   var hasRequiredPublicImportMessage: Bool {return _storage._requiredPublicImportMessage != nil}
   /// Clears the value of `requiredPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredPublicImportMessage() {_uniqueStorage()._requiredPublicImportMessage = nil}
-
-  var requiredLazyMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage {
-    get {return _storage._requiredLazyMessage ?? SwiftProtoTesting_TestAllRequiredTypes.NestedMessage()}
-    set {_uniqueStorage()._requiredLazyMessage = newValue}
-  }
-  /// Returns true if `requiredLazyMessage` has been explicitly set.
-  var hasRequiredLazyMessage: Bool {return _storage._requiredLazyMessage != nil}
-  /// Clears the value of `requiredLazyMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredLazyMessage() {_uniqueStorage()._requiredLazyMessage = nil}
 
   /// Singular with defaults
   var defaultInt32: Int32 {
@@ -456,24 +429,6 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   var hasDefaultImportEnum: Bool {return _storage._defaultImportEnum != nil}
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultImportEnum() {_uniqueStorage()._defaultImportEnum = nil}
-
-  var defaultStringPiece: String {
-    get {return _storage._defaultStringPiece ?? "abc"}
-    set {_uniqueStorage()._defaultStringPiece = newValue}
-  }
-  /// Returns true if `defaultStringPiece` has been explicitly set.
-  var hasDefaultStringPiece: Bool {return _storage._defaultStringPiece != nil}
-  /// Clears the value of `defaultStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultStringPiece() {_uniqueStorage()._defaultStringPiece = nil}
-
-  var defaultCord: String {
-    get {return _storage._defaultCord ?? "123"}
-    set {_uniqueStorage()._defaultCord = newValue}
-  }
-  /// Returns true if `defaultCord` has been explicitly set.
-  var hasDefaultCord: Bool {return _storage._defaultCord != nil}
-  /// Clears the value of `defaultCord`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultCord() {_uniqueStorage()._defaultCord = nil}
 
   /// For oneof test
   var oneofField: OneOf_OneofField? {
@@ -680,7 +635,7 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllRequiredTypes"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_int32\0\u{3}required_int64\0\u{3}required_uint32\0\u{3}required_uint64\0\u{3}required_sint32\0\u{3}required_sint64\0\u{3}required_fixed32\0\u{3}required_fixed64\0\u{3}required_sfixed32\0\u{3}required_sfixed64\0\u{3}required_float\0\u{3}required_double\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{7}RequiredGroup\0\u{4}\u{2}required_nested_message\0\u{3}required_foreign_message\0\u{3}required_import_message\0\u{3}required_nested_enum\0\u{3}required_foreign_enum\0\u{3}required_import_enum\0\u{3}required_string_piece\0\u{3}required_cord\0\u{3}required_public_import_message\0\u{3}required_lazy_message\0\u{4}\"default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{3}default_string_piece\0\u{3}default_cord\0\u{4}\u{1a}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_int32\0\u{3}required_int64\0\u{3}required_uint32\0\u{3}required_uint64\0\u{3}required_sint32\0\u{3}required_sint64\0\u{3}required_fixed32\0\u{3}required_fixed64\0\u{3}required_sfixed32\0\u{3}required_sfixed64\0\u{3}required_float\0\u{3}required_double\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{7}RequiredGroup\0\u{4}\u{2}required_nested_message\0\u{3}required_foreign_message\0\u{3}required_import_message\0\u{3}required_nested_enum\0\u{3}required_foreign_enum\0\u{3}required_import_enum\0\u{4}\u{3}required_public_import_message\0\u{4}#default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{4}\u{1c}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0")
 
   fileprivate class _StorageClass {
     var _requiredInt32: Int32? = nil
@@ -705,10 +660,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
     var _requiredNestedEnum: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum? = nil
     var _requiredForeignEnum: SwiftProtoTesting_ForeignEnum? = nil
     var _requiredImportEnum: SwiftProtoTesting_Import_ImportEnum? = nil
-    var _requiredStringPiece: String? = nil
-    var _requiredCord: String? = nil
     var _requiredPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage? = nil
-    var _requiredLazyMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage? = nil
     var _defaultInt32: Int32? = nil
     var _defaultInt64: Int64? = nil
     var _defaultUint32: UInt32? = nil
@@ -727,8 +679,6 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
     var _defaultNestedEnum: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum? = nil
     var _defaultForeignEnum: SwiftProtoTesting_ForeignEnum? = nil
     var _defaultImportEnum: SwiftProtoTesting_Import_ImportEnum? = nil
-    var _defaultStringPiece: String? = nil
-    var _defaultCord: String? = nil
     var _oneofField: SwiftProtoTesting_TestAllRequiredTypes.OneOf_OneofField?
 
       // This property is used as the initial default value for new instances of the type.
@@ -762,10 +712,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
       _requiredNestedEnum = source._requiredNestedEnum
       _requiredForeignEnum = source._requiredForeignEnum
       _requiredImportEnum = source._requiredImportEnum
-      _requiredStringPiece = source._requiredStringPiece
-      _requiredCord = source._requiredCord
       _requiredPublicImportMessage = source._requiredPublicImportMessage
-      _requiredLazyMessage = source._requiredLazyMessage
       _defaultInt32 = source._defaultInt32
       _defaultInt64 = source._defaultInt64
       _defaultUint32 = source._defaultUint32
@@ -784,8 +731,6 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
       _defaultNestedEnum = source._defaultNestedEnum
       _defaultForeignEnum = source._defaultForeignEnum
       _defaultImportEnum = source._defaultImportEnum
-      _defaultStringPiece = source._defaultStringPiece
-      _defaultCord = source._defaultCord
       _oneofField = source._oneofField
     }
   }
@@ -821,10 +766,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
       if _storage._requiredNestedEnum == nil {return false}
       if _storage._requiredForeignEnum == nil {return false}
       if _storage._requiredImportEnum == nil {return false}
-      if _storage._requiredStringPiece == nil {return false}
-      if _storage._requiredCord == nil {return false}
       if _storage._requiredPublicImportMessage == nil {return false}
-      if _storage._requiredLazyMessage == nil {return false}
       if _storage._defaultInt32 == nil {return false}
       if _storage._defaultInt64 == nil {return false}
       if _storage._defaultUint32 == nil {return false}
@@ -843,11 +785,8 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
       if _storage._defaultNestedEnum == nil {return false}
       if _storage._defaultForeignEnum == nil {return false}
       if _storage._defaultImportEnum == nil {return false}
-      if _storage._defaultStringPiece == nil {return false}
-      if _storage._defaultCord == nil {return false}
       if let v = _storage._requiredGroup, !v.isInitialized {return false}
       if let v = _storage._requiredNestedMessage, !v.isInitialized {return false}
-      if let v = _storage._requiredLazyMessage, !v.isInitialized {return false}
       if let v = _storage._oneofField, !v.isInitialized {return false}
       return true
     }
@@ -883,10 +822,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
         case 21: try { try decoder.decodeSingularEnumField(value: &_storage._requiredNestedEnum) }()
         case 22: try { try decoder.decodeSingularEnumField(value: &_storage._requiredForeignEnum) }()
         case 23: try { try decoder.decodeSingularEnumField(value: &_storage._requiredImportEnum) }()
-        case 24: try { try decoder.decodeSingularStringField(value: &_storage._requiredStringPiece) }()
-        case 25: try { try decoder.decodeSingularStringField(value: &_storage._requiredCord) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._requiredPublicImportMessage) }()
-        case 27: try { try decoder.decodeSingularMessageField(value: &_storage._requiredLazyMessage) }()
         case 61: try { try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32) }()
         case 62: try { try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64) }()
         case 63: try { try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32) }()
@@ -905,8 +841,6 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
         case 81: try { try decoder.decodeSingularEnumField(value: &_storage._defaultNestedEnum) }()
         case 82: try { try decoder.decodeSingularEnumField(value: &_storage._defaultForeignEnum) }()
         case 83: try { try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum) }()
-        case 84: try { try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece) }()
-        case 85: try { try decoder.decodeSingularStringField(value: &_storage._defaultCord) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -1022,17 +956,8 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
       try { if let v = _storage._requiredImportEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 23)
       } }()
-      try { if let v = _storage._requiredStringPiece {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 24)
-      } }()
-      try { if let v = _storage._requiredCord {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 25)
-      } }()
       try { if let v = _storage._requiredPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
-      } }()
-      try { if let v = _storage._requiredLazyMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
       } }()
       try { if let v = _storage._defaultInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
@@ -1088,12 +1013,6 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
       try { if let v = _storage._defaultImportEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 83)
       } }()
-      try { if let v = _storage._defaultStringPiece {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 84)
-      } }()
-      try { if let v = _storage._defaultCord {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 85)
-      } }()
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -1144,10 +1063,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
         if _storage._requiredNestedEnum != rhs_storage._requiredNestedEnum {return false}
         if _storage._requiredForeignEnum != rhs_storage._requiredForeignEnum {return false}
         if _storage._requiredImportEnum != rhs_storage._requiredImportEnum {return false}
-        if _storage._requiredStringPiece != rhs_storage._requiredStringPiece {return false}
-        if _storage._requiredCord != rhs_storage._requiredCord {return false}
         if _storage._requiredPublicImportMessage != rhs_storage._requiredPublicImportMessage {return false}
-        if _storage._requiredLazyMessage != rhs_storage._requiredLazyMessage {return false}
         if _storage._defaultInt32 != rhs_storage._defaultInt32 {return false}
         if _storage._defaultInt64 != rhs_storage._defaultInt64 {return false}
         if _storage._defaultUint32 != rhs_storage._defaultUint32 {return false}
@@ -1166,8 +1082,6 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
         if _storage._defaultNestedEnum != rhs_storage._defaultNestedEnum {return false}
         if _storage._defaultForeignEnum != rhs_storage._defaultForeignEnum {return false}
         if _storage._defaultImportEnum != rhs_storage._defaultImportEnum {return false}
-        if _storage._defaultStringPiece != rhs_storage._defaultStringPiece {return false}
-        if _storage._defaultCord != rhs_storage._defaultCord {return false}
         if _storage._oneofField != rhs_storage._oneofField {return false}
         return true
       }

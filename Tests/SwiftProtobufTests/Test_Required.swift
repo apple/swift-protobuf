@@ -214,10 +214,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
             ([168, 1, 3], "required_nested_enum: BAZ"),
             ([176, 1, 5], "required_foreign_enum: FOREIGN_BAR"),
             ([184, 1, 9], "required_import_enum: IMPORT_BAZ"),
-            ([194, 1, 2, 50, 52], "required_string_piece: \"24\""),
-            ([202, 1, 2, 50, 53], "required_cord: \"25\""),
             ([210, 1, 2, 8, 26], "required_public_import_message {\n  e: 26\n}"),
-            ([218, 1, 2, 8, 27], "required_lazy_message {\n  bb: 27\n}"),
             ([232, 3, 61], "default_int32: 61"),
             ([240, 3, 62], "default_int64: 62"),
             ([248, 3, 63], "default_uint32: 63"),
@@ -236,8 +233,6 @@ final class Test_Required: XCTestCase, PBTestHelpers {
             ([136, 5, 3], "default_nested_enum: BAZ"),
             ([144, 5, 6], "default_foreign_enum: FOREIGN_BAZ"),
             ([152, 5, 9], "default_import_enum: IMPORT_BAZ"),
-            ([162, 5, 2, 56, 52], "default_string_piece: \"84\""),
-            ([170, 5, 2, 56, 53], "default_cord: \"85\""),
         ]
         for (bytes, textFormattedField) in testInputs {
             assertDecodeFailsNotInitialized(bytes)
@@ -320,10 +315,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
             ([168, 1, 3], { (m) in m.requiredNestedEnum = .baz }),
             ([176, 1, 5], { (m) in m.requiredForeignEnum = .foreignBar }),
             ([184, 1, 9], { (m) in m.requiredImportEnum = .importBaz }),
-            ([194, 1, 2, 50, 52], { (m) in m.requiredStringPiece = "24" }),
-            ([202, 1, 2, 50, 53], { (m) in m.requiredCord = "25" }),
             ([210, 1, 2, 8, 26], { (m) in m.requiredPublicImportMessage.e = 26 }),
-            ([218, 1, 2, 8, 27], { (m) in m.requiredLazyMessage.bb = 27 }),
             ([232, 3, 61], { (m) in m.defaultInt32 = 61 }),
             ([240, 3, 62], { (m) in m.defaultInt64 = 62 }),
             ([248, 3, 63], { (m) in m.defaultUint32 = 63 }),
@@ -342,8 +334,6 @@ final class Test_Required: XCTestCase, PBTestHelpers {
             ([136, 5, 3], { (m) in m.defaultNestedEnum = .baz }),
             ([144, 5, 6], { (m) in m.defaultForeignEnum = .foreignBaz }),
             ([152, 5, 9], { (m) in m.defaultImportEnum = .importBaz }),
-            ([162, 5, 2, 56, 52], { (m) in m.defaultStringPiece = "84" }),
-            ([170, 5, 2, 56, 53], { (m) in m.defaultCord = "85" }),
         ]
         for (expected, configure) in testInputs {
             var message = MessageTestType()

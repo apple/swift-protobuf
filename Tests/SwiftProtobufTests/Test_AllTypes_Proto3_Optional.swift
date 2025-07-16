@@ -606,46 +606,6 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
         XCTAssertFalse(d.hasOptionalBytes)
     }
 
-    func testEncoding_optionalCord() {
-        // The `ctype = CORD` option has no meaning in SwiftProtobuf,
-        // but test is for completeness.
-        assertEncode([130, 1, 0]) { (o: inout MessageTestType) in o.optionalCord = "" }
-        assertDecodeSucceeds([130, 1, 0]) { $0.hasOptionalCord && $0.optionalCord == "" }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_cord: \"\"\n") {
-            (o: inout MessageTestType) in o.optionalCord = ""
-        }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
-            (o: inout MessageTestType) in
-            o.optionalCord = ""
-            o.clearOptionalCord()
-        }
-
-        let empty = MessageTestType()
-        var a = empty
-        a.optionalCord = ""
-        XCTAssertNotEqual(a, empty)
-        var b = empty
-        b.optionalCord = "a"
-        XCTAssertNotEqual(a, b)
-        b.clearOptionalCord()
-        XCTAssertNotEqual(a, b)
-        b.optionalCord = ""
-        XCTAssertEqual(a, b)
-
-        // Ensure storage is uniqued for clear.
-        let c = MessageTestType.with {
-            $0.optionalCord = "blah"
-        }
-        var d = c
-        XCTAssertEqual(c, d)
-        XCTAssertTrue(c.hasOptionalCord)
-        XCTAssertTrue(d.hasOptionalCord)
-        d.clearOptionalCord()
-        XCTAssertNotEqual(c, d)
-        XCTAssertTrue(c.hasOptionalCord)
-        XCTAssertFalse(d.hasOptionalCord)
-    }
-
     func testEncoding_optionalNestedMessage() {
         assertEncode([146, 1, 0]) { (o: inout MessageTestType) in
             o.optionalNestedMessage = MessageTestType.NestedMessage()
@@ -676,39 +636,6 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(c, d)
         XCTAssertTrue(c.hasOptionalNestedMessage)
         XCTAssertFalse(d.hasOptionalNestedMessage)
-    }
-
-    func testEncoding_lazyNestedMessage() {
-        // The `lazy = true` option has no meaning in SwiftProtobuf,
-        // but test is for completeness.
-        assertEncode([154, 1, 0]) { (o: inout MessageTestType) in
-            o.lazyNestedMessage = MessageTestType.NestedMessage()
-        }
-        assertDecodeSucceeds([154, 1, 0]) {
-            $0.hasLazyNestedMessage && $0.lazyNestedMessage == MessageTestType.NestedMessage()
-        }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\nlazy_nested_message {\n}\n") {
-            (o: inout MessageTestType) in
-            o.lazyNestedMessage = MessageTestType.NestedMessage()
-        }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
-            (o: inout MessageTestType) in
-            o.lazyNestedMessage = MessageTestType.NestedMessage()
-            o.clearLazyNestedMessage()
-        }
-
-        // Ensure storage is uniqued for clear.
-        let c = MessageTestType.with {
-            $0.lazyNestedMessage.bb = 1
-        }
-        var d = c
-        XCTAssertEqual(c, d)
-        XCTAssertTrue(c.hasLazyNestedMessage)
-        XCTAssertTrue(d.hasLazyNestedMessage)
-        d.clearLazyNestedMessage()
-        XCTAssertNotEqual(c, d)
-        XCTAssertTrue(c.hasLazyNestedMessage)
-        XCTAssertFalse(d.hasLazyNestedMessage)
     }
 
     func testEncoding_optionalNestedEnum() throws {

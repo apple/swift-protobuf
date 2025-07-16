@@ -87,17 +87,9 @@ message TestAllTypes {
   //
   // optional swift_proto_testing.import.ImportEnum    optional_import_enum  = 23;
 
-  string optional_string_piece = 24 [ctype = STRING_PIECE];
-  string optional_cord = 25 [ctype = CORD];
-
   // Defined in unittest_import_public.proto
   swift_proto_testing.import.PublicImportMessage optional_public_import_message =
       26;
-
-  NestedMessage optional_lazy_message = 27 [lazy = true];
-  NestedMessage optional_unverified_lazy_message = 28 [unverified_lazy = true];
-  swift_proto_testing.import.ImportMessage optional_lazy_import_message = 115
-      [lazy = true];
 
   // Repeated
   repeated int32 repeated_int32 = 31;
@@ -132,11 +124,6 @@ message TestAllTypes {
   // inside proto2 messages.
   //
   // repeated swift_proto_testing.import.ImportEnum    repeated_import_enum  = 53;
-
-  repeated string repeated_string_piece = 54 [ctype = STRING_PIECE];
-  repeated string repeated_cord = 55 [ctype = CORD];
-
-  repeated NestedMessage repeated_lazy_message = 57 [lazy = true];
 
   oneof oneof_field {
     uint32 oneof_uint32 = 111;

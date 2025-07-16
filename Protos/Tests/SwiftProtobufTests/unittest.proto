@@ -88,15 +88,9 @@ message TestAllTypes {
   optional ForeignEnum                          optional_foreign_enum    = 22;
   optional swift_proto_testing.import.ImportEnum    optional_import_enum = 23;
 
-  optional string optional_string_piece = 24 [ctype=STRING_PIECE];
-  optional string optional_cord = 25 [ctype=CORD];
-
   // Defined in unittest_import_public.proto
   optional swift_proto_testing.import.PublicImportMessage
       optional_public_import_message = 26;
-
-  optional NestedMessage optional_lazy_message = 27 [lazy=true];
-  optional NestedMessage optional_unverified_lazy_message = 28 [unverified_lazy=true];
 
   // Repeated
   repeated    int32 repeated_int32    = 31;
@@ -127,11 +121,6 @@ message TestAllTypes {
   repeated ForeignEnum                          repeated_foreign_enum    = 52;
   repeated swift_proto_testing.import.ImportEnum    repeated_import_enum = 53;
 
-  repeated string repeated_string_piece = 54 [ctype=STRING_PIECE];
-  repeated string repeated_cord = 55 [ctype=CORD];
-
-  repeated NestedMessage repeated_lazy_message = 57 [lazy=true];
-
   // Singular with defaults
   optional    int32 default_int32    = 61 [default =  41    ];
   optional    int64 default_int64    = 62 [default =  42    ];
@@ -154,9 +143,6 @@ message TestAllTypes {
   optional swift_proto_testing.import.ImportEnum
       default_import_enum = 83 [default = IMPORT_BAR];
 
-  optional string default_string_piece = 84 [ctype=STRING_PIECE,default="abc"];
-  optional string default_cord = 85 [ctype=CORD,default="123"];
-
   // For oneof test
   oneof oneof_field {
     uint32 oneof_uint32 = 111;
@@ -178,8 +164,6 @@ message NestedTestAllTypes {
   optional NestedTestAllTypes child = 1;
   optional TestAllTypes payload = 2;
   repeated NestedTestAllTypes repeated_child = 3;
-  optional NestedTestAllTypes lazy_child = 4 [lazy=true];
-  optional TestAllTypes eager_child = 5 [lazy=false];
 }
 
 // Define these after TestAllTypes to make sure the compiler can handle
@@ -231,16 +215,8 @@ extend TestAllExtensions {
   optional swift_proto_testing.import.ImportEnum
     optional_import_enum_extension = 23;
 
-  optional string optional_string_piece_extension = 24 [ctype=STRING_PIECE];
-  optional string optional_cord_extension = 25 [ctype=CORD];
-
   optional swift_proto_testing.import.PublicImportMessage
     optional_public_import_message_extension = 26;
-
-  optional TestAllTypes.NestedMessage
-    optional_lazy_message_extension = 27 [lazy=true];
-  optional TestAllTypes.NestedMessage
-    optional_unverified_lazy_message_extension = 28 [unverified_lazy=true];
 
   // Repeated
   repeated    int32 repeated_int32_extension    = 31;
@@ -273,12 +249,6 @@ extend TestAllExtensions {
   repeated swift_proto_testing.import.ImportEnum
     repeated_import_enum_extension = 53;
 
-  repeated string repeated_string_piece_extension = 54 [ctype=STRING_PIECE];
-  repeated string repeated_cord_extension = 55 [ctype=CORD];
-
-  repeated TestAllTypes.NestedMessage
-    repeated_lazy_message_extension = 57 [lazy=true];
-
   // Singular with defaults
   optional    int32 default_int32_extension    = 61 [default =  41    ];
   optional    int64 default_int64_extension    = 62 [default =  42    ];
@@ -302,10 +272,6 @@ extend TestAllExtensions {
     default_foreign_enum_extension = 82 [default = FOREIGN_BAR];
   optional swift_proto_testing.import.ImportEnum
     default_import_enum_extension = 83 [default = IMPORT_BAR];
-
-  optional string default_string_piece_extension = 84 [ctype=STRING_PIECE,
-                                                       default="abc"];
-  optional string default_cord_extension = 85 [ctype=CORD, default="123"];
 
   // For oneof test
   optional uint32 oneof_uint32_extension = 111;
@@ -374,7 +340,6 @@ message TestRequired {
 
   required int32 c = 33;
 
-  // Add an optional child message to make this non-trivial for go/pdlazy.
   optional ForeignMessage optional_foreign = 34;
 }
 
@@ -382,9 +347,6 @@ message TestRequiredForeign {
   optional TestRequired optional_message = 1;
   repeated TestRequired repeated_message = 2;
   optional int32 dummy = 3;
-
-  // Missing required fields must not affect verification of child messages.
-  optional NestedTestAllTypes optional_lazy_message = 4 [lazy = true];
 }
 
 message TestRequiredMessage {
@@ -487,10 +449,6 @@ message TestExtremeDefaultValues {
   // String defaults containing the character '\000'
   optional string string_with_zero       = 23 [default = "hel\000lo"];
   optional  bytes bytes_with_zero        = 24 [default = "wor\000ld"];
-  optional string string_piece_with_zero = 25 [ctype=STRING_PIECE,
-                                               default="ab\000c"];
-  optional string cord_with_zero         = 26 [ctype=CORD,
-                                               default="12\0003"];
   optional string replacement_string     = 27 [default="${unknown}"];
 }
 
@@ -512,7 +470,6 @@ message TestRequiredOneof {
     int32 foo_int = 1;
     string foo_string = 2;
     NestedMessage foo_message = 3;
-    NestedMessage foo_lazy_message = 4 [lazy = true];
   }
   message NestedMessage {
     required double required_double = 1;
