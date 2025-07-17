@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Same field number appears inside and outside of the group.
-struct SwiftTestGroupExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+struct SwiftProtoTesting_GroupExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -73,7 +73,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct ExtensionGroup: Sendable {
+struct SwiftProtoTesting_ExtensionGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ struct ExtensionGroup: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct RepeatedExtensionGroup: Sendable {
+struct SwiftProtoTesting_RepeatedExtensionGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -115,7 +115,7 @@ struct RepeatedExtensionGroup: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftTestGroupUnextended: Sendable {
+struct SwiftProtoTesting_GroupUnextended: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -136,7 +136,7 @@ struct SwiftTestGroupUnextended: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftTestNestingGroupsMessage: Sendable {
+struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -150,8 +150,8 @@ struct SwiftTestNestingGroupsMessage: Sendable {
   /// Clears the value of `outerA`. Subsequent reads from it will return its default value.
   mutating func clearOuterA() {self._outerA = nil}
 
-  var subGroup1: SwiftTestNestingGroupsMessage.SubGroup1 {
-    get {return _subGroup1 ?? SwiftTestNestingGroupsMessage.SubGroup1()}
+  var subGroup1: SwiftProtoTesting_NestingGroupsMessage.SubGroup1 {
+    get {return _subGroup1 ?? SwiftProtoTesting_NestingGroupsMessage.SubGroup1()}
     set {_subGroup1 = newValue}
   }
   /// Returns true if `subGroup1` has been explicitly set.
@@ -159,7 +159,7 @@ struct SwiftTestNestingGroupsMessage: Sendable {
   /// Clears the value of `subGroup1`. Subsequent reads from it will return its default value.
   mutating func clearSubGroup1() {self._subGroup1 = nil}
 
-  var subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] = []
+  var subGroup3: [SwiftProtoTesting_NestingGroupsMessage.SubGroup3] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -177,8 +177,8 @@ struct SwiftTestNestingGroupsMessage: Sendable {
     /// Clears the value of `sub1A`. Subsequent reads from it will return its default value.
     mutating func clearSub1A() {self._sub1A = nil}
 
-    var subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2 {
-      get {return _subGroup2 ?? SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2()}
+    var subGroup2: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2 {
+      get {return _subGroup2 ?? SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2()}
       set {_subGroup2 = newValue}
     }
     /// Returns true if `subGroup2` has been explicitly set.
@@ -212,7 +212,7 @@ struct SwiftTestNestingGroupsMessage: Sendable {
     init() {}
 
     fileprivate var _sub1A: Int32? = nil
-    fileprivate var _subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2? = nil
+    fileprivate var _subGroup2: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2? = nil
   }
 
   struct SubGroup3: Sendable {
@@ -229,7 +229,7 @@ struct SwiftTestNestingGroupsMessage: Sendable {
     /// Clears the value of `sub3A`. Subsequent reads from it will return its default value.
     mutating func clearSub3A() {self._sub3A = nil}
 
-    var subGroup4: [SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4] = []
+    var subGroup4: [SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4] = []
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -262,7 +262,7 @@ struct SwiftTestNestingGroupsMessage: Sendable {
   init() {}
 
   fileprivate var _outerA: Int32? = nil
-  fileprivate var _subGroup1: SwiftTestNestingGroupsMessage.SubGroup1? = nil
+  fileprivate var _subGroup1: SwiftProtoTesting_NestingGroupsMessage.SubGroup1? = nil
 }
 
 // MARK: - Extension support defined in unittest_swift_groups.proto.
@@ -274,59 +274,61 @@ struct SwiftTestNestingGroupsMessage: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftTestGroupExtensions {
+extension SwiftProtoTesting_GroupExtensions {
 
-  var extensionGroup: ExtensionGroup {
-    get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
-    set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
+  var SwiftProtoTesting_extensionGroup: SwiftProtoTesting_ExtensionGroup {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_ExtensionGroup) ?? SwiftProtoTesting_ExtensionGroup()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_ExtensionGroup, value: newValue)}
   }
-  /// Returns true if extension `Extensions_ExtensionGroup`
+  /// Returns true if extension `SwiftProtoTesting_Extensions_ExtensionGroup`
   /// has been explicitly set.
-  var hasExtensionGroup: Bool {
-    return hasExtensionValue(ext: Extensions_ExtensionGroup)
+  var hasSwiftProtoTesting_extensionGroup: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_ExtensionGroup)
   }
-  /// Clears the value of extension `Extensions_ExtensionGroup`.
+  /// Clears the value of extension `SwiftProtoTesting_Extensions_ExtensionGroup`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearExtensionGroup() {
-    clearExtensionValue(ext: Extensions_ExtensionGroup)
+  mutating func clearSwiftProtoTesting_extensionGroup() {
+    clearExtensionValue(ext: SwiftProtoTesting_Extensions_ExtensionGroup)
   }
 
-  var repeatedExtensionGroup: [RepeatedExtensionGroup] {
-    get {return getExtensionValue(ext: Extensions_RepeatedExtensionGroup) ?? []}
-    set {setExtensionValue(ext: Extensions_RepeatedExtensionGroup, value: newValue)}
+  var SwiftProtoTesting_repeatedExtensionGroup: [SwiftProtoTesting_RepeatedExtensionGroup] {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_RepeatedExtensionGroup) ?? []}
+    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_RepeatedExtensionGroup, value: newValue)}
   }
 
 }
 
-// MARK: - File's ExtensionMap: UnittestSwiftGroups_Extensions
+// MARK: - File's ExtensionMap: SwiftProtoTesting_UnittestSwiftGroups_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  Extensions_ExtensionGroup,
-  Extensions_RepeatedExtensionGroup
+let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_Extensions_ExtensionGroup,
+  SwiftProtoTesting_Extensions_RepeatedExtensionGroup
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
+let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_ExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
   _protobuf_fieldNumber: 2,
-  fieldName: "extensiongroup"
+  fieldName: "swift_proto_testing.extensiongroup"
 )
 
-let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
+let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_RepeatedExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
   _protobuf_fieldNumber: 3,
-  fieldName: "repeatedextensiongroup"
+  fieldName: "swift_proto_testing.repeatedextensiongroup"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftTestGroupExtensions"
+fileprivate let _protobuf_package = "swift_proto_testing"
+
+extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".GroupExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   public var isInitialized: Bool {
@@ -342,7 +344,7 @@ extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._Messag
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
       case 2..<11:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_GroupExtensions.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -360,7 +362,7 @@ extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestGroupExtensions, rhs: SwiftTestGroupExtensions) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_GroupExtensions, rhs: SwiftProtoTesting_GroupExtensions) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -368,8 +370,8 @@ extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ExtensionGroup"
+extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ExtensionGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -395,15 +397,15 @@ extension ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ExtensionGroup, rhs: ExtensionGroup) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_ExtensionGroup, rhs: SwiftProtoTesting_ExtensionGroup) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "RepeatedExtensionGroup"
+extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".RepeatedExtensionGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -429,15 +431,15 @@ extension RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: RepeatedExtensionGroup, rhs: RepeatedExtensionGroup) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_RepeatedExtensionGroup, rhs: SwiftProtoTesting_RepeatedExtensionGroup) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftTestGroupUnextended"
+extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".GroupUnextended"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -463,15 +465,15 @@ extension SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestGroupUnextended, rhs: SwiftTestGroupUnextended) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_GroupUnextended, rhs: SwiftProtoTesting_GroupUnextended) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
+extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NestingGroupsMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}outer_a\0\u{7}SubGroup1\0\u{7}SubGroup3\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -505,7 +507,7 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestNestingGroupsMessage, rhs: SwiftTestNestingGroupsMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_NestingGroupsMessage, rhs: SwiftProtoTesting_NestingGroupsMessage) -> Bool {
     if lhs._outerA != rhs._outerA {return false}
     if lhs._subGroup1 != rhs._subGroup1 {return false}
     if lhs.subGroup3 != rhs.subGroup3 {return false}
@@ -514,8 +516,8 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
+extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.protoMessageName + ".SubGroup1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub1_a\0\u{7}SubGroup2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -545,7 +547,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup1, rhs: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup1, rhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup1) -> Bool {
     if lhs._sub1A != rhs._sub1A {return false}
     if lhs._subGroup2 != rhs._subGroup2 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -553,8 +555,8 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
+extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub2_a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -580,15 +582,15 @@ extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2, rhs: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2, rhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
     if lhs._sub2A != rhs._sub2A {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
+extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.protoMessageName + ".SubGroup3"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub3_a\0\u{7}SubGroup4\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -618,7 +620,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup3, rhs: SwiftTestNestingGroupsMessage.SubGroup3) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup3, rhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup3) -> Bool {
     if lhs._sub3A != rhs._sub3A {return false}
     if lhs.subGroup4 != rhs.subGroup4 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -626,8 +628,8 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
+extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub4_a\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -653,7 +655,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4, rhs: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4, rhs: SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
     if lhs._sub4A != rhs._sub4A {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

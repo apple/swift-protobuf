@@ -91,8 +91,8 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         extensions.formUnion(SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions)
         // Append an array of extensions
         extensions.insert(contentsOf: [
-            Extensions_RepeatedExtensionGroup,
-            Extensions_ExtensionGroup,
+            SwiftProtoTesting_Extensions_RepeatedExtensionGroup,
+            SwiftProtoTesting_Extensions_ExtensionGroup,
         ]
         )
     }
@@ -226,23 +226,23 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
     /// Verify group extensions and handling of unknown groups
     ///
     func test_groupExtension() throws {
-        var m = SwiftTestGroupExtensions()
-        var group = ExtensionGroup()
+        var m = SwiftProtoTesting_GroupExtensions()
+        var group = SwiftProtoTesting_ExtensionGroup()
         group.a = 7
-        m.extensionGroup = group
+        m.SwiftProtoTesting_extensionGroup = group
         let coded: [UInt8] = try m.serializedBytes()
 
         // Deserialize into a message that lacks the group extension, then reserialize
         // Group should be preserved as an unknown field
         do {
-            let m2 = try SwiftTestGroupUnextended(serializedBytes: coded)
+            let m2 = try SwiftProtoTesting_GroupUnextended(serializedBytes: coded)
             XCTAssert(!m2.hasA)
             let recoded: [UInt8] = try m2.serializedBytes()
 
             // Deserialize, check the group contents were preserved.
             do {
-                let m3 = try SwiftTestGroupExtensions(serializedBytes: recoded, extensions: extensions)
-                XCTAssertEqual(m3.extensionGroup.a, 7)
+                let m3 = try SwiftProtoTesting_GroupExtensions(serializedBytes: recoded, extensions: extensions)
+                XCTAssertEqual(m3.SwiftProtoTesting_extensionGroup.a, 7)
             } catch {
                 XCTFail("Bad decode/recode/decode cycle")
             }
@@ -252,26 +252,26 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
     }
 
     func test_repeatedGroupExtension() throws {
-        var m = SwiftTestGroupExtensions()
-        var group1 = RepeatedExtensionGroup()
+        var m = SwiftProtoTesting_GroupExtensions()
+        var group1 = SwiftProtoTesting_RepeatedExtensionGroup()
         group1.a = 7
-        var group2 = RepeatedExtensionGroup()
+        var group2 = SwiftProtoTesting_RepeatedExtensionGroup()
         group2.a = 7
-        m.repeatedExtensionGroup = [group1, group2]
+        m.SwiftProtoTesting_repeatedExtensionGroup = [group1, group2]
         let coded: [UInt8] = try m.serializedBytes()
 
         // Deserialize into a message that lacks the group extension, then reserialize
         // Group should be preserved as an unknown field
         do {
-            let m2 = try SwiftTestGroupUnextended(serializedBytes: coded)
+            let m2 = try SwiftProtoTesting_GroupUnextended(serializedBytes: coded)
             XCTAssert(!m2.hasA)
             do {
                 let recoded: [UInt8] = try m2.serializedBytes()
 
                 // Deserialize, check the group contents were preserved.
                 do {
-                    let m3 = try SwiftTestGroupExtensions(serializedBytes: recoded, extensions: extensions)
-                    XCTAssertEqual(m3.repeatedExtensionGroup, [group1, group2])
+                    let m3 = try SwiftProtoTesting_GroupExtensions(serializedBytes: recoded, extensions: extensions)
+                    XCTAssertEqual(m3.SwiftProtoTesting_repeatedExtensionGroup, [group1, group2])
                 } catch {
                     XCTFail("Bad decode/recode/decode cycle")
                 }
@@ -282,9 +282,9 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTFail("Decoding into unextended message failed for \(coded)")
         }
 
-        XCTAssertFalse(m.repeatedExtensionGroup.isEmpty)
-        m.repeatedExtensionGroup = []
-        XCTAssertTrue(m.repeatedExtensionGroup.isEmpty)
+        XCTAssertFalse(m.SwiftProtoTesting_repeatedExtensionGroup.isEmpty)
+        m.SwiftProtoTesting_repeatedExtensionGroup = []
+        XCTAssertTrue(m.SwiftProtoTesting_repeatedExtensionGroup.isEmpty)
     }
 
     func test_MessageNoStorageClass() {

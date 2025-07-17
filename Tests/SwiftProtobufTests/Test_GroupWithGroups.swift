@@ -12,7 +12,7 @@ import Foundation
 import XCTest
 
 final class Test_GroupWithinGroup: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = SwiftTestNestingGroupsMessage
+    typealias MessageTestType = SwiftProtoTesting_NestingGroupsMessage
 
     func testGroupWithGroup_Single() {
         assertEncode([8, 1, 19, 8, 2, 19, 8, 3, 20, 20]) { (o: inout MessageTestType) in
