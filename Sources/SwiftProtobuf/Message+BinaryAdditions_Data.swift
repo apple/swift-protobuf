@@ -16,6 +16,7 @@ import Foundation
 
 /// Binary encoding and decoding methods for messages.
 extension Message {
+    #if !REMOVE_DEPRECATED_APIS
     /// Creates a new message by decoding the given `Data` value
     /// containing a serialized message in Protocol Buffer binary format.
     ///
@@ -171,6 +172,7 @@ extension Message {
             try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
         }
     }
+    #endif  // !REMOVE_DEPRECATED_APIS
 
     /// Updates the message by decoding the given `Data` value
     /// containing a serialized message in Protocol Buffer binary format into the
