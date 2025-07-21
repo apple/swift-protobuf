@@ -158,7 +158,7 @@ extension Google_Protobuf_Duration {
     public init(timeInterval: TimeInterval) {
         self.init(rounding: timeInterval, rule: .toNearestOrAwayFromZero)
     }
-    #endif  // !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
+    #endif  // !REMOVE_DEPRECATED_APIS
 
     /// Creates a new `Google_Protobuf_Duration` that is equal to the given
     /// `TimeInterval` (measured in seconds), rounded to the nearest nanosecond
