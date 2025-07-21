@@ -20,6 +20,7 @@ import Foundation
 /// - Important: NOT INTENDED TO BE CALLED BY CLIENTS.
 public enum Internal {
 
+    #if !REMOVE_DEPRECATED_APIS
     /// A singleton instance of an empty data that is used by the generated code
     /// for default values. This is a performance enhancement to work around the
     /// fact that the `Data` type in Swift involves a new heap allocation every
@@ -33,6 +34,7 @@ public enum Internal {
             "Internal.emptyData isn't used any longer in newer versions of the generator. Generate code with a version later than 1.10.2 to get performance improvements. See https://github.com/apple/swift-protobuf/pull/1028 for more information."
     )
     public static let emptyData = Data()
+    #endif  // !REMOVE_DEPRECATED_APIS
 
     /// Helper to loop over a list of Messages to see if they are all
     /// initialized (see Message.isInitialized for what that means).

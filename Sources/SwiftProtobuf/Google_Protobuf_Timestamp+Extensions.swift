@@ -229,6 +229,7 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_Timestamp {
+    #if !REMOVE_DEPRECATED_APIS
     /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
     /// UTC on 1 January 1970 by a given number of seconds.
     ///
@@ -238,6 +239,7 @@ extension Google_Protobuf_Timestamp {
     public init(timeIntervalSince1970: TimeInterval) {
         self.init(roundingTimeIntervalSince1970: timeIntervalSince1970, rule: .toNearestOrAwayFromZero)
     }
+    #endif  // !REMOVE_DEPRECATED_APIS
 
     /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
     /// UTC on 1 January 1970 by a given number of seconds, rounded to the nearest
@@ -257,6 +259,7 @@ extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
+    #if !REMOVE_DEPRECATED_APIS
     /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
     /// UTC on 1 January 2001 by a given number of seconds.
     ///
@@ -269,6 +272,7 @@ extension Google_Protobuf_Timestamp {
             rule: .toNearestOrAwayFromZero
         )
     }
+    #endif  // !REMOVE_DEPRECATED_APIS
 
     /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
     /// UTC on 1 January 2001 by a given number of seconds, rounded to the nearest
