@@ -11,7 +11,7 @@
 import SwiftProtobuf
 
 extension Google_Protobuf_FileDescriptorProto {
-    public init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = [], package: String = "") {
+    package init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = [], package: String = "") {
         for idx in publicDependencies { precondition(Int(idx) <= dependencies.count) }
         self.init()
         self.name = name
@@ -19,25 +19,25 @@ extension Google_Protobuf_FileDescriptorProto {
         self.publicDependency = publicDependencies
         self.package = package
     }
-    public init(textFormatStrings: [String]) throws {
+    package init(textFormatStrings: [String]) throws {
         let s = textFormatStrings.joined(separator: "\n") + "\n"
         try self.init(textFormatString: s)
     }
 }
 
 extension Google_Protobuf_FileDescriptorSet {
-    public init(files: [Google_Protobuf_FileDescriptorProto]) {
+    package init(files: [Google_Protobuf_FileDescriptorProto]) {
         self.init()
         self.file = files
     }
-    public init(file: Google_Protobuf_FileDescriptorProto) {
+    package init(file: Google_Protobuf_FileDescriptorProto) {
         self.init()
         self.file = [file]
     }
 }
 
 extension Google_Protobuf_EnumValueDescriptorProto {
-    public init(name: String, number: Int32) {
+    package init(name: String, number: Int32) {
         self.init()
         self.name = name
         self.number = number
