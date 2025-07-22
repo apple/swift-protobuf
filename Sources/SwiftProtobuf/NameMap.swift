@@ -304,6 +304,11 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     #else  // !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
     /// Build the bidirectional maps between numbers and proto/JSON names.
+    @available(
+        *,
+        deprecated,
+        message: "Please regenerate your .pb.swift files with the current version of the SwiftProtobuf protoc plugin."
+    )
     public init(
         reservedNames: [String],
         reservedRanges: [Range<Int32>],
@@ -316,6 +321,11 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     }
 
     /// Build the bidirectional maps between numbers and proto/JSON names.
+    @available(
+        *,
+        deprecated,
+        message: "Please regenerate your .pb.swift files with the current version of the SwiftProtobuf protoc plugin."
+    )
     public init(dictionaryLiteral elements: (Int, NameDescription)...) {
         initHelper(elements)
     }
