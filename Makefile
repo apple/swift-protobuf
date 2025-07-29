@@ -383,7 +383,6 @@ SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
 
 Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
 	@${PROTOC} \
-		--include_imports \
 		--include_source_info \
 		--descriptor_set_out=PluginLibDescriptorTestData.bin \
 		-I Protos/Sources/SwiftProtobuf \
@@ -403,7 +402,6 @@ SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
 
 Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
 	@${PROTOC} \
-		--include_imports \
 		--descriptor_set_out=PluginDescriptorTestData.bin \
 		-I Protos/Tests/protoc-gen-swiftTests \
 		${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
