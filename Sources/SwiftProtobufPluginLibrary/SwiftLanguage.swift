@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Swift
 
 /// Used to check if a character is a valid identifier head character.
 ///
