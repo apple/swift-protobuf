@@ -104,6 +104,16 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
         let _ = try maxInRange.jsonString()  // Assert does not throw
         let minOutOfRange = Google_Protobuf_Duration(seconds: 315_576_000_001)
         XCTAssertThrowsError(try minOutOfRange.jsonString())
+        // Signs don't match (a conformance test).
+        let posNeg = Google_Protobuf_Duration(seconds: 1, nanos: -1)
+        XCTAssertThrowsError(try posNeg.jsonString())
+        let negPos = Google_Protobuf_Duration(seconds: -1, nanos: 1)
+        XCTAssertThrowsError(try negPos.jsonString())
+        // Nanos only out of range (a conformance test).
+        let nanosTooSmall = Google_Protobuf_Duration(seconds: 0, nanos: -1_000_000_000)
+        XCTAssertThrowsError(try nanosTooSmall.jsonString())
+        let nanosTooBig = Google_Protobuf_Duration(seconds: 0, nanos: 1_000_000_001)
+        XCTAssertThrowsError(try nanosTooBig.jsonString())
     }
 
     // Make sure durations work correctly when stored in a field
@@ -208,15 +218,30 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
     func testArithmeticNormalizes() throws {
         // Addition normalizes the result
         XCTAssertEqual(
-            Google_Protobuf_Duration() + Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001),
-            Google_Protobuf_Duration(seconds: 2, nanos: 1)
+            Google_Protobuf_Duration(seconds: 1, nanos: 500_000_000)
+                + Google_Protobuf_Duration(seconds: 1, nanos: 500_000_001),
+            Google_Protobuf_Duration(seconds: 3, nanos: 1)
+        )
+        XCTAssertEqual(
+            Google_Protobuf_Duration(seconds: -1, nanos: -500_000_000)
+                + Google_Protobuf_Duration(seconds: -1, nanos: -500_000_001),
+            Google_Protobuf_Duration(seconds: -3, nanos: -1)
         )
         // Subtraction normalizes the result
         XCTAssertEqual(
-            Google_Protobuf_Duration() - Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001),
+            Google_Protobuf_Duration(seconds: 0, nanos: -700_000_000)
+                - Google_Protobuf_Duration(seconds: 1, nanos: 500_000_000),
+            Google_Protobuf_Duration(seconds: -2, nanos: -200_000_000)
+        )
+        XCTAssertEqual(
+            Google_Protobuf_Duration(seconds: 5, nanos: 0) - Google_Protobuf_Duration(seconds: 2, nanos: 1),
+            Google_Protobuf_Duration(seconds: 2, nanos: 999_999_999)
+        )
+        XCTAssertEqual(
+            Google_Protobuf_Duration(seconds: 0, nanos: 0) - Google_Protobuf_Duration(seconds: 2, nanos: 1),
             Google_Protobuf_Duration(seconds: -2, nanos: -1)
         )
-        // Unary minus normalizes the result
+        // Unary minus normalizes the result (because it should match doing `Duration(0,0) - operand`.
         XCTAssertEqual(
             -Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001),
             Google_Protobuf_Duration(seconds: -2, nanos: -1)
