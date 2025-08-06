@@ -8,5 +8,3 @@ Required.*.DurationProtoNanosTooLarge.JsonOutput # Should have failed to seriali
 Required.*.DurationProtoNanosTooSmall.JsonOutput # Should have failed to serialize, but didn't.
 Required.*.DurationProtoNanosWrongSign.JsonOutput # Should have failed to serialize, but didn't.
 Required.*.DurationProtoNanosWrongSignNegativeSecs.JsonOutput # Should have failed to serialize, but didn't.
-Required.*.TimestampProtoNanoTooLarge.JsonOutput # Should have failed to serialize, but didn't.
-Required.*.TimestampProtoNegativeNanos.JsonOutput # Should have failed to serialize, but didn't.
