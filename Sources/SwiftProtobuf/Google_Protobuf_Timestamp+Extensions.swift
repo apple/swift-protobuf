@@ -17,6 +17,13 @@ import Foundation
 
 private let minTimestampSeconds: Int64 = -62_135_596_800  // 0001-01-01T00:00:00Z
 private let maxTimestampSeconds: Int64 = 253_402_300_799  // 9999-12-31T23:59:59Z
+// From timestamp.proto:
+//     Non-negative fractions of a second at nanosecond resolution. Negative
+//     second values with fractions must still have non-negative nanos values
+//     that count forward in time. Must be from 0 to 999,999,999
+//     inclusive.
+private let minTimestampNanos: Int32 = 0
+private let maxTimestampNanos: Int32 = 999_999_999
 
 // TODO: Add convenience methods to interoperate with standard
 // date/time classes:  an initializer that accepts Unix timestamp as
@@ -185,8 +192,10 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
 }
 
 private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
-    let (seconds, nanos) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
-    guard seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds else {
+    guard
+        (seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds)
+            && (nanos >= minTimestampNanos && nanos <= maxTimestampNanos)
+    else {
         return nil
     }
 
@@ -255,6 +264,7 @@ extension Google_Protobuf_Timestamp {
     ) {
         let sd = Int64(timeIntervalSince1970)
         let nd = ((timeIntervalSince1970 - Double(sd)) * TimeInterval(nanosPerSecond)).rounded(rule)
+        // Normalize is here incase things round to a full second worth of nanos.
         let (s, n) = normalizeForTimestamp(seconds: sd, nanos: Int32(nd))
         self.init(seconds: s, nanos: n)
     }
@@ -292,6 +302,8 @@ extension Google_Protobuf_Timestamp {
         // The addition of timeIntervalBetween1970And... is deliberately delayed
         // until the input is separated into an integer part and a fraction
         // part, so that we don't unnecessarily lose precision.
+        //
+        // Normalize is here incase things round to a full second worth of nanos.
         let (s, n) = normalizeForTimestamp(
             seconds: sd + Int64(Date.timeIntervalBetween1970AndReferenceDate),
             nanos: Int32(nd)
@@ -343,7 +355,6 @@ private func normalizeForTimestamp(
 ) -> (seconds: Int64, nanos: Int32) {
     // The Timestamp spec says that nanos must be in the range [0, 999999999),
     // as in actual modular arithmetic.
-
     let s = seconds + Int64(div(nanos, nanosPerSecond))
     let n = mod(nanos, nanosPerSecond)
     return (seconds: s, nanos: n)

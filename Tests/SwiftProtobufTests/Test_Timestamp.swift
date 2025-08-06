@@ -320,7 +320,7 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
     }
 
     func testSerializationFailure() throws {
-        let maxOutOfRange = Google_Protobuf_Timestamp(seconds: -62_135_596_800, nanos: -1)
+        let maxOutOfRange = Google_Protobuf_Timestamp(seconds: -62_135_596_801, nanos: 999_999_999)
         XCTAssertThrowsError(try maxOutOfRange.jsonString())
         let minInRange = Google_Protobuf_Timestamp(seconds: -62_135_596_800)
         XCTAssertNotNil(try minInRange.jsonString())
@@ -328,6 +328,10 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         XCTAssertNotNil(try maxInRange.jsonString())
         let minOutOfRange = Google_Protobuf_Timestamp(seconds: 253_402_300_800)
         XCTAssertThrowsError(try minOutOfRange.jsonString())
+        let negNanos = Google_Protobuf_Timestamp(seconds: 5_000, nanos: -1)
+        XCTAssertThrowsError(try negNanos.jsonString())
+        let nansTooLarge = Google_Protobuf_Timestamp(seconds: 5_000, nanos: 1_000_000_000)
+        XCTAssertThrowsError(try nansTooLarge.jsonString())
     }
 
     func testBasicArithmetic() throws {
@@ -373,45 +377,58 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
     func testArithmeticNormalizes() throws {
         // Addition normalizes the result
         let r1: Google_Protobuf_Timestamp =
-            Google_Protobuf_Timestamp() + Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001)
-        XCTAssertEqual(r1.seconds, 2)
+            Google_Protobuf_Timestamp(seconds: 1, nanos: 500_000_000)
+            + Google_Protobuf_Duration(seconds: 1, nanos: 500_000_001)
+        XCTAssertEqual(r1.seconds, 3)
         XCTAssertEqual(r1.nanos, 1)
+        let r1n: Google_Protobuf_Timestamp =
+            Google_Protobuf_Timestamp(seconds: -1, nanos: 500_000_000)
+            + Google_Protobuf_Duration(seconds: -1, nanos: -500_000_001)
+        XCTAssertEqual(r1n.seconds, -3)
+        XCTAssertEqual(r1n.nanos, 999_999_999)
 
         // Subtraction normalizes the result
         let r2: Google_Protobuf_Timestamp =
-            Google_Protobuf_Timestamp() - Google_Protobuf_Duration(seconds: 0, nanos: 2_000_000_001)
-        XCTAssertEqual(r2.seconds, -3)
+            Google_Protobuf_Timestamp(seconds: 1, nanos: 500_000_000)
+            - Google_Protobuf_Duration(seconds: 1, nanos: 500_000_001)
+        XCTAssertEqual(r2.seconds, -1)
         XCTAssertEqual(r2.nanos, 999_999_999)
+        let r2n: Google_Protobuf_Timestamp =
+            Google_Protobuf_Timestamp(seconds: -1, nanos: 500_000_000)
+            - Google_Protobuf_Duration(seconds: -1, nanos: -500_000_001)
+        XCTAssertEqual(r2n.seconds, 1)
+        XCTAssertEqual(r2n.nanos, 1)
 
-        // Subtraction normalizes the result
+        // Subtraction for delta normalizes the result
         let r3: Google_Protobuf_Duration =
-            Google_Protobuf_Timestamp() - Google_Protobuf_Timestamp(seconds: 0, nanos: 2_000_000_001)
+            Google_Protobuf_Timestamp() - Google_Protobuf_Timestamp(seconds: 2, nanos: 1)
         XCTAssertEqual(r3.seconds, -2)
         XCTAssertEqual(r3.nanos, -1)
 
         let r4: Google_Protobuf_Duration =
-            Google_Protobuf_Timestamp(seconds: 1) - Google_Protobuf_Timestamp(nanos: 2_000_000_001)
+            Google_Protobuf_Timestamp(seconds: 1) - Google_Protobuf_Timestamp(seconds: 2, nanos: 1)
         XCTAssertEqual(r4.seconds, -1)
         XCTAssertEqual(r4.nanos, -1)
 
         let r5: Google_Protobuf_Duration =
-            Google_Protobuf_Timestamp(seconds: -1) - Google_Protobuf_Timestamp(nanos: -2_000_000_001)
+            Google_Protobuf_Timestamp(seconds: -1) - Google_Protobuf_Timestamp(seconds: -3, nanos: 999_999_999)
         XCTAssertEqual(r5.seconds, 1)
         XCTAssertEqual(r5.nanos, 1)
 
         let r6: Google_Protobuf_Duration =
-            Google_Protobuf_Timestamp(seconds: -10) - Google_Protobuf_Timestamp(nanos: -2_000_000_001)
-        XCTAssertEqual(r6.seconds, -7)
-        XCTAssertEqual(r6.nanos, -999_999_999)
+            Google_Protobuf_Timestamp(seconds: 10) - Google_Protobuf_Timestamp(seconds: -3, nanos: 999_999_999)
+        XCTAssertEqual(r6.seconds, 12)
+        XCTAssertEqual(r6.nanos, 1)
+        let r6n: Google_Protobuf_Duration =
+            Google_Protobuf_Timestamp(seconds: -10) - Google_Protobuf_Timestamp(seconds: -3, nanos: 999_999_999)
+        XCTAssertEqual(r6n.seconds, -7)
+        XCTAssertEqual(r6n.nanos, -999_999_999)
 
         let r7: Google_Protobuf_Duration =
-            Google_Protobuf_Timestamp(seconds: 10) - Google_Protobuf_Timestamp(nanos: 2_000_000_001)
+            Google_Protobuf_Timestamp(seconds: 10) - Google_Protobuf_Timestamp(seconds: 2, nanos: 1)
         XCTAssertEqual(r7.seconds, 7)
         XCTAssertEqual(r7.nanos, 999_999_999)
     }
-
-    // TODO: Should setter correct for out-of-range
-    // nanos and other minor inconsistencies?
 
     func testInitializationRoundingTimestamps() throws {
         // Negative timestamp
