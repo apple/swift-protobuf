@@ -18,6 +18,8 @@ import Foundation
 
 private let minDurationSeconds: Int64 = -maxDurationSeconds
 private let maxDurationSeconds: Int64 = 315_576_000_000
+private let minDurationNanos: Int32 = -maxDurationNanos
+private let maxDurationNanos: Int32 = 999_999_999
 
 private func parseDuration(text: String) throws -> (Int64, Int32) {
     var digits = [Character]()
@@ -99,8 +101,17 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
 }
 
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
-    let (seconds, nanos) = normalizeForDuration(seconds: seconds, nanos: nanos)
-    guard seconds >= minDurationSeconds && seconds <= maxDurationSeconds else {
+    // Upstream's json file unparse.cc:WriteDuration() for these checks for reference.
+
+    // Range check...
+    guard
+        (seconds >= minDurationSeconds && seconds <= maxDurationSeconds)
+            && (nanos >= minDurationNanos && nanos <= maxDurationNanos)
+    else {
+        return nil
+    }
+    // Either seconds or nanos has to be zero otherwise the signs must match.
+    guard (seconds == 0) || (nanos == 0) || ((seconds < 0) == (nanos < 0)) else {
         return nil
     }
     let nanosString = nanosToString(nanos: nanos)  // Includes leading '.' if needed
@@ -173,6 +184,7 @@ extension Google_Protobuf_Duration {
     ) {
         let sd = Int64(timeInterval)
         let nd = ((timeInterval - Double(sd)) * TimeInterval(nanosPerSecond)).rounded(rule)
+        // Normalize is here incase things round up to a full second worth of nanos.
         let (s, n) = normalizeForDuration(seconds: sd, nanos: Int32(nd))
         self.init(seconds: s, nanos: n)
     }
@@ -200,6 +212,7 @@ extension Google_Protobuf_Duration {
         let fracNanos =
             (Double(attos % attosPerNanosecond) / Double(attosPerNanosecond)).rounded(rule)
         let nanos = Int32(attos / attosPerNanosecond) + Int32(fracNanos)
+        // Normalize is here incase things round up to a full second worth of nanos.
         let (s, n) = normalizeForDuration(seconds: secs, nanos: nanos)
         self.init(seconds: s, nanos: n)
     }
@@ -253,6 +266,9 @@ private func normalizeForDuration(
 public prefix func - (
     operand: Google_Protobuf_Duration
 ) -> Google_Protobuf_Duration {
+    // This gets normalized (thus allowing an otherwise non-logical input) so it matches what would
+    // happen if doing `Duration(0,0) - operand` because that has to normalize to handle roll
+    // over/under.
     let (s, n) = normalizeForDuration(
         seconds: -operand.seconds,
         nanos: -operand.nanos
