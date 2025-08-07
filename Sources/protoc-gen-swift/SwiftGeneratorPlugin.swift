@@ -51,7 +51,7 @@ struct SwiftGeneratorPlugin: CodeGenerator {
     ]
 
     var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
-        Google_Protobuf_Edition.proto2...Google_Protobuf_Edition.edition2023
+        Google_Protobuf_Edition.proto2...Google_Protobuf_Edition.edition2024
     }
 
     var version: String? { "\(SwiftProtobuf.Version.versionString)" }
