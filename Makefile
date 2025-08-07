@@ -314,7 +314,7 @@ Sources/SwiftProtobufPluginLibrary/PluginLibEditionDefaults.swift: build ${PROTO
 	@${PROTOC} \
 		--edition_defaults_out=PluginLibEditionDefaults.bin \
 		--edition_defaults_minimum=PROTO2 \
-		--edition_defaults_maximum=2023 \
+		--edition_defaults_maximum=2024 \
 		-I Protos/Sources/SwiftProtobuf \
 		Protos/Sources/SwiftProtobuf/google/protobuf/descriptor.proto
 	@rm -f $@
@@ -330,7 +330,7 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 	@${PROTOC} \
 		--edition_defaults_out=PluginLibTestingEditionDefaults.bin \
 		--edition_defaults_minimum=PROTO2 \
-		--edition_defaults_maximum=2023 \
+		--edition_defaults_maximum=2024 \
 		-I Protos/Sources/SwiftProtobuf \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		Protos/Tests/SwiftProtobufPluginLibraryTests/test_features.proto
@@ -615,7 +615,7 @@ test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_
 	  --enforce_recommended \
 	  --failure_list Sources/Conformance/failure_list_swift.txt \
 	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt \
-	  --maximum_edition 2023 \
+	  --maximum_edition 2024 \
 	  $(SWIFT_CONFORMANCE_PLUGIN)
 
 # Validate the CocoaPods podspec file against the current tree state.
