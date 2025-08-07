@@ -3697,7 +3697,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
 
 extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}method\0\u{1}options\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}method\0\u{1}options\0\u{b}stream\0\u{c}\u{4}\u{1}")
 
   public var isInitialized: Bool {
     if !Internal.areAllInitialized(self.method) {return false}
