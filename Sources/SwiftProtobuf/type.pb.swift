@@ -96,6 +96,11 @@ public enum Google_Protobuf_Syntax: Enum, Swift.CaseIterable {
 }
 
 /// A protocol buffer message type.
+///
+/// New usages of this message as an alternative to DescriptorProto are strongly
+/// discouraged. This message does not reliability preserve all information
+/// necessary to model the schema and preserve semantics. Instead make use of
+/// FileDescriptorSet which preserves the necessary information.
 public struct Google_Protobuf_Type: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -137,6 +142,11 @@ public struct Google_Protobuf_Type: Sendable {
 }
 
 /// A single field of a message type.
+///
+/// New usages of this message as an alternative to FieldDescriptorProto are
+/// strongly discouraged. This message does not reliability preserve all
+/// information necessary to model the schema and preserve semantics. Instead
+/// make use of FileDescriptorSet which preserves the necessary information.
 public struct Google_Protobuf_Field: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -372,6 +382,11 @@ public struct Google_Protobuf_Field: Sendable {
 }
 
 /// Enum type definition.
+///
+/// New usages of this message as an alternative to EnumDescriptorProto are
+/// strongly discouraged. This message does not reliability preserve all
+/// information necessary to model the schema and preserve semantics. Instead
+/// make use of FileDescriptorSet which preserves the necessary information.
 public struct Google_Protobuf_Enum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -410,6 +425,11 @@ public struct Google_Protobuf_Enum: Sendable {
 }
 
 /// Enum value definition.
+///
+/// New usages of this message as an alternative to EnumValueDescriptorProto are
+/// strongly discouraged. This message does not reliability preserve all
+/// information necessary to model the schema and preserve semantics. Instead
+/// make use of FileDescriptorSet which preserves the necessary information.
 public struct Google_Protobuf_EnumValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -431,6 +451,10 @@ public struct Google_Protobuf_EnumValue: Sendable {
 
 /// A protocol buffer option, which can be attached to a message, field,
 /// enumeration, etc.
+///
+/// New usages of this message as an alternative to FileOptions, MessageOptions,
+/// FieldOptions, EnumOptions, EnumValueOptions, ServiceOptions, or MethodOptions
+/// are strongly discouraged.
 public struct Google_Protobuf_Option: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

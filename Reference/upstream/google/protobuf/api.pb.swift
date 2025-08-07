@@ -59,6 +59,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// sometimes simply referred to as "APIs" in other contexts, such as the name of
 /// this message itself. See https://cloud.google.com/apis/design/glossary for
 /// detailed terminology.
+///
+/// New usages of this message as an alternative to ServiceDescriptorProto are
+/// strongly discouraged. This message does not reliability preserve all
+/// information necessary to model the schema and preserve semantics. Instead
+/// make use of FileDescriptorSet which preserves the necessary information.
 struct Google_Protobuf_Api: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -123,6 +128,11 @@ struct Google_Protobuf_Api: Sendable {
 }
 
 /// Method represents a method of an API interface.
+///
+/// New usages of this message as an alternative to MethodDescriptorProto are
+/// strongly discouraged. This message does not reliability preserve all
+/// information necessary to model the schema and preserve semantics. Instead
+/// make use of FileDescriptorSet which preserves the necessary information.
 struct Google_Protobuf_Method: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -147,9 +157,19 @@ struct Google_Protobuf_Method: Sendable {
   var options: [Google_Protobuf_Option] = []
 
   /// The source syntax of this method.
+  ///
+  /// This field should be ignored, instead the syntax should be inherited from
+  /// Api. This is similar to Field and EnumValue.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var syntax: Google_Protobuf_Syntax = .proto2
 
   /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
+  ///
+  /// This field should be ignored, instead the edition should be inherited from
+  /// Api. This is similar to Field and EnumValue.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var edition: String = String()
 
   var unknownFields = UnknownStorage()
