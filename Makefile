@@ -50,7 +50,9 @@ GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 # To ensure that the local version of the plugin is always used (and not a
 # previously installed one), we use a custom output name (-tfiws_out).
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
-GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
+# Need to provide paths to find the language specific editions features files
+# also. If we used a released protoc distro, they would be bundled like the WKTs.
+GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I Protos/upstream/go -I Protos/upstream/java/core/src/main/resources
 # Search 'Protos/Sources/SwiftProtobuf/' so the WKTs can be found (google/protobuf/*).
 GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos/Sources/SwiftProtobuf
 
@@ -551,17 +553,26 @@ check-for-protobuf-checkout:
 #
 # Helper to update the .proto files copied from the protocolbuffers/protobuf distro.
 #
+# (We also have to pick up some the the [LANG]_features.proto files for language
+# specific Editions, if when generating we used a release protoc, then they would
+# be copied like the WKTs to live "next too" the compiler and we wouldn't need to
+# provide them on input paths.)
+#
 update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/upstream
 	@mkdir -p \
 	  Protos/upstream/conformance/test_protos \
 	  Protos/upstream/google/protobuf/compiler \
-	  Protos/upstream/editions/golden
+	  Protos/upstream/editions/golden \
+	  Protos/upstream/go/google/protobuf \
+	  Protos/upstream/java/core/src/main/resources/google/protobuf
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/upstream/conformance/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/test_protos/*.proto Protos/upstream/conformance/test_protos/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/upstream/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/upstream/google/protobuf/compiler/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/editions/golden/test_messages_proto?_editions.proto Protos/upstream/editions/golden/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/go/google/protobuf/*_features.proto Protos/upstream/go/google/protobuf/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/java/core/src/main/resources/google/protobuf/*_features.proto Protos/upstream/java/core/src/main/resources/google/protobuf/
 	# Now copy into the Proto directories for the local targets.
 	@rm -rf Protos/Sources/Conformance/conformance/test_protos && mkdir -p Protos/Sources/Conformance/conformance/test_protos
 	@cp -v Protos/upstream/conformance/*.proto Protos/Sources/Conformance/conformance
