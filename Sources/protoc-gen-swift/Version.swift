@@ -15,16 +15,14 @@
 import SwiftProtobuf
 
 struct Version {
-    // The "compatibility version" of the runtime library, which must be
-    // incremented every time a breaking change (either behavioral or
-    // API-changing) is introduced.
+    // The "compatibility version" of the runtime library, which must be incremented
+    // every time a breaking change (either behavioral or API-changing) is introduced
+    // and the current runtime can no longer support older generated code.
     //
-    // We guarantee that generated protos that contain this version token will
-    // be compatible with the runtime library containing the matching token.
-    // Therefore, this number (and the corresponding one in the runtime
-    // library) should not be updated for *every* version of Swift Protobuf,
-    // but only for those that introduce breaking changes (either behavioral
-    // or API-changing).
+    // This matches the value in the runtime library itself, this is what is recorded
+    // into the generated code. This library ensures that  generated code from a given
+    // version will work with the current and future versions (that share this
+    // `compatibilityVersion` value), but may not work with older versions.
     static let compatibilityVersion = 2
 
     static let copyright = "Copyright (C) 2014-2017 Apple Inc. and the project authors"
