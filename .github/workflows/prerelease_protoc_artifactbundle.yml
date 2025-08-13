@@ -1,0 +1,16 @@
+name: Upload protoc artifactbundle
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload-artifactbundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+      - name: Upload artifactbundle
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: cd ${{ github.workspace }} && .github/scripts/upload_artifactbundle.sh
+  

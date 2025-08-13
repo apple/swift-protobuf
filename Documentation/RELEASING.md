@@ -48,7 +48,47 @@ When doing a release:
    everything based on the PR descriptions and _semver_ tags in the repo. Just read
    though was was generate to see if any tweaks are needed.
 
-   When everything is good, click on _Publish release_.
+   **Important:** Save this as a **draft** release first (do not publish yet).
+
+1. Generate protoc artifact bundle if needed
+
+   First, check if there have been any new protoc releases since the last
+   time we bundled protoc. To do this check the binary target protoc version number
+   in the Package.swift. If there has been a new release of protoc then once you
+   have created the draft release, trigger the "Upload protoc artifactbundle" 
+   workflow from the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/prerelease_protoc_artifactbundle.yml).
+   
+   This workflow will:
+   - Fetch the latest stable protoc release from protocolbuffers/protobuf
+   - Create a Swift Package Manager compatible artifact bundle
+   - Upload it to your draft release
+   
+   Wait for the workflow to complete successfully before proceeding.
+
+1. Update Package.swift with new artifact bundle
+
+   If there was a new protoc release and you uploaded a new artifact bundle in
+   the previous step. Create a pull request that updates the `Package.swift` file
+   to reference the new artifact bundle. You'll need to update two things:
+   
+   - **URL**: Change to point to your new release tag
+   - **Checksum**: Download the artifact bundle and calculate its SHA256 hash
+   
+   Example update:
+   ```swift
+   .binaryTarget(
+       name: "protoc",
+       url: "https://github.com/apple/swift-protobuf/releases/download/[a.b.c]/protoc-X.Y.artifactbundle.zip",
+       checksum: "new-sha256-checksum-here"
+   ),
+   ```
+   
+   To get the checksum copy it from the Github UI when looking at the draft release.bundle.zip
+
+1. Publish the release
+
+   After the Package.swift PR is merged, return to your draft release and click 
+   _Publish release_.
 
 1. Publish the `SwiftProtobuf.podspec`
 
