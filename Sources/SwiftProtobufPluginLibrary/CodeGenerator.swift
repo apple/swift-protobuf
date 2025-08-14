@@ -216,38 +216,8 @@ public func generateCode(
     request: Google_Protobuf_Compiler_CodeGeneratorRequest,
     generator: any CodeGenerator
 ) -> Google_Protobuf_Compiler_CodeGeneratorResponse {
-    // TODO: This will need update to language specific features.
-
-    let descriptorSet = DescriptorSet(protos: request.protoFile)
-
-    var files = [FileDescriptor]()
-    for name in request.fileToGenerate {
-        guard let fileDescriptor = descriptorSet.fileDescriptor(named: name) else {
-            return Google_Protobuf_Compiler_CodeGeneratorResponse(
-                error:
-                    "protoc asked plugin to generate a file but did not provide a descriptor for the file: \(name)"
-            )
-        }
-        files.append(fileDescriptor)
-    }
-
-    let context = InternalProtoCompilerContext(request: request)
-    let outputs = InternalGeneratorOutputs()
-    let parameter = InternalCodeGeneratorParameter(request.parameter)
-
-    do {
-        try generator.generate(
-            files: files,
-            parameter: parameter,
-            protoCompilerContext: context,
-            generatorOutputs: outputs
-        )
-    } catch let e {
-        return Google_Protobuf_Compiler_CodeGeneratorResponse(error: String(describing: e))
-    }
 
     var response = Google_Protobuf_Compiler_CodeGeneratorResponse()
-    response.file = outputs.files
 
     // TODO: Could supportedFeatures be completely handled within library?
     // - The only "hard" part around hiding the proto3 optional support is making
@@ -275,6 +245,37 @@ public func generateCode(
         )
         response.minimumEdition = Int32(supportedEditions.lowerBound.rawValue)
         response.maximumEdition = Int32(supportedEditions.upperBound.rawValue)
+    }
+
+    // TODO: This will need update to language specific features.
+
+    let descriptorSet = DescriptorSet(protos: request.protoFile)
+
+    var files = [FileDescriptor]()
+    for name in request.fileToGenerate {
+        guard let fileDescriptor = descriptorSet.fileDescriptor(named: name) else {
+            response.error =
+                "protoc asked plugin to generate a file but did not provide a descriptor for the file: \(name)"
+            return response
+        }
+        files.append(fileDescriptor)
+    }
+
+    let context = InternalProtoCompilerContext(request: request)
+    let outputs = InternalGeneratorOutputs()
+    let parameter = InternalCodeGeneratorParameter(request.parameter)
+
+    do {
+        try generator.generate(
+            files: files,
+            parameter: parameter,
+            protoCompilerContext: context,
+            generatorOutputs: outputs
+        )
+        response.file = outputs.files
+    } catch let e {
+        // Use the description from whatever the Generator threw as the error message.
+        response.error = String(describing: e)
     }
 
     return response
