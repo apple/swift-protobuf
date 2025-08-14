@@ -135,19 +135,19 @@ extension CodeGenerator {
             extensionMap.insert(contentsOf: customOptionExtensions)
         }
 
-        let response: Google_Protobuf_Compiler_CodeGeneratorResponse
+        let request: Google_Protobuf_Compiler_CodeGeneratorRequest
         do {
-            let request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
+            request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
                 serializedBytes: FileHandle.standardInput.readDataToEndOfFile(),
                 extensions: extensionMap
             )
-            response = generateCode(request: request, generator: self)
         } catch let e {
-            response = Google_Protobuf_Compiler_CodeGeneratorResponse(
-                error: "Received an unparsable request from the compiler: \(e)"
-            )
+            var stderr = StandardErrorOutputStream()
+            print("\(programName): Received an unparsable request from the compiler: \(e)", to: &stderr)
+            return
         }
 
+        let response = generateCode(request: request, generator: self)
         let serializedResponse: Data
         do {
             serializedResponse = try response.serializedBytes()
