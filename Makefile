@@ -209,7 +209,12 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 
 # Test the SPM plugin.
 test-spm-plugin:
-	env PROTOC_PATH=$(shell realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples
+	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
+	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
+		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples; \
+	else \
+		${SWIFT} test --package-path PluginExamples; \
+	fi
 
 compile-tests: \
 	compile-tests-multimodule \

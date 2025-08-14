@@ -18,10 +18,6 @@ let package = Package(
             name: "protoc-gen-swift",
             targets: ["protoc-gen-swift"]
         ),
-        .executable(
-            name: "protoc",
-            targets: ["protoc"]
-        ),
         .library(
             name: "SwiftProtobuf",
             targets: ["SwiftProtobuf"]
@@ -54,12 +50,6 @@ let package = Package(
             dependencies: ["SwiftProtobuf"],
             swiftSettings: .packageSettings
         ),
-        .binaryTarget(
-            name: "protoc",
-            url:
-                "https://github.com/apple/swift-protobuf/releases/download/protoc-artifactbundle-v31.1/protoc-31.1.artifactbundle.zip",
-            checksum: "f18bf2cfbbebd83133a4c29733b01871e3afdc73c102d62949a841d4f9bab86f"
-        ),
         .executableTarget(
             name: "protoc-gen-swift",
             dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"],
@@ -75,7 +65,7 @@ let package = Package(
         .plugin(
             name: "SwiftProtobufPlugin",
             capability: .buildTool(),
-            dependencies: ["protoc-gen-swift", "protoc"]
+            dependencies: ["protoc-gen-swift"]
         ),
         .testTarget(
             name: "SwiftProtobufTests",
