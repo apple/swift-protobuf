@@ -118,7 +118,7 @@ create_response=$(curl -sH "$AUTH" -X POST "$GITHUB_API_URL/repos/$GITHUB_REPOSI
     \"body\": \"Protoc artifactbundle for version $TAG\",
     \"draft\": true,
     \"prerelease\": false,
-    \"make_latest\": false
+    \"make_latest\": \"false\"
   }")
 
 upload_url=$(echo "$create_response" | jq -r '.upload_url')
