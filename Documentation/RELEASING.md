@@ -2,7 +2,14 @@
 
 ---
 
-When doing a release:
+This document covers two types of releases:
+
+1. **Swift Protobuf Library Releases** - New versions of the Swift protobuf library itself
+2. **Protoc Artifactbundle Releases** - Updates to the bundled protoc compiler when new protoc versions are available
+
+## Swift Protobuf Library Releases
+
+When doing a Swift Protobuf library release:
 
 1. Examine what has changed
 
@@ -48,48 +55,6 @@ When doing a release:
    everything based on the PR descriptions and _semver_ tags in the repo. Just read
    though was was generate to see if any tweaks are needed.
 
-   **Important:** Save this as a **draft** release first (do not publish yet).
-
-1. Generate protoc artifact bundle if needed
-
-   First, check if there have been any new protoc releases since the last
-   time we bundled protoc. To do this check the binary target protoc version number
-   in the Package.swift. If there has been a new release of protoc then once you
-   have created the draft release, trigger the "Upload protoc artifactbundle" 
-   workflow from the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/prerelease_protoc_artifactbundle.yml).
-   
-   This workflow will:
-   - Fetch the latest stable protoc release from protocolbuffers/protobuf
-   - Create a Swift Package Manager compatible artifact bundle
-   - Upload it to your draft release
-   
-   Wait for the workflow to complete successfully before proceeding.
-
-1. Update Package.swift with new artifact bundle
-
-   If there was a new protoc release and you uploaded a new artifact bundle in
-   the previous step. Create a pull request that updates the `Package.swift` file
-   to reference the new artifact bundle. You'll need to update two things:
-   
-   - **URL**: Change to point to your new release tag
-   - **Checksum**: Download the artifact bundle and calculate its SHA256 hash
-   
-   Example update:
-   ```swift
-   .binaryTarget(
-       name: "protoc",
-       url: "https://github.com/apple/swift-protobuf/releases/download/[a.b.c]/protoc-X.Y.artifactbundle.zip",
-       checksum: "new-sha256-checksum-here"
-   ),
-   ```
-   
-   To get the checksum copy it from the Github UI when looking at the draft release.bundle.zip
-
-1. Publish the release
-
-   After the Package.swift PR is merged, return to your draft release and click 
-   _Publish release_.
-
 1. Publish the `SwiftProtobuf.podspec`
 
       _Note:_ You must be an _owner_ of the pod to do this, see `pod trunk info SwiftProtobuf`
@@ -101,3 +66,40 @@ When doing a release:
 
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
       against the sources on github.
+
+## Protoc Artifactbundle Releases
+
+Protoc artifactbundle releases are independent of Swift Protobuf library releases and follow 
+a `protoc-vX.Y` naming convention that matches the upstream protoc version.
+
+### Creating a protoc release
+
+1. **Trigger the workflow**
+
+   Go to the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/draft_release_protoc_artifactbundle.yml)
+   and manually run the "Draft release protoc artifactbundle" workflow.
+
+2. **What the workflow does automatically**
+
+   The workflow will:
+   - Check the latest protoc version from protocolbuffers/protobuf
+   - Check if we already have a matching `protoc-vX.Y` release
+   - If versions differ or no release exists:
+     - Download protoc binaries for all supported platforms
+     - Create a Swift Package Manager compatible artifact bundle
+     - Create a new draft release tagged `protoc-vX.Y`
+     - Upload the artifactbundle to the draft release
+   - If versions match, exit early (no action needed)
+
+3. **Publish the release**
+
+   After the workflow completes successfully:
+   - Go to the [releases page](https://github.com/apple/swift-protobuf/releases)
+   - Find the draft `protoc-vX.Y` release
+   - Review the release notes and artifactbundle
+   - Click "Publish release"
+
+4. **Use in Swift Protobuf**
+
+   The protoc release is now available with a stable URL that can be referenced
+   in `Package.swift`. Create a separate PR to update the reference in the `Package.swift`
