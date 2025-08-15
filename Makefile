@@ -361,8 +361,6 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTest
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
 	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
-	    -I Protos/Sources/SwiftProtobuf \
-		-I Protos/Sources/SwiftProtobufPluginLibrary \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
