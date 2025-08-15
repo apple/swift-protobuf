@@ -14,6 +14,7 @@
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse {
     /// Helper to make a response with an error.
+    @available(*, deprecated, message: "Please move your plugin to the CodeGenerator interface")
     public init(error: String) {
         self.init()
         self.error = error
