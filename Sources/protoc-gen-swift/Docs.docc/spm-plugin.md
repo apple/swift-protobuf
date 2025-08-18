@@ -105,20 +105,16 @@ is generating Swift types for the `Bar.proto` file with the `public` visibility.
 invocation is using the `pathToUnderscores` file naming option. This option can be used to solve
 problems where a single target contains two or more proto files with the same name.
 
-### Defining the path to the protoc binary
+### Overriding the path to the protoc binary
 
-The plugin needs to be able to invoke the `protoc` binary to generate the Swift types. There are several ways to achieve this.
+The plugin needs to be able to invoke the `protoc` binary to generate the Swift types.
+By default the plugin will use the latest `protoc` binary distributed as an
+artifact bundle from the [swift-protobuf releases](https://github.com/apple/swift-protobuf/releases).
 
-First, by default, the package manager looks into the `$PATH` to find binaries named `protoc`.
-This works immediately if you use `swift build` to build your package and `protoc` is installed
-in the `$PATH` (`brew` is adding it to your `$PATH` automatically).
-However, this doesn't work if you want to compile from Xcode since Xcode is not passed the `$PATH`.
+There are several ways for you to override the path to the `protoc` binary.
 
-If compiling from Xcode, you have **three options** to set the path of `protoc` that the plugin is going to use:
-
-* You can start Xcode by running `$ xed .` from the command line from the directory your project is located - this should make `$PATH` visible to Xcode.
-
-* Set an environment variable `PROTOC_PATH` that gets picked up by the plugin. Here are two examples of how you can achieve this:
+* Set an environment variable `PROTOC_PATH` that gets picked up by the plugin.
+Here are two examples of how you can achieve this:
 
 ```shell
 # swift build
@@ -131,7 +127,9 @@ env PROTOC_PATH=/opt/homebrew/bin/protoc xed .
 env PROTOC_PATH=/opt/homebrew/bin/protoc xcodebuild <Here goes your command>
 ```
 
-* Point the plugin to the concrete location of the `protoc` compiler is by changing the configuration file like this:
+* Point the plugin to the concrete location of the `protoc` compiler is by changing
+the configuration file. This is only advisable for applications and not libaries
+since it forces the user of the library to install `protoc` into the expected location.
 
 ```json
 {
@@ -147,8 +145,3 @@ env PROTOC_PATH=/opt/homebrew/bin/protoc xcodebuild <Here goes your command>
   `exclude` argument for the target). The build system does not have access to
   the file if it is excluded, however, `swift build` will result in a warning
   that the file should be excluded.
-- The plugin should only be used for leaf packages. The configuration file option
-  only solves the problem for leaf packages that are using the Swift package
-  manager plugin since there you can point the package manager to the right
-  binary. The environment variable does solve the problem for transitive
-  packages as well; however, it requires your users to set the variable now.

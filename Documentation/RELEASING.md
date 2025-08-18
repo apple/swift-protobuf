@@ -54,6 +54,8 @@ When doing a Swift Protobuf library release:
    For the description click the _Generate release notes_ button. That should do
    everything based on the PR descriptions and _semver_ tags in the repo. Just read
    though was was generate to see if any tweaks are needed.
+   
+   *Important* Ensure that the `Set as the latest release` is checked.
 
 1. Publish the `SwiftProtobuf.podspec`
 
