@@ -16,6 +16,11 @@ Pod::Spec.new do |s|
 
   s.cocoapods_version = '>= 1.13.0'
 
+  # Support `package` visibility.
+  s.pod_target_xcconfig = {
+    'OTHER_SWIFT_FLAGS' => '-package-name SwiftProtobuf'
+  }
+
   s.source_files = 'Sources/SwiftProtobuf/**/*.swift'
   s.resource_bundle = {'SwiftProtobuf' => ['Sources/SwiftProtobuf/PrivacyInfo.xcprivacy']}
 
