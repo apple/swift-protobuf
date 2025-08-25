@@ -60,7 +60,7 @@ public struct SwiftProtobufError: Error, @unchecked Sendable {
     }
 
     /// A message describing what went wrong and how it may be remedied.
-    package var message: String {
+    internal var message: String {
         get { self.storage.message }
         set {
             self.ensureStorageIsUnique()

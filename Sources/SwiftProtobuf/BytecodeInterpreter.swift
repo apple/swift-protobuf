@@ -25,13 +25,13 @@
 ///   string content, which is standard UTF-8. There is no null termination.
 /// - The stream always begins with an integer that indicates the "program format" for the stream.
 ///   Currently, the only valid value is zero.
-package struct BytecodeInterpreter<Instruction: RawRepresentable>
+internal struct BytecodeInterpreter<Instruction: RawRepresentable>
 where Instruction.RawValue == UInt64 {
     /// The bytecode program being executed.
     private let program: StaticString
 
     /// Creates a new bytecode interpreter that will execute the given program.
-    package init(program: StaticString) {
+    internal init(program: StaticString) {
         self.program = program
     }
 
@@ -43,7 +43,7 @@ where Instruction.RawValue == UInt64 {
     ///   is read from the bytecode stream. The function takes two arguments: the `Instruction` that
     ///   was read, and an `inout BytecodeReader` that the function should use to read operands and
     ///   advance the stream.
-    package func execute(handleInstruction: (Instruction, inout BytecodeReader<Instruction>) -> Void) {
+    internal func execute(handleInstruction: (Instruction, inout BytecodeReader<Instruction>) -> Void) {
         guard program.hasPointerRepresentation else {
             // The only way this could happen is if the program were a single byte, meaning that it
             // only has a 6-bits-or-fewer format specifier and nothing else. In other words, there

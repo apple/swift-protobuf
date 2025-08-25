@@ -9,18 +9,18 @@
 // -----------------------------------------------------------------------------
 
 /// Reads values encoded in a SwiftProtobuf bytecode stream.
-package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.RawValue == UInt64 {
+internal struct BytecodeReader<Instruction: RawRepresentable> where Instruction.RawValue == UInt64 {
     /// The remaining slice of the program that has not yet been read.
     private var remainingProgram: UnsafeBufferPointer<UInt8>.SubSequence
 
     /// Indicates whether or not there is still data that hasn't yet been read in the bytecode
     /// stream.
-    package var hasData: Bool {
+    internal var hasData: Bool {
         !remainingProgram.isEmpty
     }
 
     /// Creates a new bytecode reader that reads the given bytecode stream.
-    package init(remainingProgram: UnsafeBufferPointer<UInt8>.SubSequence) {
+    internal init(remainingProgram: UnsafeBufferPointer<UInt8>.SubSequence) {
         self.remainingProgram = remainingProgram
 
         // We reserve the first integer of the program text as a "format specifier". This
@@ -43,7 +43,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     ///   opcode must not be zero.
     ///
     /// - Returns: The instruction that was read from the bytecode stream.
-    package mutating func nextInstruction() -> Instruction {
+    internal mutating func nextInstruction() -> Instruction {
         precondition(hasData, "Unexpected end of bytecode stream")
 
         let opcode = nextUInt64()
@@ -64,7 +64,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
     /// - Returns: The signed 32-bit integer that was read from the bytecode stream.
-    package mutating func nextInt32() -> Int32 {
+    internal mutating func nextInt32() -> Int32 {
         // `Int32`s are stored by converting them bit-wise to a `UInt32` and then zero-extended to
         // `UInt64`, since this representation is smaller than sign-extending them to 64 bits.
         let uint64Value = nextUInt64()
@@ -77,7 +77,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
     /// - Returns: The unsigned 64-bit integer that was read from the bytecode stream.
-    package mutating func nextUInt64() -> UInt64 {
+    internal mutating func nextUInt64() -> UInt64 {
         precondition(hasData, "Unexpected end of bytecode stream")
 
         // We store our programs as `StaticString`s, but those are still required to be UTF-8
@@ -116,7 +116,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     ///   stream. This pointer is rebased -- its base address is the start of the string that was
     ///   just read, not the start of the entire stream -- but its lifetime is still tied to that of
     ///   the original bytecode stream (which is immortal if it originated from a static string).
-    package mutating func nextNullTerminatedString() -> UnsafeBufferPointer<UInt8> {
+    internal mutating func nextNullTerminatedString() -> UnsafeBufferPointer<UInt8> {
         precondition(hasData, "Unexpected end of bytecode stream")
 
         guard let nullIndex = remainingProgram.firstIndex(of: 0) else {
@@ -134,7 +134,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     /// - Returns: An array of `UnsafeBufferPointer`s containing the strings that were read from the
     ///   bytecode stream. See the documentation of `nextString()` for details on the lifetimes of
     ///   these pointers.
-    package mutating func nextNullTerminatedStringArray() -> [UnsafeBufferPointer<UInt8>] {
+    internal mutating func nextNullTerminatedStringArray() -> [UnsafeBufferPointer<UInt8>] {
         precondition(hasData, "Unexpected end of bytecode stream")
 
         let count = Int(nextUInt64())
@@ -154,4 +154,4 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
 /// version; there is no reason to generate an older version than the latest that the runtime
 /// supports. Readers, on the other hand, must support the latest and all previous formats (unless
 /// making breaking changes).
-package let latestBytecodeProgramFormat: UInt64 = 0
+internal let latestBytecodeProgramFormat: UInt64 = 0

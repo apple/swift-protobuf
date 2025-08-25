@@ -90,7 +90,7 @@ private class InternPool {
 /// number, and a second form that takes an arbitrary delta from the previous number.
 ///
 /// This has package visibility so that it is also visible to the generator.
-package enum ProtoNameInstruction: UInt64, CaseIterable {
+internal enum ProtoNameInstruction: UInt64, CaseIterable {
     /// The proto (text format) name and the JSON name are the same string.
     ///
     /// ## Operands
@@ -181,7 +181,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// block of UTF-8 data) where possible.  In cases where the string
     /// has to be computed, it caches the UTF-8 bytes in an
     /// unmovable and immutable heap area.
-    package struct Name: Hashable, CustomStringConvertible {
+    internal struct Name: Hashable, CustomStringConvertible {
         #if !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
         // This should not be used outside of this file, as it requires
         // coordinating the lifecycle with the lifecycle of the pool

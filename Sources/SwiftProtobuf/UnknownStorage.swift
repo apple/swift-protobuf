@@ -29,7 +29,7 @@ public struct UnknownStorage: Equatable, Sendable {
 
     public init() {}
 
-    package mutating func append(protobufData: Data) {
+    internal mutating func append(protobufData: Data) {
         data.append(protobufData)
     }
 
