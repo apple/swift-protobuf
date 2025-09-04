@@ -46,6 +46,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         path: swift-protobuf
+        submodules: true
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
@@ -128,6 +129,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        submodules: true
     - name: Mark the workspace as safe
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
@@ -146,6 +148,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Mark the workspace as safe
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
@@ -167,11 +171,17 @@ jobs:
       matrix:
         sanitizer: ["address", "thread"]
         swiftpm_config: ["debug", "release"]
+        exclude: # Excluded due to a clang crasher that is fixed in a more recent clang https://github.com/llvm/llvm-project/issues/95928
+         - sanitizer: "address"
+           swiftpm_config: "debug"
     container:
       # Test on the latest Swift release.
       image: swift:latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
+      
     - name: Test
       run: |
         set -eu
@@ -201,5 +211,7 @@ jobs:
       image: swift:latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Build
       run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions
