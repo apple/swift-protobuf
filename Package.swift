@@ -11,6 +11,15 @@
 
 import PackageDescription
 
+// Including protoc as a binary artifact can cause build issues in some environments. As a
+// temporary measure offer an opt-out by setting PROTOBUF_NO_PROTOC=true.
+let includeProtoc: Bool
+if let noProtoc = Context.environment["PROTOBUF_NO_PROTOC"] {
+    includeProtoc = !(noProtoc.lowercased() == "true" || noProtoc == "1")
+} else {
+    includeProtoc = true
+}
+
 let package = Package(
     name: "SwiftProtobuf",
     products: [
@@ -85,15 +94,6 @@ let package = Package(
     ],
     swiftLanguageVersions: [.v5]
 )
-
-// Including protoc as a binary artifact can cause build issues in some environments. As a
-// temporary measure offer an opt-out by setting PROTOBUF_NO_PROTOC=true.
-let includeProtoc: Bool
-if let noProtoc = Context.environment["PROTOBUF_NO_PROTOC"] {
-    includeProtoc = !(noProtoc.lowercased() == "true" || noProtoc == "1")
-} else {
-    includeProtoc = true
-}
 
 if includeProtoc {
     package.products.append(
