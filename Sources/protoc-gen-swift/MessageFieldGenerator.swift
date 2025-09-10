@@ -22,6 +22,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let namer: SwiftProtobufNamer
 
     private let hasFieldPresence: Bool
+    private let hasFieldPresenceWithoutSwiftOptional: Bool
+    private let hasFieldPresenceWithSwiftOptional: Bool
     private let swiftName: String
     private let underscoreSwiftName: String
     private let storedProperty: String
@@ -60,6 +62,18 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         self.namer = namer
 
         hasFieldPresence = descriptor.hasPresence
+        // When a user enables the proto3 optional feature, we check if the field has the optional keyword.
+        // If it does, we treat it as an optional field in Swift, which means it will be represented as a Swift Optional.
+        // We use the deprecated `hasOptionalKeyword` property, since it is the only way to check wether the `optional` keyword was explicitly used in the proto3 syntax.
+        // If the field does not have the optional keyword, we treat it as a regular field.
+        let proto3OptionalAsSwiftOptional =
+            generatorOptions.proto3OptionalAsSwiftOptional
+            && descriptor.file.edition == .proto3
+            && descriptor.hasOptionalKeyword
+        hasFieldPresenceWithoutSwiftOptional =
+            hasFieldPresence && !proto3OptionalAsSwiftOptional
+        hasFieldPresenceWithSwiftOptional =
+            hasFieldPresence && proto3OptionalAsSwiftOptional
         let names = namer.messagePropertyNames(
             field: descriptor,
             prefixed: "_",
@@ -78,7 +92,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         if usesHeapStorage {
             storedProperty = "_storage.\(underscoreSwiftName)"
         } else {
-            storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
+            storedProperty =
+                "self.\(hasFieldPresenceWithoutSwiftOptional ? underscoreSwiftName : swiftName)"
         }
 
         super.init(descriptor: descriptor)
@@ -89,8 +104,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         if usesHeapStorage {
             p.print("var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)")
         } else {
-            // If this field has field presence, the there is a private storage variable.
-            if hasFieldPresence {
+            // If the field has presence when no Swift optional is used, the there is a private storage variable.
+            if hasFieldPresenceWithoutSwiftOptional {
                 p.print("fileprivate var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)")
             }
         }
@@ -101,21 +116,27 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         p.print()
         if usesHeapStorage {
-            p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
-            let defaultClause = hasFieldPresence ? " ?? \(swiftDefaultValue)" : ""
+            if hasFieldPresenceWithSwiftOptional {
+                p.print("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) {")
+            } else {
+                p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
+            }
+            let defaultClause = hasFieldPresenceWithoutSwiftOptional ? " ?? \(swiftDefaultValue)" : ""
             p.printIndented(
                 "get {return _storage.\(underscoreSwiftName)\(defaultClause)}",
                 "set {_uniqueStorage().\(underscoreSwiftName) = newValue}"
             )
             p.print("}")
         } else {
-            if hasFieldPresence {
+            if hasFieldPresenceWithoutSwiftOptional {
                 p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
                 p.printIndented(
                     "get {return \(underscoreSwiftName) ?? \(swiftDefaultValue)}",
                     "set {\(underscoreSwiftName) = newValue}"
                 )
                 p.print("}")
+            } else if hasFieldPresenceWithSwiftOptional {
+                p.print("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) = nil")
             } else {
                 p.print("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)")
             }
@@ -123,16 +144,17 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         guard hasFieldPresence else { return }
 
+        let name = hasFieldPresenceWithSwiftOptional && !usesHeapStorage ? swiftName : underscoreSwiftName
         let immutableStoragePrefix = usesHeapStorage ? "_storage." : "self."
         p.print(
             "/// Returns true if `\(swiftName)` has been explicitly set.",
-            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(underscoreSwiftName) != nil}"
+            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(name) != nil}"
         )
 
         let mutableStoragePrefix = usesHeapStorage ? "_uniqueStorage()." : "self."
         p.print(
             "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.",
-            "\(visibility)mutating func \(swiftClearName)() {\(mutableStoragePrefix)\(underscoreSwiftName) = nil}"
+            "\(visibility)mutating func \(swiftClearName)() {\(mutableStoragePrefix)\(name) = nil}"
         )
     }
 
@@ -147,8 +169,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             lhsProperty = "_storage.\(underscoreSwiftName)"
             otherStoredProperty = "rhs_storage.\(underscoreSwiftName)"
         } else {
-            lhsProperty = "lhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
-            otherStoredProperty = "rhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
+            lhsProperty = "lhs.\(hasFieldPresenceWithoutSwiftOptional ? underscoreSwiftName : swiftName)"
+            otherStoredProperty = "rhs.\(hasFieldPresenceWithoutSwiftOptional ? underscoreSwiftName : swiftName)"
         }
 
         p.print("if \(lhsProperty) != \(otherStoredProperty) {return false}")
