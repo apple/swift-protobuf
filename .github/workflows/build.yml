@@ -23,6 +23,8 @@ jobs:
         # could use different Ubuntu releases. At the moment they are all the "noble",
         # which is also what would be desired, so we don't bother listing explicit ones.
         swift:
+        - version: "6.2"
+          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         - version: "6.1"
           hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         - version: "6.0"
