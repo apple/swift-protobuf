@@ -96,13 +96,6 @@ let package = Package(
 )
 
 if includeProtoc {
-    package.products.append(
-        .executable(
-            name: "protoc",
-            targets: ["protoc"]
-        )
-    )
-
     package.targets.append(
         .binaryTarget(
             name: "protoc",
