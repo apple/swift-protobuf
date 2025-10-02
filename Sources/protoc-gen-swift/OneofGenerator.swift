@@ -30,6 +30,8 @@ class OneofGenerator {
         let protoGenericType: String
         let comments: String
 
+        var presence: Int = 0
+
         var isGroupOrMessage: Bool {
             switch fieldDescriptor.type {
             case .group, .message:
@@ -41,6 +43,11 @@ class OneofGenerator {
 
         // Only valid on message fields.
         var messageType: Descriptor? { fieldDescriptor.messageType }
+
+        var submessageTypeName: String? {
+            // TODO: Implement this.
+            return nil
+        }
 
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
             precondition(descriptor.oneofIndex != nil)

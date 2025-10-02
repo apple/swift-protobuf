@@ -32,6 +32,7 @@ class MessageGenerator {
     private let enums: [EnumGenerator]
     private let messages: [MessageGenerator]
     private let isExtensible: Bool
+    private let messageLayoutCalculator: MessageLayoutCalculator
 
     init(
         descriptor: Descriptor,
@@ -94,6 +95,8 @@ class MessageGenerator {
         } else {
             storage = nil
         }
+
+        self.messageLayoutCalculator = MessageLayoutCalculator(fieldsSortedByNumber: fieldsSortedByNumber)
     }
 
     func generateMainStruct(
@@ -223,6 +226,7 @@ class MessageGenerator {
                 p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
             }
             generateProtoNameProviding(printer: &p)
+            generateMessageLayout(printer: &p)
             if let storage = storage {
                 p.print()
                 storage.generateTypeDeclaration(printer: &p)
@@ -247,6 +251,36 @@ class MessageGenerator {
         for m in messages {
             m.generateRuntimeSupport(printer: &p, file: file, parent: self)
         }
+    }
+
+    private func generateMessageLayout(printer p: inout CodePrinter) {
+        messageLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &p) { value, _, p in
+            p.print(
+                #"\#(visibility)static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout("\#(value)")"#
+            )
+        }
+        p.print(
+            "",
+            "\(visibility)static func _protobuf_submessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken) -> any SwiftProtobuf.Message.Type {"
+        )
+        p.withIndentation { p in
+            let submessageIndicesAndNames = messageLayoutCalculator.submessageIndicesAndNames
+            if submessageIndicesAndNames.isEmpty {
+                p.print("preconditionFailure(\"invalid submessage token; this is a generator bug\")")
+            } else {
+                p.print("switch token.index {")
+                for (index, type) in submessageIndicesAndNames {
+                    p.print("case \(index): return \(type).self")
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "}"
+                )
+            }
+        }
+        p.print(
+            "}"
+        )
     }
 
     private func generateProtoNameProviding(printer p: inout CodePrinter) {

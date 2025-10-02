@@ -33,6 +33,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let traitsType: String
     private let comments: String
 
+    var presence: Int = 0
+
     private var isMap: Bool { fieldDescriptor.isMap }
     private var isPacked: Bool { fieldDescriptor.isPacked }
 
@@ -45,6 +47,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         default:
             return false
         }
+    }
+
+    var submessageTypeName: String? {
+        // TODO: Implement this.
+        return nil
     }
 
     init(
