@@ -44,7 +44,7 @@ struct TargetSpecificValues<Element> {
 }
 
 /// Represents the supported target platforms for `TargetSpecificValues`.
-enum TargetSpecificValueChoice: CaseIterable {
+enum TargetSpecificValueChoice: String, CaseIterable {
     /// The value for platforms that use 64-bit pointers.
     case pointerWidth64
 
@@ -136,9 +136,9 @@ extension TargetSpecificValues<Int> {
     /// byte widths.
     mutating func align(to size: Self) {
         modify {
-            let misalignmentFor64 = $0 % size[$1]
-            if misalignmentFor64 != 0 {
-                $0 += size[$1] - misalignmentFor64
+            let misalignment = $0 % size[$1]
+            if misalignment != 0 {
+                $0 += size[$1] - misalignment
             }
         }
     }

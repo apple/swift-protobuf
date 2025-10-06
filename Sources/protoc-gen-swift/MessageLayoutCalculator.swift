@@ -60,22 +60,44 @@ struct MessageLayoutCalculator {
 
         let requiredFieldsFirst = fieldsSortedByNumber.sorted { $0.isRequired && !$1.isRequired }
         var requiredCount = 0
+        var hasBitIndex: UInt16 = 0
+        var deferredOneofMembers = [any FieldGenerator]()
         for field in requiredFieldsFirst {
-            field.presence = fieldCount
+            // TODO: Compute the presence information for each oneof by reserving a 32-bit integer
+            // for each oneof in the in-memory storage, after the has-bits.
+            if field.oneofIndex != nil {
+                deferredOneofMembers.append(field)
+            } else {
+                // The presence is just the has-bit index.
+                field.presence = .hasBit(hasBitIndex)
+                hasBitIndex += 1
+            }
             if field.isRequired {
                 requiredCount += 1
             }
         }
 
-        var byteOffsets = TargetSpecificValues<Int>(forAllTargets: fieldCount / 8)
-        if fieldCount % 8 != 0 {
-            byteOffsets.add(.init(forAllTargets: 1))
-        }
-        // TODO: Compute the presence information for each oneof by reserving a 32-bit integer for
-        // each oneof in the in-memory storage, after the has-bits.
+        // Compute the byte offset following the has-bits.
+        var byteOffset = fieldCount / 8 + (fieldCount % 8 != 0 ? 1 : 0)
 
-        // Compute the byte offset of each field in storage. We will start at the offset that is
-        // a byte past the last has-bit.
+        // If any oneofs are present in the message, allocate a `UInt32` for each one that will be
+        // used to record the field number of the currently set member field. These are placed
+        // immediately after the has-bits (modulo alignment).
+        if !deferredOneofMembers.isEmpty {
+            let misalignment = byteOffset % MemoryLayout<UInt32>.alignment
+            if misalignment != 0 {
+                byteOffset += MemoryLayout<UInt32>.alignment - misalignment
+            }
+            for field in deferredOneofMembers {
+                field.presence = .oneofMember(UInt16(byteOffset + field.oneofIndex! * MemoryLayout<UInt32>.stride))
+            }
+            byteOffset += deferredOneofMembers.count * MemoryLayout<UInt32>.stride
+        }
+
+        // Compute the byte offset of each field in storage. From this point on, we need to use
+        // target-specific values because fields might have different sizes on different
+        // architectures.
+        var byteOffsets = TargetSpecificValues<Int>(forAllTargets: byteOffset)
         let fieldsSortedByStorage = fieldsSortedByNumber.sorted { $0.storageKind < $1.storageKind }
         for field in fieldsSortedByStorage {
             let fieldSizes = field.storageKind.strides
@@ -101,7 +123,7 @@ struct MessageLayoutCalculator {
             for field in fieldsSortedByNumber {
                 writer.writeBase128Int(UInt64(field.number) | (UInt64(field.fieldMode.rawValue) << 28), byteWidth: 5)
                 writer.writeBase128Int(UInt64(field.storageOffsets[which]), byteWidth: 3)
-                writer.writeBase128Int(UInt64(field.presence), byteWidth: 2)
+                writer.writeBase128Int(UInt64(field.presence.rawPresence), byteWidth: 2)
                 writer.writeBase128Int(
                     UInt64(submessages.fieldNumberToSubmessageIndexMap[field.number, default: 0]),
                     byteWidth: 2
