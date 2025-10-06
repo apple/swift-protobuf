@@ -1,0 +1,304 @@
+// Sources/SwiftProtobuf/_MessageStorage.swift - Table-driven message storage
+//
+// Copyright (c) 2014 - 2025 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+///
+/// Manages the in-memory storage of the fields of a message.
+///
+// -----------------------------------------------------------------------------
+
+import Foundation
+
+/// Manages the in-memory storage for a table-driven message.
+///
+/// The in-memory storage of a message is a region of raw memory whose layout is determined by the
+/// `_MessageLayout` that it is initialized with. While fields may be laid out at different offsets
+/// in different messages, all layouts share some common properties:
+///
+/// *   The first subregion contains the has-bits for each field. Within this subregion, the
+///     has-bits for required fields are ordered first.
+/// *   Following the has-bits, there is a subregion for each size-group of fields: Boolean values,
+///     32-bit values, 64-bit values, pointer-sized values, and larger complex Swift values.
+///
+/// Even though has-bits are not strictly required for the implementation of certain fields (e.g.,
+/// repeated fields), we use them anyway because the extra space is negligible and it is more
+/// efficient to test has-bits to determine if a field is set instead of loading and testing
+/// complex values. Furthermore, this allows us to properly track whether a field's memory is
+/// initialized or not (in the Swift sense of initialized memory w.r.t. unsafe pointers), ensuring
+/// that complex values are retained/released appropriately at all times.
+///
+/// This type is public because it needs to be referenced and initialized from generated messages.
+/// Clients should not access it or its members directly.
+public final class _MessageStorage: @unchecked Sendable {
+    // This unchecked `Sendable` conformance is safe because all mutation of the storage is
+    // guarded by `isKnownUniquelyReferenced` and a clone operation if not. It is the
+    // responsibility of generated messages to enforce this.
+
+    /// The layout of this instance of storage.
+    private let layout: _MessageLayout
+
+    /// The memory buffer that contain's the data for the message's fields.
+    @usableFromInline internal let buffer: UnsafeMutableRawBufferPointer
+
+    /// Creates a new message storage instance for a message with the given layout.
+    public init(layout: _MessageLayout) {
+        self.layout = layout
+        self.buffer = UnsafeMutableRawBufferPointer.allocate(
+            byteCount: layout.size,
+            alignment: MemoryLayout<Int>.alignment
+        )
+        self.buffer.withMemoryRebound(to: UInt8.self) { byteBuffer in
+            byteBuffer.initialize(repeating: 0)
+        }
+    }
+
+    deinit {
+        layout.forEachField { field in
+            // TODO: Deinitialize nontrivial fields.
+        }
+        buffer.deallocate()
+    }
+}
+
+// MARK: - Whole-message operations
+
+extension _MessageStorage {
+    /// Creates and returns an independent copy of the values in this storage.
+    ///
+    /// This is used to implement copy-on-write behavior.
+    @inline(never)
+    public func copy() -> _MessageStorage {
+        let copy = _MessageStorage(layout: layout)
+        layout.forEachField { field in
+            // TODO: Copy the field. More specifically, consider memcpy'ing the has-bits and
+            // trivial fields as a single block before this loop, and then only process the
+            // nontrivial fields here.
+        }
+        return copy
+    }
+}
+
+// MARK: - Presence helpers
+
+extension _MessageStorage {
+    /// The byte offset and bitmask of a field's has-bit in in-memory storage.
+    public typealias HasBit = (offset: Int, mask: UInt8)
+
+    /// Returns a value indicating whether the field with the given presence has been explicitly
+    /// set.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func isPresent(hasBit: HasBit) -> Bool {
+        buffer.load(fromByteOffset: hasBit.offset, as: UInt8.self) & hasBit.mask != 0
+    }
+
+    /// Updates the presence of a field, returning the old presence value before it was changed.
+    @_alwaysEmitIntoClient @inline(__always)
+    private func updatePresence(hasBit: HasBit, willBeSet: Bool) -> Bool {
+        let oldValue = buffer.load(fromByteOffset: hasBit.offset, as: UInt8.self) & ~hasBit.mask
+        buffer.storeBytes(of: oldValue | (willBeSet ? hasBit.mask : 0), toByteOffset: hasBit.offset, as: UInt8.self)
+        return oldValue != 0
+    }
+}
+
+// MARK: - Field readers
+
+// The field reader functions have some explicit specializations (both concrete and more-constrained
+// generic) for cases where we want to encode a "default default value". This reduces the amount of
+// code generation that we need to do for the common case (fields without presence, where the
+// default value is the zero/empty value for the field's type).
+
+extension _MessageStorage {
+    /// Returns the `Bool` value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(
+        at offset: Int,
+        default defaultValue: Bool = false,
+        hasBit: HasBit
+    ) -> Bool {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1).pointee
+    }
+
+    /// Returns the integer value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: BinaryInteger & FixedWidthInteger>(
+        at offset: Int,
+        default defaultValue: Value = 0,
+        hasBit: HasBit
+    ) -> Value {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+    }
+
+    /// Returns the floating point value at the given offset in the storage, or the default value
+    /// if the value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: BinaryFloatingPoint>(
+        at offset: Int,
+        default defaultValue: Value = 0,
+        hasBit: HasBit
+    ) -> Value {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+    }
+
+    /// Returns the string value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: String = "", hasBit: HasBit) -> String {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: String.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Data` value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(
+        at offset: Int,
+        default defaultValue: Data = Data(),
+        hasBit: HasBit
+    ) -> Data {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Data.self, capacity: 1).pointee
+    }
+
+    /// Returns the value at the given offset in the storage, or the default value if the value is
+    /// not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<C: RangeReplaceableCollection>(
+        at offset: Int,
+        hasBit: HasBit
+    ) -> C {
+        guard isPresent(hasBit: hasBit) else { return C() }
+        return (buffer.baseAddress! + offset).bindMemory(to: C.self, capacity: 1).pointee
+    }
+
+    /// Returns the value at the given offset in the storage, or the default value if the value is
+    /// not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<T>(at offset: Int, default defaultValue: T, hasBit: HasBit) -> T {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).pointee
+    }
+}
+
+// MARK: - Field mutators
+
+// As with the readers above, we have some concrete specializations of `updateValue` for trivial
+// types, since they can just store the new value (whether it's zero or some other non-zero default)
+// without managing any lifetimes.
+//
+// The generic implementation handles non-trivial cases, where we need to deinitialize an old value
+// that's present and then decide what to do with the incoming state. If the field will be
+// set/present, we store the new value; otherwise, we leave it uninitialized and zero it out.
+
+extension _MessageStorage {
+    /// Updates the `Boolean` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(
+        at offset: Int,
+        to newValue: Bool,
+        willBeSet: Bool,
+        hasBit: HasBit
+    ) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the integer value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Value: BinaryInteger & FixedWidthInteger>(
+        at offset: Int,
+        to newValue: Value,
+        willBeSet: Bool,
+        hasBit: HasBit
+    ) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the floating-point value at the given offset in the storage, along with its
+    /// presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Value: BinaryFloatingPoint>(
+        at offset: Int,
+        to newValue: Value,
+        willBeSet: Bool,
+        hasBit: HasBit
+    ) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<T>(
+        at offset: Int,
+        to newValue: T,
+        willBeSet: Bool,
+        hasBit: HasBit
+    ) {
+        let rawPointer = buffer.baseAddress! + offset
+        let pointer = rawPointer.bindMemory(to: T.self, capacity: 1)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        if wasSet {
+            pointer.deinitialize(count: 1)
+        }
+        if willBeSet {
+            pointer.initialize(to: newValue)
+        } else {
+            rawPointer.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<T>.stride) { bytes in
+                bytes.initialize(repeating: 0, count: MemoryLayout<T>.stride)
+            }
+        }
+    }
+
+    /// Clears the value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue<T>(at offset: Int, type: T.Type, hasBit: HasBit) {
+        let rawPointer = buffer.baseAddress! + offset
+        let pointer = rawPointer.bindMemory(to: T.self, capacity: 1)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: false)
+        if wasSet {
+            pointer.deinitialize(count: 1)
+        }
+        rawPointer.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<T>.stride) { bytes in
+            bytes.initialize(repeating: 0, count: MemoryLayout<T>.stride)
+        }
+    }
+
+    // TODO: Implement accessors/mutators for remaining types:
+    // - Submessages
+    // - Enums
+    // - Repeated fields
+    // - Maps
+    // - Oneofs
+}
+
+/// A macro-like helper function used in generated code to simplify writing platform-specific
+/// offsets in field accessors.
+///
+/// By virtue of being declared transparent, the compiler will always be able to reduce this down
+/// to a single integer load depending on the target platform, so this function has no real
+/// overhead and we are able to keep the generated code more compact than if we had to express the
+/// `#if` blocks directly inside each accessor.
+@_transparent
+public func _fieldOffset(_ pointerWidth64: Int, _ pointerWidth32: Int) -> Int {
+    #if _pointerBitWidth(_64)
+    pointerWidth64
+    #elseif _pointerBitWidth(_32)
+    pointerWidth32
+    #else
+    #error("Unsupported platform")
+    #endif
+}
