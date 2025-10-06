@@ -116,7 +116,7 @@ extension Message {
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     @inlinable
-    @available(macOS 26, iOS 26, tvOS 26, visionOS 26, *)
+    @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public init(
         serializedBytes bytes: RawSpan,
         extensions: (any ExtensionMap)? = nil,
@@ -179,7 +179,7 @@ extension Message {
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     @inlinable
-    @available(macOS 26, iOS 26, tvOS 26, visionOS 26, *)
+    @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public mutating func merge(
         serializedBytes bytes: RawSpan,
         extensions: (any ExtensionMap)? = nil,
