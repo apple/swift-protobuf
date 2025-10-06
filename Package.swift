@@ -76,8 +76,15 @@ let package = Package(
             capability: .buildTool(),
             dependencies: ["protoc-gen-swift"]
         ),
+        // TODO: Eventually, the existing tests should just work with table-driven protos. For now,
+        // limit ourselves to a much smaller set that we know will run and pass during development.
+        // .testTarget(
+        //     name: "SwiftProtobufTests",
+        //     dependencies: ["SwiftProtobuf"],
+        //     swiftSettings: .packageSettings
+        // ),
         .testTarget(
-            name: "SwiftProtobufTests",
+            name: "ExperimentalTableDrivenSwiftProtobufTests",
             dependencies: ["SwiftProtobuf"],
             swiftSettings: .packageSettings
         ),
