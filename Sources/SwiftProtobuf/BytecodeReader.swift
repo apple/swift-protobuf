@@ -68,7 +68,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         // `Int32`s are stored by converting them bit-wise to a `UInt32` and then zero-extended to
         // `UInt64`, since this representation is smaller than sign-extending them to 64 bits.
         let uint64Value = nextUInt64()
-        assert(uint64Value < 1 &<< 32, "nextInt32() read a value larger than 32 bits")
+        assert(uint64Value < UInt64(0x1_0000_0000), "nextInt32() read a value larger than 32 bits")
         return Int32(bitPattern: UInt32(truncatingIfNeeded: uint64Value))
     }
 
