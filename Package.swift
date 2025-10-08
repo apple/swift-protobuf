@@ -107,8 +107,8 @@ if includeProtoc {
         .binaryTarget(
             name: "protoc",
             url:
-                "https://github.com/apple/swift-protobuf/releases/download/protoc-artifactbundle-v31.1/protoc-31.1.artifactbundle.zip",
-            checksum: "f18bf2cfbbebd83133a4c29733b01871e3afdc73c102d62949a841d4f9bab86f"
+                "https://github.com/apple/swift-protobuf/releases/download/protoc-artifactbundle-v32.1/protoc-32.1.artifactbundle.zip",
+            checksum: "3cfb7e13baac742c7f7ba2ff835d22356af18af2b8b7c4d630aacea5eb893fb3"
         )
     )
 
