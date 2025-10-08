@@ -54,7 +54,7 @@ When doing a Swift Protobuf library release:
    For the description click the _Generate release notes_ button. That should do
    everything based on the PR descriptions and _semver_ tags in the repo. Just read
    though was was generate to see if any tweaks are needed.
-   
+
    *Important* Ensure that the `Set as the latest release` is checked.
 
 1. Publish the `SwiftProtobuf.podspec`
@@ -71,7 +71,7 @@ When doing a Swift Protobuf library release:
 
 ## Protoc Artifactbundle Releases
 
-Protoc artifactbundle releases are independent of Swift Protobuf library releases and follow 
+Protoc artifactbundle releases are independent of Swift Protobuf library releases and follow
 a `protoc-vX.Y` naming convention that matches the upstream protoc version.
 
 ### Creating a protoc release
@@ -81,7 +81,7 @@ a `protoc-vX.Y` naming convention that matches the upstream protoc version.
    Go to the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/draft_release_protoc_artifactbundle.yml)
    and manually run the "Draft release protoc artifactbundle" workflow.
 
-2. **What the workflow does automatically**
+1. **What the workflow does automatically**
 
    The workflow will:
    - Check the latest protoc version from protocolbuffers/protobuf
@@ -93,15 +93,17 @@ a `protoc-vX.Y` naming convention that matches the upstream protoc version.
      - Upload the artifactbundle to the draft release
    - If versions match, exit early (no action needed)
 
-3. **Publish the release**
+1. **Publish the release**
 
    After the workflow completes successfully:
    - Go to the [releases page](https://github.com/apple/swift-protobuf/releases)
    - Find the draft `protoc-vX.Y` release
+   - Click the pencil icon to Edit the release
    - Review the release notes and artifactbundle
+   - Uncheck "Set as the latest release"
    - Click "Publish release"
 
-4. **Use in Swift Protobuf**
+1. **Use in Swift Protobuf**
 
    The protoc release is now available with a stable URL that can be referenced
    in `Package.swift`. Create a separate PR to update the reference in the `Package.swift`
