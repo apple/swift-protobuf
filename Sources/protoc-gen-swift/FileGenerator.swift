@@ -125,7 +125,9 @@ class FileGenerator {
             )
             hasImports = true
         } else if fileDefinesTypes {
-            p.print("\(generatorOptions.importDirective.snippet) \(namer.swiftProtobufModuleName)")
+            p.print(
+                "@_spi(ForGeneratedCodeOnly) \(generatorOptions.importDirective.snippet) \(namer.swiftProtobufModuleName)"
+            )
             hasImports = true
         }
 

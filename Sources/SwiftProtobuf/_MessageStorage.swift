@@ -34,11 +34,7 @@ import Foundation
 ///
 /// This type is public because it needs to be referenced and initialized from generated messages.
 /// Clients should not access it or its members directly.
-public final class _MessageStorage: @unchecked Sendable {
-    // This unchecked `Sendable` conformance is safe because all mutation of the storage is
-    // guarded by `isKnownUniquelyReferenced` and a clone operation if not. It is the
-    // responsibility of generated messages to enforce this.
-
+@_spi(ForGeneratedCodeOnly) public final class _MessageStorage {
     /// The layout of this instance of storage.
     private let layout: _MessageLayout
 
@@ -58,7 +54,7 @@ public final class _MessageStorage: @unchecked Sendable {
     }
 
     deinit {
-        layout.forEachField { field in
+        for field in layout.fields {
             // TODO: Deinitialize nontrivial fields.
         }
         buffer.deallocate()
@@ -74,7 +70,7 @@ extension _MessageStorage {
     @inline(never)
     public func copy() -> _MessageStorage {
         let copy = _MessageStorage(layout: layout)
-        layout.forEachField { field in
+        for field in layout.fields {
             // TODO: Copy the field. More specifically, consider memcpy'ing the has-bits and
             // trivial fields as a single block before this loop, and then only process the
             // nontrivial fields here.
@@ -111,42 +107,70 @@ extension _MessageStorage {
 // generic) for cases where we want to encode a "default default value". This reduces the amount of
 // code generation that we need to do for the common case (fields without presence, where the
 // default value is the zero/empty value for the field's type).
+//
+// Here and throughout, these functions use `@_alwaysEmitIntoClient` and `@inline(__always)` in a
+// best effort to force the compiler to specialize and optimize the generated property accessors
+// that call these functions into direct memory accesses. The first attribute also ensures that
+// these functions do not emit symbols into the runtime itself, as they would never be used.
+//
+// We expect an upcoming version of Swift to formalize these two attributes with new names, at
+// which point we can conditionally switch to those names to guarantee the behavior.
 
 extension _MessageStorage {
     /// Returns the `Bool` value at the given offset in the storage, or the default value if the
     /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value(
-        at offset: Int,
-        default defaultValue: Bool = false,
-        hasBit: HasBit
-    ) -> Bool {
+    public func value(at offset: Int, default defaultValue: Bool = false, hasBit: HasBit) -> Bool {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
         return (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1).pointee
     }
 
-    /// Returns the integer value at the given offset in the storage, or the default value if the
+    /// Returns the `Int32` value at the given offset in the storage, or the default value if the
     /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value<Value: BinaryInteger & FixedWidthInteger>(
-        at offset: Int,
-        default defaultValue: Value = 0,
-        hasBit: HasBit
-    ) -> Value {
+    public func value(at offset: Int, default defaultValue: Int32 = 0, hasBit: HasBit) -> Int32 {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+        return (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee
     }
 
-    /// Returns the floating point value at the given offset in the storage, or the default value
-    /// if the value is not present.
+    /// Returns the `UInt32` value at the given offset in the storage, or the default value if the
+    /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value<Value: BinaryFloatingPoint>(
-        at offset: Int,
-        default defaultValue: Value = 0,
-        hasBit: HasBit
-    ) -> Value {
+    public func value(at offset: Int, default defaultValue: UInt32 = 0, hasBit: HasBit) -> UInt32 {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+        return (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Int64` value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Int64 = 0, hasBit: HasBit) -> Int64 {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee
+    }
+
+    /// Returns the `UInt64` value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: UInt64 = 0, hasBit: HasBit) -> UInt64 {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Float` value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Float = 0, hasBit: HasBit) -> Float {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Double` value at the given offset in the storage, or the default value if the
+    /// value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Double = 0, hasBit: HasBit) -> Double {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        return (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee
     }
 
     /// Returns the string value at the given offset in the storage, or the default value if the
@@ -160,24 +184,25 @@ extension _MessageStorage {
     /// Returns the `Data` value at the given offset in the storage, or the default value if the
     /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value(
-        at offset: Int,
-        default defaultValue: Data = Data(),
-        hasBit: HasBit
-    ) -> Data {
+    public func value(at offset: Int, default defaultValue: Data = Data(), hasBit: HasBit) -> Data {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
         return (buffer.baseAddress! + offset).bindMemory(to: Data.self, capacity: 1).pointee
     }
 
-    /// Returns the value at the given offset in the storage, or the default value if the value is
-    /// not present.
+    /// Returns the `Array` value at the given offset in the storage, or the empty array if the
+    /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value<C: RangeReplaceableCollection>(
-        at offset: Int,
-        hasBit: HasBit
-    ) -> C {
-        guard isPresent(hasBit: hasBit) else { return C() }
-        return (buffer.baseAddress! + offset).bindMemory(to: C.self, capacity: 1).pointee
+    public func value<Element>(at offset: Int, hasBit: HasBit) -> [Element] {
+        guard isPresent(hasBit: hasBit) else { return [] }
+        return (buffer.baseAddress! + offset).bindMemory(to: [Element].self, capacity: 1).pointee
+    }
+
+    /// Returns the `Dictionary` value at the given offset in the storage, or the empty array if
+    /// the value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Key, Value>(at offset: Int, hasBit: HasBit) -> [Key: Value] {
+        guard isPresent(hasBit: hasBit) else { return [:] }
+        return (buffer.baseAddress! + offset).bindMemory(to: [Key: Value].self, capacity: 1).pointee
     }
 
     /// Returns the value at the given offset in the storage, or the default value if the value is
@@ -200,54 +225,65 @@ extension _MessageStorage {
 // set/present, we store the new value; otherwise, we leave it uninitialized and zero it out.
 
 extension _MessageStorage {
-    /// Updates the `Boolean` value at the given offset in the storage, along with its presence.
+    /// Updates the `Bool` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
-    public func updateValue(
-        at offset: Int,
-        to newValue: Bool,
-        willBeSet: Bool,
-        hasBit: HasBit
-    ) {
+    public func updateValue(at offset: Int, to newValue: Bool, willBeSet: Bool, hasBit: HasBit) {
         let pointer = (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1)
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
         pointer.pointee = newValue
     }
 
-    /// Updates the integer value at the given offset in the storage, along with its presence.
+    /// Updates the `Int32` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
-    public func updateValue<Value: BinaryInteger & FixedWidthInteger>(
-        at offset: Int,
-        to newValue: Value,
-        willBeSet: Bool,
-        hasBit: HasBit
-    ) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1)
+    public func updateValue(at offset: Int, to newValue: Int32, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1)
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
         pointer.pointee = newValue
     }
 
-    /// Updates the floating-point value at the given offset in the storage, along with its
-    /// presence.
+    /// Updates the `UInt32` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
-    public func updateValue<Value: BinaryFloatingPoint>(
-        at offset: Int,
-        to newValue: Value,
-        willBeSet: Bool,
-        hasBit: HasBit
-    ) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1)
+    public func updateValue(at offset: Int, to newValue: UInt32, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the `Int64` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Int64, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the `UInt64` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: UInt64, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the `Float` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Float, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = newValue
+    }
+
+    /// Updates the `Double` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Double, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1)
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
         pointer.pointee = newValue
     }
 
     /// Updates the value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
-    public func updateValue<T>(
-        at offset: Int,
-        to newValue: T,
-        willBeSet: Bool,
-        hasBit: HasBit
-    ) {
+    public func updateValue<T>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
         let rawPointer = buffer.baseAddress! + offset
         let pointer = rawPointer.bindMemory(to: T.self, capacity: 1)
         let wasSet = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
@@ -280,8 +316,6 @@ extension _MessageStorage {
     // TODO: Implement accessors/mutators for remaining types:
     // - Submessages
     // - Enums
-    // - Repeated fields
-    // - Maps
     // - Oneofs
 }
 

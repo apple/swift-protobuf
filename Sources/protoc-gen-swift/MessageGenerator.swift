@@ -121,8 +121,11 @@ class MessageGenerator {
             conformances.append("\(namer.swiftProtobufModulePrefix)ExtensibleMessage")
         }
 
-        // Messages that have a storage class will always need @unchecked.
-        conformances.append("Sendable")
+        // `Sendable` conformance for generated messages is unchecked because the `_MessageStorage`
+        // property is a class type with mutable state. However, the generated code ensures that
+        // there are no data races because it uses `isKnownUniquelyReferenced` to implement
+        // copy-on-write behavior.
+        conformances.append("@unchecked Sendable")
 
         p.print(
             "",
@@ -244,13 +247,13 @@ class MessageGenerator {
             "\(visibility)static func _protobuf_submessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken) -> any SwiftProtobuf.Message.Type {"
         )
         p.withIndentation { p in
-            let submessageIndicesAndNames = messageLayoutCalculator.submessageIndicesAndNames
-            if submessageIndicesAndNames.isEmpty {
+            let submessageNames = messageLayoutCalculator.submessageNames
+            if submessageNames.isEmpty {
                 p.print("preconditionFailure(\"invalid submessage token; this is a generator bug\")")
             } else {
                 p.print("switch token.index {")
-                for (index, type) in submessageIndicesAndNames {
-                    p.print("case \(index): return \(type).self")
+                for (index, type) in submessageNames.enumerated() {
+                    p.print("case \(index + 1): return \(type).self")
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",

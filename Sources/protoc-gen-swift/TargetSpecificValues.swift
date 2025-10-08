@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/PointerWidthPair.swift - A pair of values based on pointer width
+// Sources/protoc-gen-swift/TargetSpecificValues.swift - A pair of values based on a specific platform
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

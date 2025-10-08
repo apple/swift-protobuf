@@ -84,14 +84,14 @@
 ///         field.
 /// *   Bytes 10-11: For message/group fields, an opaque index as a base-128 integer used to
 ///     request the metatype of the submessage from the containing message's submessage accessor.
-/// *   Bytes 12: The type of the field.
-public struct _MessageLayout: @unchecked Sendable {
+/// *   Byte 12: The type of the field.
+@_spi(ForGeneratedCodeOnly) public struct _MessageLayout: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
     // `@unchecked`. Clearly this is safe because the pointer obtained from a `StaticString` is an
     // immortal compile-time constant and we only read from it.
 
     /// The encoded layout of the fields of the message.
-    let layout: UnsafeRawBufferPointer
+    private let layout: UnsafeRawBufferPointer
 
     /// The version of the layout data.
     ///
@@ -138,51 +138,68 @@ public struct _MessageLayout: @unchecked Sendable {
         )
         self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
         precondition(version == 0, "This runtime only supports version 0 message layouts")
+        precondition(
+            self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
+            """
+            The layout size in bytes was not consistent with the number of fields \
+            (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
+            this is a generator bug
+            """
+        )
     }
 }
 
 /// The size, in bytes, of the header the describes the overall message layout.
-private let messageLayoutHeaderSize = 13
+private var messageLayoutHeaderSize: Int { 13 }
 
 /// The size, in bytes, of an encoded field layout in the static string representation.
-private let fieldLayoutSize = 13
+private var fieldLayoutSize: Int { 13 }
 
 extension _MessageLayout {
-    /// Calls the given function for each field defined in the message, in order, passing it the
-    /// layout of the field.
-    func forEachField(body: (FieldLayout) -> Void) {
-        for index in stride(from: messageLayoutHeaderSize, to: layout.count, by: fieldLayoutSize) {
-            body(FieldLayout(slice: layout[index..<(index + fieldLayoutSize)]))
+    /// Iterates over the field layouts in the layout string.
+    struct FieldIterator: IteratorProtocol {
+        var current: Slice<UnsafeRawBufferPointer>
+
+        init(layout: UnsafeRawBufferPointer) {
+            self.current = layout.dropFirst(messageLayoutHeaderSize)
+        }
+
+        mutating func next() -> FieldLayout? {
+            guard !current.isEmpty else { return nil }
+            defer { current = current.dropFirst(fieldLayoutSize) }
+            return FieldLayout(slice: current.prefix(fieldLayoutSize))
         }
     }
 
-    /// Calls the given function for the field with the given number in the message, passing it the
-    /// layout of the field.
+    /// Returns a sequence that represents the layout descriptions of the fields in the message,
+    /// in field number order.
+    var fields: some Sequence<FieldLayout> { IteratorSequence(FieldIterator(layout: self.layout)) }
+
+    /// Returns the layout for the field with the given number in the message.
     ///
     /// - Precondition: The field must be defined.
-    func forField(withNumber number: UInt32, body: (FieldLayout) -> Void) {
+    subscript(fieldNumber number: UInt32) -> FieldLayout {
         if number < denseBelow {
             let index = messageLayoutHeaderSize + (Int(number) - 1) * fieldLayoutSize
-            body(FieldLayout(slice: layout[index..<(index + fieldLayoutSize)]))
-        } else {
-            var low = Int(denseBelow)
-            var high = fieldCount - 1
-            while high >= low {
-                let mid = (high + low) / 2
-                let index = messageLayoutHeaderSize + mid * fieldLayoutSize
-                let field = FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
-                if number == field.fieldNumber {
-                    body(field)
-                    return
-                }
-                if number < field.fieldNumber {
-                    low = mid + 1
-                } else {
-                    high = mid - 1
-                }
-            }
-            preconditionFailure("No field number \(number)")
+            return FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
         }
+
+        var low = Int(denseBelow)
+        var high = fieldCount - 1
+        while high >= low {
+            let mid = (high + low) / 2
+            let index = messageLayoutHeaderSize + mid * fieldLayoutSize
+            let field = FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
+            if number == field.fieldNumber {
+                return field
+            }
+            if number < field.fieldNumber {
+                low = mid + 1
+            } else {
+                high = mid - 1
+            }
+        }
+        preconditionFailure("No field number \(number)")
     }
 }
 

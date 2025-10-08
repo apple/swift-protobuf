@@ -32,12 +32,13 @@ struct MessageLayoutCalculator {
         layoutWriters.map(\.layoutCode)
     }
 
-    /// The mapping from index to fully-qualified name of all submessages used by the message whose
-    /// layout is being calculated, sorted by index.
-    var submessageIndicesAndNames: [(index: Int, name: String)] {
-        submessages.usedSubmessages.sorted { $0.value < $1.value }.map {
-            (index: $0.value, name: $0.key)
-        }
+    /// The fully-qualified names of all submessages used by the message whose layout is being
+    /// calculated.
+    ///
+    /// The first element in this array corresponds to the submessage with index 1, and the rest
+    /// increase accordingly.
+    var submessageNames: [String] {
+        submessages.usedSubmessages.sorted { $0.value < $1.value }.map { $0.key }
     }
 
     /// Creates a new message layout calculator for a message containing the given fields and for
@@ -97,6 +98,9 @@ struct MessageLayoutCalculator {
         // Compute the byte offset of each field in storage. From this point on, we need to use
         // target-specific values because fields might have different sizes on different
         // architectures.
+        //
+        // See the documentation for `FieldStorageKind` for more information about why this order
+        // has been chosen.
         var byteOffsets = TargetSpecificValues<Int>(forAllTargets: byteOffset)
         let fieldsSortedByStorage = fieldsSortedByNumber.sorted { $0.storageKind < $1.storageKind }
         for field in fieldsSortedByStorage {

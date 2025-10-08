@@ -21,8 +21,8 @@ import SwiftProtobufPluginLibrary
 ///
 /// The order of these cases is important, because the fields in a message will be ordered such
 /// that their layout in-memory is in these groups. This allows us to optimize across two factors:
-/// how well they are packed (by keeping values with smaller alignments together) and grouping all
-/// trivial fields together before non-trivial fields.
+/// how well they are packed to avoid excessive padding (by keeping values with smaller alignments
+/// together) and grouping all trivial fields together before non-trivial fields.
 enum FieldStorageKind: Comparable {
     /// The field occupies 1 byte in memory, regardless of target architecture.
     case oneByteScalar
@@ -198,15 +198,10 @@ class FieldGeneratorBase {
 
         // Otherwise, generate a call to the helper function that chooses the right value based on
         // target platform.
-        var result = "SwiftProtobuf._fieldOffset("
-        for (index, choice) in TargetSpecificValueChoice.allCases.enumerated() {
-            if index > 0 {
-                result += ", "
-            }
-            result += "\(storageOffsets[choice])"
-        }
-        result += ")"
-        return result
+        let fieldOffsetArguments = TargetSpecificValueChoice.allCases.map {
+            "\(storageOffsets[$0])"
+        }.joined(separator: ", ")
+        return "SwiftProtobuf._fieldOffset(\(fieldOffsetArguments))"
     }
 
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {
