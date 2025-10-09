@@ -18,7 +18,6 @@ import SwiftProtobufPluginLibrary
 
 class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let generatorOptions: GeneratorOptions
-    private let usesHeapStorage: Bool
     private let namer: SwiftProtobufNamer
 
     private let hasFieldPresence: Bool
@@ -32,6 +31,19 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let swiftDefaultValue: String
     private let traitsType: String
     private let comments: String
+
+    var presence: FieldPresence = .hasBit(0)
+
+    var oneofIndex: Int? { nil }
+
+    private var hasBitIndex: Int {
+        switch presence {
+        case .hasBit(let index):
+            return Int(index)
+        case .oneofMember:
+            preconditionFailure("oneof members should be handled by OneofGenerator.MemberFieldGenerator")
+        }
+    }
 
     private var isMap: Bool { fieldDescriptor.isMap }
     private var isPacked: Bool { fieldDescriptor.isPacked }
@@ -47,16 +59,19 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
     }
 
+    var submessageTypeName: String? {
+        // TODO: Implement this.
+        nil
+    }
+
     init(
         descriptor: FieldDescriptor,
         generatorOptions: GeneratorOptions,
-        namer: SwiftProtobufNamer,
-        usesHeapStorage: Bool
+        namer: SwiftProtobufNamer
     ) {
         precondition(descriptor.realContainingOneof == nil)
 
         self.generatorOptions = generatorOptions
-        self.usesHeapStorage = usesHeapStorage
         self.namer = namer
 
         hasFieldPresence = descriptor.hasPresence
@@ -75,167 +90,71 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         traitsType = descriptor.traitsType(namer: namer)
         comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
 
-        if usesHeapStorage {
-            storedProperty = "_storage.\(underscoreSwiftName)"
-        } else {
-            storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
-        }
+        storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
 
         super.init(descriptor: descriptor)
     }
 
-    func generateStorage(printer p: inout CodePrinter) {
-        let defaultValue = hasFieldPresence ? "nil" : swiftDefaultValue
-        if usesHeapStorage {
-            p.print("var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)")
-        } else {
-            // If this field has field presence, the there is a private storage variable.
-            if hasFieldPresence {
-                p.print("fileprivate var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)")
-            }
-        }
-    }
-
     func generateInterface(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
-
         p.print()
-        if usesHeapStorage {
-            p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
-            let defaultClause = hasFieldPresence ? " ?? \(swiftDefaultValue)" : ""
-            p.printIndented(
-                "get {return _storage.\(underscoreSwiftName)\(defaultClause)}",
-                "set {_uniqueStorage().\(underscoreSwiftName) = newValue}"
-            )
-            p.print("}")
+
+        // Compute the byte offset and mask for the field's has-bit.
+        let hasByte = hasBitIndex / 8
+        let hasMask = 1 << (hasBitIndex & 7)
+        let hasBitArgument = "hasBit: (\(hasByte), \(hasMask))"
+
+        p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
+
+        // The `willBeSet` argument to `_MessageStorage.updateValue` depends on a variety of
+        // factors, such as the field's presence (or lack thereof) or whether it is a repeated
+        // field.
+        let willBeSetArgument: String
+        let defaultValueArgument: String
+        if hasFieldPresence {
+            // When a field has presence, setting it *always* updates it, regardless of its value.
+            willBeSetArgument = "willBeSet: true, "
+            defaultValueArgument = "default: \(swiftDefaultValue), "
+        } else if isMap {
+            willBeSetArgument = "willBeSet: !newValue.isEmpty, "
+            // For simplicity, the collection form of `value(at:...)` doesn't take a default value
+            // argument because it would always be an empty collection.
+            defaultValueArgument = ""
+        } else if isRepeated {
+            willBeSetArgument = "willBeSet: !newValue.isEmpty, "
+            // For simplicity, the collection form of `value(at:...)` doesn't take a default value
+            // argument because it would always be an empty collection.
+            defaultValueArgument = ""
         } else {
-            if hasFieldPresence {
-                p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
-                p.printIndented(
-                    "get {return \(underscoreSwiftName) ?? \(swiftDefaultValue)}",
-                    "set {\(underscoreSwiftName) = newValue}"
-                )
-                p.print("}")
-            } else {
-                p.print("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)")
+            switch fieldDescriptor.type {
+            case .string, .bytes:
+                willBeSetArgument = "willBeSet: !newValue.isEmpty, "
+            case .message, .group:
+                preconditionFailure("message/group fields should have been handled by hasFieldPresence")
+            default:
+                willBeSetArgument = "willBeSet: newValue != \(swiftDefaultValue), "
             }
+            defaultValueArgument = ""
         }
+
+        p.printIndented(
+            "get { return _storage.value(at: \(storageOffsetExpression), \(defaultValueArgument)\(hasBitArgument)) }",
+            "set { _uniqueStorage().updateValue(at: \(storageOffsetExpression), to: newValue, \(willBeSetArgument)\(hasBitArgument)) }"
+        )
+        p.print("}")
 
         guard hasFieldPresence else { return }
 
-        let immutableStoragePrefix = usesHeapStorage ? "_storage." : "self."
         p.print(
             "/// Returns true if `\(swiftName)` has been explicitly set.",
-            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(underscoreSwiftName) != nil}"
+            "\(visibility)var \(swiftHasName): Bool { return _storage.isPresent(\(hasBitArgument)) }"
         )
 
-        let mutableStoragePrefix = usesHeapStorage ? "_uniqueStorage()." : "self."
         p.print(
-            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.",
-            "\(visibility)mutating func \(swiftClearName)() {\(mutableStoragePrefix)\(underscoreSwiftName) = nil}"
+            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value."
         )
-    }
-
-    func generateStorageClassClone(printer p: inout CodePrinter) {
-        p.print("\(underscoreSwiftName) = source.\(underscoreSwiftName)")
-    }
-
-    func generateFieldComparison(printer p: inout CodePrinter) {
-        let lhsProperty: String
-        let otherStoredProperty: String
-        if usesHeapStorage {
-            lhsProperty = "_storage.\(underscoreSwiftName)"
-            otherStoredProperty = "rhs_storage.\(underscoreSwiftName)"
-        } else {
-            lhsProperty = "lhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
-            otherStoredProperty = "rhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
-        }
-
-        p.print("if \(lhsProperty) != \(otherStoredProperty) {return false}")
-    }
-
-    func generateRequiredFieldCheck(printer p: inout CodePrinter) {
-        guard fieldDescriptor.isRequired else { return }
-        p.print("if \(storedProperty) == nil {return false}")
-    }
-
-    func generateIsInitializedCheck(printer p: inout CodePrinter) {
-        guard isGroupOrMessage && fieldDescriptor.messageType!.containsRequiredFields() else { return }
-
-        if isRepeated {  // Map or Array
-            p.print(
-                "if !\(namer.swiftProtobufModulePrefix)Internal.areAllInitialized(\(storedProperty)) {return false}"
-            )
-        } else {
-            p.print("if let v = \(storedProperty), !v.isInitialized {return false}")
-        }
-    }
-
-    func generateDecodeFieldCase(printer p: inout CodePrinter) {
-        let decoderMethod: String
-        let traitsArg: String
-        if isMap {
-            decoderMethod = "decodeMapField"
-            traitsArg = "fieldType: \(traitsType).self, "
-        } else {
-            let modifier = isRepeated ? "Repeated" : "Singular"
-            decoderMethod = "decode\(modifier)\(fieldDescriptor.protoGenericType)Field"
-            traitsArg = ""
-        }
-
-        p.print("case \(number): try { try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty)) }()")
-    }
-
-    var generateTraverseUsesLocals: Bool {
-        !isRepeated && hasFieldPresence
-    }
-
-    func generateTraverse(printer p: inout CodePrinter) {
-        let visitMethod: String
-        let traitsArg: String
-        if isMap {
-            visitMethod = "visitMapField"
-            traitsArg = "fieldType: \(traitsType).self, "
-        } else {
-            let modifier = isPacked ? "Packed" : isRepeated ? "Repeated" : "Singular"
-            visitMethod = "visit\(modifier)\(fieldDescriptor.protoGenericType)Field"
-            traitsArg = ""
-        }
-
-        let varName = hasFieldPresence ? "v" : storedProperty
-
-        var usesLocals = false
-        let conditional: String
-        if isRepeated {  // Also covers maps
-            conditional = "!\(varName).isEmpty"
-        } else if hasFieldPresence {
-            conditional = "let v = \(storedProperty)"
-            usesLocals = true
-        } else {
-            // At this point, the fields would be a primitive type, and should only
-            // be visted if it is the non default value.
-            switch fieldDescriptor.type {
-            case .string, .bytes:
-                conditional = "!\(varName).isEmpty"
-            case .float, .double:
-                // https://protobuf.dev/programming-guides/proto3/#default ends with:
-                //    If a float or double value is set to +0 it will not be serialized,
-                //    but -0 is considered distinct and will be serialized.
-                // Editions still ensures that implicit presence doesn't get a default
-                // value so the hardcoded zero here is safe and mirrors the upstream
-                // C++ generator:
-                // https://github.com/protocolbuffers/protobuf/blob/1b06cefe337f73ca8c78c855c02f15caf6210c9b/src/google/protobuf/compiler/cpp/message.cc#L204-L209
-                conditional = "\(varName).bitPattern != 0"
-            default:
-                conditional = "\(varName) != \(swiftDefaultValue)"
-            }
-        }
-        assert(usesLocals == generateTraverseUsesLocals)
-        let prefix = usesLocals ? "try { " : ""
-        let suffix = usesLocals ? " }()" : ""
-
-        p.print("\(prefix)if \(conditional) {")
-        p.printIndented("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))")
-        p.print("}\(suffix)")
+        p.print(
+            "\(visibility)mutating func \(swiftClearName)() { _uniqueStorage().clearValue(at: \(storageOffsetExpression), type: \(swiftType).self, \(hasBitArgument)) }"
+        )
     }
 }

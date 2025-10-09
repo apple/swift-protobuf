@@ -157,6 +157,10 @@ check-version-numbers:
 test-runtime: build
 	${SWIFT} test ${SWIFT_BUILD_TEST_HOOK}
 
+# TODO: Remove this once all the existing protos just work as table-driven.
+test-table-driven: build regenerate-table-driven-protos test-runtime
+	${SWIFT} test --target ExperimentalTableDrivenSwiftProtobufTests
+
 #
 # Test the plugin by itself:
 #   * Translate every proto in Protos into Swift using local protoc-gen-swift
@@ -365,6 +369,17 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTest
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
 		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
+
+# TODO: Remove this once all the existing protos just work as table-driven.
+regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTests/unittest.proto Protos/Tests/SwiftProtobufTests/unittest_import.proto Protos/Tests/SwiftProtobufTests/unittest_import_public.proto
+	find Tests/ExperimentalTableDrivenSwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
+	${GENERATE_SRCS} \
+	    -I Protos/Tests/SwiftProtobufTests \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_out=Tests/ExperimentalTableDrivenSwiftProtobufTests \
+		Protos/Tests/SwiftProtobufTests/unittest.proto \
+		Protos/Tests/SwiftProtobufTests/unittest_import.proto \
+		Protos/Tests/SwiftProtobufTests/unittest_import_public.proto
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.

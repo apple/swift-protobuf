@@ -17,50 +17,192 @@ import Foundation
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
+/// Abstractly represents the amount of memory needed to store a field's value in memory.
+///
+/// The order of these cases is important, because the fields in a message will be ordered such
+/// that their layout in-memory is in these groups. This allows us to optimize across two factors:
+/// how well they are packed to avoid excessive padding (by keeping values with smaller alignments
+/// together) and grouping all trivial fields together before non-trivial fields.
+enum FieldStorageKind: Comparable {
+    /// The field occupies 1 byte in memory, regardless of target architecture.
+    case oneByteScalar
+
+    /// The field occupies 4 bytes in memory, regardless of target architecture.
+    case fourByteScalar
+
+    /// The field occupies 8 bytes in memory, regardless of target architecture.
+    case eightByteScalar
+
+    /// The field occupies a pointer's width in memory; 8 bytes on 64-bit and 4 bytes on 32-bit.
+    case pointer
+
+    /// The field is a Swift `String` or a Foundation `Data` value, which have a 16 byte stride on
+    /// 64-bit and a 12 byte stride on 32-bit.
+    case stringOrData
+
+    /// Returns the number of bytes that a field with this storage kind occupies in memory,
+    /// including alignment padding.
+    var strides: TargetSpecificValues<Int> {
+        switch self {
+        case .oneByteScalar: return .init(forAllTargets: 1)
+        case .fourByteScalar: return .init(forAllTargets: 4)
+        case .eightByteScalar: return .init(forAllTargets: 8)
+        case .pointer: return .init([.pointerWidth64: 8, .pointerWidth32: 4])
+        case .stringOrData: return .init([.pointerWidth64: 16, .pointerWidth32: 12])
+        }
+    }
+}
+
+/// Represents the presence information for a field in memory.
+enum FieldPresence {
+    /// The field is not a member of a `oneof` and this is the index of its has-bit.
+    case hasBit(UInt16)
+
+    /// The field is a member of a `oneof` and this is the offset of the `UInt32` that records
+    /// the field number of its currently set field.
+    case oneofMember(UInt16)
+
+    /// The raw unsigned integer that should be stored as the presence field in the memory layout
+    /// descriptor.
+    var rawPresence: UInt16 {
+        switch self {
+        case .hasBit(let index): return index
+        case .oneofMember(let offset): return ~offset
+        }
+    }
+}
+
 /// Interface for field generators.
-protocol FieldGenerator {
+protocol FieldGenerator: AnyObject {
+    /// The field number of the field.
     var number: Int { get }
+
+    /// Indicates whether or not the field is a required field.
+    var isRequired: Bool { get }
+
+    /// The raw type of the field.
+    var rawFieldType: RawFieldType { get }
+
+    /// The fully-qualified name of the Swift message type for this field, if it is a message or
+    /// group field.
+    var submessageTypeName: String? { get }
+
+    /// Additional properties that describe the layout and behavior of the field.
+    var fieldMode: FieldMode { get }
+
+    /// An abstract representation of how the field is stored in memory.
+    ///
+    /// Since the size of a field may be platform-specific depending on the field's type, this
+    /// represents a "storage class" that can be turned into a concrete size later in a context
+    /// where the platform is known.
+    var storageKind: FieldStorageKind { get }
+
+    /// The index of the `oneof` of which this field is a member, or `nil` if it is not a member of
+    /// a `oneof`.
+    var oneofIndex: Int? { get }
+
+    /// The presence information for this field.
+    ///
+    /// This is expected to be populated during an iteration that computes the in-memory layout of
+    /// the message.
+    var presence: FieldPresence { get set }
+
+    /// The offsets in bytes into in-memory storage where this field is stored, for 64-bit and
+    /// 32-bit platforms.
+    ///
+    /// This is expected to be populated during an iteration that computes the in-memory layout of
+    /// the message.
+    var storageOffsets: TargetSpecificValues<Int> { get set }
 
     /// Writes the field's name information to the given bytecode stream.
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter)
 
     /// Generate the interface for this field, this is includes any extra methods (has/clear).
     func generateInterface(printer: inout CodePrinter)
-
-    /// Generate any additional storage needed for this field.
-    func generateStorage(printer: inout CodePrinter)
-
-    /// Generate the line to copy this field during a _StorageClass clone.
-    func generateStorageClassClone(printer: inout CodePrinter)
-
-    /// Generate the case and decoder invoke needed for this field.
-    func generateDecodeFieldCase(printer: inout CodePrinter)
-
-    /// True/False for if the generated traverse code will need use any locals.
-    /// See https://github.com/apple/swift-protobuf/issues/1034 and
-    /// https://github.com/apple/swift-protobuf/issues/1182 for more information.
-    var generateTraverseUsesLocals: Bool { get }
-
-    /// Generate the support for traversing this field.
-    func generateTraverse(printer: inout CodePrinter)
-
-    /// Generate support for comparing this field's value.
-    /// The generated code should return false in the current scope if the field's don't match.
-    func generateFieldComparison(printer: inout CodePrinter)
-
-    /// Generate any support needed to ensure required fields are set.
-    /// The generated code should return false the field isn't set.
-    func generateRequiredFieldCheck(printer: inout CodePrinter)
-
-    /// Generate any support needed to this field's value is initialized.
-    /// The generated code should return false if it isn't set.
-    func generateIsInitializedCheck(printer: inout CodePrinter)
 }
 
 /// Simple base class for FieldGenerators that also provides `writeProtoNameInstruction(to:)`.
 class FieldGeneratorBase {
     let number: Int
     let fieldDescriptor: FieldDescriptor
+
+    var storageOffsets = TargetSpecificValues(forAllTargets: 0)
+
+    var isRequired: Bool {
+        fieldDescriptor.isRequired
+    }
+
+    var rawFieldType: RawFieldType {
+        switch fieldDescriptor.type {
+        case .bool: return .bool
+        case .bytes: return .bytes
+        case .double: return .double
+        case .enum: return .enum
+        case .fixed32: return .fixed32
+        case .fixed64: return .fixed64
+        case .float: return .float
+        case .group: return .group
+        case .int32: return .int32
+        case .int64: return .int64
+        case .message: return .message
+        case .sfixed32: return .sfixed32
+        case .sfixed64: return .sfixed64
+        case .sint32: return .sint32
+        case .sint64: return .sint64
+        case .string: return .string
+        case .uint32: return .uint32
+        case .uint64: return .uint64
+        }
+    }
+
+    var fieldMode: FieldMode {
+        var result: FieldMode = .init(rawValue: 0)
+        result.isPacked = fieldDescriptor.isPacked
+        result.isExtension = fieldDescriptor.isExtension
+        if fieldDescriptor.isMap {
+            result.cardinality = .map
+        } else if fieldDescriptor.isRepeated {
+            result.cardinality = .array
+        } else {
+            result.cardinality = .scalar
+        }
+        return result
+    }
+
+    var storageKind: FieldStorageKind {
+        if fieldDescriptor.isRepeated || fieldDescriptor.isMap {
+            return .pointer
+        }
+        switch fieldDescriptor.type {
+        case .int64, .uint64, .sint64, .fixed64, .sfixed64, .double:
+            return .eightByteScalar
+        case .int32, .uint32, .sint32, .fixed32, .sfixed32, .float, .enum:
+            return .fourByteScalar
+        case .bool:
+            return .oneByteScalar
+        case .message, .group:
+            return .pointer
+        case .string, .bytes:
+            return .stringOrData
+        }
+    }
+
+    /// Generates the Swift expression that will be used by the field's accessors to specify the
+    /// field's offset in memory, taking into account the target platform.
+    var storageOffsetExpression: String {
+        // If all the values are the same, generate cleaner code by just passing the single value
+        // directly.
+        if let valueIfAllEqual = storageOffsets.valueIfAllEqual {
+            return "\(valueIfAllEqual)"
+        }
+
+        // Otherwise, generate a call to the helper function that chooses the right value based on
+        // target platform.
+        let fieldOffsetArguments = TargetSpecificValueChoice.allCases.map {
+            "\(storageOffsets[$0])"
+        }.joined(separator: ", ")
+        return "SwiftProtobuf._fieldOffset(\(fieldOffsetArguments))"
+    }
 
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {
         // Protobuf Text uses the unqualified group name for the field
