@@ -70,6 +70,16 @@ package class GeneratorOptions {
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
 
+    // The Swift compiler may fail when checking whether large switch statements
+    // are exhaustive. See
+    // https://github.com/apple/swift-protobuf/issues/904
+    // https://github.com/apple/swift-protobuf/issues/1856
+    // for more details.
+    // This is a "magic" value, currently picked based on the Swift 6.2
+    // compiler, meaning if the error starts to show up
+    // again, all one can do is lower the limit.
+    let maxCasesInSwitch = 500
+
     /// A string snippet to insert for the visibility
     let visibilitySourceSnippet: String
 

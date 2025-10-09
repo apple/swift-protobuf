@@ -396,8 +396,20 @@ class OneofGenerator {
             )
             p.print("} }()")
         } else {
+            let isOnlyGroup = fieldSortedGrouped.count == 1
+            let maxCasesInSwitch = generatorOptions.maxCasesInSwitch
             p.print("switch \(storedProperty) {")
-            for f in group {
+            for (idx, f) in group.enumerated() {
+                // Break up the switch stmt if we're past the limit.
+                // Only necessary with single group because we already
+                // use a default case with multiple groups
+                if isOnlyGroup, idx > 0, (idx % maxCasesInSwitch) == 0 {
+                    p.print(
+                        "default: break",
+                        "}"
+                    )
+                    p.print("switch \(storedProperty) {")
+                }
                 p.print("case \(f.dottedSwiftName)?: try {")
                 p.printIndented(
                     "guard case \(f.dottedSwiftName)(let v)? = \(storedProperty) else { preconditionFailure() }",
@@ -405,11 +417,12 @@ class OneofGenerator {
                 )
                 p.print("}()")
             }
-            if fieldSortedGrouped.count == 1 {
+            if isOnlyGroup && group.count <= maxCasesInSwitch {
                 // Cover not being set.
                 p.print("case nil: break")
             } else {
-                // Multiple groups, cover other cases (or not being set).
+                // Either we broke up the switch stmt or
+                // multiple groups, cover other cases (or not being set).
                 p.print("default: break")
             }
             p.print("}")
