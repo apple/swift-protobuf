@@ -609,7 +609,13 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     set {oneofField = .oneofBytes(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   /// For oneof test
   enum OneOf_OneofField: Equatable, Sendable {
@@ -651,7 +657,13 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -677,7 +689,13 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -703,7 +721,13 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -754,7 +778,13 @@ struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -791,7 +821,13 @@ struct SwiftProtoTesting_ForeignMessage: @unchecked Sendable {
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -808,11 +844,23 @@ struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, @un
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
+    get { _storage.extensionFieldValues }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.extensionFieldValues
+    }
+  }
   private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -835,7 +883,13 @@ struct SwiftProtoTesting_OptionalGroup_extension: @unchecked Sendable {
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -861,7 +915,13 @@ struct SwiftProtoTesting_RepeatedGroup_extension: @unchecked Sendable {
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -878,7 +938,13 @@ struct SwiftProtoTesting_TestNestedExtension: @unchecked Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1208,7 +1274,13 @@ struct SwiftProtoTesting_TestRequired: @unchecked Sendable {
   /// Clears the value of `optionalForeign`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeign() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(144, 140), type: SwiftProtoTesting_ForeignMessage.self, hasBit: (4, 2)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1248,7 +1320,13 @@ struct SwiftProtoTesting_TestRequiredForeign: @unchecked Sendable {
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
   mutating func clearDummy() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 4)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1288,7 +1366,13 @@ struct SwiftProtoTesting_TestRequiredMessage: @unchecked Sendable {
   /// Clears the value of `requiredMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: SwiftProtoTesting_TestRequired.self, hasBit: (0, 1)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1306,7 +1390,13 @@ struct SwiftProtoTesting_TestEmptyMessage: @unchecked Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1344,7 +1434,13 @@ struct SwiftProtoTesting_TestReallyLargeTagNumber: @unchecked Sendable {
   /// Clears the value of `bb`. Subsequent reads from it will return its default value.
   mutating func clearBb() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1379,7 +1475,13 @@ struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1434,7 +1536,13 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self, hasBit: (0, 8)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1462,7 +1570,13 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -1476,7 +1590,13 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
 
   init() {}
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
+    get { _storage.extensionFieldValues }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.extensionFieldValues
+    }
+  }
   private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -1727,7 +1847,13 @@ struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {
   /// Clears the value of `replacementString`. Subsequent reads from it will return its default value.
   mutating func clearReplacementString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(192, 168), type: String.self, hasBit: (3, 1)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -1779,7 +1905,13 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
     set {foo = .fooGroup(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
@@ -1812,7 +1944,13 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 2)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -1865,7 +2003,13 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
     set {foo = .fooMessage(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
@@ -1893,7 +2037,13 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
     /// Clears the value of `requiredDouble`. Subsequent reads from it will return its default value.
     mutating func clearRequiredDouble() { _uniqueStorage().clearValue(at: 8, type: Double.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -1990,7 +2140,13 @@ struct SwiftProtoTesting_TestPackedTypes: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -2079,7 +2235,13 @@ struct SwiftProtoTesting_TestUnpackedTypes: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
@@ -2096,11 +2258,23 @@ struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, 
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
+    get { _storage.extensionFieldValues }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.extensionFieldValues
+    }
+  }
   private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -2153,7 +2327,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   /// RepeatedFieldsGenerator defines matching field types as TestParsingMerge,
   /// except that all fields are repeated. In the tests, we will serialize the
@@ -2200,7 +2380,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     struct Group1: @unchecked Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -2216,7 +2402,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
       mutating func clearField1() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-      var unknownFields = SwiftProtobuf.UnknownStorage()
+      var unknownFields: SwiftProtobuf.UnknownStorage {
+        get { _storage.unknownFields }
+        _modify {
+          _ = _uniqueStorage()
+          yield &_storage.unknownFields
+        }
+      }
 
       init() {}
 
@@ -2242,7 +2434,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
       mutating func clearField1() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-      var unknownFields = SwiftProtobuf.UnknownStorage()
+      var unknownFields: SwiftProtobuf.UnknownStorage {
+        get { _storage.unknownFields }
+        _modify {
+          _ = _uniqueStorage()
+          yield &_storage.unknownFields
+        }
+      }
 
       init() {}
 
@@ -2278,7 +2476,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     /// Clears the value of `optionalGroupAllTypes`. Subsequent reads from it will return its default value.
     mutating func clearOptionalGroupAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -2304,7 +2508,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     /// Clears the value of `repeatedGroupAllTypes`. Subsequent reads from it will return its default value.
     mutating func clearRepeatedGroupAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields: SwiftProtobuf.UnknownStorage {
+      get { _storage.unknownFields }
+      _modify {
+        _ = _uniqueStorage()
+        yield &_storage.unknownFields
+      }
+    }
 
     init() {}
 
@@ -2318,7 +2528,13 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
 
   init() {}
 
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
+    get { _storage.extensionFieldValues }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.extensionFieldValues
+    }
+  }
   private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {

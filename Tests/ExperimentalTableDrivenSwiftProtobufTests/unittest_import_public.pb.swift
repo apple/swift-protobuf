@@ -66,7 +66,13 @@ struct SwiftProtoTesting_Import_PublicImportMessage: @unchecked Sendable {
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
   mutating func clearE() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   init() {}
 
