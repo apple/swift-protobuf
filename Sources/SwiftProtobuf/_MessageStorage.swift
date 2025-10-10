@@ -64,9 +64,63 @@ import Foundation
 
     deinit {
         for field in layout.fields {
-            // TODO: Deinitialize nontrivial fields.
+            switch field.fieldMode.cardinality {
+            case .map:
+                // TODO: Support map fields.
+                break
+
+            case .array:
+                switch field.rawFieldType {
+                case .bool: deinitializeField(field, type: [Bool].self)
+                case .bytes: deinitializeField(field, type: [Data].self)
+                case .double: deinitializeField(field, type: [Double].self)
+                case .enum:
+                    // TODO: Figure out how we represent enums (open vs. closed).
+                    break
+                case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
+                case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
+                case .float: deinitializeField(field, type: [Float].self)
+                case .group, .message:
+                    // TODO: Figure out how to deinitialize arrays of messages.
+                    break
+                case .int32, .sfixed32, .sint32: deinitializeField(field, type: [Int32].self)
+                case .int64, .sfixed64, .sint64: deinitializeField(field, type: [Int64].self)
+                case .string: deinitializeField(field, type: [String].self)
+                default: preconditionFailure("Unreachable")
+                }
+
+            case .scalar:
+                switch field.rawFieldType {
+                case .bytes: deinitializeField(field, type: Data.self)
+                case .string: deinitializeField(field, type: String.self)
+                case .group, .message:
+                    // TODO: Figure out how to deinitialize arbitrary messages.
+                    break
+                default:
+                    // Ignore trivial fields; no deinitialization is necessary.
+                    break
+                }
+
+            default:
+                preconditionFailure("Unreachable")
+            }
         }
         buffer.deallocate()
+    }
+
+    /// Deinitializes the field associated with the given layout information.
+    private func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
+        switch field.presence {
+        case .oneOfMember:
+            // TODO: Support oneof fields.
+            break
+
+        case .hasBit(let byteOffset, let mask):
+            guard isPresent(hasBit: (byteOffset, mask)) else {
+                return
+            }
+            (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
+        }
     }
 }
 
