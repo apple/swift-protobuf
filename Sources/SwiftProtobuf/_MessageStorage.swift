@@ -41,6 +41,13 @@ import Foundation
     /// The memory buffer that contain's the data for the message's fields.
     @usableFromInline internal let buffer: UnsafeMutableRawBufferPointer
 
+    /// The storage used for unknown fields.
+    public var unknownFields: UnknownStorage
+
+    /// The storage used for extension field values.
+    /// TODO: This will very likely change as the table-driven implementation evolves.
+    public var extensionFieldValues: ExtensionFieldValueSet
+
     /// Creates a new message storage instance for a message with the given layout.
     public init(layout: _MessageLayout) {
         self.layout = layout
@@ -51,6 +58,8 @@ import Foundation
         self.buffer.withMemoryRebound(to: UInt8.self) { byteBuffer in
             byteBuffer.initialize(repeating: 0)
         }
+        self.unknownFields = UnknownStorage()
+        self.extensionFieldValues = ExtensionFieldValueSet()
     }
 
     deinit {

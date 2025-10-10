@@ -146,8 +146,18 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "\(visibility)var unknownFields = \(namer.swiftProtobufModulePrefix)UnknownStorage()"
+                "\(visibility)var unknownFields: \(namer.swiftProtobufModulePrefix)UnknownStorage {"
             )
+            p.withIndentation { p in
+                p.print("get { _storage.unknownFields }")
+                p.print("_modify {")
+                p.printIndented(
+                  "_ = _uniqueStorage()",
+                  "yield &_storage.unknownFields"
+                )
+                p.print("}")
+            }
+            p.print("}")
 
             for o in oneofs {
                 o.generateMainEnum(printer: &p)
@@ -175,8 +185,18 @@ class MessageGenerator {
             if isExtensible {
                 p.print(
                     "",
-                    "\(visibility)var _protobuf_extensionFieldValues = \(namer.swiftProtobufModulePrefix)ExtensionFieldValueSet()"
+                    "\(visibility)var _protobuf_extensionFieldValues: \(namer.swiftProtobufModulePrefix)ExtensionFieldValueSet {"
                 )
+                p.withIndentation { p in
+                    p.print("get { _storage.extensionFieldValues }")
+                    p.print("_modify {")
+                    p.printIndented(
+                      "_ = _uniqueStorage()",
+                      "yield &_storage.extensionFieldValues"
+                    )
+                    p.print("}")
+                }
+                p.print("}")
             }
             if !isExtensible {
                 p.print()
