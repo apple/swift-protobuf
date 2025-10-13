@@ -206,7 +206,9 @@ extension _MessageStorage {
         if firstNontrivialStorageOffset == 0 {
             firstNontrivialStorageOffset = layout.size
         }
-        destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
+        if firstNontrivialStorageOffset != 0 {
+            destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
+        }
         return destination
     }
 

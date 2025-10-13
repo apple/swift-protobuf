@@ -226,8 +226,11 @@ struct FieldLayout {
         case oneOfMember(Int)
 
         fileprivate init(rawValue: Int) {
+            // The raw value needs to be treated as a 14-bit signed integer where the MSB (bit 13)
+            // acts as the sign bit. Therefore, we need to check the range of the value to
+            // determine if it's a oneof (0x2000...0x3fff) or not (0x0000...0x1fff), then
+            // sign-extend it to 16 bits so that we can correctly take its inverse.
             if rawValue >= 0x2000 {
-                // Sign-extend the original 14-bit value so that we can correctly take its inverse.
                 self = .oneOfMember(Int(~(UInt16(rawValue) | 0xc000)))
             } else {
                 self = .hasBit(byteOffset: rawValue >> 3, mask: 1 << UInt8(rawValue & 7))
