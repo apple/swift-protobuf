@@ -12,11 +12,12 @@
 // -----------------------------------------------------------------------------
 ///
 /// This message tests oneof switch splitting with interleaved non-oneof fields.
-/// - Regular field at 251 breaks oneof into two chunks
-/// - Regular field at 502 breaks oneof into more chunks
-/// - With maxCasesInSwitch=500, first chunk (1-250) fits in one switch
-/// - Second chunk (252-501) needs to be split into two switches (250 fields each)
-/// - Third chunk (503-510) fits in one switch
+/// - Regular fields at 2, 251, 502, and 509 break oneof into multiple chunks
+/// - Regular field at 2 creates first break
+/// - Regular field at 251 creates second break
+/// - Regular field at 502 creates third break
+/// - Regular field at 509 creates fourth break
+/// - The oneof fields are also reordered to test proper sorting in generated code
 ///
 // -----------------------------------------------------------------------------
 
@@ -26,12 +27,13 @@ package swift_proto_testing.switch_split;
 
 message SwitchSplitMessage {
   // Regular fields that split the oneof into chunks
+  optional int32 regular_field_002 = 2;
   optional int32 regular_field_251 = 251;
   optional int32 regular_field_502 = 502;
+  optional int32 regular_field_509 = 509;
 
   oneof value {
     int32 field_001 = 1;
-    int32 field_002 = 2;
     int32 field_003 = 3;
     int32 field_004 = 4;
     int32 field_005 = 5;
@@ -39,7 +41,7 @@ message SwitchSplitMessage {
     int32 field_007 = 7;
     int32 field_008 = 8;
     int32 field_009 = 9;
-    int32 field_010 = 10;
+    int32 field_010 = 50;
     int32 field_011 = 11;
     int32 field_012 = 12;
     int32 field_013 = 13;
@@ -79,7 +81,7 @@ message SwitchSplitMessage {
     int32 field_047 = 47;
     int32 field_048 = 48;
     int32 field_049 = 49;
-    int32 field_050 = 50;
+    int32 field_050 = 10;
     int32 field_051 = 51;
     int32 field_052 = 52;
     int32 field_053 = 53;
@@ -129,7 +131,7 @@ message SwitchSplitMessage {
     int32 field_097 = 97;
     int32 field_098 = 98;
     int32 field_099 = 99;
-    int32 field_100 = 100;
+    int32 field_100 = 200;
     int32 field_101 = 101;
     int32 field_102 = 102;
     int32 field_103 = 103;
@@ -229,7 +231,7 @@ message SwitchSplitMessage {
     int32 field_197 = 197;
     int32 field_198 = 198;
     int32 field_199 = 199;
-    int32 field_200 = 200;
+    int32 field_200 = 100;
     int32 field_201 = 201;
     int32 field_202 = 202;
     int32 field_203 = 203;
@@ -328,7 +330,7 @@ message SwitchSplitMessage {
     int32 field_297 = 297;
     int32 field_298 = 298;
     int32 field_299 = 299;
-    int32 field_300 = 300;
+    int32 field_300 = 400;
     int32 field_301 = 301;
     int32 field_302 = 302;
     int32 field_303 = 303;
@@ -428,7 +430,7 @@ message SwitchSplitMessage {
     int32 field_397 = 397;
     int32 field_398 = 398;
     int32 field_399 = 399;
-    int32 field_400 = 400;
+    int32 field_400 = 300;
     int32 field_401 = 401;
     int32 field_402 = 402;
     int32 field_403 = 403;
@@ -536,7 +538,6 @@ message SwitchSplitMessage {
     int32 field_506 = 506;
     int32 field_507 = 507;
     int32 field_508 = 508;
-    int32 field_509 = 509;
     int32 field_510 = 510;
   }
 }

@@ -22,11 +22,12 @@
 // -----------------------------------------------------------------------------
 ///
 /// This message tests oneof switch splitting with interleaved non-oneof fields.
-/// - Regular field at 251 breaks oneof into two chunks
-/// - Regular field at 502 breaks oneof into more chunks
-/// - With maxCasesInSwitch=500, first chunk (1-250) fits in one switch
-/// - Second chunk (252-501) needs to be split into two switches (250 fields each)
-/// - Third chunk (503-510) fits in one switch
+/// - Regular fields at 2, 251, 502, and 509 break oneof into multiple chunks
+/// - Regular field at 2 creates first break
+/// - Regular field at 251 creates second break
+/// - Regular field at 502 creates third break
+/// - Regular field at 509 creates fourth break
+/// - The oneof fields are also reordered to test proper sorting in generated code
 ///
 // -----------------------------------------------------------------------------
 
@@ -48,6 +49,15 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
   // methods supported on all messages.
 
   /// Regular fields that split the oneof into chunks
+  var regularField002: Int32 {
+    get {return _regularField002 ?? 0}
+    set {_regularField002 = newValue}
+  }
+  /// Returns true if `regularField002` has been explicitly set.
+  var hasRegularField002: Bool {return self._regularField002 != nil}
+  /// Clears the value of `regularField002`. Subsequent reads from it will return its default value.
+  mutating func clearRegularField002() {self._regularField002 = nil}
+
   var regularField251: Int32 {
     get {return _regularField251 ?? 0}
     set {_regularField251 = newValue}
@@ -66,6 +76,15 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
   /// Clears the value of `regularField502`. Subsequent reads from it will return its default value.
   mutating func clearRegularField502() {self._regularField502 = nil}
 
+  var regularField509: Int32 {
+    get {return _regularField509 ?? 0}
+    set {_regularField509 = newValue}
+  }
+  /// Returns true if `regularField509` has been explicitly set.
+  var hasRegularField509: Bool {return self._regularField509 != nil}
+  /// Clears the value of `regularField509`. Subsequent reads from it will return its default value.
+  mutating func clearRegularField509() {self._regularField509 = nil}
+
   var value: SwiftProtoTesting_SwitchSplit_SwitchSplitMessage.OneOf_Value? = nil
 
   var field001: Int32 {
@@ -74,14 +93,6 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
       return 0
     }
     set {value = .field001(newValue)}
-  }
-
-  var field002: Int32 {
-    get {
-      if case .field002(let v)? = value {return v}
-      return 0
-    }
-    set {value = .field002(newValue)}
   }
 
   var field003: Int32 {
@@ -4116,14 +4127,6 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
     set {value = .field508(newValue)}
   }
 
-  var field509: Int32 {
-    get {
-      if case .field509(let v)? = value {return v}
-      return 0
-    }
-    set {value = .field509(newValue)}
-  }
-
   var field510: Int32 {
     get {
       if case .field510(let v)? = value {return v}
@@ -4136,7 +4139,6 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
 
   enum OneOf_Value: Equatable, Sendable {
     case field001(Int32)
-    case field002(Int32)
     case field003(Int32)
     case field004(Int32)
     case field005(Int32)
@@ -4641,15 +4643,16 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
     case field506(Int32)
     case field507(Int32)
     case field508(Int32)
-    case field509(Int32)
     case field510(Int32)
 
   }
 
   init() {}
 
+  fileprivate var _regularField002: Int32? = nil
   fileprivate var _regularField251: Int32? = nil
   fileprivate var _regularField502: Int32? = nil
+  fileprivate var _regularField509: Int32? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -4658,7 +4661,7 @@ fileprivate let _protobuf_package = "swift_proto_testing.switch_split"
 
 extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwitchSplitMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_001\0\u{3}field_002\0\u{3}field_003\0\u{3}field_004\0\u{3}field_005\0\u{3}field_006\0\u{3}field_007\0\u{3}field_008\0\u{3}field_009\0\u{3}field_010\0\u{3}field_011\0\u{3}field_012\0\u{3}field_013\0\u{3}field_014\0\u{3}field_015\0\u{3}field_016\0\u{3}field_017\0\u{3}field_018\0\u{3}field_019\0\u{3}field_020\0\u{3}field_021\0\u{3}field_022\0\u{3}field_023\0\u{3}field_024\0\u{3}field_025\0\u{3}field_026\0\u{3}field_027\0\u{3}field_028\0\u{3}field_029\0\u{3}field_030\0\u{3}field_031\0\u{3}field_032\0\u{3}field_033\0\u{3}field_034\0\u{3}field_035\0\u{3}field_036\0\u{3}field_037\0\u{3}field_038\0\u{3}field_039\0\u{3}field_040\0\u{3}field_041\0\u{3}field_042\0\u{3}field_043\0\u{3}field_044\0\u{3}field_045\0\u{3}field_046\0\u{3}field_047\0\u{3}field_048\0\u{3}field_049\0\u{3}field_050\0\u{3}field_051\0\u{3}field_052\0\u{3}field_053\0\u{3}field_054\0\u{3}field_055\0\u{3}field_056\0\u{3}field_057\0\u{3}field_058\0\u{3}field_059\0\u{3}field_060\0\u{3}field_061\0\u{3}field_062\0\u{3}field_063\0\u{3}field_064\0\u{3}field_065\0\u{3}field_066\0\u{3}field_067\0\u{3}field_068\0\u{3}field_069\0\u{3}field_070\0\u{3}field_071\0\u{3}field_072\0\u{3}field_073\0\u{3}field_074\0\u{3}field_075\0\u{3}field_076\0\u{3}field_077\0\u{3}field_078\0\u{3}field_079\0\u{3}field_080\0\u{3}field_081\0\u{3}field_082\0\u{3}field_083\0\u{3}field_084\0\u{3}field_085\0\u{3}field_086\0\u{3}field_087\0\u{3}field_088\0\u{3}field_089\0\u{3}field_090\0\u{3}field_091\0\u{3}field_092\0\u{3}field_093\0\u{3}field_094\0\u{3}field_095\0\u{3}field_096\0\u{3}field_097\0\u{3}field_098\0\u{3}field_099\0\u{3}field_100\0\u{3}field_101\0\u{3}field_102\0\u{3}field_103\0\u{3}field_104\0\u{3}field_105\0\u{3}field_106\0\u{3}field_107\0\u{3}field_108\0\u{3}field_109\0\u{3}field_110\0\u{3}field_111\0\u{3}field_112\0\u{3}field_113\0\u{3}field_114\0\u{3}field_115\0\u{3}field_116\0\u{3}field_117\0\u{3}field_118\0\u{3}field_119\0\u{3}field_120\0\u{3}field_121\0\u{3}field_122\0\u{3}field_123\0\u{3}field_124\0\u{3}field_125\0\u{3}field_126\0\u{3}field_127\0\u{3}field_128\0\u{3}field_129\0\u{3}field_130\0\u{3}field_131\0\u{3}field_132\0\u{3}field_133\0\u{3}field_134\0\u{3}field_135\0\u{3}field_136\0\u{3}field_137\0\u{3}field_138\0\u{3}field_139\0\u{3}field_140\0\u{3}field_141\0\u{3}field_142\0\u{3}field_143\0\u{3}field_144\0\u{3}field_145\0\u{3}field_146\0\u{3}field_147\0\u{3}field_148\0\u{3}field_149\0\u{3}field_150\0\u{3}field_151\0\u{3}field_152\0\u{3}field_153\0\u{3}field_154\0\u{3}field_155\0\u{3}field_156\0\u{3}field_157\0\u{3}field_158\0\u{3}field_159\0\u{3}field_160\0\u{3}field_161\0\u{3}field_162\0\u{3}field_163\0\u{3}field_164\0\u{3}field_165\0\u{3}field_166\0\u{3}field_167\0\u{3}field_168\0\u{3}field_169\0\u{3}field_170\0\u{3}field_171\0\u{3}field_172\0\u{3}field_173\0\u{3}field_174\0\u{3}field_175\0\u{3}field_176\0\u{3}field_177\0\u{3}field_178\0\u{3}field_179\0\u{3}field_180\0\u{3}field_181\0\u{3}field_182\0\u{3}field_183\0\u{3}field_184\0\u{3}field_185\0\u{3}field_186\0\u{3}field_187\0\u{3}field_188\0\u{3}field_189\0\u{3}field_190\0\u{3}field_191\0\u{3}field_192\0\u{3}field_193\0\u{3}field_194\0\u{3}field_195\0\u{3}field_196\0\u{3}field_197\0\u{3}field_198\0\u{3}field_199\0\u{3}field_200\0\u{3}field_201\0\u{3}field_202\0\u{3}field_203\0\u{3}field_204\0\u{3}field_205\0\u{3}field_206\0\u{3}field_207\0\u{3}field_208\0\u{3}field_209\0\u{3}field_210\0\u{3}field_211\0\u{3}field_212\0\u{3}field_213\0\u{3}field_214\0\u{3}field_215\0\u{3}field_216\0\u{3}field_217\0\u{3}field_218\0\u{3}field_219\0\u{3}field_220\0\u{3}field_221\0\u{3}field_222\0\u{3}field_223\0\u{3}field_224\0\u{3}field_225\0\u{3}field_226\0\u{3}field_227\0\u{3}field_228\0\u{3}field_229\0\u{3}field_230\0\u{3}field_231\0\u{3}field_232\0\u{3}field_233\0\u{3}field_234\0\u{3}field_235\0\u{3}field_236\0\u{3}field_237\0\u{3}field_238\0\u{3}field_239\0\u{3}field_240\0\u{3}field_241\0\u{3}field_242\0\u{3}field_243\0\u{3}field_244\0\u{3}field_245\0\u{3}field_246\0\u{3}field_247\0\u{3}field_248\0\u{3}field_249\0\u{3}field_250\0\u{3}regular_field_251\0\u{3}field_252\0\u{3}field_253\0\u{3}field_254\0\u{3}field_255\0\u{3}field_256\0\u{3}field_257\0\u{3}field_258\0\u{3}field_259\0\u{3}field_260\0\u{3}field_261\0\u{3}field_262\0\u{3}field_263\0\u{3}field_264\0\u{3}field_265\0\u{3}field_266\0\u{3}field_267\0\u{3}field_268\0\u{3}field_269\0\u{3}field_270\0\u{3}field_271\0\u{3}field_272\0\u{3}field_273\0\u{3}field_274\0\u{3}field_275\0\u{3}field_276\0\u{3}field_277\0\u{3}field_278\0\u{3}field_279\0\u{3}field_280\0\u{3}field_281\0\u{3}field_282\0\u{3}field_283\0\u{3}field_284\0\u{3}field_285\0\u{3}field_286\0\u{3}field_287\0\u{3}field_288\0\u{3}field_289\0\u{3}field_290\0\u{3}field_291\0\u{3}field_292\0\u{3}field_293\0\u{3}field_294\0\u{3}field_295\0\u{3}field_296\0\u{3}field_297\0\u{3}field_298\0\u{3}field_299\0\u{3}field_300\0\u{3}field_301\0\u{3}field_302\0\u{3}field_303\0\u{3}field_304\0\u{3}field_305\0\u{3}field_306\0\u{3}field_307\0\u{3}field_308\0\u{3}field_309\0\u{3}field_310\0\u{3}field_311\0\u{3}field_312\0\u{3}field_313\0\u{3}field_314\0\u{3}field_315\0\u{3}field_316\0\u{3}field_317\0\u{3}field_318\0\u{3}field_319\0\u{3}field_320\0\u{3}field_321\0\u{3}field_322\0\u{3}field_323\0\u{3}field_324\0\u{3}field_325\0\u{3}field_326\0\u{3}field_327\0\u{3}field_328\0\u{3}field_329\0\u{3}field_330\0\u{3}field_331\0\u{3}field_332\0\u{3}field_333\0\u{3}field_334\0\u{3}field_335\0\u{3}field_336\0\u{3}field_337\0\u{3}field_338\0\u{3}field_339\0\u{3}field_340\0\u{3}field_341\0\u{3}field_342\0\u{3}field_343\0\u{3}field_344\0\u{3}field_345\0\u{3}field_346\0\u{3}field_347\0\u{3}field_348\0\u{3}field_349\0\u{3}field_350\0\u{3}field_351\0\u{3}field_352\0\u{3}field_353\0\u{3}field_354\0\u{3}field_355\0\u{3}field_356\0\u{3}field_357\0\u{3}field_358\0\u{3}field_359\0\u{3}field_360\0\u{3}field_361\0\u{3}field_362\0\u{3}field_363\0\u{3}field_364\0\u{3}field_365\0\u{3}field_366\0\u{3}field_367\0\u{3}field_368\0\u{3}field_369\0\u{3}field_370\0\u{3}field_371\0\u{3}field_372\0\u{3}field_373\0\u{3}field_374\0\u{3}field_375\0\u{3}field_376\0\u{3}field_377\0\u{3}field_378\0\u{3}field_379\0\u{3}field_380\0\u{3}field_381\0\u{3}field_382\0\u{3}field_383\0\u{3}field_384\0\u{3}field_385\0\u{3}field_386\0\u{3}field_387\0\u{3}field_388\0\u{3}field_389\0\u{3}field_390\0\u{3}field_391\0\u{3}field_392\0\u{3}field_393\0\u{3}field_394\0\u{3}field_395\0\u{3}field_396\0\u{3}field_397\0\u{3}field_398\0\u{3}field_399\0\u{3}field_400\0\u{3}field_401\0\u{3}field_402\0\u{3}field_403\0\u{3}field_404\0\u{3}field_405\0\u{3}field_406\0\u{3}field_407\0\u{3}field_408\0\u{3}field_409\0\u{3}field_410\0\u{3}field_411\0\u{3}field_412\0\u{3}field_413\0\u{3}field_414\0\u{3}field_415\0\u{3}field_416\0\u{3}field_417\0\u{3}field_418\0\u{3}field_419\0\u{3}field_420\0\u{3}field_421\0\u{3}field_422\0\u{3}field_423\0\u{3}field_424\0\u{3}field_425\0\u{3}field_426\0\u{3}field_427\0\u{3}field_428\0\u{3}field_429\0\u{3}field_430\0\u{3}field_431\0\u{3}field_432\0\u{3}field_433\0\u{3}field_434\0\u{3}field_435\0\u{3}field_436\0\u{3}field_437\0\u{3}field_438\0\u{3}field_439\0\u{3}field_440\0\u{3}field_441\0\u{3}field_442\0\u{3}field_443\0\u{3}field_444\0\u{3}field_445\0\u{3}field_446\0\u{3}field_447\0\u{3}field_448\0\u{3}field_449\0\u{3}field_450\0\u{3}field_451\0\u{3}field_452\0\u{3}field_453\0\u{3}field_454\0\u{3}field_455\0\u{3}field_456\0\u{3}field_457\0\u{3}field_458\0\u{3}field_459\0\u{3}field_460\0\u{3}field_461\0\u{3}field_462\0\u{3}field_463\0\u{3}field_464\0\u{3}field_465\0\u{3}field_466\0\u{3}field_467\0\u{3}field_468\0\u{3}field_469\0\u{3}field_470\0\u{3}field_471\0\u{3}field_472\0\u{3}field_473\0\u{3}field_474\0\u{3}field_475\0\u{3}field_476\0\u{3}field_477\0\u{3}field_478\0\u{3}field_479\0\u{3}field_480\0\u{3}field_481\0\u{3}field_482\0\u{3}field_483\0\u{3}field_484\0\u{3}field_485\0\u{3}field_486\0\u{3}field_487\0\u{3}field_488\0\u{3}field_489\0\u{3}field_490\0\u{3}field_491\0\u{3}field_492\0\u{3}field_493\0\u{3}field_494\0\u{3}field_495\0\u{3}field_496\0\u{3}field_497\0\u{3}field_498\0\u{3}field_499\0\u{3}field_500\0\u{3}field_501\0\u{3}regular_field_502\0\u{3}field_503\0\u{3}field_504\0\u{3}field_505\0\u{3}field_506\0\u{3}field_507\0\u{3}field_508\0\u{3}field_509\0\u{3}field_510\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_001\0\u{3}regular_field_002\0\u{3}field_003\0\u{3}field_004\0\u{3}field_005\0\u{3}field_006\0\u{3}field_007\0\u{3}field_008\0\u{3}field_009\0\u{3}field_050\0\u{3}field_011\0\u{3}field_012\0\u{3}field_013\0\u{3}field_014\0\u{3}field_015\0\u{3}field_016\0\u{3}field_017\0\u{3}field_018\0\u{3}field_019\0\u{3}field_020\0\u{3}field_021\0\u{3}field_022\0\u{3}field_023\0\u{3}field_024\0\u{3}field_025\0\u{3}field_026\0\u{3}field_027\0\u{3}field_028\0\u{3}field_029\0\u{3}field_030\0\u{3}field_031\0\u{3}field_032\0\u{3}field_033\0\u{3}field_034\0\u{3}field_035\0\u{3}field_036\0\u{3}field_037\0\u{3}field_038\0\u{3}field_039\0\u{3}field_040\0\u{3}field_041\0\u{3}field_042\0\u{3}field_043\0\u{3}field_044\0\u{3}field_045\0\u{3}field_046\0\u{3}field_047\0\u{3}field_048\0\u{3}field_049\0\u{3}field_010\0\u{3}field_051\0\u{3}field_052\0\u{3}field_053\0\u{3}field_054\0\u{3}field_055\0\u{3}field_056\0\u{3}field_057\0\u{3}field_058\0\u{3}field_059\0\u{3}field_060\0\u{3}field_061\0\u{3}field_062\0\u{3}field_063\0\u{3}field_064\0\u{3}field_065\0\u{3}field_066\0\u{3}field_067\0\u{3}field_068\0\u{3}field_069\0\u{3}field_070\0\u{3}field_071\0\u{3}field_072\0\u{3}field_073\0\u{3}field_074\0\u{3}field_075\0\u{3}field_076\0\u{3}field_077\0\u{3}field_078\0\u{3}field_079\0\u{3}field_080\0\u{3}field_081\0\u{3}field_082\0\u{3}field_083\0\u{3}field_084\0\u{3}field_085\0\u{3}field_086\0\u{3}field_087\0\u{3}field_088\0\u{3}field_089\0\u{3}field_090\0\u{3}field_091\0\u{3}field_092\0\u{3}field_093\0\u{3}field_094\0\u{3}field_095\0\u{3}field_096\0\u{3}field_097\0\u{3}field_098\0\u{3}field_099\0\u{3}field_200\0\u{3}field_101\0\u{3}field_102\0\u{3}field_103\0\u{3}field_104\0\u{3}field_105\0\u{3}field_106\0\u{3}field_107\0\u{3}field_108\0\u{3}field_109\0\u{3}field_110\0\u{3}field_111\0\u{3}field_112\0\u{3}field_113\0\u{3}field_114\0\u{3}field_115\0\u{3}field_116\0\u{3}field_117\0\u{3}field_118\0\u{3}field_119\0\u{3}field_120\0\u{3}field_121\0\u{3}field_122\0\u{3}field_123\0\u{3}field_124\0\u{3}field_125\0\u{3}field_126\0\u{3}field_127\0\u{3}field_128\0\u{3}field_129\0\u{3}field_130\0\u{3}field_131\0\u{3}field_132\0\u{3}field_133\0\u{3}field_134\0\u{3}field_135\0\u{3}field_136\0\u{3}field_137\0\u{3}field_138\0\u{3}field_139\0\u{3}field_140\0\u{3}field_141\0\u{3}field_142\0\u{3}field_143\0\u{3}field_144\0\u{3}field_145\0\u{3}field_146\0\u{3}field_147\0\u{3}field_148\0\u{3}field_149\0\u{3}field_150\0\u{3}field_151\0\u{3}field_152\0\u{3}field_153\0\u{3}field_154\0\u{3}field_155\0\u{3}field_156\0\u{3}field_157\0\u{3}field_158\0\u{3}field_159\0\u{3}field_160\0\u{3}field_161\0\u{3}field_162\0\u{3}field_163\0\u{3}field_164\0\u{3}field_165\0\u{3}field_166\0\u{3}field_167\0\u{3}field_168\0\u{3}field_169\0\u{3}field_170\0\u{3}field_171\0\u{3}field_172\0\u{3}field_173\0\u{3}field_174\0\u{3}field_175\0\u{3}field_176\0\u{3}field_177\0\u{3}field_178\0\u{3}field_179\0\u{3}field_180\0\u{3}field_181\0\u{3}field_182\0\u{3}field_183\0\u{3}field_184\0\u{3}field_185\0\u{3}field_186\0\u{3}field_187\0\u{3}field_188\0\u{3}field_189\0\u{3}field_190\0\u{3}field_191\0\u{3}field_192\0\u{3}field_193\0\u{3}field_194\0\u{3}field_195\0\u{3}field_196\0\u{3}field_197\0\u{3}field_198\0\u{3}field_199\0\u{3}field_100\0\u{3}field_201\0\u{3}field_202\0\u{3}field_203\0\u{3}field_204\0\u{3}field_205\0\u{3}field_206\0\u{3}field_207\0\u{3}field_208\0\u{3}field_209\0\u{3}field_210\0\u{3}field_211\0\u{3}field_212\0\u{3}field_213\0\u{3}field_214\0\u{3}field_215\0\u{3}field_216\0\u{3}field_217\0\u{3}field_218\0\u{3}field_219\0\u{3}field_220\0\u{3}field_221\0\u{3}field_222\0\u{3}field_223\0\u{3}field_224\0\u{3}field_225\0\u{3}field_226\0\u{3}field_227\0\u{3}field_228\0\u{3}field_229\0\u{3}field_230\0\u{3}field_231\0\u{3}field_232\0\u{3}field_233\0\u{3}field_234\0\u{3}field_235\0\u{3}field_236\0\u{3}field_237\0\u{3}field_238\0\u{3}field_239\0\u{3}field_240\0\u{3}field_241\0\u{3}field_242\0\u{3}field_243\0\u{3}field_244\0\u{3}field_245\0\u{3}field_246\0\u{3}field_247\0\u{3}field_248\0\u{3}field_249\0\u{3}field_250\0\u{3}regular_field_251\0\u{3}field_252\0\u{3}field_253\0\u{3}field_254\0\u{3}field_255\0\u{3}field_256\0\u{3}field_257\0\u{3}field_258\0\u{3}field_259\0\u{3}field_260\0\u{3}field_261\0\u{3}field_262\0\u{3}field_263\0\u{3}field_264\0\u{3}field_265\0\u{3}field_266\0\u{3}field_267\0\u{3}field_268\0\u{3}field_269\0\u{3}field_270\0\u{3}field_271\0\u{3}field_272\0\u{3}field_273\0\u{3}field_274\0\u{3}field_275\0\u{3}field_276\0\u{3}field_277\0\u{3}field_278\0\u{3}field_279\0\u{3}field_280\0\u{3}field_281\0\u{3}field_282\0\u{3}field_283\0\u{3}field_284\0\u{3}field_285\0\u{3}field_286\0\u{3}field_287\0\u{3}field_288\0\u{3}field_289\0\u{3}field_290\0\u{3}field_291\0\u{3}field_292\0\u{3}field_293\0\u{3}field_294\0\u{3}field_295\0\u{3}field_296\0\u{3}field_297\0\u{3}field_298\0\u{3}field_299\0\u{3}field_400\0\u{3}field_301\0\u{3}field_302\0\u{3}field_303\0\u{3}field_304\0\u{3}field_305\0\u{3}field_306\0\u{3}field_307\0\u{3}field_308\0\u{3}field_309\0\u{3}field_310\0\u{3}field_311\0\u{3}field_312\0\u{3}field_313\0\u{3}field_314\0\u{3}field_315\0\u{3}field_316\0\u{3}field_317\0\u{3}field_318\0\u{3}field_319\0\u{3}field_320\0\u{3}field_321\0\u{3}field_322\0\u{3}field_323\0\u{3}field_324\0\u{3}field_325\0\u{3}field_326\0\u{3}field_327\0\u{3}field_328\0\u{3}field_329\0\u{3}field_330\0\u{3}field_331\0\u{3}field_332\0\u{3}field_333\0\u{3}field_334\0\u{3}field_335\0\u{3}field_336\0\u{3}field_337\0\u{3}field_338\0\u{3}field_339\0\u{3}field_340\0\u{3}field_341\0\u{3}field_342\0\u{3}field_343\0\u{3}field_344\0\u{3}field_345\0\u{3}field_346\0\u{3}field_347\0\u{3}field_348\0\u{3}field_349\0\u{3}field_350\0\u{3}field_351\0\u{3}field_352\0\u{3}field_353\0\u{3}field_354\0\u{3}field_355\0\u{3}field_356\0\u{3}field_357\0\u{3}field_358\0\u{3}field_359\0\u{3}field_360\0\u{3}field_361\0\u{3}field_362\0\u{3}field_363\0\u{3}field_364\0\u{3}field_365\0\u{3}field_366\0\u{3}field_367\0\u{3}field_368\0\u{3}field_369\0\u{3}field_370\0\u{3}field_371\0\u{3}field_372\0\u{3}field_373\0\u{3}field_374\0\u{3}field_375\0\u{3}field_376\0\u{3}field_377\0\u{3}field_378\0\u{3}field_379\0\u{3}field_380\0\u{3}field_381\0\u{3}field_382\0\u{3}field_383\0\u{3}field_384\0\u{3}field_385\0\u{3}field_386\0\u{3}field_387\0\u{3}field_388\0\u{3}field_389\0\u{3}field_390\0\u{3}field_391\0\u{3}field_392\0\u{3}field_393\0\u{3}field_394\0\u{3}field_395\0\u{3}field_396\0\u{3}field_397\0\u{3}field_398\0\u{3}field_399\0\u{3}field_300\0\u{3}field_401\0\u{3}field_402\0\u{3}field_403\0\u{3}field_404\0\u{3}field_405\0\u{3}field_406\0\u{3}field_407\0\u{3}field_408\0\u{3}field_409\0\u{3}field_410\0\u{3}field_411\0\u{3}field_412\0\u{3}field_413\0\u{3}field_414\0\u{3}field_415\0\u{3}field_416\0\u{3}field_417\0\u{3}field_418\0\u{3}field_419\0\u{3}field_420\0\u{3}field_421\0\u{3}field_422\0\u{3}field_423\0\u{3}field_424\0\u{3}field_425\0\u{3}field_426\0\u{3}field_427\0\u{3}field_428\0\u{3}field_429\0\u{3}field_430\0\u{3}field_431\0\u{3}field_432\0\u{3}field_433\0\u{3}field_434\0\u{3}field_435\0\u{3}field_436\0\u{3}field_437\0\u{3}field_438\0\u{3}field_439\0\u{3}field_440\0\u{3}field_441\0\u{3}field_442\0\u{3}field_443\0\u{3}field_444\0\u{3}field_445\0\u{3}field_446\0\u{3}field_447\0\u{3}field_448\0\u{3}field_449\0\u{3}field_450\0\u{3}field_451\0\u{3}field_452\0\u{3}field_453\0\u{3}field_454\0\u{3}field_455\0\u{3}field_456\0\u{3}field_457\0\u{3}field_458\0\u{3}field_459\0\u{3}field_460\0\u{3}field_461\0\u{3}field_462\0\u{3}field_463\0\u{3}field_464\0\u{3}field_465\0\u{3}field_466\0\u{3}field_467\0\u{3}field_468\0\u{3}field_469\0\u{3}field_470\0\u{3}field_471\0\u{3}field_472\0\u{3}field_473\0\u{3}field_474\0\u{3}field_475\0\u{3}field_476\0\u{3}field_477\0\u{3}field_478\0\u{3}field_479\0\u{3}field_480\0\u{3}field_481\0\u{3}field_482\0\u{3}field_483\0\u{3}field_484\0\u{3}field_485\0\u{3}field_486\0\u{3}field_487\0\u{3}field_488\0\u{3}field_489\0\u{3}field_490\0\u{3}field_491\0\u{3}field_492\0\u{3}field_493\0\u{3}field_494\0\u{3}field_495\0\u{3}field_496\0\u{3}field_497\0\u{3}field_498\0\u{3}field_499\0\u{3}field_500\0\u{3}field_501\0\u{3}regular_field_502\0\u{3}field_503\0\u{3}field_504\0\u{3}field_505\0\u{3}field_506\0\u{3}field_507\0\u{3}field_508\0\u{3}regular_field_509\0\u{3}field_510\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4674,14 +4677,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
           self.value = .field001(v)
         }
       }()
-      case 2: try {
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {
-          if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field002(v)
-        }
-      }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._regularField002) }()
       case 3: try {
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
@@ -4743,7 +4739,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field010(v)
+          self.value = .field050(v)
         }
       }()
       case 11: try {
@@ -5063,7 +5059,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field050(v)
+          self.value = .field010(v)
         }
       }()
       case 51: try {
@@ -5463,7 +5459,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field100(v)
+          self.value = .field200(v)
         }
       }()
       case 101: try {
@@ -6263,7 +6259,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field200(v)
+          self.value = .field100(v)
         }
       }()
       case 201: try {
@@ -7056,7 +7052,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field300(v)
+          self.value = .field400(v)
         }
       }()
       case 301: try {
@@ -7856,7 +7852,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {
           if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field400(v)
+          self.value = .field300(v)
         }
       }()
       case 401: try {
@@ -8716,14 +8712,7 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
           self.value = .field508(v)
         }
       }()
-      case 509: try {
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {
-          if self.value != nil {try decoder.handleConflictingOneOf()}
-          self.value = .field509(v)
-        }
-      }()
+      case 509: try { try decoder.decodeSingularInt32Field(value: &self._regularField509) }()
       case 510: try {
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
@@ -8742,15 +8731,13 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.value {
-    case .field001?: try {
-      guard case .field001(let v)? = self.value else { preconditionFailure() }
+    try { if case .field001(let v)? = self.value {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    }()
-    case .field002?: try {
-      guard case .field002(let v)? = self.value else { preconditionFailure() }
+    } }()
+    try { if let v = self._regularField002 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }()
+    } }()
+    switch self.value {
     case .field003?: try {
       guard case .field003(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
@@ -8779,8 +8766,8 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field009(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
     }()
-    case .field010?: try {
-      guard case .field010(let v)? = self.value else { preconditionFailure() }
+    case .field050?: try {
+      guard case .field050(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
     }()
     case .field011?: try {
@@ -8939,8 +8926,8 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field049(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 49)
     }()
-    case .field050?: try {
-      guard case .field050(let v)? = self.value else { preconditionFailure() }
+    case .field010?: try {
+      guard case .field010(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 50)
     }()
     case .field051?: try {
@@ -9139,8 +9126,8 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field099(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
     }()
-    case .field100?: try {
-      guard case .field100(let v)? = self.value else { preconditionFailure() }
+    case .field200?: try {
+      guard case .field200(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 100)
     }()
     case .field101?: try {
@@ -9539,8 +9526,8 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field199(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 199)
     }()
-    case .field200?: try {
-      guard case .field200(let v)? = self.value else { preconditionFailure() }
+    case .field100?: try {
+      guard case .field100(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
     }()
     case .field201?: try {
@@ -9941,8 +9928,8 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field299(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 299)
     }()
-    case .field300?: try {
-      guard case .field300(let v)? = self.value else { preconditionFailure() }
+    case .field400?: try {
+      guard case .field400(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 300)
     }()
     case .field301?: try {
@@ -10341,8 +10328,8 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field399(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 399)
     }()
-    case .field400?: try {
-      guard case .field400(let v)? = self.value else { preconditionFailure() }
+    case .field300?: try {
+      guard case .field300(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 400)
     }()
     case .field401?: try {
@@ -10779,22 +10766,22 @@ extension SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: SwiftProtobuf.Messag
       guard case .field508(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 508)
     }()
-    case .field509?: try {
-      guard case .field509(let v)? = self.value else { preconditionFailure() }
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 509)
-    }()
-    case .field510?: try {
-      guard case .field510(let v)? = self.value else { preconditionFailure() }
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 510)
-    }()
     default: break
     }
+    try { if let v = self._regularField509 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 509)
+    } }()
+    try { if case .field510(let v)? = self.value {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 510)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: SwiftProtoTesting_SwitchSplit_SwitchSplitMessage, rhs: SwiftProtoTesting_SwitchSplit_SwitchSplitMessage) -> Bool {
+    if lhs._regularField002 != rhs._regularField002 {return false}
     if lhs._regularField251 != rhs._regularField251 {return false}
     if lhs._regularField502 != rhs._regularField502 {return false}
+    if lhs._regularField509 != rhs._regularField509 {return false}
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
