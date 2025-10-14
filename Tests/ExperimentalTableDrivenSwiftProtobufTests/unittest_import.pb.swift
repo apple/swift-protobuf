@@ -111,16 +111,16 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
   #if _pointerBitWidth(_64)
-    static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout("\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}")
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
-    static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout("\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}")
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
 
-  static func _protobuf_submessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken) -> any SwiftProtobuf.Message.Type {
-    preconditionFailure("invalid submessage token; this is a generator bug")
-  }
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: SwiftProtobuf._invalidDeinitializeSubmessage, copySubmessage: SwiftProtobuf._invalidCopySubmessage)
 
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
