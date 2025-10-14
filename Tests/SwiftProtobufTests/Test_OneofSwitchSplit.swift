@@ -20,38 +20,38 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_OneofSwitchSplit: XCTestCase {
 
     func testChunkBoundaries() throws {
         var msg = SwiftProtoTesting_SwitchSplit_SwitchSplitMessage()
-        
+
         // Test chunk 1: fields 1-250 (before regular_field_251)
         msg.field001 = 1
         XCTAssertEqual(msg.field001, 1)
         msg.field250 = 250
         XCTAssertEqual(msg.field250, 250)
-        
+
         // Test chunk 2: fields 252-501 (between regular fields)
         msg.field252 = 252
         XCTAssertEqual(msg.field252, 252)
         msg.field501 = 501
         XCTAssertEqual(msg.field501, 501)
-        
+
         // Test chunk 3: fields 503-510 (after regular_field_502)
         msg.field503 = 503
         XCTAssertEqual(msg.field503, 503)
         msg.field510 = 510
         XCTAssertEqual(msg.field510, 510)
-        
+
         // Test regular fields don't interfere with oneof
         msg.regularField251 = 999
         XCTAssertEqual(msg.regularField251, 999)
-        XCTAssertEqual(msg.field510, 510) // oneof still set
+        XCTAssertEqual(msg.field510, 510)
     }
-    
+
     func testSerializationAcrossChunks() throws {
         // Test serialization from each chunk
         var msg1 = SwiftProtoTesting_SwitchSplit_SwitchSplitMessage()
@@ -59,13 +59,13 @@ final class Test_OneofSwitchSplit: XCTestCase {
         let data1 = try msg1.serializedData()
         let decoded1 = try SwiftProtoTesting_SwitchSplit_SwitchSplitMessage(serializedBytes: data1)
         XCTAssertEqual(decoded1.field100, 100)
-        
+
         var msg2 = SwiftProtoTesting_SwitchSplit_SwitchSplitMessage()
         msg2.field400 = 400
         let data2 = try msg2.serializedData()
         let decoded2 = try SwiftProtoTesting_SwitchSplit_SwitchSplitMessage(serializedBytes: data2)
         XCTAssertEqual(decoded2.field400, 400)
-        
+
         var msg3 = SwiftProtoTesting_SwitchSplit_SwitchSplitMessage()
         msg3.field505 = 505
         let data3 = try msg3.serializedData()
@@ -73,4 +73,3 @@ final class Test_OneofSwitchSplit: XCTestCase {
         XCTAssertEqual(decoded3.field505, 505)
     }
 }
-
