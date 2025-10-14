@@ -215,6 +215,29 @@ extension _MessageLayout {
 /// Provides access to the properties of a field's layout based on a slice of the raw message
 /// layout string.
 struct FieldLayout {
+    /// Describes the presence information of a field, translated from its raw bytecode
+    /// representation.
+    enum Presence: Sendable, Equatable {
+        /// The byte offset and mask of the has-bit for this field that is not a oneof member.
+        case hasBit(byteOffset: Int, mask: UInt8)
+
+        /// The byte offset of the 32-bit integer that holds the field number of the currently set
+        /// oneof member.
+        case oneOfMember(Int)
+
+        fileprivate init(rawValue: Int) {
+            // The raw value needs to be treated as a 14-bit signed integer where the MSB (bit 13)
+            // acts as the sign bit. Therefore, we need to check the range of the value to
+            // determine if it's a oneof (0x2000...0x3fff) or not (0x0000...0x1fff), then
+            // sign-extend it to 16 bits so that we can correctly take its inverse.
+            if rawValue >= 0x2000 {
+                self = .oneOfMember(Int(~(UInt16(rawValue) | 0xc000)))
+            } else {
+                self = .hasBit(byteOffset: rawValue >> 3, mask: 1 << UInt8(rawValue & 7))
+            }
+        }
+    }
+
     /// The rebased slice of `_MessageLayout.fields` that describes the layout of this field.
     private let buffer: UnsafeRawBufferPointer
 
@@ -241,8 +264,8 @@ struct FieldLayout {
     ///
     /// For one-of fields, this is the _byte_ offset in storage where the one-of index is stored.
     /// For scalar fields, this is the index of the has-bit for this field.
-    var presence: Int {
-        fixed2ByteBase128(in: buffer, atByteOffset: 8)
+    var presence: Presence {
+        Presence(rawValue: fixed2ByteBase128(in: buffer, atByteOffset: 8))
     }
 
     /// The index that is used when requesting the metatype of this field from its containing

@@ -64,9 +64,63 @@ import Foundation
 
     deinit {
         for field in layout.fields {
-            // TODO: Deinitialize nontrivial fields.
+            switch field.fieldMode.cardinality {
+            case .map:
+                // TODO: Support map fields.
+                break
+
+            case .array:
+                switch field.rawFieldType {
+                case .bool: deinitializeField(field, type: [Bool].self)
+                case .bytes: deinitializeField(field, type: [Data].self)
+                case .double: deinitializeField(field, type: [Double].self)
+                case .enum:
+                    // TODO: Figure out how we represent enums (open vs. closed).
+                    break
+                case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
+                case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
+                case .float: deinitializeField(field, type: [Float].self)
+                case .group, .message:
+                    // TODO: Figure out how to deinitialize arrays of messages.
+                    break
+                case .int32, .sfixed32, .sint32: deinitializeField(field, type: [Int32].self)
+                case .int64, .sfixed64, .sint64: deinitializeField(field, type: [Int64].self)
+                case .string: deinitializeField(field, type: [String].self)
+                default: preconditionFailure("Unreachable")
+                }
+
+            case .scalar:
+                switch field.rawFieldType {
+                case .bytes: deinitializeField(field, type: Data.self)
+                case .string: deinitializeField(field, type: String.self)
+                case .group, .message:
+                    // TODO: Figure out how to deinitialize arbitrary messages.
+                    break
+                default:
+                    // Ignore trivial fields; no deinitialization is necessary.
+                    break
+                }
+
+            default:
+                preconditionFailure("Unreachable")
+            }
         }
         buffer.deallocate()
+    }
+
+    /// Deinitializes the field associated with the given layout information.
+    private func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
+        switch field.presence {
+        case .oneOfMember:
+            // TODO: Support oneof fields.
+            break
+
+        case .hasBit(let byteOffset, let mask):
+            guard isPresent(hasBit: (byteOffset, mask)) else {
+                return
+            }
+            (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
+        }
     }
 }
 
@@ -78,13 +132,102 @@ extension _MessageStorage {
     /// This is used to implement copy-on-write behavior.
     @inline(never)
     public func copy() -> _MessageStorage {
-        let copy = _MessageStorage(layout: layout)
+        let destination = _MessageStorage(layout: layout)
+
+        // Loops through the fields, copy-initializing any that are non-trivial types. We ignore
+        // the trivial ones here, instead ttracking the byte offset of the first non-trivial field
+        // so that we can bitwise copy those as a block afterward.
+        var firstNontrivialStorageOffset = 0
         for field in layout.fields {
-            // TODO: Copy the field. More specifically, consider memcpy'ing the has-bits and
-            // trivial fields as a single block before this loop, and then only process the
-            // nontrivial fields here.
+            switch field.fieldMode.cardinality {
+            case .map:
+                if firstNontrivialStorageOffset == 0 {
+                    firstNontrivialStorageOffset = field.offset
+                }
+                // TODO: Support map fields.
+                break
+
+            case .array:
+                if firstNontrivialStorageOffset == 0 {
+                    firstNontrivialStorageOffset = field.offset
+                }
+                switch field.rawFieldType {
+                case .bool: copyField(field, to: destination, type: [Bool].self)
+                case .bytes: copyField(field, to: destination, type: [Data].self)
+                case .double: copyField(field, to: destination, type: [Double].self)
+                case .enum:
+                    // TODO: Figure out how we represent enums (open vs. closed).
+                    break
+                case .fixed32, .uint32: copyField(field, to: destination, type: [UInt32].self)
+                case .fixed64, .uint64: copyField(field, to: destination, type: [UInt64].self)
+                case .float: copyField(field, to: destination, type: [Float].self)
+                case .group, .message:
+                    // TODO: Figure out how to copy arrays of messages.
+                    break
+                case .int32, .sfixed32, .sint32: copyField(field, to: destination, type: [Int32].self)
+                case .int64, .sfixed64, .sint64: copyField(field, to: destination, type: [Int64].self)
+                case .string: copyField(field, to: destination, type: [String].self)
+                default: preconditionFailure("Unreachable")
+                }
+
+            case .scalar:
+                switch field.rawFieldType {
+                case .bytes:
+                    if firstNontrivialStorageOffset == 0 {
+                        firstNontrivialStorageOffset = field.offset
+                    }
+                    copyField(field, to: destination, type: Data.self)
+
+                case .group, .message:
+                    if firstNontrivialStorageOffset == 0 {
+                        firstNontrivialStorageOffset = field.offset
+                    }
+                    // TODO: Figure out how to copy arbitrary messages.
+
+                case .string:
+                    if firstNontrivialStorageOffset == 0 {
+                        firstNontrivialStorageOffset = field.offset
+                    }
+                    copyField(field, to: destination, type: String.self)
+
+                default:
+                    // Do nothing. Trivial fields will be bitwise-copied as a block below.
+                    break
+                }
+
+            default:
+                preconditionFailure("Unreachable")
+            }
         }
-        return copy
+
+        // Copy all of the trivial values (including has-bits) in bitwise fashion. Note that if we
+        // never set `firstNontrivialStorageOffset`, then the whole message must have been trivial
+        // fields. (This also works if the message is empty; that is, zero bytes.)
+        if firstNontrivialStorageOffset == 0 {
+            firstNontrivialStorageOffset = layout.size
+        }
+        if firstNontrivialStorageOffset != 0 {
+            destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
+        }
+        return destination
+    }
+
+    /// Copy-initializes the field associated with the given layout information in the destination
+    /// storage using its value from this storage.
+    private func copyField<T>(_ field: FieldLayout, to destination: _MessageStorage, type: T.Type) {
+        switch field.presence {
+        case .oneOfMember:
+            // TODO: Support oneof fields.
+            break
+
+        case .hasBit(let byteOffset, let mask):
+            guard isPresent(hasBit: (byteOffset, mask)) else {
+                return
+            }
+            let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            let destinationPointer = (destination.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            destinationPointer.initialize(from: sourcePointer, count: 1)
+        }
     }
 }
 
