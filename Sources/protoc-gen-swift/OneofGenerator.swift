@@ -46,10 +46,7 @@ class OneofGenerator {
         // Only valid on message fields.
         var messageType: Descriptor? { fieldDescriptor.messageType }
 
-        var submessageTypeName: String? {
-            // TODO: Implement this.
-            return nil
-        }
+        let submessageTypeName: String?
 
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
             precondition(descriptor.oneofIndex != nil)
@@ -69,6 +66,13 @@ class OneofGenerator {
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
             comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
+
+            switch descriptor.type {
+            case .group, .message:
+                submessageTypeName = swiftType
+            default:
+                submessageTypeName = nil
+            }
 
             super.init(descriptor: descriptor)
         }

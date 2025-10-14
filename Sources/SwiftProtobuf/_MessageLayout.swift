@@ -93,6 +93,57 @@
     /// The encoded layout of the fields of the message.
     private let layout: UnsafeRawBufferPointer
 
+    /// The function type for the generated function that is called to deinitialize a field
+    /// of a complex type.
+    public typealias SubmessageDeinitializer = (
+        _ token: SubmessageToken,
+        _ field: FieldLayout,
+        _ storage: _MessageStorage
+    ) -> Void
+
+    /// The function type for the generated function that is called to copy a field of a
+    /// complex type.
+    public typealias SubmessageCopier = (
+        _ token: SubmessageToken,
+        _ field: FieldLayout,
+        _ source: _MessageStorage,
+        _ destination: _MessageStorage
+    ) -> Void
+
+    /// The function that is called to deinitialize a field whose type is a message.
+    let deinitializeSubmessage: SubmessageDeinitializer
+
+    /// The function that is called to copy a field whose type is a submessage.
+    let copySubmessage: SubmessageCopier
+
+    /// Creates a new message layout from the given values.
+    ///
+    /// This initializer is public because generated messages need to call it.
+    public init(
+        layout: StaticString,
+        deinitializeSubmessage: @escaping SubmessageDeinitializer,
+        copySubmessage: @escaping SubmessageCopier
+    ) {
+        precondition(
+            layout.hasPointerRepresentation,
+            "The layout string should have a pointer-based representation; this is a generator bug"
+        )
+        self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
+        self.deinitializeSubmessage = deinitializeSubmessage
+        self.copySubmessage = copySubmessage
+        precondition(version == 0, "This runtime only supports version 0 message layouts")
+        precondition(
+            self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
+            """
+            The layout size in bytes was not consistent with the number of fields \
+            (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
+            this is a generator bug
+            """
+        )
+    }
+}
+
+extension _MessageLayout {
     /// The version of the layout data.
     ///
     /// Currently, the runtime only supports version 0. If the layout needs to change in a breaking
@@ -126,26 +177,6 @@
     /// access; fields numbered `N` or higher must be found via binary search.
     var denseBelow: UInt32 {
         UInt32(fixed3ByteBase128(in: layout, atByteOffset: 10))
-    }
-
-    /// Creates a new message layout from the given values.
-    ///
-    /// This initializer is public because generated messages need to call it.
-    public init(_ layout: StaticString) {
-        precondition(
-            layout.hasPointerRepresentation,
-            "The layout string should have a pointer-based representation; this is a generator bug"
-        )
-        self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
-        precondition(version == 0, "This runtime only supports version 0 message layouts")
-        precondition(
-            self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
-            """
-            The layout size in bytes was not consistent with the number of fields \
-            (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
-            this is a generator bug
-            """
-        )
     }
 }
 
@@ -214,7 +245,7 @@ extension _MessageLayout {
 
 /// Provides access to the properties of a field's layout based on a slice of the raw message
 /// layout string.
-struct FieldLayout {
+@_spi(ForGeneratedCodeOnly) public struct FieldLayout {
     /// Describes the presence information of a field, translated from its raw bytecode
     /// representation.
     enum Presence: Sendable, Equatable {
@@ -372,4 +403,27 @@ private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset b
 private func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let rawBits = UInt32(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt32.self))
     return Int((rawBits & 0x00007f) | ((rawBits & 0x007f00) >> 1) | ((rawBits & 0x7f0000) >> 2))
+}
+
+/// A placeholder submessage deinitialization function used by the layouts of messages that do not
+/// have any submessages.
+@_spi(ForGeneratedCodeOnly)
+public func _invalidDeinitializeSubmessage(
+    for token: _MessageLayout.SubmessageToken,
+    field: FieldLayout,
+    storage: _MessageStorage
+) {
+    preconditionFailure("This should have been unreachable; this is a generator bug")
+}
+
+/// A placeholder submessage copy function used by the layouts of messages that do not have any
+/// submessages.
+@_spi(ForGeneratedCodeOnly)
+public func _invalidCopySubmessage(
+    for token: SwiftProtobuf._MessageLayout.SubmessageToken,
+    field: SwiftProtobuf.FieldLayout,
+    from source: SwiftProtobuf._MessageStorage,
+    to destination: SwiftProtobuf._MessageStorage
+) {
+    preconditionFailure("This should have been unreachable; this is a generator bug")
 }

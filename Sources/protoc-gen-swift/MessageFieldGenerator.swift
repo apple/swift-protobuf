@@ -59,10 +59,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
     }
 
-    var submessageTypeName: String? {
-        // TODO: Implement this.
-        nil
-    }
+    let submessageTypeName: String?
 
     init(
         descriptor: FieldDescriptor,
@@ -91,6 +88,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
 
         storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
+
+        switch descriptor.type {
+        case .group, .message:
+            submessageTypeName = swiftType
+        default:
+            submessageTypeName = nil
+        }
 
         super.init(descriptor: descriptor)
     }
