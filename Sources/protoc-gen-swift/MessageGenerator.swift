@@ -265,8 +265,8 @@ class MessageGenerator {
         }
 
         let submessageNames = messageLayoutCalculator.submessageNames
+        p.print()
         p.print(
-            "",
             "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString",
             newlines: false
         )

@@ -4119,6 +4119,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4184,6 +4185,7 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4215,6 +4217,7 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4246,6 +4249,7 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4277,6 +4281,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4326,6 +4331,7 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4357,6 +4363,7 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4388,6 +4395,7 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4419,6 +4427,7 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4450,6 +4459,7 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4481,6 +4491,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4526,6 +4537,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4573,6 +4585,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4620,6 +4633,7 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4651,6 +4665,7 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4682,6 +4697,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4727,6 +4743,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4772,6 +4789,7 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4803,6 +4821,7 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4834,6 +4853,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4881,6 +4901,7 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4912,6 +4933,7 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -4957,6 +4979,7 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -4988,6 +5011,7 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -5019,6 +5043,7 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -5050,6 +5075,7 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
@@ -5081,6 +5107,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -5132,6 +5159,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -5181,6 +5209,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -5226,6 +5255,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -5271,6 +5301,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
@@ -5316,6 +5347,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   #else
     #error("Unsupported platform")
   #endif
+
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
