@@ -100,8 +100,7 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
   #else
     #error("Unsupported platform")
   #endif
-
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: SwiftProtobuf._invalidDeinitializeSubmessage, copySubmessage: SwiftProtobuf._invalidCopySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")

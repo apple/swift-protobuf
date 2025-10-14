@@ -257,32 +257,32 @@ class MessageGenerator {
     }
 
     private func generateMessageLayout(printer p: inout CodePrinter) {
-        let submessageNames = messageLayoutCalculator.submessageNames
-        let deinitializeSubmessageName: String
-        let copySubmessageName: String
-        if submessageNames.isEmpty {
-            // If this message has no submessages, point to the fixed functions in the runtime that
-            // always fail with a precondition failure, since they should never be called.
-            deinitializeSubmessageName = "SwiftProtobuf._invalidDeinitializeSubmessage"
-            copySubmessageName = "SwiftProtobuf._invalidCopySubmessage"
-        } else {
-            // Otherwise, refer to the static member functions that will be generated below.
-            deinitializeSubmessageName = "_protobuf_deinitializeSubmessage"
-            copySubmessageName = "_protobuf_copySubmessage"
-        }
-
         messageLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &p) { value, _, p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
                 #"private static var _protobuf_messageLayoutString: StaticString { "\#(value)" }"#
             )
         }
+
+        let submessageNames = messageLayoutCalculator.submessageNames
         p.print(
             "",
-            "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: \(deinitializeSubmessageName), copySubmessage: \(copySubmessageName))"
+            "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString",
+            newlines: false
         )
 
-        if !submessageNames.isEmpty {
+        if submessageNames.isEmpty {
+            // If there are no submessages, we can use the layout initializer that defaults the
+            // trampoline functions to trapping placeholders.
+            p.print(")")
+        } else {
+            // Otherwise, pass the static member functions that will be generated below.
+            p.print(
+                """
+                , deinitializeSubmessage: _protobuf_deinitializeSubmessage\
+                , copySubmessage: _protobuf_copySubmessage)
+                """
+            )
             p.print(
                 "",
                 "private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {"

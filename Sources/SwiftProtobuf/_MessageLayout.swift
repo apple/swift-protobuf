@@ -116,7 +116,7 @@
     /// The function that is called to copy a field whose type is a submessage.
     let copySubmessage: SubmessageCopier
 
-    /// Creates a new message layout from the given values.
+    /// Creates a new message layout and submessage operations from the given values.
     ///
     /// This initializer is public because generated messages need to call it.
     public init(
@@ -139,6 +139,24 @@
             (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
             this is a generator bug
             """
+        )
+    }
+
+    /// Creates a new message layout from the given layout string.
+    ///
+    /// Layouts created with this initalizer must have no submessage fields because the invalid
+    /// submessage operation placeholder will be used.
+    ///
+    /// This initializer is public because generated messages need to call it.
+    public init(layout: StaticString) {
+        self.init(
+            layout: layout,
+            deinitializeSubmessage: { _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            copySubmessage: { _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            }
         )
     }
 }
@@ -403,27 +421,4 @@ private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset b
 private func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let rawBits = UInt32(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt32.self))
     return Int((rawBits & 0x00007f) | ((rawBits & 0x007f00) >> 1) | ((rawBits & 0x7f0000) >> 2))
-}
-
-/// A placeholder submessage deinitialization function used by the layouts of messages that do not
-/// have any submessages.
-@_spi(ForGeneratedCodeOnly)
-public func _invalidDeinitializeSubmessage(
-    for token: _MessageLayout.SubmessageToken,
-    field: FieldLayout,
-    storage: _MessageStorage
-) {
-    preconditionFailure("This should have been unreachable; this is a generator bug")
-}
-
-/// A placeholder submessage copy function used by the layouts of messages that do not have any
-/// submessages.
-@_spi(ForGeneratedCodeOnly)
-public func _invalidCopySubmessage(
-    for token: SwiftProtobuf._MessageLayout.SubmessageToken,
-    field: SwiftProtobuf.FieldLayout,
-    from source: SwiftProtobuf._MessageStorage,
-    to destination: SwiftProtobuf._MessageStorage
-) {
-    preconditionFailure("This should have been unreachable; this is a generator bug")
 }
