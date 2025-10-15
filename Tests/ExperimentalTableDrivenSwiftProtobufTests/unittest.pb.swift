@@ -575,38 +575,47 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
   mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 100, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (7, 64)) }
 
   /// For oneof test
-  var oneofField: SwiftProtoTesting_TestAllTypes.OneOf_OneofField? = nil
+  var oneofField: SwiftProtoTesting_TestAllTypes.OneOf_OneofField? {
+    get {
+      let populatedField = _storage.populatedOneofMember(at: 12)
+      switch populatedField {
+      case 0: return nil
+      case 111: return .oneofUint32(oneofUint32)
+      case 112: return .oneofNestedMessage(oneofNestedMessage)
+      case 113: return .oneofString(oneofString)
+      case 114: return .oneofBytes(oneofBytes)
+      default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")
+      }
+    }
+    set {
+      switch newValue {
+      case nil: _storage.clearPopulatedOneofMember(at: 12)
+      case .oneofUint32(let value)?: self.oneofUint32 = value
+      case .oneofNestedMessage(let value)?: self.oneofNestedMessage = value
+      case .oneofString(let value)?: self.oneofString = value
+      case .oneofBytes(let value)?: self.oneofBytes = value
+      }
+    }
+  }
 
   var oneofUint32: UInt32 {
-    get {
-      if case .oneofUint32(let v)? = oneofField {return v}
-      return 0
-    }
-    set {oneofField = .oneofUint32(newValue)}
+    get { return _storage.value(at: 104, default: 0, oneofPresence: (12, 111)) }
+    set { _uniqueStorage().updateValue(at: 104, to: newValue, oneofPresence: (12, 111)) }
   }
 
   var oneofNestedMessage: SwiftProtoTesting_TestAllTypes.NestedMessage {
-    get {
-      if case .oneofNestedMessage(let v)? = oneofField {return v}
-      return SwiftProtoTesting_TestAllTypes.NestedMessage()
-    }
-    set {oneofField = .oneofNestedMessage(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(424, 316), default: SwiftProtoTesting_TestAllTypes.NestedMessage(), oneofPresence: (12, 112)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(424, 316), to: newValue, oneofPresence: (12, 112)) }
   }
 
   var oneofString: String {
-    get {
-      if case .oneofString(let v)? = oneofField {return v}
-      return String()
-    }
-    set {oneofField = .oneofString(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(496, 372), default: String(), oneofPresence: (12, 113)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(496, 372), to: newValue, oneofPresence: (12, 113)) }
   }
 
   var oneofBytes: Data {
-    get {
-      if case .oneofBytes(let v)? = oneofField {return v}
-      return Data()
-    }
-    set {oneofField = .oneofBytes(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(512, 384), default: Data(), oneofPresence: (12, 114)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(512, 384), to: newValue, oneofPresence: (12, 114)) }
   }
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
@@ -623,7 +632,6 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     case oneofNestedMessage(SwiftProtoTesting_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
-
   }
 
   enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -1871,38 +1879,47 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var foo: SwiftProtoTesting_TestOneof.OneOf_Foo? = nil
+  var foo: SwiftProtoTesting_TestOneof.OneOf_Foo? {
+    get {
+      let populatedField = _storage.populatedOneofMember(at: 4)
+      switch populatedField {
+      case 0: return nil
+      case 1: return .fooInt(fooInt)
+      case 2: return .fooString(fooString)
+      case 3: return .fooMessage(fooMessage)
+      case 4: return .fooGroup(fooGroup)
+      default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")
+      }
+    }
+    set {
+      switch newValue {
+      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case .fooInt(let value)?: self.fooInt = value
+      case .fooString(let value)?: self.fooString = value
+      case .fooMessage(let value)?: self.fooMessage = value
+      case .fooGroup(let value)?: self.fooGroup = value
+      }
+    }
+  }
 
   var fooInt: Int32 {
-    get {
-      if case .fooInt(let v)? = foo {return v}
-      return 0
-    }
-    set {foo = .fooInt(newValue)}
+    get { return _storage.value(at: 20, default: 0, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(at: 20, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var fooString: String {
-    get {
-      if case .fooString(let v)? = foo {return v}
-      return String()
-    }
-    set {foo = .fooString(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), default: String(), oneofPresence: (4, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, oneofPresence: (4, 2)) }
   }
 
   var fooMessage: SwiftProtoTesting_TestAllTypes {
-    get {
-      if case .fooMessage(let v)? = foo {return v}
-      return SwiftProtoTesting_TestAllTypes()
-    }
-    set {foo = .fooMessage(newValue)}
+    get { return _storage.value(at: 24, default: SwiftProtoTesting_TestAllTypes(), oneofPresence: (4, 3)) }
+    set { _uniqueStorage().updateValue(at: 24, to: newValue, oneofPresence: (4, 3)) }
   }
 
   var fooGroup: SwiftProtoTesting_TestOneof.FooGroup {
-    get {
-      if case .fooGroup(let v)? = foo {return v}
-      return SwiftProtoTesting_TestOneof.FooGroup()
-    }
-    set {foo = .fooGroup(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 28), default: SwiftProtoTesting_TestOneof.FooGroup(), oneofPresence: (4, 4)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 28), to: newValue, oneofPresence: (4, 4)) }
   }
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
@@ -1918,7 +1935,6 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
     case fooString(String)
     case fooMessage(SwiftProtoTesting_TestAllTypes)
     case fooGroup(SwiftProtoTesting_TestOneof.FooGroup)
-
   }
 
   struct FooGroup: @unchecked Sendable {
@@ -1977,30 +1993,40 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var foo: SwiftProtoTesting_TestRequiredOneof.OneOf_Foo? = nil
+  var foo: SwiftProtoTesting_TestRequiredOneof.OneOf_Foo? {
+    get {
+      let populatedField = _storage.populatedOneofMember(at: 4)
+      switch populatedField {
+      case 0: return nil
+      case 1: return .fooInt(fooInt)
+      case 2: return .fooString(fooString)
+      case 3: return .fooMessage(fooMessage)
+      default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")
+      }
+    }
+    set {
+      switch newValue {
+      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case .fooInt(let value)?: self.fooInt = value
+      case .fooString(let value)?: self.fooString = value
+      case .fooMessage(let value)?: self.fooMessage = value
+      }
+    }
+  }
 
   var fooInt: Int32 {
-    get {
-      if case .fooInt(let v)? = foo {return v}
-      return 0
-    }
-    set {foo = .fooInt(newValue)}
+    get { return _storage.value(at: 16, default: 0, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(at: 16, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var fooString: String {
-    get {
-      if case .fooString(let v)? = foo {return v}
-      return String()
-    }
-    set {foo = .fooString(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), oneofPresence: (4, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, oneofPresence: (4, 2)) }
   }
 
   var fooMessage: SwiftProtoTesting_TestRequiredOneof.NestedMessage {
-    get {
-      if case .fooMessage(let v)? = foo {return v}
-      return SwiftProtoTesting_TestRequiredOneof.NestedMessage()
-    }
-    set {foo = .fooMessage(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 20), default: SwiftProtoTesting_TestRequiredOneof.NestedMessage(), oneofPresence: (4, 3)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 20), to: newValue, oneofPresence: (4, 3)) }
   }
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
@@ -2015,12 +2041,6 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(SwiftProtoTesting_TestRequiredOneof.NestedMessage)
-
-    fileprivate var isInitialized: Bool {
-      guard case .fooMessage(let v) = self else {return true}
-      return v.isInitialized
-    }
-
   }
 
   struct NestedMessage: @unchecked Sendable {

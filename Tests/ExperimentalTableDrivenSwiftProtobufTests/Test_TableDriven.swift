@@ -137,4 +137,149 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msg.repeatedImportMessage[0].d, 99)
         XCTAssertEqual(msg.repeatedImportMessage[1].d, 20)
     }
+
+    func testOneofModifyMembers() {
+        var msg = MessageTestType()
+        XCTAssertNil(msg.oneofField)
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        msg.oneofString = "some string"
+        if case .oneofString(let value)? = msg.oneofField {
+            XCTAssertEqual(value, "some string")
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofString but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "some string")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        msg.oneofBytes = Data([1, 2, 3])
+        if case .oneofBytes(let value)? = msg.oneofField {
+            XCTAssertEqual(value, Data([1, 2, 3]))
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofBytes but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data([1, 2, 3]))
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        var nestedMsg = MessageTestType.NestedMessage()
+        nestedMsg.bb = 100
+        msg.oneofNestedMessage = nestedMsg
+        if case .oneofNestedMessage(let value)? = msg.oneofField {
+            XCTAssertEqual(value.bb, 100)
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofNestedMessage but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 100)
+
+        msg.oneofUint32 = 987
+        if case .oneofUint32(let value)? = msg.oneofField {
+            XCTAssertEqual(value, 987)
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofUint32 but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 987)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+    }
+
+    func testOneofModifyCaseField() {
+        var msg = MessageTestType()
+        XCTAssertNil(msg.oneofField)
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        msg.oneofField = .oneofString("some string")
+        if case .oneofString(let value)? = msg.oneofField {
+            XCTAssertEqual(value, "some string")
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofString but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "some string")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        msg.oneofField = .oneofBytes(Data([1, 2, 3]))
+        if case .oneofBytes(let value)? = msg.oneofField {
+            XCTAssertEqual(value, Data([1, 2, 3]))
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofBytes but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data([1, 2, 3]))
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        var nestedMsg = MessageTestType.NestedMessage()
+        nestedMsg.bb = 100
+        msg.oneofField = .oneofNestedMessage(nestedMsg)
+        msg.oneofNestedMessage.bb = 100
+        if case .oneofNestedMessage(let value)? = msg.oneofField {
+            XCTAssertEqual(value.bb, 100)
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofNestedMessage but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 100)
+
+        msg.oneofField = .oneofUint32(987)
+        if case .oneofUint32(let value)? = msg.oneofField {
+            XCTAssertEqual(value, 987)
+        } else {
+            XCTFail("""
+                oneof case was wrong; expected oneofUint32 but got \
+                \(msg.oneofField.map(String.init(describing:)) ?? "nil")
+                """)
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 987)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+
+        // Finally, clear it.
+        msg.oneofField = nil
+        if let value = msg.oneofField {
+            XCTFail("oneof case was wrong; expected nil but got \(value)")
+        }
+        XCTAssertEqual(msg.oneofString, "")
+        XCTAssertEqual(msg.oneofUint32, 0)
+        XCTAssertEqual(msg.oneofBytes, Data())
+        XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
+    }
 }
