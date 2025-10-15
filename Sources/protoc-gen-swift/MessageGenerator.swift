@@ -203,9 +203,9 @@ class MessageGenerator {
             }
             p.print(
                 "private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)",
-                ""
+                "",
+                "private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {"
             )
-            p.print("private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {")
             p.withIndentation { p in
                 p.print(
                     "if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }",
@@ -259,31 +259,66 @@ class MessageGenerator {
     private func generateMessageLayout(printer p: inout CodePrinter) {
         messageLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &p) { value, _, p in
             p.print(
-                #"\#(visibility)static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout("\#(value)")"#
+                "@_alwaysEmitIntoClient @inline(__always)",
+                #"private static var _protobuf_messageLayoutString: StaticString { "\#(value)" }"#
             )
         }
+
+        let submessageNames = messageLayoutCalculator.submessageNames
+        p.print()
         p.print(
-            "",
-            "\(visibility)static func _protobuf_submessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken) -> any SwiftProtobuf.Message.Type {"
+            "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString",
+            newlines: false
         )
-        p.withIndentation { p in
-            let submessageNames = messageLayoutCalculator.submessageNames
-            if submessageNames.isEmpty {
-                p.print("preconditionFailure(\"invalid submessage token; this is a generator bug\")")
-            } else {
+
+        if submessageNames.isEmpty {
+            // If there are no submessages, we can use the layout initializer that defaults the
+            // trampoline functions to trapping placeholders.
+            p.print(")")
+        } else {
+            // Otherwise, pass the static member functions that will be generated below.
+            p.print(
+                """
+                , deinitializeSubmessage: _protobuf_deinitializeSubmessage\
+                , copySubmessage: _protobuf_copySubmessage)
+                """
+            )
+            p.print(
+                "",
+                "private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {"
+            )
+            p.withIndentation { p in
                 p.print("switch token.index {")
                 for (index, type) in submessageNames.enumerated() {
-                    p.print("case \(index + 1): return \(type).self")
+                    p.print("case \(index + 1): storage.deinitializeField(field, type: \(type).self)")
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
                     "}"
                 )
             }
+            p.print(
+                "}"
+            )
+
+            p.print(
+                "",
+                "private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {"
+            )
+            p.withIndentation { p in
+                p.print("switch token.index {")
+                for (index, type) in submessageNames.enumerated() {
+                    p.print("case \(index + 1): source.copyField(field, to: destination, type: \(type).self)")
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "}"
+                )
+            }
+            p.print(
+                "}"
+            )
         }
-        p.print(
-            "}"
-        )
     }
 
     private func generateProtoNameProviding(printer p: inout CodePrinter) {

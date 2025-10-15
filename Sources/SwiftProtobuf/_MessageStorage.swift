@@ -81,8 +81,11 @@ import Foundation
                 case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
                 case .float: deinitializeField(field, type: [Float].self)
                 case .group, .message:
-                    // TODO: Figure out how to deinitialize arrays of messages.
-                    break
+                    layout.deinitializeSubmessage(
+                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                        field,
+                        self
+                    )
                 case .int32, .sfixed32, .sint32: deinitializeField(field, type: [Int32].self)
                 case .int64, .sfixed64, .sint64: deinitializeField(field, type: [Int64].self)
                 case .string: deinitializeField(field, type: [String].self)
@@ -94,8 +97,11 @@ import Foundation
                 case .bytes: deinitializeField(field, type: Data.self)
                 case .string: deinitializeField(field, type: String.self)
                 case .group, .message:
-                    // TODO: Figure out how to deinitialize arbitrary messages.
-                    break
+                    layout.deinitializeSubmessage(
+                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                        field,
+                        self
+                    )
                 default:
                     // Ignore trivial fields; no deinitialization is necessary.
                     break
@@ -109,7 +115,7 @@ import Foundation
     }
 
     /// Deinitializes the field associated with the given layout information.
-    private func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
+    public func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
         switch field.presence {
         case .oneOfMember:
             // TODO: Support oneof fields.
@@ -162,8 +168,12 @@ extension _MessageStorage {
                 case .fixed64, .uint64: copyField(field, to: destination, type: [UInt64].self)
                 case .float: copyField(field, to: destination, type: [Float].self)
                 case .group, .message:
-                    // TODO: Figure out how to copy arrays of messages.
-                    break
+                    layout.copySubmessage(
+                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                        field,
+                        self,
+                        destination
+                    )
                 case .int32, .sfixed32, .sint32: copyField(field, to: destination, type: [Int32].self)
                 case .int64, .sfixed64, .sint64: copyField(field, to: destination, type: [Int64].self)
                 case .string: copyField(field, to: destination, type: [String].self)
@@ -182,7 +192,12 @@ extension _MessageStorage {
                     if firstNontrivialStorageOffset == 0 {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    // TODO: Figure out how to copy arbitrary messages.
+                    layout.copySubmessage(
+                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                        field,
+                        self,
+                        destination
+                    )
 
                 case .string:
                     if firstNontrivialStorageOffset == 0 {
@@ -214,7 +229,7 @@ extension _MessageStorage {
 
     /// Copy-initializes the field associated with the given layout information in the destination
     /// storage using its value from this storage.
-    private func copyField<T>(_ field: FieldLayout, to destination: _MessageStorage, type: T.Type) {
+    public func copyField<T>(_ field: FieldLayout, to destination: _MessageStorage, type: T.Type) {
         switch field.presence {
         case .oneOfMember:
             // TODO: Support oneof fields.
@@ -225,7 +240,10 @@ extension _MessageStorage {
                 return
             }
             let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-            let destinationPointer = (destination.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            let destinationPointer = (destination.buffer.baseAddress! + field.offset).bindMemory(
+                to: T.self,
+                capacity: 1
+            )
             destinationPointer.initialize(from: sourcePointer, count: 1)
         }
     }

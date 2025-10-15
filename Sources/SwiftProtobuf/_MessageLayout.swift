@@ -93,6 +93,75 @@
     /// The encoded layout of the fields of the message.
     private let layout: UnsafeRawBufferPointer
 
+    /// The function type for the generated function that is called to deinitialize a field
+    /// of a complex type.
+    public typealias SubmessageDeinitializer = (
+        _ token: SubmessageToken,
+        _ field: FieldLayout,
+        _ storage: _MessageStorage
+    ) -> Void
+
+    /// The function type for the generated function that is called to copy a field of a
+    /// complex type.
+    public typealias SubmessageCopier = (
+        _ token: SubmessageToken,
+        _ field: FieldLayout,
+        _ source: _MessageStorage,
+        _ destination: _MessageStorage
+    ) -> Void
+
+    /// The function that is called to deinitialize a field whose type is a message.
+    let deinitializeSubmessage: SubmessageDeinitializer
+
+    /// The function that is called to copy a field whose type is a submessage.
+    let copySubmessage: SubmessageCopier
+
+    /// Creates a new message layout and submessage operations from the given values.
+    ///
+    /// This initializer is public because generated messages need to call it.
+    public init(
+        layout: StaticString,
+        deinitializeSubmessage: @escaping SubmessageDeinitializer,
+        copySubmessage: @escaping SubmessageCopier
+    ) {
+        precondition(
+            layout.hasPointerRepresentation,
+            "The layout string should have a pointer-based representation; this is a generator bug"
+        )
+        self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
+        self.deinitializeSubmessage = deinitializeSubmessage
+        self.copySubmessage = copySubmessage
+        precondition(version == 0, "This runtime only supports version 0 message layouts")
+        precondition(
+            self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
+            """
+            The layout size in bytes was not consistent with the number of fields \
+            (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
+            this is a generator bug
+            """
+        )
+    }
+
+    /// Creates a new message layout from the given layout string.
+    ///
+    /// Layouts created with this initalizer must have no submessage fields because the invalid
+    /// submessage operation placeholder will be used.
+    ///
+    /// This initializer is public because generated messages need to call it.
+    public init(layout: StaticString) {
+        self.init(
+            layout: layout,
+            deinitializeSubmessage: { _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            copySubmessage: { _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            }
+        )
+    }
+}
+
+extension _MessageLayout {
     /// The version of the layout data.
     ///
     /// Currently, the runtime only supports version 0. If the layout needs to change in a breaking
@@ -126,26 +195,6 @@
     /// access; fields numbered `N` or higher must be found via binary search.
     var denseBelow: UInt32 {
         UInt32(fixed3ByteBase128(in: layout, atByteOffset: 10))
-    }
-
-    /// Creates a new message layout from the given values.
-    ///
-    /// This initializer is public because generated messages need to call it.
-    public init(_ layout: StaticString) {
-        precondition(
-            layout.hasPointerRepresentation,
-            "The layout string should have a pointer-based representation; this is a generator bug"
-        )
-        self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
-        precondition(version == 0, "This runtime only supports version 0 message layouts")
-        precondition(
-            self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
-            """
-            The layout size in bytes was not consistent with the number of fields \
-            (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
-            this is a generator bug
-            """
-        )
     }
 }
 
@@ -214,7 +263,7 @@ extension _MessageLayout {
 
 /// Provides access to the properties of a field's layout based on a slice of the raw message
 /// layout string.
-struct FieldLayout {
+@_spi(ForGeneratedCodeOnly) public struct FieldLayout {
     /// Describes the presence information of a field, translated from its raw bytecode
     /// representation.
     enum Presence: Sendable, Equatable {
