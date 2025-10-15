@@ -59,6 +59,7 @@ final class Test_TableDriven: XCTestCase {
             .with { $0.d = 20 },
             .with { $0.d = 30 },
         ]
+        msg.oneofField = .oneofString("oneof string")
 
         var msgCopy = msg
         msgCopy.optionalBool = false
@@ -69,6 +70,7 @@ final class Test_TableDriven: XCTestCase {
         msgCopy.repeatedString.removeLast()
         msgCopy.repeatedImportMessage.removeLast()
         msgCopy.repeatedImportMessage[0].d = 99
+        msgCopy.oneofUint32 = 987
 
         XCTAssertEqual(msg.optionalBool, true)
         XCTAssertEqual(msg.optionalInt32, 50)
@@ -80,6 +82,7 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msg.repeatedImportMessage[0].d, 10)
         XCTAssertEqual(msg.repeatedImportMessage[1].d, 20)
         XCTAssertEqual(msg.repeatedImportMessage[2].d, 30)
+        XCTAssertEqual(msg.oneofField, .oneofString("oneof string"))
 
         XCTAssertEqual(msgCopy.optionalBool, false)
         XCTAssertEqual(msgCopy.optionalInt32, 100)
@@ -90,6 +93,7 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msgCopy.repeatedImportMessage.count, 2)
         XCTAssertEqual(msgCopy.repeatedImportMessage[0].d, 99)
         XCTAssertEqual(msgCopy.repeatedImportMessage[1].d, 20)
+        XCTAssertEqual(msgCopy.oneofField, .oneofUint32(987))
     }
 
     func testCopyAndModifyOriginal() async throws {
@@ -105,6 +109,7 @@ final class Test_TableDriven: XCTestCase {
             .with { $0.d = 20 },
             .with { $0.d = 30 },
         ]
+        msg.oneofField = .oneofString("oneof string")
 
         let msgCopy = msg
         msg.optionalBool = false
@@ -115,6 +120,7 @@ final class Test_TableDriven: XCTestCase {
         msg.repeatedString.removeLast()
         msg.repeatedImportMessage.removeLast()
         msg.repeatedImportMessage[0].d = 99
+        msg.oneofUint32 = 987
 
         XCTAssertEqual(msgCopy.optionalBool, true)
         XCTAssertEqual(msgCopy.optionalInt32, 50)
@@ -126,6 +132,7 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msgCopy.repeatedImportMessage[0].d, 10)
         XCTAssertEqual(msgCopy.repeatedImportMessage[1].d, 20)
         XCTAssertEqual(msgCopy.repeatedImportMessage[2].d, 30)
+        XCTAssertEqual(msgCopy.oneofField, .oneofString("oneof string"))
 
         XCTAssertEqual(msg.optionalBool, false)
         XCTAssertEqual(msg.optionalInt32, 100)
@@ -136,6 +143,7 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msg.repeatedImportMessage.count, 2)
         XCTAssertEqual(msg.repeatedImportMessage[0].d, 99)
         XCTAssertEqual(msg.repeatedImportMessage[1].d, 20)
+        XCTAssertEqual(msg.oneofField, .oneofUint32(987))
     }
 
     func testOneofModifyMembers() {

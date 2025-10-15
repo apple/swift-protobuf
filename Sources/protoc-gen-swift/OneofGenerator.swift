@@ -26,6 +26,7 @@ class OneofGenerator {
         let swiftName: String
         let dottedSwiftName: String
         let swiftType: String
+        let hasExplicitDefaultValue: Bool
         let swiftDefaultValue: String
         let protoGenericType: String
         let comments: String
@@ -72,6 +73,7 @@ class OneofGenerator {
             swiftName = names.name
             dottedSwiftName = names.prefixed
             swiftType = descriptor.swiftType(namer: namer)
+            hasExplicitDefaultValue = descriptor.defaultValue != nil
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
             comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
@@ -251,13 +253,24 @@ class OneofGenerator {
         let visibility = generatorOptions.visibilitySourceSnippet
         let oneofPresence = "(\(field.oneofOffset), \(field.number))"
 
+        // Only generate a default value expression for the getter if the proto contained an
+        // explicitly written default value (or if it is a message field, since we don't have a
+        // suitable default value in that overload).
+        let defaultValueArgument: String
+        switch field.rawFieldType {
+        case .group, .message:
+            defaultValueArgument = "default: \(field.swiftDefaultValue), "
+        default:
+            defaultValueArgument = field.hasExplicitDefaultValue ? "default: \(field.swiftDefaultValue), " : ""
+        }
+
         // The individual member accessors manipulate the underlying storage directly.
         p.print(
             "",
             "\(field.comments)\(visibility)var \(field.swiftName): \(field.swiftType) {"
         )
         p.printIndented(
-            "get { return _storage.value(at: \(field.storageOffsetExpression), default: \(field.swiftDefaultValue), oneofPresence: \(oneofPresence)) }",
+            "get { return _storage.value(at: \(field.storageOffsetExpression), \(defaultValueArgument)oneofPresence: \(oneofPresence)) }",
             "set { _uniqueStorage().updateValue(at: \(field.storageOffsetExpression), to: newValue, oneofPresence: \(oneofPresence)) }"
         )
         p.print("}")

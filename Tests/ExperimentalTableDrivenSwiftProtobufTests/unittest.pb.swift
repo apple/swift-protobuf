@@ -599,7 +599,7 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
   }
 
   var oneofUint32: UInt32 {
-    get { return _storage.value(at: 104, default: 0, oneofPresence: (12, 111)) }
+    get { return _storage.value(at: 104, oneofPresence: (12, 111)) }
     set { _uniqueStorage().updateValue(at: 104, to: newValue, oneofPresence: (12, 111)) }
   }
 
@@ -609,12 +609,12 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
   }
 
   var oneofString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(496, 372), default: String(), oneofPresence: (12, 113)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(496, 372), oneofPresence: (12, 113)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(496, 372), to: newValue, oneofPresence: (12, 113)) }
   }
 
   var oneofBytes: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(512, 384), default: Data(), oneofPresence: (12, 114)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(512, 384), oneofPresence: (12, 114)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(512, 384), to: newValue, oneofPresence: (12, 114)) }
   }
 
@@ -1903,12 +1903,12 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
   }
 
   var fooInt: Int32 {
-    get { return _storage.value(at: 20, default: 0, oneofPresence: (4, 1)) }
+    get { return _storage.value(at: 20, oneofPresence: (4, 1)) }
     set { _uniqueStorage().updateValue(at: 20, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var fooString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), default: String(), oneofPresence: (4, 2)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, oneofPresence: (4, 2)) }
   }
 
@@ -2015,12 +2015,12 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
   }
 
   var fooInt: Int32 {
-    get { return _storage.value(at: 16, default: 0, oneofPresence: (4, 1)) }
+    get { return _storage.value(at: 16, oneofPresence: (4, 1)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var fooString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), oneofPresence: (4, 2)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, oneofPresence: (4, 2)) }
   }
 
