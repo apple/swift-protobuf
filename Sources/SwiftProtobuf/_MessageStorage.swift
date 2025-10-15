@@ -36,10 +36,10 @@ import Foundation
 /// Clients should not access it or its members directly.
 @_spi(ForGeneratedCodeOnly) public final class _MessageStorage {
     /// The layout of this instance of storage.
-    private let layout: _MessageLayout
+    @usableFromInline let layout: _MessageLayout
 
     /// The memory buffer that contain's the data for the message's fields.
-    @usableFromInline internal let buffer: UnsafeMutableRawBufferPointer
+    @usableFromInline let buffer: UnsafeMutableRawBufferPointer
 
     /// The storage used for unknown fields.
     public var unknownFields: UnknownStorage
@@ -64,57 +64,62 @@ import Foundation
 
     deinit {
         for field in layout.fields {
-            switch field.fieldMode.cardinality {
-            case .map:
-                // TODO: Support map fields.
-                break
-
-            case .array:
-                switch field.rawFieldType {
-                case .bool: deinitializeField(field, type: [Bool].self)
-                case .bytes: deinitializeField(field, type: [Data].self)
-                case .double: deinitializeField(field, type: [Double].self)
-                case .enum:
-                    // TODO: Figure out how we represent enums (open vs. closed).
-                    break
-                case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
-                case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
-                case .float: deinitializeField(field, type: [Float].self)
-                case .group, .message:
-                    layout.deinitializeSubmessage(
-                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
-                        field,
-                        self
-                    )
-                case .int32, .sfixed32, .sint32: deinitializeField(field, type: [Int32].self)
-                case .int64, .sfixed64, .sint64: deinitializeField(field, type: [Int64].self)
-                case .string: deinitializeField(field, type: [String].self)
-                default: preconditionFailure("Unreachable")
-                }
-
-            case .scalar:
-                switch field.rawFieldType {
-                case .bytes: deinitializeField(field, type: Data.self)
-                case .string: deinitializeField(field, type: String.self)
-                case .group, .message:
-                    layout.deinitializeSubmessage(
-                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
-                        field,
-                        self
-                    )
-                default:
-                    // Ignore trivial fields; no deinitialization is necessary.
-                    break
-                }
-
-            default:
-                preconditionFailure("Unreachable")
-            }
+            deinitializeField(field)
         }
         buffer.deallocate()
     }
 
-    /// Deinitializes the field associated with the given layout information.
+    /// Deinitializes the given field.
+    @usableFromInline func deinitializeField(_ field: FieldLayout) {
+        switch field.fieldMode.cardinality {
+        case .map:
+            // TODO: Support map fields.
+            break
+
+        case .array:
+            switch field.rawFieldType {
+            case .bool: deinitializeField(field, type: [Bool].self)
+            case .bytes: deinitializeField(field, type: [Data].self)
+            case .double: deinitializeField(field, type: [Double].self)
+            case .enum:
+                // TODO: Figure out how we represent enums (open vs. closed).
+                break
+            case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
+            case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
+            case .float: deinitializeField(field, type: [Float].self)
+            case .group, .message:
+                layout.deinitializeSubmessage(
+                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    field,
+                    self
+                )
+            case .int32, .sfixed32, .sint32: deinitializeField(field, type: [Int32].self)
+            case .int64, .sfixed64, .sint64: deinitializeField(field, type: [Int64].self)
+            case .string: deinitializeField(field, type: [String].self)
+            default: preconditionFailure("Unreachable")
+            }
+
+        case .scalar:
+            switch field.rawFieldType {
+            case .bytes: deinitializeField(field, type: Data.self)
+            case .string: deinitializeField(field, type: String.self)
+            case .group, .message:
+                layout.deinitializeSubmessage(
+                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    field,
+                    self
+                )
+            default:
+                // Ignore trivial fields; no deinitialization is necessary.
+                break
+            }
+
+        default:
+            preconditionFailure("Unreachable")
+        }
+    }
+
+    /// Deinitializes the field associated with the given concrete type information.
     public func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
         switch field.presence {
         case .oneOfMember:
@@ -484,9 +489,238 @@ extension _MessageStorage {
     }
 
     // TODO: Implement accessors/mutators for remaining types:
-    // - Submessages
     // - Enums
-    // - Oneofs
+}
+
+// MARK: - Oneof support
+
+extension _MessageStorage {
+    /// Describes presence information that is used when getting or setting oneof members.
+    public typealias OneofPresence = (offset: Int, fieldNumber: UInt32)
+
+    /// Returns the field number of the oneof member that is populated, given the oneof offset into
+    /// the storage buffer.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func populatedOneofMember(at oneofOffset: Int) -> UInt32 {
+        (buffer.baseAddress! + oneofOffset).bindMemory(to: UInt32.self, capacity: 1).pointee
+    }
+
+    /// Updates the field number of the oneof member that is populated, given the oneof offset into
+    /// the storage buffer, and returns the field number of the previously set member (or zero if
+    /// none was set).
+    // @_alwaysEmitIntoClient @inline(__always)
+    public func updatePopulatedOneofMember(_ presence: OneofPresence) -> UInt32 {
+        let offsetPointer = (buffer.baseAddress! + presence.offset).bindMemory(to: UInt32.self, capacity: 1)
+        let oldFieldNumber = offsetPointer.pointee
+        offsetPointer.pointee = presence.fieldNumber
+        return oldFieldNumber
+    }
+
+    /// Returns the `Bool` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Bool = false, oneofPresence: OneofPresence) -> Bool {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Int32` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Int32 = 0, oneofPresence: OneofPresence) -> Int32 {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee
+    }
+
+    /// Returns the `UInt32` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: UInt32 = 0, oneofPresence: OneofPresence) -> UInt32 {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Int64` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Int64 = 0, oneofPresence: OneofPresence) -> Int64 {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee
+    }
+
+    /// Returns the `UInt64` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: UInt64 = 0, oneofPresence: OneofPresence) -> UInt64 {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Float` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Float = 0, oneofPresence: OneofPresence) -> Float {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Double` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Double = 0, oneofPresence: OneofPresence) -> Double {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee
+    }
+
+    /// Returns the `String` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: String = "", oneofPresence: OneofPresence) -> String {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: String.self, capacity: 1).pointee
+    }
+
+    /// Returns the `Data` value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(at offset: Int, default defaultValue: Data = Data(), oneofPresence: OneofPresence) -> Data {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: Data.self, capacity: 1).pointee
+    }
+
+    /// Returns the value at the given offset in the storage if it is the currently populated
+    /// member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<T>(at offset: Int, default defaultValue: T, oneofPresence: OneofPresence) -> T {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        return (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).pointee
+    }
+
+    /// Updates the `Bool` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Bool, oneofPresence: OneofPresence) {
+        let rawPointer = buffer.baseAddress! + offset
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        rawPointer.bindMemory(to: Bool.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the `Int32` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Int32, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the `UInt32` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: UInt32, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the `Int64` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Int64, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the `UInt64` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: UInt64, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the `Float` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Float, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the `Double` value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(at offset: Int, to newValue: Double, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee = newValue
+    }
+
+    /// Updates the value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<T>(at offset: Int, to newValue: T, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).initialize(to: newValue)
+    }
+
+    /// Clears the populated oneof member give the oneof offset into the storage buffer,
+    /// deinitializing any existing value if necessary.
+    // @_alwaysEmitIntoClient @inline(__always)
+    public func clearPopulatedOneofMember(at oneofOffset: Int) {
+        let oldFieldNumber = updatePopulatedOneofMember((offset: oneofOffset, fieldNumber: 0))
+        guard oldFieldNumber != 0 else { return }
+        deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+    }
+
+    /// Deinitializes the value for the given field that is a oneof member and zeros out the
+    /// storage slot.
+    ///
+    /// - Precondition: The value associated with this field must be initialized.
+    @_alwaysEmitIntoClient @inline(__always)
+    private func deinitializeOneofMember(_ field: FieldLayout) {
+        // TODO: We could skip zeroing out the backing storage if this is part of a mutation that
+        // is setting the same member that's being deinitialized. Determine if that's a worthwhile
+        // optimization.
+        deinitializeField(field)
+        let stride = field.scalarStride
+        (buffer.baseAddress! + field.offset).withMemoryRebound(to: UInt8.self, capacity: stride) { bytes in
+            bytes.initialize(repeating: 0, count: stride)
+        }
+    }
 }
 
 /// A macro-like helper function used in generated code to simplify writing platform-specific
