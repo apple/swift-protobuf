@@ -121,16 +121,25 @@ import Foundation
 
     /// Deinitializes the field associated with the given concrete type information.
     public func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
-        switch field.presence {
-        case .oneOfMember:
-            // TODO: Support oneof fields.
-            break
+        guard isPresent(field) else { return }
+        (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
+    }
 
+    /// Returns a value indicating whether the field with the given presence has been explicitly
+    /// set.
+    ///
+    /// For oneof fields, this checks the currently set field against the field number being
+    /// queried. For other fields, it checks the appropriate has-bit.
+    ///
+    /// Generated accessors do not use this function. Since they can encode their presence
+    /// information directly, they use more efficient code paths that do not require the full
+    /// field layout.
+    private func isPresent(_ field: FieldLayout) -> Bool {
+        switch field.presence {
+        case .oneOfMember(let oneofOffset):
+            return populatedOneofMember(at: oneofOffset) == field.fieldNumber
         case .hasBit(let byteOffset, let mask):
-            guard isPresent(hasBit: (byteOffset, mask)) else {
-                return
-            }
-            (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
+            return isPresent(hasBit: (byteOffset, mask))
         }
     }
 }
@@ -146,20 +155,20 @@ extension _MessageStorage {
         let destination = _MessageStorage(layout: layout)
 
         // Loops through the fields, copy-initializing any that are non-trivial types. We ignore
-        // the trivial ones here, instead ttracking the byte offset of the first non-trivial field
+        // the trivial ones here, instead tracking the byte offset of the first non-trivial field
         // so that we can bitwise copy those as a block afterward.
-        var firstNontrivialStorageOffset = 0
+        var firstNontrivialStorageOffset = layout.size
         for field in layout.fields {
             switch field.fieldMode.cardinality {
             case .map:
-                if firstNontrivialStorageOffset == 0 {
+                if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
                 // TODO: Support map fields.
                 break
 
             case .array:
-                if firstNontrivialStorageOffset == 0 {
+                if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
                 switch field.rawFieldType {
@@ -188,13 +197,13 @@ extension _MessageStorage {
             case .scalar:
                 switch field.rawFieldType {
                 case .bytes:
-                    if firstNontrivialStorageOffset == 0 {
+                    if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
                     copyField(field, to: destination, type: Data.self)
 
                 case .group, .message:
-                    if firstNontrivialStorageOffset == 0 {
+                    if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
                     layout.copySubmessage(
@@ -205,7 +214,7 @@ extension _MessageStorage {
                     )
 
                 case .string:
-                    if firstNontrivialStorageOffset == 0 {
+                    if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
                     copyField(field, to: destination, type: String.self)
@@ -220,12 +229,7 @@ extension _MessageStorage {
             }
         }
 
-        // Copy all of the trivial values (including has-bits) in bitwise fashion. Note that if we
-        // never set `firstNontrivialStorageOffset`, then the whole message must have been trivial
-        // fields. (This also works if the message is empty; that is, zero bytes.)
-        if firstNontrivialStorageOffset == 0 {
-            firstNontrivialStorageOffset = layout.size
-        }
+        // Copy all of the trivial values (including has-bits) in bitwise fashion.
         if firstNontrivialStorageOffset != 0 {
             destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
         }
@@ -235,22 +239,14 @@ extension _MessageStorage {
     /// Copy-initializes the field associated with the given layout information in the destination
     /// storage using its value from this storage.
     public func copyField<T>(_ field: FieldLayout, to destination: _MessageStorage, type: T.Type) {
-        switch field.presence {
-        case .oneOfMember:
-            // TODO: Support oneof fields.
-            break
+        guard isPresent(field) else { return }
 
-        case .hasBit(let byteOffset, let mask):
-            guard isPresent(hasBit: (byteOffset, mask)) else {
-                return
-            }
-            let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-            let destinationPointer = (destination.buffer.baseAddress! + field.offset).bindMemory(
-                to: T.self,
-                capacity: 1
-            )
-            destinationPointer.initialize(from: sourcePointer, count: 1)
-        }
+        let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+        let destinationPointer = (destination.buffer.baseAddress! + field.offset).bindMemory(
+            to: T.self,
+            capacity: 1
+        )
+        destinationPointer.initialize(from: sourcePointer, count: 1)
     }
 }
 
