@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 /// Defines the in-memory layout of the storage for a message.
 ///
 /// This type is public because it needs to be referenced and initialized from generated messages.
@@ -227,7 +229,7 @@ extension _MessageLayout {
     /// Returns the layout for the field with the given number in the message.
     ///
     /// - Precondition: The field must be defined.
-    subscript(fieldNumber number: UInt32) -> FieldLayout {
+    @usableFromInline subscript(fieldNumber number: UInt32) -> FieldLayout {
         if number < denseBelow {
             let index = messageLayoutHeaderSize + (Int(number) - 1) * fieldLayoutSize
             return FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
@@ -242,7 +244,7 @@ extension _MessageLayout {
             if number == field.fieldNumber {
                 return field
             }
-            if number < field.fieldNumber {
+            if field.fieldNumber < number {
                 low = mid + 1
             } else {
                 high = mid - 1
@@ -305,7 +307,7 @@ extension _MessageLayout {
     }
 
     /// The offset, in bytes, where this field's value is stored in in-memory storage.
-    var offset: Int {
+    @usableFromInline var offset: Int {
         fixed3ByteBase128(in: buffer, atByteOffset: 5)
     }
 
@@ -331,6 +333,23 @@ extension _MessageLayout {
     /// Mode properties of the field.
     var fieldMode: FieldMode {
         FieldMode(rawValue: buffer.load(fromByteOffset: 4, as: UInt8.self) & 0x1e)
+    }
+
+    /// The in-memory stride of a value of this field's type on the current platform.
+    @usableFromInline var scalarStride: Int {
+        switch rawFieldType {
+        case .double: return MemoryLayout<Double>.stride
+        case .float: return MemoryLayout<Float>.stride
+        case .int64, .sfixed64, .sint64: return MemoryLayout<Int64>.stride
+        case .uint64, .fixed64: return MemoryLayout<UInt64>.stride
+        case .int32, .sfixed32, .sint32, .enum: return MemoryLayout<Int32>.stride
+        case .fixed32, .uint32: return MemoryLayout<UInt32>.stride
+        case .bool: return MemoryLayout<Bool>.stride
+        case .string: return MemoryLayout<String>.stride
+        case .group, .message: return MemoryLayout<_MessageStorage>.stride
+        case .bytes: return MemoryLayout<Data>.stride
+        default: preconditionFailure("Unreachable")
+        }
     }
 
     /// Creates a new field layout from the given slice of a message's field layout string.
@@ -411,6 +430,7 @@ package struct FieldMode: RawRepresentable, Equatable, Hashable, Sendable {
 
 /// Returns the up-to-14-bit unsigned integer that has been base-128 encoded at the given byte
 /// offset in the buffer.
+@_alwaysEmitIntoClient @inline(__always)
 private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let rawBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
     return Int((rawBits & 0x007f) | ((rawBits & 0x7f00) >> 1))
@@ -418,6 +438,7 @@ private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset b
 
 /// Returns the up-to-21-bit unsigned integer that has been base-128 encoded at the given byte
 /// offset in the buffer.
+@_alwaysEmitIntoClient @inline(__always)
 private func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let rawBits = UInt32(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt32.self))
     return Int((rawBits & 0x00007f) | ((rawBits & 0x007f00) >> 1) | ((rawBits & 0x7f0000) >> 2))

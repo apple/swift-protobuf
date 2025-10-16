@@ -26,11 +26,21 @@ class OneofGenerator {
         let swiftName: String
         let dottedSwiftName: String
         let swiftType: String
+        let hasExplicitDefaultValue: Bool
         let swiftDefaultValue: String
         let protoGenericType: String
         let comments: String
 
         var presence: FieldPresence = .oneofMember(0)
+
+        fileprivate var oneofOffset: UInt16 {
+            switch presence {
+            case .hasBit:
+                preconditionFailure("regular fields should be handled by MemberFieldGenerator")
+            case .oneofMember(let offset):
+                return offset
+            }
+        }
 
         var oneofIndex: Int? { oneof.oneofDescriptor.index }
 
@@ -63,6 +73,7 @@ class OneofGenerator {
             swiftName = names.name
             dottedSwiftName = names.prefixed
             swiftType = descriptor.swiftType(namer: namer)
+            hasExplicitDefaultValue = descriptor.defaultValue != nil
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
             comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
@@ -102,8 +113,6 @@ class OneofGenerator {
     private let comments: String
 
     private let swiftFieldName: String
-    private let underscoreSwiftFieldName: String
-    private let storedProperty: String
 
     init(
         descriptor: OneofDescriptor,
@@ -120,9 +129,6 @@ class OneofGenerator {
         swiftFullName = namer.fullName(oneof: descriptor)
         let names = namer.messagePropertyName(oneof: descriptor)
         swiftFieldName = names.name
-        underscoreSwiftFieldName = names.prefixed
-
-        storedProperty = "self.\(swiftFieldName)"
 
         fields = descriptor.fields.map {
             MemberFieldGenerator(
@@ -197,60 +203,43 @@ class OneofGenerator {
             for f in fields {
                 p.print("\(f.comments)case \(f.swiftName)(\(f.swiftType))")
             }
-
-            // A helper for isInitialized
-            let fieldsToCheck = fields.filter {
-                $0.isGroupOrMessage && $0.messageType!.containsRequiredFields()
-            }
-            if !fieldsToCheck.isEmpty {
-                p.print(
-                    "",
-                    "fileprivate var isInitialized: Bool {"
-                )
-                p.withIndentation { p in
-                    if fieldsToCheck.count == 1 {
-                        let f = fieldsToCheck.first!
-                        p.print(
-                            "guard case \(f.dottedSwiftName)(let v) = self else {return true}",
-                            "return v.isInitialized"
-                        )
-                    } else if fieldsToCheck.count > 1 {
-                        p.print(
-                            """
-                            // The use of inline closures is to circumvent an issue where the compiler
-                            // allocates stack space for every case branch when no optimizations are
-                            // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                            switch self {
-                            """
-                        )
-                        for f in fieldsToCheck {
-                            p.print("case \(f.dottedSwiftName): return {")
-                            p.printIndented(
-                                "guard case \(f.dottedSwiftName)(let v) = self else { preconditionFailure() }",
-                                "return v.isInitialized"
-                            )
-                            p.print("}()")
-                        }
-                        // If there were other cases, add a default.
-                        if fieldsToCheck.count != fields.count {
-                            p.print("default: return true")
-                        }
-                        p.print("}")
-                    }
-                }
-                p.print("}")
-            }
-            p.print()
         }
         p.print("}")
     }
 
-    private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {
+    private func gerenateOneofEnumProperty(printer p: inout CodePrinter, oneofOffset: UInt16) {
         let visibility = generatorOptions.visibilitySourceSnippet
-        p.print()
         p.print(
-            "\(comments)\(visibility)var \(swiftFieldName): \(swiftFullName)? = nil"
+            "",
+            "\(comments)\(visibility)var \(swiftFieldName): \(swiftFullName)? {"
         )
+        // TODO: Investigate whether we need to split any of these switches up for very large oneofs
+        // (see https://github.com/apple/swift-protobuf/pull/1866 and other related issues).
+        p.withIndentation { p in
+            p.print("get {")
+            p.withIndentation { p in
+                p.print("let populatedField = _storage.populatedOneofMember(at: \(oneofOffset))")
+                p.print("switch populatedField {")
+                p.print("case 0: return nil")
+                for f in fields {
+                    p.print("case \(f.number): return .\(f.swiftName)(\(f.swiftName))")
+                }
+                p.print(#"default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")"#)
+                p.print("}")
+            }
+            p.print("}")
+            p.print("set {")
+            p.withIndentation { p in
+                p.print("switch newValue {")
+                p.print("case nil: _storage.clearPopulatedOneofMember(at: \(oneofOffset))")
+                for f in fields {
+                    p.print("case .\(f.swiftName)(let value)?: self.\(f.swiftName) = value")
+                }
+                p.print("}")
+            }
+            p.print("}")
+        }
+        p.print("}")
     }
 
     // MARK: Things brindged from MemberFieldGenerator
@@ -258,32 +247,32 @@ class OneofGenerator {
     func generateInterface(printer p: inout CodePrinter, field: MemberFieldGenerator) {
         // First field causes the oneof enum to get generated.
         if field === fields.first {
-            gerenateOneofEnumProperty(printer: &p)
+            gerenateOneofEnumProperty(printer: &p, oneofOffset: field.oneofOffset)
         }
 
-        let getter = swiftFieldName
-        // Within `set` below, if the oneof name was "newValue" then it has to
-        // be qualified with `self.` to avoid the collision with the setter
-        // parameter.
-        let setter = (swiftFieldName == "newValue" ? "self.newValue" : swiftFieldName)
-
         let visibility = generatorOptions.visibilitySourceSnippet
+        let oneofPresence = "(\(field.oneofOffset), \(field.number))"
 
+        // Only generate a default value expression for the getter if the proto contained an
+        // explicitly written default value (or if it is a message field, since we don't have a
+        // suitable default value in that overload).
+        let defaultValueArgument: String
+        switch field.rawFieldType {
+        case .group, .message:
+            defaultValueArgument = "default: \(field.swiftDefaultValue), "
+        default:
+            defaultValueArgument = field.hasExplicitDefaultValue ? "default: \(field.swiftDefaultValue), " : ""
+        }
+
+        // The individual member accessors manipulate the underlying storage directly.
         p.print(
             "",
             "\(field.comments)\(visibility)var \(field.swiftName): \(field.swiftType) {"
         )
-        p.withIndentation { p in
-            p.print("get {")
-            p.printIndented(
-                "if case \(field.dottedSwiftName)(let v)? = \(getter) {return v}",
-                "return \(field.swiftDefaultValue)"
-            )
-            p.print(
-                "}",
-                "set {\(setter) = \(field.dottedSwiftName)(newValue)}"
-            )
-        }
+        p.printIndented(
+            "get { return _storage.value(at: \(field.storageOffsetExpression), \(defaultValueArgument)oneofPresence: \(oneofPresence)) }",
+            "set { _uniqueStorage().updateValue(at: \(field.storageOffsetExpression), to: newValue, oneofPresence: \(oneofPresence)) }"
+        )
         p.print("}")
     }
 }
