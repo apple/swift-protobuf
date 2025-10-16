@@ -290,4 +290,27 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msg.oneofBytes, Data())
         XCTAssertEqual(msg.oneofNestedMessage.bb, 0)
     }
+
+    func testEquality() {
+        let lhs = MessageTestType.with {
+            $0.optionalInt32 = 50
+            $0.repeatedInt64 = [1, 2, 3]
+            $0.oneofString = "hello"
+        }
+        // XCTAssertTrue(lhs == lhs)
+
+        let rhs = MessageTestType.with {
+            $0.optionalInt32 = 50
+            $0.repeatedInt64 = [1, 2, 3]
+            $0.oneofString = "hello"
+        }
+        XCTAssertTrue(lhs == rhs)
+
+        let different = MessageTestType.with {
+            $0.optionalInt32 = 90
+            $0.repeatedInt64 = [3, 2, 1]
+            $0.oneofString = "goodbye"
+        }
+        XCTAssertFalse(lhs == different)
+    }
 }
