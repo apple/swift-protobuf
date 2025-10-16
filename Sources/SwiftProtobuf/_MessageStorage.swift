@@ -722,6 +722,141 @@ extension _MessageStorage {
     }
 }
 
+// - MARK: Message equality
+
+extension _MessageStorage {
+    /// Tests this message storage for equality with the other storage.
+    ///
+    /// Precondition: Both instances of storage are assumed to be represented by the same message
+    /// type.
+    ///
+    /// Message equality in SwiftProtobuf includes presence. That is, a message with an integer
+    /// field set to 100 is not considered equal to one where that field is not present but has a
+    /// default defined to be 100.
+    @inline(never)
+    public func isEqual(to other: _MessageStorage) -> Bool {
+        // Loops through the fields, checking equality of any that are non-trivial types. We ignore
+        // the trivial ones here, instead tracking the byte offset of the first non-trivial field
+        // so that we can bitwise-compare those as a block afterward.
+        var firstNontrivialStorageOffset = layout.size
+        var equalSoFar = true
+        for field in layout.fields {
+            switch field.fieldMode.cardinality {
+            case .map:
+                if field.offset < firstNontrivialStorageOffset {
+                    firstNontrivialStorageOffset = field.offset
+                }
+                // TODO: Support map fields.
+                break
+
+            case .array:
+                if field.offset < firstNontrivialStorageOffset {
+                    firstNontrivialStorageOffset = field.offset
+                }
+                switch field.rawFieldType {
+                case .bool:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [Bool].self)
+                case .bytes:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [Data].self)
+                case .double:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [Double].self)
+                case .enum:
+                    // TODO: Figure out how we represent enums (open vs. closed).
+                    break
+                case .fixed32, .uint32:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [UInt32].self)
+                case .fixed64, .uint64:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [UInt64].self)
+                case .float:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [Float].self)
+                case .group, .message:
+                    equalSoFar = layout.areSubmessagesEqual(
+                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                        field,
+                        self,
+                        other
+                    )
+                case .int32, .sfixed32, .sint32:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [Int32].self)
+                case .int64, .sfixed64, .sint64:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [Int64].self)
+                case .string:
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: [String].self)
+                default:
+                    preconditionFailure("Unreachable")
+                }
+
+            case .scalar:
+                switch field.rawFieldType {
+                case .bytes:
+                    if field.offset < firstNontrivialStorageOffset {
+                        firstNontrivialStorageOffset = field.offset
+                    }
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: Data.self)
+
+                case .group, .message:
+                    if field.offset < firstNontrivialStorageOffset {
+                        firstNontrivialStorageOffset = field.offset
+                    }
+                    equalSoFar = layout.areSubmessagesEqual(
+                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                        field,
+                        self,
+                        other
+                    )
+
+                case .string:
+                    if field.offset < firstNontrivialStorageOffset {
+                        firstNontrivialStorageOffset = field.offset
+                    }
+                    equalSoFar = isField(field, equalToSameFieldIn: other, type: String.self)
+
+                default:
+                    // Do nothing. Trivial fields will be bitwise-compared as a block below.
+                    break
+                }
+
+            default:
+                preconditionFailure("Unreachable")
+            }
+
+            guard equalSoFar else {
+                return false
+            }
+        }
+
+        // Compare all of the trivial values (including has-bits) in bitwise fashion.
+        if firstNontrivialStorageOffset != 0 {
+            return memcmp(buffer.baseAddress!, other.buffer.baseAddress!, firstNontrivialStorageOffset) == 0
+        }
+        return true
+    }
+
+    /// Returns whether the given field in the receiver is equal to the same field in the other
+    /// storage, given the expected type of that field.
+    public func isField<T: Equatable>(
+        _ field: FieldLayout,
+        equalToSameFieldIn other: _MessageStorage,
+        type: T.Type
+    ) -> Bool {
+        let isSelfPresent = isPresent(field)
+        let isOtherPresent = other.isPresent(field)
+        if !isSelfPresent && !isOtherPresent {
+            // If the field is not present in both messages, they are equal.
+            return true
+        }
+        if isSelfPresent != isOtherPresent {
+            // If the field presence is different between the two messages, they are unequal (even
+            // if their effective values would be the same).
+            return false
+        }
+        // The field is present in both messages, so compare their values.
+        let selfPointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+        let otherPointer = (other.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+        return selfPointer.pointee == otherPointer.pointee
+    }
+}
+
 /// A macro-like helper function used in generated code to simplify writing platform-specific
 /// offsets in field accessors.
 ///

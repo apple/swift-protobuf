@@ -280,7 +280,9 @@ class MessageGenerator {
             p.print(
                 """
                 , deinitializeSubmessage: _protobuf_deinitializeSubmessage\
-                , copySubmessage: _protobuf_copySubmessage)
+                , copySubmessage: _protobuf_copySubmessage\
+                , areSubmessagesEqual: _protobuf_areSubmessagesEqual\
+                )
                 """
             )
             p.print(
@@ -309,6 +311,24 @@ class MessageGenerator {
                 p.print("switch token.index {")
                 for (index, type) in submessageNames.enumerated() {
                     p.print("case \(index + 1): source.copyField(field, to: destination, type: \(type).self)")
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "}"
+                )
+            }
+            p.print(
+                "}"
+            )
+
+            p.print(
+                "",
+                "private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {"
+            )
+            p.withIndentation { p in
+                p.print("switch token.index {")
+                for (index, type) in submessageNames.enumerated() {
+                    p.print("case \(index + 1): return lhs.isField(field, equalToSameFieldIn: rhs, type: \(type).self)")
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
@@ -368,7 +388,7 @@ class MessageGenerator {
     private func generateMessageEquality(printer p: inout CodePrinter) {
         p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
         p.withIndentation { p in
-            p.print(#"fatalError("table-driven == not yet implemented")"#)
+            p.print("return lhs._storage.isEqual(to: rhs._storage)")
         }
         p.print("}")
     }

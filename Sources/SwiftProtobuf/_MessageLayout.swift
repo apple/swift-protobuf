@@ -112,11 +112,23 @@ import Foundation
         _ destination: _MessageStorage
     ) -> Void
 
+    /// The function type for the generated function that is called to test the values of a complex
+    /// field type from two different messages for equality.
+    public typealias SubmessageEquater = (
+        _ token: SubmessageToken,
+        _ field: FieldLayout,
+        _ lhs: _MessageStorage,
+        _ rhs: _MessageStorage
+    ) -> Bool
+
     /// The function that is called to deinitialize a field whose type is a message.
     let deinitializeSubmessage: SubmessageDeinitializer
 
     /// The function that is called to copy a field whose type is a submessage.
     let copySubmessage: SubmessageCopier
+
+    /// The function that is called to test a field whose type is a submessage for equality.
+    let areSubmessagesEqual: SubmessageEquater
 
     /// Creates a new message layout and submessage operations from the given values.
     ///
@@ -124,7 +136,8 @@ import Foundation
     public init(
         layout: StaticString,
         deinitializeSubmessage: @escaping SubmessageDeinitializer,
-        copySubmessage: @escaping SubmessageCopier
+        copySubmessage: @escaping SubmessageCopier,
+        areSubmessagesEqual: @escaping SubmessageEquater
     ) {
         precondition(
             layout.hasPointerRepresentation,
@@ -133,6 +146,7 @@ import Foundation
         self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
         self.deinitializeSubmessage = deinitializeSubmessage
         self.copySubmessage = copySubmessage
+        self.areSubmessagesEqual = areSubmessagesEqual
         precondition(version == 0, "This runtime only supports version 0 message layouts")
         precondition(
             self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
@@ -157,6 +171,9 @@ import Foundation
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             copySubmessage: { _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            areSubmessagesEqual: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
