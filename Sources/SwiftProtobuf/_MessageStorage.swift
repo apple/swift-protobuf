@@ -229,10 +229,13 @@ extension _MessageStorage {
             }
         }
 
-        // Copy all of the trivial values (including has-bits) in bitwise fashion.
-        if firstNontrivialStorageOffset != 0 {
-            destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
-        }
+        // Copy all of the trivial field values, has-bits, and any oneof tracking in bitwise
+        // fashion.
+        destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
+
+        destination.unknownFields = unknownFields
+        // TODO: Handle extension fields.
+
         return destination
     }
 
