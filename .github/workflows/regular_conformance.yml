@@ -12,6 +12,8 @@ name: Run Conformance Tests
 
 # NOTE: If making changes to most of the steps, please also look to update
 # build.yml also.
+permissions:
+  contents: read
 
 on:
   schedule:

@@ -1,5 +1,8 @@
 name: Check Upstream Proto Files
 
+permissions:
+  contents: read
+
 on:
   schedule:
     # Every Sunday at 4am.

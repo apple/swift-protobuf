@@ -2,6 +2,8 @@ name: Build and Test
 
 # NOTE: If making changes to most of the steps, please also look to update
 # regular_conformance.yml also.
+permissions:
+  contents: read
 
 on:
   push:

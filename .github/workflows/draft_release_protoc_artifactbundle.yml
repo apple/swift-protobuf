@@ -1,5 +1,8 @@
 name: Draft release protoc artifactbundle
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
 
