@@ -735,6 +735,15 @@ extension _MessageStorage {
     /// default defined to be 100.
     @inline(never)
     public func isEqual(to other: _MessageStorage) -> Bool {
+        if self === other {
+            /// Identical message storage means they must be equal.
+            return true
+        }
+        // TODO: If we store the offset of the first non-trivial field in the layout, we can make
+        // this extremely fast by doing the memcmp up front and failing fast. Likewise, we can also
+        // avoid the loop entirely if the message contains only trivial fields. We could see similar
+        // performance wins for copy and deinit.
+
         // Loops through the fields, checking equality of any that are non-trivial types. We ignore
         // the trivial ones here, instead tracking the byte offset of the first non-trivial field
         // so that we can bitwise-compare those as a block afterward.
@@ -841,14 +850,10 @@ extension _MessageStorage {
     ) -> Bool {
         let isSelfPresent = isPresent(field)
         let isOtherPresent = other.isPresent(field)
-        if !isSelfPresent && !isOtherPresent {
-            // If the field is not present in both messages, they are equal.
-            return true
-        }
-        if isSelfPresent != isOtherPresent {
-            // If the field presence is different between the two messages, they are unequal (even
-            // if their effective values would be the same).
-            return false
+        guard isSelfPresent && isOtherPresent else {
+            // If the field isn't present in both messages, then it must be absent in both to be
+            // considered equal.
+            return isSelfPresent == isOtherPresent
         }
         // The field is present in both messages, so compare their values.
         let selfPointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)

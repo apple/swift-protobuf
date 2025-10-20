@@ -297,7 +297,7 @@ final class Test_TableDriven: XCTestCase {
             $0.repeatedInt64 = [1, 2, 3]
             $0.oneofString = "hello"
         }
-        // XCTAssertTrue(lhs == lhs)
+        XCTAssertTrue(lhs == lhs)
 
         let rhs = MessageTestType.with {
             $0.optionalInt32 = 50
