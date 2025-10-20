@@ -4140,7 +4140,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4172,6 +4172,21 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignMessage.self)
+    case 4: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_ImportMessage.self)
+    case 5: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_PublicImportMessage.self)
+    case 6: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self)
+    case 7: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
+    case 8: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_ForeignMessage].self)
+    case 9: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_Import_ImportMessage].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
   }
@@ -4185,7 +4200,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes, rhs: SwiftProtoTesting_TestAllTypes) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4221,7 +4236,7 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes.NestedMessage, rhs: SwiftProtoTesting_TestAllTypes.NestedMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4253,7 +4268,7 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes.OptionalGroup, rhs: SwiftProtoTesting_TestAllTypes.OptionalGroup) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4285,7 +4300,7 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes.RepeatedGroup, rhs: SwiftProtoTesting_TestAllTypes.RepeatedGroup) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4302,7 +4317,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4322,6 +4337,15 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     }
   }
 
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_NestedTestAllTypes.self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_NestedTestAllTypes].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
   }
@@ -4335,7 +4359,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   }
 
   static func ==(lhs: SwiftProtoTesting_NestedTestAllTypes, rhs: SwiftProtoTesting_NestedTestAllTypes) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4367,7 +4391,7 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   static func ==(lhs: SwiftProtoTesting_ForeignMessage, rhs: SwiftProtoTesting_ForeignMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4399,7 +4423,7 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllExtensions, rhs: SwiftProtoTesting_TestAllExtensions) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4431,7 +4455,7 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
   }
 
   static func ==(lhs: SwiftProtoTesting_OptionalGroup_extension, rhs: SwiftProtoTesting_OptionalGroup_extension) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4463,7 +4487,7 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
   }
 
   static func ==(lhs: SwiftProtoTesting_RepeatedGroup_extension, rhs: SwiftProtoTesting_RepeatedGroup_extension) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4495,7 +4519,7 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
   }
 
   static func ==(lhs: SwiftProtoTesting_TestNestedExtension, rhs: SwiftProtoTesting_TestNestedExtension) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4512,7 +4536,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4524,6 +4548,13 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_ForeignMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignMessage.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4541,7 +4572,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequired, rhs: SwiftProtoTesting_TestRequired) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4558,7 +4589,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4572,6 +4603,14 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRequired.self)
     case 2: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestRequired].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRequired.self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestRequired].self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4589,7 +4628,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredForeign, rhs: SwiftProtoTesting_TestRequiredForeign) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4606,7 +4645,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4624,6 +4663,14 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     }
   }
 
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRequired.self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestRequired].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
   }
@@ -4637,7 +4684,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredMessage, rhs: SwiftProtoTesting_TestRequiredMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4669,7 +4716,7 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
   }
 
   static func ==(lhs: SwiftProtoTesting_TestEmptyMessage, rhs: SwiftProtoTesting_TestEmptyMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4701,7 +4748,7 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
   }
 
   static func ==(lhs: SwiftProtoTesting_TestReallyLargeTagNumber, rhs: SwiftProtoTesting_TestReallyLargeTagNumber) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4718,7 +4765,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4730,6 +4777,13 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRecursiveMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRecursiveMessage.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4747,7 +4801,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRecursiveMessage, rhs: SwiftProtoTesting_TestRecursiveMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4764,7 +4818,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4776,6 +4830,13 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4793,7 +4854,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   }
 
   static func ==(lhs: SwiftProtoTesting_TestFieldOrderings, rhs: SwiftProtoTesting_TestFieldOrderings) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4825,7 +4886,7 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
   }
 
   static func ==(lhs: SwiftProtoTesting_TestFieldOrderings.NestedMessage, rhs: SwiftProtoTesting_TestFieldOrderings.NestedMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4857,7 +4918,7 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
   }
 
   static func ==(lhs: SwiftProtoTesting_TestExtremeDefaultValues, rhs: SwiftProtoTesting_TestExtremeDefaultValues) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4874,7 +4935,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4892,6 +4953,14 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestOneof.FooGroup.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
   }
@@ -4905,7 +4974,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 
   static func ==(lhs: SwiftProtoTesting_TestOneof, rhs: SwiftProtoTesting_TestOneof) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4937,7 +5006,7 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
   }
 
   static func ==(lhs: SwiftProtoTesting_TestOneof.FooGroup, rhs: SwiftProtoTesting_TestOneof.FooGroup) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -4954,7 +5023,7 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4966,6 +5035,13 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4983,7 +5059,7 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredOneof, rhs: SwiftProtoTesting_TestRequiredOneof) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5015,7 +5091,7 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredOneof.NestedMessage, rhs: SwiftProtoTesting_TestRequiredOneof.NestedMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5047,7 +5123,7 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   static func ==(lhs: SwiftProtoTesting_TestPackedTypes, rhs: SwiftProtoTesting_TestPackedTypes) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5079,7 +5155,7 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   }
 
   static func ==(lhs: SwiftProtoTesting_TestUnpackedTypes, rhs: SwiftProtoTesting_TestUnpackedTypes) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5111,7 +5187,7 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   }
 
   static func ==(lhs: SwiftProtoTesting_TestPackedExtensions, rhs: SwiftProtoTesting_TestPackedExtensions) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5128,7 +5204,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5150,6 +5226,16 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes].self)
+    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self)
+    case 4: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
   }
@@ -5163,7 +5249,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge, rhs: SwiftProtoTesting_TestParsingMerge) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5180,7 +5266,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5200,6 +5286,15 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     }
   }
 
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes].self)
+    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self)
+    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
     fatalError("table-driven isInitialized not yet implemented")
   }
@@ -5213,7 +5308,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5230,7 +5325,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5242,6 +5337,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5259,7 +5361,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5276,7 +5378,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5288,6 +5390,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5305,7 +5414,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5322,7 +5431,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5334,6 +5443,13 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5351,7 +5467,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.OptionalGroup, rhs: SwiftProtoTesting_TestParsingMerge.OptionalGroup) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
@@ -5368,7 +5484,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5380,6 +5496,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
     switch token.index {
     case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5397,6 +5520,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedGroup, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedGroup) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }

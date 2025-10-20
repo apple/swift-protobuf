@@ -116,6 +116,6 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
   }
 
   static func ==(lhs: SwiftProtoTesting_Import_PublicImportMessage, rhs: SwiftProtoTesting_Import_PublicImportMessage) -> Bool {
-    fatalError("table-driven == not yet implemented")
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
