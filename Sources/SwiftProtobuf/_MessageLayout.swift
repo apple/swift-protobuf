@@ -121,6 +121,14 @@ import Foundation
         _ rhs: _MessageStorage
     ) -> Bool
 
+    /// The function type for the generated function that is called to test if a field whose type
+    /// is a submessage is initialized.
+    public typealias SubmessageInitializedChecker = (
+        _ token: SubmessageToken,
+        _ field: FieldLayout,
+        _ storage: _MessageStorage
+    ) -> Bool
+
     /// The function that is called to deinitialize a field whose type is a message.
     let deinitializeSubmessage: SubmessageDeinitializer
 
@@ -130,6 +138,9 @@ import Foundation
     /// The function that is called to test a field whose type is a submessage for equality.
     let areSubmessagesEqual: SubmessageEquater
 
+    /// The function that is called to test whether a submessage field is initialized.
+    let isSubmessageInitialized: SubmessageInitializedChecker
+
     /// Creates a new message layout and submessage operations from the given values.
     ///
     /// This initializer is public because generated messages need to call it.
@@ -137,7 +148,8 @@ import Foundation
         layout: StaticString,
         deinitializeSubmessage: @escaping SubmessageDeinitializer,
         copySubmessage: @escaping SubmessageCopier,
-        areSubmessagesEqual: @escaping SubmessageEquater
+        areSubmessagesEqual: @escaping SubmessageEquater,
+        isSubmessageInitialized: @escaping SubmessageInitializedChecker
     ) {
         precondition(
             layout.hasPointerRepresentation,
@@ -147,6 +159,7 @@ import Foundation
         self.deinitializeSubmessage = deinitializeSubmessage
         self.copySubmessage = copySubmessage
         self.areSubmessagesEqual = areSubmessagesEqual
+        self.isSubmessageInitialized = isSubmessageInitialized
         precondition(version == 0, "This runtime only supports version 0 message layouts")
         precondition(
             self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
@@ -174,6 +187,9 @@ import Foundation
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             areSubmessagesEqual: { _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            isSubmessageInitialized: { _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
