@@ -123,7 +123,7 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

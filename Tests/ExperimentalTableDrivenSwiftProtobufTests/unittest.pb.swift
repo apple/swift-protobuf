@@ -4140,7 +4140,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4187,8 +4187,23 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self)
+    case 2: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+    case 3: return storage.isFieldInitialized(field, type: SwiftProtoTesting_ForeignMessage.self)
+    case 4: return storage.isFieldInitialized(field, type: SwiftProtoTesting_Import_ImportMessage.self)
+    case 5: return storage.isFieldInitialized(field, type: SwiftProtoTesting_Import_PublicImportMessage.self)
+    case 6: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self)
+    case 7: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
+    case 8: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_ForeignMessage].self)
+    case 9: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_Import_ImportMessage].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4224,7 +4239,7 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4256,7 +4271,7 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4288,7 +4303,7 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4317,7 +4332,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4346,8 +4361,17 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_NestedTestAllTypes.self)
+    case 2: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    case 3: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_NestedTestAllTypes].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4379,7 +4403,7 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4411,7 +4435,7 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4443,7 +4467,7 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4475,7 +4499,7 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4507,7 +4531,7 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4536,7 +4560,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4559,8 +4583,15 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_ForeignMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4589,7 +4620,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4615,8 +4646,16 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestRequired.self)
+    case 2: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestRequired].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4645,7 +4684,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4671,8 +4710,16 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestRequired.self)
+    case 2: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestRequired].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4704,7 +4751,7 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4736,7 +4783,7 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4765,7 +4812,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4788,8 +4835,15 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestRecursiveMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4818,7 +4872,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4841,8 +4895,15 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4874,7 +4935,7 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4906,7 +4967,7 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4935,7 +4996,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -4961,8 +5022,16 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    case 2: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestOneof.FooGroup.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4994,7 +5063,7 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5023,7 +5092,7 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5046,8 +5115,15 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5079,7 +5155,7 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5111,7 +5187,7 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5143,7 +5219,7 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5175,7 +5251,7 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5204,7 +5280,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5236,8 +5312,18 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    case 2: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestAllTypes].self)
+    case 3: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self)
+    case 4: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5266,7 +5352,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5295,8 +5381,17 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestAllTypes].self)
+    case 2: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self)
+    case 3: return storage.isFieldInitialized(field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5325,7 +5420,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5348,8 +5443,15 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5378,7 +5480,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5401,8 +5503,15 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5431,7 +5540,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5454,8 +5563,15 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5484,7 +5600,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
 
   private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -5507,8 +5623,15 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     }
   }
 
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_TestAllTypes.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
   public var isInitialized: Bool {
-    fatalError("table-driven isInitialized not yet implemented")
+    return _storage.isInitialized
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

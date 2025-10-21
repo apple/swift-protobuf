@@ -1,1 +1,82 @@
+// Protos/unittest_swift_required_fields.proto - test proto for required fields
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2025 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test how required field has-bits are checked.
+///
+// -----------------------------------------------------------------------------
 
+syntax = "proto2";
+
+package swift_proto_testing;
+
+// Just a single reserved field.
+message Required1 {
+    required int64 req_1 = 1;
+    optional int64 opt_2 = 2;
+    optional int64 opt_3 = 3;
+    optional int64 opt_4 = 4;
+}
+
+// A full byte's worth of reserved fields.
+message Required8 {
+    required int64 req_1 = 1;
+    required int64 req_2 = 2;
+    required int64 req_3 = 3;
+    required int64 req_4 = 4;
+    required int64 req_5 = 5;
+    required int64 req_6 = 6;
+    required int64 req_7 = 7;
+    required int64 req_8 = 8;
+    optional int64 req_9 = 9;
+    optional int64 req_10 = 10;
+}
+
+// A full byte's worth of reserved fields, plus some overflow.
+message Required9 {
+    required int64 req_1 = 1;
+    required int64 req_2 = 2;
+    required int64 req_3 = 3;
+    required int64 req_4 = 4;
+    required int64 req_5 = 5;
+    required int64 req_6 = 6;
+    required int64 req_7 = 7;
+    required int64 req_8 = 8;
+    required int64 req_9 = 9;
+    optional int64 req_10 = 10;
+    optional int64 req_11 = 11;
+}
+
+// Reserved fields intermixed with optional fields.
+message RequiredMixedOrder {
+    required int64 req_1 = 1;
+    optional int64 opt_2 = 2;
+    required int64 req_3 = 3;
+    optional int64 opt_4 = 4;
+    required int64 req_5 = 5;
+    optional int64 opt_6 = 6;
+    required int64 req_7 = 7;
+    optional int64 opt_8 = 8;
+}
+
+// A required submessage field that has required fields.
+message RequiredWithNested {
+    required NestedRequired nested = 1;
+}
+
+// A repeated submessage field that has required fields.
+message RequiredWithRepeatedNested {
+    repeated NestedRequired nested = 1;
+}
+
+message NestedRequired {
+    required int64 req_1 = 1;
+}

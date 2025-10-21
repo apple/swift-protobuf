@@ -371,7 +371,7 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTest
 		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
 
 # TODO: Remove this once all the existing protos just work as table-driven.
-regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTests/unittest.proto Protos/Tests/SwiftProtobufTests/unittest_import.proto Protos/Tests/SwiftProtobufTests/unittest_import_public.proto
+regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTests/unittest.proto Protos/Tests/SwiftProtobufTests/unittest_import.proto Protos/Tests/SwiftProtobufTests/unittest_import_public.proto Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto
 	find Tests/ExperimentalTableDrivenSwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
@@ -379,7 +379,8 @@ regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProt
 		--tfiws_out=Tests/ExperimentalTableDrivenSwiftProtobufTests \
 		Protos/Tests/SwiftProtobufTests/unittest.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_import.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_import_public.proto
+		Protos/Tests/SwiftProtobufTests/unittest_import_public.proto \
+		Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.
