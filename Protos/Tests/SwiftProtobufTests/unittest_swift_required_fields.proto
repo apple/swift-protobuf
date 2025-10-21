@@ -80,3 +80,17 @@ message RequiredWithRepeatedNested {
 message NestedRequired {
     required int64 req_1 = 1;
 }
+
+message NoneRequired {
+    optional int64 opt_1 = 1;
+    optional NestedNoneRequired opt_2 = 2;
+}
+
+message NestedNoneRequired {
+    optional int64 opt_1 = 1;
+}
+
+message NoneRequiredButNestedRequired {
+    optional int64 opt_1 = 1;
+    optional NestedRequired opt_2 = 2;
+}

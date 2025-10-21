@@ -170,4 +170,26 @@ final class Test_RequiredFields: XCTestCase {
         msg.nested[1].req1 = 50
         XCTAssertTrue(msg.isInitialized)
     }
+
+    func testNoneRequired() {
+        let msg = SwiftProtoTesting_NoneRequired()
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testNoneRequiredButNestedRequired() {
+        var msg = SwiftProtoTesting_NoneRequiredButNestedRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.opt1 = 50
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.opt2 = SwiftProtoTesting_NestedRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.opt2.req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.opt2.clearReq1()
+        XCTAssertFalse(msg.isInitialized)
+    }
 }

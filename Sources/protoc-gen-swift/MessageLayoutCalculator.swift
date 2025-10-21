@@ -24,7 +24,7 @@ struct MessageLayoutCalculator {
 
     /// Collects submessage information as it is encountered while iterating over the fields of the
     /// message.
-    private var submessages = SubmessageCollector()
+    private var submessageCollector = SubmessageCollector()
 
     /// The Swift string literals (without surrounding quotes) that encode the message layout in
     /// the generated source.
@@ -37,9 +37,12 @@ struct MessageLayoutCalculator {
     ///
     /// The first element in this array corresponds to the submessage with index 1, and the rest
     /// increase accordingly.
-    var submessageNames: [String] {
-        submessages.usedSubmessages.sorted { $0.value < $1.value }.map { $0.key }
+    var submessages: [SubmessageInfo] {
+        submessageCollector.usedSubmessages.sorted { $0.value.index < $1.value.index }.map { $0.value }
     }
+
+    /// Indicates whether we need to generate an `isInitialized` property for this message.
+    private(set) var needsIsInitializedGeneration = false
 
     /// Creates a new message layout calculator for a message containing the given fields and for
     /// a platform with the given pointer bit-width.
@@ -64,14 +67,15 @@ struct MessageLayoutCalculator {
         var hasBitIndex: UInt16 = 0
         var deferredOneofMembers = [any FieldGenerator]()
         for field in requiredFieldsFirst {
-            // TODO: Compute the presence information for each oneof by reserving a 32-bit integer
-            // for each oneof in the in-memory storage, after the has-bits.
             if field.oneofIndex != nil {
                 deferredOneofMembers.append(field)
             } else {
                 // The presence is just the has-bit index.
                 field.presence = .hasBit(hasBitIndex)
                 hasBitIndex += 1
+            }
+            if !needsIsInitializedGeneration && field.needsIsInitializedGeneration {
+                needsIsInitializedGeneration = true
             }
             if field.isRequired {
                 requiredCount += 1
@@ -111,9 +115,7 @@ struct MessageLayoutCalculator {
             field.storageOffsets = byteOffsets
             byteOffsets.add(fieldSizes)
 
-            if let submessageTypeName = field.submessageTypeName {
-                submessages.collect(submessageTypeName, for: field.number)
-            }
+            submessageCollector.collect(field)
         }
 
         // Now we have all the information we need to generate the layout string. First we write
@@ -129,7 +131,7 @@ struct MessageLayoutCalculator {
                 writer.writeBase128Int(UInt64(field.storageOffsets[which]), byteWidth: 3)
                 writer.writeBase128Int(UInt64(field.presence.rawPresence), byteWidth: 2)
                 writer.writeBase128Int(
-                    UInt64(submessages.fieldNumberToSubmessageIndexMap[field.number, default: 0]),
+                    UInt64(submessageCollector.fieldNumberToSubmessageIndexMap[field.number, default: 0]),
                     byteWidth: 2
                 )
                 writer.writeBase128Int(UInt64(field.rawFieldType.rawValue), byteWidth: 1)
@@ -186,22 +188,44 @@ private struct SubmessageCollector {
     /// submessage.
     var fieldNumberToSubmessageIndexMap: [Int: Int] = [:]
 
-    /// Tracks which submessage types have already been encountered, along with their index.
-    var usedSubmessages: [String: Int] = [:]
+    /// Tracks which submessage types have already been encountered, along with their field
+    /// generator and index.
+    var usedSubmessages: [String: SubmessageInfo] = [:]
 
     /// Tracks the index that will be assigned to the next newly encountered submessage.
     private var nextIndex = 1
 
     /// Tracks the submessage with the given type name and field number.
-    mutating func collect(_ name: String, for fieldNumber: Int) {
+    mutating func collect(_ field: any FieldGenerator) {
+        guard let name = field.submessageTypeName else { return }
         let submessageIndex: Int
-        if let foundIndex = usedSubmessages[name] {
+        if let foundIndex = usedSubmessages[name]?.index {
             submessageIndex = foundIndex
         } else {
             submessageIndex = nextIndex
-            usedSubmessages[name] = submessageIndex
+            usedSubmessages[name] = SubmessageInfo(
+                typeName: name,
+                index: submessageIndex,
+                needsIsInitializedCheck: field.needsIsInitializedGeneration
+            )
             nextIndex += 1
         }
-        fieldNumberToSubmessageIndexMap[fieldNumber] = submessageIndex
+        fieldNumberToSubmessageIndexMap[field.number] = submessageIndex
     }
+}
+
+struct SubmessageInfo {
+    /// The Swift type name of the submessage.
+    ///
+    /// Note that for repeated fields, this is the spelling of an array of the message type (e.g.,
+    /// `[Foo]`).
+    var typeName: String
+
+    /// The index of the submessage, which will be used to generate submessage tokens.
+    var index: Int
+
+    /// Indicates whether we need to recursively walk this submessage to implement the
+    /// `isInitialized` check or if it can vacuously return true (e.g., if it has no required fields
+    /// or submessages with required fields).
+    var needsIsInitializedCheck: Bool
 }

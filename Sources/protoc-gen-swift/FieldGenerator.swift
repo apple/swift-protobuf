@@ -114,6 +114,10 @@ protocol FieldGenerator: AnyObject {
     /// the message.
     var storageOffsets: TargetSpecificValues<Int> { get set }
 
+    /// Indicates whether this field should cause its parent message to have `isInitialized`
+    /// generated.
+    var needsIsInitializedGeneration: Bool { get }
+
     /// Writes the field's name information to the given bytecode stream.
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter)
 

@@ -103,10 +103,6 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
-  public var isInitialized: Bool {
-    return _storage.isInitialized
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     fatalError("table-driven decodeMessage not yet implemented")
   }

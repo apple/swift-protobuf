@@ -8,7 +8,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Protos/unittest_swift_required.proto - test proto
+// Protos/unittest_swift_required_fields.proto - test proto for required fields
 //
 // This source file is part of the Swift.org open source project
 //
@@ -523,6 +523,120 @@ struct SwiftProtoTesting_NestedRequired: @unchecked Sendable {
   }
 }
 
+struct SwiftProtoTesting_NoneRequired: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var opt1: Int64 {
+    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+  }
+  /// Returns true if `opt1` has been explicitly set.
+  var hasOpt1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
+  mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
+
+  var opt2: SwiftProtoTesting_NestedNoneRequired {
+    get { return _storage.value(at: 16, default: SwiftProtoTesting_NestedNoneRequired(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+  }
+  /// Returns true if `opt2` has been explicitly set.
+  var hasOpt2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
+  mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_NestedNoneRequired.self, hasBit: (0, 2)) }
+
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
+
+  init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+}
+
+struct SwiftProtoTesting_NestedNoneRequired: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var opt1: Int64 {
+    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+  }
+  /// Returns true if `opt1` has been explicitly set.
+  var hasOpt1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
+  mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
+
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
+
+  init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+}
+
+struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var opt1: Int64 {
+    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+  }
+  /// Returns true if `opt1` has been explicitly set.
+  var hasOpt1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
+  mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
+
+  var opt2: SwiftProtoTesting_NestedRequired {
+    get { return _storage.value(at: 16, default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+  }
+  /// Returns true if `opt2` has been explicitly set.
+  var hasOpt2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
+  mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_NestedRequired.self, hasBit: (0, 2)) }
+
+  var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
+
+  init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "swift_proto_testing"
@@ -803,6 +917,147 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   static func ==(lhs: SwiftProtoTesting_NestedRequired, rhs: SwiftProtoTesting_NestedRequired) -> Bool {
+    return lhs._storage.isEqual(to: rhs._storage)
+  }
+}
+
+extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NoneRequired"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}opt_1\0\u{3}opt_2\0")
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
+
+  private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+    switch token.index {
+    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_NestedNoneRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
+    switch token.index {
+    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_NestedNoneRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_NestedNoneRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    fatalError("table-driven decodeMessage not yet implemented")
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  static func ==(lhs: SwiftProtoTesting_NoneRequired, rhs: SwiftProtoTesting_NoneRequired) -> Bool {
+    return lhs._storage.isEqual(to: rhs._storage)
+  }
+}
+
+extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NestedNoneRequired"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}opt_1\0")
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    fatalError("table-driven decodeMessage not yet implemented")
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  static func ==(lhs: SwiftProtoTesting_NestedNoneRequired, rhs: SwiftProtoTesting_NestedNoneRequired) -> Bool {
+    return lhs._storage.isEqual(to: rhs._storage)
+  }
+}
+
+extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NoneRequiredButNestedRequired"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}opt_1\0\u{3}opt_2\0")
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeSubmessage: _protobuf_deinitializeSubmessage, copySubmessage: _protobuf_copySubmessage, areSubmessagesEqual: _protobuf_areSubmessagesEqual, isSubmessageInitialized: _protobuf_isSubmessageInitialized)
+
+  private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+    switch token.index {
+    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_NestedRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
+    switch token.index {
+    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_NestedRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_NestedRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.isFieldInitialized(field, type: SwiftProtoTesting_NestedRequired.self)
+    default: preconditionFailure("invalid submessage token; this is a generator bug")
+    }
+  }
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    fatalError("table-driven decodeMessage not yet implemented")
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  static func ==(lhs: SwiftProtoTesting_NoneRequiredButNestedRequired, rhs: SwiftProtoTesting_NoneRequiredButNestedRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
 }

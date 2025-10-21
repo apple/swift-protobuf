@@ -152,8 +152,8 @@ class MessageGenerator {
                 p.print("get { _storage.unknownFields }")
                 p.print("_modify {")
                 p.printIndented(
-                  "_ = _uniqueStorage()",
-                  "yield &_storage.unknownFields"
+                    "_ = _uniqueStorage()",
+                    "yield &_storage.unknownFields"
                 )
                 p.print("}")
             }
@@ -191,8 +191,8 @@ class MessageGenerator {
                     p.print("get { _storage.extensionFieldValues }")
                     p.print("_modify {")
                     p.printIndented(
-                      "_ = _uniqueStorage()",
-                      "yield &_storage.extensionFieldValues"
+                        "_ = _uniqueStorage()",
+                        "yield &_storage.extensionFieldValues"
                     )
                     p.print("}")
                 }
@@ -264,14 +264,14 @@ class MessageGenerator {
             )
         }
 
-        let submessageNames = messageLayoutCalculator.submessageNames
+        let submessages = messageLayoutCalculator.submessages
         p.print()
         p.print(
             "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString",
             newlines: false
         )
 
-        if submessageNames.isEmpty {
+        if submessages.isEmpty {
             // If there are no submessages, we can use the layout initializer that defaults the
             // trampoline functions to trapping placeholders.
             p.print(")")
@@ -292,8 +292,10 @@ class MessageGenerator {
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, type) in submessageNames.enumerated() {
-                    p.print("case \(index + 1): storage.deinitializeField(field, type: \(type).self)")
+                for (index, submessage) in submessages.enumerated() {
+                    p.print(
+                        "case \(index + 1): storage.deinitializeField(field, type: \(submessage.typeName).self)"
+                    )
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
@@ -310,8 +312,10 @@ class MessageGenerator {
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, type) in submessageNames.enumerated() {
-                    p.print("case \(index + 1): source.copyField(field, to: destination, type: \(type).self)")
+                for (index, submessage) in submessages.enumerated() {
+                    p.print(
+                        "case \(index + 1): source.copyField(field, to: destination, type: \(submessage.typeName).self)"
+                    )
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
@@ -328,8 +332,10 @@ class MessageGenerator {
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, type) in submessageNames.enumerated() {
-                    p.print("case \(index + 1): return lhs.isField(field, equalToSameFieldIn: rhs, type: \(type).self)")
+                for (index, submessage) in submessages.enumerated() {
+                    p.print(
+                        "case \(index + 1): return lhs.isField(field, equalToSameFieldIn: rhs, type: \(submessage.typeName).self)"
+                    )
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
@@ -345,14 +351,27 @@ class MessageGenerator {
                 "private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {"
             )
             p.withIndentation { p in
-                p.print("switch token.index {")
-                for (index, type) in submessageNames.enumerated() {
-                    p.print("case \(index + 1): return storage.isFieldInitialized(field, type: \(type).self)")
+                // If *no* submessages in this message need an initialized check, we can
+                // unconditionally return true. Otherwise, generate the individual branches but
+                // still avoid checking submessages that don't need it.
+                if !submessages.contains(where: { $0.needsIsInitializedCheck }) {
+                    p.print("return true")
+                } else {
+                    p.print("switch token.index {")
+                    for (index, submessage) in submessages.enumerated() {
+                        if submessage.needsIsInitializedCheck {
+                            p.print(
+                                "case \(index + 1): return storage.isFieldInitialized(field, type: \(submessage.typeName).self)"
+                            )
+                        } else {
+                            p.print("case \(index + 1): return true")
+                        }
+                    }
+                    p.print(
+                        "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                        "}"
+                    )
                 }
-                p.print(
-                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
-                    "}"
-                )
             }
             p.print(
                 "}"
@@ -419,6 +438,12 @@ class MessageGenerator {
     ///
     /// - Parameter printer: The code printer.
     private func generateIsInitialized(printer p: inout CodePrinter) {
+        // If the message does not have any fields that need this check, don't generate it; we'll
+        // use the protocol extension default.
+        guard messageLayoutCalculator.needsIsInitializedGeneration else {
+            return
+        }
+
         p.print("public var isInitialized: Bool {")
         p.withIndentation { p in
             p.print("return _storage.isInitialized")

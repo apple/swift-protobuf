@@ -878,12 +878,14 @@ extension _MessageStorage {
         // quickly determine whether a message is initialzed using a simple `memcmp` (with at most
         // one additional masked byte comparison for overflow bits).
         let requiredByteCount = layout.requiredCount / 8
-        let requiredBytesAllSet = withUnsafeTemporaryAllocation(of: UInt8.self, capacity: requiredByteCount) {
-            allSetBuffer in
-            allSetBuffer.initialize(repeating: 0xff)
-            return memcmp(buffer.baseAddress!, allSetBuffer.baseAddress!, requiredByteCount) == 0
+        if requiredByteCount > 0 {
+            let requiredBytesAllSet = withUnsafeTemporaryAllocation(of: UInt8.self, capacity: requiredByteCount) {
+                allSetBuffer in
+                allSetBuffer.initialize(repeating: 0xff)
+                return memcmp(buffer.baseAddress!, allSetBuffer.baseAddress!, requiredByteCount) == 0
+            }
+            guard requiredBytesAllSet else { return false }
         }
-        guard requiredBytesAllSet else { return false }
 
         // If the number of required has-bits is not a multiple of 8, check the remaining bits.
         // These may be followed immediately by has-bits for non-required fields so we need to mask
@@ -918,6 +920,7 @@ extension _MessageStorage {
                 break
             }
         }
+        // TODO: Check extension fields.
         return true
     }
 
