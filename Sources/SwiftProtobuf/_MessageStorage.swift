@@ -722,7 +722,7 @@ extension _MessageStorage {
     }
 }
 
-// - MARK: Message equality
+// MARK: - Message equality
 
 extension _MessageStorage {
     /// Tests this message storage for equality with the other storage.
@@ -859,6 +859,83 @@ extension _MessageStorage {
         let selfPointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
         let otherPointer = (other.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
         return selfPointer.pointee == otherPointer.pointee
+    }
+}
+
+// MARK: - Message initialized (i.e., required fields) check
+
+extension _MessageStorage {
+    /// Indicates whether all required fields are present in this message.
+    ///
+    /// This is a shallow check; it does not recurse into submessages to check their initialized
+    /// state.
+    @inline(never)
+    private var isMessageInitializedShallow: Bool {
+        // A message with no required fields is trivially considered initialized.
+        guard layout.requiredCount > 0 else { return true }
+
+        // The has-bits for the required fields have been ordered first in storage, so we can
+        // quickly determine whether a message is initialzed using a simple `memcmp` (with at most
+        // one additional masked byte comparison for overflow bits).
+        let requiredByteCount = layout.requiredCount / 8
+        if requiredByteCount > 0 {
+            let requiredBytesAllSet = withUnsafeTemporaryAllocation(of: UInt8.self, capacity: requiredByteCount) {
+                allSetBuffer in
+                allSetBuffer.initialize(repeating: 0xff)
+                return memcmp(buffer.baseAddress!, allSetBuffer.baseAddress!, requiredByteCount) == 0
+            }
+            guard requiredBytesAllSet else { return false }
+        }
+
+        // If the number of required has-bits is not a multiple of 8, check the remaining bits.
+        // These may be followed immediately by has-bits for non-required fields so we need to mask
+        // off just the required ones.
+        let remainingBits = UInt8(layout.requiredCount & 7)
+        guard remainingBits != 0 else { return true }
+
+        let remainingMask: UInt8 = (1 << remainingBits) - 1
+        return buffer[requiredByteCount] & remainingMask == remainingMask
+    }
+
+    /// Indicates whether all required fields are present in this message, recursively checking
+    /// submessages.
+    public var isInitialized: Bool {
+        guard isMessageInitializedShallow else { return false }
+
+        for field in layout.fields {
+            switch field.rawFieldType {
+            case .message, .group:
+                guard isPresent(field) else { return false }
+
+                let isSubmessageInitialized = layout.isSubmessageInitialized(
+                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    field,
+                    self
+                )
+                guard isSubmessageInitialized else { return false }
+
+            default:
+                // Nothing to do for other types of fields; they've already been considered by the
+                // shallow check.
+                break
+            }
+        }
+        // TODO: Check extension fields.
+        return true
+    }
+
+    /// Returns whether the given field in the receiver, which must be another message type, is
+    /// initialized (recursively).
+    public func isFieldInitialized<T: Message>(_ field: FieldLayout, type: T.Type) -> Bool {
+        (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee.isInitialized
+    }
+
+    /// Returns whether the given field in the receiver, which must be an array of a message type,
+    /// is initialized (recursively).
+    public func isFieldInitialized<T: Message>(_ field: FieldLayout, type: [T].Type) -> Bool {
+        (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1).pointee.allSatisfy {
+            $0.isInitialized
+        }
     }
 }
 
