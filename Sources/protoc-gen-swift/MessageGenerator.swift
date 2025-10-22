@@ -440,7 +440,7 @@ class MessageGenerator {
     private func generateIsInitialized(printer p: inout CodePrinter) {
         // If the message does not have any fields that need this check, don't generate it; we'll
         // use the protocol extension default.
-        guard messageLayoutCalculator.needsIsInitializedGeneration else {
+        guard descriptor.containsRequiredFields() else {
             return
         }
 

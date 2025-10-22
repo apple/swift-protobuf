@@ -41,9 +41,6 @@ struct MessageLayoutCalculator {
         submessageCollector.usedSubmessages.sorted { $0.value.index < $1.value.index }.map { $0.value }
     }
 
-    /// Indicates whether we need to generate an `isInitialized` property for this message.
-    private(set) var needsIsInitializedGeneration = false
-
     /// Creates a new message layout calculator for a message containing the given fields and for
     /// a platform with the given pointer bit-width.
     init(fieldsSortedByNumber: [any FieldGenerator]) {
@@ -73,9 +70,6 @@ struct MessageLayoutCalculator {
                 // The presence is just the has-bit index.
                 field.presence = .hasBit(hasBitIndex)
                 hasBitIndex += 1
-            }
-            if !needsIsInitializedGeneration && field.needsIsInitializedGeneration {
-                needsIsInitializedGeneration = true
             }
             if field.isRequired {
                 requiredCount += 1

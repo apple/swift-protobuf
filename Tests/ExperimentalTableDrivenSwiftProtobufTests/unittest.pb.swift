@@ -4394,6 +4394,10 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     fatalError("table-driven decodeMessage not yet implemented")
   }
@@ -4825,6 +4829,10 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     return true
   }
 
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     fatalError("table-driven decodeMessage not yet implemented")
   }
@@ -5140,6 +5148,10 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   #endif
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+
+  public var isInitialized: Bool {
+    return _storage.isInitialized
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     fatalError("table-driven decodeMessage not yet implemented")
