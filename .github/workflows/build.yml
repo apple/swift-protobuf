@@ -34,60 +34,22 @@ jobs:
         - version: "5.10"
           # No "hook", see https://github.com/apple/swift-protobuf/issues/1560 for the
           # current issue with using -warnings-as-errors on linux.
-        # protobuf_git can reference a commit, tag, or branch
-        # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
-        # tag: "ref/tags/v3.11.4"
-        # branch: "ref/heads/main"
-        protobuf_git: ["ref/heads/main"]
     container:
       image: swift:${{ matrix.swift.version }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: swift-protobuf
         submodules: true
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
-      # this step is run before get-sha because we need curl and jq for get-sha
-      run: apt-get update && apt-get install -y curl make g++ cmake jq
-    - name: Get Protobuf Commit SHA
-      id: get-sha
-      run: |
-        set -eu
-        url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
-        case ${{ matrix.protobuf_git }} in
-        ref/*)
-          echo "sha=$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )" >> $GITHUB_OUTPUT
-          ;;
-        commits/*)
-          echo "sha=$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )" >> $GITHUB_OUTPUT
-          ;;
-        esac
+      run: apt-get update && apt-get install -y make g++ cmake
     - name: Build
-      working-directory: swift-protobuf
       run: make build ${{ matrix.swift.hook }}
     - name: Test runtime
-      working-directory: swift-protobuf
       run: make test-runtime ${{ matrix.swift.hook }}
-    - name: Cache protobuf
-      id: cache-protobuf
-      uses: actions/cache@v4
-      with:
-        path: protobuf
-        # NOTE: for refs that can float like 'main' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.swift.version}}-protobuf-${{ steps.get-sha.outputs.sha }}
-    - name: Checkout protobuf repo
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      uses: actions/checkout@v4
-      with:
-        repository: protocolbuffers/protobuf
-        ref: ${{ steps.get-sha.outputs.sha }}
-        submodules: true
-        path: protobuf
     - name: Build protobuf
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      working-directory: protobuf
+      working-directory: Sources/protobuf/protobuf
       # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
       run: |
         mkdir cmake_build
@@ -102,17 +64,13 @@ jobs:
         NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
         make -j "${NUM_CPUS}" protoc conformance_test_runner
     - name: Test plugin
-      working-directory: swift-protobuf
-      run: make test-plugin PROTOC=../protobuf/cmake_build/protoc
+      run: make test-plugin PROTOC=Sources/protobuf/protobuf/cmake_build/protoc
     - name: Test conformance
-      working-directory: swift-protobuf
-      run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
+      run: make test-conformance CONFORMANCE_TEST_RUNNER=Sources/protobuf/protobuf/cmake_build/conformance_test_runner
     - name: Test SPM plugin
-      working-directory: swift-protobuf
-      run: make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
+      run: make test-spm-plugin PROTOC=Sources/protobuf/protobuf/cmake_build/protoc
     - name: Compilation Tests
-      working-directory: swift-protobuf
-      run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
+      run: make compile-tests PROTOC=Sources/protobuf/protobuf/cmake_build/protoc
 
   api-breakage:
     name: Api Breakage Compared to main branch

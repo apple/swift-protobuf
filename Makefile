@@ -39,11 +39,11 @@ BINDIR=/usr/local/bin
 # Install tool name
 INSTALL=install
 
-# Where to find a google/protobuf checkout. Defaults be being beside this
-# checkout. Invoke make with GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT] to
+# Where to find a google/protobuf checkout. Defaults to the submodule.
+# Invoke make with GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT] to
 # override this value, i.e. -
 #   make [TARGET] GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT]
-GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
+GOOGLE_PROTOBUF_CHECKOUT?=Sources/protobuf/protobuf
 
 # Helpers for the common parts of source generation.
 #
