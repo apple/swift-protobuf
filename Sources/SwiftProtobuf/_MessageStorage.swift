@@ -134,7 +134,7 @@ import Foundation
     /// Generated accessors do not use this function. Since they can encode their presence
     /// information directly, they use more efficient code paths that do not require the full
     /// field layout.
-    private func isPresent(_ field: FieldLayout) -> Bool {
+    func isPresent(_ field: FieldLayout) -> Bool {
         switch field.presence {
         case .oneOfMember(let oneofOffset):
             return populatedOneofMember(at: oneofOffset) == field.fieldNumber
@@ -332,6 +332,14 @@ extension _MessageStorage {
 // which point we can conditionally switch to those names to guarantee the behavior.
 
 extension _MessageStorage {
+    /// Returns the value at the given offset in the storage.
+    ///
+    /// - Precondition: The value must already be known to be present.
+    @_alwaysEmitIntoClient @inline(__always)
+    func assumedPresentValue<Value>(at offset: Int, as type: Value.Type = Value.self) -> Value {
+        (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+    }
+
     /// Returns the `Bool` value at the given offset in the storage, or the default value if the
     /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
@@ -946,7 +954,14 @@ extension _MessageStorage {
         for field in layout.fields {
             switch field.rawFieldType {
             case .message, .group:
-                guard isPresent(field) else { return false }
+                guard isPresent(field) else {
+                    // If the submessage is not present, check if it's required. If it is, then
+                    // we're not initialized; otherwise, we can skip to the next field.
+                    if layout.isFieldRequired(field) {
+                        return false
+                    }
+                    continue
+                }
 
                 // This never actually throws because the closure cannot throw, but closures cannot
                 // be declared rethrows..

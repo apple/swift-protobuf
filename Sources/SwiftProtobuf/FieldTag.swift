@@ -47,6 +47,15 @@ package struct FieldTag: RawRepresentable {
         Varint.encodedSize(of: rawValue)
     }
 
+    /// Returns the size in bytes of the tag with the given field number when it is encoded in
+    /// binary format.
+    ///
+    /// Note that this size is always independent of the wire format because the low three bits do
+    /// not change the size of a varint.
+    package static func encodedSize(ofTagWithFieldNumber number: Int) -> Int {
+        return Varint.encodedSize(of: UInt32(truncatingIfNeeded: number) << 3)
+    }
+
     /// Creates a new tag from its raw numeric representation.
     ///
     /// Note that if the raw value given here is not a valid tag (for example, it

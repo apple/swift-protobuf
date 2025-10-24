@@ -241,6 +241,12 @@ extension _MessageLayout {
     var denseBelow: UInt32 {
         UInt32(fixed3ByteBase128(in: layout, atByteOffset: 10))
     }
+
+    /// Returns a value indicating whether or not the given field is required.
+    func isFieldRequired(_ field: FieldLayout) -> Bool {
+        let raw = field.rawPresence
+        return 0 <= raw && raw < requiredCount
+    }
 }
 
 /// The size, in bytes, of the header the describes the overall message layout.
@@ -354,12 +360,21 @@ extension _MessageLayout {
         fixed3ByteBase128(in: buffer, atByteOffset: 5)
     }
 
-    /// The offset, in bytes, where this field's presence is stored in in-memory storage.
+    /// The raw presence value.
     ///
-    /// For one-of fields, this is the _byte_ offset in storage where the one-of index is stored.
-    /// For scalar fields, this is the index of the has-bit for this field.
+    /// For `oneof` fields, this is the bitwise inverse of the _byte_ offset in storage where the
+    /// populated `oneof` member's field number is stored. For non-`oneof` fields, this is the index
+    /// of the has-bit for this field.
+    var rawPresence: Int {
+        fixed2ByteBase128(in: buffer, atByteOffset: 8)
+    }
+
+    /// The presence information for this field.
+    ///
+    /// This value is an enum that provides structured access to the information based on whether it
+    /// is a `oneof` member or a regular field.
     var presence: Presence {
-        Presence(rawValue: fixed2ByteBase128(in: buffer, atByteOffset: 8))
+        Presence(rawValue: rawPresence)
     }
 
     /// The index that is used when requesting the metatype of this field from its containing

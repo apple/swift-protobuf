@@ -1,0 +1,274 @@
+// Sources/SwiftProtobuf/_MessageStorage+BinarySize.swift - Binary size calculation for messages
+//
+// Copyright (c) 2014 - 2025 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+///
+/// Computes the binary-encoded size of `_MessageStorage.`
+///
+// -----------------------------------------------------------------------------
+
+import Foundation
+
+extension _MessageStorage {
+    /// Computes and returns the size in bytes required to serialize this message.
+    public func serializedBytesSize() -> Int {
+        var serializedSize = 0
+        for field in layout.fields {
+            guard isPresent(field) else { continue }
+            serializedSize += serializedByteSize(of: field)
+        }
+        // TODO: Support unknown fields and extensions.
+        return serializedSize
+    }
+
+    /// Returns the serialized byte size of the value of the given field.
+    ///
+    /// - Precondition: The field is already known to be present.
+    private func serializedByteSize(of field: FieldLayout) -> Int {
+        // TODO: Unify our field number APIs around `UInt32` to avoid casting.
+        let fieldNumber = Int(field.fieldNumber)
+        let offset = field.offset
+        switch field.fieldMode.cardinality {
+        case .map:
+            // TODO: Support maps.
+            return 0
+
+        case .array:
+            let isPacked = field.fieldMode.isPacked
+            switch field.rawFieldType {
+            case .bool:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Bool.self)
+
+            case .bytes:
+                precondition(!isPacked, "a packed bytes field should not be reachable")
+                let values = assumedPresentValue(at: offset, as: [Data].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(into: 0) { result, value in
+                    let count = value.count
+                    result += Varint.encodedSize(of: Int64(count)) + count
+                }
+                return (tagSize * values.count) + dataSize
+
+            case .double:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Double.self)
+
+            case .enum:
+                // TODO: Support enums.
+                return 0
+
+            case .fixed32:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: UInt32.self)
+
+            case .fixed64:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: UInt64.self)
+
+            case .float:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Float.self)
+
+            case .group, .message:
+                precondition(!isPacked, "a packed message/group field should not be reachable")
+                return serializedByteSize(ofMessageOrGroupField: field, fieldNumber: fieldNumber)
+
+            case .int32:
+                let values = assumedPresentValue(at: offset, as: [Int32].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
+                return isPacked
+                    ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+                    : (tagSize * values.count) + dataSize
+
+            case .int64:
+                let values = assumedPresentValue(at: offset, as: [Int64].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
+                return isPacked
+                    ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+                    : (tagSize * values.count) + dataSize
+
+            case .sfixed32:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Int32.self)
+
+            case .sfixed64:
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Int64.self)
+
+            case .sint32:
+                let values = assumedPresentValue(at: offset, as: [Int32].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
+                return isPacked
+                    ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+                    : (tagSize * values.count) + dataSize
+
+            case .sint64:
+                let values = assumedPresentValue(at: offset, as: [Int64].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
+                return isPacked
+                    ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+                    : (tagSize * values.count) + dataSize
+
+            case .string:
+                precondition(!isPacked, "a packed string field should not be reachable")
+                let values = assumedPresentValue(at: offset, as: [String].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(into: 0) { result, value in
+                    let count = value.utf8.count
+                    result += Varint.encodedSize(of: Int64(count)) + count
+                }
+                return (tagSize * values.count) + dataSize
+
+            case .uint32:
+                let values = assumedPresentValue(at: offset, as: [UInt32].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
+                return isPacked
+                    ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+                    : (tagSize * values.count) + dataSize
+
+            case .uint64:
+                let values = assumedPresentValue(at: offset, as: [UInt64].self)
+                let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
+                return isPacked
+                    ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+                    : (tagSize * values.count) + dataSize
+
+            default:
+                preconditionFailure("Unreachable")
+            }
+
+        case .scalar:
+            switch field.rawFieldType {
+            case .bool:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) + 1
+
+            case .bytes:
+                let count = assumedPresentValue(at: offset, as: Data.self).count
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: Int64(count)) + count
+
+            case .double:
+                return fixedWidthSingularFieldSize(for: fieldNumber, as: Double.self)
+
+            case .enum:
+                // TODO: Support enums.
+                return 0
+
+            case .fixed32:
+                return fixedWidthSingularFieldSize(for: fieldNumber, as: UInt32.self)
+
+            case .fixed64:
+                return fixedWidthSingularFieldSize(for: fieldNumber, as: UInt64.self)
+
+            case .float:
+                return fixedWidthSingularFieldSize(for: fieldNumber, as: Float.self)
+
+            case .group, .message:
+                return serializedByteSize(ofMessageOrGroupField: field, fieldNumber: fieldNumber)
+
+            case .int32:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int32.self))
+
+            case .int64:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int64.self))
+
+            case .sfixed32:
+                return fixedWidthSingularFieldSize(for: fieldNumber, as: Int32.self)
+
+            case .sfixed64:
+                return fixedWidthSingularFieldSize(for: fieldNumber, as: Int64.self)
+
+            case .sint32:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: ZigZag.encoded(assumedPresentValue(at: offset, as: Int32.self)))
+
+            case .sint64:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: ZigZag.encoded(assumedPresentValue(at: offset, as: Int64.self)))
+
+            case .string:
+                let count = assumedPresentValue(at: offset, as: String.self).utf8.count
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: Int64(count)) + count
+
+            case .uint32:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: UInt32.self))
+
+            case .uint64:
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: UInt64.self))
+
+            default:
+                preconditionFailure("Unreachable")
+            }
+
+        default:
+            preconditionFailure("Unreachable")
+        }
+    }
+
+    /// Returns the serialized byte size of a single value of the given trivial field.
+    @inline(__always)
+    private func fixedWidthSingularFieldSize<T>(for fieldNumber: Int, as type: T.Type) -> Int {
+        FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) + MemoryLayout<T>.size
+    }
+
+    /// Returns the size of the given repeated field, assuming that it is a sequence of fixed width
+    /// elements (i.e., elements where we do not need the values themselves to determine the size).
+    @inline(__always)
+    private func fixedWidthRepeatedFieldSize<T>(
+        for fieldNumber: Int,
+        at offset: Int,
+        isPacked: Bool,
+        as type: T.Type
+    ) -> Int {
+        let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+        let count = assumedPresentValue(at: offset, as: [T].self).count
+        if isPacked {
+            let dataSize = count * MemoryLayout<T>.size
+            return tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
+        }
+        return (tagSize + MemoryLayout<T>.size) * count
+    }
+
+    /// Returns the serialized byte size of the given group or submessage field.
+    ///
+    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
+    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
+    /// the elements).
+    ///
+    /// This function takes the field number as a separate argument even though it can be computed
+    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// layout, since that has already been done by the caller.
+    private func serializedByteSize(ofMessageOrGroupField field: FieldLayout, fieldNumber: Int) -> Int {
+        var messageSize = 0
+        _ = try! layout.performOnSubmessageStorage(
+            _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            field,
+            self
+        ) {
+            // Include the size of the appropriate tags.
+            if field.rawFieldType == .message {
+                messageSize +=
+                    FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: UInt64(messageSize))
+            } else {  // field.rawFieldType == .group
+                messageSize +=
+                    2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+            }
+
+            // Include the recursively computed size of the submessage.
+            messageSize += $0.serializedBytesSize()
+            return true
+        }
+        return messageSize
+    }
+}
