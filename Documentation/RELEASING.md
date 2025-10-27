@@ -72,21 +72,31 @@ When doing a Swift Protobuf library release:
 ## Updating Protobuf and Abseil Submodules
 
 The swift-protobuf repository uses git submodules for protobuf and abseil-cpp dependencies.
-These should be updated when new versions are released upstream.
 
-### When to update
+### Automatic Updates (Recommended)
 
-- When a new protobuf release is available from [protocolbuffers/protobuf](https://github.com/protocolbuffers/protobuf/releases)
-- When the abseil-cpp version referenced by protobuf changes
+The repository has an automated workflow that checks for new protobuf releases **every night at 2am UTC**.
+When a new release is detected, the workflow will:
 
-### Updating the submodules
+1. Update the protobuf submodule to the latest release tag
+2. Determine the required abseil-cpp version from protobuf's `protobuf_deps.bzl`
+3. Update the abseil-cpp submodule accordingly
+4. Create a pull request with the changes
+
+The workflow can also be triggered manually from the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/update_protobuf.yml).
+
+**No manual intervention is typically required** - just review and merge the automated PR after CI passes.
+
+### Manual Updates (If Needed)
+
+If you need to update the submodules manually (e.g., to test a pre-release version), follow these steps:
 
 1. **Check for new protobuf releases**
 
    Visit the [protobuf releases page](https://github.com/protocolbuffers/protobuf/releases)
    to check if a new version is available.
 
-2. **Update the protobuf submodule**
+1. **Update the protobuf submodule**
 
    From the repository root, update the protobuf submodule to the latest release tag:
 
@@ -98,7 +108,7 @@ These should be updated when new versions are released upstream.
    git add Sources/protobuf/protobuf
    ```
 
-3. **Check the abseil-cpp version**
+1. **Check the abseil-cpp version**
 
    The protobuf library depends on a specific version of abseil-cpp. Check which version
    is required by examining `Sources/protobuf/protobuf/protobuf_deps.bzl`:
@@ -109,7 +119,7 @@ These should be updated when new versions are released upstream.
 
    Look for the `commit` field in the abseil-cpp section to find the required commit hash.
 
-4. **Update the abseil-cpp submodule**
+1. **Update the abseil-cpp submodule**
 
    Update the abseil-cpp submodule to match the version required by protobuf:
 
@@ -121,7 +131,7 @@ These should be updated when new versions are released upstream.
    git add Sources/protobuf/abseil
    ```
 
-5. **Create a pull request**
+1. **Create a pull request**
 
    Commit the submodule updates and create a PR:
 
