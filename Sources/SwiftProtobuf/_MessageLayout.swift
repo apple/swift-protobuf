@@ -129,6 +129,15 @@ import Foundation
         _ storage: _MessageStorage
     ) -> Bool
 
+    /// The function type for the generated function that is called to perform an arbitrary
+    /// operation on the storage of a submessage field.
+    public typealias SubmessageStoragePerformer = (
+        _ token: SwiftProtobuf._MessageLayout.SubmessageToken,
+        _ field: FieldLayout,
+        _ storage: SwiftProtobuf._MessageStorage,
+        _ perform: (SwiftProtobuf._MessageStorage) throws -> Bool
+    ) throws -> Bool
+
     /// The function that is called to deinitialize a field whose type is a message.
     let deinitializeSubmessage: SubmessageDeinitializer
 
@@ -138,8 +147,9 @@ import Foundation
     /// The function that is called to test a field whose type is a submessage for equality.
     let areSubmessagesEqual: SubmessageEquater
 
-    /// The function that is called to test whether a submessage field is initialized.
-    let isSubmessageInitialized: SubmessageInitializedChecker
+    /// The function that is called to perform an arbitrary operation on the storage of a submessage
+    /// field.
+    let performOnSubmessageStorage: SubmessageStoragePerformer
 
     /// Creates a new message layout and submessage operations from the given values.
     ///
@@ -149,7 +159,7 @@ import Foundation
         deinitializeSubmessage: @escaping SubmessageDeinitializer,
         copySubmessage: @escaping SubmessageCopier,
         areSubmessagesEqual: @escaping SubmessageEquater,
-        isSubmessageInitialized: @escaping SubmessageInitializedChecker
+        performOnSubmessageStorage: @escaping SubmessageStoragePerformer
     ) {
         precondition(
             layout.hasPointerRepresentation,
@@ -159,7 +169,7 @@ import Foundation
         self.deinitializeSubmessage = deinitializeSubmessage
         self.copySubmessage = copySubmessage
         self.areSubmessagesEqual = areSubmessagesEqual
-        self.isSubmessageInitialized = isSubmessageInitialized
+        self.performOnSubmessageStorage = performOnSubmessageStorage
         precondition(version == 0, "This runtime only supports version 0 message layouts")
         precondition(
             self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
@@ -189,7 +199,7 @@ import Foundation
             areSubmessagesEqual: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
-            isSubmessageInitialized: { _, _, _ in
+            performOnSubmessageStorage: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )

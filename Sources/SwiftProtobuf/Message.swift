@@ -180,12 +180,22 @@ extension Message {
 /// or uses them as `Dictionary` keys.
 @preconcurrency
 public protocol _MessageImplementationBase: Message, Hashable {
+    // This is an implementation detail of the runtime; users should not call it. The return type
+    // is a class-bound existential because the true SPI type cannot be used in a protocol
+    // requirement.
+    func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject
 
     // Legacy function; no longer used, but left to maintain source compatibility.
     func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 extension _MessageImplementationBase {
+    // TODO: Remove this default implementation once we're generating all the WKTs with the new
+    // implementation.
+    public func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject {
+        fatalError()
+    }
+
     public func isEqualTo(message: any Message) -> Bool {
         guard let other = message as? Self else {
             return false
@@ -204,5 +214,13 @@ extension _MessageImplementationBase {
     // defaulted to keep things simple without changing the api surface.
     public func _protobuf_generated_isEqualTo(other: Self) -> Bool {
         self == other
+    }
+}
+
+extension _MessageImplementationBase {
+    /// Convenience property for the runtime to retrieve the underlying storage for a concretely
+    /// typed message.
+    internal var storageForRuntime: _MessageStorage {
+        unsafeDowncast(_protobuf_messageStorage(accessToken: _MessageStorageToken()), to: _MessageStorage.self)
     }
 }
