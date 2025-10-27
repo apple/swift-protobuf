@@ -17,12 +17,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: swift-protobuf
-    - name: Checkout protobufbuffers/protobuf
-      uses: actions/checkout@v4
-      with:
-        repository: protocolbuffers/protobuf
-        path: protobuf
+        submodules: true
     - name: Check Upstream Proto Files
-      working-directory: swift-protobuf
       run: make check-proto-files

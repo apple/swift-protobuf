@@ -69,41 +69,78 @@ When doing a Swift Protobuf library release:
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
       against the sources on github.
 
-## Protoc Artifactbundle Releases
+## Updating Protobuf and Abseil Submodules
 
-Protoc artifactbundle releases are independent of Swift Protobuf library releases and follow
-a `protoc-vX.Y` naming convention that matches the upstream protoc version.
+The swift-protobuf repository uses git submodules for protobuf and abseil-cpp dependencies.
 
-### Creating a protoc release
+### Automatic Updates (Recommended)
 
-1. **Trigger the workflow**
+The repository has an automated workflow that checks for new protobuf releases **every night at 2am UTC**.
+When a new release is detected, the workflow will:
 
-   Go to the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/draft_release_protoc_artifactbundle.yml)
-   and manually run the "Draft release protoc artifactbundle" workflow.
+1. Update the protobuf submodule to the latest release tag
+2. Determine the required abseil-cpp version from protobuf's `protobuf_deps.bzl`
+3. Update the abseil-cpp submodule accordingly
+4. Create a pull request with the changes
 
-1. **What the workflow does automatically**
+The workflow can also be triggered manually from the [Actions tab](https://github.com/apple/swift-protobuf/actions/workflows/update_protobuf.yml).
 
-   The workflow will:
-   - Check the latest protoc version from protocolbuffers/protobuf
-   - Check if we already have a matching `protoc-vX.Y` release
-   - If versions differ or no release exists:
-     - Download protoc binaries for all supported platforms
-     - Create a Swift Package Manager compatible artifact bundle
-     - Create a new draft release tagged `protoc-vX.Y`
-     - Upload the artifactbundle to the draft release
-   - If versions match, exit early (no action needed)
+**No manual intervention is typically required** - just review and merge the automated PR after CI passes.
 
-1. **Publish the release**
+### Manual Updates (If Needed)
 
-   After the workflow completes successfully:
-   - Go to the [releases page](https://github.com/apple/swift-protobuf/releases)
-   - Find the draft `protoc-vX.Y` release
-   - Click the pencil icon to Edit the release
-   - Review the release notes and artifactbundle
-   - Uncheck "Set as the latest release"
-   - Click "Publish release"
+If you need to update the submodules manually (e.g., to test a pre-release version), follow these steps:
 
-1. **Use in Swift Protobuf**
+1. **Check for new protobuf releases**
 
-   The protoc release is now available with a stable URL that can be referenced
-   in `Package.swift`. Create a separate PR to update the reference in the `Package.swift`
+   Visit the [protobuf releases page](https://github.com/protocolbuffers/protobuf/releases)
+   to check if a new version is available.
+
+1. **Update the protobuf submodule**
+
+   From the repository root, update the protobuf submodule to the latest release tag:
+
+   ```bash
+   cd Sources/protobuf/protobuf
+   git fetch --tags
+   git checkout vX.Y.Z  # Replace with the actual release tag, e.g., v29.2
+   cd ../../..
+   git add Sources/protobuf/protobuf
+   ```
+
+1. **Check the abseil-cpp version**
+
+   The protobuf library depends on a specific version of abseil-cpp. Check which version
+   is required by examining `Sources/protobuf/protobuf/protobuf_deps.bzl`:
+
+   ```bash
+   grep -A 3 "abseil-cpp" Sources/protobuf/protobuf/protobuf_deps.bzl
+   ```
+
+   Look for the `commit` field in the abseil-cpp section to find the required commit hash.
+
+1. **Update the abseil-cpp submodule**
+
+   Update the abseil-cpp submodule to match the version required by protobuf:
+
+   ```bash
+   cd Sources/protobuf/abseil
+   git fetch
+   git checkout <commit-hash>  # Use the commit from protobuf_deps.bzl
+   cd ../../..
+   git add Sources/protobuf/abseil
+   ```
+
+1. **Create a pull request**
+
+   Commit the submodule updates and create a PR:
+
+   ```bash
+   git commit -m "Update protobuf submodule to vX.Y.Z and abseil-cpp to <version>"
+   git push origin <your-branch>
+   ```
+
+   In the PR description, include:
+   - The protobuf version being updated to
+   - The abseil-cpp version/commit being updated to
+   - Any relevant release notes from the protobuf release
