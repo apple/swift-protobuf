@@ -60,6 +60,6 @@ jobs:
           -Dprotobuf_BUILD_CONFORMANCE=ON \
           -S ..
         NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
-        make -j "${NUM_CPUS}" protoc conformance_test_runner
+        make -j "${NUM_CPUS}" conformance_test_runner
     - name: Test conformance
       run: make test-conformance CONFORMANCE_TEST_RUNNER=Sources/protobuf/protobuf/cmake_build/conformance_test_runner
