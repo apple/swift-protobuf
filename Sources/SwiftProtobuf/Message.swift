@@ -180,7 +180,9 @@ extension Message {
 /// or uses them as `Dictionary` keys.
 @preconcurrency
 public protocol _MessageImplementationBase: Message, Hashable {
-    // This is an implementation detail of the runtime.
+    // This is an implementation detail of the runtime; users should not call it. The return type
+    // is a class-bound existential because the true SPI type cannot be used in a protocol
+    // requirement.
     func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject
 
     // Legacy function; no longer used, but left to maintain source compatibility.
