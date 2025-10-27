@@ -253,6 +253,47 @@ extension _MessageStorage {
     }
 }
 
+// MARK: - Non-specific submessage storage operations
+
+extension _MessageStorage {
+    /// Called by generated trampoline functions to invoke the given closure on the storage of a
+    /// singular submessage, providing the type hint of the concrete message type.
+    ///
+    /// - Precondition: The field is already known to be present.
+    ///
+    /// - Returns: The value returned from the closure.
+    public func performOnSubmessageStorage<T: _MessageImplementationBase>(
+        of field: FieldLayout,
+        type: T.Type,
+        perform: (_MessageStorage) throws -> Bool
+    ) rethrows -> Bool {
+        let submessage = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee
+        return try perform(submessage.storageForRuntime)
+    }
+
+    /// Called by generated trampoline functions to invoke the given closure on the storage of each
+    /// submessage in a repeated field, providing the type hint of the concrete message type.
+    ///
+    /// The closure can return false to stop iteration over the submessages early. Likewise, if the
+    /// closure throws an error, that error will be propagated all the way to the caller.
+    ///
+    /// - Precondition: The field is already known to be present.
+    ///
+    /// - Returns: The value returned from the last invocation of the closure.
+    public func performOnSubmessageStorage<T: _MessageImplementationBase>(
+        of field: FieldLayout,
+        type: [T].Type,
+        perform: (_MessageStorage) throws -> Bool
+    ) rethrows -> Bool {
+        let submessages = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1).pointee
+        for submessage in submessages {
+            guard try perform(submessage.storageForRuntime) else { return false }
+        }
+        return true
+    }
+
+}
+
 // MARK: - Presence helpers
 
 extension _MessageStorage {
@@ -507,7 +548,7 @@ extension _MessageStorage {
     /// Updates the field number of the oneof member that is populated, given the oneof offset into
     /// the storage buffer, and returns the field number of the previously set member (or zero if
     /// none was set).
-    // @_alwaysEmitIntoClient @inline(__always)
+    @_alwaysEmitIntoClient @inline(__always)
     public func updatePopulatedOneofMember(_ presence: OneofPresence) -> UInt32 {
         let offsetPointer = (buffer.baseAddress! + presence.offset).bindMemory(to: UInt32.self, capacity: 1)
         let oldFieldNumber = offsetPointer.pointee
@@ -698,7 +739,7 @@ extension _MessageStorage {
 
     /// Clears the populated oneof member give the oneof offset into the storage buffer,
     /// deinitializing any existing value if necessary.
-    // @_alwaysEmitIntoClient @inline(__always)
+    @_alwaysEmitIntoClient @inline(__always)
     public func clearPopulatedOneofMember(at oneofOffset: Int) {
         let oldFieldNumber = updatePopulatedOneofMember((offset: oneofOffset, fieldNumber: 0))
         guard oldFieldNumber != 0 else { return }
@@ -907,11 +948,13 @@ extension _MessageStorage {
             case .message, .group:
                 guard isPresent(field) else { return false }
 
-                let isSubmessageInitialized = layout.isSubmessageInitialized(
+                // This never actually throws because the closure cannot throw, but closures cannot
+                // be declared rethrows..
+                let isSubmessageInitialized = try! layout.performOnSubmessageStorage(
                     _MessageLayout.SubmessageToken(index: field.submessageIndex),
                     field,
                     self
-                )
+                ) { $0.isInitialized }
                 guard isSubmessageInitialized else { return false }
 
             default:
@@ -937,6 +980,15 @@ extension _MessageStorage {
             $0.isInitialized
         }
     }
+}
+
+/// A token that allows the runtime to access the underlying storage of a message.
+///
+/// This type is public because the runtime must be able to generically access the underlying
+/// storage of a message, so a protocol requirement on `_MessageImplementationBase` is provided that
+/// takes a value of this type as an argument. However, only the runtime may create instances of it.
+public struct _MessageStorageToken {
+    init() {}
 }
 
 /// A macro-like helper function used in generated code to simplify writing platform-specific

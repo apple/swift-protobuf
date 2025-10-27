@@ -236,7 +236,11 @@ class MessageGenerator {
             }
             generateProtoNameProviding(printer: &p)
             generateMessageLayout(printer: &p)
-            p.print()
+            p.print(
+                "",
+                "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }",
+                ""
+            )
             generateIsInitialized(printer: &p)
             // generateIsInitialized provides a blank line after itself.
             generateDecodeMessage(printer: &p)
@@ -282,7 +286,7 @@ class MessageGenerator {
                 , deinitializeSubmessage: _protobuf_deinitializeSubmessage\
                 , copySubmessage: _protobuf_copySubmessage\
                 , areSubmessagesEqual: _protobuf_areSubmessagesEqual\
-                , isSubmessageInitialized: _protobuf_isSubmessageInitialized\
+                , performOnSubmessageStorage: _protobuf_performOnSubmessageStorage\
                 )
                 """
             )
@@ -348,30 +352,19 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_isSubmessageInitialized(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {"
+                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {"
             )
             p.withIndentation { p in
-                // If *no* submessages in this message need an initialized check, we can
-                // unconditionally return true. Otherwise, generate the individual branches but
-                // still avoid checking submessages that don't need it.
-                if !submessages.contains(where: { $0.needsIsInitializedCheck }) {
-                    p.print("return true")
-                } else {
-                    p.print("switch token.index {")
-                    for (index, submessage) in submessages.enumerated() {
-                        if submessage.needsIsInitializedCheck {
-                            p.print(
-                                "case \(index + 1): return storage.isFieldInitialized(field, type: \(submessage.typeName).self)"
-                            )
-                        } else {
-                            p.print("case \(index + 1): return true")
-                        }
-                    }
+                p.print("switch token.index {")
+                for (index, submessage) in submessages.enumerated() {
                     p.print(
-                        "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
-                        "}"
+                        "case \(index + 1): return try storage.performOnSubmessageStorage(of: field, type: \(submessage.typeName).self, perform: perform)"
                     )
                 }
+                p.print(
+                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "}"
+                )
             }
             p.print(
                 "}"
