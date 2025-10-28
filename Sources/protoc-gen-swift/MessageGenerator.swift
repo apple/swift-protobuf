@@ -247,6 +247,17 @@ class MessageGenerator {
             p.print()
             generateTraverse(printer: &p)
             p.print()
+
+            // TODO: This only needs to exist while we are in the transitional state of using
+            // table-driven messages for testing but needing to support the old generated WKTs and
+            // plugin protos. Remove this when everything is generated table-driven.
+            p.print("\(visibility)func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {")
+            p.withIndentation { p in
+                p.print("return try _storage.serializedBytes(partial: partial, options: options)")
+            }
+            p.print("}")
+
+            p.print()
             generateMessageEquality(printer: &p)
         }
         p.print("}")

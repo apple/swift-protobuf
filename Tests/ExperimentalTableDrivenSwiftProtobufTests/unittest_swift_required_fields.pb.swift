@@ -670,6 +670,10 @@ extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._Mes
     fatalError("table-driven traverse not yet implemented")
   }
 
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+
   static func ==(lhs: SwiftProtoTesting_Required1, rhs: SwiftProtoTesting_Required1) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
@@ -702,6 +706,10 @@ extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     fatalError("table-driven traverse not yet implemented")
+  }
+
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Required8, rhs: SwiftProtoTesting_Required8) -> Bool {
@@ -738,6 +746,10 @@ extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._Mes
     fatalError("table-driven traverse not yet implemented")
   }
 
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+
   static func ==(lhs: SwiftProtoTesting_Required9, rhs: SwiftProtoTesting_Required9) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
@@ -770,6 +782,10 @@ extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProt
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     fatalError("table-driven traverse not yet implemented")
+  }
+
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_RequiredMixedOrder, rhs: SwiftProtoTesting_RequiredMixedOrder) -> Bool {
@@ -834,6 +850,10 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProt
     fatalError("table-driven traverse not yet implemented")
   }
 
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+
   static func ==(lhs: SwiftProtoTesting_RequiredWithNested, rhs: SwiftProtoTesting_RequiredWithNested) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
@@ -896,6 +916,10 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, S
     fatalError("table-driven traverse not yet implemented")
   }
 
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+
   static func ==(lhs: SwiftProtoTesting_RequiredWithRepeatedNested, rhs: SwiftProtoTesting_RequiredWithRepeatedNested) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
@@ -928,6 +952,10 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     fatalError("table-driven traverse not yet implemented")
+  }
+
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_NestedRequired, rhs: SwiftProtoTesting_NestedRequired) -> Bool {
@@ -988,6 +1016,10 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._
     fatalError("table-driven traverse not yet implemented")
   }
 
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+
   static func ==(lhs: SwiftProtoTesting_NoneRequired, rhs: SwiftProtoTesting_NoneRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
@@ -1016,6 +1048,10 @@ extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProt
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     fatalError("table-driven traverse not yet implemented")
+  }
+
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_NestedNoneRequired, rhs: SwiftProtoTesting_NestedNoneRequired) -> Bool {
@@ -1078,6 +1114,10 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     fatalError("table-driven traverse not yet implemented")
+  }
+
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_NoneRequiredButNestedRequired, rhs: SwiftProtoTesting_NoneRequiredButNestedRequired) -> Bool {
