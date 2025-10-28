@@ -70,9 +70,9 @@ extension _MessageStorage {
             case .float:
                 return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Float.self)
 
-            case .group, .message:
+            case .group:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofMessageOrGroupField: field, fieldNumber: fieldNumber)
+                return serializedByteSize(ofGroupField: field, fieldNumber: fieldNumber)
 
             case .int32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
@@ -89,6 +89,10 @@ extension _MessageStorage {
                 return isPacked
                     ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
                     : (tagSize * values.count) + dataSize
+
+            case .message:
+                precondition(!isPacked, "a packed message/group field should not be reachable")
+                return serializedByteSize(ofMessageField: field, fieldNumber: fieldNumber)
 
             case .sfixed32:
                 return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Int32.self)
@@ -168,8 +172,8 @@ extension _MessageStorage {
             case .float:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Float.self)
 
-            case .group, .message:
-                return serializedByteSize(ofMessageOrGroupField: field, fieldNumber: fieldNumber)
+            case .group:
+                return serializedByteSize(ofGroupField: field, fieldNumber: fieldNumber)
 
             case .int32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
@@ -178,6 +182,9 @@ extension _MessageStorage {
             case .int64:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                     + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int64.self))
+
+            case .message:
+                return serializedByteSize(ofMessageField: field, fieldNumber: fieldNumber)
 
             case .sfixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Int32.self)
@@ -239,7 +246,7 @@ extension _MessageStorage {
         return (tagSize + MemoryLayout<T>.size) * count
     }
 
-    /// Returns the serialized byte size of the given group or submessage field.
+    /// Returns the serialized byte size of the given submessage field.
     ///
     /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
     /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
@@ -248,27 +255,47 @@ extension _MessageStorage {
     /// This function takes the field number as a separate argument even though it can be computed
     /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
     /// layout, since that has already been done by the caller.
-    private func serializedByteSize(ofMessageOrGroupField field: FieldLayout, fieldNumber: Int) -> Int {
-        var messageSize = 0
+    private func serializedByteSize(ofMessageField field: FieldLayout, fieldNumber: Int) -> Int {
+        var totalMessagesSize = 0
         _ = try! layout.performOnSubmessageStorage(
             _MessageLayout.SubmessageToken(index: field.submessageIndex),
             field,
             self
         ) {
-            // Include the size of the appropriate tags.
-            if field.rawFieldType == .message {
-                messageSize +=
-                    FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: UInt64(messageSize))
-            } else {  // field.rawFieldType == .group
-                messageSize +=
-                    2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-            }
-
-            // Include the recursively computed size of the submessage.
-            messageSize += $0.serializedBytesSize()
+            let singleMessageSize = $0.serializedBytesSize()
+            totalMessagesSize +=
+                singleMessageSize
+                // Include the size of the length-delimited tag.
+                + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                // Include the varint-encoded length.
+                + Varint.encodedSize(of: UInt64(singleMessageSize))
             return true
         }
-        return messageSize
+        return totalMessagesSize
+    }
+
+    /// Returns the serialized byte size of the given `group` field.
+    ///
+    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
+    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
+    /// the elements).
+    ///
+    /// This function takes the field number as a separate argument even though it can be computed
+    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// layout, since that has already been done by the caller.
+    private func serializedByteSize(ofGroupField field: FieldLayout, fieldNumber: Int) -> Int {
+        var totalMessagesSize = 0
+        _ = try! layout.performOnSubmessageStorage(
+            _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            field,
+            self
+        ) {
+            totalMessagesSize +=
+                $0.serializedBytesSize()
+                // Include the size of the start tag and end tag.
+                + 2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+            return true
+        }
+        return totalMessagesSize
     }
 }
