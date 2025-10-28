@@ -132,6 +132,10 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
     fatalError("table-driven traverse not yet implemented")
   }
 
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+
   static func ==(lhs: SwiftProtoTesting_Import_ImportMessage, rhs: SwiftProtoTesting_Import_ImportMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
