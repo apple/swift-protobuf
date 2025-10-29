@@ -1,4 +1,4 @@
-// swift-tools-version:6.2
+// swift-tools-version:5.10
 
 // Package.swift
 //
@@ -349,10 +349,6 @@ let package = Package(
                 "protobuf/upb_generator/minitable/names.cc",
                 "protobuf/upb_generator/minitable/names_internal.cc",
             ],
-            cSettings: [
-                .disableWarning("conversion"),
-                .disableWarning("deprecated-declarations"),
-            ],
             cxxSettings: [
                 .headerSearchPath("abseil/"),
                 .headerSearchPath("protobuf/"),
@@ -361,8 +357,6 @@ let package = Package(
                 .headerSearchPath("protobuf/upb/"),
                 .headerSearchPath("protobuf/upb_generator/"),
                 .define("UPB_BOOTSTRAP_STAGE", to: "0"),
-                .disableWarning("conversion"),
-                .disableWarning("deprecated-declarations"),
             ],
             linkerSettings: [
                 .linkedFramework(
