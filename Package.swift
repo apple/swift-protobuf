@@ -57,6 +57,9 @@ let package = Package(
         .executableTarget(
             name: "protoc",
             path: "Sources/protobuf",
+            exclude: [
+                "abseil/PrivacyInfo.xcprivacy"
+            ],
             sources: [
                 // protoc main
                 "protobuf/src/google/protobuf/compiler/main_no_generators.cc",
@@ -414,7 +417,7 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
     ],
-    swiftLanguageVersions: [.v5],
+    swiftLanguageModes: [.v5],
     cxxLanguageStandard: .gnucxx17
 )
 
