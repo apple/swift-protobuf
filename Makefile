@@ -209,6 +209,12 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	@mkdir -p _test/CompileTests/Proto3OptionalAsSwiftOptional
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/Proto3OptionalAsSwiftOptional \
+		--tfiws_opt=Proto3OptionalAsSwiftOptional=true \
+		--tfiws_out=_test/CompileTests/Proto3OptionalAsSwiftOptional \
+		`(find Protos/CompileTests/Proto3OptionalAsSwiftOptional -type f -name "*.proto")`
 	diff -ru _test Reference
 
 # Test the SPM plugin.

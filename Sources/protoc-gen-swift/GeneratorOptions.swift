@@ -69,6 +69,7 @@ package class GeneratorOptions {
     let visibility: Visibility
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
+    let proto3OptionalAsSwiftOptional: Bool
 
     // The Swift compiler may fail when checking whether large switch statements
     // are exhaustive. See
@@ -91,6 +92,7 @@ package class GeneratorOptions {
         var implementationOnlyImports: Bool = false
         var useAccessLevelOnImports = false
         var experimentalStripNonfunctionalCodegen: Bool = false
+        var proto3OptionalAsSwiftOptional: Bool = false
 
         for pair in parameter.parsedPairs {
             switch pair.key {
@@ -156,6 +158,17 @@ package class GeneratorOptions {
                         value: pair.value
                     )
                 }
+            case "Proto3OptionalAsSwiftOptional":
+                if pair.value.isEmpty {  // Also support option without any value.
+                    proto3OptionalAsSwiftOptional = true
+                } else if let value = Bool(pair.value) {
+                    proto3OptionalAsSwiftOptional = value
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
             default:
                 throw GenerationError.unknownParameter(name: pair.key)
             }
@@ -190,6 +203,7 @@ package class GeneratorOptions {
         }
 
         self.experimentalStripNonfunctionalCodegen = experimentalStripNonfunctionalCodegen
+        self.proto3OptionalAsSwiftOptional = proto3OptionalAsSwiftOptional
 
         switch (implementationOnlyImports, useAccessLevelOnImports) {
         case (false, false): self.importDirective = .plain
