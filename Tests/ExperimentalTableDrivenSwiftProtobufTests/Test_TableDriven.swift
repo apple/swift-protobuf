@@ -26,6 +26,7 @@ final class Test_TableDriven: XCTestCase {
         msg.optionalInt32 = 50
         msg.optionalString = "some string"
         msg.optionalImportMessage = .with { $0.d = 20 }
+        msg.optionalImportEnum = .importBaz
         msg.repeatedInt32 = [1, 10, 100]
         msg.repeatedString = ["a", "b", "c"]
         msg.repeatedImportMessage = [
@@ -33,17 +34,22 @@ final class Test_TableDriven: XCTestCase {
             .with { $0.d = 20 },
             .with { $0.d = 30 },
         ]
+        msg.repeatedImportEnum = [.importBaz, .importBar]
 
         XCTAssertEqual(msg.optionalBool, true)
         XCTAssertEqual(msg.optionalInt32, 50)
         XCTAssertEqual(msg.optionalString, "some string")
         XCTAssertEqual(msg.optionalImportMessage.d, 20)
+        XCTAssertEqual(msg.optionalImportEnum, .importBaz)
         XCTAssertEqual(msg.repeatedInt32, [1, 10, 100])
         XCTAssertEqual(msg.repeatedString, ["a", "b", "c"])
         XCTAssertEqual(msg.repeatedImportMessage.count, 3)
         XCTAssertEqual(msg.repeatedImportMessage[0].d, 10)
         XCTAssertEqual(msg.repeatedImportMessage[1].d, 20)
         XCTAssertEqual(msg.repeatedImportMessage[2].d, 30)
+        XCTAssertEqual(msg.repeatedImportEnum.count, 2)
+        XCTAssertEqual(msg.repeatedImportEnum[0], .importBaz)
+        XCTAssertEqual(msg.repeatedImportEnum[1], .importBar)
     }
 
     func testCopyAndModifyCopy() {
@@ -1078,6 +1084,41 @@ final class Test_TableDriven: XCTestCase {
         }
     }
 
+    func testEncoding_optionalNestedEnum() throws {
+        assertEncode([168, 1, 2]) { (o: inout MessageTestType) in
+            o.optionalNestedEnum = .bar
+        }
+        assertDecodeSucceeds([168, 1, 2]) {
+            if $0.hasOptionalNestedEnum {
+                return $0.optionalNestedEnum == .bar
+            } else {
+                XCTFail("Nonexistent value")
+                return false
+            }
+        }
+        assertDecodeFails([168, 1])
+        assertDecodeSucceeds([168, 1, 128, 1]) { !$0.hasOptionalNestedEnum }
+        assertDecodeSucceeds([168, 1, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) { $0.optionalNestedEnum == .neg }
+
+        // The out-of-range enum value should be preserved as an unknown field
+        let decoded = try SwiftProtoTesting_TestAllTypes(serializedBytes: [168, 1, 128, 1])
+        XCTAssertFalse(decoded.hasOptionalNestedEnum)
+        let recoded: [UInt8] = try decoded.serializedBytes()
+        XCTAssertEqual(recoded, [168, 1, 128, 1])
+    }
+
+    func testEncoding_optionalForeignEnum() {
+        assertEncode([176, 1, 5]) { (o: inout MessageTestType) in
+            o.optionalForeignEnum = .foreignBar
+        }
+    }
+
+    func testEncoding_optionalImportEnum() {
+        assertEncode([184, 1, 8]) { (o: inout MessageTestType) in
+            o.optionalImportEnum = .importBar
+        }
+    }
+
     //
     // Repeated types
     //
@@ -1618,6 +1659,45 @@ final class Test_TableDriven: XCTestCase {
             }
         } catch let e {
             XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    func testEncoding_repeatedNestedEnum() throws {
+        assertEncode([152, 3, 2, 152, 3, 3]) { (o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.bar, .baz]
+        }
+        assertDecodeSucceeds([152, 3, 2, 152, 3, 128, 1]) {
+            $0.repeatedNestedEnum == [.bar]
+        }
+
+        // The out-of-range enum value should be preserved as an unknown field
+        do {
+            let decoded1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: [152, 3, 1, 152, 3, 128, 1])
+            XCTAssertEqual(decoded1.repeatedNestedEnum, [.foo])
+            let recoded1: [UInt8] = try decoded1.serializedBytes()
+            XCTAssertEqual(recoded1, [152, 3, 1, 152, 3, 128, 1])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
+        }
+
+        // Unknown fields always get reserialized last, which trashes order here:
+        do {
+            let decoded2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: [152, 3, 128, 1, 152, 3, 2])
+            XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
+            let recoded2: [UInt8] = try decoded2.serializedBytes()
+            XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
+        }
+
+        // Unknown enums within packed behave as if it were plain repeated
+        do {
+            let decoded3 = try SwiftProtoTesting_TestAllTypes(serializedBytes: [154, 3, 3, 128, 1, 2])
+            XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
+            let recoded3: [UInt8] = try decoded3.serializedBytes()
+            XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])
+        } catch let e {
+            XCTFail("Decode failed: \(e)")
         }
     }
 
