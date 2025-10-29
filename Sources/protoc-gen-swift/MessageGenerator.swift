@@ -69,7 +69,7 @@ class MessageGenerator {
         extensionSet.add(extensionFields: descriptor.extensions)
 
         enums = descriptor.enums.map {
-            EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
+            EnumGenerator.makeEnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
         }
 
         messages = descriptor.messages.filter { !$0.options.mapEntry }.map {
@@ -165,7 +165,7 @@ class MessageGenerator {
 
             // Nested enums
             for e in enums {
-                e.generateMainEnum(printer: &p)
+                e.generateTypeDeclaration(to: &p)
             }
 
             // Nested messages

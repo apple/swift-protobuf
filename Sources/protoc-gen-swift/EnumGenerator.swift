@@ -23,21 +23,41 @@ private let unrecognizedCaseName = "UNRECOGNIZED"
 /// Generates a Swift enum from a protobuf enum descriptor.
 class EnumGenerator {
     // TODO: Move these conformances back onto the `Enum` protocol when we do a major release.
-    private static let requiredProtocolConformancesForEnums = ["Swift.CaseIterable"].joined(separator: ", ")
+    fileprivate static let requiredProtocolConformancesForEnums = ["Swift.CaseIterable"].joined(separator: ", ")
 
-    private let enumDescriptor: EnumDescriptor
-    private let generatorOptions: GeneratorOptions
-    private let namer: SwiftProtobufNamer
+    fileprivate let enumDescriptor: EnumDescriptor
+    fileprivate let generatorOptions: GeneratorOptions
+    fileprivate let namer: SwiftProtobufNamer
 
     /// The aliasInfo for the values.
     private let aliasInfo: EnumDescriptor.ValueAliasInfo
+
     /// The values that aren't aliases, sorted by number.
-    private let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
+    fileprivate let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
 
-    private let swiftRelativeName: String
-    private let swiftFullName: String
+    fileprivate let swiftRelativeName: String
+    fileprivate let swiftFullName: String
 
-    init(
+    /// The Swift expression that is equivalent to the default value of the enum (its first case).
+    fileprivate var swiftDefaultValue: String
+
+    /// The defined values in the enum, ignoring aliases.
+    fileprivate var valuesIgnoringAliases: [EnumValueDescriptor] {
+        aliasInfo.mainValues
+    }
+
+    /// Returns an instance of the appropriate generator subclass for the given enum descriptor.
+    static func makeEnumGenerator(
+        descriptor: EnumDescriptor,
+        generatorOptions: GeneratorOptions,
+        namer: SwiftProtobufNamer
+    ) -> EnumGenerator {
+        descriptor.isClosed
+            ? ClosedEnumGenerator(descriptor: descriptor, generatorOptions: generatorOptions, namer: namer)
+            : OpenEnumGenerator(descriptor: descriptor, generatorOptions: generatorOptions, namer: namer)
+    }
+
+    fileprivate init(
         descriptor: EnumDescriptor,
         generatorOptions: GeneratorOptions,
         namer: SwiftProtobufNamer
@@ -53,64 +73,21 @@ class EnumGenerator {
 
         swiftRelativeName = namer.relativeName(enum: descriptor)
         swiftFullName = namer.fullName(enum: descriptor)
+        swiftDefaultValue = namer.dottedRelativeName(enumValue: enumDescriptor.values.first!)
     }
 
-    func generateMainEnum(printer p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-
-        p.print(
-            "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(enumDescriptor.isClosed ? "Int, " : "")\(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
-        )
-        p.withIndentation { p in
-            if !enumDescriptor.isClosed {
-                p.print("\(visibility)typealias RawValue = Int")
-            }
-
-            // Cases/aliases
-            generateCasesOrAliases(printer: &p)
-
-            // Generate the default initializer.
-            p.print(
-                "",
-                "\(visibility)init() {"
-            )
-            p.printIndented("self = \(namer.dottedRelativeName(enumValue: enumDescriptor.values.first!))")
-            p.print("}")
-
-            if !enumDescriptor.isClosed {
-                p.print()
-                generateInitRawValue(printer: &p)
-
-                p.print()
-                generateRawValueProperty(printer: &p)
-            }
-
-            maybeGenerateCaseIterable(printer: &p)
-
-        }
-        p.print(
-            "",
-            "}"
-        )
+    /// Prints the main Swift type declaration for the protobuf enum.
+    ///
+    /// This method must be implemented by subclasses.
+    func generateTypeDeclaration(to printer: inout CodePrinter) {
+        fatalError("Must be implemented by subclass")
     }
 
-    func maybeGenerateCaseIterable(printer p: inout CodePrinter) {
-        guard !enumDescriptor.isClosed else { return }
-
-        let visibility = generatorOptions.visibilitySourceSnippet
-        p.print(
-            "",
-            "// The compiler won't synthesize support with the \(unrecognizedCaseName) case.",
-            "\(visibility)static let allCases: [\(swiftFullName)] = ["
-        )
-        p.withIndentation { p in
-            for v in aliasInfo.mainValues {
-                let dottedName = namer.dottedRelativeName(enumValue: v)
-                p.print("\(dottedName),")
-            }
-        }
-        p.print("]")
+    /// Prints the Swift declaration that corresponds to the given protobuf enum case.
+    ///
+    /// This method must be implemented by subclasses.
+    func generateCaseDeclaration(for valueDescriptor: EnumValueDescriptor, to printer: inout CodePrinter) {
+        fatalError("Must be implemented by subclass")
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter) {
@@ -124,29 +101,42 @@ class EnumGenerator {
         p.print("}")
     }
 
-    /// Generates the cases or statics (for alias) for the values.
+    /// Iterates over the cases in the protobuf enum and generates the appropriate cases or static
+    /// properties.
     ///
-    /// - Parameter p: The code printer.
-    private func generateCasesOrAliases(printer p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
+    /// This default implementation simply calls either `generateCaseDeclaration` or
+    /// `generateAliasDeclaration` as appropriate for each case in the enum. Subclasses can override
+    /// this if they wish to print additional code immediately before or after those cases.
+    func generateCaseDeclarations(to p: inout CodePrinter) {
         for enumValueDescriptor in namer.uniquelyNamedValues(valueAliasInfo: aliasInfo) {
-            let comments = enumValueDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
-            if !comments.isEmpty {
-                p.print()
-            }
-            let relativeName = namer.relativeName(enumValue: enumValueDescriptor)
+            printComments(of: enumValueDescriptor, to: &p)
             if let aliasOf = aliasInfo.original(of: enumValueDescriptor) {
-                let aliasOfName = namer.relativeName(enumValue: aliasOf)
-                p.print("\(comments)\(visibility)static let \(relativeName) = \(aliasOfName)")
-            } else if enumDescriptor.isClosed {
-                p.print("\(comments)case \(relativeName) = \(enumValueDescriptor.number)")
+                generateAliasDeclaration(alias: enumValueDescriptor, original: aliasOf, to: &p)
             } else {
-                p.print("\(comments)case \(relativeName) // = \(enumValueDescriptor.number)")
+                generateCaseDeclaration(for: enumValueDescriptor, to: &p)
             }
         }
-        if !enumDescriptor.isClosed {
-            p.print("case \(unrecognizedCaseName)(Int)")
+    }
+
+    /// Prints the comments for the given enum value descriptor, if it has any.
+    private func printComments(of valueDescriptor: EnumValueDescriptor, to p: inout CodePrinter) {
+        let comments = valueDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
+        if !comments.isEmpty {
+            p.print()
         }
+        // Suppress the final newline because the comment itself will have one.
+        p.print(comments, newlines: false)
+    }
+
+    /// Prints the static property corresponding to an enum value alias.
+    private func generateAliasDeclaration(
+        alias aliasDescriptor: EnumValueDescriptor,
+        original originalDescriptor: EnumValueDescriptor,
+        to p: inout CodePrinter
+    ) {
+        let aliasName = namer.relativeName(enumValue: aliasDescriptor)
+        let originalName = namer.relativeName(enumValue: originalDescriptor)
+        p.print("\(generatorOptions.visibilitySourceSnippet)static let \(aliasName) = \(originalName)")
     }
 
     /// Generates the mapping from case numbers to their text/JSON names.
@@ -167,11 +157,63 @@ class EnumGenerator {
             "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: \(writer.bytecode.stringLiteral))"
         )
     }
+}
+
+/// Generates an open protobuf enum as a Swift enum.
+private final class OpenEnumGenerator: EnumGenerator {
+    override func generateTypeDeclaration(to p: inout CodePrinter) {
+        let visibility = generatorOptions.visibilitySourceSnippet
+
+        p.print(
+            "",
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+        )
+        p.withIndentation { p in
+            p.print("\(visibility)typealias RawValue = Int")
+
+            // Cases/aliases
+            generateCaseDeclarations(to: &p)
+
+            // Generate the default initializer.
+            p.print(
+                "",
+                "\(visibility)init() {"
+            )
+            p.printIndented("self = \(swiftDefaultValue)")
+            p.print(
+                "}",
+                ""
+            )
+
+            // Since open enums can't be declared with the raw value in their inheritance clause,
+            // we have to generate the `RawRepresentable` initializer and property requirements
+            // ourselves.
+            generateInitRawValue(to: &p)
+            p.print()
+            generateRawValueProperty(to: &p)
+            generateCaseIterableConformance(to: &p)
+
+        }
+        p.print(
+            "",
+            "}"
+        )
+    }
+
+    override func generateCaseDeclarations(to p: inout CodePrinter) {
+        super.generateCaseDeclarations(to: &p)
+        p.print("case \(unrecognizedCaseName)(Int)")
+    }
+
+    override func generateCaseDeclaration(for enumValueDescriptor: EnumValueDescriptor, to p: inout CodePrinter) {
+        let relativeName = namer.relativeName(enumValue: enumValueDescriptor)
+        p.print("case \(relativeName) // = \(enumValueDescriptor.number)")
+    }
 
     /// Generates `init?(rawValue:)` for the enum.
     ///
     /// - Parameter p: The code printer.
-    private func generateInitRawValue(printer p: inout CodePrinter) {
+    private func generateInitRawValue(to p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
         p.print("\(visibility)init?(rawValue: Int) {")
@@ -194,7 +236,7 @@ class EnumGenerator {
     /// Generates the `rawValue` property of the enum.
     ///
     /// - Parameter p: The code printer.
-    private func generateRawValueProperty(printer p: inout CodePrinter) {
+    private func generateRawValueProperty(to p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
         // See https://github.com/apple/swift-protobuf/issues/904 for the full
@@ -253,5 +295,58 @@ class EnumGenerator {
 
         }
         p.print("}")
+    }
+
+    private func generateCaseIterableConformance(to p: inout CodePrinter) {
+        guard !enumDescriptor.isClosed else { return }
+
+        let visibility = generatorOptions.visibilitySourceSnippet
+        p.print(
+            "",
+            "// The compiler won't synthesize support with the \(unrecognizedCaseName) case.",
+            "\(visibility)static let allCases: [\(swiftFullName)] = ["
+        )
+        p.withIndentation { p in
+            for v in valuesIgnoringAliases {
+                let dottedName = namer.dottedRelativeName(enumValue: v)
+                p.print("\(dottedName),")
+            }
+        }
+        p.print("]")
+    }
+
+}
+
+/// Generates a closed protobuf enum as a Swift enum.
+private final class ClosedEnumGenerator: EnumGenerator {
+    override func generateTypeDeclaration(to p: inout CodePrinter) {
+        let visibility = generatorOptions.visibilitySourceSnippet
+
+        p.print(
+            "",
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+        )
+        p.withIndentation { p in
+            // Cases/aliases
+            generateCaseDeclarations(to: &p)
+
+            // Generate the default initializer.
+            p.print(
+                "",
+                "\(visibility)init() {"
+            )
+            p.printIndented("self = \(swiftDefaultValue)")
+            p.print("}")
+        }
+        p.print(
+            "",
+            "}"
+        )
+
+    }
+
+    override func generateCaseDeclaration(for enumValueDescriptor: EnumValueDescriptor, to p: inout CodePrinter) {
+        let relativeName = namer.relativeName(enumValue: enumValueDescriptor)
+        p.print("case \(relativeName) = \(enumValueDescriptor.number)")
     }
 }
