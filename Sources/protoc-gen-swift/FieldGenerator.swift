@@ -80,6 +80,9 @@ protocol FieldGenerator: AnyObject {
     /// Indicates whether or not the field is a required field.
     var isRequired: Bool { get }
 
+    /// Indicates whether or not the field has explicit presence.
+    var hasPresence: Bool { get }
+
     /// The raw type of the field.
     var rawFieldType: RawFieldType { get }
 
@@ -134,6 +137,10 @@ class FieldGeneratorBase {
 
     var isRequired: Bool {
         fieldDescriptor.isRequired
+    }
+
+    var hasPresence: Bool {
+        fieldDescriptor.hasPresence
     }
 
     var rawFieldType: RawFieldType {

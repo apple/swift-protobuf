@@ -59,11 +59,19 @@ struct MessageLayoutCalculator {
         }
         let denseBelow = lastFieldNumber + 1
 
-        let requiredFieldsFirst = fieldsSortedByNumber.sorted { $0.isRequired && !$1.isRequired }
+        let fieldsSortedByPresence = fieldsSortedByNumber.sorted {
+            // Requires fields should be first, followed by fields that have explicit presence (but
+            // are not required).
+            if $0.isRequired {
+                return !$1.isRequired
+            }
+            return $0.hasPresence && !$1.hasPresence
+        }
         var requiredCount = 0
+        var explicitPresenceCount = 0
         var hasBitIndex: UInt16 = 0
         var deferredOneofMembers = [any FieldGenerator]()
-        for field in requiredFieldsFirst {
+        for field in fieldsSortedByPresence {
             if field.oneofIndex != nil {
                 deferredOneofMembers.append(field)
             } else {
@@ -73,6 +81,9 @@ struct MessageLayoutCalculator {
             }
             if field.isRequired {
                 requiredCount += 1
+            }
+            if field.hasPresence {
+                explicitPresenceCount += 1
             }
         }
 
@@ -119,6 +130,7 @@ struct MessageLayoutCalculator {
             writer.writeBase128Int(UInt64(byteOffsets[which]), byteWidth: 3)
             writer.writeBase128Int(UInt64(fieldsSortedByNumber.count), byteWidth: 3)
             writer.writeBase128Int(UInt64(requiredCount), byteWidth: 3)
+            writer.writeBase128Int(UInt64(explicitPresenceCount), byteWidth: 3)
             writer.writeBase128Int(UInt64(denseBelow), byteWidth: 3)
             for field in fieldsSortedByNumber {
                 writer.writeBase128Int(UInt64(field.number) | (UInt64(field.fieldMode.rawValue) << 28), byteWidth: 5)
