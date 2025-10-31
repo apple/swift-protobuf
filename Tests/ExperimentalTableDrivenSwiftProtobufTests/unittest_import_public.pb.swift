@@ -93,10 +93,10 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -115,6 +115,9 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Import_PublicImportMessage, rhs: SwiftProtoTesting_Import_PublicImportMessage) -> Bool {
