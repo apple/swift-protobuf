@@ -146,6 +146,32 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertEqual(msg.oneofField, .oneofUint32(987))
     }
 
+    func testCopyAndMergeIntoCopy() throws {
+        let msg = try MessageTestType(serializedBytes: [8, 1])
+
+        var msgCopy = msg
+        try msgCopy.merge(serializedBytes: [16, 2])
+
+        XCTAssertEqual(msg.optionalInt32, 1)
+        XCTAssertEqual(msg.optionalInt64, 0)
+
+        XCTAssertEqual(msgCopy.optionalInt32, 1)
+        XCTAssertEqual(msgCopy.optionalInt64, 2)
+    }
+
+    func testCopyAndMergeIntoOriginal() throws {
+        var msg = try MessageTestType(serializedBytes: [8, 1])
+
+        let msgCopy = msg
+        try msg.merge(serializedBytes: [16, 2])
+
+        XCTAssertEqual(msg.optionalInt32, 1)
+        XCTAssertEqual(msg.optionalInt64, 2)
+
+        XCTAssertEqual(msgCopy.optionalInt32, 1)
+        XCTAssertEqual(msgCopy.optionalInt64, 0)
+    }
+
     func testOneofModifyMembers() {
         var msg = MessageTestType()
         XCTAssertNil(msg.oneofField)

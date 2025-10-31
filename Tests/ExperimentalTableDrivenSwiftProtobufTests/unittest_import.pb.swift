@@ -135,8 +135,8 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
-  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Import_ImportMessage, rhs: SwiftProtoTesting_Import_ImportMessage) -> Bool {
