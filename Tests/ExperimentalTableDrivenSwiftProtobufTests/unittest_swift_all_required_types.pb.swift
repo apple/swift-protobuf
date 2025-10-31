@@ -748,8 +748,8 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
-  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes, rhs: SwiftProtoTesting_TestAllRequiredTypes) -> Bool {
@@ -793,8 +793,8 @@ extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Me
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
-  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage, rhs: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage) -> Bool {
@@ -834,8 +834,8 @@ extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Me
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
-  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup, rhs: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup) -> Bool {
@@ -875,8 +875,8 @@ extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftP
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
-  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestSomeRequiredTypes, rhs: SwiftProtoTesting_TestSomeRequiredTypes) -> Bool {

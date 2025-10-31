@@ -256,9 +256,9 @@ class MessageGenerator {
                 p.print("return try _storage.serializedBytes(partial: partial, options: options)")
             }
             p.print("}")
-            p.print("\(visibility)func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {")
+            p.print("\(visibility)mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {")
             p.withIndentation { p in
-                p.print("try _storage.merge(byReadingFrom: body, partial: partial, options: options)")
+                p.print("try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)")
             }
             p.print("}")
 
