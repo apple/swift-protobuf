@@ -232,7 +232,7 @@ struct WireFormatReader {
             available >= length,
             "Internal error: tried to advance \(length) bytes with only \(available) available"
         )
-        available -= length
+        available &-= length
         pointer! += length
     }
 
@@ -240,7 +240,7 @@ struct WireFormatReader {
     ///
     /// - Throws: `BinaryDecodingError` if the recursion limit has been exceeded.
     private mutating func incrementRecursionDepth() throws {
-        recursionBudget -= 1
+        recursionBudget &-= 1
         if recursionBudget < 0 {
             throw BinaryDecodingError.messageDepthLimit
         }
@@ -248,7 +248,7 @@ struct WireFormatReader {
 
     /// Tracks that the reader is exiting a message or group.
     private mutating func decrementRecursionDepth() {
-        recursionBudget += 1
+        recursionBudget &+= 1
         // This should never happen. If it does, something is probably corrupting memory, and
         // simply throwing doesn't make much sense.
         if recursionBudget > messageDepthLimit {
