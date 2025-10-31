@@ -302,277 +302,277 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(248, 228), hasBit: (2, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(248, 228), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 128)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(248, 228), hasBit: (5, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(248, 228), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 2)) }
   }
 
   var repeatedInt64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(256, 232), hasBit: (3, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(256, 232), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 1)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(256, 232), hasBit: (5, 4)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(256, 232), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 4)) }
   }
 
   var repeatedUint32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(264, 236), hasBit: (3, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(264, 236), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 2)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(264, 236), hasBit: (5, 8)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(264, 236), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 8)) }
   }
 
   var repeatedUint64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(272, 240), hasBit: (3, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(272, 240), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 4)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(272, 240), hasBit: (5, 16)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(272, 240), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 16)) }
   }
 
   var repeatedSint32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(280, 244), hasBit: (3, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(280, 244), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 8)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(280, 244), hasBit: (5, 32)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(280, 244), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 32)) }
   }
 
   var repeatedSint64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(288, 248), hasBit: (3, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(288, 248), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 16)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(288, 248), hasBit: (5, 64)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(288, 248), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 64)) }
   }
 
   var repeatedFixed32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(296, 252), hasBit: (3, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(296, 252), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 32)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(296, 252), hasBit: (5, 128)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(296, 252), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 128)) }
   }
 
   var repeatedFixed64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(304, 256), hasBit: (3, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(304, 256), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 64)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(304, 256), hasBit: (6, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(304, 256), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 1)) }
   }
 
   var repeatedSfixed32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(312, 260), hasBit: (3, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(312, 260), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (3, 128)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(312, 260), hasBit: (6, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(312, 260), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 2)) }
   }
 
   var repeatedSfixed64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(320, 264), hasBit: (4, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(320, 264), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 1)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(320, 264), hasBit: (6, 4)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(320, 264), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 4)) }
   }
 
   var repeatedFloat: [Float] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(328, 268), hasBit: (4, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(328, 268), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 2)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(328, 268), hasBit: (6, 8)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(328, 268), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 8)) }
   }
 
   var repeatedDouble: [Double] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(336, 272), hasBit: (4, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(336, 272), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 4)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(336, 272), hasBit: (6, 16)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(336, 272), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 16)) }
   }
 
   var repeatedBool: [Bool] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(344, 276), hasBit: (4, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(344, 276), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 8)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(344, 276), hasBit: (6, 32)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(344, 276), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 32)) }
   }
 
   var repeatedString: [String] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(352, 280), hasBit: (4, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(352, 280), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 16)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(352, 280), hasBit: (6, 64)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(352, 280), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
   }
 
   var repeatedBytes: [Data] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(360, 284), hasBit: (4, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(360, 284), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 32)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(360, 284), hasBit: (6, 128)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(360, 284), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 128)) }
   }
 
   var repeatedGroup: [SwiftProtoTesting_TestAllTypes.RepeatedGroup] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(368, 288), hasBit: (4, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(368, 288), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 64)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(368, 288), hasBit: (7, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(368, 288), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
   }
 
   var repeatedNestedMessage: [SwiftProtoTesting_TestAllTypes.NestedMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(376, 292), hasBit: (4, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(376, 292), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (4, 128)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(376, 292), hasBit: (7, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(376, 292), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 2)) }
   }
 
   var repeatedForeignMessage: [SwiftProtoTesting_ForeignMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(384, 296), hasBit: (5, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(384, 296), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 1)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(384, 296), hasBit: (7, 4)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(384, 296), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 4)) }
   }
 
   var repeatedImportMessage: [SwiftProtoTesting_Import_ImportMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(392, 300), hasBit: (5, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(392, 300), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 2)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(392, 300), hasBit: (7, 8)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(392, 300), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 8)) }
   }
 
   var repeatedNestedEnum: [SwiftProtoTesting_TestAllTypes.NestedEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(400, 304), hasBit: (5, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(400, 304), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 4)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(400, 304), hasBit: (7, 16)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(400, 304), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 16)) }
   }
 
   var repeatedForeignEnum: [SwiftProtoTesting_ForeignEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(408, 308), hasBit: (5, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(408, 308), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 8)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(408, 308), hasBit: (7, 32)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(408, 308), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 32)) }
   }
 
   var repeatedImportEnum: [SwiftProtoTesting_Import_ImportEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(416, 312), hasBit: (5, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(416, 312), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 16)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(416, 312), hasBit: (7, 64)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(416, 312), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 64)) }
   }
 
   /// Singular with defaults
   var defaultInt32: Int32 {
-    get { return _storage.value(at: 68, default: 41, hasBit: (5, 32)) }
-    set { _uniqueStorage().updateValue(at: 68, to: newValue, willBeSet: true, hasBit: (5, 32)) }
+    get { return _storage.value(at: 68, default: 41, hasBit: (2, 128)) }
+    set { _uniqueStorage().updateValue(at: 68, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `defaultInt32` has been explicitly set.
-  var hasDefaultInt32: Bool { return _storage.isPresent(hasBit: (5, 32)) }
+  var hasDefaultInt32: Bool { return _storage.isPresent(hasBit: (2, 128)) }
   /// Clears the value of `defaultInt32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultInt32() { _uniqueStorage().clearValue(at: 68, type: Int32.self, hasBit: (5, 32)) }
+  mutating func clearDefaultInt32() { _uniqueStorage().clearValue(at: 68, type: Int32.self, hasBit: (2, 128)) }
 
   var defaultInt64: Int64 {
-    get { return _storage.value(at: 160, default: 42, hasBit: (5, 64)) }
-    set { _uniqueStorage().updateValue(at: 160, to: newValue, willBeSet: true, hasBit: (5, 64)) }
+    get { return _storage.value(at: 160, default: 42, hasBit: (3, 1)) }
+    set { _uniqueStorage().updateValue(at: 160, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `defaultInt64` has been explicitly set.
-  var hasDefaultInt64: Bool { return _storage.isPresent(hasBit: (5, 64)) }
+  var hasDefaultInt64: Bool { return _storage.isPresent(hasBit: (3, 1)) }
   /// Clears the value of `defaultInt64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultInt64() { _uniqueStorage().clearValue(at: 160, type: Int64.self, hasBit: (5, 64)) }
+  mutating func clearDefaultInt64() { _uniqueStorage().clearValue(at: 160, type: Int64.self, hasBit: (3, 1)) }
 
   var defaultUint32: UInt32 {
-    get { return _storage.value(at: 72, default: 43, hasBit: (5, 128)) }
-    set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (5, 128)) }
+    get { return _storage.value(at: 72, default: 43, hasBit: (3, 2)) }
+    set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `defaultUint32` has been explicitly set.
-  var hasDefaultUint32: Bool { return _storage.isPresent(hasBit: (5, 128)) }
+  var hasDefaultUint32: Bool { return _storage.isPresent(hasBit: (3, 2)) }
   /// Clears the value of `defaultUint32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultUint32() { _uniqueStorage().clearValue(at: 72, type: UInt32.self, hasBit: (5, 128)) }
+  mutating func clearDefaultUint32() { _uniqueStorage().clearValue(at: 72, type: UInt32.self, hasBit: (3, 2)) }
 
   var defaultUint64: UInt64 {
-    get { return _storage.value(at: 168, default: 44, hasBit: (6, 1)) }
-    set { _uniqueStorage().updateValue(at: 168, to: newValue, willBeSet: true, hasBit: (6, 1)) }
+    get { return _storage.value(at: 168, default: 44, hasBit: (3, 4)) }
+    set { _uniqueStorage().updateValue(at: 168, to: newValue, willBeSet: true, hasBit: (3, 4)) }
   }
   /// Returns true if `defaultUint64` has been explicitly set.
-  var hasDefaultUint64: Bool { return _storage.isPresent(hasBit: (6, 1)) }
+  var hasDefaultUint64: Bool { return _storage.isPresent(hasBit: (3, 4)) }
   /// Clears the value of `defaultUint64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultUint64() { _uniqueStorage().clearValue(at: 168, type: UInt64.self, hasBit: (6, 1)) }
+  mutating func clearDefaultUint64() { _uniqueStorage().clearValue(at: 168, type: UInt64.self, hasBit: (3, 4)) }
 
   var defaultSint32: Int32 {
-    get { return _storage.value(at: 76, default: -45, hasBit: (6, 2)) }
-    set { _uniqueStorage().updateValue(at: 76, to: newValue, willBeSet: true, hasBit: (6, 2)) }
+    get { return _storage.value(at: 76, default: -45, hasBit: (3, 8)) }
+    set { _uniqueStorage().updateValue(at: 76, to: newValue, willBeSet: true, hasBit: (3, 8)) }
   }
   /// Returns true if `defaultSint32` has been explicitly set.
-  var hasDefaultSint32: Bool { return _storage.isPresent(hasBit: (6, 2)) }
+  var hasDefaultSint32: Bool { return _storage.isPresent(hasBit: (3, 8)) }
   /// Clears the value of `defaultSint32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSint32() { _uniqueStorage().clearValue(at: 76, type: Int32.self, hasBit: (6, 2)) }
+  mutating func clearDefaultSint32() { _uniqueStorage().clearValue(at: 76, type: Int32.self, hasBit: (3, 8)) }
 
   var defaultSint64: Int64 {
-    get { return _storage.value(at: 176, default: 46, hasBit: (6, 4)) }
-    set { _uniqueStorage().updateValue(at: 176, to: newValue, willBeSet: true, hasBit: (6, 4)) }
+    get { return _storage.value(at: 176, default: 46, hasBit: (3, 16)) }
+    set { _uniqueStorage().updateValue(at: 176, to: newValue, willBeSet: true, hasBit: (3, 16)) }
   }
   /// Returns true if `defaultSint64` has been explicitly set.
-  var hasDefaultSint64: Bool { return _storage.isPresent(hasBit: (6, 4)) }
+  var hasDefaultSint64: Bool { return _storage.isPresent(hasBit: (3, 16)) }
   /// Clears the value of `defaultSint64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSint64() { _uniqueStorage().clearValue(at: 176, type: Int64.self, hasBit: (6, 4)) }
+  mutating func clearDefaultSint64() { _uniqueStorage().clearValue(at: 176, type: Int64.self, hasBit: (3, 16)) }
 
   var defaultFixed32: UInt32 {
-    get { return _storage.value(at: 80, default: 47, hasBit: (6, 8)) }
-    set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (6, 8)) }
+    get { return _storage.value(at: 80, default: 47, hasBit: (3, 32)) }
+    set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (3, 32)) }
   }
   /// Returns true if `defaultFixed32` has been explicitly set.
-  var hasDefaultFixed32: Bool { return _storage.isPresent(hasBit: (6, 8)) }
+  var hasDefaultFixed32: Bool { return _storage.isPresent(hasBit: (3, 32)) }
   /// Clears the value of `defaultFixed32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultFixed32() { _uniqueStorage().clearValue(at: 80, type: UInt32.self, hasBit: (6, 8)) }
+  mutating func clearDefaultFixed32() { _uniqueStorage().clearValue(at: 80, type: UInt32.self, hasBit: (3, 32)) }
 
   var defaultFixed64: UInt64 {
-    get { return _storage.value(at: 184, default: 48, hasBit: (6, 16)) }
-    set { _uniqueStorage().updateValue(at: 184, to: newValue, willBeSet: true, hasBit: (6, 16)) }
+    get { return _storage.value(at: 184, default: 48, hasBit: (3, 64)) }
+    set { _uniqueStorage().updateValue(at: 184, to: newValue, willBeSet: true, hasBit: (3, 64)) }
   }
   /// Returns true if `defaultFixed64` has been explicitly set.
-  var hasDefaultFixed64: Bool { return _storage.isPresent(hasBit: (6, 16)) }
+  var hasDefaultFixed64: Bool { return _storage.isPresent(hasBit: (3, 64)) }
   /// Clears the value of `defaultFixed64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultFixed64() { _uniqueStorage().clearValue(at: 184, type: UInt64.self, hasBit: (6, 16)) }
+  mutating func clearDefaultFixed64() { _uniqueStorage().clearValue(at: 184, type: UInt64.self, hasBit: (3, 64)) }
 
   var defaultSfixed32: Int32 {
-    get { return _storage.value(at: 84, default: 49, hasBit: (6, 32)) }
-    set { _uniqueStorage().updateValue(at: 84, to: newValue, willBeSet: true, hasBit: (6, 32)) }
+    get { return _storage.value(at: 84, default: 49, hasBit: (3, 128)) }
+    set { _uniqueStorage().updateValue(at: 84, to: newValue, willBeSet: true, hasBit: (3, 128)) }
   }
   /// Returns true if `defaultSfixed32` has been explicitly set.
-  var hasDefaultSfixed32: Bool { return _storage.isPresent(hasBit: (6, 32)) }
+  var hasDefaultSfixed32: Bool { return _storage.isPresent(hasBit: (3, 128)) }
   /// Clears the value of `defaultSfixed32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSfixed32() { _uniqueStorage().clearValue(at: 84, type: Int32.self, hasBit: (6, 32)) }
+  mutating func clearDefaultSfixed32() { _uniqueStorage().clearValue(at: 84, type: Int32.self, hasBit: (3, 128)) }
 
   var defaultSfixed64: Int64 {
-    get { return _storage.value(at: 192, default: -50, hasBit: (6, 64)) }
-    set { _uniqueStorage().updateValue(at: 192, to: newValue, willBeSet: true, hasBit: (6, 64)) }
+    get { return _storage.value(at: 192, default: -50, hasBit: (4, 1)) }
+    set { _uniqueStorage().updateValue(at: 192, to: newValue, willBeSet: true, hasBit: (4, 1)) }
   }
   /// Returns true if `defaultSfixed64` has been explicitly set.
-  var hasDefaultSfixed64: Bool { return _storage.isPresent(hasBit: (6, 64)) }
+  var hasDefaultSfixed64: Bool { return _storage.isPresent(hasBit: (4, 1)) }
   /// Clears the value of `defaultSfixed64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSfixed64() { _uniqueStorage().clearValue(at: 192, type: Int64.self, hasBit: (6, 64)) }
+  mutating func clearDefaultSfixed64() { _uniqueStorage().clearValue(at: 192, type: Int64.self, hasBit: (4, 1)) }
 
   var defaultFloat: Float {
-    get { return _storage.value(at: 88, default: 51.5, hasBit: (6, 128)) }
-    set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (6, 128)) }
+    get { return _storage.value(at: 88, default: 51.5, hasBit: (4, 2)) }
+    set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (4, 2)) }
   }
   /// Returns true if `defaultFloat` has been explicitly set.
-  var hasDefaultFloat: Bool { return _storage.isPresent(hasBit: (6, 128)) }
+  var hasDefaultFloat: Bool { return _storage.isPresent(hasBit: (4, 2)) }
   /// Clears the value of `defaultFloat`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultFloat() { _uniqueStorage().clearValue(at: 88, type: Float.self, hasBit: (6, 128)) }
+  mutating func clearDefaultFloat() { _uniqueStorage().clearValue(at: 88, type: Float.self, hasBit: (4, 2)) }
 
   var defaultDouble: Double {
-    get { return _storage.value(at: 200, default: 52000, hasBit: (7, 1)) }
-    set { _uniqueStorage().updateValue(at: 200, to: newValue, willBeSet: true, hasBit: (7, 1)) }
+    get { return _storage.value(at: 200, default: 52000, hasBit: (4, 4)) }
+    set { _uniqueStorage().updateValue(at: 200, to: newValue, willBeSet: true, hasBit: (4, 4)) }
   }
   /// Returns true if `defaultDouble` has been explicitly set.
-  var hasDefaultDouble: Bool { return _storage.isPresent(hasBit: (7, 1)) }
+  var hasDefaultDouble: Bool { return _storage.isPresent(hasBit: (4, 4)) }
   /// Clears the value of `defaultDouble`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultDouble() { _uniqueStorage().clearValue(at: 200, type: Double.self, hasBit: (7, 1)) }
+  mutating func clearDefaultDouble() { _uniqueStorage().clearValue(at: 200, type: Double.self, hasBit: (4, 4)) }
 
   var defaultBool: Bool {
-    get { return _storage.value(at: 29, default: true, hasBit: (7, 2)) }
-    set { _uniqueStorage().updateValue(at: 29, to: newValue, willBeSet: true, hasBit: (7, 2)) }
+    get { return _storage.value(at: 29, default: true, hasBit: (4, 8)) }
+    set { _uniqueStorage().updateValue(at: 29, to: newValue, willBeSet: true, hasBit: (4, 8)) }
   }
   /// Returns true if `defaultBool` has been explicitly set.
-  var hasDefaultBool: Bool { return _storage.isPresent(hasBit: (7, 2)) }
+  var hasDefaultBool: Bool { return _storage.isPresent(hasBit: (4, 8)) }
   /// Clears the value of `defaultBool`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultBool() { _uniqueStorage().clearValue(at: 29, type: Bool.self, hasBit: (7, 2)) }
+  mutating func clearDefaultBool() { _uniqueStorage().clearValue(at: 29, type: Bool.self, hasBit: (4, 8)) }
 
   var defaultString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(464, 348), default: "hello", hasBit: (7, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(464, 348), to: newValue, willBeSet: true, hasBit: (7, 4)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(464, 348), default: "hello", hasBit: (4, 16)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(464, 348), to: newValue, willBeSet: true, hasBit: (4, 16)) }
   }
   /// Returns true if `defaultString` has been explicitly set.
-  var hasDefaultString: Bool { return _storage.isPresent(hasBit: (7, 4)) }
+  var hasDefaultString: Bool { return _storage.isPresent(hasBit: (4, 16)) }
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(464, 348), type: String.self, hasBit: (7, 4)) }
+  mutating func clearDefaultString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(464, 348), type: String.self, hasBit: (4, 16)) }
 
   var defaultBytes: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(480, 360), default: Data([119, 111, 114, 108, 100]), hasBit: (7, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(480, 360), to: newValue, willBeSet: true, hasBit: (7, 8)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(480, 360), default: Data([119, 111, 114, 108, 100]), hasBit: (4, 32)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(480, 360), to: newValue, willBeSet: true, hasBit: (4, 32)) }
   }
   /// Returns true if `defaultBytes` has been explicitly set.
-  var hasDefaultBytes: Bool { return _storage.isPresent(hasBit: (7, 8)) }
+  var hasDefaultBytes: Bool { return _storage.isPresent(hasBit: (4, 32)) }
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(480, 360), type: Data.self, hasBit: (7, 8)) }
+  mutating func clearDefaultBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(480, 360), type: Data.self, hasBit: (4, 32)) }
 
   var defaultNestedEnum: SwiftProtoTesting_TestAllTypes.NestedEnum {
-    get { return _storage.value(at: 92, default: .bar, hasBit: (7, 16)) }
-    set { _uniqueStorage().updateValue(at: 92, to: newValue, willBeSet: true, hasBit: (7, 16)) }
+    get { return _storage.value(at: 92, default: .bar, hasBit: (4, 64)) }
+    set { _uniqueStorage().updateValue(at: 92, to: newValue, willBeSet: true, hasBit: (4, 64)) }
   }
   /// Returns true if `defaultNestedEnum` has been explicitly set.
-  var hasDefaultNestedEnum: Bool { return _storage.isPresent(hasBit: (7, 16)) }
+  var hasDefaultNestedEnum: Bool { return _storage.isPresent(hasBit: (4, 64)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 92, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, hasBit: (7, 16)) }
+  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 92, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, hasBit: (4, 64)) }
 
   var defaultForeignEnum: SwiftProtoTesting_ForeignEnum {
-    get { return _storage.value(at: 96, default: .foreignBar, hasBit: (7, 32)) }
-    set { _uniqueStorage().updateValue(at: 96, to: newValue, willBeSet: true, hasBit: (7, 32)) }
+    get { return _storage.value(at: 96, default: .foreignBar, hasBit: (4, 128)) }
+    set { _uniqueStorage().updateValue(at: 96, to: newValue, willBeSet: true, hasBit: (4, 128)) }
   }
   /// Returns true if `defaultForeignEnum` has been explicitly set.
-  var hasDefaultForeignEnum: Bool { return _storage.isPresent(hasBit: (7, 32)) }
+  var hasDefaultForeignEnum: Bool { return _storage.isPresent(hasBit: (4, 128)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 96, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (7, 32)) }
+  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 96, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (4, 128)) }
 
   var defaultImportEnum: SwiftProtoTesting_Import_ImportEnum {
-    get { return _storage.value(at: 100, default: .importBar, hasBit: (7, 64)) }
-    set { _uniqueStorage().updateValue(at: 100, to: newValue, willBeSet: true, hasBit: (7, 64)) }
+    get { return _storage.value(at: 100, default: .importBar, hasBit: (5, 1)) }
+    set { _uniqueStorage().updateValue(at: 100, to: newValue, willBeSet: true, hasBit: (5, 1)) }
   }
   /// Returns true if `defaultImportEnum` has been explicitly set.
-  var hasDefaultImportEnum: Bool { return _storage.isPresent(hasBit: (7, 64)) }
+  var hasDefaultImportEnum: Bool { return _storage.isPresent(hasBit: (5, 1)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 100, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (7, 64)) }
+  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 100, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (5, 1)) }
 
   /// For oneof test
   var oneofField: SwiftProtoTesting_TestAllTypes.OneOf_OneofField? {
@@ -1315,18 +1315,18 @@ struct SwiftProtoTesting_TestRequiredForeign: @unchecked Sendable {
   mutating func clearOptionalMessage() { _uniqueStorage().clearValue(at: 8, type: SwiftProtoTesting_TestRequired.self, hasBit: (0, 1)) }
 
   var repeatedMessage: [SwiftProtoTesting_TestRequired] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var dummy: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { return _storage.value(at: 4, default: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `dummy` has been explicitly set.
-  var hasDummy: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasDummy: Bool { return _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
-  mutating func clearDummy() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 4)) }
+  mutating func clearDummy() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get { _storage.unknownFields }
@@ -2329,18 +2329,18 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
   mutating func clearOptionalAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 2)) }
 
   var repeatedAllTypes: [SwiftProtoTesting_TestAllTypes] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var optionalGroup: SwiftProtoTesting_TestParsingMerge.OptionalGroup {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), default: SwiftProtoTesting_TestParsingMerge.OptionalGroup(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), default: SwiftProtoTesting_TestParsingMerge.OptionalGroup(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
-  var hasOptionalGroup: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasOptionalGroup: Bool { return _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 16), type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self, hasBit: (0, 8)) }
+  mutating func clearOptionalGroup() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 16), type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self, hasBit: (0, 4)) }
 
   var repeatedGroup: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup] {
     get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
@@ -4132,10 +4132,10 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{7}OptionalGroup\0\u{4}\u{2}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_import_enum\0\u{4}\u{3}optional_public_import_message\0\u{4}\u{5}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{3}repeated_import_enum\0\u{4}\u{8}default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{4}\u{1c}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{b}something_old\0\u{b}reserved_field\0\u{b}something_long_gone\0\u{c}JIt\u{3}\u{1}\u{c}LIt\u{3}\u{1}\u{c}lHt\u{3}\u{a}\u{c}~Ht\u{3}\u{2}\u{c}KIt\u{3}\u{1}")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\u{4}\0C\0\0\0\0\0\u{11}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{5}\u{2}\0\0\0\0p\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0x\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0,\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\u{8}\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\00\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{10}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\04\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{18}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{1c}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\00\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0@\u{3}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0P\u{1}\0\u{f}\0\u{1}\0\u{a}\u{12}\0\0\0\0X\u{1}\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0`\u{1}\0\u{11}\0\u{3}\0\u{b}\u{14}\0\0\0\0h\u{1}\0\u{12}\0\u{4}\0\u{b}\u{15}\0\0\0\08\0\0\u{13}\0\0\0\u{e}\u{16}\0\0\0\0<\0\0\u{14}\0\0\0\u{e}\u{17}\0\0\0\0@\0\0\u{15}\0\0\0\u{e}\u{1a}\0\0\0\0p\u{1}\0\u{16}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{2}x\u{1}\0\u{17}\0\0\0\u{5} \0\0\0\u{2}\0\u{2}\0\u{18}\0\0\0\u{3}!\0\0\0\u{2}\u{8}\u{2}\0\u{19}\0\0\0\u{d}\"\0\0\0\u{2}\u{10}\u{2}\0\u{1a}\0\0\0\u{4}#\0\0\0\u{2}\u{18}\u{2}\0\u{1b}\0\0\0\u{11}$\0\0\0\u{2} \u{2}\0\u{1c}\0\0\0\u{12}%\0\0\0\u{2}(\u{2}\0\u{1d}\0\0\0\u{7}&\0\0\0\u{2}0\u{2}\0\u{1e}\0\0\0\u{6}'\0\0\0\u{2}8\u{2}\0\u{1f}\0\0\0\u{f}(\0\0\0\u{2}@\u{2}\0 \0\0\0\u{10})\0\0\0\u{2}H\u{2}\0!\0\0\0\u{2}*\0\0\0\u{2}P\u{2}\0\"\0\0\0\u{1}+\0\0\0\u{2}X\u{2}\0#\0\0\0\u{8},\0\0\0\u{2}`\u{2}\0$\0\0\0\u{9}-\0\0\0\u{2}h\u{2}\0%\0\0\0\u{c}.\0\0\0\u{2}p\u{2}\0&\0\u{6}\0\u{a}0\0\0\0\u{2}x\u{2}\0'\0\u{7}\0\u{b}1\0\0\0\u{2}\0\u{3}\0(\0\u{8}\0\u{b}2\0\0\0\u{2}\u{8}\u{3}\0)\0\u{9}\0\u{b}3\0\0\0\u{2}\u{10}\u{3}\0*\0\0\0\u{e}4\0\0\0\u{2}\u{18}\u{3}\0+\0\0\0\u{e}5\0\0\0\u{2} \u{3}\0,\0\0\0\u{e}=\0\0\0\0D\0\0-\0\0\0\u{5}>\0\0\0\0 \u{1}\0.\0\0\0\u{3}?\0\0\0\0H\0\0/\0\0\0\u{d}@\0\0\0\0(\u{1}\00\0\0\0\u{4}A\0\0\0\0L\0\01\0\0\0\u{11}B\0\0\0\00\u{1}\02\0\0\0\u{12}C\0\0\0\0P\0\03\0\0\0\u{7}D\0\0\0\08\u{1}\04\0\0\0\u{6}E\0\0\0\0T\0\05\0\0\0\u{f}F\0\0\0\0@\u{1}\06\0\0\0\u{10}G\0\0\0\0X\0\07\0\0\0\u{2}H\0\0\0\0H\u{1}\08\0\0\0\u{1}I\0\0\0\0\u{1d}\0\09\0\0\0\u{8}J\0\0\0\0P\u{3}\0:\0\0\0\u{9}K\0\0\0\0`\u{3}\0;\0\0\0\u{c}Q\0\0\0\0\\\0\0<\0\0\0\u{e}R\0\0\0\0`\0\0=\0\0\0\u{e}S\0\0\0\0d\0\0>\0\0\0\u{e}o\0\0\0\0h\0\0s\u{7f}\0\0\u{d}p\0\0\0\0(\u{3}\0s\u{7f}\u{2}\0\u{b}q\0\0\0\0p\u{3}\0s\u{7f}\0\0\u{9}r\0\0\0\0\0\u{4}\0s\u{7f}\0\0\u{c}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\u{4}\0C\0\0\0\0\0-\0\0\u{11}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{5}\u{2}\0\0\0\0p\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0x\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0,\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\u{8}\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\00\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{10}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\04\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{18}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{1c}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\00\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0@\u{3}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0P\u{1}\0\u{f}\0\u{1}\0\u{a}\u{12}\0\0\0\0X\u{1}\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0`\u{1}\0\u{11}\0\u{3}\0\u{b}\u{14}\0\0\0\0h\u{1}\0\u{12}\0\u{4}\0\u{b}\u{15}\0\0\0\08\0\0\u{13}\0\0\0\u{e}\u{16}\0\0\0\0<\0\0\u{14}\0\0\0\u{e}\u{17}\0\0\0\0@\0\0\u{15}\0\0\0\u{e}\u{1a}\0\0\0\0p\u{1}\0\u{16}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{2}x\u{1}\0)\0\0\0\u{5} \0\0\0\u{2}\0\u{2}\0*\0\0\0\u{3}!\0\0\0\u{2}\u{8}\u{2}\0+\0\0\0\u{d}\"\0\0\0\u{2}\u{10}\u{2}\0,\0\0\0\u{4}#\0\0\0\u{2}\u{18}\u{2}\0-\0\0\0\u{11}$\0\0\0\u{2} \u{2}\0.\0\0\0\u{12}%\0\0\0\u{2}(\u{2}\0/\0\0\0\u{7}&\0\0\0\u{2}0\u{2}\00\0\0\0\u{6}'\0\0\0\u{2}8\u{2}\01\0\0\0\u{f}(\0\0\0\u{2}@\u{2}\02\0\0\0\u{10})\0\0\0\u{2}H\u{2}\03\0\0\0\u{2}*\0\0\0\u{2}P\u{2}\04\0\0\0\u{1}+\0\0\0\u{2}X\u{2}\05\0\0\0\u{8},\0\0\0\u{2}`\u{2}\06\0\0\0\u{9}-\0\0\0\u{2}h\u{2}\07\0\0\0\u{c}.\0\0\0\u{2}p\u{2}\08\0\u{6}\0\u{a}0\0\0\0\u{2}x\u{2}\09\0\u{7}\0\u{b}1\0\0\0\u{2}\0\u{3}\0:\0\u{8}\0\u{b}2\0\0\0\u{2}\u{8}\u{3}\0;\0\u{9}\0\u{b}3\0\0\0\u{2}\u{10}\u{3}\0<\0\0\0\u{e}4\0\0\0\u{2}\u{18}\u{3}\0=\0\0\0\u{e}5\0\0\0\u{2} \u{3}\0>\0\0\0\u{e}=\0\0\0\0D\0\0\u{17}\0\0\0\u{5}>\0\0\0\0 \u{1}\0\u{18}\0\0\0\u{3}?\0\0\0\0H\0\0\u{19}\0\0\0\u{d}@\0\0\0\0(\u{1}\0\u{1a}\0\0\0\u{4}A\0\0\0\0L\0\0\u{1b}\0\0\0\u{11}B\0\0\0\00\u{1}\0\u{1c}\0\0\0\u{12}C\0\0\0\0P\0\0\u{1d}\0\0\0\u{7}D\0\0\0\08\u{1}\0\u{1e}\0\0\0\u{6}E\0\0\0\0T\0\0\u{1f}\0\0\0\u{f}F\0\0\0\0@\u{1}\0 \0\0\0\u{10}G\0\0\0\0X\0\0!\0\0\0\u{2}H\0\0\0\0H\u{1}\0\"\0\0\0\u{1}I\0\0\0\0\u{1d}\0\0#\0\0\0\u{8}J\0\0\0\0P\u{3}\0$\0\0\0\u{9}K\0\0\0\0`\u{3}\0%\0\0\0\u{c}Q\0\0\0\0\\\0\0&\0\0\0\u{e}R\0\0\0\0`\0\0'\0\0\0\u{e}S\0\0\0\0d\0\0(\0\0\0\u{e}o\0\0\0\0h\0\0s\u{7f}\0\0\u{d}p\0\0\0\0(\u{3}\0s\u{7f}\u{2}\0\u{b}q\0\0\0\0p\u{3}\0s\u{7f}\0\0\u{9}r\0\0\0\0\0\u{4}\0s\u{7f}\0\0\u{c}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\u{3}\0C\0\0\0\0\0\u{11}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{5}\u{2}\0\0\0\0p\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0x\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0,\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\u{8}\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\00\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{10}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\04\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{18}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{1c}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0D\u{2}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0P\u{2}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0P\u{1}\0\u{f}\0\u{1}\0\u{a}\u{12}\0\0\0\0T\u{1}\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0X\u{1}\0\u{11}\0\u{3}\0\u{b}\u{14}\0\0\0\0\\\u{1}\0\u{12}\0\u{4}\0\u{b}\u{15}\0\0\0\08\0\0\u{13}\0\0\0\u{e}\u{16}\0\0\0\0<\0\0\u{14}\0\0\0\u{e}\u{17}\0\0\0\0@\0\0\u{15}\0\0\0\u{e}\u{1a}\0\0\0\0`\u{1}\0\u{16}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{2}d\u{1}\0\u{17}\0\0\0\u{5} \0\0\0\u{2}h\u{1}\0\u{18}\0\0\0\u{3}!\0\0\0\u{2}l\u{1}\0\u{19}\0\0\0\u{d}\"\0\0\0\u{2}p\u{1}\0\u{1a}\0\0\0\u{4}#\0\0\0\u{2}t\u{1}\0\u{1b}\0\0\0\u{11}$\0\0\0\u{2}x\u{1}\0\u{1c}\0\0\0\u{12}%\0\0\0\u{2}|\u{1}\0\u{1d}\0\0\0\u{7}&\0\0\0\u{2}\0\u{2}\0\u{1e}\0\0\0\u{6}'\0\0\0\u{2}\u{4}\u{2}\0\u{1f}\0\0\0\u{f}(\0\0\0\u{2}\u{8}\u{2}\0 \0\0\0\u{10})\0\0\0\u{2}\u{c}\u{2}\0!\0\0\0\u{2}*\0\0\0\u{2}\u{10}\u{2}\0\"\0\0\0\u{1}+\0\0\0\u{2}\u{14}\u{2}\0#\0\0\0\u{8},\0\0\0\u{2}\u{18}\u{2}\0$\0\0\0\u{9}-\0\0\0\u{2}\u{1c}\u{2}\0%\0\0\0\u{c}.\0\0\0\u{2} \u{2}\0&\0\u{6}\0\u{a}0\0\0\0\u{2}$\u{2}\0'\0\u{7}\0\u{b}1\0\0\0\u{2}(\u{2}\0(\0\u{8}\0\u{b}2\0\0\0\u{2},\u{2}\0)\0\u{9}\0\u{b}3\0\0\0\u{2}0\u{2}\0*\0\0\0\u{e}4\0\0\0\u{2}4\u{2}\0+\0\0\0\u{e}5\0\0\0\u{2}8\u{2}\0,\0\0\0\u{e}=\0\0\0\0D\0\0-\0\0\0\u{5}>\0\0\0\0 \u{1}\0.\0\0\0\u{3}?\0\0\0\0H\0\0/\0\0\0\u{d}@\0\0\0\0(\u{1}\00\0\0\0\u{4}A\0\0\0\0L\0\01\0\0\0\u{11}B\0\0\0\00\u{1}\02\0\0\0\u{12}C\0\0\0\0P\0\03\0\0\0\u{7}D\0\0\0\08\u{1}\04\0\0\0\u{6}E\0\0\0\0T\0\05\0\0\0\u{f}F\0\0\0\0@\u{1}\06\0\0\0\u{10}G\0\0\0\0X\0\07\0\0\0\u{2}H\0\0\0\0H\u{1}\08\0\0\0\u{1}I\0\0\0\0\u{1d}\0\09\0\0\0\u{8}J\0\0\0\0\\\u{2}\0:\0\0\0\u{9}K\0\0\0\0h\u{2}\0;\0\0\0\u{c}Q\0\0\0\0\\\0\0<\0\0\0\u{e}R\0\0\0\0`\0\0=\0\0\0\u{e}S\0\0\0\0d\0\0>\0\0\0\u{e}o\0\0\0\0h\0\0s\u{7f}\0\0\u{d}p\0\0\0\0<\u{2}\0s\u{7f}\u{2}\0\u{b}q\0\0\0\0t\u{2}\0s\u{7f}\0\0\u{9}r\0\0\0\0\0\u{3}\0s\u{7f}\0\0\u{c}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\u{3}\0C\0\0\0\0\0-\0\0\u{11}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{5}\u{2}\0\0\0\0p\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0x\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0,\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\u{8}\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\00\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{10}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\04\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{18}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{1c}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0D\u{2}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0P\u{2}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0P\u{1}\0\u{f}\0\u{1}\0\u{a}\u{12}\0\0\0\0T\u{1}\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0X\u{1}\0\u{11}\0\u{3}\0\u{b}\u{14}\0\0\0\0\\\u{1}\0\u{12}\0\u{4}\0\u{b}\u{15}\0\0\0\08\0\0\u{13}\0\0\0\u{e}\u{16}\0\0\0\0<\0\0\u{14}\0\0\0\u{e}\u{17}\0\0\0\0@\0\0\u{15}\0\0\0\u{e}\u{1a}\0\0\0\0`\u{1}\0\u{16}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{2}d\u{1}\0)\0\0\0\u{5} \0\0\0\u{2}h\u{1}\0*\0\0\0\u{3}!\0\0\0\u{2}l\u{1}\0+\0\0\0\u{d}\"\0\0\0\u{2}p\u{1}\0,\0\0\0\u{4}#\0\0\0\u{2}t\u{1}\0-\0\0\0\u{11}$\0\0\0\u{2}x\u{1}\0.\0\0\0\u{12}%\0\0\0\u{2}|\u{1}\0/\0\0\0\u{7}&\0\0\0\u{2}\0\u{2}\00\0\0\0\u{6}'\0\0\0\u{2}\u{4}\u{2}\01\0\0\0\u{f}(\0\0\0\u{2}\u{8}\u{2}\02\0\0\0\u{10})\0\0\0\u{2}\u{c}\u{2}\03\0\0\0\u{2}*\0\0\0\u{2}\u{10}\u{2}\04\0\0\0\u{1}+\0\0\0\u{2}\u{14}\u{2}\05\0\0\0\u{8},\0\0\0\u{2}\u{18}\u{2}\06\0\0\0\u{9}-\0\0\0\u{2}\u{1c}\u{2}\07\0\0\0\u{c}.\0\0\0\u{2} \u{2}\08\0\u{6}\0\u{a}0\0\0\0\u{2}$\u{2}\09\0\u{7}\0\u{b}1\0\0\0\u{2}(\u{2}\0:\0\u{8}\0\u{b}2\0\0\0\u{2},\u{2}\0;\0\u{9}\0\u{b}3\0\0\0\u{2}0\u{2}\0<\0\0\0\u{e}4\0\0\0\u{2}4\u{2}\0=\0\0\0\u{e}5\0\0\0\u{2}8\u{2}\0>\0\0\0\u{e}=\0\0\0\0D\0\0\u{17}\0\0\0\u{5}>\0\0\0\0 \u{1}\0\u{18}\0\0\0\u{3}?\0\0\0\0H\0\0\u{19}\0\0\0\u{d}@\0\0\0\0(\u{1}\0\u{1a}\0\0\0\u{4}A\0\0\0\0L\0\0\u{1b}\0\0\0\u{11}B\0\0\0\00\u{1}\0\u{1c}\0\0\0\u{12}C\0\0\0\0P\0\0\u{1d}\0\0\0\u{7}D\0\0\0\08\u{1}\0\u{1e}\0\0\0\u{6}E\0\0\0\0T\0\0\u{1f}\0\0\0\u{f}F\0\0\0\0@\u{1}\0 \0\0\0\u{10}G\0\0\0\0X\0\0!\0\0\0\u{2}H\0\0\0\0H\u{1}\0\"\0\0\0\u{1}I\0\0\0\0\u{1d}\0\0#\0\0\0\u{8}J\0\0\0\0\\\u{2}\0$\0\0\0\u{9}K\0\0\0\0h\u{2}\0%\0\0\0\u{c}Q\0\0\0\0\\\0\0&\0\0\0\u{e}R\0\0\0\0`\0\0'\0\0\0\u{e}S\0\0\0\0d\0\0(\0\0\0\u{e}o\0\0\0\0h\0\0s\u{7f}\0\0\u{d}p\0\0\0\0<\u{2}\0s\u{7f}\u{2}\0\u{b}q\0\0\0\0t\u{2}\0s\u{7f}\0\0\u{9}r\0\0\0\0\0\u{3}\0s\u{7f}\0\0\u{c}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4215,6 +4215,9 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes, rhs: SwiftProtoTesting_TestAllTypes) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4230,10 +4233,10 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4252,6 +4255,9 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes.NestedMessage, rhs: SwiftProtoTesting_TestAllTypes.NestedMessage) -> Bool {
@@ -4264,10 +4270,10 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4286,6 +4292,9 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes.OptionalGroup, rhs: SwiftProtoTesting_TestAllTypes.OptionalGroup) -> Bool {
@@ -4298,10 +4307,10 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}/a\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4321,6 +4330,9 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestAllTypes.RepeatedGroup, rhs: SwiftProtoTesting_TestAllTypes.RepeatedGroup) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4332,10 +4344,10 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}payload\0\u{3}repeated_child\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{3}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{3}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{3}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4391,6 +4403,9 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_NestedTestAllTypes, rhs: SwiftProtoTesting_NestedTestAllTypes) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4402,10 +4417,10 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0\u{1}d\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4425,6 +4440,9 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_ForeignMessage, rhs: SwiftProtoTesting_ForeignMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4436,10 +4454,10 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4463,6 +4481,9 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestAllExtensions, rhs: SwiftProtoTesting_TestAllExtensions) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4474,10 +4495,10 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4496,6 +4517,9 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_OptionalGroup_extension, rhs: SwiftProtoTesting_OptionalGroup_extension) -> Bool {
@@ -4508,10 +4532,10 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}/a\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4530,6 +4554,9 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_RepeatedGroup_extension, rhs: SwiftProtoTesting_RepeatedGroup_extension) -> Bool {
@@ -4542,10 +4569,10 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4565,6 +4592,9 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestNestedExtension, rhs: SwiftProtoTesting_TestNestedExtension) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4576,10 +4606,10 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}dummy2\0\u{1}b\0\u{1}dummy4\0\u{1}dummy5\0\u{1}dummy6\0\u{1}dummy7\0\u{1}dummy8\0\u{1}dummy9\0\u{1}dummy10\0\u{1}dummy11\0\u{1}dummy12\0\u{1}dummy13\0\u{1}dummy14\0\u{1}dummy15\0\u{1}dummy16\0\u{1}dummy17\0\u{1}dummy18\0\u{1}dummy19\0\u{1}dummy20\0\u{1}dummy21\0\u{1}dummy22\0\u{1}dummy23\0\u{1}dummy24\0\u{1}dummy25\0\u{1}dummy26\0\u{1}dummy27\0\u{1}dummy28\0\u{1}dummy29\0\u{1}dummy30\0\u{1}dummy31\0\u{1}dummy32\0\u{1}c\0\u{3}optional_foreign\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\u{1}\0\"\0\0\u{3}\0\0#\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{5}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{7}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{8}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{9}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{a}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{b}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{c}\0\0\0\04\0\0\u{c}\0\0\0\u{5}\u{d}\0\0\0\08\0\0\u{d}\0\0\0\u{5}\u{e}\0\0\0\0<\0\0\u{e}\0\0\0\u{5}\u{f}\0\0\0\0@\0\0\u{f}\0\0\0\u{5}\u{10}\0\0\0\0D\0\0\u{10}\0\0\0\u{5}\u{11}\0\0\0\0H\0\0\u{11}\0\0\0\u{5}\u{12}\0\0\0\0L\0\0\u{12}\0\0\0\u{5}\u{13}\0\0\0\0P\0\0\u{13}\0\0\0\u{5}\u{14}\0\0\0\0T\0\0\u{14}\0\0\0\u{5}\u{15}\0\0\0\0X\0\0\u{15}\0\0\0\u{5}\u{16}\0\0\0\0\\\0\0\u{16}\0\0\0\u{5}\u{17}\0\0\0\0`\0\0\u{17}\0\0\0\u{5}\u{18}\0\0\0\0d\0\0\u{18}\0\0\0\u{5}\u{19}\0\0\0\0h\0\0\u{19}\0\0\0\u{5}\u{1a}\0\0\0\0l\0\0\u{1a}\0\0\0\u{5}\u{1b}\0\0\0\0p\0\0\u{1b}\0\0\0\u{5}\u{1c}\0\0\0\0t\0\0\u{1c}\0\0\0\u{5}\u{1d}\0\0\0\0x\0\0\u{1d}\0\0\0\u{5}\u{1e}\0\0\0\0|\0\0\u{1e}\0\0\0\u{5}\u{1f}\0\0\0\0\0\u{1}\0\u{1f}\0\0\0\u{5} \0\0\0\0\u{4}\u{1}\0 \0\0\0\u{5}!\0\0\0\0\u{8}\u{1}\0\u{2}\0\0\0\u{5}\"\0\0\0\0\u{10}\u{1}\0!\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\u{1}\0\"\0\0\u{3}\0\0\"\0\0#\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{5}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{7}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{8}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{9}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{a}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{b}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{c}\0\0\0\04\0\0\u{c}\0\0\0\u{5}\u{d}\0\0\0\08\0\0\u{d}\0\0\0\u{5}\u{e}\0\0\0\0<\0\0\u{e}\0\0\0\u{5}\u{f}\0\0\0\0@\0\0\u{f}\0\0\0\u{5}\u{10}\0\0\0\0D\0\0\u{10}\0\0\0\u{5}\u{11}\0\0\0\0H\0\0\u{11}\0\0\0\u{5}\u{12}\0\0\0\0L\0\0\u{12}\0\0\0\u{5}\u{13}\0\0\0\0P\0\0\u{13}\0\0\0\u{5}\u{14}\0\0\0\0T\0\0\u{14}\0\0\0\u{5}\u{15}\0\0\0\0X\0\0\u{15}\0\0\0\u{5}\u{16}\0\0\0\0\\\0\0\u{16}\0\0\0\u{5}\u{17}\0\0\0\0`\0\0\u{17}\0\0\0\u{5}\u{18}\0\0\0\0d\0\0\u{18}\0\0\0\u{5}\u{19}\0\0\0\0h\0\0\u{19}\0\0\0\u{5}\u{1a}\0\0\0\0l\0\0\u{1a}\0\0\0\u{5}\u{1b}\0\0\0\0p\0\0\u{1b}\0\0\0\u{5}\u{1c}\0\0\0\0t\0\0\u{1c}\0\0\0\u{5}\u{1d}\0\0\0\0x\0\0\u{1d}\0\0\0\u{5}\u{1e}\0\0\0\0|\0\0\u{1e}\0\0\0\u{5}\u{1f}\0\0\0\0\0\u{1}\0\u{1f}\0\0\0\u{5} \0\0\0\0\u{4}\u{1}\0 \0\0\0\u{5}!\0\0\0\0\u{8}\u{1}\0\u{2}\0\0\0\u{5}\"\0\0\0\0\u{10}\u{1}\0!\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\u{1}\0\"\0\0\u{3}\0\0#\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{5}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{7}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{8}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{9}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{a}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{b}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{c}\0\0\0\04\0\0\u{c}\0\0\0\u{5}\u{d}\0\0\0\08\0\0\u{d}\0\0\0\u{5}\u{e}\0\0\0\0<\0\0\u{e}\0\0\0\u{5}\u{f}\0\0\0\0@\0\0\u{f}\0\0\0\u{5}\u{10}\0\0\0\0D\0\0\u{10}\0\0\0\u{5}\u{11}\0\0\0\0H\0\0\u{11}\0\0\0\u{5}\u{12}\0\0\0\0L\0\0\u{12}\0\0\0\u{5}\u{13}\0\0\0\0P\0\0\u{13}\0\0\0\u{5}\u{14}\0\0\0\0T\0\0\u{14}\0\0\0\u{5}\u{15}\0\0\0\0X\0\0\u{15}\0\0\0\u{5}\u{16}\0\0\0\0\\\0\0\u{16}\0\0\0\u{5}\u{17}\0\0\0\0`\0\0\u{17}\0\0\0\u{5}\u{18}\0\0\0\0d\0\0\u{18}\0\0\0\u{5}\u{19}\0\0\0\0h\0\0\u{19}\0\0\0\u{5}\u{1a}\0\0\0\0l\0\0\u{1a}\0\0\0\u{5}\u{1b}\0\0\0\0p\0\0\u{1b}\0\0\0\u{5}\u{1c}\0\0\0\0t\0\0\u{1c}\0\0\0\u{5}\u{1d}\0\0\0\0x\0\0\u{1d}\0\0\0\u{5}\u{1e}\0\0\0\0|\0\0\u{1e}\0\0\0\u{5}\u{1f}\0\0\0\0\0\u{1}\0\u{1f}\0\0\0\u{5} \0\0\0\0\u{4}\u{1}\0 \0\0\0\u{5}!\0\0\0\0\u{8}\u{1}\0\u{2}\0\0\0\u{5}\"\0\0\0\0\u{c}\u{1}\0!\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\u{1}\0\"\0\0\u{3}\0\0\"\0\0#\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{5}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{7}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{8}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{9}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{a}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{b}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{c}\0\0\0\04\0\0\u{c}\0\0\0\u{5}\u{d}\0\0\0\08\0\0\u{d}\0\0\0\u{5}\u{e}\0\0\0\0<\0\0\u{e}\0\0\0\u{5}\u{f}\0\0\0\0@\0\0\u{f}\0\0\0\u{5}\u{10}\0\0\0\0D\0\0\u{10}\0\0\0\u{5}\u{11}\0\0\0\0H\0\0\u{11}\0\0\0\u{5}\u{12}\0\0\0\0L\0\0\u{12}\0\0\0\u{5}\u{13}\0\0\0\0P\0\0\u{13}\0\0\0\u{5}\u{14}\0\0\0\0T\0\0\u{14}\0\0\0\u{5}\u{15}\0\0\0\0X\0\0\u{15}\0\0\0\u{5}\u{16}\0\0\0\0\\\0\0\u{16}\0\0\0\u{5}\u{17}\0\0\0\0`\0\0\u{17}\0\0\0\u{5}\u{18}\0\0\0\0d\0\0\u{18}\0\0\0\u{5}\u{19}\0\0\0\0h\0\0\u{19}\0\0\0\u{5}\u{1a}\0\0\0\0l\0\0\u{1a}\0\0\0\u{5}\u{1b}\0\0\0\0p\0\0\u{1b}\0\0\0\u{5}\u{1c}\0\0\0\0t\0\0\u{1c}\0\0\0\u{5}\u{1d}\0\0\0\0x\0\0\u{1d}\0\0\0\u{5}\u{1e}\0\0\0\0|\0\0\u{1e}\0\0\0\u{5}\u{1f}\0\0\0\0\0\u{1}\0\u{1f}\0\0\0\u{5} \0\0\0\0\u{4}\u{1}\0 \0\0\0\u{5}!\0\0\0\0\u{8}\u{1}\0\u{2}\0\0\0\u{5}\"\0\0\0\0\u{c}\u{1}\0!\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4631,6 +4661,9 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestRequired, rhs: SwiftProtoTesting_TestRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4642,10 +4675,10 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_message\0\u{3}repeated_message\0\u{1}dummy\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{c}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4700,6 +4733,9 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredForeign, rhs: SwiftProtoTesting_TestRequiredForeign) -> Bool {
@@ -4712,10 +4748,10 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_message\0\u{3}repeated_message\0\u{3}required_message\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{3}\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{3}\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\0\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{3}\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{3}\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4771,6 +4807,9 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredMessage, rhs: SwiftProtoTesting_TestRequiredMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4782,10 +4821,10 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4804,6 +4843,9 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestEmptyMessage, rhs: SwiftProtoTesting_TestEmptyMessage) -> Bool {
@@ -4816,10 +4858,10 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{2}~\u{7f}\u{7f}\u{7f}\u{f}bb\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{7f}\u{7f}\u{7f}\u{7f}\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{7f}\u{7f}\u{7f}\u{7f}\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{7f}\u{7f}\u{7f}\u{7f}\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{7f}\u{7f}\u{7f}\u{7f}\0\u{8}\0\0\u{1}\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4839,6 +4881,9 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestReallyLargeTagNumber, rhs: SwiftProtoTesting_TestReallyLargeTagNumber) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4850,10 +4895,10 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}i\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4901,6 +4946,9 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestRecursiveMessage, rhs: SwiftProtoTesting_TestRecursiveMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4912,10 +4960,10 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}my_int\0\u{4}\u{a}my_string\0\u{4}Z\u{1}my_float\0\u{4}c\u{1}optional_nested_message\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -4967,6 +5015,9 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestFieldOrderings, rhs: SwiftProtoTesting_TestFieldOrderings) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -4978,10 +5029,10 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0\u{1}oo\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5000,6 +5051,9 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestFieldOrderings.NestedMessage, rhs: SwiftProtoTesting_TestFieldOrderings.NestedMessage) -> Bool {
@@ -5012,10 +5066,10 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}escaped_bytes\0\u{3}large_uint32\0\u{3}large_uint64\0\u{3}small_int32\0\u{3}small_int64\0\u{3}utf8_string\0\u{3}zero_float\0\u{3}one_float\0\u{3}small_float\0\u{3}negative_one_float\0\u{3}negative_float\0\u{3}large_float\0\u{3}small_negative_float\0\u{3}inf_double\0\u{3}neg_inf_double\0\u{3}nan_double\0\u{3}inf_float\0\u{3}neg_inf_float\0\u{3}nan_float\0\u{3}cpp_trigraph\0\u{3}really_small_int32\0\u{3}really_small_int64\0\u{3}string_with_zero\0\u{3}bytes_with_zero\0\u{4}\u{3}replacement_string\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0P\u{1}\0\u{19}\0\0\0\0\0\u{19}\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{c}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}\u{3}\0\0\0\08\0\0\u{2}\0\0\0\u{4}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{9}\u{7}\0\0\0\0\u{c}\0\0\u{6}\0\0\0\u{2}\u{8}\0\0\0\0\u{10}\0\0\u{7}\0\0\0\u{2}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{2}\u{a}\0\0\0\0\u{18}\0\0\u{9}\0\0\0\u{2}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0 \0\0\u{b}\0\0\0\u{2}\u{d}\0\0\0\0$\0\0\u{c}\0\0\0\u{2}\u{e}\0\0\0\0H\0\0\u{d}\0\0\0\u{1}\u{f}\0\0\0\0P\0\0\u{e}\0\0\0\u{1}\u{10}\0\0\0\0X\0\0\u{f}\0\0\0\u{1}\u{11}\0\0\0\0(\0\0\u{10}\0\0\0\u{2}\u{12}\0\0\0\0,\0\0\u{11}\0\0\0\u{2}\u{13}\0\0\0\00\0\0\u{12}\0\0\0\u{2}\u{14}\0\0\0\0\u{10}\u{1}\0\u{13}\0\0\0\u{9}\u{15}\0\0\0\04\0\0\u{14}\0\0\0\u{5}\u{16}\0\0\0\0`\0\0\u{15}\0\0\0\u{3}\u{17}\0\0\0\0 \u{1}\0\u{16}\0\0\0\u{9}\u{18}\0\0\0\00\u{1}\0\u{17}\0\0\0\u{c}\u{1b}\0\0\0\0@\u{1}\0\u{18}\0\0\0\u{9}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0P\u{1}\0\u{19}\0\0\0\0\0\u{19}\0\0\u{19}\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{c}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}\u{3}\0\0\0\08\0\0\u{2}\0\0\0\u{4}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{9}\u{7}\0\0\0\0\u{c}\0\0\u{6}\0\0\0\u{2}\u{8}\0\0\0\0\u{10}\0\0\u{7}\0\0\0\u{2}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{2}\u{a}\0\0\0\0\u{18}\0\0\u{9}\0\0\0\u{2}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0 \0\0\u{b}\0\0\0\u{2}\u{d}\0\0\0\0$\0\0\u{c}\0\0\0\u{2}\u{e}\0\0\0\0H\0\0\u{d}\0\0\0\u{1}\u{f}\0\0\0\0P\0\0\u{e}\0\0\0\u{1}\u{10}\0\0\0\0X\0\0\u{f}\0\0\0\u{1}\u{11}\0\0\0\0(\0\0\u{10}\0\0\0\u{2}\u{12}\0\0\0\0,\0\0\u{11}\0\0\0\u{2}\u{13}\0\0\0\00\0\0\u{12}\0\0\0\u{2}\u{14}\0\0\0\0\u{10}\u{1}\0\u{13}\0\0\0\u{9}\u{15}\0\0\0\04\0\0\u{14}\0\0\0\u{5}\u{16}\0\0\0\0`\0\0\u{15}\0\0\0\u{3}\u{17}\0\0\0\0 \u{1}\0\u{16}\0\0\0\u{9}\u{18}\0\0\0\00\u{1}\0\u{17}\0\0\0\u{c}\u{1b}\0\0\0\0@\u{1}\0\u{18}\0\0\0\u{9}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\04\u{1}\0\u{19}\0\0\0\0\0\u{19}\0\0\u{1}\0\0\0\0l\0\0\0\0\0\0\u{c}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}\u{3}\0\0\0\08\0\0\u{2}\0\0\0\u{4}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{9}\u{7}\0\0\0\0\u{c}\0\0\u{6}\0\0\0\u{2}\u{8}\0\0\0\0\u{10}\0\0\u{7}\0\0\0\u{2}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{2}\u{a}\0\0\0\0\u{18}\0\0\u{9}\0\0\0\u{2}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0 \0\0\u{b}\0\0\0\u{2}\u{d}\0\0\0\0$\0\0\u{c}\0\0\0\u{2}\u{e}\0\0\0\0H\0\0\u{d}\0\0\0\u{1}\u{f}\0\0\0\0P\0\0\u{e}\0\0\0\u{1}\u{10}\0\0\0\0X\0\0\u{f}\0\0\0\u{1}\u{11}\0\0\0\0(\0\0\u{10}\0\0\0\u{2}\u{12}\0\0\0\0,\0\0\u{11}\0\0\0\u{2}\u{13}\0\0\0\00\0\0\u{12}\0\0\0\u{2}\u{14}\0\0\0\0\u{4}\u{1}\0\u{13}\0\0\0\u{9}\u{15}\0\0\0\04\0\0\u{14}\0\0\0\u{5}\u{16}\0\0\0\0`\0\0\u{15}\0\0\0\u{3}\u{17}\0\0\0\0\u{10}\u{1}\0\u{16}\0\0\0\u{9}\u{18}\0\0\0\0\u{1c}\u{1}\0\u{17}\0\0\0\u{c}\u{1b}\0\0\0\0(\u{1}\0\u{18}\0\0\0\u{9}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\04\u{1}\0\u{19}\0\0\0\0\0\u{19}\0\0\u{19}\0\0\u{1}\0\0\0\0l\0\0\0\0\0\0\u{c}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}\u{3}\0\0\0\08\0\0\u{2}\0\0\0\u{4}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{9}\u{7}\0\0\0\0\u{c}\0\0\u{6}\0\0\0\u{2}\u{8}\0\0\0\0\u{10}\0\0\u{7}\0\0\0\u{2}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{2}\u{a}\0\0\0\0\u{18}\0\0\u{9}\0\0\0\u{2}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0 \0\0\u{b}\0\0\0\u{2}\u{d}\0\0\0\0$\0\0\u{c}\0\0\0\u{2}\u{e}\0\0\0\0H\0\0\u{d}\0\0\0\u{1}\u{f}\0\0\0\0P\0\0\u{e}\0\0\0\u{1}\u{10}\0\0\0\0X\0\0\u{f}\0\0\0\u{1}\u{11}\0\0\0\0(\0\0\u{10}\0\0\0\u{2}\u{12}\0\0\0\0,\0\0\u{11}\0\0\0\u{2}\u{13}\0\0\0\00\0\0\u{12}\0\0\0\u{2}\u{14}\0\0\0\0\u{4}\u{1}\0\u{13}\0\0\0\u{9}\u{15}\0\0\0\04\0\0\u{14}\0\0\0\u{5}\u{16}\0\0\0\0`\0\0\u{15}\0\0\0\u{3}\u{17}\0\0\0\0\u{10}\u{1}\0\u{16}\0\0\0\u{9}\u{18}\0\0\0\0\u{1c}\u{1}\0\u{17}\0\0\0\u{c}\u{1b}\0\0\0\0(\u{1}\0\u{18}\0\0\0\u{9}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5035,6 +5089,9 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestExtremeDefaultValues, rhs: SwiftProtoTesting_TestExtremeDefaultValues) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5046,10 +5103,10 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0\u{7}FooGroup\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0@\0\0\u{4}\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0{\u{7f}\u{2}\0\u{a}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0@\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0{\u{7f}\u{2}\0\u{a}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0$\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{a}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0$\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{a}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5101,6 +5158,9 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestOneof, rhs: SwiftProtoTesting_TestOneof) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5112,10 +5172,10 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{5}a\0\u{1}b\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{6}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{5}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{6}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{6}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{5}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{6}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5135,6 +5195,9 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestOneof.FooGroup, rhs: SwiftProtoTesting_TestOneof.FooGroup) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5146,10 +5209,10 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{3}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0 \0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0 \0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0$\0\0\u{3}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0$\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5201,6 +5264,9 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredOneof, rhs: SwiftProtoTesting_TestRequiredOneof) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5212,10 +5278,10 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_double\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5238,6 +5304,9 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredOneof.NestedMessage, rhs: SwiftProtoTesting_TestRequiredOneof.NestedMessage) -> Bool {
@@ -5250,10 +5319,10 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}Z\u{1}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_enum\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0x\0\0\u{e}\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{a}\u{8}\0\0\0\0\0\0\u{5}[\0\0\0\u{a}\u{10}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{a}\u{18}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{a} \0\0\u{3}\0\0\0\u{4}^\0\0\0\u{a}(\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{a}0\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{a}8\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{a}@\0\0\u{7}\0\0\0\u{6}b\0\0\0\u{a}H\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{a}P\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{a}X\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{a}`\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{a}h\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{a}p\0\0\u{d}\0\0\0\u{e}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{a}\u{8}\0\0\0\0\0\0\u{5}[\0\0\0\u{a}\u{10}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{a}\u{18}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{a} \0\0\u{3}\0\0\0\u{4}^\0\0\0\u{a}(\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{a}0\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{a}8\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{a}@\0\0\u{7}\0\0\0\u{6}b\0\0\0\u{a}H\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{a}P\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{a}X\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{a}`\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{a}h\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{a}p\0\0\u{d}\0\0\0\u{e}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0<\0\0\u{e}\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{a}\u{4}\0\0\0\0\0\0\u{5}[\0\0\0\u{a}\u{8}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{a}\u{c}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{a}\u{10}\0\0\u{3}\0\0\0\u{4}^\0\0\0\u{a}\u{14}\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{a}\u{18}\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{a}\u{1c}\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{a} \0\0\u{7}\0\0\0\u{6}b\0\0\0\u{a}$\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{a}(\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{a},\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{a}0\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{a}4\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{a}8\0\0\u{d}\0\0\0\u{e}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{a}\u{4}\0\0\0\0\0\0\u{5}[\0\0\0\u{a}\u{8}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{a}\u{c}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{a}\u{10}\0\0\u{3}\0\0\0\u{4}^\0\0\0\u{a}\u{14}\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{a}\u{18}\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{a}\u{1c}\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{a} \0\0\u{7}\0\0\0\u{6}b\0\0\0\u{a}$\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{a}(\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{a},\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{a}0\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{a}4\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{a}8\0\0\u{d}\0\0\0\u{e}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5272,6 +5341,9 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestPackedTypes, rhs: SwiftProtoTesting_TestPackedTypes) -> Bool {
@@ -5284,10 +5356,10 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}Z\u{1}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_enum\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0x\0\0\u{e}\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{5}[\0\0\0\u{2}\u{10}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{2}\u{18}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{2} \0\0\u{3}\0\0\0\u{4}^\0\0\0\u{2}(\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{2}0\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{2}8\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{2}@\0\0\u{7}\0\0\0\u{6}b\0\0\0\u{2}H\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{2}P\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{2}X\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{2}`\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{2}h\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{2}p\0\0\u{d}\0\0\0\u{e}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{5}[\0\0\0\u{2}\u{10}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{2}\u{18}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{2} \0\0\u{3}\0\0\0\u{4}^\0\0\0\u{2}(\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{2}0\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{2}8\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{2}@\0\0\u{7}\0\0\0\u{6}b\0\0\0\u{2}H\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{2}P\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{2}X\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{2}`\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{2}h\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{2}p\0\0\u{d}\0\0\0\u{e}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0<\0\0\u{e}\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{5}[\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{2}\u{c}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{4}^\0\0\0\u{2}\u{14}\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{2}\u{18}\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{2}\u{1c}\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{2} \0\0\u{7}\0\0\0\u{6}b\0\0\0\u{2}$\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{2}(\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{2},\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{2}0\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{2}4\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{2}8\0\0\u{d}\0\0\0\u{e}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0Z\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{5}[\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{2}\u{c}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{4}^\0\0\0\u{2}\u{14}\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{2}\u{18}\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{2}\u{1c}\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{2} \0\0\u{7}\0\0\0\u{6}b\0\0\0\u{2}$\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{2}(\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{2},\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{2}0\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{2}4\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{2}8\0\0\u{d}\0\0\0\u{e}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5307,6 +5379,9 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestUnpackedTypes, rhs: SwiftProtoTesting_TestUnpackedTypes) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5318,10 +5393,10 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5345,6 +5420,9 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestPackedExtensions, rhs: SwiftProtoTesting_TestPackedExtensions) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5356,10 +5434,10 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_all_types\0\u{3}optional_all_types\0\u{3}repeated_all_types\0\u{8}\u{7}OptionalGroup\0\u{8}\u{a}RepeatedGroup\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{5}\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{2}\0\u{b}\u{a}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{4}\0\u{a}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\00\0\0\u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{3}\0\u{2}\0\u{b}\u{a}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{4}\0\u{a}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{5}\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{2}\0\u{b}\u{a}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{14}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{4}\0\u{a}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{2}\0\u{b}\u{a}\0\0\0\0\u{10}\0\0\u{2}\0\u{3}\0\u{a}\u{14}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{4}\0\u{a}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5423,6 +5501,9 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge, rhs: SwiftProtoTesting_TestParsingMerge) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5434,10 +5515,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{1}field3\0\u{8}\u{7}Group1\0\u{8}\u{a}Group2\0\u{2}T\u{f}ext1\0\u{1}ext2\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0@\0\0\u{7}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{1}\0\u{b}\u{a}\0\0\0\u{2} \0\0\u{3}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{3}\0\u{a}h\u{7}\0\0\u{2}0\0\0\u{5}\0\u{1}\0\u{b}i\u{7}\0\0\u{2}8\0\0\u{6}\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0@\0\0\u{7}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{1}\0\u{b}\u{a}\0\0\0\u{2} \0\0\u{3}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{3}\0\u{a}h\u{7}\0\0\u{2}0\0\0\u{5}\0\u{1}\0\u{b}i\u{7}\0\0\u{2}8\0\0\u{6}\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{7}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{a}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{3}\0\u{a}h\u{7}\0\0\u{2}\u{18}\0\0\u{5}\0\u{1}\0\u{b}i\u{7}\0\0\u{2}\u{1c}\0\0\u{6}\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{7}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{a}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{3}\0\u{a}h\u{7}\0\0\u{2}\u{18}\0\0\u{5}\0\u{1}\0\u{b}i\u{7}\0\0\u{2}\u{1c}\0\0\u{6}\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5493,6 +5574,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -5504,10 +5588,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{b}field1\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{b}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5554,6 +5638,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
@@ -5566,10 +5653,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{15}field1\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{15}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{15}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{15}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{15}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5616,6 +5703,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
@@ -5628,10 +5718,10 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{b}optional_group_all_types\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{b}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5678,6 +5768,9 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.OptionalGroup, rhs: SwiftProtoTesting_TestParsingMerge.OptionalGroup) -> Bool {
@@ -5690,10 +5783,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{15}repeated_group_all_types\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{15}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{15}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{15}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{15}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -5740,6 +5833,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
 
   func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _storage.merge(byReadingFrom: body, partial: partial, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedGroup, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedGroup) -> Bool {

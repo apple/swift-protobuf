@@ -40,10 +40,10 @@ import Foundation
 /// The **message layout header** describes properties of the entire message:
 ///
 /// ```
-/// +---------+--------------+-------------+----------------+-------------------+
-/// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Byte 10-12        |
-/// | Version | Message size | Field count | Required count | Density threshold |
-/// +---------+--------------+-------------+----------------+-------------------+
+/// +---------+--------------+-------------+----------------+-------------------------+-------------------+
+/// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Bytes 10-12             | Byte 13-15        |
+/// | Version | Message size | Field count | Required count | Explicit presence count | Density threshold |
+/// +---------+--------------+-------------+----------------+-------------------------+-------------------+
 /// ```
 /// *   Byte 0: A `UInt8` that describes the version of the layout. Currently, this is always 0.
 ///     This value allows for future enhancements to be made to the layout but preserving backward
@@ -56,7 +56,10 @@ import Foundation
 ///     (https://github.com/protocolbuffers/protobuf/commit/90824aaa69000452bff5ad8db3240215a3b9a595)
 ///     since larger messages would overflow various data structures.
 /// *   Bytes 7-9: The number of required fields defined by the message, as a base-128 integer.
-/// *   Bytes 10-12: The largest field number `N` for which all fields in the range `1..<N` are
+/// *   Bytes 10-12: The number of fields that have explicit presence, as a base-128 integer. Note
+///     that this will always be greater than or equal to the required count, because required
+///     fields also have explicit presence.
+/// *   Bytes 13-15: The largest field number `N` for which all fields in the range `1..<N` are
 ///     inhabited, as a base-128 integer. We only need three bytes to represent this because the
 ///     largest possible number is 65537; otherwise, it would imply that the message had more than
 ///     65536 fields in violation of the bound above.
@@ -234,12 +237,21 @@ extension _MessageLayout {
         fixed3ByteBase128(in: layout, atByteOffset: 7)
     }
 
+    /// The number of fields defined by the message that have explicit presence.
+    ///
+    /// Fields with explicit presence have their has-bits arranged after the required has-bits but
+    /// before those with implicit presence so that we can determine the nature of a field's
+    /// presence without increasing the size of field layouts.
+    var explicitPresenceCount: Int {
+        fixed3ByteBase128(in: layout, atByteOffset: 10)
+    }
+
     /// The largest field number `N` for which all fields in the range `1..<N` are inhabited.
     ///
     /// Looking up the field layout for a field below `N` can be done via constant-time random
     /// access; fields numbered `N` or higher must be found via binary search.
     var denseBelow: UInt32 {
-        UInt32(fixed3ByteBase128(in: layout, atByteOffset: 10))
+        UInt32(fixed3ByteBase128(in: layout, atByteOffset: 13))
     }
 
     /// Returns a value indicating whether or not the given field is required.
@@ -247,10 +259,16 @@ extension _MessageLayout {
         let raw = field.rawPresence
         return 0 <= raw && raw < requiredCount
     }
+
+    /// Returns a value indicating whether ot not the given field has explicit presence.
+    func fieldHasPresence(_ field: FieldLayout) -> Bool {
+        let raw = field.rawPresence
+        return 0 <= raw && raw < explicitPresenceCount
+    }
 }
 
 /// The size, in bytes, of the header the describes the overall message layout.
-private var messageLayoutHeaderSize: Int { 13 }
+private var messageLayoutHeaderSize: Int { 16 }
 
 /// The size, in bytes, of an encoded field layout in the static string representation.
 private var fieldLayoutSize: Int { 13 }
@@ -275,10 +293,9 @@ extension _MessageLayout {
     /// in field number order.
     var fields: some Sequence<FieldLayout> { IteratorSequence(FieldIterator(layout: self.layout)) }
 
-    /// Returns the layout for the field with the given number in the message.
-    ///
-    /// - Precondition: The field must be defined.
-    @usableFromInline subscript(fieldNumber number: UInt32) -> FieldLayout {
+    /// Returns the layout for the field with the given number in the message, or nil if the field
+    /// is not defined.
+    @usableFromInline subscript(fieldNumber number: UInt32) -> FieldLayout? {
         if number < denseBelow {
             let index = messageLayoutHeaderSize + (Int(number) - 1) * fieldLayoutSize
             return FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
@@ -299,7 +316,7 @@ extension _MessageLayout {
                 high = mid - 1
             }
         }
-        preconditionFailure("No field number \(number)")
+        return nil
     }
 }
 
@@ -391,6 +408,31 @@ extension _MessageLayout {
     /// Mode properties of the field.
     var fieldMode: FieldMode {
         FieldMode(rawValue: buffer.load(fromByteOffset: 4, as: UInt8.self) & 0x1e)
+    }
+
+    /// The wire format used by this field.
+    var wireFormat: WireFormat {
+        switch rawFieldType {
+        case .bool: return .varint
+        case .bytes: return .lengthDelimited
+        case .double: return .fixed64
+        case .enum: return .varint
+        case .fixed32: return .fixed32
+        case .fixed64: return .fixed64
+        case .float: return .fixed32
+        case .group: return .startGroup
+        case .int32: return .varint
+        case .int64: return .varint
+        case .message: return .lengthDelimited
+        case .sfixed32: return .fixed32
+        case .sfixed64: return .fixed64
+        case .sint32: return .varint
+        case .sint64: return .varint
+        case .string: return .lengthDelimited
+        case .uint32: return .varint
+        case .uint64: return .varint
+        default: preconditionFailure("Unreachable")
+        }
     }
 
     /// The in-memory stride of a value of this field's type on the current platform.

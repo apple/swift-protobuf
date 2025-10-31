@@ -135,8 +135,9 @@ extension Message {
     // allowing the generic over `SwiftProtobufContiguousBytes` to get better codegen from the
     // compiler by being `@inlinable`. For some discussion on this see
     // https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
-    @usableFromInline
-    internal mutating func _merge(
+    // TODO: I had to undo the `@usableFromInline` when making this public. Once we refactor these
+    // initializers (and revert this method from being a protocol requirement), put it back.
+    public mutating func _merge(
         rawBuffer body: UnsafeRawBufferPointer,
         extensions: (any ExtensionMap)?,
         partial: Bool,

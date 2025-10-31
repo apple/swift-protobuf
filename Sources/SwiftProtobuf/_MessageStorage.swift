@@ -316,7 +316,19 @@ extension _MessageStorage {
     }
 }
 
-// MARK: - Field readers
+// MARK: - Field readers used during encoding
+
+extension _MessageStorage {
+    /// Returns the value at the given offset in the storage.
+    ///
+    /// - Precondition: The value must already be known to be present.
+    @_alwaysEmitIntoClient @inline(__always)
+    func assumedPresentValue<Value>(at offset: Int, as type: Value.Type = Value.self) -> Value {
+        (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+    }
+}
+
+// MARK: - Field readers used by generated accessors
 
 // The field reader functions have some explicit specializations (both concrete and more-constrained
 // generic) for cases where we want to encode a "default default value". This reduces the amount of
@@ -332,14 +344,6 @@ extension _MessageStorage {
 // which point we can conditionally switch to those names to guarantee the behavior.
 
 extension _MessageStorage {
-    /// Returns the value at the given offset in the storage.
-    ///
-    /// - Precondition: The value must already be known to be present.
-    @_alwaysEmitIntoClient @inline(__always)
-    func assumedPresentValue<Value>(at offset: Int, as type: Value.Type = Value.self) -> Value {
-        (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
-    }
-
     /// Returns the `Bool` value at the given offset in the storage, or the default value if the
     /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
@@ -437,7 +441,7 @@ extension _MessageStorage {
     }
 }
 
-// MARK: - Field mutators
+// MARK: - Field mutators used by generated accessors
 
 // As with the readers above, we have some concrete specializations of `updateValue` for trivial
 // types, since they can just store the new value (whether it's zero or some other non-zero default)
@@ -446,6 +450,9 @@ extension _MessageStorage {
 // The generic implementation handles non-trivial cases, where we need to deinitialize an old value
 // that's present and then decide what to do with the incoming state. If the field will be
 // set/present, we store the new value; otherwise, we leave it uninitialized and zero it out.
+//
+// These APIs take the offset and has-bit directly because generating that produces more efficient
+// code for accessors than one that would have to extract the same information from a `FieldLayout`.
 
 extension _MessageStorage {
     /// Updates the `Bool` value at the given offset in the storage, along with its presence.
@@ -538,6 +545,158 @@ extension _MessageStorage {
 
     // TODO: Implement accessors/mutators for remaining types:
     // - Enums
+}
+
+// MARK: - Field mutators used for parsing and reflection APIs
+
+// Unlike the above APIs, these only take a `FieldLayout` as an argument. These are used when
+// parsing messages and in reflection APIs, where we don't know the nature of an arbitrary field's
+// explicit presence (or lack of it) as we do when we generate accessors directly.
+
+extension _MessageStorage {
+    /// Updates the `Bool` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: Bool) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : newValue,
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `Int32` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: Int32) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : (newValue != 0),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `UInt32` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: UInt32) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : (newValue != 0),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `Int64` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: Int64) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : (newValue != 0),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `UInt64` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: UInt64) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : (newValue != 0),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `Float` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: Float) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : (newValue != 0),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `Double` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: Double) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : (newValue != 0),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `String` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: String) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : !newValue.isEmpty,
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Updates the `Data` value of the given field, tracking its presence accordingly.
+    func updateValue(of field: FieldLayout, to newValue: Data) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : !newValue.isEmpty,
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
 }
 
 // MARK: - Oneof support
@@ -670,7 +829,8 @@ extension _MessageStorage {
         let rawPointer = buffer.baseAddress! + offset
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         rawPointer.bindMemory(to: Bool.self, capacity: 1).pointee = newValue
     }
@@ -680,7 +840,8 @@ extension _MessageStorage {
     public func updateValue(at offset: Int, to newValue: Int32, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee = newValue
     }
@@ -690,7 +851,8 @@ extension _MessageStorage {
     public func updateValue(at offset: Int, to newValue: UInt32, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee = newValue
     }
@@ -700,7 +862,8 @@ extension _MessageStorage {
     public func updateValue(at offset: Int, to newValue: Int64, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee = newValue
     }
@@ -710,7 +873,8 @@ extension _MessageStorage {
     public func updateValue(at offset: Int, to newValue: UInt64, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee = newValue
     }
@@ -720,7 +884,8 @@ extension _MessageStorage {
     public func updateValue(at offset: Int, to newValue: Float, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee = newValue
     }
@@ -730,7 +895,8 @@ extension _MessageStorage {
     public func updateValue(at offset: Int, to newValue: Double, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee = newValue
     }
@@ -740,7 +906,8 @@ extension _MessageStorage {
     public func updateValue<T>(at offset: Int, to newValue: T, oneofPresence: OneofPresence) {
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
-            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
         }
         (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).initialize(to: newValue)
     }
@@ -751,7 +918,8 @@ extension _MessageStorage {
     public func clearPopulatedOneofMember(at oneofOffset: Int) {
         let oldFieldNumber = updatePopulatedOneofMember((offset: oneofOffset, fieldNumber: 0))
         guard oldFieldNumber != 0 else { return }
-        deinitializeOneofMember(layout[fieldNumber: oldFieldNumber])
+        // We can force-unwrap this because the field must exist or it would be a generator bug.
+        deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
     }
 
     /// Deinitializes the value for the given field that is a oneof member and zeros out the
