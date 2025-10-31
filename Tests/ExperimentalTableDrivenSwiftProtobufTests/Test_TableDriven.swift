@@ -323,6 +323,31 @@ final class Test_TableDriven: XCTestCase {
         assertEncode([8, 128, 128, 128, 128, 248, 255, 255, 255, 255, 1]) { (o: inout MessageTestType) in
             o.optionalInt32 = Int32.min
         }
+        assertDecodeSucceeds([8, 1]) { $0.optionalInt32 == 1 }
+
+        // Technically, this overflows Int32, but we truncate and accept it.
+        assertDecodeSucceeds([8, 255, 255, 255, 255, 255, 255, 1]) {
+            if $0.hasOptionalInt32 {
+                return $0.optionalInt32 == -1
+            } else {
+                XCTFail("Nonexistent value")
+                return false
+            }
+        }
+
+        // We should recognize a valid field after an unknown field:
+        assertDecodeSucceeds([208, 41, 0, 8, 1]) { $0.optionalInt32 == 1 }
+
+        assertDecodeFails([8])
+        assertDecodeFails([9, 57])  // Cannot use wire type 1
+        assertDecodeFails([10, 58])  // Cannot use wire type 2
+        assertDecodeFails([11, 59])  // Cannot use wire type 3
+        assertDecodeFails([12, 60])  // Cannot use wire type 4
+        assertDecodeFails([13, 61])  // Cannot use wire type 5
+        assertDecodeFails([14, 62])  // Cannot use wire type 6
+        assertDecodeFails([15, 63])  // Cannot use wire type 7
+        assertDecodeFails([8, 188])
+        assertDecodeFails([8])
     }
 
     func testEncoding_optionalInt64() {
@@ -333,11 +358,35 @@ final class Test_TableDriven: XCTestCase {
         assertEncode([16, 128, 128, 128, 128, 128, 128, 128, 128, 128, 1]) { (o: inout MessageTestType) in
             o.optionalInt64 = Int64.min
         }
+
+        assertDecodeSucceeds([16, 184, 156, 195, 145, 203, 1]) { $0.optionalInt64 == 54_529_150_520 }
+
+        assertDecodeFails([16])
+        assertDecodeFails([16, 184, 156, 195, 145, 203])
+        assertDecodeFails([17, 81])
+        assertDecodeFails([18, 82])
+        assertDecodeFails([19, 83])
+        assertDecodeFails([20, 84])
+        assertDecodeFails([21, 85])
+        assertDecodeFails([22, 86])
+        assertDecodeFails([23, 87])
     }
 
     func testEncoding_optionalUint32() {
         assertEncode([24, 255, 255, 255, 255, 15]) { (o: inout MessageTestType) in o.optionalUint32 = UInt32.max }
         assertEncode([24, 0]) { (o: inout MessageTestType) in o.optionalUint32 = UInt32.min }
+
+        assertDecodeSucceeds([24, 149, 88]) { $0.optionalUint32 == 11285 }
+
+        assertDecodeFails([24])
+        assertDecodeFails([24, 149])
+        assertDecodeFails([25, 105])
+        assertDecodeFails([26, 106])
+        assertDecodeFails([27, 107])
+        assertDecodeFails([28, 108])
+        assertDecodeFails([29, 109])
+        assertDecodeFails([30, 110])
+        assertDecodeFails([31, 111])
     }
 
     func testEncoding_optionalUint64() {
@@ -345,11 +394,63 @@ final class Test_TableDriven: XCTestCase {
             o.optionalUint64 = UInt64.max
         }
         assertEncode([32, 0]) { (o: inout MessageTestType) in o.optionalUint64 = UInt64.min }
+
+        assertDecodeSucceeds([32, 149, 7]) { $0.optionalUint64 == 917 }
+        assertDecodeFails([32])
+        assertDecodeFails([32, 149])
+        assertDecodeFails([32, 149, 190, 193, 230, 186, 233, 166, 219])
+        assertDecodeFails([33])
+        assertDecodeFails([33, 0])
+        assertDecodeFails([33, 8, 0])
+        assertDecodeFails([34])
+        assertDecodeFails([34, 8, 0])
+        assertDecodeFails([35])
+        assertDecodeFails([35, 0])
+        assertDecodeFails([35, 8, 0])
+        assertDecodeFails([36])
+        assertDecodeFails([36, 0])
+        assertDecodeFails([36, 8, 0])
+        assertDecodeFails([37])
+        assertDecodeFails([37, 0])
+        assertDecodeFails([37, 8, 0])
+        assertDecodeFails([38])
+        assertDecodeFails([38, 0])
+        assertDecodeFails([38, 8, 0])
+        assertDecodeFails([39])
+        assertDecodeFails([39, 0])
+        assertDecodeFails([39, 8, 0])
     }
 
     func testEncoding_optionalSint32() {
         assertEncode([40, 254, 255, 255, 255, 15]) { (o: inout MessageTestType) in o.optionalSint32 = Int32.max }
         assertEncode([40, 255, 255, 255, 255, 15]) { (o: inout MessageTestType) in o.optionalSint32 = Int32.min }
+
+        assertDecodeSucceeds([40, 0x81, 0x82, 0x80, 0x00]) { $0.optionalSint32 == -129 }
+        assertDecodeSucceeds([40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00]) {
+            $0.optionalSint32 == 0
+        }
+
+        // Truncate on overflow
+        assertDecodeSucceeds([40, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f]) { $0.optionalSint32 == -2_147_483_648 }
+        assertDecodeSucceeds([40, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f]) { $0.optionalSint32 == 2_147_483_647 }
+
+        assertDecodeFails([40])
+        assertDecodeFails([
+            40, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00,
+        ])
+        assertDecodeFails([41])
+        assertDecodeFails([41, 0])
+        assertDecodeFails([42])
+        assertDecodeFails([43])
+        assertDecodeFails([43, 0])
+        assertDecodeFails([44])
+        assertDecodeFails([44, 0])
+        assertDecodeFails([45])
+        assertDecodeFails([45, 0])
+        assertDecodeFails([46])
+        assertDecodeFails([46, 0])
+        assertDecodeFails([47])
+        assertDecodeFails([47, 0])
     }
 
     func testEncoding_optionalSint64() {
@@ -359,11 +460,55 @@ final class Test_TableDriven: XCTestCase {
         assertEncode([48, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) { (o: inout MessageTestType) in
             o.optionalSint64 = Int64.min
         }
+
+        assertDecodeSucceeds([48, 139, 94]) { $0.optionalSint64 == -6022 }
+
+        assertDecodeFails([48])
+        assertDecodeFails([48, 139])
+        assertDecodeFails([49])
+        assertDecodeFails([49, 0])
+        assertDecodeFails([50])
+        assertDecodeFails([51])
+        assertDecodeFails([51, 0])
+        assertDecodeFails([52])
+        assertDecodeFails([52, 0])
+        assertDecodeFails([53])
+        assertDecodeFails([53, 0])
+        assertDecodeFails([54])
+        assertDecodeFails([54, 0])
+        assertDecodeFails([55])
+        assertDecodeFails([55, 0])
     }
 
     func testEncoding_optionalFixed32() {
         assertEncode([61, 255, 255, 255, 255]) { (o: inout MessageTestType) in o.optionalFixed32 = UInt32.max }
         assertEncode([61, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFixed32 = UInt32.min }
+
+        assertDecodeSucceeds([61, 8, 12, 108, 1]) { $0.optionalFixed32 == 23_858_184 }
+
+        assertDecodeFails([61])
+        assertDecodeFails([61, 255])
+        assertDecodeFails([61, 255, 255])
+        assertDecodeFails([61, 255, 255, 255])
+        assertDecodeFails([56])
+        assertDecodeFails([56, 0, 0, 0, 0])
+        assertDecodeFails([57])
+        assertDecodeFails([57, 0])
+        assertDecodeFails([57, 0, 0, 0, 0])
+        assertDecodeFails([58])
+        assertDecodeFails([58, 0, 0, 0, 0])
+        assertDecodeFails([59])
+        assertDecodeFails([59, 0])
+        assertDecodeFails([59, 0, 0, 0, 0])
+        assertDecodeFails([60])
+        assertDecodeFails([60, 0])
+        assertDecodeFails([60, 0, 0, 0, 0])
+        assertDecodeFails([62])
+        assertDecodeFails([62, 0])
+        assertDecodeFails([62, 0, 0, 0, 0])
+        assertDecodeFails([63])
+        assertDecodeFails([63, 0])
+        assertDecodeFails([63, 0, 0, 0, 0])
     }
 
     func testEncoding_optionalFixed64() {
@@ -371,11 +516,70 @@ final class Test_TableDriven: XCTestCase {
             o.optionalFixed64 = UInt64.max
         }
         assertEncode([65, 0, 0, 0, 0, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFixed64 = UInt64.min }
+
+        assertDecodeSucceeds([65, 255, 255, 255, 255, 255, 255, 255, 255]) {
+            $0.optionalFixed64 == 18_446_744_073_709_551_615
+        }
+        assertDecodeFails([65])
+        assertDecodeFails([65, 255])
+        assertDecodeFails([65, 255, 255])
+        assertDecodeFails([65, 255, 255, 255])
+        assertDecodeFails([65, 255, 255, 255, 255])
+        assertDecodeFails([65, 255, 255, 255, 255, 255])
+        assertDecodeFails([65, 255, 255, 255, 255, 255, 255])
+        assertDecodeFails([65, 255, 255, 255, 255, 255, 255, 255])
+        assertDecodeFails([64])
+        assertDecodeFails([64, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([66])
+        assertDecodeFails([66, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([67])
+        assertDecodeFails([67, 0])
+        assertDecodeFails([67, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([68])
+        assertDecodeFails([68, 0])
+        assertDecodeFails([68, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([69])
+        assertDecodeFails([69, 0])
+        assertDecodeFails([69, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([69])
+        assertDecodeFails([69, 0])
+        assertDecodeFails([70, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([71])
+        assertDecodeFails([71, 0])
+        assertDecodeFails([71, 0, 0, 0, 0, 0, 0, 0, 0])
     }
 
     func testEncoding_optionalSfixed32() {
         assertEncode([77, 255, 255, 255, 127]) { (o: inout MessageTestType) in o.optionalSfixed32 = Int32.max }
         assertEncode([77, 0, 0, 0, 128]) { (o: inout MessageTestType) in o.optionalSfixed32 = Int32.min }
+
+        assertDecodeSucceeds([77, 0, 0, 0, 0]) { $0.optionalSfixed32 == 0 }
+        assertDecodeSucceeds([77, 255, 255, 255, 255]) { $0.optionalSfixed32 == -1 }
+
+        assertDecodeFails([77])
+        assertDecodeFails([77])
+        assertDecodeFails([77, 0])
+        assertDecodeFails([77, 0, 0])
+        assertDecodeFails([77, 0, 0, 0])
+        assertDecodeFails([72])
+        assertDecodeFails([72, 0, 0, 0, 0])
+        assertDecodeFails([73])
+        assertDecodeFails([73, 0])
+        assertDecodeFails([73, 0, 0, 0, 0])
+        assertDecodeFails([74])
+        assertDecodeFails([74, 0, 0, 0, 0])
+        assertDecodeFails([75])
+        assertDecodeFails([75, 0])
+        assertDecodeFails([75, 0, 0, 0, 0])
+        assertDecodeFails([76])
+        assertDecodeFails([76, 0])
+        assertDecodeFails([76, 0, 0, 0, 0])
+        assertDecodeFails([78])
+        assertDecodeFails([78, 0])
+        assertDecodeFails([78, 0, 0, 0, 0])
+        assertDecodeFails([79])
+        assertDecodeFails([79, 0])
+        assertDecodeFails([79, 0, 0, 0, 0])
     }
 
     func testEncoding_optionalSfixed64() {
@@ -383,23 +587,125 @@ final class Test_TableDriven: XCTestCase {
             o.optionalSfixed64 = Int64.max
         }
         assertEncode([81, 0, 0, 0, 0, 0, 0, 0, 128]) { (o: inout MessageTestType) in o.optionalSfixed64 = Int64.min }
+
+        assertDecodeSucceeds([81, 0, 0, 0, 0, 0, 0, 0, 128]) { $0.optionalSfixed64 == -9_223_372_036_854_775_808 }
+
+        assertDecodeFails([81])
+        assertDecodeFails([81, 0])
+        assertDecodeFails([81, 0, 0])
+        assertDecodeFails([81, 0, 0, 0])
+        assertDecodeFails([81, 0, 0, 0, 0])
+        assertDecodeFails([81, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([80])
+        assertDecodeFails([80, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([82])
+        assertDecodeFails([82, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([83])
+        assertDecodeFails([83, 0])
+        assertDecodeFails([83, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([84])
+        assertDecodeFails([84, 0])
+        assertDecodeFails([84, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([85])
+        assertDecodeFails([85, 0])
+        assertDecodeFails([85, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([86])
+        assertDecodeFails([86, 0])
+        assertDecodeFails([86, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([87])
+        assertDecodeFails([87, 0])
+        assertDecodeFails([87, 0, 0, 0, 0, 0, 0, 0, 0])
     }
 
     func testEncoding_optionalFloat() {
         assertEncode([93, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFloat = 0.0 }
         assertEncode([93, 0, 0, 0, 63]) { (o: inout MessageTestType) in o.optionalFloat = 0.5 }
         assertEncode([93, 0, 0, 0, 64]) { (o: inout MessageTestType) in o.optionalFloat = 2.0 }
+
+        assertDecodeSucceeds([93, 0, 0, 0, 0]) {
+            if $0.hasOptionalFloat {
+                return $0.optionalFloat == 0
+            } else {
+                XCTFail("Nonexistent value")
+                return false
+            }
+        }
+
+        assertDecodeFails([93, 0, 0, 0])
+        assertDecodeFails([93, 0, 0])
+        assertDecodeFails([93, 0])
+        assertDecodeFails([93])
+        assertDecodeFails([88])  // Float cannot use wire type 0
+        assertDecodeFails([89])  // Float cannot use wire type 1
+        assertDecodeFails([89, 0, 0, 0, 0])  // Float cannot use wire type 1
+        assertDecodeFails([90])  // Float cannot use wire type 2
+        assertDecodeFails([91])  // Float cannot use wire type 3
+        assertDecodeFails([91, 0, 0, 0, 0])  // Float cannot use wire type 3
+        assertDecodeFails([92])  // Float cannot use wire type 4
+        assertDecodeFails([92, 0, 0, 0, 0])  // Float cannot use wire type 4
+        assertDecodeFails([94])  // Float cannot use wire type 6
+        assertDecodeFails([94, 0, 0, 0, 0])  // Float cannot use wire type 6
+        assertDecodeFails([95])  // Float cannot use wire type 7
+        assertDecodeFails([95, 0, 0, 0, 0])  // Float cannot use wire type 7
     }
 
     func testEncoding_optionalDouble() {
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalDouble = 0.0 }
         assertEncode([97, 0, 0, 0, 0, 0, 0, 224, 63]) { (o: inout MessageTestType) in o.optionalDouble = 0.5 }
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 64]) { (o: inout MessageTestType) in o.optionalDouble = 2.0 }
+
+        assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 224, 63]) { $0.optionalDouble == 0.5 }
+
+        assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
+        assertDecodeFails([97])
+        assertDecodeFails([96])
+        assertDecodeFails([96, 10, 10, 10, 10, 10, 10, 10, 10])
+        assertDecodeFails([98])
+        assertDecodeFails([98, 10, 10, 10, 10, 10, 10, 10, 10])
+        assertDecodeFails([99])
+        assertDecodeFails([99, 0])
+        assertDecodeFails([99, 10, 10, 10, 10, 10, 10, 10, 10])
+        assertDecodeFails([100])
+        assertDecodeFails([100, 0])
+        assertDecodeFails([100, 10, 10, 10, 10, 10, 10, 10, 10])
+        assertDecodeFails([101])
+        assertDecodeFails([101, 0])
+        assertDecodeFails([101, 10, 10, 10, 10, 10, 10, 10, 10])
+        assertDecodeFails([101])
+        assertDecodeFails([102, 0])
+        assertDecodeFails([102, 10, 10, 10, 10, 10, 10, 10, 10])
+        assertDecodeFails([103])
+        assertDecodeFails([103, 0])
+        assertDecodeFails([103, 10, 10, 10, 10, 10, 10, 10, 10])
     }
 
     func testEncoding_optionalBool() {
         assertEncode([104, 0]) { (o: inout MessageTestType) in o.optionalBool = false }
         assertEncode([104, 1]) { (o: inout MessageTestType) in o.optionalBool = true }
+
+        assertDecodeSucceeds([104, 1]) {
+            if $0.hasOptionalBool {
+                return $0.optionalBool == true
+            } else {
+                XCTFail("Nonexistent value")
+                return false
+            }
+        }
+        assertDecodeFails([104])
+        assertDecodeFails([104, 255])
+        assertDecodeFails([105])
+        assertDecodeFails([105, 0])
+        assertDecodeFails([106])
+        assertDecodeFails([107])
+        assertDecodeFails([107, 0])
+        assertDecodeFails([108])
+        assertDecodeFails([108, 0])
+        assertDecodeFails([109])
+        assertDecodeFails([109, 0])
+        assertDecodeFails([110])
+        assertDecodeFails([110, 0])
+        assertDecodeFails([111])
+        assertDecodeFails([111, 0])
     }
 
     func testEncoding_optionalString() {
@@ -408,6 +714,54 @@ final class Test_TableDriven: XCTestCase {
         assertEncode([114, 4, 0xf0, 0x9f, 0x98, 0x84]) { (o: inout MessageTestType) in o.optionalString = "😄" }
         assertEncode([114, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) { (o: inout MessageTestType) in
             o.optionalString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}\u{08}\u{09}\u{0a}"
+        }
+
+        assertDecodeSucceeds([114, 5, 72, 101, 108, 108, 111]) {
+            if $0.hasOptionalString {
+                return $0.optionalString == "Hello"
+            } else {
+                XCTFail("Nonexistent value")
+                return false
+            }
+        }
+        assertDecodeSucceeds([114, 4, 97, 0, 98, 99]) {
+            $0.optionalString == "a\0bc"
+        }
+        assertDecodeSucceeds([114, 16, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]) {
+            $0.optionalString
+                == "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
+        }
+        assertDecodeSucceeds([114, 16, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]) {
+            $0.optionalString
+                == "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
+        }
+        assertDecodeFails([114])
+        assertDecodeFails([114, 1])
+        assertDecodeFails([114, 2, 65])
+        assertDecodeFails([114, 1, 193])  // Invalid UTF-8
+        assertDecodeFails([112])
+        assertDecodeFails([113])
+        assertDecodeFails([113, 0])
+        assertDecodeFails([115])
+        assertDecodeFails([115, 0])
+        assertDecodeFails([116])
+        assertDecodeFails([116, 0])
+        assertDecodeFails([117])
+        assertDecodeFails([117, 0])
+        assertDecodeFails([118])
+        assertDecodeFails([118, 0])
+        assertDecodeFails([119])
+        assertDecodeFails([119, 0])
+
+        // Ensure strings over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(
+            try MessageTestType(serializedBytes: [
+                114, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+                // Don't need all the bytes, want some to let the length issue trigger.
+                0x01, 0x02, 0x03,
+            ])
+        ) {
+            XCTAssertEqual($0 as! BinaryDecodingError, .malformedProtobuf)
         }
     }
 
@@ -423,6 +777,44 @@ final class Test_TableDriven: XCTestCase {
         assertEncode([122, 0]) { (o: inout MessageTestType) in o.optionalBytes = Data() }
         assertEncode([122, 1, 1]) { (o: inout MessageTestType) in o.optionalBytes = Data([1]) }
         assertEncode([122, 2, 1, 2]) { (o: inout MessageTestType) in o.optionalBytes = Data([1, 2]) }
+
+        assertDecodeSucceeds([122, 4, 0, 1, 2, 255]) {
+            if $0.hasOptionalBytes {
+                return $0.optionalBytes == Data([0, 1, 2, 255])
+            } else {
+                XCTFail("Nonexistent value")
+                return false
+            }
+        }
+
+        assertDecodeFails([122])
+        assertDecodeFails([122, 1])
+        assertDecodeFails([122, 2, 0])
+        assertDecodeFails([122, 3, 0, 0])
+        assertDecodeFails([120])
+        assertDecodeFails([121])
+        assertDecodeFails([121, 0])
+        assertDecodeFails([123])
+        assertDecodeFails([123, 0])
+        assertDecodeFails([124])
+        assertDecodeFails([124, 0])
+        assertDecodeFails([125])
+        assertDecodeFails([125, 0])
+        assertDecodeFails([126])
+        assertDecodeFails([126, 0])
+        assertDecodeFails([127])
+        assertDecodeFails([127, 0])
+
+        // Ensure bytes over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(
+            try MessageTestType(serializedBytes: [
+                122, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+                // Don't need all the bytes, want some to let the length issue trigger.
+                0x01, 0x02, 0x03,
+            ])
+        ) {
+            XCTAssertEqual($0 as! BinaryDecodingError, .malformedProtobuf)
+        }
     }
 
     func testEncoding_optionalNestedMessage() {
@@ -592,6 +984,9 @@ final class Test_TableDriven: XCTestCase {
         // The default is still not serialized
         let s: [UInt8] = try t.serializedBytes()
         XCTAssertEqual([], s)
+
+        assertDecodeSucceeds([]) { $0.defaultInt32 == 41 }
+        assertDecodeSucceeds([232, 3, 4]) { $0.defaultInt32 == 4 }
     }
 
     func testEncoding_defaultInt64() throws {
@@ -615,6 +1010,9 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultInt64 == 42 }
+        assertDecodeSucceeds([240, 3, 42]) { $0.defaultInt64 == 42 }
     }
 
     func testEncoding_defaultUint32() throws {
@@ -633,6 +1031,9 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultUint32 == 43 }
+        assertDecodeSucceeds([248, 3, 43]) { $0.defaultUint32 == 43 }
     }
 
     func testEncoding_defaultUint64() throws {
@@ -651,6 +1052,9 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultUint64 == 44 }
+        assertDecodeSucceeds([128, 4, 44]) { $0.defaultUint64 == 44 }
     }
 
     func testEncoding_defaultSint32() throws {
@@ -669,6 +1073,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultSint32 == -45 }
+        assertDecodeSucceeds([136, 4, 89]) { $0.defaultSint32 == -45 }
+        assertDecodeSucceeds([136, 4, 0]) { $0.defaultSint32 == 0 }
     }
 
     func testEncoding_defaultSint64() throws {
@@ -687,6 +1095,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultSint64 == 46 }
+        assertDecodeSucceeds([144, 4, 92]) { $0.defaultSint64 == 46 }
+        assertDecodeSucceeds([144, 4, 0]) { $0.defaultSint64 == 0 }
     }
 
     func testEncoding_defaultFixed32() throws {
@@ -705,6 +1117,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultFixed32 == 47 }
+        assertDecodeSucceeds([157, 4, 47, 0, 0, 0]) { $0.defaultFixed32 == 47 }
+        assertDecodeSucceeds([157, 4, 0, 0, 0, 0]) { $0.defaultFixed32 == 0 }
     }
 
     func testEncoding_defaultFixed64() throws {
@@ -723,6 +1139,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultFixed64 == 48 }
+        assertDecodeSucceeds([161, 4, 48, 0, 0, 0, 0, 0, 0, 0]) { $0.defaultFixed64 == 48 }
+        assertDecodeSucceeds([161, 4, 0, 0, 0, 0, 0, 0, 0, 0]) { $0.defaultFixed64 == 0 }
     }
 
     func testEncoding_defaultSfixed32() throws {
@@ -741,6 +1161,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultSfixed32 == 49 }
+        assertDecodeSucceeds([173, 4, 49, 0, 0, 0]) { $0.defaultSfixed32 == 49 }
+        assertDecodeSucceeds([173, 4, 0, 0, 0, 0]) { $0.defaultSfixed32 == 0 }
     }
 
     func testEncoding_defaultSfixed64() throws {
@@ -759,6 +1183,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultSfixed64 == -50 }
+        assertDecodeSucceeds([177, 4, 206, 255, 255, 255, 255, 255, 255, 255]) { $0.defaultSfixed64 == -50 }
+        assertDecodeSucceeds([177, 4, 0, 0, 0, 0, 0, 0, 0, 0]) { $0.defaultSfixed64 == 0 }
     }
 
     func testEncoding_defaultFloat() throws {
@@ -777,6 +1205,10 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultFloat == 51.5 }
+        assertDecodeSucceeds([189, 4, 0, 0, 0, 0]) { $0.defaultFloat == 0 }
+        assertDecodeSucceeds([189, 4, 0, 0, 78, 66]) { $0.defaultFloat == 51.5 }
     }
 
     func testEncoding_defaultDouble() throws {
@@ -794,6 +1226,10 @@ final class Test_TableDriven: XCTestCase {
         b.optionalInt32 = 1
         a.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultDouble == 52e3 }
+        assertDecodeSucceeds([193, 4, 0, 0, 0, 0, 0, 0, 0, 0]) { $0.defaultDouble == 0 }
+        assertDecodeSucceeds([193, 4, 0, 0, 0, 0, 0, 100, 233, 64]) { $0.defaultDouble == 52e3 }
     }
 
     func testEncoding_defaultBool() throws {
@@ -813,6 +1249,10 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertNotEqual(a, b)
 
         assertEncode([200, 4, 0]) { (o: inout MessageTestType) in o.defaultBool = false }
+
+        assertDecodeSucceeds([]) { $0.defaultBool == true }
+        assertDecodeSucceeds([200, 4, 0]) { $0.defaultBool == false }
+        assertDecodeSucceeds([200, 4, 1]) { $0.defaultBool == true }
     }
 
     func testEncoding_defaultString() throws {
@@ -830,6 +1270,9 @@ final class Test_TableDriven: XCTestCase {
         a.optionalInt32 = 1
         b.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultString == "hello" }
+        assertDecodeSucceeds([210, 4, 1, 97]) { $0.defaultString == "a" }
     }
 
     func testEncoding_defaultBytes() throws {
@@ -847,10 +1290,37 @@ final class Test_TableDriven: XCTestCase {
         b.optionalInt32 = 1
         a.optionalInt32 = 1
         XCTAssertNotEqual(a, b)
+
+        assertDecodeSucceeds([]) { $0.defaultBytes == Data([119, 111, 114, 108, 100]) }
+        assertDecodeSucceeds([218, 4, 1, 1]) { $0.defaultBytes == Data([1]) }
     }
 
     func testEncoding_oneofUint32() throws {
         assertEncode([248, 6, 0]) { (o: inout MessageTestType) in o.oneofUint32 = 0 }
+
+        assertDecodeSucceeds([248, 6, 255, 255, 255, 255, 15]) { $0.oneofUint32 == UInt32.max }
+        assertDecodeSucceeds([138, 7, 1, 97, 248, 6, 1]) { (o: MessageTestType) in
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == UInt32(1) {
+                return true
+            }
+            return false
+        }
+
+        assertDecodeFails([248, 6, 128])  // Bad varint
+        // Bad wire types:
+        assertDecodeFails([249, 6])
+        assertDecodeFails([249, 6, 0])
+        assertDecodeFails([250, 6])
+        assertDecodeFails([251, 6])
+        assertDecodeFails([251, 6, 0])
+        assertDecodeFails([252, 6])
+        assertDecodeFails([252, 6, 0])
+        assertDecodeFails([253, 6])
+        assertDecodeFails([253, 6, 0])
+        assertDecodeFails([254, 6])
+        assertDecodeFails([254, 6, 0])
+        assertDecodeFails([255, 6])
+        assertDecodeFails([255, 6, 0])
     }
 
     func testEncoding_oneofNestedMessage() {
@@ -863,10 +1333,83 @@ final class Test_TableDriven: XCTestCase {
 
     func testEncoding_oneofString() {
         assertEncode([138, 7, 1, 97]) { (o: inout MessageTestType) in o.oneofString = "a" }
+
+        assertDecodeSucceeds([138, 7, 1, 97]) { $0.oneofString == "a" }
+        assertDecodeSucceeds([138, 7, 0]) { $0.oneofString == "" }
+        assertDecodeSucceeds([146, 7, 0, 138, 7, 1, 97]) { (o: MessageTestType) in
+            if case .oneofString? = o.oneofField, o.oneofString == "a" {
+                return true
+            }
+            return false
+        }
+        assertDecodeFails([138, 7, 1])  // Truncated body
+        assertDecodeFails([138, 7, 1, 192])  // Malformed UTF-8
+        // Bad wire types:
+        assertDecodeFails([139, 7])  // Wire type 3
+        assertDecodeFails([140, 7])  // Wire type 4
+        assertDecodeFails([141, 7, 0])  // Wire type 5
+        assertDecodeFails([142, 7])  // Wire type 6
+        assertDecodeFails([142, 7, 0])  // Wire type 6
+        assertDecodeFails([143, 7])  // Wire type 7
+        assertDecodeFails([143, 7, 0])  // Wire type 7
     }
 
     func testEncoding_oneofBytes() {
         assertEncode([146, 7, 1, 1]) { (o: inout MessageTestType) in o.oneofBytes = Data([1]) }
+    }
+
+    func testEncoding_oneofBytes2() {
+        assertDecodeSucceeds([146, 7, 1, 1]) { (o: MessageTestType) in
+            let expectedB = Data([1])
+            if case .oneofBytes(let b)? = o.oneofField {
+                let s = o.oneofString
+                return b == expectedB && s == ""
+            }
+            return false
+        }
+    }
+    func testEncoding_oneofBytes3() {
+        assertDecodeSucceeds([146, 7, 0]) { (o: MessageTestType) in
+            let expectedB = Data()
+            if case .oneofBytes(let b)? = o.oneofField {
+                let s = o.oneofString
+                return b == expectedB && s == ""
+            }
+            return false
+        }
+    }
+    func testEncoding_oneofBytes4() {
+        assertDecodeSucceeds([138, 7, 1, 97, 146, 7, 0]) { (o: MessageTestType) in
+            let expectedB = Data()
+            if case .oneofBytes(let b)? = o.oneofField {
+                let s = o.oneofString
+                return b == expectedB && s == ""
+            }
+            return false
+        }
+    }
+
+    func testEncoding_oneofBytes5() {
+        // Setting string and then bytes ends up with bytes but no string
+        assertDecodeFails([146, 7])
+    }
+
+    func testEncoding_oneofBytes_failures() {
+        assertDecodeFails([146, 7, 1])
+        // Bad wire types:
+        assertDecodeFails([144, 7])
+        assertDecodeFails([145, 7])
+        assertDecodeFails([145, 7, 0])
+        assertDecodeFails([147, 7])
+        assertDecodeFails([147, 7, 0])
+        assertDecodeFails([148, 7])
+        assertDecodeFails([148, 7, 0])
+        assertDecodeFails([149, 7])
+        assertDecodeFails([149, 7, 0])
+        assertDecodeFails([150, 7])
+        assertDecodeFails([150, 7, 0])
+        assertDecodeFails([151, 7])
+        assertDecodeFails([151, 7, 0])
     }
 
     func assertEncode(
@@ -890,5 +1433,42 @@ final class Test_TableDriven: XCTestCase {
         } catch let e {
             XCTFail("Failed to encode: \(e)", file: file, line: line)
         }
+    }
+
+    func assertDecodeSucceeds(
+        _ bytes: [UInt8],
+        file: StaticString = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
+        do {
+            let decoded = try MessageTestType(serializedBytes: bytes)
+            XCTAssert(check(decoded), "Condition failed for decode", file: file, line: line)
+
+            do {
+                let encoded: [UInt8] = try decoded.serializedBytes()
+                do {
+                    let redecoded = try MessageTestType(serializedBytes: encoded)
+                    XCTAssert(check(redecoded), "Condition failed for redecoded", file: file, line: line)
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch let e {
+                    XCTFail("Failed to redecode: \(e)", file: file, line: line)
+                }
+            } catch let e {
+                XCTFail("Failed to encode: \(e)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)", file: file, line: line)
+        }
+    }
+
+    func assertDecodeFails(_ bytes: [UInt8], file: StaticString = #file, line: UInt = #line) {
+        do {
+            let _ = try MessageTestType(serializedBytes: bytes)
+            XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
+        } catch {
+            // Yay!  It failed!
+        }
+
     }
 }
