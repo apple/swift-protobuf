@@ -86,6 +86,14 @@ struct MessageLayoutCalculator {
                 explicitPresenceCount += 1
             }
         }
+        assert(
+            requiredCount <= explicitPresenceCount,
+            "internal error: requiredCount should not be higher than explicitPresenceCount"
+        )
+        assert(
+            explicitPresenceCount <= fieldsSortedByNumber.count,
+            "internal error: explicitPresenceCount should not be higher than field count"
+        )
 
         // Compute the byte offset following the has-bits.
         var byteOffset = fieldCount / 8 + (fieldCount % 8 != 0 ? 1 : 0)

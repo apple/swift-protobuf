@@ -550,8 +550,8 @@ extension _MessageStorage {
 // MARK: - Field mutators used for parsing and reflection APIs
 
 // Unlike the above APIs, these only take a `FieldLayout` as an argument. These are used when
-// parsing messages and in reflection APIs, where we don't already know at generation time (as we
-// do for accessors) the nature of the field's explicit presence (or lack of it).
+// parsing messages and in reflection APIs, where we don't know the nature of an arbitrary field's
+// explicit presence (or lack of it) as we do when we generate accessors directly.
 
 extension _MessageStorage {
     /// Updates the `Bool` value of the given field, tracking its presence accordingly.
