@@ -228,7 +228,7 @@ struct WireFormatReader {
         let subBuffer = UnsafeRawBufferPointer(start: pointer, count: length)
         var subReader = WireFormatReader(
             buffer: subBuffer,
-            recursionBudget: recursionBudget - 1,
+            recursionBudget: recursionBudget &- 1,
             trackingGroupFieldNumber: 0
         )
         try perform(&subReader)
@@ -255,7 +255,7 @@ struct WireFormatReader {
         let subBuffer = UnsafeRawBufferPointer(start: pointer, count: available)
         var subReader = WireFormatReader(
             buffer: subBuffer,
-            recursionBudget: recursionBudget - 1,
+            recursionBudget: recursionBudget &- 1,
             trackingGroupFieldNumber: fieldNumber
         )
         try perform(&subReader)
@@ -293,6 +293,7 @@ struct WireFormatReader {
             guard recursionBudget > 0 else {
                 throw BinaryDecodingError.messageDepthLimit
             }
+            recursionBudget &-= 1
             while hasAvailableData {
                 let innerTag = try nextTagWithoutUpdatingLastTagPointer()
                 if innerTag.wireFormat == .endGroup {
@@ -301,6 +302,7 @@ struct WireFormatReader {
                         // not balanced.
                         throw BinaryDecodingError.malformedProtobuf
                     }
+                    recursionBudget &+= 1
                     break
                 } else {
                     _ = try sliceBySkippingField(tag: innerTag)
