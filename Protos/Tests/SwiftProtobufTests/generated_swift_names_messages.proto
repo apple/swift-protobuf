@@ -154,6 +154,7 @@ message GeneratedSwiftReservedMessages {
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
   message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
+  message clearRemovalError { int32 clearRemovalError = 1; }
   message clearRepeated { int32 clearRepeated = 1; }
   message clearRepeatedFieldEncoding { int32 clearRepeatedFieldEncoding = 1; }
   message clearReserved { int32 clearReserved = 1; }
@@ -508,6 +509,7 @@ message GeneratedSwiftReservedMessages {
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
   message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
+  message hasRemovalError { int32 hasRemovalError = 1; }
   message hasRepeated { int32 hasRepeated = 1; }
   message hasRepeatedFieldEncoding { int32 hasRepeatedFieldEncoding = 1; }
   message hasReserved { int32 hasReserved = 1; }
@@ -794,6 +796,7 @@ message GeneratedSwiftReservedMessages {
   message reader { int32 reader = 1; }
   message register { int32 register = 1; }
   message remainingProgram { int32 remainingProgram = 1; }
+  message removalError { int32 removalError = 1; }
   message removingAllFieldsOf { int32 removingAllFieldsOf = 1; }
   message repeated { int32 repeated = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
