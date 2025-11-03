@@ -23,20 +23,44 @@ struct WireFormatReader {
     /// The number of bytes that are still available to read from the buffer.
     private var available: Int
 
-    /// The maximum number of messages/groups that the reader will recurse into before throwing an
-    /// error.
-    private var messageDepthLimit: Int
-
-    /// The amount of recursion depth that is left before the reader will throw an error.
+    /// The maximum number of times that the reader can recurse via sub-readers (for message and
+    /// group parsing) before throwing an error.
     private var recursionBudget: Int
+
+    /// If non-zero, this indicates that the reader is being used to read a group with the given
+    /// field number.
+    ///
+    /// When the corresponding end-group tag is encountered, the reader will automatically update
+    /// its internal state such that `hasAvailableData` returns false.
+    private var trackingGroupFieldNumber: UInt32
 
     /// Creates a new `WireFormatReader` that reads from the given buffer.
     ///
     /// - Parameters:
     ///   - buffer: The raw buffer from which binary-formatted data will be read.
-    ///   - messageDepthLimit: The maximum number of messages/groups that the reader will recurse
-    ///     into before throwing an error.
-    init(buffer: UnsafeRawBufferPointer, messageDepthLimit: Int) {
+    ///   - recursionBudget: The maximum number of times that the reader can recurse via
+    ///     sub-readers (for message and group parsing) before throwing an error.
+    init(buffer: UnsafeRawBufferPointer, recursionBudget: Int) {
+        self.init(
+            buffer: buffer,
+            recursionBudget: recursionBudget,
+            trackingGroupFieldNumber: 0
+        )
+    }
+
+    /// Creates a new `WireFormatReader` with the given buffer and tracking information.
+    ///
+    /// - Parameters:
+    ///   - buffer: The raw buffer from which binary-formatted data will be read.
+    ///   - recursionBudget: The maximum number of times that the reader can recurse via
+    ///     sub-readers (for message and group parsing) before throwing an error.
+    ///   - trackingGroupFieldNumber: If non-zero, this indicates that the reader is currently
+    ///     reading a group with the given field number.
+    private init(
+        buffer: UnsafeRawBufferPointer,
+        recursionBudget: Int,
+        trackingGroupFieldNumber: UInt32
+    ) {
         if buffer.count > 0, let pointer = buffer.baseAddress {
             self.pointer = pointer
             self.lastTagPointer = pointer
@@ -46,13 +70,18 @@ struct WireFormatReader {
             self.lastTagPointer = nil
             self.available = 0
         }
-        self.messageDepthLimit = messageDepthLimit
-        self.recursionBudget = messageDepthLimit
+        self.recursionBudget = recursionBudget
+        self.trackingGroupFieldNumber = trackingGroupFieldNumber
     }
 
     /// Indicates whether there is still data available to be read in the buffer.
     var hasAvailableData: Bool {
         available > 0
+    }
+
+    /// Indicates whether the reader is currently inside a group.
+    var isTrackingGroup: Bool {
+        trackingGroupFieldNumber != 0
     }
 
     /// Reads the next varint from the input and returns the equivalent `FieldTag`, updating the
@@ -62,7 +91,19 @@ struct WireFormatReader {
     ///   converting to a tag.
     mutating func nextTag() throws -> FieldTag {
         self.lastTagPointer = pointer
-        return try nextTagWithoutUpdatingLastTagPointer()
+        let tag = try nextTagWithoutUpdatingLastTagPointer()
+
+        if tag.wireFormat == .endGroup {
+            // Verify that we're tracking a group and the field number matches the same field
+            // number.
+            guard trackingGroupFieldNumber == UInt32(tag.fieldNumber) else {
+                throw BinaryDecodingError.malformedProtobuf
+            }
+            available = 0
+            trackingGroupFieldNumber = 0
+        }
+
+        return tag
     }
 
     /// Reads the next varint from the input and returns the equivalent `FieldTag` without updating
@@ -173,6 +214,58 @@ struct WireFormatReader {
         return UnsafeRawBufferPointer(start: pointer, count: length)
     }
 
+    /// Calls the given function, passing it a reader that is configured only to read the slice of
+    /// the buffer whose length is defined by reading the next varint.
+    ///
+    /// After the function returns, this reader is advanced past that length to continue reading.
+    ///
+    /// - Throws: `BinaryDecodingError` if an error occurred while reading from the input.
+    mutating func withReaderForNextLengthDelimitedSlice(perform: (inout WireFormatReader) throws -> Void) throws {
+        guard recursionBudget > 0 else {
+            throw BinaryDecodingError.messageDepthLimit
+        }
+        let length = try nextVarintAsValidatedDelimitedLength()
+        let subBuffer = UnsafeRawBufferPointer(start: pointer, count: length)
+        var subReader = WireFormatReader(
+            buffer: subBuffer,
+            recursionBudget: recursionBudget - 1,
+            trackingGroupFieldNumber: 0
+        )
+        try perform(&subReader)
+        advance(by: length)
+    }
+
+    /// Calls the given function, passing it a reader that is configured only to read the slice of
+    /// the buffer up to the next end-group tag that has the same field number.
+    ///
+    /// After the function returns, this reader is advanced past that end-group tag to continue
+    /// reading.
+    ///
+    /// - Throws: `BinaryDecodingError` if an error occurred while reading from the input.
+    mutating func withReaderForNextGroup(
+        withFieldNumber fieldNumber: UInt32,
+        perform: (inout WireFormatReader) throws -> Void
+    ) throws {
+        guard recursionBudget > 0 else {
+            throw BinaryDecodingError.messageDepthLimit
+        }
+        // Unlike a length-delimited field, we don't know exactly where the group will end. Have
+        // the sub-reader start with the rest of the buffer, and after the the closure returns,
+        // we'll know how far to advance ourselves.
+        let subBuffer = UnsafeRawBufferPointer(start: pointer, count: available)
+        var subReader = WireFormatReader(
+            buffer: subBuffer,
+            recursionBudget: recursionBudget - 1,
+            trackingGroupFieldNumber: fieldNumber
+        )
+        try perform(&subReader)
+
+        guard let subPointer = subReader.pointer else {
+            throw BinaryDecodingError.truncated
+        }
+        advance(by: subPointer - pointer!)
+    }
+
     /// Advances the reader past the field at the current location, assuming it had the given tag,
     /// and returns a rebased `UnsafeRawBufferPointer` representing the slice of the buffer that
     /// includes the tag and subsequent data for that field.
@@ -197,7 +290,9 @@ struct WireFormatReader {
             advance(by: size)
 
         case .startGroup:
-            try incrementRecursionDepth()
+            guard recursionBudget > 0 else {
+                throw BinaryDecodingError.messageDepthLimit
+            }
             while hasAvailableData {
                 let innerTag = try nextTagWithoutUpdatingLastTagPointer()
                 if innerTag.wireFormat == .endGroup {
@@ -206,7 +301,6 @@ struct WireFormatReader {
                         // not balanced.
                         throw BinaryDecodingError.malformedProtobuf
                     }
-                    decrementRecursionDepth()
                     break
                 } else {
                     _ = try sliceBySkippingField(tag: innerTag)
@@ -234,25 +328,5 @@ struct WireFormatReader {
         )
         available &-= length
         pointer! += length
-    }
-
-    /// Tracks that the reader is entering a new message or group.
-    ///
-    /// - Throws: `BinaryDecodingError` if the recursion limit has been exceeded.
-    private mutating func incrementRecursionDepth() throws {
-        recursionBudget &-= 1
-        if recursionBudget < 0 {
-            throw BinaryDecodingError.messageDepthLimit
-        }
-    }
-
-    /// Tracks that the reader is exiting a message or group.
-    private mutating func decrementRecursionDepth() {
-        recursionBudget &+= 1
-        // This should never happen. If it does, something is probably corrupting memory, and
-        // simply throwing doesn't make much sense.
-        if recursionBudget > messageDepthLimit {
-            preconditionFailure("Internal error: Binary decoding exited more messages/groups than it entered")
-        }
     }
 }

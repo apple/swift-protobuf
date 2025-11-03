@@ -259,16 +259,36 @@ extension _MessageStorage {
     /// Called by generated trampoline functions to invoke the given closure on the storage of a
     /// singular submessage, providing the type hint of the concrete message type.
     ///
-    /// - Precondition: The field is already known to be present.
+    /// - Precondition: For read operations, the field is already known to be present.
     ///
     /// - Returns: The value returned from the closure.
     public func performOnSubmessageStorage<T: _MessageImplementationBase>(
         of field: FieldLayout,
+        operation: SubmessageStorageOperation,
         type: T.Type,
         perform: (_MessageStorage) throws -> Bool
     ) rethrows -> Bool {
-        let submessage = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee
-        return try perform(submessage.storageForRuntime)
+        switch operation {
+        case .read:
+            let submessage = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee
+            return try perform(submessage.storageForRuntime)
+        case .mutate:
+            // If the submessage isn't already present, we need to initialize a new one first.
+            // Otherwise, ensure that the storage is unique before we mutate it for CoW.
+            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            if !isPresent(field) {
+                pointer.initialize(to: T.init())
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+                case .oneOfMember(let oneofOffset):
+                    _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+                }
+            } else {
+                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+            }
+            return try perform(pointer.pointee.storageForRuntime)
+        }
     }
 
     /// Called by generated trampoline functions to invoke the given closure on the storage of each
@@ -282,6 +302,7 @@ extension _MessageStorage {
     /// - Returns: The value returned from the last invocation of the closure.
     public func performOnSubmessageStorage<T: _MessageImplementationBase>(
         of field: FieldLayout,
+        operation: SubmessageStorageOperation,
         type: [T].Type,
         perform: (_MessageStorage) throws -> Bool
     ) rethrows -> Bool {
@@ -1136,7 +1157,8 @@ extension _MessageStorage {
                 let isSubmessageInitialized = try! layout.performOnSubmessageStorage(
                     _MessageLayout.SubmessageToken(index: field.submessageIndex),
                     field,
-                    self
+                    self,
+                    .read
                 ) { $0.isInitialized }
                 guard isSubmessageInitialized else { return false }
 

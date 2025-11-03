@@ -198,6 +198,9 @@ public protocol _MessageImplementationBase: Message, Hashable {
     // requirement.
     func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject
 
+    // This is an implementation detail of the runtime; users should not call it.
+    mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken)
+
     // Legacy function; no longer used, but left to maintain source compatibility.
     func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
@@ -206,6 +209,12 @@ extension _MessageImplementationBase {
     // TODO: Remove this default implementation once we're generating all the WKTs with the new
     // implementation.
     public func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject {
+        fatalError()
+    }
+
+    // TODO: Remove this default implementation once we're generating all the WKTs with the new
+    // implementation.
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken) {
         fatalError()
     }
 

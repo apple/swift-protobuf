@@ -138,6 +138,7 @@ import Foundation
         _ token: SwiftProtobuf._MessageLayout.SubmessageToken,
         _ field: FieldLayout,
         _ storage: SwiftProtobuf._MessageStorage,
+        _ operation: SubmessageStorageOperation,
         _ perform: (SwiftProtobuf._MessageStorage) throws -> Bool
     ) throws -> Bool
 
@@ -202,7 +203,7 @@ import Foundation
             areSubmessagesEqual: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
-            performOnSubmessageStorage: { _, _, _, _ in
+            performOnSubmessageStorage: { _, _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
@@ -301,7 +302,7 @@ extension _MessageLayout {
             return FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
         }
 
-        var low = Int(denseBelow)
+        var low = Int(denseBelow - 1)
         var high = fieldCount - 1
         while high >= low {
             let mid = (high + low) / 2
@@ -327,6 +328,18 @@ extension _MessageLayout {
         /// The index that identifies the submessage type being requested.
         public let index: Int
     }
+}
+
+/// The nature of the operation that is being performed by `performOnSubmessageStorage`.
+@_spi(ForGeneratedCodeOnly) public enum SubmessageStorageOperation {
+    /// The submessage's storage is being read.
+    case read
+
+    /// The submessage's storage is being mutated.
+    ///
+    /// The submessage should be created if it is not already present. If already present, the
+    /// storage should be made unique before the mutation.
+    case mutate
 }
 
 /// Provides access to the properties of a field's layout based on a slice of the raw message
