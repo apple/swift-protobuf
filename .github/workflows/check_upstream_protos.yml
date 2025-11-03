@@ -17,6 +17,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        submodules: true
+        path: swift-protobuf
+        # Don't need the submodules since we are checking against upstream.
+    - name: Checkout protobufbuffers/protobuf
+      uses: actions/checkout@v4
+      with:
+        repository: protocolbuffers/protobuf
+        path: protobuf
     - name: Check Upstream Proto Files
-      run: make check-proto-files
+      working-directory: swift-protobuf
+      run: make check-proto-files GOOGLE_PROTOBUF_CHECKOUT=../protobuf
