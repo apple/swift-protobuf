@@ -243,8 +243,8 @@ extension _MessageStorage {
     /// - Throws: `BinaryDecodingError` if an error occurred while reading from the buffer.
     private func decodeUnknownField(from reader: inout WireFormatReader, tag: FieldTag, discard: Bool) throws {
         let slice = try reader.sliceBySkippingField(tag: tag)
-        if !discard, let pointer = slice.baseAddress, slice.count > 0 {
-            unknownFields.append(protobufData: Data(bytes: pointer, count: slice.count))
+        if !discard {
+            unknownFields.append(protobufBytes: slice)
         }
     }
 }
