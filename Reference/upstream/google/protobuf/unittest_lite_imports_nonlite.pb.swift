@@ -37,21 +37,21 @@ struct Proto2Unittest_TestLiteImportsNonlite: Sendable {
   // methods supported on all messages.
 
   var message: Proto2Unittest_TestAllTypes {
-    get {return _message ?? Proto2Unittest_TestAllTypes()}
+    get {_message ?? Proto2Unittest_TestAllTypes()}
     set {_message = newValue}
   }
   /// Returns true if `message` has been explicitly set.
-  var hasMessage: Bool {return self._message != nil}
+  var hasMessage: Bool {self._message != nil}
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
   mutating func clearMessage() {self._message = nil}
 
   /// Verifies that transitive required fields generates valid code.
   var messageWithRequired: Proto2Unittest_TestRequired {
-    get {return _messageWithRequired ?? Proto2Unittest_TestRequired()}
+    get {_messageWithRequired ?? Proto2Unittest_TestRequired()}
     set {_messageWithRequired = newValue}
   }
   /// Returns true if `messageWithRequired` has been explicitly set.
-  var hasMessageWithRequired: Bool {return self._messageWithRequired != nil}
+  var hasMessageWithRequired: Bool {self._messageWithRequired != nil}
   /// Clears the value of `messageWithRequired`. Subsequent reads from it will return its default value.
   mutating func clearMessageWithRequired() {self._messageWithRequired = nil}
 

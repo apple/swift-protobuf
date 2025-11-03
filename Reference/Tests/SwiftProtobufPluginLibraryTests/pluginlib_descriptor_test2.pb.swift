@@ -48,47 +48,47 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
   var enumField: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum = .subValue0
 
   var messageField: SwiftDescriptorTest_OtherMessage {
-    get {return _messageField ?? SwiftDescriptorTest_OtherMessage()}
+    get {_messageField ?? SwiftDescriptorTest_OtherMessage()}
     set {_messageField = newValue}
   }
   /// Returns true if `messageField` has been explicitly set.
-  var hasMessageField: Bool {return self._messageField != nil}
+  var hasMessageField: Bool {self._messageField != nil}
   /// Clears the value of `messageField`. Subsequent reads from it will return its default value.
   mutating func clearMessageField() {self._messageField = nil}
 
   var optStrField: String {
-    get {return _optStrField ?? String()}
+    get {_optStrField ?? String()}
     set {_optStrField = newValue}
   }
   /// Returns true if `optStrField` has been explicitly set.
-  var hasOptStrField: Bool {return self._optStrField != nil}
+  var hasOptStrField: Bool {self._optStrField != nil}
   /// Clears the value of `optStrField`. Subsequent reads from it will return its default value.
   mutating func clearOptStrField() {self._optStrField = nil}
 
   var optInt32Field: Int32 {
-    get {return _optInt32Field ?? 0}
+    get {_optInt32Field ?? 0}
     set {_optInt32Field = newValue}
   }
   /// Returns true if `optInt32Field` has been explicitly set.
-  var hasOptInt32Field: Bool {return self._optInt32Field != nil}
+  var hasOptInt32Field: Bool {self._optInt32Field != nil}
   /// Clears the value of `optInt32Field`. Subsequent reads from it will return its default value.
   mutating func clearOptInt32Field() {self._optInt32Field = nil}
 
   var optEnumField: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
-    get {return _optEnumField ?? .subValue0}
+    get {_optEnumField ?? .subValue0}
     set {_optEnumField = newValue}
   }
   /// Returns true if `optEnumField` has been explicitly set.
-  var hasOptEnumField: Bool {return self._optEnumField != nil}
+  var hasOptEnumField: Bool {self._optEnumField != nil}
   /// Clears the value of `optEnumField`. Subsequent reads from it will return its default value.
   mutating func clearOptEnumField() {self._optEnumField = nil}
 
   var optMessageField: SwiftDescriptorTest_OtherMessage {
-    get {return _optMessageField ?? SwiftDescriptorTest_OtherMessage()}
+    get {_optMessageField ?? SwiftDescriptorTest_OtherMessage()}
     set {_optMessageField = newValue}
   }
   /// Returns true if `optMessageField` has been explicitly set.
-  var hasOptMessageField: Bool {return self._optMessageField != nil}
+  var hasOptMessageField: Bool {self._optMessageField != nil}
   /// Clears the value of `optMessageField`. Subsequent reads from it will return its default value.
   mutating func clearOptMessageField() {self._optMessageField = nil}
 

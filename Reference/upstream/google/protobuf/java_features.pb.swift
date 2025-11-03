@@ -37,31 +37,31 @@ struct Pb_JavaFeatures: Sendable {
   /// consistent with the legacy behavior of using proto3 enum types for proto2
   /// fields.
   var legacyClosedEnum: Bool {
-    get {return _legacyClosedEnum ?? false}
+    get {_legacyClosedEnum ?? false}
     set {_legacyClosedEnum = newValue}
   }
   /// Returns true if `legacyClosedEnum` has been explicitly set.
-  var hasLegacyClosedEnum: Bool {return self._legacyClosedEnum != nil}
+  var hasLegacyClosedEnum: Bool {self._legacyClosedEnum != nil}
   /// Clears the value of `legacyClosedEnum`. Subsequent reads from it will return its default value.
   mutating func clearLegacyClosedEnum() {self._legacyClosedEnum = nil}
 
   var utf8Validation: Pb_JavaFeatures.Utf8Validation {
-    get {return _utf8Validation ?? .unknown}
+    get {_utf8Validation ?? .unknown}
     set {_utf8Validation = newValue}
   }
   /// Returns true if `utf8Validation` has been explicitly set.
-  var hasUtf8Validation: Bool {return self._utf8Validation != nil}
+  var hasUtf8Validation: Bool {self._utf8Validation != nil}
   /// Clears the value of `utf8Validation`. Subsequent reads from it will return its default value.
   mutating func clearUtf8Validation() {self._utf8Validation = nil}
 
   /// Allows creation of large Java enums, extending beyond the standard
   /// constant limits imposed by the Java language.
   var largeEnum: Bool {
-    get {return _largeEnum ?? false}
+    get {_largeEnum ?? false}
     set {_largeEnum = newValue}
   }
   /// Returns true if `largeEnum` has been explicitly set.
-  var hasLargeEnum: Bool {return self._largeEnum != nil}
+  var hasLargeEnum: Bool {self._largeEnum != nil}
   /// Clears the value of `largeEnum`. Subsequent reads from it will return its default value.
   mutating func clearLargeEnum() {self._largeEnum = nil}
 
@@ -72,22 +72,22 @@ struct Pb_JavaFeatures: Sendable {
   /// same edition that it was introduced. But we use it to determine which
   /// naming scheme to use for outer class name defaults.
   var useOldOuterClassnameDefault: Bool {
-    get {return _useOldOuterClassnameDefault ?? false}
+    get {_useOldOuterClassnameDefault ?? false}
     set {_useOldOuterClassnameDefault = newValue}
   }
   /// Returns true if `useOldOuterClassnameDefault` has been explicitly set.
-  var hasUseOldOuterClassnameDefault: Bool {return self._useOldOuterClassnameDefault != nil}
+  var hasUseOldOuterClassnameDefault: Bool {self._useOldOuterClassnameDefault != nil}
   /// Clears the value of `useOldOuterClassnameDefault`. Subsequent reads from it will return its default value.
   mutating func clearUseOldOuterClassnameDefault() {self._useOldOuterClassnameDefault = nil}
 
   /// Whether to nest the generated class in the generated file class. This is
   /// only applicable to *top-level* messages, enums, and services.
   var nestInFileClass: Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass {
-    get {return _nestInFileClass ?? .unknown}
+    get {_nestInFileClass ?? .unknown}
     set {_nestInFileClass = newValue}
   }
   /// Returns true if `nestInFileClass` has been explicitly set.
-  var hasNestInFileClass: Bool {return self._nestInFileClass != nil}
+  var hasNestInFileClass: Bool {self._nestInFileClass != nil}
   /// Clears the value of `nestInFileClass`. Subsequent reads from it will return its default value.
   mutating func clearNestInFileClass() {self._nestInFileClass = nil}
 

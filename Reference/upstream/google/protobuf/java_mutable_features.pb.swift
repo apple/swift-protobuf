@@ -29,11 +29,11 @@ struct Pb_JavaMutableFeatures: Sendable {
   /// Java Proto2 Mutable API. This is only applicable to *top-level* messages,
   /// enums, and services.
   var nestInFileClass: Pb_JavaMutableFeatures.NestInFileClassFeature.NestInFileClass {
-    get {return _nestInFileClass ?? .unknown}
+    get {_nestInFileClass ?? .unknown}
     set {_nestInFileClass = newValue}
   }
   /// Returns true if `nestInFileClass` has been explicitly set.
-  var hasNestInFileClass: Bool {return self._nestInFileClass != nil}
+  var hasNestInFileClass: Bool {self._nestInFileClass != nil}
   /// Clears the value of `nestInFileClass`. Subsequent reads from it will return its default value.
   mutating func clearNestInFileClass() {self._nestInFileClass = nil}
 

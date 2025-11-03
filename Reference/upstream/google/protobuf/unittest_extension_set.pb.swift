@@ -52,11 +52,11 @@ struct Proto2Unittest_TestExtensionSetContainer: Sendable {
   // methods supported on all messages.
 
   var `extension`: Proto2Unittest_TestExtensionSet {
-    get {return _extension ?? Proto2Unittest_TestExtensionSet()}
+    get {_extension ?? Proto2Unittest_TestExtensionSet()}
     set {_extension = newValue}
   }
   /// Returns true if ``extension`` has been explicitly set.
-  var hasExtension: Bool {return self._extension != nil}
+  var hasExtension: Bool {self._extension != nil}
   /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
   mutating func clearExtension() {self._extension = nil}
 

@@ -42,38 +42,38 @@ struct SwiftDescriptorTest_Import_Version: Sendable {
   // methods supported on all messages.
 
   var major: Int32 {
-    get {return _major ?? 0}
+    get {_major ?? 0}
     set {_major = newValue}
   }
   /// Returns true if `major` has been explicitly set.
-  var hasMajor: Bool {return self._major != nil}
+  var hasMajor: Bool {self._major != nil}
   /// Clears the value of `major`. Subsequent reads from it will return its default value.
   mutating func clearMajor() {self._major = nil}
 
   var minor: Int32 {
-    get {return _minor ?? 0}
+    get {_minor ?? 0}
     set {_minor = newValue}
   }
   /// Returns true if `minor` has been explicitly set.
-  var hasMinor: Bool {return self._minor != nil}
+  var hasMinor: Bool {self._minor != nil}
   /// Clears the value of `minor`. Subsequent reads from it will return its default value.
   mutating func clearMinor() {self._minor = nil}
 
   var patch: Int32 {
-    get {return _patch ?? 0}
+    get {_patch ?? 0}
     set {_patch = newValue}
   }
   /// Returns true if `patch` has been explicitly set.
-  var hasPatch: Bool {return self._patch != nil}
+  var hasPatch: Bool {self._patch != nil}
   /// Clears the value of `patch`. Subsequent reads from it will return its default value.
   mutating func clearPatch() {self._patch = nil}
 
   var suffix: String {
-    get {return _suffix ?? String()}
+    get {_suffix ?? String()}
     set {_suffix = newValue}
   }
   /// Returns true if `suffix` has been explicitly set.
-  var hasSuffix: Bool {return self._suffix != nil}
+  var hasSuffix: Bool {self._suffix != nil}
   /// Clears the value of `suffix`. Subsequent reads from it will return its default value.
   mutating func clearSuffix() {self._suffix = nil}
 
@@ -93,11 +93,11 @@ struct SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.ExtensibleMessage
   // methods supported on all messages.
 
   var subMsgField: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
-    get {return _subMsgField ?? SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo()}
+    get {_subMsgField ?? SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo()}
     set {_subMsgField = newValue}
   }
   /// Returns true if `subMsgField` has been explicitly set.
-  var hasSubMsgField: Bool {return self._subMsgField != nil}
+  var hasSubMsgField: Bool {self._subMsgField != nil}
   /// Clears the value of `subMsgField`. Subsequent reads from it will return its default value.
   mutating func clearSubMsgField() {self._subMsgField = nil}
 

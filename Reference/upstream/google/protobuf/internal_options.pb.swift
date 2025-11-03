@@ -91,11 +91,11 @@ struct Pb_InternalFieldOptions: Sendable {
   // methods supported on all messages.
 
   var cpp: Pb_InternalFieldOptionsCpp {
-    get {return _cpp ?? Pb_InternalFieldOptionsCpp()}
+    get {_cpp ?? Pb_InternalFieldOptionsCpp()}
     set {_cpp = newValue}
   }
   /// Returns true if `cpp` has been explicitly set.
-  var hasCpp: Bool {return self._cpp != nil}
+  var hasCpp: Bool {self._cpp != nil}
   /// Clears the value of `cpp`. Subsequent reads from it will return its default value.
   mutating func clearCpp() {self._cpp = nil}
 

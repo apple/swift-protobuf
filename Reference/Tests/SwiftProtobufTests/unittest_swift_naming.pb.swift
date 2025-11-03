@@ -292,2000 +292,2000 @@ struct SwiftProtoTesting_Names_FieldNames: @unchecked Sendable {
   // methods supported on all messages.
 
   var string: Int32 {
-    get {return _storage._string ?? 0}
+    get {_storage._string ?? 0}
     set {_uniqueStorage()._string = newValue}
   }
   /// Returns true if `string` has been explicitly set.
-  var hasString: Bool {return _storage._string != nil}
+  var hasString: Bool {_storage._string != nil}
   /// Clears the value of `string`. Subsequent reads from it will return its default value.
   mutating func clearString() {_uniqueStorage()._string = nil}
 
   var int: Int32 {
-    get {return _storage._int ?? 0}
+    get {_storage._int ?? 0}
     set {_uniqueStorage()._int = newValue}
   }
   /// Returns true if `int` has been explicitly set.
-  var hasInt: Bool {return _storage._int != nil}
+  var hasInt: Bool {_storage._int != nil}
   /// Clears the value of `int`. Subsequent reads from it will return its default value.
   mutating func clearInt() {_uniqueStorage()._int = nil}
 
   var double: Int32 {
-    get {return _storage._double ?? 0}
+    get {_storage._double ?? 0}
     set {_uniqueStorage()._double = newValue}
   }
   /// Returns true if `double` has been explicitly set.
-  var hasDouble: Bool {return _storage._double != nil}
+  var hasDouble: Bool {_storage._double != nil}
   /// Clears the value of `double`. Subsequent reads from it will return its default value.
   mutating func clearDouble() {_uniqueStorage()._double = nil}
 
   var float: Int32 {
-    get {return _storage._float ?? 0}
+    get {_storage._float ?? 0}
     set {_uniqueStorage()._float = newValue}
   }
   /// Returns true if `float` has been explicitly set.
-  var hasFloat: Bool {return _storage._float != nil}
+  var hasFloat: Bool {_storage._float != nil}
   /// Clears the value of `float`. Subsequent reads from it will return its default value.
   mutating func clearFloat() {_uniqueStorage()._float = nil}
 
   var uint: Int32 {
-    get {return _storage._uint ?? 0}
+    get {_storage._uint ?? 0}
     set {_uniqueStorage()._uint = newValue}
   }
   /// Returns true if `uint` has been explicitly set.
-  var hasUint: Bool {return _storage._uint != nil}
+  var hasUint: Bool {_storage._uint != nil}
   /// Clears the value of `uint`. Subsequent reads from it will return its default value.
   mutating func clearUint() {_uniqueStorage()._uint = nil}
 
   var hashValue_p: Int32 {
-    get {return _storage._hashValue_p ?? 0}
+    get {_storage._hashValue_p ?? 0}
     set {_uniqueStorage()._hashValue_p = newValue}
   }
   /// Returns true if `hashValue_p` has been explicitly set.
-  var hasHashValue_p: Bool {return _storage._hashValue_p != nil}
+  var hasHashValue_p: Bool {_storage._hashValue_p != nil}
   /// Clears the value of `hashValue_p`. Subsequent reads from it will return its default value.
   mutating func clearHashValue_p() {_uniqueStorage()._hashValue_p = nil}
 
   var description_p: Int32 {
-    get {return _storage._description_p ?? 0}
+    get {_storage._description_p ?? 0}
     set {_uniqueStorage()._description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  var hasDescription_p: Bool {return _storage._description_p != nil}
+  var hasDescription_p: Bool {_storage._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
   mutating func clearDescription_p() {_uniqueStorage()._description_p = nil}
 
   var debugDescription_p: Int32 {
-    get {return _storage._debugDescription_p ?? 0}
+    get {_storage._debugDescription_p ?? 0}
     set {_uniqueStorage()._debugDescription_p = newValue}
   }
   /// Returns true if `debugDescription_p` has been explicitly set.
-  var hasDebugDescription_p: Bool {return _storage._debugDescription_p != nil}
+  var hasDebugDescription_p: Bool {_storage._debugDescription_p != nil}
   /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
   mutating func clearDebugDescription_p() {_uniqueStorage()._debugDescription_p = nil}
 
   var swift: Int32 {
-    get {return _storage._swift ?? 0}
+    get {_storage._swift ?? 0}
     set {_uniqueStorage()._swift = newValue}
   }
   /// Returns true if `swift` has been explicitly set.
-  var hasSwift: Bool {return _storage._swift != nil}
+  var hasSwift: Bool {_storage._swift != nil}
   /// Clears the value of `swift`. Subsequent reads from it will return its default value.
   mutating func clearSwift() {_uniqueStorage()._swift = nil}
 
   var unrecognized: Int32 {
-    get {return _storage._unrecognized ?? 0}
+    get {_storage._unrecognized ?? 0}
     set {_uniqueStorage()._unrecognized = newValue}
   }
   /// Returns true if `unrecognized` has been explicitly set.
-  var hasUnrecognized: Bool {return _storage._unrecognized != nil}
+  var hasUnrecognized: Bool {_storage._unrecognized != nil}
   /// Clears the value of `unrecognized`. Subsequent reads from it will return its default value.
   mutating func clearUnrecognized() {_uniqueStorage()._unrecognized = nil}
 
   var `class`: Int32 {
-    get {return _storage._class ?? 0}
+    get {_storage._class ?? 0}
     set {_uniqueStorage()._class = newValue}
   }
   /// Returns true if ``class`` has been explicitly set.
-  var hasClass: Bool {return _storage._class != nil}
+  var hasClass: Bool {_storage._class != nil}
   /// Clears the value of ``class``. Subsequent reads from it will return its default value.
   mutating func clearClass() {_uniqueStorage()._class = nil}
 
   var `deinit`: Int32 {
-    get {return _storage._deinit ?? 0}
+    get {_storage._deinit ?? 0}
     set {_uniqueStorage()._deinit = newValue}
   }
   /// Returns true if ``deinit`` has been explicitly set.
-  var hasDeinit: Bool {return _storage._deinit != nil}
+  var hasDeinit: Bool {_storage._deinit != nil}
   /// Clears the value of ``deinit``. Subsequent reads from it will return its default value.
   mutating func clearDeinit() {_uniqueStorage()._deinit = nil}
 
   var `enum`: Int32 {
-    get {return _storage._enum ?? 0}
+    get {_storage._enum ?? 0}
     set {_uniqueStorage()._enum = newValue}
   }
   /// Returns true if ``enum`` has been explicitly set.
-  var hasEnum: Bool {return _storage._enum != nil}
+  var hasEnum: Bool {_storage._enum != nil}
   /// Clears the value of ``enum``. Subsequent reads from it will return its default value.
   mutating func clearEnum() {_uniqueStorage()._enum = nil}
 
   var `func`: Int32 {
-    get {return _storage._func ?? 0}
+    get {_storage._func ?? 0}
     set {_uniqueStorage()._func = newValue}
   }
   /// Returns true if ``func`` has been explicitly set.
-  var hasFunc: Bool {return _storage._func != nil}
+  var hasFunc: Bool {_storage._func != nil}
   /// Clears the value of ``func``. Subsequent reads from it will return its default value.
   mutating func clearFunc() {_uniqueStorage()._func = nil}
 
   var `import`: Int32 {
-    get {return _storage._import ?? 0}
+    get {_storage._import ?? 0}
     set {_uniqueStorage()._import = newValue}
   }
   /// Returns true if ``import`` has been explicitly set.
-  var hasImport: Bool {return _storage._import != nil}
+  var hasImport: Bool {_storage._import != nil}
   /// Clears the value of ``import``. Subsequent reads from it will return its default value.
   mutating func clearImport() {_uniqueStorage()._import = nil}
 
   var init_p: Int32 {
-    get {return _storage._init_p ?? 0}
+    get {_storage._init_p ?? 0}
     set {_uniqueStorage()._init_p = newValue}
   }
   /// Returns true if `init_p` has been explicitly set.
-  var hasInit_p: Bool {return _storage._init_p != nil}
+  var hasInit_p: Bool {_storage._init_p != nil}
   /// Clears the value of `init_p`. Subsequent reads from it will return its default value.
   mutating func clearInit_p() {_uniqueStorage()._init_p = nil}
 
   var `inout`: Int32 {
-    get {return _storage._inout ?? 0}
+    get {_storage._inout ?? 0}
     set {_uniqueStorage()._inout = newValue}
   }
   /// Returns true if ``inout`` has been explicitly set.
-  var hasInout: Bool {return _storage._inout != nil}
+  var hasInout: Bool {_storage._inout != nil}
   /// Clears the value of ``inout``. Subsequent reads from it will return its default value.
   mutating func clearInout() {_uniqueStorage()._inout = nil}
 
   var `internal`: Int32 {
-    get {return _storage._internal ?? 0}
+    get {_storage._internal ?? 0}
     set {_uniqueStorage()._internal = newValue}
   }
   /// Returns true if ``internal`` has been explicitly set.
-  var hasInternal: Bool {return _storage._internal != nil}
+  var hasInternal: Bool {_storage._internal != nil}
   /// Clears the value of ``internal``. Subsequent reads from it will return its default value.
   mutating func clearInternal() {_uniqueStorage()._internal = nil}
 
   var `let`: Int32 {
-    get {return _storage._let ?? 0}
+    get {_storage._let ?? 0}
     set {_uniqueStorage()._let = newValue}
   }
   /// Returns true if ``let`` has been explicitly set.
-  var hasLet: Bool {return _storage._let != nil}
+  var hasLet: Bool {_storage._let != nil}
   /// Clears the value of ``let``. Subsequent reads from it will return its default value.
   mutating func clearLet() {_uniqueStorage()._let = nil}
 
   var `operator`: Int32 {
-    get {return _storage._operator ?? 0}
+    get {_storage._operator ?? 0}
     set {_uniqueStorage()._operator = newValue}
   }
   /// Returns true if ``operator`` has been explicitly set.
-  var hasOperator: Bool {return _storage._operator != nil}
+  var hasOperator: Bool {_storage._operator != nil}
   /// Clears the value of ``operator``. Subsequent reads from it will return its default value.
   mutating func clearOperator() {_uniqueStorage()._operator = nil}
 
   var `private`: Int32 {
-    get {return _storage._private ?? 0}
+    get {_storage._private ?? 0}
     set {_uniqueStorage()._private = newValue}
   }
   /// Returns true if ``private`` has been explicitly set.
-  var hasPrivate: Bool {return _storage._private != nil}
+  var hasPrivate: Bool {_storage._private != nil}
   /// Clears the value of ``private``. Subsequent reads from it will return its default value.
   mutating func clearPrivate() {_uniqueStorage()._private = nil}
 
   var `protocol`: Int32 {
-    get {return _storage._protocol ?? 0}
+    get {_storage._protocol ?? 0}
     set {_uniqueStorage()._protocol = newValue}
   }
   /// Returns true if ``protocol`` has been explicitly set.
-  var hasProtocol: Bool {return _storage._protocol != nil}
+  var hasProtocol: Bool {_storage._protocol != nil}
   /// Clears the value of ``protocol``. Subsequent reads from it will return its default value.
   mutating func clearProtocol() {_uniqueStorage()._protocol = nil}
 
   var `public`: Int32 {
-    get {return _storage._public ?? 0}
+    get {_storage._public ?? 0}
     set {_uniqueStorage()._public = newValue}
   }
   /// Returns true if ``public`` has been explicitly set.
-  var hasPublic: Bool {return _storage._public != nil}
+  var hasPublic: Bool {_storage._public != nil}
   /// Clears the value of ``public``. Subsequent reads from it will return its default value.
   mutating func clearPublic() {_uniqueStorage()._public = nil}
 
   var `static`: Int32 {
-    get {return _storage._static ?? 0}
+    get {_storage._static ?? 0}
     set {_uniqueStorage()._static = newValue}
   }
   /// Returns true if ``static`` has been explicitly set.
-  var hasStatic: Bool {return _storage._static != nil}
+  var hasStatic: Bool {_storage._static != nil}
   /// Clears the value of ``static``. Subsequent reads from it will return its default value.
   mutating func clearStatic() {_uniqueStorage()._static = nil}
 
   var `struct`: Int32 {
-    get {return _storage._struct ?? 0}
+    get {_storage._struct ?? 0}
     set {_uniqueStorage()._struct = newValue}
   }
   /// Returns true if ``struct`` has been explicitly set.
-  var hasStruct: Bool {return _storage._struct != nil}
+  var hasStruct: Bool {_storage._struct != nil}
   /// Clears the value of ``struct``. Subsequent reads from it will return its default value.
   mutating func clearStruct() {_uniqueStorage()._struct = nil}
 
   var `subscript`: Int32 {
-    get {return _storage._subscript ?? 0}
+    get {_storage._subscript ?? 0}
     set {_uniqueStorage()._subscript = newValue}
   }
   /// Returns true if ``subscript`` has been explicitly set.
-  var hasSubscript: Bool {return _storage._subscript != nil}
+  var hasSubscript: Bool {_storage._subscript != nil}
   /// Clears the value of ``subscript``. Subsequent reads from it will return its default value.
   mutating func clearSubscript() {_uniqueStorage()._subscript = nil}
 
   var `typealias`: Int32 {
-    get {return _storage._typealias ?? 0}
+    get {_storage._typealias ?? 0}
     set {_uniqueStorage()._typealias = newValue}
   }
   /// Returns true if ``typealias`` has been explicitly set.
-  var hasTypealias: Bool {return _storage._typealias != nil}
+  var hasTypealias: Bool {_storage._typealias != nil}
   /// Clears the value of ``typealias``. Subsequent reads from it will return its default value.
   mutating func clearTypealias() {_uniqueStorage()._typealias = nil}
 
   var `var`: Int32 {
-    get {return _storage._var ?? 0}
+    get {_storage._var ?? 0}
     set {_uniqueStorage()._var = newValue}
   }
   /// Returns true if ``var`` has been explicitly set.
-  var hasVar: Bool {return _storage._var != nil}
+  var hasVar: Bool {_storage._var != nil}
   /// Clears the value of ``var``. Subsequent reads from it will return its default value.
   mutating func clearVar() {_uniqueStorage()._var = nil}
 
   var `break`: Int32 {
-    get {return _storage._break ?? 0}
+    get {_storage._break ?? 0}
     set {_uniqueStorage()._break = newValue}
   }
   /// Returns true if ``break`` has been explicitly set.
-  var hasBreak: Bool {return _storage._break != nil}
+  var hasBreak: Bool {_storage._break != nil}
   /// Clears the value of ``break``. Subsequent reads from it will return its default value.
   mutating func clearBreak() {_uniqueStorage()._break = nil}
 
   var `case`: Int32 {
-    get {return _storage._case ?? 0}
+    get {_storage._case ?? 0}
     set {_uniqueStorage()._case = newValue}
   }
   /// Returns true if ``case`` has been explicitly set.
-  var hasCase: Bool {return _storage._case != nil}
+  var hasCase: Bool {_storage._case != nil}
   /// Clears the value of ``case``. Subsequent reads from it will return its default value.
   mutating func clearCase() {_uniqueStorage()._case = nil}
 
   var `continue`: Int32 {
-    get {return _storage._continue ?? 0}
+    get {_storage._continue ?? 0}
     set {_uniqueStorage()._continue = newValue}
   }
   /// Returns true if ``continue`` has been explicitly set.
-  var hasContinue: Bool {return _storage._continue != nil}
+  var hasContinue: Bool {_storage._continue != nil}
   /// Clears the value of ``continue``. Subsequent reads from it will return its default value.
   mutating func clearContinue() {_uniqueStorage()._continue = nil}
 
   var `default`: Int32 {
-    get {return _storage._default ?? 0}
+    get {_storage._default ?? 0}
     set {_uniqueStorage()._default = newValue}
   }
   /// Returns true if ``default`` has been explicitly set.
-  var hasDefault: Bool {return _storage._default != nil}
+  var hasDefault: Bool {_storage._default != nil}
   /// Clears the value of ``default``. Subsequent reads from it will return its default value.
   mutating func clearDefault() {_uniqueStorage()._default = nil}
 
   var `defer`: Int32 {
-    get {return _storage._defer ?? 0}
+    get {_storage._defer ?? 0}
     set {_uniqueStorage()._defer = newValue}
   }
   /// Returns true if ``defer`` has been explicitly set.
-  var hasDefer: Bool {return _storage._defer != nil}
+  var hasDefer: Bool {_storage._defer != nil}
   /// Clears the value of ``defer``. Subsequent reads from it will return its default value.
   mutating func clearDefer() {_uniqueStorage()._defer = nil}
 
   var `do`: Int32 {
-    get {return _storage._do ?? 0}
+    get {_storage._do ?? 0}
     set {_uniqueStorage()._do = newValue}
   }
   /// Returns true if ``do`` has been explicitly set.
-  var hasDo: Bool {return _storage._do != nil}
+  var hasDo: Bool {_storage._do != nil}
   /// Clears the value of ``do``. Subsequent reads from it will return its default value.
   mutating func clearDo() {_uniqueStorage()._do = nil}
 
   var `else`: Int32 {
-    get {return _storage._else ?? 0}
+    get {_storage._else ?? 0}
     set {_uniqueStorage()._else = newValue}
   }
   /// Returns true if ``else`` has been explicitly set.
-  var hasElse: Bool {return _storage._else != nil}
+  var hasElse: Bool {_storage._else != nil}
   /// Clears the value of ``else``. Subsequent reads from it will return its default value.
   mutating func clearElse() {_uniqueStorage()._else = nil}
 
   var `fallthrough`: Int32 {
-    get {return _storage._fallthrough ?? 0}
+    get {_storage._fallthrough ?? 0}
     set {_uniqueStorage()._fallthrough = newValue}
   }
   /// Returns true if ``fallthrough`` has been explicitly set.
-  var hasFallthrough: Bool {return _storage._fallthrough != nil}
+  var hasFallthrough: Bool {_storage._fallthrough != nil}
   /// Clears the value of ``fallthrough``. Subsequent reads from it will return its default value.
   mutating func clearFallthrough() {_uniqueStorage()._fallthrough = nil}
 
   var `for`: Int32 {
-    get {return _storage._for ?? 0}
+    get {_storage._for ?? 0}
     set {_uniqueStorage()._for = newValue}
   }
   /// Returns true if ``for`` has been explicitly set.
-  var hasFor: Bool {return _storage._for != nil}
+  var hasFor: Bool {_storage._for != nil}
   /// Clears the value of ``for``. Subsequent reads from it will return its default value.
   mutating func clearFor() {_uniqueStorage()._for = nil}
 
   var `guard`: Int32 {
-    get {return _storage._guard ?? 0}
+    get {_storage._guard ?? 0}
     set {_uniqueStorage()._guard = newValue}
   }
   /// Returns true if ``guard`` has been explicitly set.
-  var hasGuard: Bool {return _storage._guard != nil}
+  var hasGuard: Bool {_storage._guard != nil}
   /// Clears the value of ``guard``. Subsequent reads from it will return its default value.
   mutating func clearGuard() {_uniqueStorage()._guard = nil}
 
   var `if`: Int32 {
-    get {return _storage._if ?? 0}
+    get {_storage._if ?? 0}
     set {_uniqueStorage()._if = newValue}
   }
   /// Returns true if ``if`` has been explicitly set.
-  var hasIf: Bool {return _storage._if != nil}
+  var hasIf: Bool {_storage._if != nil}
   /// Clears the value of ``if``. Subsequent reads from it will return its default value.
   mutating func clearIf() {_uniqueStorage()._if = nil}
 
   var `in`: Int32 {
-    get {return _storage._in ?? 0}
+    get {_storage._in ?? 0}
     set {_uniqueStorage()._in = newValue}
   }
   /// Returns true if ``in`` has been explicitly set.
-  var hasIn: Bool {return _storage._in != nil}
+  var hasIn: Bool {_storage._in != nil}
   /// Clears the value of ``in``. Subsequent reads from it will return its default value.
   mutating func clearIn() {_uniqueStorage()._in = nil}
 
   var `repeat`: Int32 {
-    get {return _storage._repeat ?? 0}
+    get {_storage._repeat ?? 0}
     set {_uniqueStorage()._repeat = newValue}
   }
   /// Returns true if ``repeat`` has been explicitly set.
-  var hasRepeat: Bool {return _storage._repeat != nil}
+  var hasRepeat: Bool {_storage._repeat != nil}
   /// Clears the value of ``repeat``. Subsequent reads from it will return its default value.
   mutating func clearRepeat() {_uniqueStorage()._repeat = nil}
 
   var `return`: Int32 {
-    get {return _storage._return ?? 0}
+    get {_storage._return ?? 0}
     set {_uniqueStorage()._return = newValue}
   }
   /// Returns true if ``return`` has been explicitly set.
-  var hasReturn: Bool {return _storage._return != nil}
+  var hasReturn: Bool {_storage._return != nil}
   /// Clears the value of ``return``. Subsequent reads from it will return its default value.
   mutating func clearReturn() {_uniqueStorage()._return = nil}
 
   var `switch`: Int32 {
-    get {return _storage._switch ?? 0}
+    get {_storage._switch ?? 0}
     set {_uniqueStorage()._switch = newValue}
   }
   /// Returns true if ``switch`` has been explicitly set.
-  var hasSwitch: Bool {return _storage._switch != nil}
+  var hasSwitch: Bool {_storage._switch != nil}
   /// Clears the value of ``switch``. Subsequent reads from it will return its default value.
   mutating func clearSwitch() {_uniqueStorage()._switch = nil}
 
   var `where`: Int32 {
-    get {return _storage._where ?? 0}
+    get {_storage._where ?? 0}
     set {_uniqueStorage()._where = newValue}
   }
   /// Returns true if ``where`` has been explicitly set.
-  var hasWhere: Bool {return _storage._where != nil}
+  var hasWhere: Bool {_storage._where != nil}
   /// Clears the value of ``where``. Subsequent reads from it will return its default value.
   mutating func clearWhere() {_uniqueStorage()._where = nil}
 
   var `while`: Int32 {
-    get {return _storage._while ?? 0}
+    get {_storage._while ?? 0}
     set {_uniqueStorage()._while = newValue}
   }
   /// Returns true if ``while`` has been explicitly set.
-  var hasWhile: Bool {return _storage._while != nil}
+  var hasWhile: Bool {_storage._while != nil}
   /// Clears the value of ``while``. Subsequent reads from it will return its default value.
   mutating func clearWhile() {_uniqueStorage()._while = nil}
 
   var `as`: Int32 {
-    get {return _storage._as ?? 0}
+    get {_storage._as ?? 0}
     set {_uniqueStorage()._as = newValue}
   }
   /// Returns true if ``as`` has been explicitly set.
-  var hasAs: Bool {return _storage._as != nil}
+  var hasAs: Bool {_storage._as != nil}
   /// Clears the value of ``as``. Subsequent reads from it will return its default value.
   mutating func clearAs() {_uniqueStorage()._as = nil}
 
   var `catch`: Int32 {
-    get {return _storage._catch ?? 0}
+    get {_storage._catch ?? 0}
     set {_uniqueStorage()._catch = newValue}
   }
   /// Returns true if ``catch`` has been explicitly set.
-  var hasCatch: Bool {return _storage._catch != nil}
+  var hasCatch: Bool {_storage._catch != nil}
   /// Clears the value of ``catch``. Subsequent reads from it will return its default value.
   mutating func clearCatch() {_uniqueStorage()._catch = nil}
 
   var dynamicType_p: Int32 {
-    get {return _storage._dynamicType_p ?? 0}
+    get {_storage._dynamicType_p ?? 0}
     set {_uniqueStorage()._dynamicType_p = newValue}
   }
   /// Returns true if `dynamicType_p` has been explicitly set.
-  var hasDynamicType_p: Bool {return _storage._dynamicType_p != nil}
+  var hasDynamicType_p: Bool {_storage._dynamicType_p != nil}
   /// Clears the value of `dynamicType_p`. Subsequent reads from it will return its default value.
   mutating func clearDynamicType_p() {_uniqueStorage()._dynamicType_p = nil}
 
   var `false`: Int32 {
-    get {return _storage._false ?? 0}
+    get {_storage._false ?? 0}
     set {_uniqueStorage()._false = newValue}
   }
   /// Returns true if ``false`` has been explicitly set.
-  var hasFalse: Bool {return _storage._false != nil}
+  var hasFalse: Bool {_storage._false != nil}
   /// Clears the value of ``false``. Subsequent reads from it will return its default value.
   mutating func clearFalse() {_uniqueStorage()._false = nil}
 
   var `is`: Int32 {
-    get {return _storage._is ?? 0}
+    get {_storage._is ?? 0}
     set {_uniqueStorage()._is = newValue}
   }
   /// Returns true if ``is`` has been explicitly set.
-  var hasIs: Bool {return _storage._is != nil}
+  var hasIs: Bool {_storage._is != nil}
   /// Clears the value of ``is``. Subsequent reads from it will return its default value.
   mutating func clearIs() {_uniqueStorage()._is = nil}
 
   var `nil`: Int32 {
-    get {return _storage._nil ?? 0}
+    get {_storage._nil ?? 0}
     set {_uniqueStorage()._nil = newValue}
   }
   /// Returns true if ``nil`` has been explicitly set.
-  var hasNil: Bool {return _storage._nil != nil}
+  var hasNil: Bool {_storage._nil != nil}
   /// Clears the value of ``nil``. Subsequent reads from it will return its default value.
   mutating func clearNil() {_uniqueStorage()._nil = nil}
 
   var `rethrows`: Int32 {
-    get {return _storage._rethrows ?? 0}
+    get {_storage._rethrows ?? 0}
     set {_uniqueStorage()._rethrows = newValue}
   }
   /// Returns true if ``rethrows`` has been explicitly set.
-  var hasRethrows: Bool {return _storage._rethrows != nil}
+  var hasRethrows: Bool {_storage._rethrows != nil}
   /// Clears the value of ``rethrows``. Subsequent reads from it will return its default value.
   mutating func clearRethrows() {_uniqueStorage()._rethrows = nil}
 
   var `super`: Int32 {
-    get {return _storage._super ?? 0}
+    get {_storage._super ?? 0}
     set {_uniqueStorage()._super = newValue}
   }
   /// Returns true if ``super`` has been explicitly set.
-  var hasSuper: Bool {return _storage._super != nil}
+  var hasSuper: Bool {_storage._super != nil}
   /// Clears the value of ``super``. Subsequent reads from it will return its default value.
   mutating func clearSuper() {_uniqueStorage()._super = nil}
 
   var self_p: Int32 {
-    get {return _storage._self_p ?? 0}
+    get {_storage._self_p ?? 0}
     set {_uniqueStorage()._self_p = newValue}
   }
   /// Returns true if `self_p` has been explicitly set.
-  var hasSelf_p: Bool {return _storage._self_p != nil}
+  var hasSelf_p: Bool {_storage._self_p != nil}
   /// Clears the value of `self_p`. Subsequent reads from it will return its default value.
   mutating func clearSelf_p() {_uniqueStorage()._self_p = nil}
 
   var `throw`: Int32 {
-    get {return _storage._throw ?? 0}
+    get {_storage._throw ?? 0}
     set {_uniqueStorage()._throw = newValue}
   }
   /// Returns true if ``throw`` has been explicitly set.
-  var hasThrow: Bool {return _storage._throw != nil}
+  var hasThrow: Bool {_storage._throw != nil}
   /// Clears the value of ``throw``. Subsequent reads from it will return its default value.
   mutating func clearThrow() {_uniqueStorage()._throw = nil}
 
   var `throws`: Int32 {
-    get {return _storage._throws ?? 0}
+    get {_storage._throws ?? 0}
     set {_uniqueStorage()._throws = newValue}
   }
   /// Returns true if ``throws`` has been explicitly set.
-  var hasThrows: Bool {return _storage._throws != nil}
+  var hasThrows: Bool {_storage._throws != nil}
   /// Clears the value of ``throws``. Subsequent reads from it will return its default value.
   mutating func clearThrows() {_uniqueStorage()._throws = nil}
 
   var `true`: Int32 {
-    get {return _storage._true ?? 0}
+    get {_storage._true ?? 0}
     set {_uniqueStorage()._true = newValue}
   }
   /// Returns true if ``true`` has been explicitly set.
-  var hasTrue: Bool {return _storage._true != nil}
+  var hasTrue: Bool {_storage._true != nil}
   /// Clears the value of ``true``. Subsequent reads from it will return its default value.
   mutating func clearTrue() {_uniqueStorage()._true = nil}
 
   var `try`: Int32 {
-    get {return _storage._try ?? 0}
+    get {_storage._try ?? 0}
     set {_uniqueStorage()._try = newValue}
   }
   /// Returns true if ``try`` has been explicitly set.
-  var hasTry: Bool {return _storage._try != nil}
+  var hasTry: Bool {_storage._try != nil}
   /// Clears the value of ``try``. Subsequent reads from it will return its default value.
   mutating func clearTry() {_uniqueStorage()._try = nil}
 
   var _Column__: Int32 {
-    get {return _storage.__Column__ ?? 0}
+    get {_storage.__Column__ ?? 0}
     set {_uniqueStorage().__Column__ = newValue}
   }
   /// Returns true if `_Column__` has been explicitly set.
-  var has_Column__: Bool {return _storage.__Column__ != nil}
+  var has_Column__: Bool {_storage.__Column__ != nil}
   /// Clears the value of `_Column__`. Subsequent reads from it will return its default value.
   mutating func clear_Column__() {_uniqueStorage().__Column__ = nil}
 
   var _File__: Int32 {
-    get {return _storage.__File__ ?? 0}
+    get {_storage.__File__ ?? 0}
     set {_uniqueStorage().__File__ = newValue}
   }
   /// Returns true if `_File__` has been explicitly set.
-  var has_File__: Bool {return _storage.__File__ != nil}
+  var has_File__: Bool {_storage.__File__ != nil}
   /// Clears the value of `_File__`. Subsequent reads from it will return its default value.
   mutating func clear_File__() {_uniqueStorage().__File__ = nil}
 
   var _Function__: Int32 {
-    get {return _storage.__Function__ ?? 0}
+    get {_storage.__Function__ ?? 0}
     set {_uniqueStorage().__Function__ = newValue}
   }
   /// Returns true if `_Function__` has been explicitly set.
-  var has_Function__: Bool {return _storage.__Function__ != nil}
+  var has_Function__: Bool {_storage.__Function__ != nil}
   /// Clears the value of `_Function__`. Subsequent reads from it will return its default value.
   mutating func clear_Function__() {_uniqueStorage().__Function__ = nil}
 
   var _Line__: Int32 {
-    get {return _storage.__Line__ ?? 0}
+    get {_storage.__Line__ ?? 0}
     set {_uniqueStorage().__Line__ = newValue}
   }
   /// Returns true if `_Line__` has been explicitly set.
-  var has_Line__: Bool {return _storage.__Line__ != nil}
+  var has_Line__: Bool {_storage.__Line__ != nil}
   /// Clears the value of `_Line__`. Subsequent reads from it will return its default value.
   mutating func clear_Line__() {_uniqueStorage().__Line__ = nil}
 
   var ___: Int32 {
-    get {return _storage.____ ?? 0}
+    get {_storage.____ ?? 0}
     set {_uniqueStorage().____ = newValue}
   }
   /// Returns true if `___` has been explicitly set.
-  var has___: Bool {return _storage.____ != nil}
+  var has___: Bool {_storage.____ != nil}
   /// Clears the value of `___`. Subsequent reads from it will return its default value.
   mutating func clear___() {_uniqueStorage().____ = nil}
 
   var associativity: Int32 {
-    get {return _storage._associativity ?? 0}
+    get {_storage._associativity ?? 0}
     set {_uniqueStorage()._associativity = newValue}
   }
   /// Returns true if `associativity` has been explicitly set.
-  var hasAssociativity: Bool {return _storage._associativity != nil}
+  var hasAssociativity: Bool {_storage._associativity != nil}
   /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
   mutating func clearAssociativity() {_uniqueStorage()._associativity = nil}
 
   var convenience: Int32 {
-    get {return _storage._convenience ?? 0}
+    get {_storage._convenience ?? 0}
     set {_uniqueStorage()._convenience = newValue}
   }
   /// Returns true if `convenience` has been explicitly set.
-  var hasConvenience: Bool {return _storage._convenience != nil}
+  var hasConvenience: Bool {_storage._convenience != nil}
   /// Clears the value of `convenience`. Subsequent reads from it will return its default value.
   mutating func clearConvenience() {_uniqueStorage()._convenience = nil}
 
   var dynamic: Int32 {
-    get {return _storage._dynamic ?? 0}
+    get {_storage._dynamic ?? 0}
     set {_uniqueStorage()._dynamic = newValue}
   }
   /// Returns true if `dynamic` has been explicitly set.
-  var hasDynamic: Bool {return _storage._dynamic != nil}
+  var hasDynamic: Bool {_storage._dynamic != nil}
   /// Clears the value of `dynamic`. Subsequent reads from it will return its default value.
   mutating func clearDynamic() {_uniqueStorage()._dynamic = nil}
 
   var didSet: Int32 {
-    get {return _storage._didSet ?? 0}
+    get {_storage._didSet ?? 0}
     set {_uniqueStorage()._didSet = newValue}
   }
   /// Returns true if `didSet` has been explicitly set.
-  var hasDidSet: Bool {return _storage._didSet != nil}
+  var hasDidSet: Bool {_storage._didSet != nil}
   /// Clears the value of `didSet`. Subsequent reads from it will return its default value.
   mutating func clearDidSet() {_uniqueStorage()._didSet = nil}
 
   var final: Int32 {
-    get {return _storage._final ?? 0}
+    get {_storage._final ?? 0}
     set {_uniqueStorage()._final = newValue}
   }
   /// Returns true if `final` has been explicitly set.
-  var hasFinal: Bool {return _storage._final != nil}
+  var hasFinal: Bool {_storage._final != nil}
   /// Clears the value of `final`. Subsequent reads from it will return its default value.
   mutating func clearFinal() {_uniqueStorage()._final = nil}
 
   var get: Int32 {
-    get {return _storage._get ?? 0}
+    get {_storage._get ?? 0}
     set {_uniqueStorage()._get = newValue}
   }
   /// Returns true if `get` has been explicitly set.
-  var hasGet: Bool {return _storage._get != nil}
+  var hasGet: Bool {_storage._get != nil}
   /// Clears the value of `get`. Subsequent reads from it will return its default value.
   mutating func clearGet() {_uniqueStorage()._get = nil}
 
   var infix: Int32 {
-    get {return _storage._infix ?? 0}
+    get {_storage._infix ?? 0}
     set {_uniqueStorage()._infix = newValue}
   }
   /// Returns true if `infix` has been explicitly set.
-  var hasInfix: Bool {return _storage._infix != nil}
+  var hasInfix: Bool {_storage._infix != nil}
   /// Clears the value of `infix`. Subsequent reads from it will return its default value.
   mutating func clearInfix() {_uniqueStorage()._infix = nil}
 
   var indirect: Int32 {
-    get {return _storage._indirect ?? 0}
+    get {_storage._indirect ?? 0}
     set {_uniqueStorage()._indirect = newValue}
   }
   /// Returns true if `indirect` has been explicitly set.
-  var hasIndirect: Bool {return _storage._indirect != nil}
+  var hasIndirect: Bool {_storage._indirect != nil}
   /// Clears the value of `indirect`. Subsequent reads from it will return its default value.
   mutating func clearIndirect() {_uniqueStorage()._indirect = nil}
 
   var lazy: Int32 {
-    get {return _storage._lazy ?? 0}
+    get {_storage._lazy ?? 0}
     set {_uniqueStorage()._lazy = newValue}
   }
   /// Returns true if `lazy` has been explicitly set.
-  var hasLazy: Bool {return _storage._lazy != nil}
+  var hasLazy: Bool {_storage._lazy != nil}
   /// Clears the value of `lazy`. Subsequent reads from it will return its default value.
   mutating func clearLazy() {_uniqueStorage()._lazy = nil}
 
   var left: Int32 {
-    get {return _storage._left ?? 0}
+    get {_storage._left ?? 0}
     set {_uniqueStorage()._left = newValue}
   }
   /// Returns true if `left` has been explicitly set.
-  var hasLeft: Bool {return _storage._left != nil}
+  var hasLeft: Bool {_storage._left != nil}
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
   mutating func clearLeft() {_uniqueStorage()._left = nil}
 
   var mutating: Int32 {
-    get {return _storage._mutating ?? 0}
+    get {_storage._mutating ?? 0}
     set {_uniqueStorage()._mutating = newValue}
   }
   /// Returns true if `mutating` has been explicitly set.
-  var hasMutating: Bool {return _storage._mutating != nil}
+  var hasMutating: Bool {_storage._mutating != nil}
   /// Clears the value of `mutating`. Subsequent reads from it will return its default value.
   mutating func clearMutating() {_uniqueStorage()._mutating = nil}
 
   var none: Int32 {
-    get {return _storage._none ?? 0}
+    get {_storage._none ?? 0}
     set {_uniqueStorage()._none = newValue}
   }
   /// Returns true if `none` has been explicitly set.
-  var hasNone: Bool {return _storage._none != nil}
+  var hasNone: Bool {_storage._none != nil}
   /// Clears the value of `none`. Subsequent reads from it will return its default value.
   mutating func clearNone() {_uniqueStorage()._none = nil}
 
   var nonmutating: Int32 {
-    get {return _storage._nonmutating ?? 0}
+    get {_storage._nonmutating ?? 0}
     set {_uniqueStorage()._nonmutating = newValue}
   }
   /// Returns true if `nonmutating` has been explicitly set.
-  var hasNonmutating: Bool {return _storage._nonmutating != nil}
+  var hasNonmutating: Bool {_storage._nonmutating != nil}
   /// Clears the value of `nonmutating`. Subsequent reads from it will return its default value.
   mutating func clearNonmutating() {_uniqueStorage()._nonmutating = nil}
 
   var optional: Int32 {
-    get {return _storage._optional ?? 0}
+    get {_storage._optional ?? 0}
     set {_uniqueStorage()._optional = newValue}
   }
   /// Returns true if `optional` has been explicitly set.
-  var hasOptional: Bool {return _storage._optional != nil}
+  var hasOptional: Bool {_storage._optional != nil}
   /// Clears the value of `optional`. Subsequent reads from it will return its default value.
   mutating func clearOptional() {_uniqueStorage()._optional = nil}
 
   var override: Int32 {
-    get {return _storage._override ?? 0}
+    get {_storage._override ?? 0}
     set {_uniqueStorage()._override = newValue}
   }
   /// Returns true if `override` has been explicitly set.
-  var hasOverride: Bool {return _storage._override != nil}
+  var hasOverride: Bool {_storage._override != nil}
   /// Clears the value of `override`. Subsequent reads from it will return its default value.
   mutating func clearOverride() {_uniqueStorage()._override = nil}
 
   var postfix: Int32 {
-    get {return _storage._postfix ?? 0}
+    get {_storage._postfix ?? 0}
     set {_uniqueStorage()._postfix = newValue}
   }
   /// Returns true if `postfix` has been explicitly set.
-  var hasPostfix: Bool {return _storage._postfix != nil}
+  var hasPostfix: Bool {_storage._postfix != nil}
   /// Clears the value of `postfix`. Subsequent reads from it will return its default value.
   mutating func clearPostfix() {_uniqueStorage()._postfix = nil}
 
   var precedence: Int32 {
-    get {return _storage._precedence ?? 0}
+    get {_storage._precedence ?? 0}
     set {_uniqueStorage()._precedence = newValue}
   }
   /// Returns true if `precedence` has been explicitly set.
-  var hasPrecedence: Bool {return _storage._precedence != nil}
+  var hasPrecedence: Bool {_storage._precedence != nil}
   /// Clears the value of `precedence`. Subsequent reads from it will return its default value.
   mutating func clearPrecedence() {_uniqueStorage()._precedence = nil}
 
   var prefix: Int32 {
-    get {return _storage._prefix ?? 0}
+    get {_storage._prefix ?? 0}
     set {_uniqueStorage()._prefix = newValue}
   }
   /// Returns true if `prefix` has been explicitly set.
-  var hasPrefix: Bool {return _storage._prefix != nil}
+  var hasPrefix: Bool {_storage._prefix != nil}
   /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
   mutating func clearPrefix() {_uniqueStorage()._prefix = nil}
 
   var required: Int32 {
-    get {return _storage._required ?? 0}
+    get {_storage._required ?? 0}
     set {_uniqueStorage()._required = newValue}
   }
   /// Returns true if `required` has been explicitly set.
-  var hasRequired: Bool {return _storage._required != nil}
+  var hasRequired: Bool {_storage._required != nil}
   /// Clears the value of `required`. Subsequent reads from it will return its default value.
   mutating func clearRequired() {_uniqueStorage()._required = nil}
 
   var right: Int32 {
-    get {return _storage._right ?? 0}
+    get {_storage._right ?? 0}
     set {_uniqueStorage()._right = newValue}
   }
   /// Returns true if `right` has been explicitly set.
-  var hasRight: Bool {return _storage._right != nil}
+  var hasRight: Bool {_storage._right != nil}
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
   mutating func clearRight() {_uniqueStorage()._right = nil}
 
   var set: Int32 {
-    get {return _storage._set ?? 0}
+    get {_storage._set ?? 0}
     set {_uniqueStorage()._set = newValue}
   }
   /// Returns true if `set` has been explicitly set.
-  var hasSet: Bool {return _storage._set != nil}
+  var hasSet: Bool {_storage._set != nil}
   /// Clears the value of `set`. Subsequent reads from it will return its default value.
   mutating func clearSet() {_uniqueStorage()._set = nil}
 
   var type: Int32 {
-    get {return _storage._type ?? 0}
+    get {_storage._type ?? 0}
     set {_uniqueStorage()._type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
-  var hasType: Bool {return _storage._type != nil}
+  var hasType: Bool {_storage._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
   mutating func clearType() {_uniqueStorage()._type = nil}
 
   var unowned: Int32 {
-    get {return _storage._unowned ?? 0}
+    get {_storage._unowned ?? 0}
     set {_uniqueStorage()._unowned = newValue}
   }
   /// Returns true if `unowned` has been explicitly set.
-  var hasUnowned: Bool {return _storage._unowned != nil}
+  var hasUnowned: Bool {_storage._unowned != nil}
   /// Clears the value of `unowned`. Subsequent reads from it will return its default value.
   mutating func clearUnowned() {_uniqueStorage()._unowned = nil}
 
   var weak: Int32 {
-    get {return _storage._weak ?? 0}
+    get {_storage._weak ?? 0}
     set {_uniqueStorage()._weak = newValue}
   }
   /// Returns true if `weak` has been explicitly set.
-  var hasWeak: Bool {return _storage._weak != nil}
+  var hasWeak: Bool {_storage._weak != nil}
   /// Clears the value of `weak`. Subsequent reads from it will return its default value.
   mutating func clearWeak() {_uniqueStorage()._weak = nil}
 
   var willSet: Int32 {
-    get {return _storage._willSet ?? 0}
+    get {_storage._willSet ?? 0}
     set {_uniqueStorage()._willSet = newValue}
   }
   /// Returns true if `willSet` has been explicitly set.
-  var hasWillSet: Bool {return _storage._willSet != nil}
+  var hasWillSet: Bool {_storage._willSet != nil}
   /// Clears the value of `willSet`. Subsequent reads from it will return its default value.
   mutating func clearWillSet() {_uniqueStorage()._willSet = nil}
 
   var id: Int32 {
-    get {return _storage._id ?? 0}
+    get {_storage._id ?? 0}
     set {_uniqueStorage()._id = newValue}
   }
   /// Returns true if `id` has been explicitly set.
-  var hasID: Bool {return _storage._id != nil}
+  var hasID: Bool {_storage._id != nil}
   /// Clears the value of `id`. Subsequent reads from it will return its default value.
   mutating func clearID() {_uniqueStorage()._id = nil}
 
   var cmd: Int32 {
-    get {return _storage._cmd ?? 0}
+    get {_storage._cmd ?? 0}
     set {_uniqueStorage()._cmd = newValue}
   }
   /// Returns true if `cmd` has been explicitly set.
-  var hasCmd: Bool {return _storage._cmd != nil}
+  var hasCmd: Bool {_storage._cmd != nil}
   /// Clears the value of `cmd`. Subsequent reads from it will return its default value.
   mutating func clearCmd() {_uniqueStorage()._cmd = nil}
 
   var out: Int32 {
-    get {return _storage._out ?? 0}
+    get {_storage._out ?? 0}
     set {_uniqueStorage()._out = newValue}
   }
   /// Returns true if `out` has been explicitly set.
-  var hasOut: Bool {return _storage._out != nil}
+  var hasOut: Bool {_storage._out != nil}
   /// Clears the value of `out`. Subsequent reads from it will return its default value.
   mutating func clearOut() {_uniqueStorage()._out = nil}
 
   var bycopy: Int32 {
-    get {return _storage._bycopy ?? 0}
+    get {_storage._bycopy ?? 0}
     set {_uniqueStorage()._bycopy = newValue}
   }
   /// Returns true if `bycopy` has been explicitly set.
-  var hasBycopy: Bool {return _storage._bycopy != nil}
+  var hasBycopy: Bool {_storage._bycopy != nil}
   /// Clears the value of `bycopy`. Subsequent reads from it will return its default value.
   mutating func clearBycopy() {_uniqueStorage()._bycopy = nil}
 
   var byref: Int32 {
-    get {return _storage._byref ?? 0}
+    get {_storage._byref ?? 0}
     set {_uniqueStorage()._byref = newValue}
   }
   /// Returns true if `byref` has been explicitly set.
-  var hasByref: Bool {return _storage._byref != nil}
+  var hasByref: Bool {_storage._byref != nil}
   /// Clears the value of `byref`. Subsequent reads from it will return its default value.
   mutating func clearByref() {_uniqueStorage()._byref = nil}
 
   var oneway: Int32 {
-    get {return _storage._oneway ?? 0}
+    get {_storage._oneway ?? 0}
     set {_uniqueStorage()._oneway = newValue}
   }
   /// Returns true if `oneway` has been explicitly set.
-  var hasOneway: Bool {return _storage._oneway != nil}
+  var hasOneway: Bool {_storage._oneway != nil}
   /// Clears the value of `oneway`. Subsequent reads from it will return its default value.
   mutating func clearOneway() {_uniqueStorage()._oneway = nil}
 
   var and: Int32 {
-    get {return _storage._and ?? 0}
+    get {_storage._and ?? 0}
     set {_uniqueStorage()._and = newValue}
   }
   /// Returns true if `and` has been explicitly set.
-  var hasAnd: Bool {return _storage._and != nil}
+  var hasAnd: Bool {_storage._and != nil}
   /// Clears the value of `and`. Subsequent reads from it will return its default value.
   mutating func clearAnd() {_uniqueStorage()._and = nil}
 
   var andEq: Int32 {
-    get {return _storage._andEq ?? 0}
+    get {_storage._andEq ?? 0}
     set {_uniqueStorage()._andEq = newValue}
   }
   /// Returns true if `andEq` has been explicitly set.
-  var hasAndEq: Bool {return _storage._andEq != nil}
+  var hasAndEq: Bool {_storage._andEq != nil}
   /// Clears the value of `andEq`. Subsequent reads from it will return its default value.
   mutating func clearAndEq() {_uniqueStorage()._andEq = nil}
 
   var alignas: Int32 {
-    get {return _storage._alignas ?? 0}
+    get {_storage._alignas ?? 0}
     set {_uniqueStorage()._alignas = newValue}
   }
   /// Returns true if `alignas` has been explicitly set.
-  var hasAlignas: Bool {return _storage._alignas != nil}
+  var hasAlignas: Bool {_storage._alignas != nil}
   /// Clears the value of `alignas`. Subsequent reads from it will return its default value.
   mutating func clearAlignas() {_uniqueStorage()._alignas = nil}
 
   var alignof: Int32 {
-    get {return _storage._alignof ?? 0}
+    get {_storage._alignof ?? 0}
     set {_uniqueStorage()._alignof = newValue}
   }
   /// Returns true if `alignof` has been explicitly set.
-  var hasAlignof: Bool {return _storage._alignof != nil}
+  var hasAlignof: Bool {_storage._alignof != nil}
   /// Clears the value of `alignof`. Subsequent reads from it will return its default value.
   mutating func clearAlignof() {_uniqueStorage()._alignof = nil}
 
   var asm: Int32 {
-    get {return _storage._asm ?? 0}
+    get {_storage._asm ?? 0}
     set {_uniqueStorage()._asm = newValue}
   }
   /// Returns true if `asm` has been explicitly set.
-  var hasAsm: Bool {return _storage._asm != nil}
+  var hasAsm: Bool {_storage._asm != nil}
   /// Clears the value of `asm`. Subsequent reads from it will return its default value.
   mutating func clearAsm() {_uniqueStorage()._asm = nil}
 
   var auto: Int32 {
-    get {return _storage._auto ?? 0}
+    get {_storage._auto ?? 0}
     set {_uniqueStorage()._auto = newValue}
   }
   /// Returns true if `auto` has been explicitly set.
-  var hasAuto: Bool {return _storage._auto != nil}
+  var hasAuto: Bool {_storage._auto != nil}
   /// Clears the value of `auto`. Subsequent reads from it will return its default value.
   mutating func clearAuto() {_uniqueStorage()._auto = nil}
 
   var bitand: Int32 {
-    get {return _storage._bitand ?? 0}
+    get {_storage._bitand ?? 0}
     set {_uniqueStorage()._bitand = newValue}
   }
   /// Returns true if `bitand` has been explicitly set.
-  var hasBitand: Bool {return _storage._bitand != nil}
+  var hasBitand: Bool {_storage._bitand != nil}
   /// Clears the value of `bitand`. Subsequent reads from it will return its default value.
   mutating func clearBitand() {_uniqueStorage()._bitand = nil}
 
   var bitor: Int32 {
-    get {return _storage._bitor ?? 0}
+    get {_storage._bitor ?? 0}
     set {_uniqueStorage()._bitor = newValue}
   }
   /// Returns true if `bitor` has been explicitly set.
-  var hasBitor: Bool {return _storage._bitor != nil}
+  var hasBitor: Bool {_storage._bitor != nil}
   /// Clears the value of `bitor`. Subsequent reads from it will return its default value.
   mutating func clearBitor() {_uniqueStorage()._bitor = nil}
 
   var bool: Int32 {
-    get {return _storage._bool ?? 0}
+    get {_storage._bool ?? 0}
     set {_uniqueStorage()._bool = newValue}
   }
   /// Returns true if `bool` has been explicitly set.
-  var hasBool: Bool {return _storage._bool != nil}
+  var hasBool: Bool {_storage._bool != nil}
   /// Clears the value of `bool`. Subsequent reads from it will return its default value.
   mutating func clearBool() {_uniqueStorage()._bool = nil}
 
   var char: Int32 {
-    get {return _storage._char ?? 0}
+    get {_storage._char ?? 0}
     set {_uniqueStorage()._char = newValue}
   }
   /// Returns true if `char` has been explicitly set.
-  var hasChar: Bool {return _storage._char != nil}
+  var hasChar: Bool {_storage._char != nil}
   /// Clears the value of `char`. Subsequent reads from it will return its default value.
   mutating func clearChar() {_uniqueStorage()._char = nil}
 
   var char16T: Int32 {
-    get {return _storage._char16T ?? 0}
+    get {_storage._char16T ?? 0}
     set {_uniqueStorage()._char16T = newValue}
   }
   /// Returns true if `char16T` has been explicitly set.
-  var hasChar16T: Bool {return _storage._char16T != nil}
+  var hasChar16T: Bool {_storage._char16T != nil}
   /// Clears the value of `char16T`. Subsequent reads from it will return its default value.
   mutating func clearChar16T() {_uniqueStorage()._char16T = nil}
 
   var char32T: Int32 {
-    get {return _storage._char32T ?? 0}
+    get {_storage._char32T ?? 0}
     set {_uniqueStorage()._char32T = newValue}
   }
   /// Returns true if `char32T` has been explicitly set.
-  var hasChar32T: Bool {return _storage._char32T != nil}
+  var hasChar32T: Bool {_storage._char32T != nil}
   /// Clears the value of `char32T`. Subsequent reads from it will return its default value.
   mutating func clearChar32T() {_uniqueStorage()._char32T = nil}
 
   var compl: Int32 {
-    get {return _storage._compl ?? 0}
+    get {_storage._compl ?? 0}
     set {_uniqueStorage()._compl = newValue}
   }
   /// Returns true if `compl` has been explicitly set.
-  var hasCompl: Bool {return _storage._compl != nil}
+  var hasCompl: Bool {_storage._compl != nil}
   /// Clears the value of `compl`. Subsequent reads from it will return its default value.
   mutating func clearCompl() {_uniqueStorage()._compl = nil}
 
   var const: Int32 {
-    get {return _storage._const ?? 0}
+    get {_storage._const ?? 0}
     set {_uniqueStorage()._const = newValue}
   }
   /// Returns true if `const` has been explicitly set.
-  var hasConst: Bool {return _storage._const != nil}
+  var hasConst: Bool {_storage._const != nil}
   /// Clears the value of `const`. Subsequent reads from it will return its default value.
   mutating func clearConst() {_uniqueStorage()._const = nil}
 
   var constexpr: Int32 {
-    get {return _storage._constexpr ?? 0}
+    get {_storage._constexpr ?? 0}
     set {_uniqueStorage()._constexpr = newValue}
   }
   /// Returns true if `constexpr` has been explicitly set.
-  var hasConstexpr: Bool {return _storage._constexpr != nil}
+  var hasConstexpr: Bool {_storage._constexpr != nil}
   /// Clears the value of `constexpr`. Subsequent reads from it will return its default value.
   mutating func clearConstexpr() {_uniqueStorage()._constexpr = nil}
 
   var constCast: Int32 {
-    get {return _storage._constCast ?? 0}
+    get {_storage._constCast ?? 0}
     set {_uniqueStorage()._constCast = newValue}
   }
   /// Returns true if `constCast` has been explicitly set.
-  var hasConstCast: Bool {return _storage._constCast != nil}
+  var hasConstCast: Bool {_storage._constCast != nil}
   /// Clears the value of `constCast`. Subsequent reads from it will return its default value.
   mutating func clearConstCast() {_uniqueStorage()._constCast = nil}
 
   var decltype: Int32 {
-    get {return _storage._decltype ?? 0}
+    get {_storage._decltype ?? 0}
     set {_uniqueStorage()._decltype = newValue}
   }
   /// Returns true if `decltype` has been explicitly set.
-  var hasDecltype: Bool {return _storage._decltype != nil}
+  var hasDecltype: Bool {_storage._decltype != nil}
   /// Clears the value of `decltype`. Subsequent reads from it will return its default value.
   mutating func clearDecltype() {_uniqueStorage()._decltype = nil}
 
   var delete: Int32 {
-    get {return _storage._delete ?? 0}
+    get {_storage._delete ?? 0}
     set {_uniqueStorage()._delete = newValue}
   }
   /// Returns true if `delete` has been explicitly set.
-  var hasDelete: Bool {return _storage._delete != nil}
+  var hasDelete: Bool {_storage._delete != nil}
   /// Clears the value of `delete`. Subsequent reads from it will return its default value.
   mutating func clearDelete() {_uniqueStorage()._delete = nil}
 
   var dynamicCast: Int32 {
-    get {return _storage._dynamicCast ?? 0}
+    get {_storage._dynamicCast ?? 0}
     set {_uniqueStorage()._dynamicCast = newValue}
   }
   /// Returns true if `dynamicCast` has been explicitly set.
-  var hasDynamicCast: Bool {return _storage._dynamicCast != nil}
+  var hasDynamicCast: Bool {_storage._dynamicCast != nil}
   /// Clears the value of `dynamicCast`. Subsequent reads from it will return its default value.
   mutating func clearDynamicCast() {_uniqueStorage()._dynamicCast = nil}
 
   var explicit: Int32 {
-    get {return _storage._explicit ?? 0}
+    get {_storage._explicit ?? 0}
     set {_uniqueStorage()._explicit = newValue}
   }
   /// Returns true if `explicit` has been explicitly set.
-  var hasExplicit: Bool {return _storage._explicit != nil}
+  var hasExplicit: Bool {_storage._explicit != nil}
   /// Clears the value of `explicit`. Subsequent reads from it will return its default value.
   mutating func clearExplicit() {_uniqueStorage()._explicit = nil}
 
   var export: Int32 {
-    get {return _storage._export ?? 0}
+    get {_storage._export ?? 0}
     set {_uniqueStorage()._export = newValue}
   }
   /// Returns true if `export` has been explicitly set.
-  var hasExport: Bool {return _storage._export != nil}
+  var hasExport: Bool {_storage._export != nil}
   /// Clears the value of `export`. Subsequent reads from it will return its default value.
   mutating func clearExport() {_uniqueStorage()._export = nil}
 
   var extern: Int32 {
-    get {return _storage._extern ?? 0}
+    get {_storage._extern ?? 0}
     set {_uniqueStorage()._extern = newValue}
   }
   /// Returns true if `extern` has been explicitly set.
-  var hasExtern: Bool {return _storage._extern != nil}
+  var hasExtern: Bool {_storage._extern != nil}
   /// Clears the value of `extern`. Subsequent reads from it will return its default value.
   mutating func clearExtern() {_uniqueStorage()._extern = nil}
 
   var friend: Int32 {
-    get {return _storage._friend ?? 0}
+    get {_storage._friend ?? 0}
     set {_uniqueStorage()._friend = newValue}
   }
   /// Returns true if `friend` has been explicitly set.
-  var hasFriend: Bool {return _storage._friend != nil}
+  var hasFriend: Bool {_storage._friend != nil}
   /// Clears the value of `friend`. Subsequent reads from it will return its default value.
   mutating func clearFriend() {_uniqueStorage()._friend = nil}
 
   var goto: Int32 {
-    get {return _storage._goto ?? 0}
+    get {_storage._goto ?? 0}
     set {_uniqueStorage()._goto = newValue}
   }
   /// Returns true if `goto` has been explicitly set.
-  var hasGoto: Bool {return _storage._goto != nil}
+  var hasGoto: Bool {_storage._goto != nil}
   /// Clears the value of `goto`. Subsequent reads from it will return its default value.
   mutating func clearGoto() {_uniqueStorage()._goto = nil}
 
   var inline: Int32 {
-    get {return _storage._inline ?? 0}
+    get {_storage._inline ?? 0}
     set {_uniqueStorage()._inline = newValue}
   }
   /// Returns true if `inline` has been explicitly set.
-  var hasInline: Bool {return _storage._inline != nil}
+  var hasInline: Bool {_storage._inline != nil}
   /// Clears the value of `inline`. Subsequent reads from it will return its default value.
   mutating func clearInline() {_uniqueStorage()._inline = nil}
 
   var long: Int32 {
-    get {return _storage._long ?? 0}
+    get {_storage._long ?? 0}
     set {_uniqueStorage()._long = newValue}
   }
   /// Returns true if `long` has been explicitly set.
-  var hasLong: Bool {return _storage._long != nil}
+  var hasLong: Bool {_storage._long != nil}
   /// Clears the value of `long`. Subsequent reads from it will return its default value.
   mutating func clearLong() {_uniqueStorage()._long = nil}
 
   var mutable: Int32 {
-    get {return _storage._mutable ?? 0}
+    get {_storage._mutable ?? 0}
     set {_uniqueStorage()._mutable = newValue}
   }
   /// Returns true if `mutable` has been explicitly set.
-  var hasMutable: Bool {return _storage._mutable != nil}
+  var hasMutable: Bool {_storage._mutable != nil}
   /// Clears the value of `mutable`. Subsequent reads from it will return its default value.
   mutating func clearMutable() {_uniqueStorage()._mutable = nil}
 
   var namespace: Int32 {
-    get {return _storage._namespace ?? 0}
+    get {_storage._namespace ?? 0}
     set {_uniqueStorage()._namespace = newValue}
   }
   /// Returns true if `namespace` has been explicitly set.
-  var hasNamespace: Bool {return _storage._namespace != nil}
+  var hasNamespace: Bool {_storage._namespace != nil}
   /// Clears the value of `namespace`. Subsequent reads from it will return its default value.
   mutating func clearNamespace() {_uniqueStorage()._namespace = nil}
 
   var new: Int32 {
-    get {return _storage._new ?? 0}
+    get {_storage._new ?? 0}
     set {_uniqueStorage()._new = newValue}
   }
   /// Returns true if `new` has been explicitly set.
-  var hasNew: Bool {return _storage._new != nil}
+  var hasNew: Bool {_storage._new != nil}
   /// Clears the value of `new`. Subsequent reads from it will return its default value.
   mutating func clearNew() {_uniqueStorage()._new = nil}
 
   var noexcept: Int32 {
-    get {return _storage._noexcept ?? 0}
+    get {_storage._noexcept ?? 0}
     set {_uniqueStorage()._noexcept = newValue}
   }
   /// Returns true if `noexcept` has been explicitly set.
-  var hasNoexcept: Bool {return _storage._noexcept != nil}
+  var hasNoexcept: Bool {_storage._noexcept != nil}
   /// Clears the value of `noexcept`. Subsequent reads from it will return its default value.
   mutating func clearNoexcept() {_uniqueStorage()._noexcept = nil}
 
   var not: Int32 {
-    get {return _storage._not ?? 0}
+    get {_storage._not ?? 0}
     set {_uniqueStorage()._not = newValue}
   }
   /// Returns true if `not` has been explicitly set.
-  var hasNot: Bool {return _storage._not != nil}
+  var hasNot: Bool {_storage._not != nil}
   /// Clears the value of `not`. Subsequent reads from it will return its default value.
   mutating func clearNot() {_uniqueStorage()._not = nil}
 
   var notEq: Int32 {
-    get {return _storage._notEq ?? 0}
+    get {_storage._notEq ?? 0}
     set {_uniqueStorage()._notEq = newValue}
   }
   /// Returns true if `notEq` has been explicitly set.
-  var hasNotEq: Bool {return _storage._notEq != nil}
+  var hasNotEq: Bool {_storage._notEq != nil}
   /// Clears the value of `notEq`. Subsequent reads from it will return its default value.
   mutating func clearNotEq() {_uniqueStorage()._notEq = nil}
 
   var nullptr: Int32 {
-    get {return _storage._nullptr ?? 0}
+    get {_storage._nullptr ?? 0}
     set {_uniqueStorage()._nullptr = newValue}
   }
   /// Returns true if `nullptr` has been explicitly set.
-  var hasNullptr: Bool {return _storage._nullptr != nil}
+  var hasNullptr: Bool {_storage._nullptr != nil}
   /// Clears the value of `nullptr`. Subsequent reads from it will return its default value.
   mutating func clearNullptr() {_uniqueStorage()._nullptr = nil}
 
   var or: Int32 {
-    get {return _storage._or ?? 0}
+    get {_storage._or ?? 0}
     set {_uniqueStorage()._or = newValue}
   }
   /// Returns true if `or` has been explicitly set.
-  var hasOr: Bool {return _storage._or != nil}
+  var hasOr: Bool {_storage._or != nil}
   /// Clears the value of `or`. Subsequent reads from it will return its default value.
   mutating func clearOr() {_uniqueStorage()._or = nil}
 
   var orEq: Int32 {
-    get {return _storage._orEq ?? 0}
+    get {_storage._orEq ?? 0}
     set {_uniqueStorage()._orEq = newValue}
   }
   /// Returns true if `orEq` has been explicitly set.
-  var hasOrEq: Bool {return _storage._orEq != nil}
+  var hasOrEq: Bool {_storage._orEq != nil}
   /// Clears the value of `orEq`. Subsequent reads from it will return its default value.
   mutating func clearOrEq() {_uniqueStorage()._orEq = nil}
 
   var protected: Int32 {
-    get {return _storage._protected ?? 0}
+    get {_storage._protected ?? 0}
     set {_uniqueStorage()._protected = newValue}
   }
   /// Returns true if `protected` has been explicitly set.
-  var hasProtected: Bool {return _storage._protected != nil}
+  var hasProtected: Bool {_storage._protected != nil}
   /// Clears the value of `protected`. Subsequent reads from it will return its default value.
   mutating func clearProtected() {_uniqueStorage()._protected = nil}
 
   var register: Int32 {
-    get {return _storage._register ?? 0}
+    get {_storage._register ?? 0}
     set {_uniqueStorage()._register = newValue}
   }
   /// Returns true if `register` has been explicitly set.
-  var hasRegister: Bool {return _storage._register != nil}
+  var hasRegister: Bool {_storage._register != nil}
   /// Clears the value of `register`. Subsequent reads from it will return its default value.
   mutating func clearRegister() {_uniqueStorage()._register = nil}
 
   var reinterpretCast: Int32 {
-    get {return _storage._reinterpretCast ?? 0}
+    get {_storage._reinterpretCast ?? 0}
     set {_uniqueStorage()._reinterpretCast = newValue}
   }
   /// Returns true if `reinterpretCast` has been explicitly set.
-  var hasReinterpretCast: Bool {return _storage._reinterpretCast != nil}
+  var hasReinterpretCast: Bool {_storage._reinterpretCast != nil}
   /// Clears the value of `reinterpretCast`. Subsequent reads from it will return its default value.
   mutating func clearReinterpretCast() {_uniqueStorage()._reinterpretCast = nil}
 
   var short: Int32 {
-    get {return _storage._short ?? 0}
+    get {_storage._short ?? 0}
     set {_uniqueStorage()._short = newValue}
   }
   /// Returns true if `short` has been explicitly set.
-  var hasShort: Bool {return _storage._short != nil}
+  var hasShort: Bool {_storage._short != nil}
   /// Clears the value of `short`. Subsequent reads from it will return its default value.
   mutating func clearShort() {_uniqueStorage()._short = nil}
 
   var signed: Int32 {
-    get {return _storage._signed ?? 0}
+    get {_storage._signed ?? 0}
     set {_uniqueStorage()._signed = newValue}
   }
   /// Returns true if `signed` has been explicitly set.
-  var hasSigned: Bool {return _storage._signed != nil}
+  var hasSigned: Bool {_storage._signed != nil}
   /// Clears the value of `signed`. Subsequent reads from it will return its default value.
   mutating func clearSigned() {_uniqueStorage()._signed = nil}
 
   var sizeof: Int32 {
-    get {return _storage._sizeof ?? 0}
+    get {_storage._sizeof ?? 0}
     set {_uniqueStorage()._sizeof = newValue}
   }
   /// Returns true if `sizeof` has been explicitly set.
-  var hasSizeof: Bool {return _storage._sizeof != nil}
+  var hasSizeof: Bool {_storage._sizeof != nil}
   /// Clears the value of `sizeof`. Subsequent reads from it will return its default value.
   mutating func clearSizeof() {_uniqueStorage()._sizeof = nil}
 
   var staticAssert: Int32 {
-    get {return _storage._staticAssert ?? 0}
+    get {_storage._staticAssert ?? 0}
     set {_uniqueStorage()._staticAssert = newValue}
   }
   /// Returns true if `staticAssert` has been explicitly set.
-  var hasStaticAssert: Bool {return _storage._staticAssert != nil}
+  var hasStaticAssert: Bool {_storage._staticAssert != nil}
   /// Clears the value of `staticAssert`. Subsequent reads from it will return its default value.
   mutating func clearStaticAssert() {_uniqueStorage()._staticAssert = nil}
 
   var staticCast: Int32 {
-    get {return _storage._staticCast ?? 0}
+    get {_storage._staticCast ?? 0}
     set {_uniqueStorage()._staticCast = newValue}
   }
   /// Returns true if `staticCast` has been explicitly set.
-  var hasStaticCast: Bool {return _storage._staticCast != nil}
+  var hasStaticCast: Bool {_storage._staticCast != nil}
   /// Clears the value of `staticCast`. Subsequent reads from it will return its default value.
   mutating func clearStaticCast() {_uniqueStorage()._staticCast = nil}
 
   var template: Int32 {
-    get {return _storage._template ?? 0}
+    get {_storage._template ?? 0}
     set {_uniqueStorage()._template = newValue}
   }
   /// Returns true if `template` has been explicitly set.
-  var hasTemplate: Bool {return _storage._template != nil}
+  var hasTemplate: Bool {_storage._template != nil}
   /// Clears the value of `template`. Subsequent reads from it will return its default value.
   mutating func clearTemplate() {_uniqueStorage()._template = nil}
 
   var this: Int32 {
-    get {return _storage._this ?? 0}
+    get {_storage._this ?? 0}
     set {_uniqueStorage()._this = newValue}
   }
   /// Returns true if `this` has been explicitly set.
-  var hasThis: Bool {return _storage._this != nil}
+  var hasThis: Bool {_storage._this != nil}
   /// Clears the value of `this`. Subsequent reads from it will return its default value.
   mutating func clearThis() {_uniqueStorage()._this = nil}
 
   var threadLocal: Int32 {
-    get {return _storage._threadLocal ?? 0}
+    get {_storage._threadLocal ?? 0}
     set {_uniqueStorage()._threadLocal = newValue}
   }
   /// Returns true if `threadLocal` has been explicitly set.
-  var hasThreadLocal: Bool {return _storage._threadLocal != nil}
+  var hasThreadLocal: Bool {_storage._threadLocal != nil}
   /// Clears the value of `threadLocal`. Subsequent reads from it will return its default value.
   mutating func clearThreadLocal() {_uniqueStorage()._threadLocal = nil}
 
   var typedef: Int32 {
-    get {return _storage._typedef ?? 0}
+    get {_storage._typedef ?? 0}
     set {_uniqueStorage()._typedef = newValue}
   }
   /// Returns true if `typedef` has been explicitly set.
-  var hasTypedef: Bool {return _storage._typedef != nil}
+  var hasTypedef: Bool {_storage._typedef != nil}
   /// Clears the value of `typedef`. Subsequent reads from it will return its default value.
   mutating func clearTypedef() {_uniqueStorage()._typedef = nil}
 
   var typeid: Int32 {
-    get {return _storage._typeid ?? 0}
+    get {_storage._typeid ?? 0}
     set {_uniqueStorage()._typeid = newValue}
   }
   /// Returns true if `typeid` has been explicitly set.
-  var hasTypeid: Bool {return _storage._typeid != nil}
+  var hasTypeid: Bool {_storage._typeid != nil}
   /// Clears the value of `typeid`. Subsequent reads from it will return its default value.
   mutating func clearTypeid() {_uniqueStorage()._typeid = nil}
 
   var typename: Int32 {
-    get {return _storage._typename ?? 0}
+    get {_storage._typename ?? 0}
     set {_uniqueStorage()._typename = newValue}
   }
   /// Returns true if `typename` has been explicitly set.
-  var hasTypename: Bool {return _storage._typename != nil}
+  var hasTypename: Bool {_storage._typename != nil}
   /// Clears the value of `typename`. Subsequent reads from it will return its default value.
   mutating func clearTypename() {_uniqueStorage()._typename = nil}
 
   var union: Int32 {
-    get {return _storage._union ?? 0}
+    get {_storage._union ?? 0}
     set {_uniqueStorage()._union = newValue}
   }
   /// Returns true if `union` has been explicitly set.
-  var hasUnion: Bool {return _storage._union != nil}
+  var hasUnion: Bool {_storage._union != nil}
   /// Clears the value of `union`. Subsequent reads from it will return its default value.
   mutating func clearUnion() {_uniqueStorage()._union = nil}
 
   var unsigned: Int32 {
-    get {return _storage._unsigned ?? 0}
+    get {_storage._unsigned ?? 0}
     set {_uniqueStorage()._unsigned = newValue}
   }
   /// Returns true if `unsigned` has been explicitly set.
-  var hasUnsigned: Bool {return _storage._unsigned != nil}
+  var hasUnsigned: Bool {_storage._unsigned != nil}
   /// Clears the value of `unsigned`. Subsequent reads from it will return its default value.
   mutating func clearUnsigned() {_uniqueStorage()._unsigned = nil}
 
   var using: Int32 {
-    get {return _storage._using ?? 0}
+    get {_storage._using ?? 0}
     set {_uniqueStorage()._using = newValue}
   }
   /// Returns true if `using` has been explicitly set.
-  var hasUsing: Bool {return _storage._using != nil}
+  var hasUsing: Bool {_storage._using != nil}
   /// Clears the value of `using`. Subsequent reads from it will return its default value.
   mutating func clearUsing() {_uniqueStorage()._using = nil}
 
   var virtual: Int32 {
-    get {return _storage._virtual ?? 0}
+    get {_storage._virtual ?? 0}
     set {_uniqueStorage()._virtual = newValue}
   }
   /// Returns true if `virtual` has been explicitly set.
-  var hasVirtual: Bool {return _storage._virtual != nil}
+  var hasVirtual: Bool {_storage._virtual != nil}
   /// Clears the value of `virtual`. Subsequent reads from it will return its default value.
   mutating func clearVirtual() {_uniqueStorage()._virtual = nil}
 
   var void: Int32 {
-    get {return _storage._void ?? 0}
+    get {_storage._void ?? 0}
     set {_uniqueStorage()._void = newValue}
   }
   /// Returns true if `void` has been explicitly set.
-  var hasVoid: Bool {return _storage._void != nil}
+  var hasVoid: Bool {_storage._void != nil}
   /// Clears the value of `void`. Subsequent reads from it will return its default value.
   mutating func clearVoid() {_uniqueStorage()._void = nil}
 
   var volatile: Int32 {
-    get {return _storage._volatile ?? 0}
+    get {_storage._volatile ?? 0}
     set {_uniqueStorage()._volatile = newValue}
   }
   /// Returns true if `volatile` has been explicitly set.
-  var hasVolatile: Bool {return _storage._volatile != nil}
+  var hasVolatile: Bool {_storage._volatile != nil}
   /// Clears the value of `volatile`. Subsequent reads from it will return its default value.
   mutating func clearVolatile() {_uniqueStorage()._volatile = nil}
 
   var wcharT: Int32 {
-    get {return _storage._wcharT ?? 0}
+    get {_storage._wcharT ?? 0}
     set {_uniqueStorage()._wcharT = newValue}
   }
   /// Returns true if `wcharT` has been explicitly set.
-  var hasWcharT: Bool {return _storage._wcharT != nil}
+  var hasWcharT: Bool {_storage._wcharT != nil}
   /// Clears the value of `wcharT`. Subsequent reads from it will return its default value.
   mutating func clearWcharT() {_uniqueStorage()._wcharT = nil}
 
   var xor: Int32 {
-    get {return _storage._xor ?? 0}
+    get {_storage._xor ?? 0}
     set {_uniqueStorage()._xor = newValue}
   }
   /// Returns true if `xor` has been explicitly set.
-  var hasXor: Bool {return _storage._xor != nil}
+  var hasXor: Bool {_storage._xor != nil}
   /// Clears the value of `xor`. Subsequent reads from it will return its default value.
   mutating func clearXor() {_uniqueStorage()._xor = nil}
 
   var xorEq: Int32 {
-    get {return _storage._xorEq ?? 0}
+    get {_storage._xorEq ?? 0}
     set {_uniqueStorage()._xorEq = newValue}
   }
   /// Returns true if `xorEq` has been explicitly set.
-  var hasXorEq: Bool {return _storage._xorEq != nil}
+  var hasXorEq: Bool {_storage._xorEq != nil}
   /// Clears the value of `xorEq`. Subsequent reads from it will return its default value.
   mutating func clearXorEq() {_uniqueStorage()._xorEq = nil}
 
   var restrict: Int32 {
-    get {return _storage._restrict ?? 0}
+    get {_storage._restrict ?? 0}
     set {_uniqueStorage()._restrict = newValue}
   }
   /// Returns true if `restrict` has been explicitly set.
-  var hasRestrict: Bool {return _storage._restrict != nil}
+  var hasRestrict: Bool {_storage._restrict != nil}
   /// Clears the value of `restrict`. Subsequent reads from it will return its default value.
   mutating func clearRestrict() {_uniqueStorage()._restrict = nil}
 
   var category: Int32 {
-    get {return _storage._category ?? 0}
+    get {_storage._category ?? 0}
     set {_uniqueStorage()._category = newValue}
   }
   /// Returns true if `category` has been explicitly set.
-  var hasCategory: Bool {return _storage._category != nil}
+  var hasCategory: Bool {_storage._category != nil}
   /// Clears the value of `category`. Subsequent reads from it will return its default value.
   mutating func clearCategory() {_uniqueStorage()._category = nil}
 
   var ivar: Int32 {
-    get {return _storage._ivar ?? 0}
+    get {_storage._ivar ?? 0}
     set {_uniqueStorage()._ivar = newValue}
   }
   /// Returns true if `ivar` has been explicitly set.
-  var hasIvar: Bool {return _storage._ivar != nil}
+  var hasIvar: Bool {_storage._ivar != nil}
   /// Clears the value of `ivar`. Subsequent reads from it will return its default value.
   mutating func clearIvar() {_uniqueStorage()._ivar = nil}
 
   var method: Int32 {
-    get {return _storage._method ?? 0}
+    get {_storage._method ?? 0}
     set {_uniqueStorage()._method = newValue}
   }
   /// Returns true if `method` has been explicitly set.
-  var hasMethod: Bool {return _storage._method != nil}
+  var hasMethod: Bool {_storage._method != nil}
   /// Clears the value of `method`. Subsequent reads from it will return its default value.
   mutating func clearMethod() {_uniqueStorage()._method = nil}
 
   var finalize: Int32 {
-    get {return _storage._finalize ?? 0}
+    get {_storage._finalize ?? 0}
     set {_uniqueStorage()._finalize = newValue}
   }
   /// Returns true if `finalize` has been explicitly set.
-  var hasFinalize: Bool {return _storage._finalize != nil}
+  var hasFinalize: Bool {_storage._finalize != nil}
   /// Clears the value of `finalize`. Subsequent reads from it will return its default value.
   mutating func clearFinalize() {_uniqueStorage()._finalize = nil}
 
   var hash: Int32 {
-    get {return _storage._hash ?? 0}
+    get {_storage._hash ?? 0}
     set {_uniqueStorage()._hash = newValue}
   }
   /// Returns true if `hash` has been explicitly set.
-  var hasHash: Bool {return _storage._hash != nil}
+  var hasHash: Bool {_storage._hash != nil}
   /// Clears the value of `hash`. Subsequent reads from it will return its default value.
   mutating func clearHash() {_uniqueStorage()._hash = nil}
 
   var dealloc: Int32 {
-    get {return _storage._dealloc ?? 0}
+    get {_storage._dealloc ?? 0}
     set {_uniqueStorage()._dealloc = newValue}
   }
   /// Returns true if `dealloc` has been explicitly set.
-  var hasDealloc: Bool {return _storage._dealloc != nil}
+  var hasDealloc: Bool {_storage._dealloc != nil}
   /// Clears the value of `dealloc`. Subsequent reads from it will return its default value.
   mutating func clearDealloc() {_uniqueStorage()._dealloc = nil}
 
   var superclass: Int32 {
-    get {return _storage._superclass ?? 0}
+    get {_storage._superclass ?? 0}
     set {_uniqueStorage()._superclass = newValue}
   }
   /// Returns true if `superclass` has been explicitly set.
-  var hasSuperclass: Bool {return _storage._superclass != nil}
+  var hasSuperclass: Bool {_storage._superclass != nil}
   /// Clears the value of `superclass`. Subsequent reads from it will return its default value.
   mutating func clearSuperclass() {_uniqueStorage()._superclass = nil}
 
   var retain: Int32 {
-    get {return _storage._retain ?? 0}
+    get {_storage._retain ?? 0}
     set {_uniqueStorage()._retain = newValue}
   }
   /// Returns true if `retain` has been explicitly set.
-  var hasRetain: Bool {return _storage._retain != nil}
+  var hasRetain: Bool {_storage._retain != nil}
   /// Clears the value of `retain`. Subsequent reads from it will return its default value.
   mutating func clearRetain() {_uniqueStorage()._retain = nil}
 
   var release: Int32 {
-    get {return _storage._release ?? 0}
+    get {_storage._release ?? 0}
     set {_uniqueStorage()._release = newValue}
   }
   /// Returns true if `release` has been explicitly set.
-  var hasRelease: Bool {return _storage._release != nil}
+  var hasRelease: Bool {_storage._release != nil}
   /// Clears the value of `release`. Subsequent reads from it will return its default value.
   mutating func clearRelease() {_uniqueStorage()._release = nil}
 
   var autorelease: Int32 {
-    get {return _storage._autorelease ?? 0}
+    get {_storage._autorelease ?? 0}
     set {_uniqueStorage()._autorelease = newValue}
   }
   /// Returns true if `autorelease` has been explicitly set.
-  var hasAutorelease: Bool {return _storage._autorelease != nil}
+  var hasAutorelease: Bool {_storage._autorelease != nil}
   /// Clears the value of `autorelease`. Subsequent reads from it will return its default value.
   mutating func clearAutorelease() {_uniqueStorage()._autorelease = nil}
 
   var retainCount: Int32 {
-    get {return _storage._retainCount ?? 0}
+    get {_storage._retainCount ?? 0}
     set {_uniqueStorage()._retainCount = newValue}
   }
   /// Returns true if `retainCount` has been explicitly set.
-  var hasRetainCount: Bool {return _storage._retainCount != nil}
+  var hasRetainCount: Bool {_storage._retainCount != nil}
   /// Clears the value of `retainCount`. Subsequent reads from it will return its default value.
   mutating func clearRetainCount() {_uniqueStorage()._retainCount = nil}
 
   var zone: Int32 {
-    get {return _storage._zone ?? 0}
+    get {_storage._zone ?? 0}
     set {_uniqueStorage()._zone = newValue}
   }
   /// Returns true if `zone` has been explicitly set.
-  var hasZone: Bool {return _storage._zone != nil}
+  var hasZone: Bool {_storage._zone != nil}
   /// Clears the value of `zone`. Subsequent reads from it will return its default value.
   mutating func clearZone() {_uniqueStorage()._zone = nil}
 
   var isProxy: Int32 {
-    get {return _storage._isProxy ?? 0}
+    get {_storage._isProxy ?? 0}
     set {_uniqueStorage()._isProxy = newValue}
   }
   /// Returns true if `isProxy` has been explicitly set.
-  var hasIsProxy: Bool {return _storage._isProxy != nil}
+  var hasIsProxy: Bool {_storage._isProxy != nil}
   /// Clears the value of `isProxy`. Subsequent reads from it will return its default value.
   mutating func clearIsProxy() {_uniqueStorage()._isProxy = nil}
 
   var copy: Int32 {
-    get {return _storage._copy ?? 0}
+    get {_storage._copy ?? 0}
     set {_uniqueStorage()._copy = newValue}
   }
   /// Returns true if `copy` has been explicitly set.
-  var hasCopy: Bool {return _storage._copy != nil}
+  var hasCopy: Bool {_storage._copy != nil}
   /// Clears the value of `copy`. Subsequent reads from it will return its default value.
   mutating func clearCopy() {_uniqueStorage()._copy = nil}
 
   var mutableCopy: Int32 {
-    get {return _storage._mutableCopy ?? 0}
+    get {_storage._mutableCopy ?? 0}
     set {_uniqueStorage()._mutableCopy = newValue}
   }
   /// Returns true if `mutableCopy` has been explicitly set.
-  var hasMutableCopy: Bool {return _storage._mutableCopy != nil}
+  var hasMutableCopy: Bool {_storage._mutableCopy != nil}
   /// Clears the value of `mutableCopy`. Subsequent reads from it will return its default value.
   mutating func clearMutableCopy() {_uniqueStorage()._mutableCopy = nil}
 
   var classForCoder: Int32 {
-    get {return _storage._classForCoder ?? 0}
+    get {_storage._classForCoder ?? 0}
     set {_uniqueStorage()._classForCoder = newValue}
   }
   /// Returns true if `classForCoder` has been explicitly set.
-  var hasClassForCoder: Bool {return _storage._classForCoder != nil}
+  var hasClassForCoder: Bool {_storage._classForCoder != nil}
   /// Clears the value of `classForCoder`. Subsequent reads from it will return its default value.
   mutating func clearClassForCoder() {_uniqueStorage()._classForCoder = nil}
 
   var clear: Int32 {
-    get {return _storage._clear ?? 0}
+    get {_storage._clear ?? 0}
     set {_uniqueStorage()._clear = newValue}
   }
   /// Returns true if `clear` has been explicitly set.
-  var hasClear: Bool {return _storage._clear != nil}
+  var hasClear: Bool {_storage._clear != nil}
   /// Clears the value of `clear`. Subsequent reads from it will return its default value.
   mutating func clearClear() {_uniqueStorage()._clear = nil}
 
   var data: Int32 {
-    get {return _storage._data ?? 0}
+    get {_storage._data ?? 0}
     set {_uniqueStorage()._data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
-  var hasData: Bool {return _storage._data != nil}
+  var hasData: Bool {_storage._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
   mutating func clearData() {_uniqueStorage()._data = nil}
 
   var delimitedData: Int32 {
-    get {return _storage._delimitedData ?? 0}
+    get {_storage._delimitedData ?? 0}
     set {_uniqueStorage()._delimitedData = newValue}
   }
   /// Returns true if `delimitedData` has been explicitly set.
-  var hasDelimitedData: Bool {return _storage._delimitedData != nil}
+  var hasDelimitedData: Bool {_storage._delimitedData != nil}
   /// Clears the value of `delimitedData`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedData() {_uniqueStorage()._delimitedData = nil}
 
   var descriptor: Int32 {
-    get {return _storage._descriptor ?? 0}
+    get {_storage._descriptor ?? 0}
     set {_uniqueStorage()._descriptor = newValue}
   }
   /// Returns true if `descriptor` has been explicitly set.
-  var hasDescriptor: Bool {return _storage._descriptor != nil}
+  var hasDescriptor: Bool {_storage._descriptor != nil}
   /// Clears the value of `descriptor`. Subsequent reads from it will return its default value.
   mutating func clearDescriptor() {_uniqueStorage()._descriptor = nil}
 
   var extensionRegistry: Int32 {
-    get {return _storage._extensionRegistry ?? 0}
+    get {_storage._extensionRegistry ?? 0}
     set {_uniqueStorage()._extensionRegistry = newValue}
   }
   /// Returns true if `extensionRegistry` has been explicitly set.
-  var hasExtensionRegistry: Bool {return _storage._extensionRegistry != nil}
+  var hasExtensionRegistry: Bool {_storage._extensionRegistry != nil}
   /// Clears the value of `extensionRegistry`. Subsequent reads from it will return its default value.
   mutating func clearExtensionRegistry() {_uniqueStorage()._extensionRegistry = nil}
 
   var extensionsCurrentlySet: Int32 {
-    get {return _storage._extensionsCurrentlySet ?? 0}
+    get {_storage._extensionsCurrentlySet ?? 0}
     set {_uniqueStorage()._extensionsCurrentlySet = newValue}
   }
   /// Returns true if `extensionsCurrentlySet` has been explicitly set.
-  var hasExtensionsCurrentlySet: Bool {return _storage._extensionsCurrentlySet != nil}
+  var hasExtensionsCurrentlySet: Bool {_storage._extensionsCurrentlySet != nil}
   /// Clears the value of `extensionsCurrentlySet`. Subsequent reads from it will return its default value.
   mutating func clearExtensionsCurrentlySet() {_uniqueStorage()._extensionsCurrentlySet = nil}
 
   var isInitialized_p: Int32 {
-    get {return _storage._isInitialized_p ?? 0}
+    get {_storage._isInitialized_p ?? 0}
     set {_uniqueStorage()._isInitialized_p = newValue}
   }
   /// Returns true if `isInitialized_p` has been explicitly set.
-  var hasIsInitialized_p: Bool {return _storage._isInitialized_p != nil}
+  var hasIsInitialized_p: Bool {_storage._isInitialized_p != nil}
   /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
   mutating func clearIsInitialized_p() {_uniqueStorage()._isInitialized_p = nil}
 
   var serializedSize: Int32 {
-    get {return _storage._serializedSize ?? 0}
+    get {_storage._serializedSize ?? 0}
     set {_uniqueStorage()._serializedSize = newValue}
   }
   /// Returns true if `serializedSize` has been explicitly set.
-  var hasSerializedSize: Bool {return _storage._serializedSize != nil}
+  var hasSerializedSize: Bool {_storage._serializedSize != nil}
   /// Clears the value of `serializedSize`. Subsequent reads from it will return its default value.
   mutating func clearSerializedSize() {_uniqueStorage()._serializedSize = nil}
 
   var sortedExtensionsInUse: Int32 {
-    get {return _storage._sortedExtensionsInUse ?? 0}
+    get {_storage._sortedExtensionsInUse ?? 0}
     set {_uniqueStorage()._sortedExtensionsInUse = newValue}
   }
   /// Returns true if `sortedExtensionsInUse` has been explicitly set.
-  var hasSortedExtensionsInUse: Bool {return _storage._sortedExtensionsInUse != nil}
+  var hasSortedExtensionsInUse: Bool {_storage._sortedExtensionsInUse != nil}
   /// Clears the value of `sortedExtensionsInUse`. Subsequent reads from it will return its default value.
   mutating func clearSortedExtensionsInUse() {_uniqueStorage()._sortedExtensionsInUse = nil}
 
   var unknownFields_p: Int32 {
-    get {return _storage._unknownFields_p ?? 0}
+    get {_storage._unknownFields_p ?? 0}
     set {_uniqueStorage()._unknownFields_p = newValue}
   }
   /// Returns true if `unknownFields_p` has been explicitly set.
-  var hasUnknownFields_p: Bool {return _storage._unknownFields_p != nil}
+  var hasUnknownFields_p: Bool {_storage._unknownFields_p != nil}
   /// Clears the value of `unknownFields_p`. Subsequent reads from it will return its default value.
   mutating func clearUnknownFields_p() {_uniqueStorage()._unknownFields_p = nil}
 
   var fixed: Int32 {
-    get {return _storage._fixed ?? 0}
+    get {_storage._fixed ?? 0}
     set {_uniqueStorage()._fixed = newValue}
   }
   /// Returns true if `fixed` has been explicitly set.
-  var hasFixed: Bool {return _storage._fixed != nil}
+  var hasFixed: Bool {_storage._fixed != nil}
   /// Clears the value of `fixed`. Subsequent reads from it will return its default value.
   mutating func clearFixed() {_uniqueStorage()._fixed = nil}
 
   var fract: Int32 {
-    get {return _storage._fract ?? 0}
+    get {_storage._fract ?? 0}
     set {_uniqueStorage()._fract = newValue}
   }
   /// Returns true if `fract` has been explicitly set.
-  var hasFract: Bool {return _storage._fract != nil}
+  var hasFract: Bool {_storage._fract != nil}
   /// Clears the value of `fract`. Subsequent reads from it will return its default value.
   mutating func clearFract() {_uniqueStorage()._fract = nil}
 
   var size: Int32 {
-    get {return _storage._size ?? 0}
+    get {_storage._size ?? 0}
     set {_uniqueStorage()._size = newValue}
   }
   /// Returns true if `size` has been explicitly set.
-  var hasSize: Bool {return _storage._size != nil}
+  var hasSize: Bool {_storage._size != nil}
   /// Clears the value of `size`. Subsequent reads from it will return its default value.
   mutating func clearSize() {_uniqueStorage()._size = nil}
 
   var logicalAddress: Int32 {
-    get {return _storage._logicalAddress ?? 0}
+    get {_storage._logicalAddress ?? 0}
     set {_uniqueStorage()._logicalAddress = newValue}
   }
   /// Returns true if `logicalAddress` has been explicitly set.
-  var hasLogicalAddress: Bool {return _storage._logicalAddress != nil}
+  var hasLogicalAddress: Bool {_storage._logicalAddress != nil}
   /// Clears the value of `logicalAddress`. Subsequent reads from it will return its default value.
   mutating func clearLogicalAddress() {_uniqueStorage()._logicalAddress = nil}
 
   var physicalAddress: Int32 {
-    get {return _storage._physicalAddress ?? 0}
+    get {_storage._physicalAddress ?? 0}
     set {_uniqueStorage()._physicalAddress = newValue}
   }
   /// Returns true if `physicalAddress` has been explicitly set.
-  var hasPhysicalAddress: Bool {return _storage._physicalAddress != nil}
+  var hasPhysicalAddress: Bool {_storage._physicalAddress != nil}
   /// Clears the value of `physicalAddress`. Subsequent reads from it will return its default value.
   mutating func clearPhysicalAddress() {_uniqueStorage()._physicalAddress = nil}
 
   var byteCount: Int32 {
-    get {return _storage._byteCount ?? 0}
+    get {_storage._byteCount ?? 0}
     set {_uniqueStorage()._byteCount = newValue}
   }
   /// Returns true if `byteCount` has been explicitly set.
-  var hasByteCount: Bool {return _storage._byteCount != nil}
+  var hasByteCount: Bool {_storage._byteCount != nil}
   /// Clears the value of `byteCount`. Subsequent reads from it will return its default value.
   mutating func clearByteCount() {_uniqueStorage()._byteCount = nil}
 
   var byteOffset: Int32 {
-    get {return _storage._byteOffset ?? 0}
+    get {_storage._byteOffset ?? 0}
     set {_uniqueStorage()._byteOffset = newValue}
   }
   /// Returns true if `byteOffset` has been explicitly set.
-  var hasByteOffset: Bool {return _storage._byteOffset != nil}
+  var hasByteOffset: Bool {_storage._byteOffset != nil}
   /// Clears the value of `byteOffset`. Subsequent reads from it will return its default value.
   mutating func clearByteOffset() {_uniqueStorage()._byteOffset = nil}
 
   var duration: Int32 {
-    get {return _storage._duration ?? 0}
+    get {_storage._duration ?? 0}
     set {_uniqueStorage()._duration = newValue}
   }
   /// Returns true if `duration` has been explicitly set.
-  var hasDuration: Bool {return _storage._duration != nil}
+  var hasDuration: Bool {_storage._duration != nil}
   /// Clears the value of `duration`. Subsequent reads from it will return its default value.
   mutating func clearDuration() {_uniqueStorage()._duration = nil}
 
   var absoluteTime: Int32 {
-    get {return _storage._absoluteTime ?? 0}
+    get {_storage._absoluteTime ?? 0}
     set {_uniqueStorage()._absoluteTime = newValue}
   }
   /// Returns true if `absoluteTime` has been explicitly set.
-  var hasAbsoluteTime: Bool {return _storage._absoluteTime != nil}
+  var hasAbsoluteTime: Bool {_storage._absoluteTime != nil}
   /// Clears the value of `absoluteTime`. Subsequent reads from it will return its default value.
   mutating func clearAbsoluteTime() {_uniqueStorage()._absoluteTime = nil}
 
   var optionBits: Int32 {
-    get {return _storage._optionBits ?? 0}
+    get {_storage._optionBits ?? 0}
     set {_uniqueStorage()._optionBits = newValue}
   }
   /// Returns true if `optionBits` has been explicitly set.
-  var hasOptionBits: Bool {return _storage._optionBits != nil}
+  var hasOptionBits: Bool {_storage._optionBits != nil}
   /// Clears the value of `optionBits`. Subsequent reads from it will return its default value.
   mutating func clearOptionBits() {_uniqueStorage()._optionBits = nil}
 
   var itemCount: Int32 {
-    get {return _storage._itemCount ?? 0}
+    get {_storage._itemCount ?? 0}
     set {_uniqueStorage()._itemCount = newValue}
   }
   /// Returns true if `itemCount` has been explicitly set.
-  var hasItemCount: Bool {return _storage._itemCount != nil}
+  var hasItemCount: Bool {_storage._itemCount != nil}
   /// Clears the value of `itemCount`. Subsequent reads from it will return its default value.
   mutating func clearItemCount() {_uniqueStorage()._itemCount = nil}
 
   var pbversion: Int32 {
-    get {return _storage._pbversion ?? 0}
+    get {_storage._pbversion ?? 0}
     set {_uniqueStorage()._pbversion = newValue}
   }
   /// Returns true if `pbversion` has been explicitly set.
-  var hasPbversion: Bool {return _storage._pbversion != nil}
+  var hasPbversion: Bool {_storage._pbversion != nil}
   /// Clears the value of `pbversion`. Subsequent reads from it will return its default value.
   mutating func clearPbversion() {_uniqueStorage()._pbversion = nil}
 
   var scriptCode: Int32 {
-    get {return _storage._scriptCode ?? 0}
+    get {_storage._scriptCode ?? 0}
     set {_uniqueStorage()._scriptCode = newValue}
   }
   /// Returns true if `scriptCode` has been explicitly set.
-  var hasScriptCode: Bool {return _storage._scriptCode != nil}
+  var hasScriptCode: Bool {_storage._scriptCode != nil}
   /// Clears the value of `scriptCode`. Subsequent reads from it will return its default value.
   mutating func clearScriptCode() {_uniqueStorage()._scriptCode = nil}
 
   var langCode: Int32 {
-    get {return _storage._langCode ?? 0}
+    get {_storage._langCode ?? 0}
     set {_uniqueStorage()._langCode = newValue}
   }
   /// Returns true if `langCode` has been explicitly set.
-  var hasLangCode: Bool {return _storage._langCode != nil}
+  var hasLangCode: Bool {_storage._langCode != nil}
   /// Clears the value of `langCode`. Subsequent reads from it will return its default value.
   mutating func clearLangCode() {_uniqueStorage()._langCode = nil}
 
   var regionCode: Int32 {
-    get {return _storage._regionCode ?? 0}
+    get {_storage._regionCode ?? 0}
     set {_uniqueStorage()._regionCode = newValue}
   }
   /// Returns true if `regionCode` has been explicitly set.
-  var hasRegionCode: Bool {return _storage._regionCode != nil}
+  var hasRegionCode: Bool {_storage._regionCode != nil}
   /// Clears the value of `regionCode`. Subsequent reads from it will return its default value.
   mutating func clearRegionCode() {_uniqueStorage()._regionCode = nil}
 
   var ostype: Int32 {
-    get {return _storage._ostype ?? 0}
+    get {_storage._ostype ?? 0}
     set {_uniqueStorage()._ostype = newValue}
   }
   /// Returns true if `ostype` has been explicitly set.
-  var hasOstype: Bool {return _storage._ostype != nil}
+  var hasOstype: Bool {_storage._ostype != nil}
   /// Clears the value of `ostype`. Subsequent reads from it will return its default value.
   mutating func clearOstype() {_uniqueStorage()._ostype = nil}
 
   var processSerialNumber: Int32 {
-    get {return _storage._processSerialNumber ?? 0}
+    get {_storage._processSerialNumber ?? 0}
     set {_uniqueStorage()._processSerialNumber = newValue}
   }
   /// Returns true if `processSerialNumber` has been explicitly set.
-  var hasProcessSerialNumber: Bool {return _storage._processSerialNumber != nil}
+  var hasProcessSerialNumber: Bool {_storage._processSerialNumber != nil}
   /// Clears the value of `processSerialNumber`. Subsequent reads from it will return its default value.
   mutating func clearProcessSerialNumber() {_uniqueStorage()._processSerialNumber = nil}
 
   var point: Int32 {
-    get {return _storage._point ?? 0}
+    get {_storage._point ?? 0}
     set {_uniqueStorage()._point = newValue}
   }
   /// Returns true if `point` has been explicitly set.
-  var hasPoint: Bool {return _storage._point != nil}
+  var hasPoint: Bool {_storage._point != nil}
   /// Clears the value of `point`. Subsequent reads from it will return its default value.
   mutating func clearPoint() {_uniqueStorage()._point = nil}
 
   var rect: Int32 {
-    get {return _storage._rect ?? 0}
+    get {_storage._rect ?? 0}
     set {_uniqueStorage()._rect = newValue}
   }
   /// Returns true if `rect` has been explicitly set.
-  var hasRect: Bool {return _storage._rect != nil}
+  var hasRect: Bool {_storage._rect != nil}
   /// Clears the value of `rect`. Subsequent reads from it will return its default value.
   mutating func clearRect() {_uniqueStorage()._rect = nil}
 
   var fixedPoint: Int32 {
-    get {return _storage._fixedPoint ?? 0}
+    get {_storage._fixedPoint ?? 0}
     set {_uniqueStorage()._fixedPoint = newValue}
   }
   /// Returns true if `fixedPoint` has been explicitly set.
-  var hasFixedPoint: Bool {return _storage._fixedPoint != nil}
+  var hasFixedPoint: Bool {_storage._fixedPoint != nil}
   /// Clears the value of `fixedPoint`. Subsequent reads from it will return its default value.
   mutating func clearFixedPoint() {_uniqueStorage()._fixedPoint = nil}
 
   var fixedRect: Int32 {
-    get {return _storage._fixedRect ?? 0}
+    get {_storage._fixedRect ?? 0}
     set {_uniqueStorage()._fixedRect = newValue}
   }
   /// Returns true if `fixedRect` has been explicitly set.
-  var hasFixedRect: Bool {return _storage._fixedRect != nil}
+  var hasFixedRect: Bool {_storage._fixedRect != nil}
   /// Clears the value of `fixedRect`. Subsequent reads from it will return its default value.
   mutating func clearFixedRect() {_uniqueStorage()._fixedRect = nil}
 
   var style: Int32 {
-    get {return _storage._style ?? 0}
+    get {_storage._style ?? 0}
     set {_uniqueStorage()._style = newValue}
   }
   /// Returns true if `style` has been explicitly set.
-  var hasStyle: Bool {return _storage._style != nil}
+  var hasStyle: Bool {_storage._style != nil}
   /// Clears the value of `style`. Subsequent reads from it will return its default value.
   mutating func clearStyle() {_uniqueStorage()._style = nil}
 
   var styleParameter: Int32 {
-    get {return _storage._styleParameter ?? 0}
+    get {_storage._styleParameter ?? 0}
     set {_uniqueStorage()._styleParameter = newValue}
   }
   /// Returns true if `styleParameter` has been explicitly set.
-  var hasStyleParameter: Bool {return _storage._styleParameter != nil}
+  var hasStyleParameter: Bool {_storage._styleParameter != nil}
   /// Clears the value of `styleParameter`. Subsequent reads from it will return its default value.
   mutating func clearStyleParameter() {_uniqueStorage()._styleParameter = nil}
 
   var styleField: Int32 {
-    get {return _storage._styleField ?? 0}
+    get {_storage._styleField ?? 0}
     set {_uniqueStorage()._styleField = newValue}
   }
   /// Returns true if `styleField` has been explicitly set.
-  var hasStyleField: Bool {return _storage._styleField != nil}
+  var hasStyleField: Bool {_storage._styleField != nil}
   /// Clears the value of `styleField`. Subsequent reads from it will return its default value.
   mutating func clearStyleField() {_uniqueStorage()._styleField = nil}
 
   var timeScale: Int32 {
-    get {return _storage._timeScale ?? 0}
+    get {_storage._timeScale ?? 0}
     set {_uniqueStorage()._timeScale = newValue}
   }
   /// Returns true if `timeScale` has been explicitly set.
-  var hasTimeScale: Bool {return _storage._timeScale != nil}
+  var hasTimeScale: Bool {_storage._timeScale != nil}
   /// Clears the value of `timeScale`. Subsequent reads from it will return its default value.
   mutating func clearTimeScale() {_uniqueStorage()._timeScale = nil}
 
   var timeBase: Int32 {
-    get {return _storage._timeBase ?? 0}
+    get {_storage._timeBase ?? 0}
     set {_uniqueStorage()._timeBase = newValue}
   }
   /// Returns true if `timeBase` has been explicitly set.
-  var hasTimeBase: Bool {return _storage._timeBase != nil}
+  var hasTimeBase: Bool {_storage._timeBase != nil}
   /// Clears the value of `timeBase`. Subsequent reads from it will return its default value.
   mutating func clearTimeBase() {_uniqueStorage()._timeBase = nil}
 
   var timeRecord: Int32 {
-    get {return _storage._timeRecord ?? 0}
+    get {_storage._timeRecord ?? 0}
     set {_uniqueStorage()._timeRecord = newValue}
   }
   /// Returns true if `timeRecord` has been explicitly set.
-  var hasTimeRecord: Bool {return _storage._timeRecord != nil}
+  var hasTimeRecord: Bool {_storage._timeRecord != nil}
   /// Clears the value of `timeRecord`. Subsequent reads from it will return its default value.
   mutating func clearTimeRecord() {_uniqueStorage()._timeRecord = nil}
 
   var jsonShouldBeOverridden: Int32 {
-    get {return _storage._jsonShouldBeOverridden ?? 0}
+    get {_storage._jsonShouldBeOverridden ?? 0}
     set {_uniqueStorage()._jsonShouldBeOverridden = newValue}
   }
   /// Returns true if `jsonShouldBeOverridden` has been explicitly set.
-  var hasJsonShouldBeOverridden: Bool {return _storage._jsonShouldBeOverridden != nil}
+  var hasJsonShouldBeOverridden: Bool {_storage._jsonShouldBeOverridden != nil}
   /// Clears the value of `jsonShouldBeOverridden`. Subsequent reads from it will return its default value.
   mutating func clearJsonShouldBeOverridden() {_uniqueStorage()._jsonShouldBeOverridden = nil}
 
   var any: Int32 {
-    get {return _storage._any ?? 0}
+    get {_storage._any ?? 0}
     set {_uniqueStorage()._any = newValue}
   }
   /// Returns true if `any` has been explicitly set.
-  var hasAny: Bool {return _storage._any != nil}
+  var hasAny: Bool {_storage._any != nil}
   /// Clears the value of `any`. Subsequent reads from it will return its default value.
   mutating func clearAny() {_uniqueStorage()._any = nil}
 
   var int32: Int32 {
-    get {return _storage._int32 ?? 0}
+    get {_storage._int32 ?? 0}
     set {_uniqueStorage()._int32 = newValue}
   }
   /// Returns true if `int32` has been explicitly set.
-  var hasInt32: Bool {return _storage._int32 != nil}
+  var hasInt32: Bool {_storage._int32 != nil}
   /// Clears the value of `int32`. Subsequent reads from it will return its default value.
   mutating func clearInt32() {_uniqueStorage()._int32 = nil}
 
   var int64: Int32 {
-    get {return _storage._int64 ?? 0}
+    get {_storage._int64 ?? 0}
     set {_uniqueStorage()._int64 = newValue}
   }
   /// Returns true if `int64` has been explicitly set.
-  var hasInt64: Bool {return _storage._int64 != nil}
+  var hasInt64: Bool {_storage._int64 != nil}
   /// Clears the value of `int64`. Subsequent reads from it will return its default value.
   mutating func clearInt64() {_uniqueStorage()._int64 = nil}
 
   var uint32: Int32 {
-    get {return _storage._uint32 ?? 0}
+    get {_storage._uint32 ?? 0}
     set {_uniqueStorage()._uint32 = newValue}
   }
   /// Returns true if `uint32` has been explicitly set.
-  var hasUint32: Bool {return _storage._uint32 != nil}
+  var hasUint32: Bool {_storage._uint32 != nil}
   /// Clears the value of `uint32`. Subsequent reads from it will return its default value.
   mutating func clearUint32() {_uniqueStorage()._uint32 = nil}
 
   var uint64: Int32 {
-    get {return _storage._uint64 ?? 0}
+    get {_storage._uint64 ?? 0}
     set {_uniqueStorage()._uint64 = newValue}
   }
   /// Returns true if `uint64` has been explicitly set.
-  var hasUint64: Bool {return _storage._uint64 != nil}
+  var hasUint64: Bool {_storage._uint64 != nil}
   /// Clears the value of `uint64`. Subsequent reads from it will return its default value.
   mutating func clearUint64() {_uniqueStorage()._uint64 = nil}
 
   var `associatedtype`: Int32 {
-    get {return _storage._associatedtype ?? 0}
+    get {_storage._associatedtype ?? 0}
     set {_uniqueStorage()._associatedtype = newValue}
   }
   /// Returns true if ``associatedtype`` has been explicitly set.
-  var hasAssociatedtype: Bool {return _storage._associatedtype != nil}
+  var hasAssociatedtype: Bool {_storage._associatedtype != nil}
   /// Clears the value of ``associatedtype``. Subsequent reads from it will return its default value.
   mutating func clearAssociatedtype() {_uniqueStorage()._associatedtype = nil}
 
   var `fileprivate`: Int32 {
-    get {return _storage._fileprivate ?? 0}
+    get {_storage._fileprivate ?? 0}
     set {_uniqueStorage()._fileprivate = newValue}
   }
   /// Returns true if ``fileprivate`` has been explicitly set.
-  var hasFileprivate: Bool {return _storage._fileprivate != nil}
+  var hasFileprivate: Bool {_storage._fileprivate != nil}
   /// Clears the value of ``fileprivate``. Subsequent reads from it will return its default value.
   mutating func clearFileprivate() {_uniqueStorage()._fileprivate = nil}
 
   var `open`: Int32 {
-    get {return _storage._open ?? 0}
+    get {_storage._open ?? 0}
     set {_uniqueStorage()._open = newValue}
   }
   /// Returns true if ``open`` has been explicitly set.
-  var hasOpen: Bool {return _storage._open != nil}
+  var hasOpen: Bool {_storage._open != nil}
   /// Clears the value of ``open``. Subsequent reads from it will return its default value.
   mutating func clearOpen() {_uniqueStorage()._open = nil}
 
   var serializedData: Int32 {
-    get {return _storage._serializedData ?? 0}
+    get {_storage._serializedData ?? 0}
     set {_uniqueStorage()._serializedData = newValue}
   }
   /// Returns true if `serializedData` has been explicitly set.
-  var hasSerializedData: Bool {return _storage._serializedData != nil}
+  var hasSerializedData: Bool {_storage._serializedData != nil}
   /// Clears the value of `serializedData`. Subsequent reads from it will return its default value.
   mutating func clearSerializedData() {_uniqueStorage()._serializedData = nil}
 
   var hasSerializedData_p: Int32 {
-    get {return _storage._hasSerializedData_p ?? 0}
+    get {_storage._hasSerializedData_p ?? 0}
     set {_uniqueStorage()._hasSerializedData_p = newValue}
   }
   /// Returns true if `hasSerializedData_p` has been explicitly set.
-  var hasHasSerializedData_p: Bool {return _storage._hasSerializedData_p != nil}
+  var hasHasSerializedData_p: Bool {_storage._hasSerializedData_p != nil}
   /// Clears the value of `hasSerializedData_p`. Subsequent reads from it will return its default value.
   mutating func clearHasSerializedData_p() {_uniqueStorage()._hasSerializedData_p = nil}
 
   var clearSerializedData_p: Int32 {
-    get {return _storage._clearSerializedData_p ?? 0}
+    get {_storage._clearSerializedData_p ?? 0}
     set {_uniqueStorage()._clearSerializedData_p = newValue}
   }
   /// Returns true if `clearSerializedData_p` has been explicitly set.
-  var hasClearSerializedData_p: Bool {return _storage._clearSerializedData_p != nil}
+  var hasClearSerializedData_p: Bool {_storage._clearSerializedData_p != nil}
   /// Clears the value of `clearSerializedData_p`. Subsequent reads from it will return its default value.
   mutating func clearClearSerializedData_p() {_uniqueStorage()._clearSerializedData_p = nil}
 
   var jsonUtf8Data: Int32 {
-    get {return _storage._jsonUtf8Data ?? 0}
+    get {_storage._jsonUtf8Data ?? 0}
     set {_uniqueStorage()._jsonUtf8Data = newValue}
   }
   /// Returns true if `jsonUtf8Data` has been explicitly set.
-  var hasJsonUtf8Data: Bool {return _storage._jsonUtf8Data != nil}
+  var hasJsonUtf8Data: Bool {_storage._jsonUtf8Data != nil}
   /// Clears the value of `jsonUtf8Data`. Subsequent reads from it will return its default value.
   mutating func clearJsonUtf8Data() {_uniqueStorage()._jsonUtf8Data = nil}
 
   var jsonString: Int32 {
-    get {return _storage._jsonString ?? 0}
+    get {_storage._jsonString ?? 0}
     set {_uniqueStorage()._jsonString = newValue}
   }
   /// Returns true if `jsonString` has been explicitly set.
-  var hasJsonString: Bool {return _storage._jsonString != nil}
+  var hasJsonString: Bool {_storage._jsonString != nil}
   /// Clears the value of `jsonString`. Subsequent reads from it will return its default value.
   mutating func clearJsonString() {_uniqueStorage()._jsonString = nil}
 
   var `extension`: Int32 {
-    get {return _storage._extension ?? 0}
+    get {_storage._extension ?? 0}
     set {_uniqueStorage()._extension = newValue}
   }
   /// Returns true if ``extension`` has been explicitly set.
-  var hasExtension: Bool {return _storage._extension != nil}
+  var hasExtension: Bool {_storage._extension != nil}
   /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
   mutating func clearExtension() {_uniqueStorage()._extension = nil}
 
   var extensions: Int32 {
-    get {return _storage._extensions ?? 0}
+    get {_storage._extensions ?? 0}
     set {_uniqueStorage()._extensions = newValue}
   }
   /// Returns true if `extensions` has been explicitly set.
-  var hasExtensions: Bool {return _storage._extensions != nil}
+  var hasExtensions: Bool {_storage._extensions != nil}
   /// Clears the value of `extensions`. Subsequent reads from it will return its default value.
   mutating func clearExtensions() {_uniqueStorage()._extensions = nil}
 
@@ -2309,11 +2309,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var string: Int32 {
-      get {return _string ?? 0}
+      get {_string ?? 0}
       set {_string = newValue}
     }
     /// Returns true if `string` has been explicitly set.
-    var hasString: Bool {return self._string != nil}
+    var hasString: Bool {self._string != nil}
     /// Clears the value of `string`. Subsequent reads from it will return its default value.
     mutating func clearString() {self._string = nil}
 
@@ -2330,11 +2330,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `protocol`: Int32 {
-      get {return _protocol ?? 0}
+      get {_protocol ?? 0}
       set {_protocol = newValue}
     }
     /// Returns true if ``protocol`` has been explicitly set.
-    var hasProtocol: Bool {return self._protocol != nil}
+    var hasProtocol: Bool {self._protocol != nil}
     /// Clears the value of ``protocol``. Subsequent reads from it will return its default value.
     mutating func clearProtocol() {self._protocol = nil}
 
@@ -2351,11 +2351,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var int: Int32 {
-      get {return _int ?? 0}
+      get {_int ?? 0}
       set {_int = newValue}
     }
     /// Returns true if `int` has been explicitly set.
-    var hasInt: Bool {return self._int != nil}
+    var hasInt: Bool {self._int != nil}
     /// Clears the value of `int`. Subsequent reads from it will return its default value.
     mutating func clearInt() {self._int = nil}
 
@@ -2372,11 +2372,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var double: Int32 {
-      get {return _double ?? 0}
+      get {_double ?? 0}
       set {_double = newValue}
     }
     /// Returns true if `double` has been explicitly set.
-    var hasDouble: Bool {return self._double != nil}
+    var hasDouble: Bool {self._double != nil}
     /// Clears the value of `double`. Subsequent reads from it will return its default value.
     mutating func clearDouble() {self._double = nil}
 
@@ -2393,11 +2393,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var float: Int32 {
-      get {return _float ?? 0}
+      get {_float ?? 0}
       set {_float = newValue}
     }
     /// Returns true if `float` has been explicitly set.
-    var hasFloat: Bool {return self._float != nil}
+    var hasFloat: Bool {self._float != nil}
     /// Clears the value of `float`. Subsequent reads from it will return its default value.
     mutating func clearFloat() {self._float = nil}
 
@@ -2414,11 +2414,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var uint: Int32 {
-      get {return _uint ?? 0}
+      get {_uint ?? 0}
       set {_uint = newValue}
     }
     /// Returns true if `uint` has been explicitly set.
-    var hasUint: Bool {return self._uint != nil}
+    var hasUint: Bool {self._uint != nil}
     /// Clears the value of `uint`. Subsequent reads from it will return its default value.
     mutating func clearUint() {self._uint = nil}
 
@@ -2435,11 +2435,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var hashValue_p: Int32 {
-      get {return _hashValue_p ?? 0}
+      get {_hashValue_p ?? 0}
       set {_hashValue_p = newValue}
     }
     /// Returns true if `hashValue_p` has been explicitly set.
-    var hasHashValue_p: Bool {return self._hashValue_p != nil}
+    var hasHashValue_p: Bool {self._hashValue_p != nil}
     /// Clears the value of `hashValue_p`. Subsequent reads from it will return its default value.
     mutating func clearHashValue_p() {self._hashValue_p = nil}
 
@@ -2456,11 +2456,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var description_p: Int32 {
-      get {return _description_p ?? 0}
+      get {_description_p ?? 0}
       set {_description_p = newValue}
     }
     /// Returns true if `description_p` has been explicitly set.
-    var hasDescription_p: Bool {return self._description_p != nil}
+    var hasDescription_p: Bool {self._description_p != nil}
     /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
     mutating func clearDescription_p() {self._description_p = nil}
 
@@ -2477,11 +2477,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var debugDescription_p: Int32 {
-      get {return _debugDescription_p ?? 0}
+      get {_debugDescription_p ?? 0}
       set {_debugDescription_p = newValue}
     }
     /// Returns true if `debugDescription_p` has been explicitly set.
-    var hasDebugDescription_p: Bool {return self._debugDescription_p != nil}
+    var hasDebugDescription_p: Bool {self._debugDescription_p != nil}
     /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
     mutating func clearDebugDescription_p() {self._debugDescription_p = nil}
 
@@ -2498,11 +2498,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var swift: Int32 {
-      get {return _swift ?? 0}
+      get {_swift ?? 0}
       set {_swift = newValue}
     }
     /// Returns true if `swift` has been explicitly set.
-    var hasSwift: Bool {return self._swift != nil}
+    var hasSwift: Bool {self._swift != nil}
     /// Clears the value of `swift`. Subsequent reads from it will return its default value.
     mutating func clearSwift() {self._swift = nil}
 
@@ -2519,11 +2519,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var unrecognized: Int32 {
-      get {return _unrecognized ?? 0}
+      get {_unrecognized ?? 0}
       set {_unrecognized = newValue}
     }
     /// Returns true if `unrecognized` has been explicitly set.
-    var hasUnrecognized: Bool {return self._unrecognized != nil}
+    var hasUnrecognized: Bool {self._unrecognized != nil}
     /// Clears the value of `unrecognized`. Subsequent reads from it will return its default value.
     mutating func clearUnrecognized() {self._unrecognized = nil}
 
@@ -2540,11 +2540,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `class`: Int32 {
-      get {return _class ?? 0}
+      get {_class ?? 0}
       set {_class = newValue}
     }
     /// Returns true if ``class`` has been explicitly set.
-    var hasClass: Bool {return self._class != nil}
+    var hasClass: Bool {self._class != nil}
     /// Clears the value of ``class``. Subsequent reads from it will return its default value.
     mutating func clearClass() {self._class = nil}
 
@@ -2561,11 +2561,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `deinit`: Int32 {
-      get {return _deinit ?? 0}
+      get {_deinit ?? 0}
       set {_deinit = newValue}
     }
     /// Returns true if ``deinit`` has been explicitly set.
-    var hasDeinit: Bool {return self._deinit != nil}
+    var hasDeinit: Bool {self._deinit != nil}
     /// Clears the value of ``deinit``. Subsequent reads from it will return its default value.
     mutating func clearDeinit() {self._deinit = nil}
 
@@ -2582,11 +2582,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `enum`: Int32 {
-      get {return _enum ?? 0}
+      get {_enum ?? 0}
       set {_enum = newValue}
     }
     /// Returns true if ``enum`` has been explicitly set.
-    var hasEnum: Bool {return self._enum != nil}
+    var hasEnum: Bool {self._enum != nil}
     /// Clears the value of ``enum``. Subsequent reads from it will return its default value.
     mutating func clearEnum() {self._enum = nil}
 
@@ -2603,11 +2603,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `extension`: Int32 {
-      get {return _extension ?? 0}
+      get {_extension ?? 0}
       set {_extension = newValue}
     }
     /// Returns true if ``extension`` has been explicitly set.
-    var hasExtension: Bool {return self._extension != nil}
+    var hasExtension: Bool {self._extension != nil}
     /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
     mutating func clearExtension() {self._extension = nil}
 
@@ -2624,11 +2624,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `func`: Int32 {
-      get {return _func ?? 0}
+      get {_func ?? 0}
       set {_func = newValue}
     }
     /// Returns true if ``func`` has been explicitly set.
-    var hasFunc: Bool {return self._func != nil}
+    var hasFunc: Bool {self._func != nil}
     /// Clears the value of ``func``. Subsequent reads from it will return its default value.
     mutating func clearFunc() {self._func = nil}
 
@@ -2645,11 +2645,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `import`: Int32 {
-      get {return _import ?? 0}
+      get {_import ?? 0}
       set {_import = newValue}
     }
     /// Returns true if ``import`` has been explicitly set.
-    var hasImport: Bool {return self._import != nil}
+    var hasImport: Bool {self._import != nil}
     /// Clears the value of ``import``. Subsequent reads from it will return its default value.
     mutating func clearImport() {self._import = nil}
 
@@ -2666,11 +2666,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var init_p: Int32 {
-      get {return _init_p ?? 0}
+      get {_init_p ?? 0}
       set {_init_p = newValue}
     }
     /// Returns true if `init_p` has been explicitly set.
-    var hasInit_p: Bool {return self._init_p != nil}
+    var hasInit_p: Bool {self._init_p != nil}
     /// Clears the value of `init_p`. Subsequent reads from it will return its default value.
     mutating func clearInit_p() {self._init_p = nil}
 
@@ -2687,11 +2687,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `inout`: Int32 {
-      get {return _inout ?? 0}
+      get {_inout ?? 0}
       set {_inout = newValue}
     }
     /// Returns true if ``inout`` has been explicitly set.
-    var hasInout: Bool {return self._inout != nil}
+    var hasInout: Bool {self._inout != nil}
     /// Clears the value of ``inout``. Subsequent reads from it will return its default value.
     mutating func clearInout() {self._inout = nil}
 
@@ -2708,11 +2708,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `internal`: Int32 {
-      get {return _internal ?? 0}
+      get {_internal ?? 0}
       set {_internal = newValue}
     }
     /// Returns true if ``internal`` has been explicitly set.
-    var hasInternal: Bool {return self._internal != nil}
+    var hasInternal: Bool {self._internal != nil}
     /// Clears the value of ``internal``. Subsequent reads from it will return its default value.
     mutating func clearInternal() {self._internal = nil}
 
@@ -2729,11 +2729,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `let`: Int32 {
-      get {return _let ?? 0}
+      get {_let ?? 0}
       set {_let = newValue}
     }
     /// Returns true if ``let`` has been explicitly set.
-    var hasLet: Bool {return self._let != nil}
+    var hasLet: Bool {self._let != nil}
     /// Clears the value of ``let``. Subsequent reads from it will return its default value.
     mutating func clearLet() {self._let = nil}
 
@@ -2750,11 +2750,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `operator`: Int32 {
-      get {return _operator ?? 0}
+      get {_operator ?? 0}
       set {_operator = newValue}
     }
     /// Returns true if ``operator`` has been explicitly set.
-    var hasOperator: Bool {return self._operator != nil}
+    var hasOperator: Bool {self._operator != nil}
     /// Clears the value of ``operator``. Subsequent reads from it will return its default value.
     mutating func clearOperator() {self._operator = nil}
 
@@ -2771,11 +2771,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `private`: Int32 {
-      get {return _private ?? 0}
+      get {_private ?? 0}
       set {_private = newValue}
     }
     /// Returns true if ``private`` has been explicitly set.
-    var hasPrivate: Bool {return self._private != nil}
+    var hasPrivate: Bool {self._private != nil}
     /// Clears the value of ``private``. Subsequent reads from it will return its default value.
     mutating func clearPrivate() {self._private = nil}
 
@@ -2792,11 +2792,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `protocol`: Int32 {
-      get {return _protocol ?? 0}
+      get {_protocol ?? 0}
       set {_protocol = newValue}
     }
     /// Returns true if ``protocol`` has been explicitly set.
-    var hasProtocol: Bool {return self._protocol != nil}
+    var hasProtocol: Bool {self._protocol != nil}
     /// Clears the value of ``protocol``. Subsequent reads from it will return its default value.
     mutating func clearProtocol() {self._protocol = nil}
 
@@ -2813,11 +2813,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `public`: Int32 {
-      get {return _public ?? 0}
+      get {_public ?? 0}
       set {_public = newValue}
     }
     /// Returns true if ``public`` has been explicitly set.
-    var hasPublic: Bool {return self._public != nil}
+    var hasPublic: Bool {self._public != nil}
     /// Clears the value of ``public``. Subsequent reads from it will return its default value.
     mutating func clearPublic() {self._public = nil}
 
@@ -2834,11 +2834,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `static`: Int32 {
-      get {return _static ?? 0}
+      get {_static ?? 0}
       set {_static = newValue}
     }
     /// Returns true if ``static`` has been explicitly set.
-    var hasStatic: Bool {return self._static != nil}
+    var hasStatic: Bool {self._static != nil}
     /// Clears the value of ``static``. Subsequent reads from it will return its default value.
     mutating func clearStatic() {self._static = nil}
 
@@ -2855,11 +2855,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `struct`: Int32 {
-      get {return _struct ?? 0}
+      get {_struct ?? 0}
       set {_struct = newValue}
     }
     /// Returns true if ``struct`` has been explicitly set.
-    var hasStruct: Bool {return self._struct != nil}
+    var hasStruct: Bool {self._struct != nil}
     /// Clears the value of ``struct``. Subsequent reads from it will return its default value.
     mutating func clearStruct() {self._struct = nil}
 
@@ -2876,11 +2876,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `subscript`: Int32 {
-      get {return _subscript ?? 0}
+      get {_subscript ?? 0}
       set {_subscript = newValue}
     }
     /// Returns true if ``subscript`` has been explicitly set.
-    var hasSubscript: Bool {return self._subscript != nil}
+    var hasSubscript: Bool {self._subscript != nil}
     /// Clears the value of ``subscript``. Subsequent reads from it will return its default value.
     mutating func clearSubscript() {self._subscript = nil}
 
@@ -2897,11 +2897,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `typealias`: Int32 {
-      get {return _typealias ?? 0}
+      get {_typealias ?? 0}
       set {_typealias = newValue}
     }
     /// Returns true if ``typealias`` has been explicitly set.
-    var hasTypealias: Bool {return self._typealias != nil}
+    var hasTypealias: Bool {self._typealias != nil}
     /// Clears the value of ``typealias``. Subsequent reads from it will return its default value.
     mutating func clearTypealias() {self._typealias = nil}
 
@@ -2918,11 +2918,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `var`: Int32 {
-      get {return _var ?? 0}
+      get {_var ?? 0}
       set {_var = newValue}
     }
     /// Returns true if ``var`` has been explicitly set.
-    var hasVar: Bool {return self._var != nil}
+    var hasVar: Bool {self._var != nil}
     /// Clears the value of ``var``. Subsequent reads from it will return its default value.
     mutating func clearVar() {self._var = nil}
 
@@ -2939,11 +2939,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `break`: Int32 {
-      get {return _break ?? 0}
+      get {_break ?? 0}
       set {_break = newValue}
     }
     /// Returns true if ``break`` has been explicitly set.
-    var hasBreak: Bool {return self._break != nil}
+    var hasBreak: Bool {self._break != nil}
     /// Clears the value of ``break``. Subsequent reads from it will return its default value.
     mutating func clearBreak() {self._break = nil}
 
@@ -2960,11 +2960,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `case`: Int32 {
-      get {return _case ?? 0}
+      get {_case ?? 0}
       set {_case = newValue}
     }
     /// Returns true if ``case`` has been explicitly set.
-    var hasCase: Bool {return self._case != nil}
+    var hasCase: Bool {self._case != nil}
     /// Clears the value of ``case``. Subsequent reads from it will return its default value.
     mutating func clearCase() {self._case = nil}
 
@@ -2981,11 +2981,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `continue`: Int32 {
-      get {return _continue ?? 0}
+      get {_continue ?? 0}
       set {_continue = newValue}
     }
     /// Returns true if ``continue`` has been explicitly set.
-    var hasContinue: Bool {return self._continue != nil}
+    var hasContinue: Bool {self._continue != nil}
     /// Clears the value of ``continue``. Subsequent reads from it will return its default value.
     mutating func clearContinue() {self._continue = nil}
 
@@ -3002,11 +3002,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `default`: Int32 {
-      get {return _default ?? 0}
+      get {_default ?? 0}
       set {_default = newValue}
     }
     /// Returns true if ``default`` has been explicitly set.
-    var hasDefault: Bool {return self._default != nil}
+    var hasDefault: Bool {self._default != nil}
     /// Clears the value of ``default``. Subsequent reads from it will return its default value.
     mutating func clearDefault() {self._default = nil}
 
@@ -3023,11 +3023,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `defer`: Int32 {
-      get {return _defer ?? 0}
+      get {_defer ?? 0}
       set {_defer = newValue}
     }
     /// Returns true if ``defer`` has been explicitly set.
-    var hasDefer: Bool {return self._defer != nil}
+    var hasDefer: Bool {self._defer != nil}
     /// Clears the value of ``defer``. Subsequent reads from it will return its default value.
     mutating func clearDefer() {self._defer = nil}
 
@@ -3044,11 +3044,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `do`: Int32 {
-      get {return _do ?? 0}
+      get {_do ?? 0}
       set {_do = newValue}
     }
     /// Returns true if ``do`` has been explicitly set.
-    var hasDo: Bool {return self._do != nil}
+    var hasDo: Bool {self._do != nil}
     /// Clears the value of ``do``. Subsequent reads from it will return its default value.
     mutating func clearDo() {self._do = nil}
 
@@ -3065,11 +3065,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `else`: Int32 {
-      get {return _else ?? 0}
+      get {_else ?? 0}
       set {_else = newValue}
     }
     /// Returns true if ``else`` has been explicitly set.
-    var hasElse: Bool {return self._else != nil}
+    var hasElse: Bool {self._else != nil}
     /// Clears the value of ``else``. Subsequent reads from it will return its default value.
     mutating func clearElse() {self._else = nil}
 
@@ -3086,11 +3086,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `fallthrough`: Int32 {
-      get {return _fallthrough ?? 0}
+      get {_fallthrough ?? 0}
       set {_fallthrough = newValue}
     }
     /// Returns true if ``fallthrough`` has been explicitly set.
-    var hasFallthrough: Bool {return self._fallthrough != nil}
+    var hasFallthrough: Bool {self._fallthrough != nil}
     /// Clears the value of ``fallthrough``. Subsequent reads from it will return its default value.
     mutating func clearFallthrough() {self._fallthrough = nil}
 
@@ -3107,11 +3107,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `for`: Int32 {
-      get {return _for ?? 0}
+      get {_for ?? 0}
       set {_for = newValue}
     }
     /// Returns true if ``for`` has been explicitly set.
-    var hasFor: Bool {return self._for != nil}
+    var hasFor: Bool {self._for != nil}
     /// Clears the value of ``for``. Subsequent reads from it will return its default value.
     mutating func clearFor() {self._for = nil}
 
@@ -3128,11 +3128,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `guard`: Int32 {
-      get {return _guard ?? 0}
+      get {_guard ?? 0}
       set {_guard = newValue}
     }
     /// Returns true if ``guard`` has been explicitly set.
-    var hasGuard: Bool {return self._guard != nil}
+    var hasGuard: Bool {self._guard != nil}
     /// Clears the value of ``guard``. Subsequent reads from it will return its default value.
     mutating func clearGuard() {self._guard = nil}
 
@@ -3149,11 +3149,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `if`: Int32 {
-      get {return _if ?? 0}
+      get {_if ?? 0}
       set {_if = newValue}
     }
     /// Returns true if ``if`` has been explicitly set.
-    var hasIf: Bool {return self._if != nil}
+    var hasIf: Bool {self._if != nil}
     /// Clears the value of ``if``. Subsequent reads from it will return its default value.
     mutating func clearIf() {self._if = nil}
 
@@ -3170,11 +3170,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `in`: Int32 {
-      get {return _in ?? 0}
+      get {_in ?? 0}
       set {_in = newValue}
     }
     /// Returns true if ``in`` has been explicitly set.
-    var hasIn: Bool {return self._in != nil}
+    var hasIn: Bool {self._in != nil}
     /// Clears the value of ``in``. Subsequent reads from it will return its default value.
     mutating func clearIn() {self._in = nil}
 
@@ -3191,11 +3191,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `repeat`: Int32 {
-      get {return _repeat ?? 0}
+      get {_repeat ?? 0}
       set {_repeat = newValue}
     }
     /// Returns true if ``repeat`` has been explicitly set.
-    var hasRepeat: Bool {return self._repeat != nil}
+    var hasRepeat: Bool {self._repeat != nil}
     /// Clears the value of ``repeat``. Subsequent reads from it will return its default value.
     mutating func clearRepeat() {self._repeat = nil}
 
@@ -3212,11 +3212,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `return`: Int32 {
-      get {return _return ?? 0}
+      get {_return ?? 0}
       set {_return = newValue}
     }
     /// Returns true if ``return`` has been explicitly set.
-    var hasReturn: Bool {return self._return != nil}
+    var hasReturn: Bool {self._return != nil}
     /// Clears the value of ``return``. Subsequent reads from it will return its default value.
     mutating func clearReturn() {self._return = nil}
 
@@ -3233,11 +3233,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `switch`: Int32 {
-      get {return _switch ?? 0}
+      get {_switch ?? 0}
       set {_switch = newValue}
     }
     /// Returns true if ``switch`` has been explicitly set.
-    var hasSwitch: Bool {return self._switch != nil}
+    var hasSwitch: Bool {self._switch != nil}
     /// Clears the value of ``switch``. Subsequent reads from it will return its default value.
     mutating func clearSwitch() {self._switch = nil}
 
@@ -3254,11 +3254,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `where`: Int32 {
-      get {return _where ?? 0}
+      get {_where ?? 0}
       set {_where = newValue}
     }
     /// Returns true if ``where`` has been explicitly set.
-    var hasWhere: Bool {return self._where != nil}
+    var hasWhere: Bool {self._where != nil}
     /// Clears the value of ``where``. Subsequent reads from it will return its default value.
     mutating func clearWhere() {self._where = nil}
 
@@ -3275,11 +3275,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `while`: Int32 {
-      get {return _while ?? 0}
+      get {_while ?? 0}
       set {_while = newValue}
     }
     /// Returns true if ``while`` has been explicitly set.
-    var hasWhile: Bool {return self._while != nil}
+    var hasWhile: Bool {self._while != nil}
     /// Clears the value of ``while``. Subsequent reads from it will return its default value.
     mutating func clearWhile() {self._while = nil}
 
@@ -3296,11 +3296,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `as`: Int32 {
-      get {return _as ?? 0}
+      get {_as ?? 0}
       set {_as = newValue}
     }
     /// Returns true if ``as`` has been explicitly set.
-    var hasAs: Bool {return self._as != nil}
+    var hasAs: Bool {self._as != nil}
     /// Clears the value of ``as``. Subsequent reads from it will return its default value.
     mutating func clearAs() {self._as = nil}
 
@@ -3317,11 +3317,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `catch`: Int32 {
-      get {return _catch ?? 0}
+      get {_catch ?? 0}
       set {_catch = newValue}
     }
     /// Returns true if ``catch`` has been explicitly set.
-    var hasCatch: Bool {return self._catch != nil}
+    var hasCatch: Bool {self._catch != nil}
     /// Clears the value of ``catch``. Subsequent reads from it will return its default value.
     mutating func clearCatch() {self._catch = nil}
 
@@ -3338,11 +3338,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var dynamicType_p: Int32 {
-      get {return _dynamicType_p ?? 0}
+      get {_dynamicType_p ?? 0}
       set {_dynamicType_p = newValue}
     }
     /// Returns true if `dynamicType_p` has been explicitly set.
-    var hasDynamicType_p: Bool {return self._dynamicType_p != nil}
+    var hasDynamicType_p: Bool {self._dynamicType_p != nil}
     /// Clears the value of `dynamicType_p`. Subsequent reads from it will return its default value.
     mutating func clearDynamicType_p() {self._dynamicType_p = nil}
 
@@ -3359,11 +3359,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `false`: Int32 {
-      get {return _false ?? 0}
+      get {_false ?? 0}
       set {_false = newValue}
     }
     /// Returns true if ``false`` has been explicitly set.
-    var hasFalse: Bool {return self._false != nil}
+    var hasFalse: Bool {self._false != nil}
     /// Clears the value of ``false``. Subsequent reads from it will return its default value.
     mutating func clearFalse() {self._false = nil}
 
@@ -3380,11 +3380,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `is`: Int32 {
-      get {return _is ?? 0}
+      get {_is ?? 0}
       set {_is = newValue}
     }
     /// Returns true if ``is`` has been explicitly set.
-    var hasIs: Bool {return self._is != nil}
+    var hasIs: Bool {self._is != nil}
     /// Clears the value of ``is``. Subsequent reads from it will return its default value.
     mutating func clearIs() {self._is = nil}
 
@@ -3401,11 +3401,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `nil`: Int32 {
-      get {return _nil ?? 0}
+      get {_nil ?? 0}
       set {_nil = newValue}
     }
     /// Returns true if ``nil`` has been explicitly set.
-    var hasNil: Bool {return self._nil != nil}
+    var hasNil: Bool {self._nil != nil}
     /// Clears the value of ``nil``. Subsequent reads from it will return its default value.
     mutating func clearNil() {self._nil = nil}
 
@@ -3422,11 +3422,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `rethrows`: Int32 {
-      get {return _rethrows ?? 0}
+      get {_rethrows ?? 0}
       set {_rethrows = newValue}
     }
     /// Returns true if ``rethrows`` has been explicitly set.
-    var hasRethrows: Bool {return self._rethrows != nil}
+    var hasRethrows: Bool {self._rethrows != nil}
     /// Clears the value of ``rethrows``. Subsequent reads from it will return its default value.
     mutating func clearRethrows() {self._rethrows = nil}
 
@@ -3443,11 +3443,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `super`: Int32 {
-      get {return _super ?? 0}
+      get {_super ?? 0}
       set {_super = newValue}
     }
     /// Returns true if ``super`` has been explicitly set.
-    var hasSuper: Bool {return self._super != nil}
+    var hasSuper: Bool {self._super != nil}
     /// Clears the value of ``super``. Subsequent reads from it will return its default value.
     mutating func clearSuper() {self._super = nil}
 
@@ -3464,11 +3464,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var self_p: Int32 {
-      get {return _self_p ?? 0}
+      get {_self_p ?? 0}
       set {_self_p = newValue}
     }
     /// Returns true if `self_p` has been explicitly set.
-    var hasSelf_p: Bool {return self._self_p != nil}
+    var hasSelf_p: Bool {self._self_p != nil}
     /// Clears the value of `self_p`. Subsequent reads from it will return its default value.
     mutating func clearSelf_p() {self._self_p = nil}
 
@@ -3485,11 +3485,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `throw`: Int32 {
-      get {return _throw ?? 0}
+      get {_throw ?? 0}
       set {_throw = newValue}
     }
     /// Returns true if ``throw`` has been explicitly set.
-    var hasThrow: Bool {return self._throw != nil}
+    var hasThrow: Bool {self._throw != nil}
     /// Clears the value of ``throw``. Subsequent reads from it will return its default value.
     mutating func clearThrow() {self._throw = nil}
 
@@ -3506,11 +3506,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `throws`: Int32 {
-      get {return _throws ?? 0}
+      get {_throws ?? 0}
       set {_throws = newValue}
     }
     /// Returns true if ``throws`` has been explicitly set.
-    var hasThrows: Bool {return self._throws != nil}
+    var hasThrows: Bool {self._throws != nil}
     /// Clears the value of ``throws``. Subsequent reads from it will return its default value.
     mutating func clearThrows() {self._throws = nil}
 
@@ -3527,11 +3527,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `true`: Int32 {
-      get {return _true ?? 0}
+      get {_true ?? 0}
       set {_true = newValue}
     }
     /// Returns true if ``true`` has been explicitly set.
-    var hasTrue: Bool {return self._true != nil}
+    var hasTrue: Bool {self._true != nil}
     /// Clears the value of ``true``. Subsequent reads from it will return its default value.
     mutating func clearTrue() {self._true = nil}
 
@@ -3548,11 +3548,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `try`: Int32 {
-      get {return _try ?? 0}
+      get {_try ?? 0}
       set {_try = newValue}
     }
     /// Returns true if ``try`` has been explicitly set.
-    var hasTry: Bool {return self._try != nil}
+    var hasTry: Bool {self._try != nil}
     /// Clears the value of ``try``. Subsequent reads from it will return its default value.
     mutating func clearTry() {self._try = nil}
 
@@ -3569,11 +3569,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var _Column__: Int32 {
-      get {return __Column__ ?? 0}
+      get {__Column__ ?? 0}
       set {__Column__ = newValue}
     }
     /// Returns true if `_Column__` has been explicitly set.
-    var has_Column__: Bool {return self.__Column__ != nil}
+    var has_Column__: Bool {self.__Column__ != nil}
     /// Clears the value of `_Column__`. Subsequent reads from it will return its default value.
     mutating func clear_Column__() {self.__Column__ = nil}
 
@@ -3590,11 +3590,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var _File__: Int32 {
-      get {return __File__ ?? 0}
+      get {__File__ ?? 0}
       set {__File__ = newValue}
     }
     /// Returns true if `_File__` has been explicitly set.
-    var has_File__: Bool {return self.__File__ != nil}
+    var has_File__: Bool {self.__File__ != nil}
     /// Clears the value of `_File__`. Subsequent reads from it will return its default value.
     mutating func clear_File__() {self.__File__ = nil}
 
@@ -3611,11 +3611,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var _Function__: Int32 {
-      get {return __Function__ ?? 0}
+      get {__Function__ ?? 0}
       set {__Function__ = newValue}
     }
     /// Returns true if `_Function__` has been explicitly set.
-    var has_Function__: Bool {return self.__Function__ != nil}
+    var has_Function__: Bool {self.__Function__ != nil}
     /// Clears the value of `_Function__`. Subsequent reads from it will return its default value.
     mutating func clear_Function__() {self.__Function__ = nil}
 
@@ -3632,11 +3632,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var _Line__: Int32 {
-      get {return __Line__ ?? 0}
+      get {__Line__ ?? 0}
       set {__Line__ = newValue}
     }
     /// Returns true if `_Line__` has been explicitly set.
-    var has_Line__: Bool {return self.__Line__ != nil}
+    var has_Line__: Bool {self.__Line__ != nil}
     /// Clears the value of `_Line__`. Subsequent reads from it will return its default value.
     mutating func clear_Line__() {self.__Line__ = nil}
 
@@ -3653,11 +3653,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var ___: Int32 {
-      get {return ____ ?? 0}
+      get {____ ?? 0}
       set {____ = newValue}
     }
     /// Returns true if `___` has been explicitly set.
-    var has___: Bool {return self.____ != nil}
+    var has___: Bool {self.____ != nil}
     /// Clears the value of `___`. Subsequent reads from it will return its default value.
     mutating func clear___() {self.____ = nil}
 
@@ -3674,11 +3674,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var ____: Int32 {
-      get {return _____ ?? 0}
+      get {_____ ?? 0}
       set {_____ = newValue}
     }
     /// Returns true if `____` has been explicitly set.
-    var has____: Bool {return self._____ != nil}
+    var has____: Bool {self._____ != nil}
     /// Clears the value of `____`. Subsequent reads from it will return its default value.
     mutating func clear____() {self._____ = nil}
 
@@ -3695,11 +3695,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var associativity: Int32 {
-      get {return _associativity ?? 0}
+      get {_associativity ?? 0}
       set {_associativity = newValue}
     }
     /// Returns true if `associativity` has been explicitly set.
-    var hasAssociativity: Bool {return self._associativity != nil}
+    var hasAssociativity: Bool {self._associativity != nil}
     /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
     mutating func clearAssociativity() {self._associativity = nil}
 
@@ -3716,11 +3716,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var convenience: Int32 {
-      get {return _convenience ?? 0}
+      get {_convenience ?? 0}
       set {_convenience = newValue}
     }
     /// Returns true if `convenience` has been explicitly set.
-    var hasConvenience: Bool {return self._convenience != nil}
+    var hasConvenience: Bool {self._convenience != nil}
     /// Clears the value of `convenience`. Subsequent reads from it will return its default value.
     mutating func clearConvenience() {self._convenience = nil}
 
@@ -3737,11 +3737,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var dynamic: Int32 {
-      get {return _dynamic ?? 0}
+      get {_dynamic ?? 0}
       set {_dynamic = newValue}
     }
     /// Returns true if `dynamic` has been explicitly set.
-    var hasDynamic: Bool {return self._dynamic != nil}
+    var hasDynamic: Bool {self._dynamic != nil}
     /// Clears the value of `dynamic`. Subsequent reads from it will return its default value.
     mutating func clearDynamic() {self._dynamic = nil}
 
@@ -3758,11 +3758,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var didSet: Int32 {
-      get {return _didSet ?? 0}
+      get {_didSet ?? 0}
       set {_didSet = newValue}
     }
     /// Returns true if `didSet` has been explicitly set.
-    var hasDidSet: Bool {return self._didSet != nil}
+    var hasDidSet: Bool {self._didSet != nil}
     /// Clears the value of `didSet`. Subsequent reads from it will return its default value.
     mutating func clearDidSet() {self._didSet = nil}
 
@@ -3779,11 +3779,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var final: Int32 {
-      get {return _final ?? 0}
+      get {_final ?? 0}
       set {_final = newValue}
     }
     /// Returns true if `final` has been explicitly set.
-    var hasFinal: Bool {return self._final != nil}
+    var hasFinal: Bool {self._final != nil}
     /// Clears the value of `final`. Subsequent reads from it will return its default value.
     mutating func clearFinal() {self._final = nil}
 
@@ -3800,11 +3800,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var get: Int32 {
-      get {return _get ?? 0}
+      get {_get ?? 0}
       set {_get = newValue}
     }
     /// Returns true if `get` has been explicitly set.
-    var hasGet: Bool {return self._get != nil}
+    var hasGet: Bool {self._get != nil}
     /// Clears the value of `get`. Subsequent reads from it will return its default value.
     mutating func clearGet() {self._get = nil}
 
@@ -3821,11 +3821,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var infix: Int32 {
-      get {return _infix ?? 0}
+      get {_infix ?? 0}
       set {_infix = newValue}
     }
     /// Returns true if `infix` has been explicitly set.
-    var hasInfix: Bool {return self._infix != nil}
+    var hasInfix: Bool {self._infix != nil}
     /// Clears the value of `infix`. Subsequent reads from it will return its default value.
     mutating func clearInfix() {self._infix = nil}
 
@@ -3842,11 +3842,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var indirect: Int32 {
-      get {return _indirect ?? 0}
+      get {_indirect ?? 0}
       set {_indirect = newValue}
     }
     /// Returns true if `indirect` has been explicitly set.
-    var hasIndirect: Bool {return self._indirect != nil}
+    var hasIndirect: Bool {self._indirect != nil}
     /// Clears the value of `indirect`. Subsequent reads from it will return its default value.
     mutating func clearIndirect() {self._indirect = nil}
 
@@ -3863,11 +3863,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var lazy: Int32 {
-      get {return _lazy ?? 0}
+      get {_lazy ?? 0}
       set {_lazy = newValue}
     }
     /// Returns true if `lazy` has been explicitly set.
-    var hasLazy: Bool {return self._lazy != nil}
+    var hasLazy: Bool {self._lazy != nil}
     /// Clears the value of `lazy`. Subsequent reads from it will return its default value.
     mutating func clearLazy() {self._lazy = nil}
 
@@ -3884,11 +3884,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var left: Int32 {
-      get {return _left ?? 0}
+      get {_left ?? 0}
       set {_left = newValue}
     }
     /// Returns true if `left` has been explicitly set.
-    var hasLeft: Bool {return self._left != nil}
+    var hasLeft: Bool {self._left != nil}
     /// Clears the value of `left`. Subsequent reads from it will return its default value.
     mutating func clearLeft() {self._left = nil}
 
@@ -3905,11 +3905,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var mutating: Int32 {
-      get {return _mutating ?? 0}
+      get {_mutating ?? 0}
       set {_mutating = newValue}
     }
     /// Returns true if `mutating` has been explicitly set.
-    var hasMutating: Bool {return self._mutating != nil}
+    var hasMutating: Bool {self._mutating != nil}
     /// Clears the value of `mutating`. Subsequent reads from it will return its default value.
     mutating func clearMutating() {self._mutating = nil}
 
@@ -3926,11 +3926,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var none: Int32 {
-      get {return _none ?? 0}
+      get {_none ?? 0}
       set {_none = newValue}
     }
     /// Returns true if `none` has been explicitly set.
-    var hasNone: Bool {return self._none != nil}
+    var hasNone: Bool {self._none != nil}
     /// Clears the value of `none`. Subsequent reads from it will return its default value.
     mutating func clearNone() {self._none = nil}
 
@@ -3947,11 +3947,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var nonmutating: Int32 {
-      get {return _nonmutating ?? 0}
+      get {_nonmutating ?? 0}
       set {_nonmutating = newValue}
     }
     /// Returns true if `nonmutating` has been explicitly set.
-    var hasNonmutating: Bool {return self._nonmutating != nil}
+    var hasNonmutating: Bool {self._nonmutating != nil}
     /// Clears the value of `nonmutating`. Subsequent reads from it will return its default value.
     mutating func clearNonmutating() {self._nonmutating = nil}
 
@@ -3968,11 +3968,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var optional: Int32 {
-      get {return _optional ?? 0}
+      get {_optional ?? 0}
       set {_optional = newValue}
     }
     /// Returns true if `optional` has been explicitly set.
-    var hasOptional: Bool {return self._optional != nil}
+    var hasOptional: Bool {self._optional != nil}
     /// Clears the value of `optional`. Subsequent reads from it will return its default value.
     mutating func clearOptional() {self._optional = nil}
 
@@ -3989,11 +3989,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var override: Int32 {
-      get {return _override ?? 0}
+      get {_override ?? 0}
       set {_override = newValue}
     }
     /// Returns true if `override` has been explicitly set.
-    var hasOverride: Bool {return self._override != nil}
+    var hasOverride: Bool {self._override != nil}
     /// Clears the value of `override`. Subsequent reads from it will return its default value.
     mutating func clearOverride() {self._override = nil}
 
@@ -4010,11 +4010,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var postfix: Int32 {
-      get {return _postfix ?? 0}
+      get {_postfix ?? 0}
       set {_postfix = newValue}
     }
     /// Returns true if `postfix` has been explicitly set.
-    var hasPostfix: Bool {return self._postfix != nil}
+    var hasPostfix: Bool {self._postfix != nil}
     /// Clears the value of `postfix`. Subsequent reads from it will return its default value.
     mutating func clearPostfix() {self._postfix = nil}
 
@@ -4031,11 +4031,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var precedence: Int32 {
-      get {return _precedence ?? 0}
+      get {_precedence ?? 0}
       set {_precedence = newValue}
     }
     /// Returns true if `precedence` has been explicitly set.
-    var hasPrecedence: Bool {return self._precedence != nil}
+    var hasPrecedence: Bool {self._precedence != nil}
     /// Clears the value of `precedence`. Subsequent reads from it will return its default value.
     mutating func clearPrecedence() {self._precedence = nil}
 
@@ -4052,11 +4052,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var prefix: Int32 {
-      get {return _prefix ?? 0}
+      get {_prefix ?? 0}
       set {_prefix = newValue}
     }
     /// Returns true if `prefix` has been explicitly set.
-    var hasPrefix: Bool {return self._prefix != nil}
+    var hasPrefix: Bool {self._prefix != nil}
     /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
     mutating func clearPrefix() {self._prefix = nil}
 
@@ -4073,11 +4073,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var required: Int32 {
-      get {return _required ?? 0}
+      get {_required ?? 0}
       set {_required = newValue}
     }
     /// Returns true if `required` has been explicitly set.
-    var hasRequired: Bool {return self._required != nil}
+    var hasRequired: Bool {self._required != nil}
     /// Clears the value of `required`. Subsequent reads from it will return its default value.
     mutating func clearRequired() {self._required = nil}
 
@@ -4094,11 +4094,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var right: Int32 {
-      get {return _right ?? 0}
+      get {_right ?? 0}
       set {_right = newValue}
     }
     /// Returns true if `right` has been explicitly set.
-    var hasRight: Bool {return self._right != nil}
+    var hasRight: Bool {self._right != nil}
     /// Clears the value of `right`. Subsequent reads from it will return its default value.
     mutating func clearRight() {self._right = nil}
 
@@ -4115,11 +4115,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var set: Int32 {
-      get {return _set ?? 0}
+      get {_set ?? 0}
       set {_set = newValue}
     }
     /// Returns true if `set` has been explicitly set.
-    var hasSet: Bool {return self._set != nil}
+    var hasSet: Bool {self._set != nil}
     /// Clears the value of `set`. Subsequent reads from it will return its default value.
     mutating func clearSet() {self._set = nil}
 
@@ -4136,11 +4136,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var type: Int32 {
-      get {return _type ?? 0}
+      get {_type ?? 0}
       set {_type = newValue}
     }
     /// Returns true if `type` has been explicitly set.
-    var hasType: Bool {return self._type != nil}
+    var hasType: Bool {self._type != nil}
     /// Clears the value of `type`. Subsequent reads from it will return its default value.
     mutating func clearType() {self._type = nil}
 
@@ -4157,11 +4157,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var unowned: Int32 {
-      get {return _unowned ?? 0}
+      get {_unowned ?? 0}
       set {_unowned = newValue}
     }
     /// Returns true if `unowned` has been explicitly set.
-    var hasUnowned: Bool {return self._unowned != nil}
+    var hasUnowned: Bool {self._unowned != nil}
     /// Clears the value of `unowned`. Subsequent reads from it will return its default value.
     mutating func clearUnowned() {self._unowned = nil}
 
@@ -4178,11 +4178,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var weak: Int32 {
-      get {return _weak ?? 0}
+      get {_weak ?? 0}
       set {_weak = newValue}
     }
     /// Returns true if `weak` has been explicitly set.
-    var hasWeak: Bool {return self._weak != nil}
+    var hasWeak: Bool {self._weak != nil}
     /// Clears the value of `weak`. Subsequent reads from it will return its default value.
     mutating func clearWeak() {self._weak = nil}
 
@@ -4199,11 +4199,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var willSet: Int32 {
-      get {return _willSet ?? 0}
+      get {_willSet ?? 0}
       set {_willSet = newValue}
     }
     /// Returns true if `willSet` has been explicitly set.
-    var hasWillSet: Bool {return self._willSet != nil}
+    var hasWillSet: Bool {self._willSet != nil}
     /// Clears the value of `willSet`. Subsequent reads from it will return its default value.
     mutating func clearWillSet() {self._willSet = nil}
 
@@ -4220,11 +4220,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var id: Int32 {
-      get {return _id ?? 0}
+      get {_id ?? 0}
       set {_id = newValue}
     }
     /// Returns true if `id` has been explicitly set.
-    var hasID: Bool {return self._id != nil}
+    var hasID: Bool {self._id != nil}
     /// Clears the value of `id`. Subsequent reads from it will return its default value.
     mutating func clearID() {self._id = nil}
 
@@ -4241,11 +4241,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var cmd: Int32 {
-      get {return _cmd ?? 0}
+      get {_cmd ?? 0}
       set {_cmd = newValue}
     }
     /// Returns true if `cmd` has been explicitly set.
-    var hasCmd: Bool {return self._cmd != nil}
+    var hasCmd: Bool {self._cmd != nil}
     /// Clears the value of `cmd`. Subsequent reads from it will return its default value.
     mutating func clearCmd() {self._cmd = nil}
 
@@ -4262,11 +4262,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var out: Int32 {
-      get {return _out ?? 0}
+      get {_out ?? 0}
       set {_out = newValue}
     }
     /// Returns true if `out` has been explicitly set.
-    var hasOut: Bool {return self._out != nil}
+    var hasOut: Bool {self._out != nil}
     /// Clears the value of `out`. Subsequent reads from it will return its default value.
     mutating func clearOut() {self._out = nil}
 
@@ -4283,11 +4283,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var bycopy: Int32 {
-      get {return _bycopy ?? 0}
+      get {_bycopy ?? 0}
       set {_bycopy = newValue}
     }
     /// Returns true if `bycopy` has been explicitly set.
-    var hasBycopy: Bool {return self._bycopy != nil}
+    var hasBycopy: Bool {self._bycopy != nil}
     /// Clears the value of `bycopy`. Subsequent reads from it will return its default value.
     mutating func clearBycopy() {self._bycopy = nil}
 
@@ -4304,11 +4304,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var byref: Int32 {
-      get {return _byref ?? 0}
+      get {_byref ?? 0}
       set {_byref = newValue}
     }
     /// Returns true if `byref` has been explicitly set.
-    var hasByref: Bool {return self._byref != nil}
+    var hasByref: Bool {self._byref != nil}
     /// Clears the value of `byref`. Subsequent reads from it will return its default value.
     mutating func clearByref() {self._byref = nil}
 
@@ -4325,11 +4325,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var oneway: Int32 {
-      get {return _oneway ?? 0}
+      get {_oneway ?? 0}
       set {_oneway = newValue}
     }
     /// Returns true if `oneway` has been explicitly set.
-    var hasOneway: Bool {return self._oneway != nil}
+    var hasOneway: Bool {self._oneway != nil}
     /// Clears the value of `oneway`. Subsequent reads from it will return its default value.
     mutating func clearOneway() {self._oneway = nil}
 
@@ -4346,11 +4346,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var and: Int32 {
-      get {return _and ?? 0}
+      get {_and ?? 0}
       set {_and = newValue}
     }
     /// Returns true if `and` has been explicitly set.
-    var hasAnd: Bool {return self._and != nil}
+    var hasAnd: Bool {self._and != nil}
     /// Clears the value of `and`. Subsequent reads from it will return its default value.
     mutating func clearAnd() {self._and = nil}
 
@@ -4367,11 +4367,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var andEq: Int32 {
-      get {return _andEq ?? 0}
+      get {_andEq ?? 0}
       set {_andEq = newValue}
     }
     /// Returns true if `andEq` has been explicitly set.
-    var hasAndEq: Bool {return self._andEq != nil}
+    var hasAndEq: Bool {self._andEq != nil}
     /// Clears the value of `andEq`. Subsequent reads from it will return its default value.
     mutating func clearAndEq() {self._andEq = nil}
 
@@ -4388,11 +4388,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var alignas: Int32 {
-      get {return _alignas ?? 0}
+      get {_alignas ?? 0}
       set {_alignas = newValue}
     }
     /// Returns true if `alignas` has been explicitly set.
-    var hasAlignas: Bool {return self._alignas != nil}
+    var hasAlignas: Bool {self._alignas != nil}
     /// Clears the value of `alignas`. Subsequent reads from it will return its default value.
     mutating func clearAlignas() {self._alignas = nil}
 
@@ -4409,11 +4409,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var alignof: Int32 {
-      get {return _alignof ?? 0}
+      get {_alignof ?? 0}
       set {_alignof = newValue}
     }
     /// Returns true if `alignof` has been explicitly set.
-    var hasAlignof: Bool {return self._alignof != nil}
+    var hasAlignof: Bool {self._alignof != nil}
     /// Clears the value of `alignof`. Subsequent reads from it will return its default value.
     mutating func clearAlignof() {self._alignof = nil}
 
@@ -4430,11 +4430,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var asm: Int32 {
-      get {return _asm ?? 0}
+      get {_asm ?? 0}
       set {_asm = newValue}
     }
     /// Returns true if `asm` has been explicitly set.
-    var hasAsm: Bool {return self._asm != nil}
+    var hasAsm: Bool {self._asm != nil}
     /// Clears the value of `asm`. Subsequent reads from it will return its default value.
     mutating func clearAsm() {self._asm = nil}
 
@@ -4451,11 +4451,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var auto: Int32 {
-      get {return _auto ?? 0}
+      get {_auto ?? 0}
       set {_auto = newValue}
     }
     /// Returns true if `auto` has been explicitly set.
-    var hasAuto: Bool {return self._auto != nil}
+    var hasAuto: Bool {self._auto != nil}
     /// Clears the value of `auto`. Subsequent reads from it will return its default value.
     mutating func clearAuto() {self._auto = nil}
 
@@ -4472,11 +4472,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var bitand: Int32 {
-      get {return _bitand ?? 0}
+      get {_bitand ?? 0}
       set {_bitand = newValue}
     }
     /// Returns true if `bitand` has been explicitly set.
-    var hasBitand: Bool {return self._bitand != nil}
+    var hasBitand: Bool {self._bitand != nil}
     /// Clears the value of `bitand`. Subsequent reads from it will return its default value.
     mutating func clearBitand() {self._bitand = nil}
 
@@ -4493,11 +4493,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var bitor: Int32 {
-      get {return _bitor ?? 0}
+      get {_bitor ?? 0}
       set {_bitor = newValue}
     }
     /// Returns true if `bitor` has been explicitly set.
-    var hasBitor: Bool {return self._bitor != nil}
+    var hasBitor: Bool {self._bitor != nil}
     /// Clears the value of `bitor`. Subsequent reads from it will return its default value.
     mutating func clearBitor() {self._bitor = nil}
 
@@ -4514,11 +4514,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var bool: Int32 {
-      get {return _bool ?? 0}
+      get {_bool ?? 0}
       set {_bool = newValue}
     }
     /// Returns true if `bool` has been explicitly set.
-    var hasBool: Bool {return self._bool != nil}
+    var hasBool: Bool {self._bool != nil}
     /// Clears the value of `bool`. Subsequent reads from it will return its default value.
     mutating func clearBool() {self._bool = nil}
 
@@ -4535,11 +4535,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var char: Int32 {
-      get {return _char ?? 0}
+      get {_char ?? 0}
       set {_char = newValue}
     }
     /// Returns true if `char` has been explicitly set.
-    var hasChar: Bool {return self._char != nil}
+    var hasChar: Bool {self._char != nil}
     /// Clears the value of `char`. Subsequent reads from it will return its default value.
     mutating func clearChar() {self._char = nil}
 
@@ -4556,11 +4556,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var char16T: Int32 {
-      get {return _char16T ?? 0}
+      get {_char16T ?? 0}
       set {_char16T = newValue}
     }
     /// Returns true if `char16T` has been explicitly set.
-    var hasChar16T: Bool {return self._char16T != nil}
+    var hasChar16T: Bool {self._char16T != nil}
     /// Clears the value of `char16T`. Subsequent reads from it will return its default value.
     mutating func clearChar16T() {self._char16T = nil}
 
@@ -4577,11 +4577,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var char32T: Int32 {
-      get {return _char32T ?? 0}
+      get {_char32T ?? 0}
       set {_char32T = newValue}
     }
     /// Returns true if `char32T` has been explicitly set.
-    var hasChar32T: Bool {return self._char32T != nil}
+    var hasChar32T: Bool {self._char32T != nil}
     /// Clears the value of `char32T`. Subsequent reads from it will return its default value.
     mutating func clearChar32T() {self._char32T = nil}
 
@@ -4598,11 +4598,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var compl: Int32 {
-      get {return _compl ?? 0}
+      get {_compl ?? 0}
       set {_compl = newValue}
     }
     /// Returns true if `compl` has been explicitly set.
-    var hasCompl: Bool {return self._compl != nil}
+    var hasCompl: Bool {self._compl != nil}
     /// Clears the value of `compl`. Subsequent reads from it will return its default value.
     mutating func clearCompl() {self._compl = nil}
 
@@ -4619,11 +4619,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var const: Int32 {
-      get {return _const ?? 0}
+      get {_const ?? 0}
       set {_const = newValue}
     }
     /// Returns true if `const` has been explicitly set.
-    var hasConst: Bool {return self._const != nil}
+    var hasConst: Bool {self._const != nil}
     /// Clears the value of `const`. Subsequent reads from it will return its default value.
     mutating func clearConst() {self._const = nil}
 
@@ -4640,11 +4640,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var constexpr: Int32 {
-      get {return _constexpr ?? 0}
+      get {_constexpr ?? 0}
       set {_constexpr = newValue}
     }
     /// Returns true if `constexpr` has been explicitly set.
-    var hasConstexpr: Bool {return self._constexpr != nil}
+    var hasConstexpr: Bool {self._constexpr != nil}
     /// Clears the value of `constexpr`. Subsequent reads from it will return its default value.
     mutating func clearConstexpr() {self._constexpr = nil}
 
@@ -4661,11 +4661,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var constCast: Int32 {
-      get {return _constCast ?? 0}
+      get {_constCast ?? 0}
       set {_constCast = newValue}
     }
     /// Returns true if `constCast` has been explicitly set.
-    var hasConstCast: Bool {return self._constCast != nil}
+    var hasConstCast: Bool {self._constCast != nil}
     /// Clears the value of `constCast`. Subsequent reads from it will return its default value.
     mutating func clearConstCast() {self._constCast = nil}
 
@@ -4682,11 +4682,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var decltype: Int32 {
-      get {return _decltype ?? 0}
+      get {_decltype ?? 0}
       set {_decltype = newValue}
     }
     /// Returns true if `decltype` has been explicitly set.
-    var hasDecltype: Bool {return self._decltype != nil}
+    var hasDecltype: Bool {self._decltype != nil}
     /// Clears the value of `decltype`. Subsequent reads from it will return its default value.
     mutating func clearDecltype() {self._decltype = nil}
 
@@ -4703,11 +4703,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var delete: Int32 {
-      get {return _delete ?? 0}
+      get {_delete ?? 0}
       set {_delete = newValue}
     }
     /// Returns true if `delete` has been explicitly set.
-    var hasDelete: Bool {return self._delete != nil}
+    var hasDelete: Bool {self._delete != nil}
     /// Clears the value of `delete`. Subsequent reads from it will return its default value.
     mutating func clearDelete() {self._delete = nil}
 
@@ -4724,11 +4724,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var dynamicCast: Int32 {
-      get {return _dynamicCast ?? 0}
+      get {_dynamicCast ?? 0}
       set {_dynamicCast = newValue}
     }
     /// Returns true if `dynamicCast` has been explicitly set.
-    var hasDynamicCast: Bool {return self._dynamicCast != nil}
+    var hasDynamicCast: Bool {self._dynamicCast != nil}
     /// Clears the value of `dynamicCast`. Subsequent reads from it will return its default value.
     mutating func clearDynamicCast() {self._dynamicCast = nil}
 
@@ -4745,11 +4745,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var explicit: Int32 {
-      get {return _explicit ?? 0}
+      get {_explicit ?? 0}
       set {_explicit = newValue}
     }
     /// Returns true if `explicit` has been explicitly set.
-    var hasExplicit: Bool {return self._explicit != nil}
+    var hasExplicit: Bool {self._explicit != nil}
     /// Clears the value of `explicit`. Subsequent reads from it will return its default value.
     mutating func clearExplicit() {self._explicit = nil}
 
@@ -4766,11 +4766,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var export: Int32 {
-      get {return _export ?? 0}
+      get {_export ?? 0}
       set {_export = newValue}
     }
     /// Returns true if `export` has been explicitly set.
-    var hasExport: Bool {return self._export != nil}
+    var hasExport: Bool {self._export != nil}
     /// Clears the value of `export`. Subsequent reads from it will return its default value.
     mutating func clearExport() {self._export = nil}
 
@@ -4787,11 +4787,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var extern: Int32 {
-      get {return _extern ?? 0}
+      get {_extern ?? 0}
       set {_extern = newValue}
     }
     /// Returns true if `extern` has been explicitly set.
-    var hasExtern: Bool {return self._extern != nil}
+    var hasExtern: Bool {self._extern != nil}
     /// Clears the value of `extern`. Subsequent reads from it will return its default value.
     mutating func clearExtern() {self._extern = nil}
 
@@ -4808,11 +4808,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var friend: Int32 {
-      get {return _friend ?? 0}
+      get {_friend ?? 0}
       set {_friend = newValue}
     }
     /// Returns true if `friend` has been explicitly set.
-    var hasFriend: Bool {return self._friend != nil}
+    var hasFriend: Bool {self._friend != nil}
     /// Clears the value of `friend`. Subsequent reads from it will return its default value.
     mutating func clearFriend() {self._friend = nil}
 
@@ -4829,11 +4829,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var goto: Int32 {
-      get {return _goto ?? 0}
+      get {_goto ?? 0}
       set {_goto = newValue}
     }
     /// Returns true if `goto` has been explicitly set.
-    var hasGoto: Bool {return self._goto != nil}
+    var hasGoto: Bool {self._goto != nil}
     /// Clears the value of `goto`. Subsequent reads from it will return its default value.
     mutating func clearGoto() {self._goto = nil}
 
@@ -4850,11 +4850,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var inline: Int32 {
-      get {return _inline ?? 0}
+      get {_inline ?? 0}
       set {_inline = newValue}
     }
     /// Returns true if `inline` has been explicitly set.
-    var hasInline: Bool {return self._inline != nil}
+    var hasInline: Bool {self._inline != nil}
     /// Clears the value of `inline`. Subsequent reads from it will return its default value.
     mutating func clearInline() {self._inline = nil}
 
@@ -4871,11 +4871,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var long: Int32 {
-      get {return _long ?? 0}
+      get {_long ?? 0}
       set {_long = newValue}
     }
     /// Returns true if `long` has been explicitly set.
-    var hasLong: Bool {return self._long != nil}
+    var hasLong: Bool {self._long != nil}
     /// Clears the value of `long`. Subsequent reads from it will return its default value.
     mutating func clearLong() {self._long = nil}
 
@@ -4892,11 +4892,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var mutable: Int32 {
-      get {return _mutable ?? 0}
+      get {_mutable ?? 0}
       set {_mutable = newValue}
     }
     /// Returns true if `mutable` has been explicitly set.
-    var hasMutable: Bool {return self._mutable != nil}
+    var hasMutable: Bool {self._mutable != nil}
     /// Clears the value of `mutable`. Subsequent reads from it will return its default value.
     mutating func clearMutable() {self._mutable = nil}
 
@@ -4913,11 +4913,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var namespace: Int32 {
-      get {return _namespace ?? 0}
+      get {_namespace ?? 0}
       set {_namespace = newValue}
     }
     /// Returns true if `namespace` has been explicitly set.
-    var hasNamespace: Bool {return self._namespace != nil}
+    var hasNamespace: Bool {self._namespace != nil}
     /// Clears the value of `namespace`. Subsequent reads from it will return its default value.
     mutating func clearNamespace() {self._namespace = nil}
 
@@ -4934,11 +4934,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var new: Int32 {
-      get {return _new ?? 0}
+      get {_new ?? 0}
       set {_new = newValue}
     }
     /// Returns true if `new` has been explicitly set.
-    var hasNew: Bool {return self._new != nil}
+    var hasNew: Bool {self._new != nil}
     /// Clears the value of `new`. Subsequent reads from it will return its default value.
     mutating func clearNew() {self._new = nil}
 
@@ -4955,11 +4955,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var noexcept: Int32 {
-      get {return _noexcept ?? 0}
+      get {_noexcept ?? 0}
       set {_noexcept = newValue}
     }
     /// Returns true if `noexcept` has been explicitly set.
-    var hasNoexcept: Bool {return self._noexcept != nil}
+    var hasNoexcept: Bool {self._noexcept != nil}
     /// Clears the value of `noexcept`. Subsequent reads from it will return its default value.
     mutating func clearNoexcept() {self._noexcept = nil}
 
@@ -4976,11 +4976,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var not: Int32 {
-      get {return _not ?? 0}
+      get {_not ?? 0}
       set {_not = newValue}
     }
     /// Returns true if `not` has been explicitly set.
-    var hasNot: Bool {return self._not != nil}
+    var hasNot: Bool {self._not != nil}
     /// Clears the value of `not`. Subsequent reads from it will return its default value.
     mutating func clearNot() {self._not = nil}
 
@@ -4997,11 +4997,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var notEq: Int32 {
-      get {return _notEq ?? 0}
+      get {_notEq ?? 0}
       set {_notEq = newValue}
     }
     /// Returns true if `notEq` has been explicitly set.
-    var hasNotEq: Bool {return self._notEq != nil}
+    var hasNotEq: Bool {self._notEq != nil}
     /// Clears the value of `notEq`. Subsequent reads from it will return its default value.
     mutating func clearNotEq() {self._notEq = nil}
 
@@ -5018,11 +5018,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var nullptr: Int32 {
-      get {return _nullptr ?? 0}
+      get {_nullptr ?? 0}
       set {_nullptr = newValue}
     }
     /// Returns true if `nullptr` has been explicitly set.
-    var hasNullptr: Bool {return self._nullptr != nil}
+    var hasNullptr: Bool {self._nullptr != nil}
     /// Clears the value of `nullptr`. Subsequent reads from it will return its default value.
     mutating func clearNullptr() {self._nullptr = nil}
 
@@ -5039,11 +5039,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var or: Int32 {
-      get {return _or ?? 0}
+      get {_or ?? 0}
       set {_or = newValue}
     }
     /// Returns true if `or` has been explicitly set.
-    var hasOr: Bool {return self._or != nil}
+    var hasOr: Bool {self._or != nil}
     /// Clears the value of `or`. Subsequent reads from it will return its default value.
     mutating func clearOr() {self._or = nil}
 
@@ -5060,11 +5060,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var orEq: Int32 {
-      get {return _orEq ?? 0}
+      get {_orEq ?? 0}
       set {_orEq = newValue}
     }
     /// Returns true if `orEq` has been explicitly set.
-    var hasOrEq: Bool {return self._orEq != nil}
+    var hasOrEq: Bool {self._orEq != nil}
     /// Clears the value of `orEq`. Subsequent reads from it will return its default value.
     mutating func clearOrEq() {self._orEq = nil}
 
@@ -5081,11 +5081,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var protected: Int32 {
-      get {return _protected ?? 0}
+      get {_protected ?? 0}
       set {_protected = newValue}
     }
     /// Returns true if `protected` has been explicitly set.
-    var hasProtected: Bool {return self._protected != nil}
+    var hasProtected: Bool {self._protected != nil}
     /// Clears the value of `protected`. Subsequent reads from it will return its default value.
     mutating func clearProtected() {self._protected = nil}
 
@@ -5102,11 +5102,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var register: Int32 {
-      get {return _register ?? 0}
+      get {_register ?? 0}
       set {_register = newValue}
     }
     /// Returns true if `register` has been explicitly set.
-    var hasRegister: Bool {return self._register != nil}
+    var hasRegister: Bool {self._register != nil}
     /// Clears the value of `register`. Subsequent reads from it will return its default value.
     mutating func clearRegister() {self._register = nil}
 
@@ -5123,11 +5123,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var reinterpretCast: Int32 {
-      get {return _reinterpretCast ?? 0}
+      get {_reinterpretCast ?? 0}
       set {_reinterpretCast = newValue}
     }
     /// Returns true if `reinterpretCast` has been explicitly set.
-    var hasReinterpretCast: Bool {return self._reinterpretCast != nil}
+    var hasReinterpretCast: Bool {self._reinterpretCast != nil}
     /// Clears the value of `reinterpretCast`. Subsequent reads from it will return its default value.
     mutating func clearReinterpretCast() {self._reinterpretCast = nil}
 
@@ -5144,11 +5144,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var short: Int32 {
-      get {return _short ?? 0}
+      get {_short ?? 0}
       set {_short = newValue}
     }
     /// Returns true if `short` has been explicitly set.
-    var hasShort: Bool {return self._short != nil}
+    var hasShort: Bool {self._short != nil}
     /// Clears the value of `short`. Subsequent reads from it will return its default value.
     mutating func clearShort() {self._short = nil}
 
@@ -5165,11 +5165,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var signed: Int32 {
-      get {return _signed ?? 0}
+      get {_signed ?? 0}
       set {_signed = newValue}
     }
     /// Returns true if `signed` has been explicitly set.
-    var hasSigned: Bool {return self._signed != nil}
+    var hasSigned: Bool {self._signed != nil}
     /// Clears the value of `signed`. Subsequent reads from it will return its default value.
     mutating func clearSigned() {self._signed = nil}
 
@@ -5186,11 +5186,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var sizeof: Int32 {
-      get {return _sizeof ?? 0}
+      get {_sizeof ?? 0}
       set {_sizeof = newValue}
     }
     /// Returns true if `sizeof` has been explicitly set.
-    var hasSizeof: Bool {return self._sizeof != nil}
+    var hasSizeof: Bool {self._sizeof != nil}
     /// Clears the value of `sizeof`. Subsequent reads from it will return its default value.
     mutating func clearSizeof() {self._sizeof = nil}
 
@@ -5207,11 +5207,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var staticAssert: Int32 {
-      get {return _staticAssert ?? 0}
+      get {_staticAssert ?? 0}
       set {_staticAssert = newValue}
     }
     /// Returns true if `staticAssert` has been explicitly set.
-    var hasStaticAssert: Bool {return self._staticAssert != nil}
+    var hasStaticAssert: Bool {self._staticAssert != nil}
     /// Clears the value of `staticAssert`. Subsequent reads from it will return its default value.
     mutating func clearStaticAssert() {self._staticAssert = nil}
 
@@ -5228,11 +5228,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var staticCast: Int32 {
-      get {return _staticCast ?? 0}
+      get {_staticCast ?? 0}
       set {_staticCast = newValue}
     }
     /// Returns true if `staticCast` has been explicitly set.
-    var hasStaticCast: Bool {return self._staticCast != nil}
+    var hasStaticCast: Bool {self._staticCast != nil}
     /// Clears the value of `staticCast`. Subsequent reads from it will return its default value.
     mutating func clearStaticCast() {self._staticCast = nil}
 
@@ -5249,11 +5249,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var template: Int32 {
-      get {return _template ?? 0}
+      get {_template ?? 0}
       set {_template = newValue}
     }
     /// Returns true if `template` has been explicitly set.
-    var hasTemplate: Bool {return self._template != nil}
+    var hasTemplate: Bool {self._template != nil}
     /// Clears the value of `template`. Subsequent reads from it will return its default value.
     mutating func clearTemplate() {self._template = nil}
 
@@ -5270,11 +5270,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var this: Int32 {
-      get {return _this ?? 0}
+      get {_this ?? 0}
       set {_this = newValue}
     }
     /// Returns true if `this` has been explicitly set.
-    var hasThis: Bool {return self._this != nil}
+    var hasThis: Bool {self._this != nil}
     /// Clears the value of `this`. Subsequent reads from it will return its default value.
     mutating func clearThis() {self._this = nil}
 
@@ -5291,11 +5291,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var threadLocal: Int32 {
-      get {return _threadLocal ?? 0}
+      get {_threadLocal ?? 0}
       set {_threadLocal = newValue}
     }
     /// Returns true if `threadLocal` has been explicitly set.
-    var hasThreadLocal: Bool {return self._threadLocal != nil}
+    var hasThreadLocal: Bool {self._threadLocal != nil}
     /// Clears the value of `threadLocal`. Subsequent reads from it will return its default value.
     mutating func clearThreadLocal() {self._threadLocal = nil}
 
@@ -5312,11 +5312,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var typedef: Int32 {
-      get {return _typedef ?? 0}
+      get {_typedef ?? 0}
       set {_typedef = newValue}
     }
     /// Returns true if `typedef` has been explicitly set.
-    var hasTypedef: Bool {return self._typedef != nil}
+    var hasTypedef: Bool {self._typedef != nil}
     /// Clears the value of `typedef`. Subsequent reads from it will return its default value.
     mutating func clearTypedef() {self._typedef = nil}
 
@@ -5333,11 +5333,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var typeid: Int32 {
-      get {return _typeid ?? 0}
+      get {_typeid ?? 0}
       set {_typeid = newValue}
     }
     /// Returns true if `typeid` has been explicitly set.
-    var hasTypeid: Bool {return self._typeid != nil}
+    var hasTypeid: Bool {self._typeid != nil}
     /// Clears the value of `typeid`. Subsequent reads from it will return its default value.
     mutating func clearTypeid() {self._typeid = nil}
 
@@ -5354,11 +5354,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var typename: Int32 {
-      get {return _typename ?? 0}
+      get {_typename ?? 0}
       set {_typename = newValue}
     }
     /// Returns true if `typename` has been explicitly set.
-    var hasTypename: Bool {return self._typename != nil}
+    var hasTypename: Bool {self._typename != nil}
     /// Clears the value of `typename`. Subsequent reads from it will return its default value.
     mutating func clearTypename() {self._typename = nil}
 
@@ -5375,11 +5375,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var union: Int32 {
-      get {return _union ?? 0}
+      get {_union ?? 0}
       set {_union = newValue}
     }
     /// Returns true if `union` has been explicitly set.
-    var hasUnion: Bool {return self._union != nil}
+    var hasUnion: Bool {self._union != nil}
     /// Clears the value of `union`. Subsequent reads from it will return its default value.
     mutating func clearUnion() {self._union = nil}
 
@@ -5396,11 +5396,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var unsigned: Int32 {
-      get {return _unsigned ?? 0}
+      get {_unsigned ?? 0}
       set {_unsigned = newValue}
     }
     /// Returns true if `unsigned` has been explicitly set.
-    var hasUnsigned: Bool {return self._unsigned != nil}
+    var hasUnsigned: Bool {self._unsigned != nil}
     /// Clears the value of `unsigned`. Subsequent reads from it will return its default value.
     mutating func clearUnsigned() {self._unsigned = nil}
 
@@ -5417,11 +5417,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var using: Int32 {
-      get {return _using ?? 0}
+      get {_using ?? 0}
       set {_using = newValue}
     }
     /// Returns true if `using` has been explicitly set.
-    var hasUsing: Bool {return self._using != nil}
+    var hasUsing: Bool {self._using != nil}
     /// Clears the value of `using`. Subsequent reads from it will return its default value.
     mutating func clearUsing() {self._using = nil}
 
@@ -5438,11 +5438,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var virtual: Int32 {
-      get {return _virtual ?? 0}
+      get {_virtual ?? 0}
       set {_virtual = newValue}
     }
     /// Returns true if `virtual` has been explicitly set.
-    var hasVirtual: Bool {return self._virtual != nil}
+    var hasVirtual: Bool {self._virtual != nil}
     /// Clears the value of `virtual`. Subsequent reads from it will return its default value.
     mutating func clearVirtual() {self._virtual = nil}
 
@@ -5459,11 +5459,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var void: Int32 {
-      get {return _void ?? 0}
+      get {_void ?? 0}
       set {_void = newValue}
     }
     /// Returns true if `void` has been explicitly set.
-    var hasVoid: Bool {return self._void != nil}
+    var hasVoid: Bool {self._void != nil}
     /// Clears the value of `void`. Subsequent reads from it will return its default value.
     mutating func clearVoid() {self._void = nil}
 
@@ -5480,11 +5480,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var volatile: Int32 {
-      get {return _volatile ?? 0}
+      get {_volatile ?? 0}
       set {_volatile = newValue}
     }
     /// Returns true if `volatile` has been explicitly set.
-    var hasVolatile: Bool {return self._volatile != nil}
+    var hasVolatile: Bool {self._volatile != nil}
     /// Clears the value of `volatile`. Subsequent reads from it will return its default value.
     mutating func clearVolatile() {self._volatile = nil}
 
@@ -5501,11 +5501,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var wcharT: Int32 {
-      get {return _wcharT ?? 0}
+      get {_wcharT ?? 0}
       set {_wcharT = newValue}
     }
     /// Returns true if `wcharT` has been explicitly set.
-    var hasWcharT: Bool {return self._wcharT != nil}
+    var hasWcharT: Bool {self._wcharT != nil}
     /// Clears the value of `wcharT`. Subsequent reads from it will return its default value.
     mutating func clearWcharT() {self._wcharT = nil}
 
@@ -5522,11 +5522,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var xor: Int32 {
-      get {return _xor ?? 0}
+      get {_xor ?? 0}
       set {_xor = newValue}
     }
     /// Returns true if `xor` has been explicitly set.
-    var hasXor: Bool {return self._xor != nil}
+    var hasXor: Bool {self._xor != nil}
     /// Clears the value of `xor`. Subsequent reads from it will return its default value.
     mutating func clearXor() {self._xor = nil}
 
@@ -5543,11 +5543,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var xorEq: Int32 {
-      get {return _xorEq ?? 0}
+      get {_xorEq ?? 0}
       set {_xorEq = newValue}
     }
     /// Returns true if `xorEq` has been explicitly set.
-    var hasXorEq: Bool {return self._xorEq != nil}
+    var hasXorEq: Bool {self._xorEq != nil}
     /// Clears the value of `xorEq`. Subsequent reads from it will return its default value.
     mutating func clearXorEq() {self._xorEq = nil}
 
@@ -5564,11 +5564,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var restrict: Int32 {
-      get {return _restrict ?? 0}
+      get {_restrict ?? 0}
       set {_restrict = newValue}
     }
     /// Returns true if `restrict` has been explicitly set.
-    var hasRestrict: Bool {return self._restrict != nil}
+    var hasRestrict: Bool {self._restrict != nil}
     /// Clears the value of `restrict`. Subsequent reads from it will return its default value.
     mutating func clearRestrict() {self._restrict = nil}
 
@@ -5585,11 +5585,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var category: Int32 {
-      get {return _category ?? 0}
+      get {_category ?? 0}
       set {_category = newValue}
     }
     /// Returns true if `category` has been explicitly set.
-    var hasCategory: Bool {return self._category != nil}
+    var hasCategory: Bool {self._category != nil}
     /// Clears the value of `category`. Subsequent reads from it will return its default value.
     mutating func clearCategory() {self._category = nil}
 
@@ -5606,11 +5606,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var ivar: Int32 {
-      get {return _ivar ?? 0}
+      get {_ivar ?? 0}
       set {_ivar = newValue}
     }
     /// Returns true if `ivar` has been explicitly set.
-    var hasIvar: Bool {return self._ivar != nil}
+    var hasIvar: Bool {self._ivar != nil}
     /// Clears the value of `ivar`. Subsequent reads from it will return its default value.
     mutating func clearIvar() {self._ivar = nil}
 
@@ -5627,11 +5627,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var method: Int32 {
-      get {return _method ?? 0}
+      get {_method ?? 0}
       set {_method = newValue}
     }
     /// Returns true if `method` has been explicitly set.
-    var hasMethod: Bool {return self._method != nil}
+    var hasMethod: Bool {self._method != nil}
     /// Clears the value of `method`. Subsequent reads from it will return its default value.
     mutating func clearMethod() {self._method = nil}
 
@@ -5648,11 +5648,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var finalize: Int32 {
-      get {return _finalize ?? 0}
+      get {_finalize ?? 0}
       set {_finalize = newValue}
     }
     /// Returns true if `finalize` has been explicitly set.
-    var hasFinalize: Bool {return self._finalize != nil}
+    var hasFinalize: Bool {self._finalize != nil}
     /// Clears the value of `finalize`. Subsequent reads from it will return its default value.
     mutating func clearFinalize() {self._finalize = nil}
 
@@ -5669,11 +5669,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var hash: Int32 {
-      get {return _hash ?? 0}
+      get {_hash ?? 0}
       set {_hash = newValue}
     }
     /// Returns true if `hash` has been explicitly set.
-    var hasHash: Bool {return self._hash != nil}
+    var hasHash: Bool {self._hash != nil}
     /// Clears the value of `hash`. Subsequent reads from it will return its default value.
     mutating func clearHash() {self._hash = nil}
 
@@ -5690,11 +5690,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var dealloc: Int32 {
-      get {return _dealloc ?? 0}
+      get {_dealloc ?? 0}
       set {_dealloc = newValue}
     }
     /// Returns true if `dealloc` has been explicitly set.
-    var hasDealloc: Bool {return self._dealloc != nil}
+    var hasDealloc: Bool {self._dealloc != nil}
     /// Clears the value of `dealloc`. Subsequent reads from it will return its default value.
     mutating func clearDealloc() {self._dealloc = nil}
 
@@ -5711,11 +5711,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var superclass: Int32 {
-      get {return _superclass ?? 0}
+      get {_superclass ?? 0}
       set {_superclass = newValue}
     }
     /// Returns true if `superclass` has been explicitly set.
-    var hasSuperclass: Bool {return self._superclass != nil}
+    var hasSuperclass: Bool {self._superclass != nil}
     /// Clears the value of `superclass`. Subsequent reads from it will return its default value.
     mutating func clearSuperclass() {self._superclass = nil}
 
@@ -5732,11 +5732,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var retain: Int32 {
-      get {return _retain ?? 0}
+      get {_retain ?? 0}
       set {_retain = newValue}
     }
     /// Returns true if `retain` has been explicitly set.
-    var hasRetain: Bool {return self._retain != nil}
+    var hasRetain: Bool {self._retain != nil}
     /// Clears the value of `retain`. Subsequent reads from it will return its default value.
     mutating func clearRetain() {self._retain = nil}
 
@@ -5753,11 +5753,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var release: Int32 {
-      get {return _release ?? 0}
+      get {_release ?? 0}
       set {_release = newValue}
     }
     /// Returns true if `release` has been explicitly set.
-    var hasRelease: Bool {return self._release != nil}
+    var hasRelease: Bool {self._release != nil}
     /// Clears the value of `release`. Subsequent reads from it will return its default value.
     mutating func clearRelease() {self._release = nil}
 
@@ -5774,11 +5774,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var autorelease: Int32 {
-      get {return _autorelease ?? 0}
+      get {_autorelease ?? 0}
       set {_autorelease = newValue}
     }
     /// Returns true if `autorelease` has been explicitly set.
-    var hasAutorelease: Bool {return self._autorelease != nil}
+    var hasAutorelease: Bool {self._autorelease != nil}
     /// Clears the value of `autorelease`. Subsequent reads from it will return its default value.
     mutating func clearAutorelease() {self._autorelease = nil}
 
@@ -5795,11 +5795,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var retainCount: Int32 {
-      get {return _retainCount ?? 0}
+      get {_retainCount ?? 0}
       set {_retainCount = newValue}
     }
     /// Returns true if `retainCount` has been explicitly set.
-    var hasRetainCount: Bool {return self._retainCount != nil}
+    var hasRetainCount: Bool {self._retainCount != nil}
     /// Clears the value of `retainCount`. Subsequent reads from it will return its default value.
     mutating func clearRetainCount() {self._retainCount = nil}
 
@@ -5816,11 +5816,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var zone: Int32 {
-      get {return _zone ?? 0}
+      get {_zone ?? 0}
       set {_zone = newValue}
     }
     /// Returns true if `zone` has been explicitly set.
-    var hasZone: Bool {return self._zone != nil}
+    var hasZone: Bool {self._zone != nil}
     /// Clears the value of `zone`. Subsequent reads from it will return its default value.
     mutating func clearZone() {self._zone = nil}
 
@@ -5837,11 +5837,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var isProxy: Int32 {
-      get {return _isProxy ?? 0}
+      get {_isProxy ?? 0}
       set {_isProxy = newValue}
     }
     /// Returns true if `isProxy` has been explicitly set.
-    var hasIsProxy: Bool {return self._isProxy != nil}
+    var hasIsProxy: Bool {self._isProxy != nil}
     /// Clears the value of `isProxy`. Subsequent reads from it will return its default value.
     mutating func clearIsProxy() {self._isProxy = nil}
 
@@ -5858,11 +5858,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var copy: Int32 {
-      get {return _copy ?? 0}
+      get {_copy ?? 0}
       set {_copy = newValue}
     }
     /// Returns true if `copy` has been explicitly set.
-    var hasCopy: Bool {return self._copy != nil}
+    var hasCopy: Bool {self._copy != nil}
     /// Clears the value of `copy`. Subsequent reads from it will return its default value.
     mutating func clearCopy() {self._copy = nil}
 
@@ -5879,11 +5879,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var mutableCopy: Int32 {
-      get {return _mutableCopy ?? 0}
+      get {_mutableCopy ?? 0}
       set {_mutableCopy = newValue}
     }
     /// Returns true if `mutableCopy` has been explicitly set.
-    var hasMutableCopy: Bool {return self._mutableCopy != nil}
+    var hasMutableCopy: Bool {self._mutableCopy != nil}
     /// Clears the value of `mutableCopy`. Subsequent reads from it will return its default value.
     mutating func clearMutableCopy() {self._mutableCopy = nil}
 
@@ -5900,11 +5900,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var classForCoder: Int32 {
-      get {return _classForCoder ?? 0}
+      get {_classForCoder ?? 0}
       set {_classForCoder = newValue}
     }
     /// Returns true if `classForCoder` has been explicitly set.
-    var hasClassForCoder: Bool {return self._classForCoder != nil}
+    var hasClassForCoder: Bool {self._classForCoder != nil}
     /// Clears the value of `classForCoder`. Subsequent reads from it will return its default value.
     mutating func clearClassForCoder() {self._classForCoder = nil}
 
@@ -5921,11 +5921,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var clear: Int32 {
-      get {return _clear ?? 0}
+      get {_clear ?? 0}
       set {_clear = newValue}
     }
     /// Returns true if `clear` has been explicitly set.
-    var hasClear: Bool {return self._clear != nil}
+    var hasClear: Bool {self._clear != nil}
     /// Clears the value of `clear`. Subsequent reads from it will return its default value.
     mutating func clearClear() {self._clear = nil}
 
@@ -5942,11 +5942,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var data: Int32 {
-      get {return _data ?? 0}
+      get {_data ?? 0}
       set {_data = newValue}
     }
     /// Returns true if `data` has been explicitly set.
-    var hasData: Bool {return self._data != nil}
+    var hasData: Bool {self._data != nil}
     /// Clears the value of `data`. Subsequent reads from it will return its default value.
     mutating func clearData() {self._data = nil}
 
@@ -5963,11 +5963,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var delimitedData: Int32 {
-      get {return _delimitedData ?? 0}
+      get {_delimitedData ?? 0}
       set {_delimitedData = newValue}
     }
     /// Returns true if `delimitedData` has been explicitly set.
-    var hasDelimitedData: Bool {return self._delimitedData != nil}
+    var hasDelimitedData: Bool {self._delimitedData != nil}
     /// Clears the value of `delimitedData`. Subsequent reads from it will return its default value.
     mutating func clearDelimitedData() {self._delimitedData = nil}
 
@@ -5984,11 +5984,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var descriptor: Int32 {
-      get {return _descriptor ?? 0}
+      get {_descriptor ?? 0}
       set {_descriptor = newValue}
     }
     /// Returns true if `descriptor` has been explicitly set.
-    var hasDescriptor: Bool {return self._descriptor != nil}
+    var hasDescriptor: Bool {self._descriptor != nil}
     /// Clears the value of `descriptor`. Subsequent reads from it will return its default value.
     mutating func clearDescriptor() {self._descriptor = nil}
 
@@ -6005,11 +6005,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var extensionRegistry: Int32 {
-      get {return _extensionRegistry ?? 0}
+      get {_extensionRegistry ?? 0}
       set {_extensionRegistry = newValue}
     }
     /// Returns true if `extensionRegistry` has been explicitly set.
-    var hasExtensionRegistry: Bool {return self._extensionRegistry != nil}
+    var hasExtensionRegistry: Bool {self._extensionRegistry != nil}
     /// Clears the value of `extensionRegistry`. Subsequent reads from it will return its default value.
     mutating func clearExtensionRegistry() {self._extensionRegistry = nil}
 
@@ -6026,11 +6026,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var extensionsCurrentlySet: Int32 {
-      get {return _extensionsCurrentlySet ?? 0}
+      get {_extensionsCurrentlySet ?? 0}
       set {_extensionsCurrentlySet = newValue}
     }
     /// Returns true if `extensionsCurrentlySet` has been explicitly set.
-    var hasExtensionsCurrentlySet: Bool {return self._extensionsCurrentlySet != nil}
+    var hasExtensionsCurrentlySet: Bool {self._extensionsCurrentlySet != nil}
     /// Clears the value of `extensionsCurrentlySet`. Subsequent reads from it will return its default value.
     mutating func clearExtensionsCurrentlySet() {self._extensionsCurrentlySet = nil}
 
@@ -6047,11 +6047,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var isInitialized_p: Int32 {
-      get {return _isInitialized_p ?? 0}
+      get {_isInitialized_p ?? 0}
       set {_isInitialized_p = newValue}
     }
     /// Returns true if `isInitialized_p` has been explicitly set.
-    var hasIsInitialized_p: Bool {return self._isInitialized_p != nil}
+    var hasIsInitialized_p: Bool {self._isInitialized_p != nil}
     /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
     mutating func clearIsInitialized_p() {self._isInitialized_p = nil}
 
@@ -6068,11 +6068,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var serializedSize: Int32 {
-      get {return _serializedSize ?? 0}
+      get {_serializedSize ?? 0}
       set {_serializedSize = newValue}
     }
     /// Returns true if `serializedSize` has been explicitly set.
-    var hasSerializedSize: Bool {return self._serializedSize != nil}
+    var hasSerializedSize: Bool {self._serializedSize != nil}
     /// Clears the value of `serializedSize`. Subsequent reads from it will return its default value.
     mutating func clearSerializedSize() {self._serializedSize = nil}
 
@@ -6089,11 +6089,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var sortedExtensionsInUse: Int32 {
-      get {return _sortedExtensionsInUse ?? 0}
+      get {_sortedExtensionsInUse ?? 0}
       set {_sortedExtensionsInUse = newValue}
     }
     /// Returns true if `sortedExtensionsInUse` has been explicitly set.
-    var hasSortedExtensionsInUse: Bool {return self._sortedExtensionsInUse != nil}
+    var hasSortedExtensionsInUse: Bool {self._sortedExtensionsInUse != nil}
     /// Clears the value of `sortedExtensionsInUse`. Subsequent reads from it will return its default value.
     mutating func clearSortedExtensionsInUse() {self._sortedExtensionsInUse = nil}
 
@@ -6110,11 +6110,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var unknownFields_p: Int32 {
-      get {return _unknownFields_p ?? 0}
+      get {_unknownFields_p ?? 0}
       set {_unknownFields_p = newValue}
     }
     /// Returns true if `unknownFields_p` has been explicitly set.
-    var hasUnknownFields_p: Bool {return self._unknownFields_p != nil}
+    var hasUnknownFields_p: Bool {self._unknownFields_p != nil}
     /// Clears the value of `unknownFields_p`. Subsequent reads from it will return its default value.
     mutating func clearUnknownFields_p() {self._unknownFields_p = nil}
 
@@ -6131,11 +6131,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var fixed: Int32 {
-      get {return _fixed ?? 0}
+      get {_fixed ?? 0}
       set {_fixed = newValue}
     }
     /// Returns true if `fixed` has been explicitly set.
-    var hasFixed: Bool {return self._fixed != nil}
+    var hasFixed: Bool {self._fixed != nil}
     /// Clears the value of `fixed`. Subsequent reads from it will return its default value.
     mutating func clearFixed() {self._fixed = nil}
 
@@ -6152,11 +6152,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var fract: Int32 {
-      get {return _fract ?? 0}
+      get {_fract ?? 0}
       set {_fract = newValue}
     }
     /// Returns true if `fract` has been explicitly set.
-    var hasFract: Bool {return self._fract != nil}
+    var hasFract: Bool {self._fract != nil}
     /// Clears the value of `fract`. Subsequent reads from it will return its default value.
     mutating func clearFract() {self._fract = nil}
 
@@ -6173,11 +6173,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var size: Int32 {
-      get {return _size ?? 0}
+      get {_size ?? 0}
       set {_size = newValue}
     }
     /// Returns true if `size` has been explicitly set.
-    var hasSize: Bool {return self._size != nil}
+    var hasSize: Bool {self._size != nil}
     /// Clears the value of `size`. Subsequent reads from it will return its default value.
     mutating func clearSize() {self._size = nil}
 
@@ -6194,11 +6194,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var logicalAddress: Int32 {
-      get {return _logicalAddress ?? 0}
+      get {_logicalAddress ?? 0}
       set {_logicalAddress = newValue}
     }
     /// Returns true if `logicalAddress` has been explicitly set.
-    var hasLogicalAddress: Bool {return self._logicalAddress != nil}
+    var hasLogicalAddress: Bool {self._logicalAddress != nil}
     /// Clears the value of `logicalAddress`. Subsequent reads from it will return its default value.
     mutating func clearLogicalAddress() {self._logicalAddress = nil}
 
@@ -6215,11 +6215,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var physicalAddress: Int32 {
-      get {return _physicalAddress ?? 0}
+      get {_physicalAddress ?? 0}
       set {_physicalAddress = newValue}
     }
     /// Returns true if `physicalAddress` has been explicitly set.
-    var hasPhysicalAddress: Bool {return self._physicalAddress != nil}
+    var hasPhysicalAddress: Bool {self._physicalAddress != nil}
     /// Clears the value of `physicalAddress`. Subsequent reads from it will return its default value.
     mutating func clearPhysicalAddress() {self._physicalAddress = nil}
 
@@ -6236,11 +6236,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var byteCount: Int32 {
-      get {return _byteCount ?? 0}
+      get {_byteCount ?? 0}
       set {_byteCount = newValue}
     }
     /// Returns true if `byteCount` has been explicitly set.
-    var hasByteCount: Bool {return self._byteCount != nil}
+    var hasByteCount: Bool {self._byteCount != nil}
     /// Clears the value of `byteCount`. Subsequent reads from it will return its default value.
     mutating func clearByteCount() {self._byteCount = nil}
 
@@ -6257,11 +6257,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var byteOffset: Int32 {
-      get {return _byteOffset ?? 0}
+      get {_byteOffset ?? 0}
       set {_byteOffset = newValue}
     }
     /// Returns true if `byteOffset` has been explicitly set.
-    var hasByteOffset: Bool {return self._byteOffset != nil}
+    var hasByteOffset: Bool {self._byteOffset != nil}
     /// Clears the value of `byteOffset`. Subsequent reads from it will return its default value.
     mutating func clearByteOffset() {self._byteOffset = nil}
 
@@ -6278,11 +6278,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var duration: Int32 {
-      get {return _duration ?? 0}
+      get {_duration ?? 0}
       set {_duration = newValue}
     }
     /// Returns true if `duration` has been explicitly set.
-    var hasDuration: Bool {return self._duration != nil}
+    var hasDuration: Bool {self._duration != nil}
     /// Clears the value of `duration`. Subsequent reads from it will return its default value.
     mutating func clearDuration() {self._duration = nil}
 
@@ -6299,11 +6299,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var absoluteTime: Int32 {
-      get {return _absoluteTime ?? 0}
+      get {_absoluteTime ?? 0}
       set {_absoluteTime = newValue}
     }
     /// Returns true if `absoluteTime` has been explicitly set.
-    var hasAbsoluteTime: Bool {return self._absoluteTime != nil}
+    var hasAbsoluteTime: Bool {self._absoluteTime != nil}
     /// Clears the value of `absoluteTime`. Subsequent reads from it will return its default value.
     mutating func clearAbsoluteTime() {self._absoluteTime = nil}
 
@@ -6320,11 +6320,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var optionBits: Int32 {
-      get {return _optionBits ?? 0}
+      get {_optionBits ?? 0}
       set {_optionBits = newValue}
     }
     /// Returns true if `optionBits` has been explicitly set.
-    var hasOptionBits: Bool {return self._optionBits != nil}
+    var hasOptionBits: Bool {self._optionBits != nil}
     /// Clears the value of `optionBits`. Subsequent reads from it will return its default value.
     mutating func clearOptionBits() {self._optionBits = nil}
 
@@ -6341,11 +6341,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var itemCount: Int32 {
-      get {return _itemCount ?? 0}
+      get {_itemCount ?? 0}
       set {_itemCount = newValue}
     }
     /// Returns true if `itemCount` has been explicitly set.
-    var hasItemCount: Bool {return self._itemCount != nil}
+    var hasItemCount: Bool {self._itemCount != nil}
     /// Clears the value of `itemCount`. Subsequent reads from it will return its default value.
     mutating func clearItemCount() {self._itemCount = nil}
 
@@ -6362,11 +6362,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var pbversion: Int32 {
-      get {return _pbversion ?? 0}
+      get {_pbversion ?? 0}
       set {_pbversion = newValue}
     }
     /// Returns true if `pbversion` has been explicitly set.
-    var hasPbversion: Bool {return self._pbversion != nil}
+    var hasPbversion: Bool {self._pbversion != nil}
     /// Clears the value of `pbversion`. Subsequent reads from it will return its default value.
     mutating func clearPbversion() {self._pbversion = nil}
 
@@ -6383,11 +6383,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var scriptCode: Int32 {
-      get {return _scriptCode ?? 0}
+      get {_scriptCode ?? 0}
       set {_scriptCode = newValue}
     }
     /// Returns true if `scriptCode` has been explicitly set.
-    var hasScriptCode: Bool {return self._scriptCode != nil}
+    var hasScriptCode: Bool {self._scriptCode != nil}
     /// Clears the value of `scriptCode`. Subsequent reads from it will return its default value.
     mutating func clearScriptCode() {self._scriptCode = nil}
 
@@ -6404,11 +6404,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var langCode: Int32 {
-      get {return _langCode ?? 0}
+      get {_langCode ?? 0}
       set {_langCode = newValue}
     }
     /// Returns true if `langCode` has been explicitly set.
-    var hasLangCode: Bool {return self._langCode != nil}
+    var hasLangCode: Bool {self._langCode != nil}
     /// Clears the value of `langCode`. Subsequent reads from it will return its default value.
     mutating func clearLangCode() {self._langCode = nil}
 
@@ -6425,11 +6425,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var regionCode: Int32 {
-      get {return _regionCode ?? 0}
+      get {_regionCode ?? 0}
       set {_regionCode = newValue}
     }
     /// Returns true if `regionCode` has been explicitly set.
-    var hasRegionCode: Bool {return self._regionCode != nil}
+    var hasRegionCode: Bool {self._regionCode != nil}
     /// Clears the value of `regionCode`. Subsequent reads from it will return its default value.
     mutating func clearRegionCode() {self._regionCode = nil}
 
@@ -6446,11 +6446,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var ostype: Int32 {
-      get {return _ostype ?? 0}
+      get {_ostype ?? 0}
       set {_ostype = newValue}
     }
     /// Returns true if `ostype` has been explicitly set.
-    var hasOstype: Bool {return self._ostype != nil}
+    var hasOstype: Bool {self._ostype != nil}
     /// Clears the value of `ostype`. Subsequent reads from it will return its default value.
     mutating func clearOstype() {self._ostype = nil}
 
@@ -6467,11 +6467,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var processSerialNumber: Int32 {
-      get {return _processSerialNumber ?? 0}
+      get {_processSerialNumber ?? 0}
       set {_processSerialNumber = newValue}
     }
     /// Returns true if `processSerialNumber` has been explicitly set.
-    var hasProcessSerialNumber: Bool {return self._processSerialNumber != nil}
+    var hasProcessSerialNumber: Bool {self._processSerialNumber != nil}
     /// Clears the value of `processSerialNumber`. Subsequent reads from it will return its default value.
     mutating func clearProcessSerialNumber() {self._processSerialNumber = nil}
 
@@ -6488,11 +6488,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var point: Int32 {
-      get {return _point ?? 0}
+      get {_point ?? 0}
       set {_point = newValue}
     }
     /// Returns true if `point` has been explicitly set.
-    var hasPoint: Bool {return self._point != nil}
+    var hasPoint: Bool {self._point != nil}
     /// Clears the value of `point`. Subsequent reads from it will return its default value.
     mutating func clearPoint() {self._point = nil}
 
@@ -6509,11 +6509,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var rect: Int32 {
-      get {return _rect ?? 0}
+      get {_rect ?? 0}
       set {_rect = newValue}
     }
     /// Returns true if `rect` has been explicitly set.
-    var hasRect: Bool {return self._rect != nil}
+    var hasRect: Bool {self._rect != nil}
     /// Clears the value of `rect`. Subsequent reads from it will return its default value.
     mutating func clearRect() {self._rect = nil}
 
@@ -6530,11 +6530,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var fixedPoint: Int32 {
-      get {return _fixedPoint ?? 0}
+      get {_fixedPoint ?? 0}
       set {_fixedPoint = newValue}
     }
     /// Returns true if `fixedPoint` has been explicitly set.
-    var hasFixedPoint: Bool {return self._fixedPoint != nil}
+    var hasFixedPoint: Bool {self._fixedPoint != nil}
     /// Clears the value of `fixedPoint`. Subsequent reads from it will return its default value.
     mutating func clearFixedPoint() {self._fixedPoint = nil}
 
@@ -6551,11 +6551,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var fixedRect: Int32 {
-      get {return _fixedRect ?? 0}
+      get {_fixedRect ?? 0}
       set {_fixedRect = newValue}
     }
     /// Returns true if `fixedRect` has been explicitly set.
-    var hasFixedRect: Bool {return self._fixedRect != nil}
+    var hasFixedRect: Bool {self._fixedRect != nil}
     /// Clears the value of `fixedRect`. Subsequent reads from it will return its default value.
     mutating func clearFixedRect() {self._fixedRect = nil}
 
@@ -6572,11 +6572,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var style: Int32 {
-      get {return _style ?? 0}
+      get {_style ?? 0}
       set {_style = newValue}
     }
     /// Returns true if `style` has been explicitly set.
-    var hasStyle: Bool {return self._style != nil}
+    var hasStyle: Bool {self._style != nil}
     /// Clears the value of `style`. Subsequent reads from it will return its default value.
     mutating func clearStyle() {self._style = nil}
 
@@ -6593,11 +6593,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var styleParameter: Int32 {
-      get {return _styleParameter ?? 0}
+      get {_styleParameter ?? 0}
       set {_styleParameter = newValue}
     }
     /// Returns true if `styleParameter` has been explicitly set.
-    var hasStyleParameter: Bool {return self._styleParameter != nil}
+    var hasStyleParameter: Bool {self._styleParameter != nil}
     /// Clears the value of `styleParameter`. Subsequent reads from it will return its default value.
     mutating func clearStyleParameter() {self._styleParameter = nil}
 
@@ -6614,11 +6614,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var styleField: Int32 {
-      get {return _styleField ?? 0}
+      get {_styleField ?? 0}
       set {_styleField = newValue}
     }
     /// Returns true if `styleField` has been explicitly set.
-    var hasStyleField: Bool {return self._styleField != nil}
+    var hasStyleField: Bool {self._styleField != nil}
     /// Clears the value of `styleField`. Subsequent reads from it will return its default value.
     mutating func clearStyleField() {self._styleField = nil}
 
@@ -6635,11 +6635,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var timeScale: Int32 {
-      get {return _timeScale ?? 0}
+      get {_timeScale ?? 0}
       set {_timeScale = newValue}
     }
     /// Returns true if `timeScale` has been explicitly set.
-    var hasTimeScale: Bool {return self._timeScale != nil}
+    var hasTimeScale: Bool {self._timeScale != nil}
     /// Clears the value of `timeScale`. Subsequent reads from it will return its default value.
     mutating func clearTimeScale() {self._timeScale = nil}
 
@@ -6656,11 +6656,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var timeBase: Int32 {
-      get {return _timeBase ?? 0}
+      get {_timeBase ?? 0}
       set {_timeBase = newValue}
     }
     /// Returns true if `timeBase` has been explicitly set.
-    var hasTimeBase: Bool {return self._timeBase != nil}
+    var hasTimeBase: Bool {self._timeBase != nil}
     /// Clears the value of `timeBase`. Subsequent reads from it will return its default value.
     mutating func clearTimeBase() {self._timeBase = nil}
 
@@ -6677,11 +6677,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var timeRecord: Int32 {
-      get {return _timeRecord ?? 0}
+      get {_timeRecord ?? 0}
       set {_timeRecord = newValue}
     }
     /// Returns true if `timeRecord` has been explicitly set.
-    var hasTimeRecord: Bool {return self._timeRecord != nil}
+    var hasTimeRecord: Bool {self._timeRecord != nil}
     /// Clears the value of `timeRecord`. Subsequent reads from it will return its default value.
     mutating func clearTimeRecord() {self._timeRecord = nil}
 
@@ -6698,11 +6698,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var serializedData: Int32 {
-      get {return _serializedData ?? 0}
+      get {_serializedData ?? 0}
       set {_serializedData = newValue}
     }
     /// Returns true if `serializedData` has been explicitly set.
-    var hasSerializedData: Bool {return self._serializedData != nil}
+    var hasSerializedData: Bool {self._serializedData != nil}
     /// Clears the value of `serializedData`. Subsequent reads from it will return its default value.
     mutating func clearSerializedData() {self._serializedData = nil}
 
@@ -6719,11 +6719,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var jsonUtf8Data: Int32 {
-      get {return _jsonUtf8Data ?? 0}
+      get {_jsonUtf8Data ?? 0}
       set {_jsonUtf8Data = newValue}
     }
     /// Returns true if `jsonUtf8Data` has been explicitly set.
-    var hasJsonUtf8Data: Bool {return self._jsonUtf8Data != nil}
+    var hasJsonUtf8Data: Bool {self._jsonUtf8Data != nil}
     /// Clears the value of `jsonUtf8Data`. Subsequent reads from it will return its default value.
     mutating func clearJsonUtf8Data() {self._jsonUtf8Data = nil}
 
@@ -6740,11 +6740,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var jsonString: Int32 {
-      get {return _jsonString ?? 0}
+      get {_jsonString ?? 0}
       set {_jsonString = newValue}
     }
     /// Returns true if `jsonString` has been explicitly set.
-    var hasJsonString: Bool {return self._jsonString != nil}
+    var hasJsonString: Bool {self._jsonString != nil}
     /// Clears the value of `jsonString`. Subsequent reads from it will return its default value.
     mutating func clearJsonString() {self._jsonString = nil}
 
@@ -6761,11 +6761,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var `extension`: Int32 {
-      get {return _extension ?? 0}
+      get {_extension ?? 0}
       set {_extension = newValue}
     }
     /// Returns true if ``extension`` has been explicitly set.
-    var hasExtension: Bool {return self._extension != nil}
+    var hasExtension: Bool {self._extension != nil}
     /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
     mutating func clearExtension() {self._extension = nil}
 
@@ -6782,11 +6782,11 @@ struct SwiftProtoTesting_Names_MessageNames: Sendable {
     // methods supported on all messages.
 
     var extensions: Int32 {
-      get {return _extensions ?? 0}
+      get {_extensions ?? 0}
       set {_extensions = newValue}
     }
     /// Returns true if `extensions` has been explicitly set.
-    var hasExtensions: Bool {return self._extensions != nil}
+    var hasExtensions: Bool {self._extensions != nil}
     /// Clears the value of `extensions`. Subsequent reads from it will return its default value.
     mutating func clearExtensions() {self._extensions = nil}
 
@@ -8722,155 +8722,155 @@ struct SwiftProtoTesting_Names_FieldNamingInitials: Sendable {
     // methods supported on all messages.
 
     var http: Int32 {
-      get {return _storage._http ?? 0}
+      get {_storage._http ?? 0}
       set {_uniqueStorage()._http = newValue}
     }
     /// Returns true if `http` has been explicitly set.
-    var hasHTTP: Bool {return _storage._http != nil}
+    var hasHTTP: Bool {_storage._http != nil}
     /// Clears the value of `http`. Subsequent reads from it will return its default value.
     mutating func clearHTTP() {_uniqueStorage()._http = nil}
 
     var httpRequest: Int32 {
-      get {return _storage._httpRequest ?? 0}
+      get {_storage._httpRequest ?? 0}
       set {_uniqueStorage()._httpRequest = newValue}
     }
     /// Returns true if `httpRequest` has been explicitly set.
-    var hasHTTPRequest: Bool {return _storage._httpRequest != nil}
+    var hasHTTPRequest: Bool {_storage._httpRequest != nil}
     /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
     mutating func clearHTTPRequest() {_uniqueStorage()._httpRequest = nil}
 
     var theHTTPRequest: Int32 {
-      get {return _storage._theHTTPRequest ?? 0}
+      get {_storage._theHTTPRequest ?? 0}
       set {_uniqueStorage()._theHTTPRequest = newValue}
     }
     /// Returns true if `theHTTPRequest` has been explicitly set.
-    var hasTheHTTPRequest: Bool {return _storage._theHTTPRequest != nil}
+    var hasTheHTTPRequest: Bool {_storage._theHTTPRequest != nil}
     /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPRequest() {_uniqueStorage()._theHTTPRequest = nil}
 
     var theHTTP: Int32 {
-      get {return _storage._theHTTP ?? 0}
+      get {_storage._theHTTP ?? 0}
       set {_uniqueStorage()._theHTTP = newValue}
     }
     /// Returns true if `theHTTP` has been explicitly set.
-    var hasTheHTTP: Bool {return _storage._theHTTP != nil}
+    var hasTheHTTP: Bool {_storage._theHTTP != nil}
     /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTP() {_uniqueStorage()._theHTTP = nil}
 
     var https: Int32 {
-      get {return _storage._https ?? 0}
+      get {_storage._https ?? 0}
       set {_uniqueStorage()._https = newValue}
     }
     /// Returns true if `https` has been explicitly set.
-    var hasHTTPS: Bool {return _storage._https != nil}
+    var hasHTTPS: Bool {_storage._https != nil}
     /// Clears the value of `https`. Subsequent reads from it will return its default value.
     mutating func clearHTTPS() {_uniqueStorage()._https = nil}
 
     var httpsRequest: Int32 {
-      get {return _storage._httpsRequest ?? 0}
+      get {_storage._httpsRequest ?? 0}
       set {_uniqueStorage()._httpsRequest = newValue}
     }
     /// Returns true if `httpsRequest` has been explicitly set.
-    var hasHTTPSRequest: Bool {return _storage._httpsRequest != nil}
+    var hasHTTPSRequest: Bool {_storage._httpsRequest != nil}
     /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
     mutating func clearHTTPSRequest() {_uniqueStorage()._httpsRequest = nil}
 
     var theHTTPSRequest: Int32 {
-      get {return _storage._theHTTPSRequest ?? 0}
+      get {_storage._theHTTPSRequest ?? 0}
       set {_uniqueStorage()._theHTTPSRequest = newValue}
     }
     /// Returns true if `theHTTPSRequest` has been explicitly set.
-    var hasTheHTTPSRequest: Bool {return _storage._theHTTPSRequest != nil}
+    var hasTheHTTPSRequest: Bool {_storage._theHTTPSRequest != nil}
     /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPSRequest() {_uniqueStorage()._theHTTPSRequest = nil}
 
     var theHTTPS: Int32 {
-      get {return _storage._theHTTPS ?? 0}
+      get {_storage._theHTTPS ?? 0}
       set {_uniqueStorage()._theHTTPS = newValue}
     }
     /// Returns true if `theHTTPS` has been explicitly set.
-    var hasTheHTTPS: Bool {return _storage._theHTTPS != nil}
+    var hasTheHTTPS: Bool {_storage._theHTTPS != nil}
     /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPS() {_uniqueStorage()._theHTTPS = nil}
 
     var url: Int32 {
-      get {return _storage._url ?? 0}
+      get {_storage._url ?? 0}
       set {_uniqueStorage()._url = newValue}
     }
     /// Returns true if `url` has been explicitly set.
-    var hasURL: Bool {return _storage._url != nil}
+    var hasURL: Bool {_storage._url != nil}
     /// Clears the value of `url`. Subsequent reads from it will return its default value.
     mutating func clearURL() {_uniqueStorage()._url = nil}
 
     var urlValue: Int32 {
-      get {return _storage._urlValue ?? 0}
+      get {_storage._urlValue ?? 0}
       set {_uniqueStorage()._urlValue = newValue}
     }
     /// Returns true if `urlValue` has been explicitly set.
-    var hasURLValue: Bool {return _storage._urlValue != nil}
+    var hasURLValue: Bool {_storage._urlValue != nil}
     /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
     mutating func clearURLValue() {_uniqueStorage()._urlValue = nil}
 
     var theURLValue: Int32 {
-      get {return _storage._theURLValue ?? 0}
+      get {_storage._theURLValue ?? 0}
       set {_uniqueStorage()._theURLValue = newValue}
     }
     /// Returns true if `theURLValue` has been explicitly set.
-    var hasTheURLValue: Bool {return _storage._theURLValue != nil}
+    var hasTheURLValue: Bool {_storage._theURLValue != nil}
     /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
     mutating func clearTheURLValue() {_uniqueStorage()._theURLValue = nil}
 
     var theURL: Int32 {
-      get {return _storage._theURL ?? 0}
+      get {_storage._theURL ?? 0}
       set {_uniqueStorage()._theURL = newValue}
     }
     /// Returns true if `theURL` has been explicitly set.
-    var hasTheURL: Bool {return _storage._theURL != nil}
+    var hasTheURL: Bool {_storage._theURL != nil}
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
     mutating func clearTheURL() {_uniqueStorage()._theURL = nil}
 
     var aBC: Int32 {
-      get {return _storage._aBC ?? 0}
+      get {_storage._aBC ?? 0}
       set {_uniqueStorage()._aBC = newValue}
     }
     /// Returns true if `aBC` has been explicitly set.
-    var hasABC: Bool {return _storage._aBC != nil}
+    var hasABC: Bool {_storage._aBC != nil}
     /// Clears the value of `aBC`. Subsequent reads from it will return its default value.
     mutating func clearABC() {_uniqueStorage()._aBC = nil}
 
     var id: Int32 {
-      get {return _storage._id ?? 0}
+      get {_storage._id ?? 0}
       set {_uniqueStorage()._id = newValue}
     }
     /// Returns true if `id` has been explicitly set.
-    var hasID: Bool {return _storage._id != nil}
+    var hasID: Bool {_storage._id != nil}
     /// Clears the value of `id`. Subsequent reads from it will return its default value.
     mutating func clearID() {_uniqueStorage()._id = nil}
 
     var idNumber: Int32 {
-      get {return _storage._idNumber ?? 0}
+      get {_storage._idNumber ?? 0}
       set {_uniqueStorage()._idNumber = newValue}
     }
     /// Returns true if `idNumber` has been explicitly set.
-    var hasIDNumber: Bool {return _storage._idNumber != nil}
+    var hasIDNumber: Bool {_storage._idNumber != nil}
     /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
     mutating func clearIDNumber() {_uniqueStorage()._idNumber = nil}
 
     var theIDNumber: Int32 {
-      get {return _storage._theIDNumber ?? 0}
+      get {_storage._theIDNumber ?? 0}
       set {_uniqueStorage()._theIDNumber = newValue}
     }
     /// Returns true if `theIDNumber` has been explicitly set.
-    var hasTheIDNumber: Bool {return _storage._theIDNumber != nil}
+    var hasTheIDNumber: Bool {_storage._theIDNumber != nil}
     /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
     mutating func clearTheIDNumber() {_uniqueStorage()._theIDNumber = nil}
 
     var requestID: Int32 {
-      get {return _storage._requestID ?? 0}
+      get {_storage._requestID ?? 0}
       set {_uniqueStorage()._requestID = newValue}
     }
     /// Returns true if `requestID` has been explicitly set.
-    var hasRequestID: Bool {return _storage._requestID != nil}
+    var hasRequestID: Bool {_storage._requestID != nil}
     /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
     mutating func clearRequestID() {_uniqueStorage()._requestID = nil}
 
@@ -8887,146 +8887,146 @@ struct SwiftProtoTesting_Names_FieldNamingInitials: Sendable {
     // methods supported on all messages.
 
     var http: Int32 {
-      get {return _http ?? 0}
+      get {_http ?? 0}
       set {_http = newValue}
     }
     /// Returns true if `http` has been explicitly set.
-    var hasHTTP: Bool {return self._http != nil}
+    var hasHTTP: Bool {self._http != nil}
     /// Clears the value of `http`. Subsequent reads from it will return its default value.
     mutating func clearHTTP() {self._http = nil}
 
     var httpRequest: Int32 {
-      get {return _httpRequest ?? 0}
+      get {_httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
     /// Returns true if `httpRequest` has been explicitly set.
-    var hasHTTPRequest: Bool {return self._httpRequest != nil}
+    var hasHTTPRequest: Bool {self._httpRequest != nil}
     /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
     mutating func clearHTTPRequest() {self._httpRequest = nil}
 
     var theHTTPRequest: Int32 {
-      get {return _theHTTPRequest ?? 0}
+      get {_theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
     /// Returns true if `theHTTPRequest` has been explicitly set.
-    var hasTheHTTPRequest: Bool {return self._theHTTPRequest != nil}
+    var hasTheHTTPRequest: Bool {self._theHTTPRequest != nil}
     /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPRequest() {self._theHTTPRequest = nil}
 
     var theHTTP: Int32 {
-      get {return _theHTTP ?? 0}
+      get {_theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
     /// Returns true if `theHTTP` has been explicitly set.
-    var hasTheHTTP: Bool {return self._theHTTP != nil}
+    var hasTheHTTP: Bool {self._theHTTP != nil}
     /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTP() {self._theHTTP = nil}
 
     var https: Int32 {
-      get {return _https ?? 0}
+      get {_https ?? 0}
       set {_https = newValue}
     }
     /// Returns true if `https` has been explicitly set.
-    var hasHTTPS: Bool {return self._https != nil}
+    var hasHTTPS: Bool {self._https != nil}
     /// Clears the value of `https`. Subsequent reads from it will return its default value.
     mutating func clearHTTPS() {self._https = nil}
 
     var httpsRequest: Int32 {
-      get {return _httpsRequest ?? 0}
+      get {_httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
     /// Returns true if `httpsRequest` has been explicitly set.
-    var hasHTTPSRequest: Bool {return self._httpsRequest != nil}
+    var hasHTTPSRequest: Bool {self._httpsRequest != nil}
     /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
     mutating func clearHTTPSRequest() {self._httpsRequest = nil}
 
     var theHTTPSRequest: Int32 {
-      get {return _theHTTPSRequest ?? 0}
+      get {_theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
     /// Returns true if `theHTTPSRequest` has been explicitly set.
-    var hasTheHTTPSRequest: Bool {return self._theHTTPSRequest != nil}
+    var hasTheHTTPSRequest: Bool {self._theHTTPSRequest != nil}
     /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPSRequest() {self._theHTTPSRequest = nil}
 
     var theHTTPS: Int32 {
-      get {return _theHTTPS ?? 0}
+      get {_theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
     /// Returns true if `theHTTPS` has been explicitly set.
-    var hasTheHTTPS: Bool {return self._theHTTPS != nil}
+    var hasTheHTTPS: Bool {self._theHTTPS != nil}
     /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPS() {self._theHTTPS = nil}
 
     var url: Int32 {
-      get {return _url ?? 0}
+      get {_url ?? 0}
       set {_url = newValue}
     }
     /// Returns true if `url` has been explicitly set.
-    var hasURL: Bool {return self._url != nil}
+    var hasURL: Bool {self._url != nil}
     /// Clears the value of `url`. Subsequent reads from it will return its default value.
     mutating func clearURL() {self._url = nil}
 
     var urlValue: Int32 {
-      get {return _urlValue ?? 0}
+      get {_urlValue ?? 0}
       set {_urlValue = newValue}
     }
     /// Returns true if `urlValue` has been explicitly set.
-    var hasURLValue: Bool {return self._urlValue != nil}
+    var hasURLValue: Bool {self._urlValue != nil}
     /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
     mutating func clearURLValue() {self._urlValue = nil}
 
     var theURLValue: Int32 {
-      get {return _theURLValue ?? 0}
+      get {_theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
     /// Returns true if `theURLValue` has been explicitly set.
-    var hasTheURLValue: Bool {return self._theURLValue != nil}
+    var hasTheURLValue: Bool {self._theURLValue != nil}
     /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
     mutating func clearTheURLValue() {self._theURLValue = nil}
 
     var theURL: Int32 {
-      get {return _theURL ?? 0}
+      get {_theURL ?? 0}
       set {_theURL = newValue}
     }
     /// Returns true if `theURL` has been explicitly set.
-    var hasTheURL: Bool {return self._theURL != nil}
+    var hasTheURL: Bool {self._theURL != nil}
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
     mutating func clearTheURL() {self._theURL = nil}
 
     var id: Int32 {
-      get {return _id ?? 0}
+      get {_id ?? 0}
       set {_id = newValue}
     }
     /// Returns true if `id` has been explicitly set.
-    var hasID: Bool {return self._id != nil}
+    var hasID: Bool {self._id != nil}
     /// Clears the value of `id`. Subsequent reads from it will return its default value.
     mutating func clearID() {self._id = nil}
 
     var idNumber: Int32 {
-      get {return _idNumber ?? 0}
+      get {_idNumber ?? 0}
       set {_idNumber = newValue}
     }
     /// Returns true if `idNumber` has been explicitly set.
-    var hasIDNumber: Bool {return self._idNumber != nil}
+    var hasIDNumber: Bool {self._idNumber != nil}
     /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
     mutating func clearIDNumber() {self._idNumber = nil}
 
     var theIDNumber: Int32 {
-      get {return _theIDNumber ?? 0}
+      get {_theIDNumber ?? 0}
       set {_theIDNumber = newValue}
     }
     /// Returns true if `theIDNumber` has been explicitly set.
-    var hasTheIDNumber: Bool {return self._theIDNumber != nil}
+    var hasTheIDNumber: Bool {self._theIDNumber != nil}
     /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
     mutating func clearTheIDNumber() {self._theIDNumber = nil}
 
     var requestID: Int32 {
-      get {return _requestID ?? 0}
+      get {_requestID ?? 0}
       set {_requestID = newValue}
     }
     /// Returns true if `requestID` has been explicitly set.
-    var hasRequestID: Bool {return self._requestID != nil}
+    var hasRequestID: Bool {self._requestID != nil}
     /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
     mutating func clearRequestID() {self._requestID = nil}
 
@@ -9058,146 +9058,146 @@ struct SwiftProtoTesting_Names_FieldNamingInitials: Sendable {
     // methods supported on all messages.
 
     var http: Int32 {
-      get {return _http ?? 0}
+      get {_http ?? 0}
       set {_http = newValue}
     }
     /// Returns true if `http` has been explicitly set.
-    var hasHTTP: Bool {return self._http != nil}
+    var hasHTTP: Bool {self._http != nil}
     /// Clears the value of `http`. Subsequent reads from it will return its default value.
     mutating func clearHTTP() {self._http = nil}
 
     var httpRequest: Int32 {
-      get {return _httpRequest ?? 0}
+      get {_httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
     /// Returns true if `httpRequest` has been explicitly set.
-    var hasHTTPRequest: Bool {return self._httpRequest != nil}
+    var hasHTTPRequest: Bool {self._httpRequest != nil}
     /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
     mutating func clearHTTPRequest() {self._httpRequest = nil}
 
     var theHTTPRequest: Int32 {
-      get {return _theHTTPRequest ?? 0}
+      get {_theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
     /// Returns true if `theHTTPRequest` has been explicitly set.
-    var hasTheHTTPRequest: Bool {return self._theHTTPRequest != nil}
+    var hasTheHTTPRequest: Bool {self._theHTTPRequest != nil}
     /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPRequest() {self._theHTTPRequest = nil}
 
     var theHTTP: Int32 {
-      get {return _theHTTP ?? 0}
+      get {_theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
     /// Returns true if `theHTTP` has been explicitly set.
-    var hasTheHTTP: Bool {return self._theHTTP != nil}
+    var hasTheHTTP: Bool {self._theHTTP != nil}
     /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTP() {self._theHTTP = nil}
 
     var https: Int32 {
-      get {return _https ?? 0}
+      get {_https ?? 0}
       set {_https = newValue}
     }
     /// Returns true if `https` has been explicitly set.
-    var hasHTTPS: Bool {return self._https != nil}
+    var hasHTTPS: Bool {self._https != nil}
     /// Clears the value of `https`. Subsequent reads from it will return its default value.
     mutating func clearHTTPS() {self._https = nil}
 
     var httpsRequest: Int32 {
-      get {return _httpsRequest ?? 0}
+      get {_httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
     /// Returns true if `httpsRequest` has been explicitly set.
-    var hasHTTPSRequest: Bool {return self._httpsRequest != nil}
+    var hasHTTPSRequest: Bool {self._httpsRequest != nil}
     /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
     mutating func clearHTTPSRequest() {self._httpsRequest = nil}
 
     var theHTTPSRequest: Int32 {
-      get {return _theHTTPSRequest ?? 0}
+      get {_theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
     /// Returns true if `theHTTPSRequest` has been explicitly set.
-    var hasTheHTTPSRequest: Bool {return self._theHTTPSRequest != nil}
+    var hasTheHTTPSRequest: Bool {self._theHTTPSRequest != nil}
     /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPSRequest() {self._theHTTPSRequest = nil}
 
     var theHTTPS: Int32 {
-      get {return _theHTTPS ?? 0}
+      get {_theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
     /// Returns true if `theHTTPS` has been explicitly set.
-    var hasTheHTTPS: Bool {return self._theHTTPS != nil}
+    var hasTheHTTPS: Bool {self._theHTTPS != nil}
     /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
     mutating func clearTheHTTPS() {self._theHTTPS = nil}
 
     var url: Int32 {
-      get {return _url ?? 0}
+      get {_url ?? 0}
       set {_url = newValue}
     }
     /// Returns true if `url` has been explicitly set.
-    var hasURL: Bool {return self._url != nil}
+    var hasURL: Bool {self._url != nil}
     /// Clears the value of `url`. Subsequent reads from it will return its default value.
     mutating func clearURL() {self._url = nil}
 
     var urlValue: Int32 {
-      get {return _urlValue ?? 0}
+      get {_urlValue ?? 0}
       set {_urlValue = newValue}
     }
     /// Returns true if `urlValue` has been explicitly set.
-    var hasURLValue: Bool {return self._urlValue != nil}
+    var hasURLValue: Bool {self._urlValue != nil}
     /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
     mutating func clearURLValue() {self._urlValue = nil}
 
     var theURLValue: Int32 {
-      get {return _theURLValue ?? 0}
+      get {_theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
     /// Returns true if `theURLValue` has been explicitly set.
-    var hasTheURLValue: Bool {return self._theURLValue != nil}
+    var hasTheURLValue: Bool {self._theURLValue != nil}
     /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
     mutating func clearTheURLValue() {self._theURLValue = nil}
 
     var theURL: Int32 {
-      get {return _theURL ?? 0}
+      get {_theURL ?? 0}
       set {_theURL = newValue}
     }
     /// Returns true if `theURL` has been explicitly set.
-    var hasTheURL: Bool {return self._theURL != nil}
+    var hasTheURL: Bool {self._theURL != nil}
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
     mutating func clearTheURL() {self._theURL = nil}
 
     var id: Int32 {
-      get {return _id ?? 0}
+      get {_id ?? 0}
       set {_id = newValue}
     }
     /// Returns true if `id` has been explicitly set.
-    var hasID: Bool {return self._id != nil}
+    var hasID: Bool {self._id != nil}
     /// Clears the value of `id`. Subsequent reads from it will return its default value.
     mutating func clearID() {self._id = nil}
 
     var idNumber: Int32 {
-      get {return _idNumber ?? 0}
+      get {_idNumber ?? 0}
       set {_idNumber = newValue}
     }
     /// Returns true if `idNumber` has been explicitly set.
-    var hasIDNumber: Bool {return self._idNumber != nil}
+    var hasIDNumber: Bool {self._idNumber != nil}
     /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
     mutating func clearIDNumber() {self._idNumber = nil}
 
     var theIDNumber: Int32 {
-      get {return _theIDNumber ?? 0}
+      get {_theIDNumber ?? 0}
       set {_theIDNumber = newValue}
     }
     /// Returns true if `theIDNumber` has been explicitly set.
-    var hasTheIDNumber: Bool {return self._theIDNumber != nil}
+    var hasTheIDNumber: Bool {self._theIDNumber != nil}
     /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
     mutating func clearTheIDNumber() {self._theIDNumber = nil}
 
     var requestID: Int32 {
-      get {return _requestID ?? 0}
+      get {_requestID ?? 0}
       set {_requestID = newValue}
     }
     /// Returns true if `requestID` has been explicitly set.
-    var hasRequestID: Bool {return self._requestID != nil}
+    var hasRequestID: Bool {self._requestID != nil}
     /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
     mutating func clearRequestID() {self._requestID = nil}
 
@@ -9310,29 +9310,29 @@ struct SwiftProtoTesting_Names_ValidIdentifiers: Sendable {
   // methods supported on all messages.
 
   var _1Field: Int32 {
-    get {return __1Field ?? 0}
+    get {__1Field ?? 0}
     set {__1Field = newValue}
   }
   /// Returns true if `_1Field` has been explicitly set.
-  var has_1Field: Bool {return self.__1Field != nil}
+  var has_1Field: Bool {self.__1Field != nil}
   /// Clears the value of `_1Field`. Subsequent reads from it will return its default value.
   mutating func clear_1Field() {self.__1Field = nil}
 
   var field: Int32 {
-    get {return _field ?? 0}
+    get {_field ?? 0}
     set {_field = newValue}
   }
   /// Returns true if `field` has been explicitly set.
-  var hasField: Bool {return self._field != nil}
+  var hasField: Bool {self._field != nil}
   /// Clears the value of `field`. Subsequent reads from it will return its default value.
   mutating func clearField() {self._field = nil}
 
   var _3Field3: Int32 {
-    get {return __3Field3 ?? 0}
+    get {__3Field3 ?? 0}
     set {__3Field3 = newValue}
   }
   /// Returns true if `_3Field3` has been explicitly set.
-  var has_3Field3: Bool {return self.__3Field3 != nil}
+  var has_3Field3: Bool {self.__3Field3 != nil}
   /// Clears the value of `_3Field3`. Subsequent reads from it will return its default value.
   mutating func clear_3Field3() {self.__3Field3 = nil}
 
@@ -9355,11 +9355,11 @@ struct SwiftProtoTesting_Names_ValidIdentifiers: Sendable {
   }
 
   var enumField: SwiftProtoTesting_Names_ValidIdentifiers.TestEnum {
-    get {return _enumField ?? .testEnum0}
+    get {_enumField ?? .testEnum0}
     set {_enumField = newValue}
   }
   /// Returns true if `enumField` has been explicitly set.
-  var hasEnumField: Bool {return self._enumField != nil}
+  var hasEnumField: Bool {self._enumField != nil}
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
   mutating func clearEnumField() {self._enumField = nil}
 
@@ -9434,11 +9434,11 @@ struct SwiftProtoTesting_Names_SpecialNames2: Sendable {
   // methods supported on all messages.
 
   var newValue: String {
-    get {return _newValue ?? String()}
+    get {_newValue ?? String()}
     set {_newValue = newValue}
   }
   /// Returns true if `newValue` has been explicitly set.
-  var hasNewValue: Bool {return self._newValue != nil}
+  var hasNewValue: Bool {self._newValue != nil}
   /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
   mutating func clearNewValue() {self._newValue = nil}
 
@@ -9469,11 +9469,11 @@ struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Sendable {
   }
 
   var forcesStorage: SwiftProtoTesting_Names_SpecialNames3 {
-    get {return _storage._forcesStorage ?? SwiftProtoTesting_Names_SpecialNames3()}
+    get {_storage._forcesStorage ?? SwiftProtoTesting_Names_SpecialNames3()}
     set {_uniqueStorage()._forcesStorage = newValue}
   }
   /// Returns true if `forcesStorage` has been explicitly set.
-  var hasForcesStorage: Bool {return _storage._forcesStorage != nil}
+  var hasForcesStorage: Bool {_storage._forcesStorage != nil}
   /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
   mutating func clearForcesStorage() {_uniqueStorage()._forcesStorage = nil}
 
@@ -9496,20 +9496,20 @@ struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Sendable {
   // methods supported on all messages.
 
   var newValue: String {
-    get {return _storage._newValue ?? String()}
+    get {_storage._newValue ?? String()}
     set {_uniqueStorage()._newValue = newValue}
   }
   /// Returns true if `newValue` has been explicitly set.
-  var hasNewValue: Bool {return _storage._newValue != nil}
+  var hasNewValue: Bool {_storage._newValue != nil}
   /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
   mutating func clearNewValue() {_uniqueStorage()._newValue = nil}
 
   var forcesStorage: SwiftProtoTesting_Names_SpecialNames4 {
-    get {return _storage._forcesStorage ?? SwiftProtoTesting_Names_SpecialNames4()}
+    get {_storage._forcesStorage ?? SwiftProtoTesting_Names_SpecialNames4()}
     set {_uniqueStorage()._forcesStorage = newValue}
   }
   /// Returns true if `forcesStorage` has been explicitly set.
-  var hasForcesStorage: Bool {return _storage._forcesStorage != nil}
+  var hasForcesStorage: Bool {_storage._forcesStorage != nil}
   /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
   mutating func clearForcesStorage() {_uniqueStorage()._forcesStorage = nil}
 

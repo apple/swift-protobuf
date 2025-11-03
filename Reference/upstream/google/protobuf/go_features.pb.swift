@@ -35,30 +35,30 @@ struct Pb_GoFeatures: Sendable {
   /// Whether or not to generate the deprecated UnmarshalJSON method for enums.
   /// Can only be true for proto using the Open Struct api.
   var legacyUnmarshalJsonEnum: Bool {
-    get {return _legacyUnmarshalJsonEnum ?? false}
+    get {_legacyUnmarshalJsonEnum ?? false}
     set {_legacyUnmarshalJsonEnum = newValue}
   }
   /// Returns true if `legacyUnmarshalJsonEnum` has been explicitly set.
-  var hasLegacyUnmarshalJsonEnum: Bool {return self._legacyUnmarshalJsonEnum != nil}
+  var hasLegacyUnmarshalJsonEnum: Bool {self._legacyUnmarshalJsonEnum != nil}
   /// Clears the value of `legacyUnmarshalJsonEnum`. Subsequent reads from it will return its default value.
   mutating func clearLegacyUnmarshalJsonEnum() {self._legacyUnmarshalJsonEnum = nil}
 
   /// One of OPEN, HYBRID or OPAQUE.
   var apiLevel: Pb_GoFeatures.APILevel {
-    get {return _apiLevel ?? .unspecified}
+    get {_apiLevel ?? .unspecified}
     set {_apiLevel = newValue}
   }
   /// Returns true if `apiLevel` has been explicitly set.
-  var hasApiLevel: Bool {return self._apiLevel != nil}
+  var hasApiLevel: Bool {self._apiLevel != nil}
   /// Clears the value of `apiLevel`. Subsequent reads from it will return its default value.
   mutating func clearApiLevel() {self._apiLevel = nil}
 
   var stripEnumPrefix: Pb_GoFeatures.StripEnumPrefix {
-    get {return _stripEnumPrefix ?? .unspecified}
+    get {_stripEnumPrefix ?? .unspecified}
     set {_stripEnumPrefix = newValue}
   }
   /// Returns true if `stripEnumPrefix` has been explicitly set.
-  var hasStripEnumPrefix: Bool {return self._stripEnumPrefix != nil}
+  var hasStripEnumPrefix: Bool {self._stripEnumPrefix != nil}
   /// Clears the value of `stripEnumPrefix`. Subsequent reads from it will return its default value.
   mutating func clearStripEnumPrefix() {self._stripEnumPrefix = nil}
 

@@ -79,109 +79,109 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
   /// TODO: remove 'optional' labels as soon as CL 69188077 is LGTM'd to make
   /// 'optional' optional.
   var optionalInt32: Int32 {
-    get {return _storage._optionalInt32}
+    get {_storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
   var optionalInt64: Int64 {
-    get {return _storage._optionalInt64}
+    get {_storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
   var optionalUint32: UInt32 {
-    get {return _storage._optionalUint32}
+    get {_storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
   var optionalUint64: UInt64 {
-    get {return _storage._optionalUint64}
+    get {_storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
   var optionalSint32: Int32 {
-    get {return _storage._optionalSint32}
+    get {_storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
   var optionalSint64: Int64 {
-    get {return _storage._optionalSint64}
+    get {_storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
   var optionalFixed32: UInt32 {
-    get {return _storage._optionalFixed32}
+    get {_storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
   var optionalFixed64: UInt64 {
-    get {return _storage._optionalFixed64}
+    get {_storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
   var optionalSfixed32: Int32 {
-    get {return _storage._optionalSfixed32}
+    get {_storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
   var optionalSfixed64: Int64 {
-    get {return _storage._optionalSfixed64}
+    get {_storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
   var optionalFloat: Float {
-    get {return _storage._optionalFloat}
+    get {_storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
   var optionalDouble: Double {
-    get {return _storage._optionalDouble}
+    get {_storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
   var optionalBool: Bool {
-    get {return _storage._optionalBool}
+    get {_storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
   var optionalString: String {
-    get {return _storage._optionalString}
+    get {_storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes}
+    get {_storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
   var optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
+    get {_storage._optionalNestedMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  var hasOptionalNestedMessage: Bool {_storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage {
-    get {return _storage._optionalForeignMessage ?? Proto2NofieldpresenceUnittest_ForeignMessage()}
+    get {_storage._optionalForeignMessage ?? Proto2NofieldpresenceUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
-  var hasOptionalForeignMessage: Bool {return _storage._optionalForeignMessage != nil}
+  var hasOptionalForeignMessage: Bool {_storage._optionalForeignMessage != nil}
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
   var optionalProto2Message: Proto2Unittest_TestAllTypes {
-    get {return _storage._optionalProto2Message ?? Proto2Unittest_TestAllTypes()}
+    get {_storage._optionalProto2Message ?? Proto2Unittest_TestAllTypes()}
     set {_uniqueStorage()._optionalProto2Message = newValue}
   }
   /// Returns true if `optionalProto2Message` has been explicitly set.
-  var hasOptionalProto2Message: Bool {return _storage._optionalProto2Message != nil}
+  var hasOptionalProto2Message: Bool {_storage._optionalProto2Message != nil}
   /// Clears the value of `optionalProto2Message`. Subsequent reads from it will return its default value.
   mutating func clearOptionalProto2Message() {_uniqueStorage()._optionalProto2Message = nil}
 
   var optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
-    get {return _storage._optionalNestedEnum}
+    get {_storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
@@ -190,142 +190,142 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
   /// optional proto2_unittest.ForeignEnum          optional_proto2_enum     =
   /// 23;
   var optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum {
-    get {return _storage._optionalForeignEnum}
+    get {_storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
   var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece}
+    get {_storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
   var optionalCord: String {
-    get {return _storage._optionalCord}
+    get {_storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
   var optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
-    get {return _storage._optionalLazyMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
+    get {_storage._optionalLazyMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
-  var hasOptionalLazyMessage: Bool {return _storage._optionalLazyMessage != nil}
+  var hasOptionalLazyMessage: Bool {_storage._optionalLazyMessage != nil}
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
+    get {_storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   var repeatedInt64: [Int64] {
-    get {return _storage._repeatedInt64}
+    get {_storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   var repeatedUint32: [UInt32] {
-    get {return _storage._repeatedUint32}
+    get {_storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   var repeatedUint64: [UInt64] {
-    get {return _storage._repeatedUint64}
+    get {_storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   var repeatedSint32: [Int32] {
-    get {return _storage._repeatedSint32}
+    get {_storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   var repeatedSint64: [Int64] {
-    get {return _storage._repeatedSint64}
+    get {_storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   var repeatedFixed32: [UInt32] {
-    get {return _storage._repeatedFixed32}
+    get {_storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   var repeatedFixed64: [UInt64] {
-    get {return _storage._repeatedFixed64}
+    get {_storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   var repeatedSfixed32: [Int32] {
-    get {return _storage._repeatedSfixed32}
+    get {_storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   var repeatedSfixed64: [Int64] {
-    get {return _storage._repeatedSfixed64}
+    get {_storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   var repeatedFloat: [Float] {
-    get {return _storage._repeatedFloat}
+    get {_storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   var repeatedDouble: [Double] {
-    get {return _storage._repeatedDouble}
+    get {_storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   var repeatedBool: [Bool] {
-    get {return _storage._repeatedBool}
+    get {_storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   var repeatedString: [String] {
-    get {return _storage._repeatedString}
+    get {_storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   var repeatedBytes: [Data] {
-    get {return _storage._repeatedBytes}
+    get {_storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   var repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] {
-    get {return _storage._repeatedNestedMessage}
+    get {_storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   var repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] {
-    get {return _storage._repeatedForeignMessage}
+    get {_storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
   var repeatedProto2Message: [Proto2Unittest_TestAllTypes] {
-    get {return _storage._repeatedProto2Message}
+    get {_storage._repeatedProto2Message}
     set {_uniqueStorage()._repeatedProto2Message = newValue}
   }
 
   var repeatedNestedEnum: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] {
-    get {return _storage._repeatedNestedEnum}
+    get {_storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   var repeatedForeignEnum: [Proto2NofieldpresenceUnittest_ForeignEnum] {
-    get {return _storage._repeatedForeignEnum}
+    get {_storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
   var repeatedStringPiece: [String] {
-    get {return _storage._repeatedStringPiece}
+    get {_storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
   var repeatedCord: [String] {
-    get {return _storage._repeatedCord}
+    get {_storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   var repeatedLazyMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] {
-    get {return _storage._repeatedLazyMessage}
+    get {_storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
@@ -455,11 +455,11 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: Sendable {
   // methods supported on all messages.
 
   var proto2: Proto2Unittest_TestRequired {
-    get {return _proto2 ?? Proto2Unittest_TestRequired()}
+    get {_proto2 ?? Proto2Unittest_TestRequired()}
     set {_proto2 = newValue}
   }
   /// Returns true if `proto2` has been explicitly set.
-  var hasProto2: Bool {return self._proto2 != nil}
+  var hasProto2: Bool {self._proto2 != nil}
   /// Clears the value of `proto2`. Subsequent reads from it will return its default value.
   mutating func clearProto2() {self._proto2 = nil}
 
@@ -492,11 +492,11 @@ struct Proto2NofieldpresenceUnittest_ExplicitForeignMessage: Sendable {
   // methods supported on all messages.
 
   var c: Int32 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 
