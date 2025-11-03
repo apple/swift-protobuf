@@ -345,6 +345,22 @@ final class Test_TableDriven: XCTestCase {
     }
 
     //
+    // Unknown field
+    //
+    func testEncoding_unknown() {
+        assertDecodeFails([208, 41])  // Field 666, wiretype 0
+        assertDecodeSucceeds([208, 41, 0]) { $0 != MessageTestType() }  // Ditto, with varint body
+
+        // This test validation when putting things into unknown fields. In
+        // this case, ensuring the a varint value isn't invalid.
+        assertDecodeFails([
+            (7 << 3) + 0,  // Field 7 as a varint (it should be a fixed32)
+            // And overly encoded varint for the value (extracted from some fuzz testing)
+            239, 191, 189, 239, 191, 189, 239, 191, 189, 239, 191, 189, 49,
+        ])
+    }
+
+    //
     // Singular types
     //
     func testEncoding_optionalInt32() {
@@ -433,6 +449,7 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([33, 0])
         assertDecodeFails([33, 8, 0])
         assertDecodeFails([34])
+        assertDecodesAsUnknownFields([34, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([34, 8, 0])
         assertDecodeFails([35])
         assertDecodeFails([35, 0])
@@ -471,6 +488,7 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([41])
         assertDecodeFails([41, 0])
         assertDecodeFails([42])
+        assertDecodesAsUnknownFields([42, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([43])
         assertDecodeFails([43, 0])
         assertDecodeFails([44])
@@ -498,6 +516,7 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([49])
         assertDecodeFails([49, 0])
         assertDecodeFails([50])
+        assertDecodesAsUnknownFields([50, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([51])
         assertDecodeFails([51, 0])
         assertDecodeFails([52])
@@ -521,11 +540,13 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([61, 255, 255])
         assertDecodeFails([61, 255, 255, 255])
         assertDecodeFails([56])
+        assertDecodesAsUnknownFields([56, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([56, 0, 0, 0, 0])
         assertDecodeFails([57])
         assertDecodeFails([57, 0])
         assertDecodeFails([57, 0, 0, 0, 0])
         assertDecodeFails([58])
+        assertDecodesAsUnknownFields([58, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([58, 0, 0, 0, 0])
         assertDecodeFails([59])
         assertDecodeFails([59, 0])
@@ -559,8 +580,10 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([65, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([65, 255, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([64])
+        assertDecodesAsUnknownFields([64, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([64, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([66])
+        assertDecodesAsUnknownFields([66, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([66, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([67])
         assertDecodeFails([67, 0])
@@ -592,11 +615,13 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([77, 0, 0])
         assertDecodeFails([77, 0, 0, 0])
         assertDecodeFails([72])
+        assertDecodesAsUnknownFields([72, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([72, 0, 0, 0, 0])
         assertDecodeFails([73])
         assertDecodeFails([73, 0])
         assertDecodeFails([73, 0, 0, 0, 0])
         assertDecodeFails([74])
+        assertDecodesAsUnknownFields([74, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([74, 0, 0, 0, 0])
         assertDecodeFails([75])
         assertDecodeFails([75, 0])
@@ -627,8 +652,10 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([81, 0, 0, 0, 0])
         assertDecodeFails([81, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([80])
+        assertDecodesAsUnknownFields([80, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([80, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([82])
+        assertDecodesAsUnknownFields([82, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([82, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([83])
         assertDecodeFails([83, 0])
@@ -666,9 +693,11 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([93, 0])
         assertDecodeFails([93])
         assertDecodeFails([88])  // Float cannot use wire type 0
+        assertDecodesAsUnknownFields([88, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([89])  // Float cannot use wire type 1
         assertDecodeFails([89, 0, 0, 0, 0])  // Float cannot use wire type 1
         assertDecodeFails([90])  // Float cannot use wire type 2
+        assertDecodesAsUnknownFields([90, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([91])  // Float cannot use wire type 3
         assertDecodeFails([91, 0, 0, 0, 0])  // Float cannot use wire type 3
         assertDecodeFails([92])  // Float cannot use wire type 4
@@ -689,8 +718,10 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
         assertDecodeFails([96])
+        assertDecodesAsUnknownFields([96, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([96, 10, 10, 10, 10, 10, 10, 10, 10])
         assertDecodeFails([98])
+        assertDecodesAsUnknownFields([98, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([98, 10, 10, 10, 10, 10, 10, 10, 10])
         assertDecodeFails([99])
         assertDecodeFails([99, 0])
@@ -726,6 +757,7 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([105])
         assertDecodeFails([105, 0])
         assertDecodeFails([106])
+        assertDecodesAsUnknownFields([106, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([107])
         assertDecodeFails([107, 0])
         assertDecodeFails([108])
@@ -759,17 +791,18 @@ final class Test_TableDriven: XCTestCase {
         }
         assertDecodeSucceeds([114, 16, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]) {
             $0.optionalString
-                == "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
+            == "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
         }
         assertDecodeSucceeds([114, 16, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]) {
             $0.optionalString
-                == "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
+            == "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
         }
         assertDecodeFails([114])
         assertDecodeFails([114, 1])
         assertDecodeFails([114, 2, 65])
         assertDecodeFails([114, 1, 193])  // Invalid UTF-8
         assertDecodeFails([112])
+        assertDecodesAsUnknownFields([112, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([113])
         assertDecodeFails([113, 0])
         assertDecodeFails([115])
@@ -805,6 +838,11 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeSucceeds([131, 1, 136, 1, 159, 141, 6, 132, 1]) {
             $0.optionalGroup.a == 99999
         }
+        // Extra field 1 (varint of zero) within group
+        assertDecodeSucceeds([131, 1, 8, 0, 136, 1, 159, 141, 6, 132, 1]) {
+            $0.optionalGroup.a == 99999
+            && $0.optionalGroup.unknownFields.data == Data([8, 0])
+        }
         // Empty group
         assertDecodeSucceeds([131, 1, 132, 1]) {
             $0.optionalGroup == MessageTestType.OptionalGroup()
@@ -813,9 +851,12 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([131, 1, 136, 1, 159, 141, 6, 132, 2])  // Wrong end group.
 
         assertDecodeFails([128, 1])  // Bad wire type
+        assertDecodesAsUnknownFields([128, 1, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([128, 1, 132, 1])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([129, 1])  // Bad wire type
         assertDecodeFails([129, 1, 0])  // Bad wire type
         assertDecodeFails([130, 1])  // Bad wire type
+        assertDecodesAsUnknownFields([130, 1, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([131, 1])  // Lone start marker should fail
         assertDecodeFails([132, 1])  // Lone stop marker should fail
         assertDecodeFails([133, 1])  // Bad wire type
@@ -845,6 +886,7 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([122, 2, 0])
         assertDecodeFails([122, 3, 0, 0])
         assertDecodeFails([120])
+        assertDecodesAsUnknownFields([120, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([121])
         assertDecodeFails([121, 0])
         assertDecodeFails([123])
@@ -895,6 +937,93 @@ final class Test_TableDriven: XCTestCase {
         }
     }
 
+    // Known message field followed by unknown field
+    func testEncoding_optionalNestedMessage_unknown1() throws {
+        let bytes: [UInt8] = [
+            146, 1, 2, 8, 1,  // nested message with bb=1
+            208, 41, 0,
+        ]  // Unknown field 666 with varint 0
+        do {
+            let m = try MessageTestType(serializedBytes: bytes)
+            XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with { $0.bb = 1 })
+            do {
+                let recoded: [UInt8] = try m.serializedBytes()
+                XCTAssertEqual(recoded, bytes)
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    // Unknown field followed by known message field
+    func testEncoding_optionalNestedMessage_unknown2() throws {
+        let bytes: [UInt8] = [
+            208, 41, 0,  // Unknown 666 with varint 0
+            146, 1, 2, 8, 1,
+        ]  // Nested msg with bb=1
+        do {
+            let m = try MessageTestType(serializedBytes: bytes)
+            XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with { $0.bb = 1 })
+            do {
+                let recoded: [UInt8] = try m.serializedBytes()
+                // Unknown field gets reserialized at end
+                let expectedBytes: [UInt8] = [146, 1, 2, 8, 1, 208, 41, 0]
+                XCTAssertEqual(recoded, expectedBytes)
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    // Known message field with unknown field followed by unknown field
+    func testEncoding_optionalNestedMessage_unknown3() throws {
+        // Inner field has bb=1 (8, 1) and unknown 666 with varint 99
+        // Outer message has unknown 666 with varint 0
+        let bytes: [UInt8] = [
+            146, 1, 5, 8, 1, 208, 41, 99,
+            208, 41, 0,
+        ]
+        do {
+            let m = try MessageTestType(serializedBytes: bytes)
+            XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with { $0.bb = 1 })
+            XCTAssertEqual(m.optionalNestedMessage.bb, 1)
+            do {
+                let recoded: [UInt8] = try m.serializedBytes()
+                XCTAssertEqual(recoded, bytes)
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
+    // Unknown field, then known message field containing unknown field
+    func testEncoding_optionalNestedMessage_unknown4() throws {
+        // Same as unknown3 test above, but unknown fields come
+        // first in outer and inner message
+        let bytes: [UInt8] = [208, 41, 0, 146, 1, 5, 208, 41, 99, 8, 1]
+        do {
+            let m = try MessageTestType(serializedBytes: bytes)
+            XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with { $0.bb = 1 })
+            XCTAssertEqual(m.optionalNestedMessage.bb, 1)
+            do {
+                let recoded: [UInt8] = try m.serializedBytes()
+                // Reserializing moves unknown fields to end
+                let expectedBytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99, 208, 41, 0]
+                XCTAssertEqual(recoded, expectedBytes)
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
+        }
+    }
+
     func testEncoding_optionalForeignMessage() {
         assertEncode([154, 1, 2, 8, 1]) { (o: inout MessageTestType) in
             var foreign = SwiftProtoTesting_ForeignMessage()
@@ -905,14 +1034,24 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) { $0.optionalForeignMessage.c == 3 }
         assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) { $0.optionalForeignMessage.c == 4 }
 
+        assertDecodesAsUnknownFields([152, 1, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([153, 1])  // Wire type 1
         assertDecodeFails([153, 1, 0])
+        assertDecodesAsUnknownFields([
+            153, 1,  // Wrong wire type (fixed64), valid as an unknown field
+            0, 0, 0, 0, 0, 0, 0, 0,
+        ])
         assertDecodeFails([155, 1])  // Wire type 3
         assertDecodeFails([155, 1, 0])
+        assertDecodesAsUnknownFields([
+            155, 1,  // Wrong wire type (start group, end group), valid as an unknown field
+            156, 1,
+        ])
         assertDecodeFails([156, 1])  // Wire type 4
         assertDecodeFails([156, 1, 0])
         assertDecodeFails([157, 1])  // Wire type 5
         assertDecodeFails([157, 1, 0])
+        assertDecodesAsUnknownFields([157, 1, 0, 0, 0, 0])  // Wrong wire type (fixed32), valid as an unknown field
         assertDecodeFails([158, 1])  // Wire type 6
         assertDecodeFails([158, 1, 0])
         assertDecodeFails([159, 1])  // Wire type 7
@@ -1401,6 +1540,13 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([249, 6])
         assertDecodeFails([249, 6, 0])
         assertDecodeFails([250, 6])
+        assertDecodesAsUnknownFields([250, 6, 0]) {  // Wrong wire type (length delimited), valid as an unknown field
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        let initialMsg = MessageTestType.with { $0.oneofString = "initial" }
+        assertMergesAsUnknownFields([250, 6, 0], inTo: initialMsg) {
+            $0.oneofString == "initial"  // Shouldn't have gotten cleared.
+        }
         assertDecodeFails([251, 6])
         assertDecodeFails([251, 6, 0])
         assertDecodeFails([252, 6])
@@ -1419,6 +1565,59 @@ final class Test_TableDriven: XCTestCase {
             nested.bb = 1
             o.oneofNestedMessage = nested
         }
+        assertDecodeSucceeds([130, 7, 0]) { (o: MessageTestType) in
+            if case .oneofNestedMessage(let m)? = o.oneofField {
+                return !m.hasBb
+            }
+            return false
+        }
+        assertDecodeSucceeds([248, 6, 0, 130, 7, 2, 8, 1]) { (o: MessageTestType) in
+            if case .oneofUint32? = o.oneofField {
+                return false
+            }
+            if case .oneofNestedMessage(let m)? = o.oneofField {
+                return m.bb == 1
+            }
+            return false
+        }
+    }
+    func testEncoding_oneofNestedMessage1() {
+        assertDecodeSucceeds([130, 7, 2, 8, 1, 248, 6, 0]) { (o: MessageTestType) in
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == 0 {
+                return true
+            }
+            return false
+        }
+        // Unkonwn field within nested message should not break decoding
+        assertDecodeSucceeds([130, 7, 5, 128, 127, 0, 8, 1, 248, 6, 0]) { (o: MessageTestType) in
+            if case .oneofUint32? = o.oneofField, o.oneofUint32 == 0 {
+                return true
+            }
+            return false
+        }
+    }
+
+    func testEncoding_oneofNestedMessage9() {
+        assertDecodeFails([128, 7])
+        assertDecodesAsUnknownFields([128, 7, 0]) {  // Wrong wire type (varint), valid as an unknown field
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        let initialMsg = MessageTestType.with { $0.oneofString = "initial" }
+        assertMergesAsUnknownFields([128, 7, 0], inTo: initialMsg) {
+            $0.oneofString == "initial"  // Shouldn't have gotten cleared.
+        }
+        assertDecodeFails([129, 7])
+        assertDecodeFails([129, 7, 0])
+        assertDecodeFails([131, 7])
+        assertDecodeFails([131, 7, 0])
+        assertDecodeFails([132, 7])
+        assertDecodeFails([132, 7, 0])
+        assertDecodeFails([133, 7])
+        assertDecodeFails([133, 7, 0])
+        assertDecodeFails([134, 7])
+        assertDecodeFails([134, 7, 0])
+        assertDecodeFails([135, 7])
+        assertDecodeFails([135, 7, 0])
     }
 
     func testEncoding_oneofString() {
@@ -1435,9 +1634,37 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([138, 7, 1])  // Truncated body
         assertDecodeFails([138, 7, 1, 192])  // Malformed UTF-8
         // Bad wire types:
+        assertDecodesAsUnknownFields([136, 7, 0]) {  // Wrong wire type (varint), valid as an unknown field
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        let initialMsg = MessageTestType.with { $0.oneofUint32 = 123 }
+        assertMergesAsUnknownFields([136, 7, 0], inTo: initialMsg) {
+            $0.oneofUint32 == 123  // Shouldn't have gotten cleared.
+        }
+        assertDecodesAsUnknownFields([136, 7, 1]) {  // Wrong wire type (varint), valid as an unknown field
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        assertMergesAsUnknownFields([136, 7, 1], inTo: initialMsg) {
+            $0.oneofUint32 == 123  // Shouldn't have gotten cleared.
+        }
+        assertDecodesAsUnknownFields([
+            137, 7,  // Wrong wire type (fixed64), valid as an unknown field
+            1, 1, 1, 1, 1, 1, 1, 1,
+        ]) {
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        assertMergesAsUnknownFields([137, 7, 1, 1, 1, 1, 1, 1, 1, 1], inTo: initialMsg) {
+            $0.oneofUint32 == 123  // Shouldn't have gotten cleared.
+        }
         assertDecodeFails([139, 7])  // Wire type 3
         assertDecodeFails([140, 7])  // Wire type 4
         assertDecodeFails([141, 7, 0])  // Wire type 5
+        assertDecodesAsUnknownFields([141, 7, 0, 0, 0, 0]) {  // Wrong wire type (fixed32), valid as an unknown field
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        assertMergesAsUnknownFields([141, 7, 0, 0, 0, 0], inTo: initialMsg) {
+            $0.oneofUint32 == 123  // Shouldn't have gotten cleared.
+        }
         assertDecodeFails([142, 7])  // Wire type 6
         assertDecodeFails([142, 7, 0])  // Wire type 6
         assertDecodeFails([143, 7])  // Wire type 7
@@ -1488,6 +1715,13 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([146, 7, 1])
         // Bad wire types:
         assertDecodeFails([144, 7])
+        assertDecodesAsUnknownFields([144, 7, 0]) {  // Wrong wire type (varint), valid as an unknown field
+            $0.oneofField == nil  // oneof doesn't get set.
+        }
+        let initialMsg = MessageTestType.with { $0.oneofString = "initial" }
+        assertMergesAsUnknownFields([144, 7, 0], inTo: initialMsg) {
+            $0.oneofString == "initial"  // Shouldn't have gotten cleared.
+        }
         assertDecodeFails([145, 7])
         assertDecodeFails([145, 7, 0])
         assertDecodeFails([147, 7])
@@ -1500,6 +1734,114 @@ final class Test_TableDriven: XCTestCase {
         assertDecodeFails([150, 7, 0])
         assertDecodeFails([151, 7])
         assertDecodeFails([151, 7, 0])
+    }
+
+    func testUnknownFields_Success() throws {
+        let testInputs: [[UInt8]] = [
+            [192, 12, 1],  //  varint of 1.
+            [193, 12, 20, 0, 0, 0, 0, 0, 0, 0],  // fixed64 of 20
+            [194, 12, 3, 65, 66, 67],  // length delimited.
+            [195, 12, 8, 1, 196, 12],  // StartGroup, Field 1: varint of 1, EndGroup.
+            [197, 12, 30, 0, 0, 0],  // fixed32.
+
+            [192, 12, 129, 1],  //  varint of 129 (two bytes on wire).
+            // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup, EndGroup.
+            [195, 12, 11, 8, 1, 12, 196, 12],
+        ]
+
+        // Fields at the top level of the message.
+        for bytes in testInputs {
+            do {
+                let msg = try SwiftProtoTesting_TestAllTypes(serializedBytes: bytes)
+                XCTAssertEqual(msg.unknownFields.data, Data(bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedBytes(), bytes, "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
+
+        // Fields appearing within a message field.
+        for bytes in testInputs {
+            // Hang it in the 'payload' field of NestedTestAllTypes
+            let fullBytes = [18, UInt8(bytes.count)] + bytes
+
+            do {
+                let msg = try SwiftProtoTesting_NestedTestAllTypes(serializedBytes: fullBytes)
+                XCTAssertTrue(msg.unknownFields.data.isEmpty)
+                XCTAssertEqual(msg.payload.unknownFields.data, Data(bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedBytes(), fullBytes, "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
+
+        // Fields appearing within a group field.
+        for bytes in testInputs {
+            // Hang it in the 'OptionalGroup' field of TestAllTypes
+            let fullBytes = [131, 1] + bytes + [132, 1]
+            do {
+                let msg = try SwiftProtoTesting_TestAllTypes(serializedBytes: fullBytes)
+                XCTAssertTrue(msg.unknownFields.data.isEmpty)
+                XCTAssertEqual(msg.optionalGroup.unknownFields.data, Data(bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedBytes(), fullBytes, "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
+    }
+
+    func testUnknownFields_Failures() throws {
+        let testInputs: [[UInt8]] = [
+            [192, 12],  //  varint
+            [192, 12, 129],  //  varint (should be two bytes)
+            [193, 12],  // fixed64
+            [193, 12, 20, 0, 0, 0, 0, 0, 0],  // fixed64
+            [194, 12],  // length delimited.
+            [194, 12, 3, 65, 66],  // length delimited.
+            [195, 12],  // StartGroup.
+            [195, 12, 8, 1],  // StartGroup, Field 1: varint of 1.
+            [197, 12],  // fixed32.
+            [197, 12, 30, 0, 0],  // fixed32.
+
+            [195, 12, 11],  // StartGroup, Field 1: StartGroup.
+            [195, 12, 11, 8, 1, 12],  // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup.
+            // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup (but wrong group).
+            [195, 12, 11, 8, 1, 196, 12],
+        ]
+
+        // Fields at the top level of the message.
+        for bytes in testInputs {
+            do {
+                _ = try SwiftProtoTesting_TestAllTypes(serializedBytes: bytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+        }
+
+        // Fields appearing within a message field.
+        for bytes in testInputs {
+            // Hang it in the 'payload' field of NestedTestAllTypes
+            let fullBytes = [18, UInt8(bytes.count)] + bytes
+            do {
+                _ = try SwiftProtoTesting_NestedTestAllTypes(serializedBytes: fullBytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+        }
+
+        // Fields appearing within a group field.
+        for bytes in testInputs {
+            // Hang it after the start of the 'OptionalGroup' field of TestAllTypes
+            let fullBytes = [131, 1] + bytes
+            do {
+                _ = try SwiftProtoTesting_TestAllTypes(serializedBytes: fullBytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+        }
     }
 
     func assertEncode(
@@ -1550,6 +1892,19 @@ final class Test_TableDriven: XCTestCase {
         } catch let e {
             XCTFail("Failed to decode: \(e)", file: file, line: line)
         }
+
+        do {
+            // Make sure unknown fields are preserved by empty message decode/encode
+            let empty = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: bytes)
+            do {
+                let newBytes: [UInt8] = try empty.serializedBytes()
+                XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match; \(bytes) != \(newBytes)", file: file, line: line)
+            } catch let e {
+                XCTFail("Reserializing empty threw an error: \(e)", file: file, line: line)
+            }
+        } catch {
+            XCTFail("Empty decoding threw an error: \(error)", file: file, line: line)
+        }
     }
 
     func assertDecodeFails(_ bytes: [UInt8], file: StaticString = #file, line: UInt = #line) {
@@ -1560,5 +1915,43 @@ final class Test_TableDriven: XCTestCase {
             // Yay!  It failed!
         }
 
+    }
+
+    // Helper to check that decode succeeds by the data ended up in unknown fields.
+    // Supports an optional `check` to do additional validation.
+    func assertDecodesAsUnknownFields(
+        _ bytes: [UInt8],
+        file: StaticString = #file,
+        line: UInt = #line,
+        check: ((MessageTestType) -> Bool)? = nil
+    ) {
+        assertDecodeSucceeds(bytes, file: file, line: line) {
+            if $0.unknownFields.data != Data(bytes) {
+                return false
+            }
+            if let check = check {
+                return check($0)
+            }
+            return true
+        }
+    }
+
+    func assertMergesAsUnknownFields(
+        _ bytes: [UInt8],
+        inTo message: MessageTestType,
+        file: StaticString = #file,
+        line: UInt = #line,
+        check: ((MessageTestType) -> Bool)? = nil
+    ) {
+        var msgCopy = message
+        do {
+            try msgCopy.merge(serializedBytes: bytes)
+        } catch let e {
+            XCTFail("Failed to decode: \(e)", file: file, line: line)
+        }
+        XCTAssertEqual(msgCopy.unknownFields.data, Data(bytes), file: file, line: line)
+        if let check = check {
+            XCTAssert(check(msgCopy), "Condition failed", file: file, line: line)
+        }
     }
 }

@@ -58,7 +58,7 @@ extension _MessageStorage {
                 discardUnknownFields: discardUnknownFields
             )
             if !consumed {
-                try decodeUnknownField(from: &reader, tag: tag)
+                try decodeUnknownField(from: &reader, tag: tag, discard: discardUnknownFields)
             }
         }
         if reader.isTrackingGroup {
@@ -234,10 +234,17 @@ extension _MessageStorage {
     }
 
     /// Decodes the next field in the reader as an unknown field.
-    private func decodeUnknownField(from reader: inout WireFormatReader, tag: FieldTag) throws {
-        // TODO: Store unknown fields in the unknown storage blob. For now, we just skip them by
-        // reading and discarding them, which is fine to get some basic functionality working but
-        // less efficient than we'll want our final implementation to be.
-        _ = try reader.sliceBySkippingField(tag: tag)
+    ///
+    /// - Parameters:
+    ///   - reader: The `WireFormatReader` from which to read the next field.
+    ///   - tag: The tag representing the current field that was just read from the reader.
+    ///   - discard: If true, the field's data should be skipped. Otherwise, it will be stored in
+    ///     the unknown fields storage.
+    /// - Throws: `BinaryDecodingError` if an error occurred while reading from the buffer.
+    private func decodeUnknownField(from reader: inout WireFormatReader, tag: FieldTag, discard: Bool) throws {
+        let slice = try reader.sliceBySkippingField(tag: tag)
+        if !discard {
+            unknownFields.append(protobufBytes: slice)
+        }
     }
 }

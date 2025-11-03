@@ -58,7 +58,8 @@ extension _MessageStorage {
             guard isPresent(field) else { continue }
             try serializeField(field, into: &encoder, options: options)
         }
-        // TODO: Support unknown fields and extensions.
+        encoder.appendUnknown(data: unknownFields.data)
+        // TODO: Support extensions.
     }
 
     /// Serializes a single field in the storage into the given binary encoder.

@@ -293,6 +293,7 @@ struct WireFormatReader {
             guard recursionBudget > 0 else {
                 throw BinaryDecodingError.messageDepthLimit
             }
+            var sawEndGroup = false
             recursionBudget &-= 1
             while hasAvailableData {
                 let innerTag = try nextTagWithoutUpdatingLastTagPointer()
@@ -303,12 +304,13 @@ struct WireFormatReader {
                         throw BinaryDecodingError.malformedProtobuf
                     }
                     recursionBudget &+= 1
+                    sawEndGroup = true
                     break
                 } else {
                     _ = try sliceBySkippingField(tag: innerTag)
                 }
             }
-            if !hasAvailableData {
+            if !sawEndGroup && !hasAvailableData {
                 throw BinaryDecodingError.truncated
             }
 
