@@ -147,29 +147,33 @@ final class Test_TableDriven: XCTestCase {
     }
 
     func testCopyAndMergeIntoCopy() throws {
-        let msg = try MessageTestType(serializedBytes: [8, 1])
+        let msg = try MessageTestType(serializedBytes: [8, 1, 146, 1, 2, 8, 1])
 
         var msgCopy = msg
-        try msgCopy.merge(serializedBytes: [16, 2])
+        try msgCopy.merge(serializedBytes: [16, 2, 146, 1, 2, 8, 3])
 
         XCTAssertEqual(msg.optionalInt32, 1)
         XCTAssertEqual(msg.optionalInt64, 0)
+        XCTAssertEqual(msg.optionalNestedMessage.bb, 1)
 
         XCTAssertEqual(msgCopy.optionalInt32, 1)
         XCTAssertEqual(msgCopy.optionalInt64, 2)
+        XCTAssertEqual(msgCopy.optionalNestedMessage.bb, 3)
     }
 
     func testCopyAndMergeIntoOriginal() throws {
-        var msg = try MessageTestType(serializedBytes: [8, 1])
+        var msg = try MessageTestType(serializedBytes: [8, 1, 146, 1, 2, 8, 1])
 
         let msgCopy = msg
-        try msg.merge(serializedBytes: [16, 2])
+        try msg.merge(serializedBytes: [16, 2, 146, 1, 2, 8, 3])
 
         XCTAssertEqual(msg.optionalInt32, 1)
         XCTAssertEqual(msg.optionalInt64, 2)
+        XCTAssertEqual(msg.optionalNestedMessage.bb, 3)
 
         XCTAssertEqual(msgCopy.optionalInt32, 1)
         XCTAssertEqual(msgCopy.optionalInt64, 0)
+        XCTAssertEqual(msgCopy.optionalNestedMessage.bb, 1)
     }
 
     func testOneofModifyMembers() {
@@ -797,6 +801,29 @@ final class Test_TableDriven: XCTestCase {
             g.a = 99999
             o.optionalGroup = g
         }
+
+        assertDecodeSucceeds([131, 1, 136, 1, 159, 141, 6, 132, 1]) {
+            $0.optionalGroup.a == 99999
+        }
+        // Empty group
+        assertDecodeSucceeds([131, 1, 132, 1]) {
+            $0.optionalGroup == MessageTestType.OptionalGroup()
+        }
+        assertDecodeFails([131, 1, 136, 1, 159, 141, 6])  // End group missing.
+        assertDecodeFails([131, 1, 136, 1, 159, 141, 6, 132, 2])  // Wrong end group.
+
+        assertDecodeFails([128, 1])  // Bad wire type
+        assertDecodeFails([129, 1])  // Bad wire type
+        assertDecodeFails([129, 1, 0])  // Bad wire type
+        assertDecodeFails([130, 1])  // Bad wire type
+        assertDecodeFails([131, 1])  // Lone start marker should fail
+        assertDecodeFails([132, 1])  // Lone stop marker should fail
+        assertDecodeFails([133, 1])  // Bad wire type
+        assertDecodeFails([133, 1, 0])  // Bad wire type
+        assertDecodeFails([134, 1])  // Bad wire type
+        assertDecodeFails([134, 1, 0])  // Bad wire type
+        assertDecodeFails([135, 1])  // Bad wire type
+        assertDecodeFails([135, 1, 0])  // Bad wire type
     }
 
     func testEncoding_optionalBytes() {
@@ -849,6 +876,23 @@ final class Test_TableDriven: XCTestCase {
             nested.bb = 1
             o.optionalNestedMessage = nested
         }
+
+        assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) { $0.optionalNestedMessage.bb == 3 }
+        assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) { $0.optionalNestedMessage.bb == 4 }
+
+        assertDecodeFails([146, 1, 2, 8, 128])
+        assertDecodeFails([146, 1, 1, 128])
+
+        // Ensure message field over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(
+            try MessageTestType(serializedBytes: [
+                146, 1, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+                // Don't need all the bytes, want some to let the length issue trigger.
+                0x01, 0x02, 0x03,
+            ])
+        ) {
+            XCTAssertEqual($0 as! BinaryDecodingError, .malformedProtobuf)
+        }
     }
 
     func testEncoding_optionalForeignMessage() {
@@ -857,6 +901,23 @@ final class Test_TableDriven: XCTestCase {
             foreign.c = 1
             o.optionalForeignMessage = foreign
         }
+
+        assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) { $0.optionalForeignMessage.c == 3 }
+        assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) { $0.optionalForeignMessage.c == 4 }
+
+        assertDecodeFails([153, 1])  // Wire type 1
+        assertDecodeFails([153, 1, 0])
+        assertDecodeFails([155, 1])  // Wire type 3
+        assertDecodeFails([155, 1, 0])
+        assertDecodeFails([156, 1])  // Wire type 4
+        assertDecodeFails([156, 1, 0])
+        assertDecodeFails([157, 1])  // Wire type 5
+        assertDecodeFails([157, 1, 0])
+        assertDecodeFails([158, 1])  // Wire type 6
+        assertDecodeFails([158, 1, 0])
+        assertDecodeFails([159, 1])  // Wire type 7
+        assertDecodeFails([159, 1, 0])
+        assertDecodeFails([154, 1, 4, 8, 1])  // Truncated
     }
 
     func testEncoding_optionalImportMessage() {
@@ -865,6 +926,9 @@ final class Test_TableDriven: XCTestCase {
             imp.d = 1
             o.optionalImportMessage = imp
         }
+
+        assertDecodeSucceeds([162, 1, 4, 8, 1, 8, 3]) { $0.optionalImportMessage.d == 3 }
+        assertDecodeSucceeds([162, 1, 2, 8, 1, 162, 1, 2, 8, 4]) { $0.optionalImportMessage.d == 4 }
     }
 
     func testEncoding_optionalPublicImportMessage() {
