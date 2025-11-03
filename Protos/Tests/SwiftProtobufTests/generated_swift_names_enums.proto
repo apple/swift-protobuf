@@ -811,7 +811,6 @@ message GeneratedSwiftReservedEnums {
   enum result { NONE_result = 0; }
   enum retention { NONE_retention = 0; }
   enum rethrows { NONE_rethrows = 0; }
-  enum return { NONE_return = 0; }
   enum ReturnType { NONE_ReturnType = 0; }
   enum revision { NONE_revision = 0; }
   enum rhs { NONE_rhs = 0; }

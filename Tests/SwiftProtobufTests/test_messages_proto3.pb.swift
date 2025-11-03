@@ -65,263 +65,263 @@ struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {
 
   /// Singular
   var optionalInt32: Int32 {
-    get {return _storage._optionalInt32}
+    get {_storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
   var optionalInt64: Int64 {
-    get {return _storage._optionalInt64}
+    get {_storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
   var optionalUint32: UInt32 {
-    get {return _storage._optionalUint32}
+    get {_storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
   var optionalUint64: UInt64 {
-    get {return _storage._optionalUint64}
+    get {_storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
   var optionalSint32: Int32 {
-    get {return _storage._optionalSint32}
+    get {_storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
   var optionalSint64: Int64 {
-    get {return _storage._optionalSint64}
+    get {_storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
   var optionalFixed32: UInt32 {
-    get {return _storage._optionalFixed32}
+    get {_storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
   var optionalFixed64: UInt64 {
-    get {return _storage._optionalFixed64}
+    get {_storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
   var optionalSfixed32: Int32 {
-    get {return _storage._optionalSfixed32}
+    get {_storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
   var optionalSfixed64: Int64 {
-    get {return _storage._optionalSfixed64}
+    get {_storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
   var optionalFloat: Float {
-    get {return _storage._optionalFloat}
+    get {_storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
   var optionalDouble: Double {
-    get {return _storage._optionalDouble}
+    get {_storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
   var optionalBool: Bool {
-    get {return _storage._optionalBool}
+    get {_storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
   var optionalString: String {
-    get {return _storage._optionalString}
+    get {_storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes}
+    get {_storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
   var optionalNestedMessage: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage()}
+    get {_storage._optionalNestedMessage ?? SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  var hasOptionalNestedMessage: Bool {_storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var optionalNestedEnum: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum {
-    get {return _storage._optionalNestedEnum}
+    get {_storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
+    get {_storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   var repeatedInt64: [Int64] {
-    get {return _storage._repeatedInt64}
+    get {_storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   var repeatedUint32: [UInt32] {
-    get {return _storage._repeatedUint32}
+    get {_storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   var repeatedUint64: [UInt64] {
-    get {return _storage._repeatedUint64}
+    get {_storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   var repeatedSint32: [Int32] {
-    get {return _storage._repeatedSint32}
+    get {_storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   var repeatedSint64: [Int64] {
-    get {return _storage._repeatedSint64}
+    get {_storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   var repeatedFixed32: [UInt32] {
-    get {return _storage._repeatedFixed32}
+    get {_storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   var repeatedFixed64: [UInt64] {
-    get {return _storage._repeatedFixed64}
+    get {_storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   var repeatedSfixed32: [Int32] {
-    get {return _storage._repeatedSfixed32}
+    get {_storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   var repeatedSfixed64: [Int64] {
-    get {return _storage._repeatedSfixed64}
+    get {_storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   var repeatedFloat: [Float] {
-    get {return _storage._repeatedFloat}
+    get {_storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   var repeatedDouble: [Double] {
-    get {return _storage._repeatedDouble}
+    get {_storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   var repeatedBool: [Bool] {
-    get {return _storage._repeatedBool}
+    get {_storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   var repeatedString: [String] {
-    get {return _storage._repeatedString}
+    get {_storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   var repeatedBytes: [Data] {
-    get {return _storage._repeatedBytes}
+    get {_storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   var repeatedNestedMessage: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage] {
-    get {return _storage._repeatedNestedMessage}
+    get {_storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   var repeatedNestedEnum: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum] {
-    get {return _storage._repeatedNestedEnum}
+    get {_storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   /// Map
   var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   var mapStringString: Dictionary<String,String> {
-    get {return _storage._mapStringString}
+    get {_storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   var mapStringBytes: Dictionary<String,Data> {
-    get {return _storage._mapStringBytes}
+    get {_storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
   var mapStringNestedMessage: Dictionary<String,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage> {
-    get {return _storage._mapStringNestedMessage}
+    get {_storage._mapStringNestedMessage}
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
   var mapStringNestedEnum: Dictionary<String,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum> {
-    get {return _storage._mapStringNestedEnum}
+    get {_storage._mapStringNestedEnum}
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
 
@@ -412,314 +412,314 @@ struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {
 
   /// Well-known types
   var optionalBoolWrapper: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get {return _storage._optionalBoolWrapper ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
+    get {_storage._optionalBoolWrapper ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
   /// Returns true if `optionalBoolWrapper` has been explicitly set.
-  var hasOptionalBoolWrapper: Bool {return _storage._optionalBoolWrapper != nil}
+  var hasOptionalBoolWrapper: Bool {_storage._optionalBoolWrapper != nil}
   /// Clears the value of `optionalBoolWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBoolWrapper() {_uniqueStorage()._optionalBoolWrapper = nil}
 
   var optionalInt32Wrapper: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get {return _storage._optionalInt32Wrapper ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
+    get {_storage._optionalInt32Wrapper ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
   }
   /// Returns true if `optionalInt32Wrapper` has been explicitly set.
-  var hasOptionalInt32Wrapper: Bool {return _storage._optionalInt32Wrapper != nil}
+  var hasOptionalInt32Wrapper: Bool {_storage._optionalInt32Wrapper != nil}
   /// Clears the value of `optionalInt32Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt32Wrapper() {_uniqueStorage()._optionalInt32Wrapper = nil}
 
   var optionalInt64Wrapper: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get {return _storage._optionalInt64Wrapper ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
+    get {_storage._optionalInt64Wrapper ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
   /// Returns true if `optionalInt64Wrapper` has been explicitly set.
-  var hasOptionalInt64Wrapper: Bool {return _storage._optionalInt64Wrapper != nil}
+  var hasOptionalInt64Wrapper: Bool {_storage._optionalInt64Wrapper != nil}
   /// Clears the value of `optionalInt64Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt64Wrapper() {_uniqueStorage()._optionalInt64Wrapper = nil}
 
   var optionalUint32Wrapper: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get {return _storage._optionalUint32Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
+    get {_storage._optionalUint32Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
   }
   /// Returns true if `optionalUint32Wrapper` has been explicitly set.
-  var hasOptionalUint32Wrapper: Bool {return _storage._optionalUint32Wrapper != nil}
+  var hasOptionalUint32Wrapper: Bool {_storage._optionalUint32Wrapper != nil}
   /// Clears the value of `optionalUint32Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint32Wrapper() {_uniqueStorage()._optionalUint32Wrapper = nil}
 
   var optionalUint64Wrapper: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get {return _storage._optionalUint64Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
+    get {_storage._optionalUint64Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
   /// Returns true if `optionalUint64Wrapper` has been explicitly set.
-  var hasOptionalUint64Wrapper: Bool {return _storage._optionalUint64Wrapper != nil}
+  var hasOptionalUint64Wrapper: Bool {_storage._optionalUint64Wrapper != nil}
   /// Clears the value of `optionalUint64Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint64Wrapper() {_uniqueStorage()._optionalUint64Wrapper = nil}
 
   var optionalFloatWrapper: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get {return _storage._optionalFloatWrapper ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
+    get {_storage._optionalFloatWrapper ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
   }
   /// Returns true if `optionalFloatWrapper` has been explicitly set.
-  var hasOptionalFloatWrapper: Bool {return _storage._optionalFloatWrapper != nil}
+  var hasOptionalFloatWrapper: Bool {_storage._optionalFloatWrapper != nil}
   /// Clears the value of `optionalFloatWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFloatWrapper() {_uniqueStorage()._optionalFloatWrapper = nil}
 
   var optionalDoubleWrapper: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get {return _storage._optionalDoubleWrapper ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
+    get {_storage._optionalDoubleWrapper ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
   /// Returns true if `optionalDoubleWrapper` has been explicitly set.
-  var hasOptionalDoubleWrapper: Bool {return _storage._optionalDoubleWrapper != nil}
+  var hasOptionalDoubleWrapper: Bool {_storage._optionalDoubleWrapper != nil}
   /// Clears the value of `optionalDoubleWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDoubleWrapper() {_uniqueStorage()._optionalDoubleWrapper = nil}
 
   var optionalStringWrapper: SwiftProtobuf.Google_Protobuf_StringValue {
-    get {return _storage._optionalStringWrapper ?? SwiftProtobuf.Google_Protobuf_StringValue()}
+    get {_storage._optionalStringWrapper ?? SwiftProtobuf.Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
   /// Returns true if `optionalStringWrapper` has been explicitly set.
-  var hasOptionalStringWrapper: Bool {return _storage._optionalStringWrapper != nil}
+  var hasOptionalStringWrapper: Bool {_storage._optionalStringWrapper != nil}
   /// Clears the value of `optionalStringWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStringWrapper() {_uniqueStorage()._optionalStringWrapper = nil}
 
   var optionalBytesWrapper: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get {return _storage._optionalBytesWrapper ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
+    get {_storage._optionalBytesWrapper ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
   }
   /// Returns true if `optionalBytesWrapper` has been explicitly set.
-  var hasOptionalBytesWrapper: Bool {return _storage._optionalBytesWrapper != nil}
+  var hasOptionalBytesWrapper: Bool {_storage._optionalBytesWrapper != nil}
   /// Clears the value of `optionalBytesWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytesWrapper() {_uniqueStorage()._optionalBytesWrapper = nil}
 
   var repeatedBoolWrapper: [SwiftProtobuf.Google_Protobuf_BoolValue] {
-    get {return _storage._repeatedBoolWrapper}
+    get {_storage._repeatedBoolWrapper}
     set {_uniqueStorage()._repeatedBoolWrapper = newValue}
   }
 
   var repeatedInt32Wrapper: [SwiftProtobuf.Google_Protobuf_Int32Value] {
-    get {return _storage._repeatedInt32Wrapper}
+    get {_storage._repeatedInt32Wrapper}
     set {_uniqueStorage()._repeatedInt32Wrapper = newValue}
   }
 
   var repeatedInt64Wrapper: [SwiftProtobuf.Google_Protobuf_Int64Value] {
-    get {return _storage._repeatedInt64Wrapper}
+    get {_storage._repeatedInt64Wrapper}
     set {_uniqueStorage()._repeatedInt64Wrapper = newValue}
   }
 
   var repeatedUint32Wrapper: [SwiftProtobuf.Google_Protobuf_UInt32Value] {
-    get {return _storage._repeatedUint32Wrapper}
+    get {_storage._repeatedUint32Wrapper}
     set {_uniqueStorage()._repeatedUint32Wrapper = newValue}
   }
 
   var repeatedUint64Wrapper: [SwiftProtobuf.Google_Protobuf_UInt64Value] {
-    get {return _storage._repeatedUint64Wrapper}
+    get {_storage._repeatedUint64Wrapper}
     set {_uniqueStorage()._repeatedUint64Wrapper = newValue}
   }
 
   var repeatedFloatWrapper: [SwiftProtobuf.Google_Protobuf_FloatValue] {
-    get {return _storage._repeatedFloatWrapper}
+    get {_storage._repeatedFloatWrapper}
     set {_uniqueStorage()._repeatedFloatWrapper = newValue}
   }
 
   var repeatedDoubleWrapper: [SwiftProtobuf.Google_Protobuf_DoubleValue] {
-    get {return _storage._repeatedDoubleWrapper}
+    get {_storage._repeatedDoubleWrapper}
     set {_uniqueStorage()._repeatedDoubleWrapper = newValue}
   }
 
   var repeatedStringWrapper: [SwiftProtobuf.Google_Protobuf_StringValue] {
-    get {return _storage._repeatedStringWrapper}
+    get {_storage._repeatedStringWrapper}
     set {_uniqueStorage()._repeatedStringWrapper = newValue}
   }
 
   var repeatedBytesWrapper: [SwiftProtobuf.Google_Protobuf_BytesValue] {
-    get {return _storage._repeatedBytesWrapper}
+    get {_storage._repeatedBytesWrapper}
     set {_uniqueStorage()._repeatedBytesWrapper = newValue}
   }
 
   var optionalDuration: SwiftProtobuf.Google_Protobuf_Duration {
-    get {return _storage._optionalDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
+    get {_storage._optionalDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
   /// Returns true if `optionalDuration` has been explicitly set.
-  var hasOptionalDuration: Bool {return _storage._optionalDuration != nil}
+  var hasOptionalDuration: Bool {_storage._optionalDuration != nil}
   /// Clears the value of `optionalDuration`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDuration() {_uniqueStorage()._optionalDuration = nil}
 
   var optionalTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _storage._optionalTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    get {_storage._optionalTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
   }
   /// Returns true if `optionalTimestamp` has been explicitly set.
-  var hasOptionalTimestamp: Bool {return _storage._optionalTimestamp != nil}
+  var hasOptionalTimestamp: Bool {_storage._optionalTimestamp != nil}
   /// Clears the value of `optionalTimestamp`. Subsequent reads from it will return its default value.
   mutating func clearOptionalTimestamp() {_uniqueStorage()._optionalTimestamp = nil}
 
   var optionalFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get {return _storage._optionalFieldMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
+    get {_storage._optionalFieldMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
   /// Returns true if `optionalFieldMask` has been explicitly set.
-  var hasOptionalFieldMask: Bool {return _storage._optionalFieldMask != nil}
+  var hasOptionalFieldMask: Bool {_storage._optionalFieldMask != nil}
   /// Clears the value of `optionalFieldMask`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFieldMask() {_uniqueStorage()._optionalFieldMask = nil}
 
   var optionalStruct: SwiftProtobuf.Google_Protobuf_Struct {
-    get {return _storage._optionalStruct ?? SwiftProtobuf.Google_Protobuf_Struct()}
+    get {_storage._optionalStruct ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
   }
   /// Returns true if `optionalStruct` has been explicitly set.
-  var hasOptionalStruct: Bool {return _storage._optionalStruct != nil}
+  var hasOptionalStruct: Bool {_storage._optionalStruct != nil}
   /// Clears the value of `optionalStruct`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStruct() {_uniqueStorage()._optionalStruct = nil}
 
   var optionalAny: SwiftProtobuf.Google_Protobuf_Any {
-    get {return _storage._optionalAny ?? SwiftProtobuf.Google_Protobuf_Any()}
+    get {_storage._optionalAny ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
   /// Returns true if `optionalAny` has been explicitly set.
-  var hasOptionalAny: Bool {return _storage._optionalAny != nil}
+  var hasOptionalAny: Bool {_storage._optionalAny != nil}
   /// Clears the value of `optionalAny`. Subsequent reads from it will return its default value.
   mutating func clearOptionalAny() {_uniqueStorage()._optionalAny = nil}
 
   var optionalValue: SwiftProtobuf.Google_Protobuf_Value {
-    get {return _storage._optionalValue ?? SwiftProtobuf.Google_Protobuf_Value()}
+    get {_storage._optionalValue ?? SwiftProtobuf.Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
   }
   /// Returns true if `optionalValue` has been explicitly set.
-  var hasOptionalValue: Bool {return _storage._optionalValue != nil}
+  var hasOptionalValue: Bool {_storage._optionalValue != nil}
   /// Clears the value of `optionalValue`. Subsequent reads from it will return its default value.
   mutating func clearOptionalValue() {_uniqueStorage()._optionalValue = nil}
 
   var optionalNullValue: SwiftProtobuf.Google_Protobuf_NullValue {
-    get {return _storage._optionalNullValue}
+    get {_storage._optionalNullValue}
     set {_uniqueStorage()._optionalNullValue = newValue}
   }
 
   var repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] {
-    get {return _storage._repeatedDuration}
+    get {_storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
   }
 
   var repeatedTimestamp: [SwiftProtobuf.Google_Protobuf_Timestamp] {
-    get {return _storage._repeatedTimestamp}
+    get {_storage._repeatedTimestamp}
     set {_uniqueStorage()._repeatedTimestamp = newValue}
   }
 
   var repeatedFieldmask: [SwiftProtobuf.Google_Protobuf_FieldMask] {
-    get {return _storage._repeatedFieldmask}
+    get {_storage._repeatedFieldmask}
     set {_uniqueStorage()._repeatedFieldmask = newValue}
   }
 
   var repeatedStruct: [SwiftProtobuf.Google_Protobuf_Struct] {
-    get {return _storage._repeatedStruct}
+    get {_storage._repeatedStruct}
     set {_uniqueStorage()._repeatedStruct = newValue}
   }
 
   var repeatedAny: [SwiftProtobuf.Google_Protobuf_Any] {
-    get {return _storage._repeatedAny}
+    get {_storage._repeatedAny}
     set {_uniqueStorage()._repeatedAny = newValue}
   }
 
   var repeatedValue: [SwiftProtobuf.Google_Protobuf_Value] {
-    get {return _storage._repeatedValue}
+    get {_storage._repeatedValue}
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
   var repeatedListValue: [SwiftProtobuf.Google_Protobuf_ListValue] {
-    get {return _storage._repeatedListValue}
+    get {_storage._repeatedListValue}
     set {_uniqueStorage()._repeatedListValue = newValue}
   }
 
   /// Test field-name-to-JSON-name convention.
   /// (protobuf says names can be any valid C/C++ identifier.)
   var fieldname1: Int32 {
-    get {return _storage._fieldname1}
+    get {_storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
   }
 
   var fieldName2: Int32 {
-    get {return _storage._fieldName2}
+    get {_storage._fieldName2}
     set {_uniqueStorage()._fieldName2 = newValue}
   }
 
   var fieldName3: Int32 {
-    get {return _storage._fieldName3}
+    get {_storage._fieldName3}
     set {_uniqueStorage()._fieldName3 = newValue}
   }
 
   var field_Name4_: Int32 {
-    get {return _storage._field_Name4_}
+    get {_storage._field_Name4_}
     set {_uniqueStorage()._field_Name4_ = newValue}
   }
 
   var field0Name5: Int32 {
-    get {return _storage._field0Name5}
+    get {_storage._field0Name5}
     set {_uniqueStorage()._field0Name5 = newValue}
   }
 
   var field0Name6: Int32 {
-    get {return _storage._field0Name6}
+    get {_storage._field0Name6}
     set {_uniqueStorage()._field0Name6 = newValue}
   }
 
   var fieldName7: Int32 {
-    get {return _storage._fieldName7}
+    get {_storage._fieldName7}
     set {_uniqueStorage()._fieldName7 = newValue}
   }
 
   var fieldName8: Int32 {
-    get {return _storage._fieldName8}
+    get {_storage._fieldName8}
     set {_uniqueStorage()._fieldName8 = newValue}
   }
 
   var fieldName9: Int32 {
-    get {return _storage._fieldName9}
+    get {_storage._fieldName9}
     set {_uniqueStorage()._fieldName9 = newValue}
   }
 
   var fieldName10: Int32 {
-    get {return _storage._fieldName10}
+    get {_storage._fieldName10}
     set {_uniqueStorage()._fieldName10 = newValue}
   }
 
   var fieldName11: Int32 {
-    get {return _storage._fieldName11}
+    get {_storage._fieldName11}
     set {_uniqueStorage()._fieldName11 = newValue}
   }
 
   var fieldName12: Int32 {
-    get {return _storage._fieldName12}
+    get {_storage._fieldName12}
     set {_uniqueStorage()._fieldName12 = newValue}
   }
 
   var _FieldName13: Int32 {
-    get {return _storage.__FieldName13}
+    get {_storage.__FieldName13}
     set {_uniqueStorage().__FieldName13 = newValue}
   }
 
   var _FieldName14: Int32 {
-    get {return _storage.__FieldName14}
+    get {_storage.__FieldName14}
     set {_uniqueStorage().__FieldName14 = newValue}
   }
 
   var field_Name15: Int32 {
-    get {return _storage._field_Name15}
+    get {_storage._field_Name15}
     set {_uniqueStorage()._field_Name15 = newValue}
   }
 
   var field_Name16: Int32 {
-    get {return _storage._field_Name16}
+    get {_storage._field_Name16}
     set {_uniqueStorage()._field_Name16 = newValue}
   }
 
   var fieldName17__: Int32 {
-    get {return _storage._fieldName17__}
+    get {_storage._fieldName17__}
     set {_uniqueStorage()._fieldName17__ = newValue}
   }
 
   var fieldName18__: Int32 {
-    get {return _storage._fieldName18__}
+    get {_storage._fieldName18__}
     set {_uniqueStorage()._fieldName18__ = newValue}
   }
 
@@ -789,16 +789,16 @@ struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _storage._a}
+      get {_storage._a}
       set {_uniqueStorage()._a = newValue}
     }
 
     var corecursive: SwiftProtoTesting_Test3_TestAllTypesProto3 {
-      get {return _storage._corecursive ?? SwiftProtoTesting_Test3_TestAllTypesProto3()}
+      get {_storage._corecursive ?? SwiftProtoTesting_Test3_TestAllTypesProto3()}
       set {_uniqueStorage()._corecursive = newValue}
     }
     /// Returns true if `corecursive` has been explicitly set.
-    var hasCorecursive: Bool {return _storage._corecursive != nil}
+    var hasCorecursive: Bool {_storage._corecursive != nil}
     /// Clears the value of `corecursive`. Subsequent reads from it will return its default value.
     mutating func clearCorecursive() {_uniqueStorage()._corecursive = nil}
 

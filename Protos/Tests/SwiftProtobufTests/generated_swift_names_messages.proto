@@ -811,7 +811,6 @@ message GeneratedSwiftReservedMessages {
   message result { int32 result = 1; }
   message retention { int32 retention = 1; }
   message rethrows { int32 rethrows = 1; }
-  message return { int32 return = 1; }
   message ReturnType { int32 ReturnType = 1; }
   message revision { int32 revision = 1; }
   message rhs { int32 rhs = 1; }

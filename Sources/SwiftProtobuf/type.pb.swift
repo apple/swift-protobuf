@@ -120,11 +120,11 @@ public struct Google_Protobuf_Type: Sendable {
 
   /// The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {return _sourceContext ?? Google_Protobuf_SourceContext()}
+    get {_sourceContext ?? Google_Protobuf_SourceContext()}
     set {_sourceContext = newValue}
   }
   /// Returns true if `sourceContext` has been explicitly set.
-  public var hasSourceContext: Bool {return self._sourceContext != nil}
+  public var hasSourceContext: Bool {self._sourceContext != nil}
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
   public mutating func clearSourceContext() {self._sourceContext = nil}
 
@@ -403,11 +403,11 @@ public struct Google_Protobuf_Enum: Sendable {
 
   /// The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {return _sourceContext ?? Google_Protobuf_SourceContext()}
+    get {_sourceContext ?? Google_Protobuf_SourceContext()}
     set {_sourceContext = newValue}
   }
   /// Returns true if `sourceContext` has been explicitly set.
-  public var hasSourceContext: Bool {return self._sourceContext != nil}
+  public var hasSourceContext: Bool {self._sourceContext != nil}
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
   public mutating func clearSourceContext() {self._sourceContext = nil}
 
@@ -471,11 +471,11 @@ public struct Google_Protobuf_Option: Sendable {
   /// should be used. If the value is an enum, it should be stored as an int32
   /// value using the google.protobuf.Int32Value type.
   public var value: Google_Protobuf_Any {
-    get {return _value ?? Google_Protobuf_Any()}
+    get {_value ?? Google_Protobuf_Any()}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
-  public var hasValue: Bool {return self._value != nil}
+  public var hasValue: Bool {self._value != nil}
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
   public mutating func clearValue() {self._value = nil}
 

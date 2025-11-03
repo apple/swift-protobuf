@@ -50,38 +50,38 @@ struct SwiftProtoTesting_SwitchSplit_SwitchSplitMessage: Sendable {
 
   /// Regular fields that split the oneof into chunks
   var regularField002: Int32 {
-    get {return _regularField002 ?? 0}
+    get {_regularField002 ?? 0}
     set {_regularField002 = newValue}
   }
   /// Returns true if `regularField002` has been explicitly set.
-  var hasRegularField002: Bool {return self._regularField002 != nil}
+  var hasRegularField002: Bool {self._regularField002 != nil}
   /// Clears the value of `regularField002`. Subsequent reads from it will return its default value.
   mutating func clearRegularField002() {self._regularField002 = nil}
 
   var regularField251: Int32 {
-    get {return _regularField251 ?? 0}
+    get {_regularField251 ?? 0}
     set {_regularField251 = newValue}
   }
   /// Returns true if `regularField251` has been explicitly set.
-  var hasRegularField251: Bool {return self._regularField251 != nil}
+  var hasRegularField251: Bool {self._regularField251 != nil}
   /// Clears the value of `regularField251`. Subsequent reads from it will return its default value.
   mutating func clearRegularField251() {self._regularField251 = nil}
 
   var regularField502: Int32 {
-    get {return _regularField502 ?? 0}
+    get {_regularField502 ?? 0}
     set {_regularField502 = newValue}
   }
   /// Returns true if `regularField502` has been explicitly set.
-  var hasRegularField502: Bool {return self._regularField502 != nil}
+  var hasRegularField502: Bool {self._regularField502 != nil}
   /// Clears the value of `regularField502`. Subsequent reads from it will return its default value.
   mutating func clearRegularField502() {self._regularField502 = nil}
 
   var regularField509: Int32 {
-    get {return _regularField509 ?? 0}
+    get {_regularField509 ?? 0}
     set {_regularField509 = newValue}
   }
   /// Returns true if `regularField509` has been explicitly set.
-  var hasRegularField509: Bool {return self._regularField509 != nil}
+  var hasRegularField509: Bool {self._regularField509 != nil}
   /// Clears the value of `regularField509`. Subsequent reads from it will return its default value.
   mutating func clearRegularField509() {self._regularField509 = nil}
 
