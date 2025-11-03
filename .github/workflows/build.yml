@@ -154,15 +154,11 @@ jobs:
         rm Tests/SwiftProtobufTests/generated_swift_names*
         # On linux, the tests seem to always see leaks that don't show up on macOS. Disable the
         # leak detection and just assume it is a Linux Swift issue. This still gets validation
-        # for other memory errors. Maybe https://bugs.swift.org/browse/SR-6848.
+        # for other memory errors. Maybe https://github.com/swiftlang/swift/issues/49397
         if [ "${{ matrix.sanitizer }}" = "address" ] ; then
           export ASAN_OPTIONS=detect_leaks=0
         fi
-        # 'release' doesn't support @testable, force it on.
-        if [ "${{ matrix.swiftpm_config }}" = "release" ] ; then
-          EXTRAS="-Xswiftc -enable-testing"
-        fi
-        swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
+        swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }}
 
   fuzzing_regressions:
     runs-on: ubuntu-latest
