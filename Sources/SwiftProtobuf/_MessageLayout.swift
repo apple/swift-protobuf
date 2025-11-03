@@ -553,6 +553,7 @@ private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset b
 /// offset in the buffer.
 @_alwaysEmitIntoClient @inline(__always)
 private func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
-    let rawBits = UInt32(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt32.self))
-    return Int((rawBits & 0x00007f) | ((rawBits & 0x007f00) >> 1) | ((rawBits & 0x7f0000) >> 2))
+    let lowBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
+    let highBits = buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt8.self)
+    return Int((lowBits & 0x00007f) | ((lowBits & 0x007f00) >> 1)) | Int((highBits << 16))
 }

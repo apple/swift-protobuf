@@ -1073,8 +1073,13 @@ extension _MessageStorage {
         }
 
         // Compare all of the trivial values (including has-bits) in bitwise fashion.
-        if firstNontrivialStorageOffset != 0 {
-            return memcmp(buffer.baseAddress!, other.buffer.baseAddress!, firstNontrivialStorageOffset) == 0
+        if firstNontrivialStorageOffset != 0
+            && memcmp(buffer.baseAddress!, other.buffer.baseAddress!, firstNontrivialStorageOffset) != 0
+        {
+            return false
+        }
+        if unknownFields.data != other.unknownFields.data {
+            return false
         }
         return true
     }

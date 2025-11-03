@@ -22,7 +22,8 @@ extension _MessageStorage {
             guard isPresent(field) else { continue }
             serializedSize += serializedByteSize(of: field)
         }
-        // TODO: Support unknown fields and extensions.
+        serializedSize += unknownFields.data.count
+         // TODO: Support extensions.
         return serializedSize
     }
 
