@@ -49,10 +49,16 @@ jobs:
     - name: Test runtime
       run: make test-runtime ${{ matrix.swift.hook }}
     - name: Test plugin
+      # The protoc build isn't part of Package@swift-5.10.swift
+      if: ${{ matrix.swift.version != '5.10' }}
       run: make test-plugin
     - name: Test SPM plugin
+      # The protoc build isn't part of Package@swift-5.10.swift
+      if: ${{ matrix.swift.version != '5.10' }}
       run: make test-spm-plugin
     - name: Compilation Tests
+      # The protoc build isn't part of Package@swift-5.10.swift
+      if: ${{ matrix.swift.version != '5.10' }}
       run: make compile-tests
     - name: Build protobuf
       working-directory: Sources/protobuf/protobuf
