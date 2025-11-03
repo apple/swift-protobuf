@@ -212,6 +212,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	diff -ru _test Reference
 
 # Test the SPM plugin.
+# TODO: simplify this when swift 5.10 support is dropped.
 test-spm-plugin:
 	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
 	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
@@ -231,8 +232,14 @@ compile-tests-multimodule:
 
 # Test that ensures that using access level modifiers on imports yields code that's buildable
 # when `InternalImportsByDefault` is enabled on the module.
+# TODO: simplify this when swift 5.10 support is dropped.
 compile-tests-internalimportsbydefault:
-	env PROTOC_PATH=$(shell realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault
+	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
+	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
+		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
+	else \
+		${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
+	fi
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
