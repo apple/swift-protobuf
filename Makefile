@@ -125,7 +125,7 @@ install: build
 	${INSTALL} ${PROTOC_GEN_SWIFT} ${BINDIR}
 
 clean:
-	swift package clean
+	${SWIFT} package clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
 	  docs build
@@ -476,7 +476,7 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto: Protos/mined
 	@echo 'syntax = "proto3";' >> $@
 	@echo 'package swift_proto_testing.generated;' >> $@
 	@echo 'message GeneratedSwiftReservedFields {' >> $@
-	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
+	@cat Protos/mined_words.txt | ${AWK} 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
 	@echo '}' >> $@
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
@@ -489,7 +489,7 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto: Protos/m
 	@echo 'package swift_proto_testing.generated;' >> $@
 	@echo 'enum GeneratedSwiftReservedEnum {' >> $@
 	@echo '  NONE = 0;' >> $@
-	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
+	@cat Protos/mined_words.txt | ${AWK} 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
 	@echo '}' >> $@
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto: Protos/mined_words.txt
@@ -501,7 +501,7 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto: Protos/min
 	@echo 'syntax = "proto3";' >> $@
 	@echo 'package swift_proto_testing.generated;' >> $@
 	@echo 'message GeneratedSwiftReservedMessages {' >> $@
-	@cat Protos/mined_words.txt | awk '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
+	@cat Protos/mined_words.txt | ${AWK} '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
 	@echo '}' >> $@
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_words.txt
@@ -513,7 +513,7 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_
 	@echo 'syntax = "proto3";' >> $@
 	@echo 'package swift_proto_testing.generated;' >> $@
 	@echo 'message GeneratedSwiftReservedEnums {' >> $@
-	@cat Protos/mined_words.txt | awk '{print "  enum " $$1 " { NONE_" $$1 " = 0; }"}' >> $@
+	@cat Protos/mined_words.txt | ${AWK} '{print "  enum " $$1 " { NONE_" $$1 " = 0; }"}' >> $@
 	@echo '}' >> $@
 
 # Rebuild just the protos used by the conformance test runner.
