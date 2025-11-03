@@ -382,7 +382,8 @@ extension _MessageStorage {
         _ = try layout.performOnSubmessageStorage(
             _MessageLayout.SubmessageToken(index: field.submessageIndex),
             field,
-            self
+            self,
+            .read
         ) {
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
             try $0.serializeBytes(into: &encoder, options: options)
@@ -419,7 +420,8 @@ extension _MessageStorage {
         _ = try layout.performOnSubmessageStorage(
             _MessageLayout.SubmessageToken(index: field.submessageIndex),
             field,
-            self
+            self,
+            .read
         ) {
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
             encoder.putVarInt(value: $0.serializedBytesSize())

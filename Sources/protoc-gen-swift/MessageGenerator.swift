@@ -213,6 +213,9 @@ class MessageGenerator {
                 )
             }
             p.print("}")
+            p.print("\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {")
+            p.printIndented("_ = _uniqueStorage()")
+            p.print("}")
         }
         p.print("}")
     }
@@ -368,13 +371,13 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {"
+                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for (index, submessage) in submessages.enumerated() {
                     p.print(
-                        "case \(index + 1): return try storage.performOnSubmessageStorage(of: field, type: \(submessage.typeName).self, perform: perform)"
+                        "case \(index + 1): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(submessage.typeName).self, perform: perform)"
                     )
                 }
                 p.print(

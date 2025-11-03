@@ -537,6 +537,9 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   struct RequiredGroup: @unchecked Sendable {
@@ -569,6 +572,9 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   init() {}
@@ -578,6 +584,9 @@ struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -666,6 +675,9 @@ struct SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -720,13 +732,13 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
-    case 4: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
-    case 5: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self, perform: perform)
+    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
+    case 4: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
+    case 5: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }

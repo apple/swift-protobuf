@@ -260,7 +260,8 @@ extension _MessageStorage {
         _ = try! layout.performOnSubmessageStorage(
             _MessageLayout.SubmessageToken(index: field.submessageIndex),
             field,
-            self
+            self,
+            .read
         ) {
             let singleMessageSize = $0.serializedBytesSize()
             totalMessagesSize +=
@@ -288,7 +289,8 @@ extension _MessageStorage {
         _ = try! layout.performOnSubmessageStorage(
             _MessageLayout.SubmessageToken(index: field.submessageIndex),
             field,
-            self
+            self,
+            .read
         ) {
             totalMessagesSize +=
                 $0.serializedBytesSize()

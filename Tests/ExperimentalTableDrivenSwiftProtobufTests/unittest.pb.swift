@@ -681,6 +681,9 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   struct OptionalGroup: @unchecked Sendable {
@@ -712,6 +715,9 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
     }
   }
 
@@ -745,6 +751,9 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   init() {}
@@ -754,6 +763,9 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -802,6 +814,9 @@ struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -845,6 +860,9 @@ struct SwiftProtoTesting_ForeignMessage: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
@@ -874,6 +892,9 @@ struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, @un
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -907,6 +928,9 @@ struct SwiftProtoTesting_OptionalGroup_extension: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 struct SwiftProtoTesting_RepeatedGroup_extension: @unchecked Sendable {
@@ -939,6 +963,9 @@ struct SwiftProtoTesting_RepeatedGroup_extension: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 struct SwiftProtoTesting_TestNestedExtension: @unchecked Sendable {
@@ -961,6 +988,9 @@ struct SwiftProtoTesting_TestNestedExtension: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -1298,6 +1328,9 @@ struct SwiftProtoTesting_TestRequired: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 struct SwiftProtoTesting_TestRequiredForeign: @unchecked Sendable {
@@ -1343,6 +1376,9 @@ struct SwiftProtoTesting_TestRequiredForeign: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -1390,6 +1426,9 @@ struct SwiftProtoTesting_TestRequiredMessage: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// TestEmptyMessage is used to test unknown field support.
@@ -1413,6 +1452,9 @@ struct SwiftProtoTesting_TestEmptyMessage: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -1458,6 +1500,9 @@ struct SwiftProtoTesting_TestReallyLargeTagNumber: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
@@ -1498,6 +1543,9 @@ struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -1594,6 +1642,9 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   init() {}
@@ -1610,6 +1661,9 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -1871,6 +1925,9 @@ struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Test oneofs.
@@ -1976,6 +2033,9 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   init() {}
@@ -1985,6 +2045,9 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -2073,6 +2136,9 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   init() {}
@@ -2082,6 +2148,9 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -2175,6 +2244,9 @@ struct SwiftProtoTesting_TestPackedTypes: @unchecked Sendable {
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -2271,6 +2343,9 @@ struct SwiftProtoTesting_TestUnpackedTypes: @unchecked Sendable {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
@@ -2300,6 +2375,9 @@ struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -2438,6 +2516,9 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
         if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
         return _storage
       }
+      mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+        _ = _uniqueStorage()
+      }
     }
 
     struct Group2: @unchecked Sendable {
@@ -2470,6 +2551,9 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
         if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
         return _storage
       }
+      mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+        _ = _uniqueStorage()
+      }
     }
 
     init() {}
@@ -2479,6 +2563,9 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
     }
   }
 
@@ -2512,6 +2599,9 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   struct RepeatedGroup: @unchecked Sendable {
@@ -2544,6 +2634,9 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+      _ = _uniqueStorage()
+    }
   }
 
   init() {}
@@ -2560,6 +2653,9 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
   }
 }
 
@@ -4187,17 +4283,17 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
-    case 4: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
-    case 5: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
-    case 6: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self, perform: perform)
-    case 7: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self, perform: perform)
-    case 8: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_ForeignMessage].self, perform: perform)
-    case 9: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_Import_ImportMessage].self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
+    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
+    case 4: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
+    case 5: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
+    case 6: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self, perform: perform)
+    case 7: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self, perform: perform)
+    case 8: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_ForeignMessage].self, perform: perform)
+    case 9: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_Import_ImportMessage].self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4381,11 +4477,11 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_NestedTestAllTypes.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_NestedTestAllTypes].self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_NestedTestAllTypes.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_NestedTestAllTypes].self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4637,9 +4733,9 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4709,10 +4805,10 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestRequired.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestRequired.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4782,10 +4878,10 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestRequired.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestRequired.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4926,9 +5022,9 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestRecursiveMessage.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestRecursiveMessage.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -4991,9 +5087,9 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5137,10 +5233,10 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestOneof.FooGroup.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestOneof.FooGroup.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5240,9 +5336,9 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5474,12 +5570,12 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self, perform: perform)
-    case 4: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
+    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self, perform: perform)
+    case 4: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5552,11 +5648,11 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self, perform: perform)
+    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5619,9 +5715,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5684,9 +5780,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5749,9 +5845,9 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
@@ -5814,9 +5910,9 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
     default: preconditionFailure("invalid submessage token; this is a generator bug")
     }
   }
