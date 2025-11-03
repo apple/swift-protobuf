@@ -104,7 +104,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
             let defaultClause = hasFieldPresence ? " ?? \(swiftDefaultValue)" : ""
             p.printIndented(
-                "get {return _storage.\(underscoreSwiftName)\(defaultClause)}",
+                "get {_storage.\(underscoreSwiftName)\(defaultClause)}",
                 "set {_uniqueStorage().\(underscoreSwiftName) = newValue}"
             )
             p.print("}")
@@ -112,7 +112,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             if hasFieldPresence {
                 p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
                 p.printIndented(
-                    "get {return \(underscoreSwiftName) ?? \(swiftDefaultValue)}",
+                    "get {\(underscoreSwiftName) ?? \(swiftDefaultValue)}",
                     "set {\(underscoreSwiftName) = newValue}"
                 )
                 p.print("}")
@@ -126,7 +126,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         let immutableStoragePrefix = usesHeapStorage ? "_storage." : "self."
         p.print(
             "/// Returns true if `\(swiftName)` has been explicitly set.",
-            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(underscoreSwiftName) != nil}"
+            "\(visibility)var \(swiftHasName): Bool {\(immutableStoragePrefix)\(underscoreSwiftName) != nil}"
         )
 
         let mutableStoragePrefix = usesHeapStorage ? "_uniqueStorage()." : "self."
