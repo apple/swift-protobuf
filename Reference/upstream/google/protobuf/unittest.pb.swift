@@ -2220,6 +2220,36 @@ struct Proto2Unittest_TestRequiredMessage: Sendable {
   fileprivate var _requiredMessage: Proto2Unittest_TestRequired? = nil
 }
 
+struct Proto2Unittest_TestRequiredLazyMessage: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var child: Proto2Unittest_TestRequired {
+    get {return _storage._child ?? Proto2Unittest_TestRequired()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return _storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  var recurse: Proto2Unittest_TestRequiredLazyMessage {
+    get {return _storage._recurse ?? Proto2Unittest_TestRequiredLazyMessage()}
+    set {_uniqueStorage()._recurse = newValue}
+  }
+  /// Returns true if `recurse` has been explicitly set.
+  var hasRecurse: Bool {return _storage._recurse != nil}
+  /// Clears the value of `recurse`. Subsequent reads from it will return its default value.
+  mutating func clearRecurse() {_uniqueStorage()._recurse = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 struct Proto2Unittest_TestNestedRequiredForeign: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2809,6 +2839,63 @@ struct Proto2Unittest_TestLazyMessage: Sendable {
   init() {}
 
   fileprivate var _subMessage: Proto2Unittest_TestAllTypes? = nil
+}
+
+struct Proto2Unittest_TestLazyRequiredEnum: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalRequiredOpenEnum: Proto2Unittest_TestRequiredOpenEnum {
+    get {return _storage._optionalRequiredOpenEnum ?? Proto2Unittest_TestRequiredOpenEnum()}
+    set {_uniqueStorage()._optionalRequiredOpenEnum = newValue}
+  }
+  /// Returns true if `optionalRequiredOpenEnum` has been explicitly set.
+  var hasOptionalRequiredOpenEnum: Bool {return _storage._optionalRequiredOpenEnum != nil}
+  /// Clears the value of `optionalRequiredOpenEnum`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRequiredOpenEnum() {_uniqueStorage()._optionalRequiredOpenEnum = nil}
+
+  var optionalRequiredEnum: Proto2Unittest_TestRequiredEnum {
+    get {return _storage._optionalRequiredEnum ?? Proto2Unittest_TestRequiredEnum()}
+    set {_uniqueStorage()._optionalRequiredEnum = newValue}
+  }
+  /// Returns true if `optionalRequiredEnum` has been explicitly set.
+  var hasOptionalRequiredEnum: Bool {return _storage._optionalRequiredEnum != nil}
+  /// Clears the value of `optionalRequiredEnum`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRequiredEnum() {_uniqueStorage()._optionalRequiredEnum = nil}
+
+  var optionalRequiredEnumNoMask: Proto2Unittest_TestRequiredEnumNoMask {
+    get {return _storage._optionalRequiredEnumNoMask ?? Proto2Unittest_TestRequiredEnumNoMask()}
+    set {_uniqueStorage()._optionalRequiredEnumNoMask = newValue}
+  }
+  /// Returns true if `optionalRequiredEnumNoMask` has been explicitly set.
+  var hasOptionalRequiredEnumNoMask: Bool {return _storage._optionalRequiredEnumNoMask != nil}
+  /// Clears the value of `optionalRequiredEnumNoMask`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRequiredEnumNoMask() {_uniqueStorage()._optionalRequiredEnumNoMask = nil}
+
+  var optionalRequiredEnumMulti: Proto2Unittest_TestRequiredEnumMulti {
+    get {return _storage._optionalRequiredEnumMulti ?? Proto2Unittest_TestRequiredEnumMulti()}
+    set {_uniqueStorage()._optionalRequiredEnumMulti = newValue}
+  }
+  /// Returns true if `optionalRequiredEnumMulti` has been explicitly set.
+  var hasOptionalRequiredEnumMulti: Bool {return _storage._optionalRequiredEnumMulti != nil}
+  /// Clears the value of `optionalRequiredEnumMulti`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRequiredEnumMulti() {_uniqueStorage()._optionalRequiredEnumMulti = nil}
+
+  var optionalRequiredNoMask: Proto2Unittest_TestRequiredNoMaskMulti {
+    get {return _storage._optionalRequiredNoMask ?? Proto2Unittest_TestRequiredNoMaskMulti()}
+    set {_uniqueStorage()._optionalRequiredNoMask = newValue}
+  }
+  /// Returns true if `optionalRequiredNoMask` has been explicitly set.
+  var hasOptionalRequiredNoMask: Bool {return _storage._optionalRequiredNoMask != nil}
+  /// Clears the value of `optionalRequiredNoMask`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRequiredNoMask() {_uniqueStorage()._optionalRequiredNoMask = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto2Unittest_TestLazyMessageRepeated: Sendable {
@@ -13135,6 +13222,91 @@ extension Proto2Unittest_TestRequiredMessage: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
+extension Proto2Unittest_TestRequiredLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredLazyMessage"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}recurse\0")
+
+  fileprivate class _StorageClass {
+    var _child: Proto2Unittest_TestRequired? = nil
+    var _recurse: Proto2Unittest_TestRequiredLazyMessage? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _recurse = source._recurse
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._child, !v.isInitialized {return false}
+      if let v = _storage._recurse, !v.isInitialized {return false}
+      return true
+    }
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._recurse) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._recurse {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_TestRequiredLazyMessage, rhs: Proto2Unittest_TestRequiredLazyMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._recurse != rhs_storage._recurse {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Proto2Unittest_TestNestedRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedRequiredForeign"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}payload\0\u{1}dummy\0\u{4}\u{2}required_enum\0\u{3}required_enum_no_mask\0\u{3}required_enum_multi\0\u{4}\u{2}required_no_mask\0")
@@ -14207,6 +14379,115 @@ extension Proto2Unittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._
 
   static func ==(lhs: Proto2Unittest_TestLazyMessage, rhs: Proto2Unittest_TestLazyMessage) -> Bool {
     if lhs._subMessage != rhs._subMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_TestLazyRequiredEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestLazyRequiredEnum"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_required_open_enum\0\u{3}optional_required_enum\0\u{3}optional_required_enum_no_mask\0\u{3}optional_required_enum_multi\0\u{3}optional_required_no_mask\0")
+
+  fileprivate class _StorageClass {
+    var _optionalRequiredOpenEnum: Proto2Unittest_TestRequiredOpenEnum? = nil
+    var _optionalRequiredEnum: Proto2Unittest_TestRequiredEnum? = nil
+    var _optionalRequiredEnumNoMask: Proto2Unittest_TestRequiredEnumNoMask? = nil
+    var _optionalRequiredEnumMulti: Proto2Unittest_TestRequiredEnumMulti? = nil
+    var _optionalRequiredNoMask: Proto2Unittest_TestRequiredNoMaskMulti? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalRequiredOpenEnum = source._optionalRequiredOpenEnum
+      _optionalRequiredEnum = source._optionalRequiredEnum
+      _optionalRequiredEnumNoMask = source._optionalRequiredEnumNoMask
+      _optionalRequiredEnumMulti = source._optionalRequiredEnumMulti
+      _optionalRequiredNoMask = source._optionalRequiredNoMask
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._optionalRequiredOpenEnum, !v.isInitialized {return false}
+      if let v = _storage._optionalRequiredEnum, !v.isInitialized {return false}
+      if let v = _storage._optionalRequiredEnumNoMask, !v.isInitialized {return false}
+      if let v = _storage._optionalRequiredEnumMulti, !v.isInitialized {return false}
+      if let v = _storage._optionalRequiredNoMask, !v.isInitialized {return false}
+      return true
+    }
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._optionalRequiredOpenEnum) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._optionalRequiredEnum) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._optionalRequiredEnumNoMask) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._optionalRequiredEnumMulti) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._optionalRequiredNoMask) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._optionalRequiredOpenEnum {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._optionalRequiredEnum {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._optionalRequiredEnumNoMask {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._optionalRequiredEnumMulti {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._optionalRequiredNoMask {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_TestLazyRequiredEnum, rhs: Proto2Unittest_TestLazyRequiredEnum) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._optionalRequiredOpenEnum != rhs_storage._optionalRequiredOpenEnum {return false}
+        if _storage._optionalRequiredEnum != rhs_storage._optionalRequiredEnum {return false}
+        if _storage._optionalRequiredEnumNoMask != rhs_storage._optionalRequiredEnumNoMask {return false}
+        if _storage._optionalRequiredEnumMulti != rhs_storage._optionalRequiredEnumMulti {return false}
+        if _storage._optionalRequiredNoMask != rhs_storage._optionalRequiredNoMask {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

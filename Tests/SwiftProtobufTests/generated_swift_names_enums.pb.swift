@@ -4531,6 +4531,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum clearRemovalError: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneClearRemovalError // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearRemovalError
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearRemovalError
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearRemovalError: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRemovalError] = [
+      .noneClearRemovalError,
+    ]
+
+  }
+
   enum clearRepeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearRepeated // = 0
@@ -15151,6 +15181,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum hasRemovalError: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneHasRemovalError // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasRemovalError
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasRemovalError
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasRemovalError: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRemovalError] = [
+      .noneHasRemovalError,
+    ]
+
+  }
+
   enum hasRepeated: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneHasRepeated // = 0
@@ -23731,6 +23791,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum removalError: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneRemovalError // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRemovalError
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRemovalError
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRemovalError: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.removalError] = [
+      .noneRemovalError,
+    ]
+
+  }
+
   enum removingAllFieldsOf: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneRemovingAllFieldsOf // = 0
@@ -31377,6 +31467,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPyGeneric
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_clearPyGenericServices\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRemovalError: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_clearRemovalError\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRepeated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_clearRepeated\0")
 }
@@ -32793,6 +32887,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPyGenericSe
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_hasPyGenericServices\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRemovalError: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_hasRemovalError\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRepeated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_hasRepeated\0")
 }
@@ -33935,6 +34033,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.register: Swif
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.remainingProgram: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_remainingProgram\0")
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.removalError: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_removalError\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.removingAllFieldsOf: SwiftProtobuf._ProtoNameProviding {

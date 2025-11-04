@@ -620,6 +620,8 @@ update-proto-files: check-for-protobuf-checkout
 #
 # Helper to see if update-proto-files should be done
 #
+# Usually want to also provide `GOOGLE_PROTOBUF_CHECKOUT=some_local_head_protobuf` so
+# you are checking against a state this project hasn't adopted yet.
 check-proto-files: check-for-protobuf-checkout
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto conformance/test_protos/*.proto`; do \
 		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" \

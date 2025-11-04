@@ -1831,6 +1831,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
+  struct clearRemovalError: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var clearRemovalError_p: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct clearRepeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -6079,6 +6091,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
+  struct hasRemovalError: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var hasRemovalError_p: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct hasRepeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -9505,6 +9529,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var remainingProgram: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct removalError: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var removalError: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16840,6 +16876,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPyGene
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPyGenericServices, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPyGenericServices) -> Bool {
     if lhs.clearPyGenericServices_p != rhs.clearPyGenericServices_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRemovalError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearRemovalError"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearRemovalError\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.clearRemovalError_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.clearRemovalError_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.clearRemovalError_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRemovalError, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRemovalError) -> Bool {
+    if lhs.clearRemovalError_p != rhs.clearRemovalError_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -27465,6 +27531,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPyGeneri
   }
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRemovalError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRemovalError"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasRemovalError\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.hasRemovalError_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.hasRemovalError_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.hasRemovalError_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRemovalError, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRemovalError) -> Bool {
+    if lhs.hasRemovalError_p != rhs.hasRemovalError_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRepeated"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasRepeated\0")
@@ -36040,6 +36136,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.remainingPr
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.remainingProgram, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.remainingProgram) -> Bool {
     if lhs.remainingProgram != rhs.remainingProgram {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.removalError: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".removalError"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}removalError\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.removalError) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.removalError != 0 {
+      try visitor.visitSingularInt32Field(value: self.removalError, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.removalError, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.removalError) -> Bool {
+    if lhs.removalError != rhs.removalError {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
