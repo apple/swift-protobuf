@@ -39,11 +39,11 @@ struct Proto2Unittest_LazyImports_ImportedMessage: Sendable {
   // methods supported on all messages.
 
   var lazyMessage: Proto2Unittest_LazyImports_LazyMessage {
-    get {return _lazyMessage ?? Proto2Unittest_LazyImports_LazyMessage()}
+    get {_lazyMessage ?? Proto2Unittest_LazyImports_LazyMessage()}
     set {_lazyMessage = newValue}
   }
   /// Returns true if `lazyMessage` has been explicitly set.
-  var hasLazyMessage: Bool {return self._lazyMessage != nil}
+  var hasLazyMessage: Bool {self._lazyMessage != nil}
   /// Clears the value of `lazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearLazyMessage() {self._lazyMessage = nil}
 

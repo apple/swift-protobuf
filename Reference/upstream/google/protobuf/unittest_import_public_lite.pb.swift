@@ -35,11 +35,11 @@ struct Proto2UnittestImport_PublicImportMessageLite: Sendable {
   // methods supported on all messages.
 
   var e: Int32 {
-    get {return _e ?? 0}
+    get {_e ?? 0}
     set {_e = newValue}
   }
   /// Returns true if `e` has been explicitly set.
-  var hasE: Bool {return self._e != nil}
+  var hasE: Bool {self._e != nil}
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
   mutating func clearE() {self._e = nil}
 

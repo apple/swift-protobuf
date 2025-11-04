@@ -26,20 +26,20 @@ struct EditionsUnittest_LengthPrefixed: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
   var b: Int32 {
-    get {return _b ?? 0}
+    get {_b ?? 0}
     set {_b = newValue}
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool {return self._b != nil}
+  var hasB: Bool {self._b != nil}
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() {self._b = nil}
 
@@ -57,20 +57,20 @@ struct EditionsUnittest_NotGroupLikeScope: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
   var b: Int32 {
-    get {return _b ?? 0}
+    get {_b ?? 0}
     set {_b = newValue}
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool {return self._b != nil}
+  var hasB: Bool {self._b != nil}
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() {self._b = nil}
 
@@ -88,20 +88,20 @@ struct EditionsUnittest_GroupLikeFileScope: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
   var b: Int32 {
-    get {return _b ?? 0}
+    get {_b ?? 0}
     set {_b = newValue}
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool {return self._b != nil}
+  var hasB: Bool {self._b != nil}
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() {self._b = nil}
 
@@ -120,61 +120,61 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
 
   /// Non-delimited field that otherwise looks group-like.
   var lengthprefixed: EditionsUnittest_TestDelimited.LengthPrefixed {
-    get {return _storage._lengthprefixed ?? EditionsUnittest_TestDelimited.LengthPrefixed()}
+    get {_storage._lengthprefixed ?? EditionsUnittest_TestDelimited.LengthPrefixed()}
     set {_uniqueStorage()._lengthprefixed = newValue}
   }
   /// Returns true if `lengthprefixed` has been explicitly set.
-  var hasLengthprefixed: Bool {return _storage._lengthprefixed != nil}
+  var hasLengthprefixed: Bool {_storage._lengthprefixed != nil}
   /// Clears the value of `lengthprefixed`. Subsequent reads from it will return its default value.
   mutating func clearLengthprefixed() {_uniqueStorage()._lengthprefixed = nil}
 
   /// Nested field for nested tests.
   var nested: EditionsUnittest_TestDelimited {
-    get {return _storage._nested ?? EditionsUnittest_TestDelimited()}
+    get {_storage._nested ?? EditionsUnittest_TestDelimited()}
     set {_uniqueStorage()._nested = newValue}
   }
   /// Returns true if `nested` has been explicitly set.
-  var hasNested: Bool {return _storage._nested != nil}
+  var hasNested: Bool {_storage._nested != nil}
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
   mutating func clearNested() {_uniqueStorage()._nested = nil}
 
   /// Truly group-like field.
   var groupLike: EditionsUnittest_TestDelimited.GroupLike {
-    get {return _storage._groupLike ?? EditionsUnittest_TestDelimited.GroupLike()}
+    get {_storage._groupLike ?? EditionsUnittest_TestDelimited.GroupLike()}
     set {_uniqueStorage()._groupLike = newValue}
   }
   /// Returns true if `groupLike` has been explicitly set.
-  var hasGroupLike: Bool {return _storage._groupLike != nil}
+  var hasGroupLike: Bool {_storage._groupLike != nil}
   /// Clears the value of `groupLike`. Subsequent reads from it will return its default value.
   mutating func clearGroupLike() {_uniqueStorage()._groupLike = nil}
 
   /// Delimited field that isn't group-like solely because of its name.
   var notgrouplike: EditionsUnittest_TestDelimited.GroupLike {
-    get {return _storage._notgrouplike ?? EditionsUnittest_TestDelimited.GroupLike()}
+    get {_storage._notgrouplike ?? EditionsUnittest_TestDelimited.GroupLike()}
     set {_uniqueStorage()._notgrouplike = newValue}
   }
   /// Returns true if `notgrouplike` has been explicitly set.
-  var hasNotgrouplike: Bool {return _storage._notgrouplike != nil}
+  var hasNotgrouplike: Bool {_storage._notgrouplike != nil}
   /// Clears the value of `notgrouplike`. Subsequent reads from it will return its default value.
   mutating func clearNotgrouplike() {_uniqueStorage()._notgrouplike = nil}
 
   /// Delimited field that isn't group-like because of the scope of its type.
   var notgrouplikescope: EditionsUnittest_NotGroupLikeScope {
-    get {return _storage._notgrouplikescope ?? EditionsUnittest_NotGroupLikeScope()}
+    get {_storage._notgrouplikescope ?? EditionsUnittest_NotGroupLikeScope()}
     set {_uniqueStorage()._notgrouplikescope = newValue}
   }
   /// Returns true if `notgrouplikescope` has been explicitly set.
-  var hasNotgrouplikescope: Bool {return _storage._notgrouplikescope != nil}
+  var hasNotgrouplikescope: Bool {_storage._notgrouplikescope != nil}
   /// Clears the value of `notgrouplikescope`. Subsequent reads from it will return its default value.
   mutating func clearNotgrouplikescope() {_uniqueStorage()._notgrouplikescope = nil}
 
   /// Delimited field that's grouplike except that it's an imported type.
   var messageimport: EditionsUnittest_MessageImport {
-    get {return _storage._messageimport ?? EditionsUnittest_MessageImport()}
+    get {_storage._messageimport ?? EditionsUnittest_MessageImport()}
     set {_uniqueStorage()._messageimport = newValue}
   }
   /// Returns true if `messageimport` has been explicitly set.
-  var hasMessageimport: Bool {return _storage._messageimport != nil}
+  var hasMessageimport: Bool {_storage._messageimport != nil}
   /// Clears the value of `messageimport`. Subsequent reads from it will return its default value.
   mutating func clearMessageimport() {_uniqueStorage()._messageimport = nil}
 
@@ -186,20 +186,20 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 0}
+      get {_a ?? 0}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
     var b: Int32 {
-      get {return _b ?? 0}
+      get {_b ?? 0}
       set {_b = newValue}
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool {return self._b != nil}
+    var hasB: Bool {self._b != nil}
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() {self._b = nil}
 
@@ -217,20 +217,20 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 0}
+      get {_a ?? 0}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
     var b: Int32 {
-      get {return _b ?? 0}
+      get {_b ?? 0}
       set {_b = newValue}
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool {return self._b != nil}
+    var hasB: Bool {self._b != nil}
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() {self._b = nil}
 

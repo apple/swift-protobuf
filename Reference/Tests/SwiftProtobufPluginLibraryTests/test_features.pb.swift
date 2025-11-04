@@ -38,47 +38,47 @@ struct SwiftFeatureTest_TestFeatures: Sendable {
   // methods supported on all messages.
 
   var feature1: SwiftFeatureTest_TestFeatures.EnumFeature {
-    get {return _feature1 ?? .unknown}
+    get {_feature1 ?? .unknown}
     set {_feature1 = newValue}
   }
   /// Returns true if `feature1` has been explicitly set.
-  var hasFeature1: Bool {return self._feature1 != nil}
+  var hasFeature1: Bool {self._feature1 != nil}
   /// Clears the value of `feature1`. Subsequent reads from it will return its default value.
   mutating func clearFeature1() {self._feature1 = nil}
 
   var feature2: SwiftFeatureTest_TestFeatures.EnumFeature {
-    get {return _feature2 ?? .unknown}
+    get {_feature2 ?? .unknown}
     set {_feature2 = newValue}
   }
   /// Returns true if `feature2` has been explicitly set.
-  var hasFeature2: Bool {return self._feature2 != nil}
+  var hasFeature2: Bool {self._feature2 != nil}
   /// Clears the value of `feature2`. Subsequent reads from it will return its default value.
   mutating func clearFeature2() {self._feature2 = nil}
 
   var feature3: SwiftFeatureTest_TestFeatures.EnumFeature {
-    get {return _feature3 ?? .unknown}
+    get {_feature3 ?? .unknown}
     set {_feature3 = newValue}
   }
   /// Returns true if `feature3` has been explicitly set.
-  var hasFeature3: Bool {return self._feature3 != nil}
+  var hasFeature3: Bool {self._feature3 != nil}
   /// Clears the value of `feature3`. Subsequent reads from it will return its default value.
   mutating func clearFeature3() {self._feature3 = nil}
 
   var feature4: SwiftFeatureTest_TestFeatures.EnumFeature {
-    get {return _feature4 ?? .unknown}
+    get {_feature4 ?? .unknown}
     set {_feature4 = newValue}
   }
   /// Returns true if `feature4` has been explicitly set.
-  var hasFeature4: Bool {return self._feature4 != nil}
+  var hasFeature4: Bool {self._feature4 != nil}
   /// Clears the value of `feature4`. Subsequent reads from it will return its default value.
   mutating func clearFeature4() {self._feature4 = nil}
 
   var feature5: SwiftFeatureTest_TestFeatures.EnumFeature {
-    get {return _feature5 ?? .unknown}
+    get {_feature5 ?? .unknown}
     set {_feature5 = newValue}
   }
   /// Returns true if `feature5` has been explicitly set.
-  var hasFeature5: Bool {return self._feature5 != nil}
+  var hasFeature5: Bool {self._feature5 != nil}
   /// Clears the value of `feature5`. Subsequent reads from it will return its default value.
   mutating func clearFeature5() {self._feature5 = nil}
 

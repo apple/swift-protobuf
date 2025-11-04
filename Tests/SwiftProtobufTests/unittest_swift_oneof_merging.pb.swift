@@ -94,29 +94,29 @@ struct SwiftProtoTesting_Merging_TestMessage: Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 0}
+      get {_a ?? 0}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
     var b: Int32 {
-      get {return _b ?? 0}
+      get {_b ?? 0}
       set {_b = newValue}
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool {return self._b != nil}
+    var hasB: Bool {self._b != nil}
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() {self._b = nil}
 
     var c: Int32 {
-      get {return _c ?? 0}
+      get {_c ?? 0}
       set {_c = newValue}
     }
     /// Returns true if `c` has been explicitly set.
-    var hasC: Bool {return self._c != nil}
+    var hasC: Bool {self._c != nil}
     /// Clears the value of `c`. Subsequent reads from it will return its default value.
     mutating func clearC() {self._c = nil}
 
@@ -138,11 +138,11 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: Sendable {
   // methods supported on all messages.
 
   var optionalMessage: SwiftProtoTesting_Merging_TestMessage {
-    get {return _optionalMessage ?? SwiftProtoTesting_Merging_TestMessage()}
+    get {_optionalMessage ?? SwiftProtoTesting_Merging_TestMessage()}
     set {_optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
-  var hasOptionalMessage: Bool {return self._optionalMessage != nil}
+  var hasOptionalMessage: Bool {self._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {self._optionalMessage = nil}
 

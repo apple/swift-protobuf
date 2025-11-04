@@ -24331,36 +24331,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum returnEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneReturn // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneReturn
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneReturn
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneReturn: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.returnEnum] = [
-      .noneReturn,
-    ]
-
-  }
-
   enum ReturnType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneReturnType // = 0
@@ -34135,10 +34105,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.retention: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rethrowsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_rethrows\0")
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.returnEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_return\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ReturnType: SwiftProtobuf._ProtoNameProviding {

@@ -51,11 +51,11 @@ struct SwiftProtoTesting_Extend2_MyMessage: Sendable {
     // methods supported on all messages.
 
     var c: Int64 {
-      get {return _c ?? 0}
+      get {_c ?? 0}
       set {_c = newValue}
     }
     /// Returns true if `c` has been explicitly set.
-    var hasC: Bool {return self._c != nil}
+    var hasC: Bool {self._c != nil}
     /// Clears the value of `c`. Subsequent reads from it will return its default value.
     mutating func clearC() {self._c = nil}
 
@@ -75,11 +75,11 @@ struct SwiftProtoTesting_Extend2_C: Sendable {
   // methods supported on all messages.
 
   var c: Int64 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 

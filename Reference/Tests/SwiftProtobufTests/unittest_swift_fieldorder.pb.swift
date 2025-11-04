@@ -42,29 +42,29 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
   // methods supported on all messages.
 
   var myString: String {
-    get {return _myString ?? String()}
+    get {_myString ?? String()}
     set {_myString = newValue}
   }
   /// Returns true if `myString` has been explicitly set.
-  var hasMyString: Bool {return self._myString != nil}
+  var hasMyString: Bool {self._myString != nil}
   /// Clears the value of `myString`. Subsequent reads from it will return its default value.
   mutating func clearMyString() {self._myString = nil}
 
   var myInt: Int64 {
-    get {return _myInt ?? 0}
+    get {_myInt ?? 0}
     set {_myInt = newValue}
   }
   /// Returns true if `myInt` has been explicitly set.
-  var hasMyInt: Bool {return self._myInt != nil}
+  var hasMyInt: Bool {self._myInt != nil}
   /// Clears the value of `myInt`. Subsequent reads from it will return its default value.
   mutating func clearMyInt() {self._myInt = nil}
 
   var myFloat: Float {
-    get {return _myFloat ?? 0}
+    get {_myFloat ?? 0}
     set {_myFloat = newValue}
   }
   /// Returns true if `myFloat` has been explicitly set.
-  var hasMyFloat: Bool {return self._myFloat != nil}
+  var hasMyFloat: Bool {self._myFloat != nil}
   /// Clears the value of `myFloat`. Subsequent reads from it will return its default value.
   mutating func clearMyFloat() {self._myFloat = nil}
 
@@ -103,11 +103,11 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
   }
 
   var optionalNestedMessage: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage {
-    get {return _optionalNestedMessage ?? SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage()}
+    get {_optionalNestedMessage ?? SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage()}
     set {_optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool {return self._optionalNestedMessage != nil}
+  var hasOptionalNestedMessage: Bool {self._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {self._optionalNestedMessage = nil}
 
@@ -127,20 +127,20 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
     // methods supported on all messages.
 
     var oo: Int64 {
-      get {return _oo ?? 0}
+      get {_oo ?? 0}
       set {_oo = newValue}
     }
     /// Returns true if `oo` has been explicitly set.
-    var hasOo: Bool {return self._oo != nil}
+    var hasOo: Bool {self._oo != nil}
     /// Clears the value of `oo`. Subsequent reads from it will return its default value.
     mutating func clearOo() {self._oo = nil}
 
     var bb: Int32 {
-      get {return _bb ?? 0}
+      get {_bb ?? 0}
       set {_bb = newValue}
     }
     /// Returns true if `bb` has been explicitly set.
-    var hasBb: Bool {return self._bb != nil}
+    var hasBb: Bool {self._bb != nil}
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() {self._bb = nil}
 
@@ -208,11 +208,11 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Extensibl
 
   /// In the middle of previous oneof field ranges.
   var m: Int32 {
-    get {return _m ?? 0}
+    get {_m ?? 0}
     set {_m = newValue}
   }
   /// Returns true if `m` has been explicitly set.
-  var hasM: Bool {return self._m != nil}
+  var hasM: Bool {self._m != nil}
   /// Clears the value of `m`. Subsequent reads from it will return its default value.
   mutating func clearM() {self._m = nil}
 

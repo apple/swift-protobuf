@@ -41,11 +41,11 @@ struct Proto2Unittest_TestMessageSetContainer: Sendable {
   // methods supported on all messages.
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
-    get {return _messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
+    get {_messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_messageSet = newValue}
   }
   /// Returns true if `messageSet` has been explicitly set.
-  var hasMessageSet: Bool {return self._messageSet != nil}
+  var hasMessageSet: Bool {self._messageSet != nil}
   /// Clears the value of `messageSet`. Subsequent reads from it will return its default value.
   mutating func clearMessageSet() {self._messageSet = nil}
 
@@ -62,29 +62,29 @@ struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Sendable {
   // methods supported on all messages.
 
   var container: Proto2Unittest_TestMessageSetContainer {
-    get {return _storage._container ?? Proto2Unittest_TestMessageSetContainer()}
+    get {_storage._container ?? Proto2Unittest_TestMessageSetContainer()}
     set {_uniqueStorage()._container = newValue}
   }
   /// Returns true if `container` has been explicitly set.
-  var hasContainer: Bool {return _storage._container != nil}
+  var hasContainer: Bool {_storage._container != nil}
   /// Clears the value of `container`. Subsequent reads from it will return its default value.
   mutating func clearContainer() {_uniqueStorage()._container = nil}
 
   var child: Proto2Unittest_NestedTestMessageSetContainer {
-    get {return _storage._child ?? Proto2Unittest_NestedTestMessageSetContainer()}
+    get {_storage._child ?? Proto2Unittest_NestedTestMessageSetContainer()}
     set {_uniqueStorage()._child = newValue}
   }
   /// Returns true if `child` has been explicitly set.
-  var hasChild: Bool {return _storage._child != nil}
+  var hasChild: Bool {_storage._child != nil}
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() {_uniqueStorage()._child = nil}
 
   var lazyChild: Proto2Unittest_NestedTestMessageSetContainer {
-    get {return _storage._lazyChild ?? Proto2Unittest_NestedTestMessageSetContainer()}
+    get {_storage._lazyChild ?? Proto2Unittest_NestedTestMessageSetContainer()}
     set {_uniqueStorage()._lazyChild = newValue}
   }
   /// Returns true if `lazyChild` has been explicitly set.
-  var hasLazyChild: Bool {return _storage._lazyChild != nil}
+  var hasLazyChild: Bool {_storage._lazyChild != nil}
   /// Clears the value of `lazyChild`. Subsequent reads from it will return its default value.
   mutating func clearLazyChild() {_uniqueStorage()._lazyChild = nil}
 
@@ -101,29 +101,29 @@ struct Proto2Unittest_NestedTestInt: @unchecked Sendable {
   // methods supported on all messages.
 
   var a: UInt32 {
-    get {return _storage._a ?? 0}
+    get {_storage._a ?? 0}
     set {_uniqueStorage()._a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return _storage._a != nil}
+  var hasA: Bool {_storage._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {_uniqueStorage()._a = nil}
 
   var b: Int32 {
-    get {return _storage._b ?? 0}
+    get {_storage._b ?? 0}
     set {_uniqueStorage()._b = newValue}
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool {return _storage._b != nil}
+  var hasB: Bool {_storage._b != nil}
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() {_uniqueStorage()._b = nil}
 
   var child: Proto2Unittest_NestedTestInt {
-    get {return _storage._child ?? Proto2Unittest_NestedTestInt()}
+    get {_storage._child ?? Proto2Unittest_NestedTestInt()}
     set {_uniqueStorage()._child = newValue}
   }
   /// Returns true if `child` has been explicitly set.
-  var hasChild: Bool {return _storage._child != nil}
+  var hasChild: Bool {_storage._child != nil}
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() {_uniqueStorage()._child = nil}
 
@@ -140,29 +140,29 @@ struct Proto2Unittest_TestMessageSetExtension1: Sendable {
   // methods supported on all messages.
 
   var i: Int32 {
-    get {return _i ?? 0}
+    get {_i ?? 0}
     set {_i = newValue}
   }
   /// Returns true if `i` has been explicitly set.
-  var hasI: Bool {return self._i != nil}
+  var hasI: Bool {self._i != nil}
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() {self._i = nil}
 
   var recursive: Proto2WireformatUnittest_TestMessageSet {
-    get {return _recursive ?? Proto2WireformatUnittest_TestMessageSet()}
+    get {_recursive ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_recursive = newValue}
   }
   /// Returns true if `recursive` has been explicitly set.
-  var hasRecursive: Bool {return self._recursive != nil}
+  var hasRecursive: Bool {self._recursive != nil}
   /// Clears the value of `recursive`. Subsequent reads from it will return its default value.
   mutating func clearRecursive() {self._recursive = nil}
 
   var testAliasing: String {
-    get {return _testAliasing ?? String()}
+    get {_testAliasing ?? String()}
     set {_testAliasing = newValue}
   }
   /// Returns true if `testAliasing` has been explicitly set.
-  var hasTestAliasing: Bool {return self._testAliasing != nil}
+  var hasTestAliasing: Bool {self._testAliasing != nil}
   /// Clears the value of `testAliasing`. Subsequent reads from it will return its default value.
   mutating func clearTestAliasing() {self._testAliasing = nil}
 
@@ -181,11 +181,11 @@ struct Proto2Unittest_TestMessageSetExtension2: Sendable {
   // methods supported on all messages.
 
   var str: String {
-    get {return _str ?? String()}
+    get {_str ?? String()}
     set {_str = newValue}
   }
   /// Returns true if `str` has been explicitly set.
-  var hasStr: Bool {return self._str != nil}
+  var hasStr: Bool {self._str != nil}
   /// Clears the value of `str`. Subsequent reads from it will return its default value.
   mutating func clearStr() {self._str = nil}
 
@@ -202,20 +202,20 @@ struct Proto2Unittest_TestMessageSetExtension3: Sendable {
   // methods supported on all messages.
 
   var msg: Proto2Unittest_NestedTestInt {
-    get {return _msg ?? Proto2Unittest_NestedTestInt()}
+    get {_msg ?? Proto2Unittest_NestedTestInt()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
-  var hasMsg: Bool {return self._msg != nil}
+  var hasMsg: Bool {self._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
   mutating func clearMsg() {self._msg = nil}
 
   var requiredInt: Int32 {
-    get {return _requiredInt ?? 0}
+    get {_requiredInt ?? 0}
     set {_requiredInt = newValue}
   }
   /// Returns true if `requiredInt` has been explicitly set.
-  var hasRequiredInt: Bool {return self._requiredInt != nil}
+  var hasRequiredInt: Bool {self._requiredInt != nil}
   /// Clears the value of `requiredInt`. Subsequent reads from it will return its default value.
   mutating func clearRequiredInt() {self._requiredInt = nil}
 
@@ -243,20 +243,20 @@ struct Proto2Unittest_RawMessageSet: Sendable {
     // methods supported on all messages.
 
     var typeID: Int32 {
-      get {return _typeID ?? 0}
+      get {_typeID ?? 0}
       set {_typeID = newValue}
     }
     /// Returns true if `typeID` has been explicitly set.
-    var hasTypeID: Bool {return self._typeID != nil}
+    var hasTypeID: Bool {self._typeID != nil}
     /// Clears the value of `typeID`. Subsequent reads from it will return its default value.
     mutating func clearTypeID() {self._typeID = nil}
 
     var message: Data {
-      get {return _message ?? Data()}
+      get {_message ?? Data()}
       set {_message = newValue}
     }
     /// Returns true if `message` has been explicitly set.
-    var hasMessage: Bool {return self._message != nil}
+    var hasMessage: Bool {self._message != nil}
     /// Clears the value of `message`. Subsequent reads from it will return its default value.
     mutating func clearMessage() {self._message = nil}
 

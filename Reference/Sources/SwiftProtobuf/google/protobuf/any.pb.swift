@@ -170,13 +170,13 @@ struct Google_Protobuf_Any: @unchecked Sendable {
   /// Schemes other than `http`, `https` (or the empty scheme) might be
   /// used with implementation specific semantics.
   var typeURL: String {
-    get {return _storage._typeURL}
+    get {_storage._typeURL}
     set {_uniqueStorage()._typeURL = newValue}
   }
 
   /// Must be a valid serialized protocol buffer of the above specified type.
   var value: Data {
-    get {return _storage._value}
+    get {_storage._value}
     set {_uniqueStorage()._value = newValue}
   }
 

@@ -43,29 +43,29 @@ struct Proto2Unittest_OptionsMessage: Sendable {
   // methods supported on all messages.
 
   var plainField: Int32 {
-    get {return _plainField ?? 0}
+    get {_plainField ?? 0}
     set {_plainField = newValue}
   }
   /// Returns true if `plainField` has been explicitly set.
-  var hasPlainField: Bool {return self._plainField != nil}
+  var hasPlainField: Bool {self._plainField != nil}
   /// Clears the value of `plainField`. Subsequent reads from it will return its default value.
   mutating func clearPlainField() {self._plainField = nil}
 
   var runtimeRetentionField: Int32 {
-    get {return _runtimeRetentionField ?? 0}
+    get {_runtimeRetentionField ?? 0}
     set {_runtimeRetentionField = newValue}
   }
   /// Returns true if `runtimeRetentionField` has been explicitly set.
-  var hasRuntimeRetentionField: Bool {return self._runtimeRetentionField != nil}
+  var hasRuntimeRetentionField: Bool {self._runtimeRetentionField != nil}
   /// Clears the value of `runtimeRetentionField`. Subsequent reads from it will return its default value.
   mutating func clearRuntimeRetentionField() {self._runtimeRetentionField = nil}
 
   var sourceRetentionField: Int32 {
-    get {return _sourceRetentionField ?? 0}
+    get {_sourceRetentionField ?? 0}
     set {_sourceRetentionField = newValue}
   }
   /// Returns true if `sourceRetentionField` has been explicitly set.
-  var hasSourceRetentionField: Bool {return self._sourceRetentionField != nil}
+  var hasSourceRetentionField: Bool {self._sourceRetentionField != nil}
   /// Clears the value of `sourceRetentionField`. Subsequent reads from it will return its default value.
   mutating func clearSourceRetentionField() {self._sourceRetentionField = nil}
 
@@ -96,11 +96,11 @@ struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable
   // methods supported on all messages.
 
   var f: Float {
-    get {return _f ?? 0}
+    get {_f ?? 0}
     set {_f = newValue}
   }
   /// Returns true if `f` has been explicitly set.
-  var hasF: Bool {return self._f != nil}
+  var hasF: Bool {self._f != nil}
   /// Clears the value of `f`. Subsequent reads from it will return its default value.
   mutating func clearF() {self._f = nil}
 

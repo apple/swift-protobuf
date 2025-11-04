@@ -28,20 +28,20 @@ public struct UsesATransitively: Sendable {
   // methods supported on all messages.
 
   public var a: ModuleA.A {
-    get {return _a ?? ModuleA.A()}
+    get {_a ?? ModuleA.A()}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  public var hasA: Bool {return self._a != nil}
+  public var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   public mutating func clearA() {self._a = nil}
 
   public var e: ModuleA.E {
-    get {return _e ?? .unset}
+    get {_e ?? .unset}
     set {_e = newValue}
   }
   /// Returns true if `e` has been explicitly set.
-  public var hasE: Bool {return self._e != nil}
+  public var hasE: Bool {self._e != nil}
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
   public mutating func clearE() {self._e = nil}
 

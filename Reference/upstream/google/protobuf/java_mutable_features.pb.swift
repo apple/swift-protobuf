@@ -28,11 +28,11 @@ struct Pb_JavaMutableFeatures: Sendable {
   /// Whether to nest the generated class in the generated file class for
   /// Java Proto2 Mutable API. This is only available at the file level.
   var nestInFileClass: Pb_JavaMutableFeatures.NestInFileClassFeature.NestInFileClass {
-    get {return _nestInFileClass ?? .unknown}
+    get {_nestInFileClass ?? .unknown}
     set {_nestInFileClass = newValue}
   }
   /// Returns true if `nestInFileClass` has been explicitly set.
-  var hasNestInFileClass: Bool {return self._nestInFileClass != nil}
+  var hasNestInFileClass: Bool {self._nestInFileClass != nil}
   /// Clears the value of `nestInFileClass`. Subsequent reads from it will return its default value.
   mutating func clearNestInFileClass() {self._nestInFileClass = nil}
 
