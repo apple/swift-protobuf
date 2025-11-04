@@ -380,6 +380,12 @@ extension _MessageStorage {
         unpackedWireFormat: WireFormat,
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws -> Bool {
+        assert(
+            field.rawFieldType != .bytes && field.rawFieldType != .group && field.rawFieldType != .message
+                && field.rawFieldType != .string,
+            "Internal error: length-delimited singular values should not reach here"
+        )
+
         switch tag.wireFormat {
         case unpackedWireFormat:
             appendValue(try decodeElement(&reader), to: field)
