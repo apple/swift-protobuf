@@ -622,19 +622,28 @@ update-proto-files: check-for-protobuf-checkout
 #
 # Usually want to also provide `GOOGLE_PROTOBUF_CHECKOUT=some_local_head_protobuf` so
 # you are checking against a state this project hasn't adopted yet.
+#
+# Since there are multiple things to check we direct the diffs all into a file and check
+# at the end.
 check-proto-files: check-for-protobuf-checkout
+	@rm -f _check_protos.txt && touch _check_protos.txt
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto conformance/test_protos/*.proto`; do \
-		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" \
-		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
+		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" >> _check_protos.txt; \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test`; do \
-		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
-		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
+		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
-		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
-		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
+		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
 	done
+	@if [ -s _check_protos.txt ] ; then \
+	    cat _check_protos.txt; \
+	    rm -f _check_protos.txt; \
+	    echo "ERROR: Time to do a 'make update-proto-files'"; \
+	    exit 1; \
+	else \
+	    rm -f _check_protos.txt; \
+	fi
 
 # Runs the conformance tests.
 test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_list_swift.txt Sources/Conformance/text_format_failure_list_swift.txt
