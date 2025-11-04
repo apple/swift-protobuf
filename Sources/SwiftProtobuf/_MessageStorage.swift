@@ -272,6 +272,7 @@ extension _MessageStorage {
         case .read:
             let submessage = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee
             return try perform(submessage.storageForRuntime)
+
         case .mutate:
             // If the submessage isn't already present, we need to initialize a new one first.
             // Otherwise, ensure that the storage is unique before we mutate it for CoW.
@@ -288,6 +289,9 @@ extension _MessageStorage {
                 pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
             }
             return try perform(pointer.pointee.storageForRuntime)
+
+        case .append:
+            preconditionFailure("Internal error: singular performOnSubmessageStorage should not be called to append")
         }
     }
 
@@ -297,7 +301,8 @@ extension _MessageStorage {
     /// The closure can return false to stop iteration over the submessages early. Likewise, if the
     /// closure throws an error, that error will be propagated all the way to the caller.
     ///
-    /// - Precondition: The field is already known to be present.
+    /// - Precondition: For the read and mutate operations, the field is already known to be
+    ///   present.
     ///
     /// - Returns: The value returned from the last invocation of the closure.
     public func performOnSubmessageStorage<T: _MessageImplementationBase>(
@@ -306,11 +311,34 @@ extension _MessageStorage {
         type: [T].Type,
         perform: (_MessageStorage) throws -> Bool
     ) rethrows -> Bool {
-        let submessages = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1).pointee
-        for submessage in submessages {
+        switch operation {
+        case .read, .mutate:
+            let submessages = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1).pointee
+            for submessage in submessages {
+                guard try perform(submessage.storageForRuntime) else { return false }
+            }
+            return true
+
+        case .append:
+            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+            if !isPresent(field) {
+                pointer.initialize(to: [])
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+                case .oneOfMember(let oneofOffset):
+                    _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+                }
+            }
+
+            // Below, we are mutating the underlying storage of an otherwise immutable message
+            // without guaranteeing uniqueness. This is fine because we've just created the
+            // message so there can be no other references to its storage.
+            let submessage = T.init()
             guard try perform(submessage.storageForRuntime) else { return false }
+            pointer.pointee.append(submessage)
+            return true
         }
-        return true
     }
 
 }
@@ -330,7 +358,7 @@ extension _MessageStorage {
 
     /// Updates the presence of a field, returning the old presence value before it was changed.
     @_alwaysEmitIntoClient @inline(__always)
-    private func updatePresence(hasBit: HasBit, willBeSet: Bool) -> Bool {
+    func updatePresence(hasBit: HasBit, willBeSet: Bool) -> Bool {
         let oldValue = buffer.load(fromByteOffset: hasBit.offset, as: UInt8.self) & ~hasBit.mask
         buffer.storeBytes(of: oldValue | (willBeSet ? hasBit.mask : 0), toByteOffset: hasBit.offset, as: UInt8.self)
         return oldValue != 0
@@ -718,6 +746,25 @@ extension _MessageStorage {
             updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
         }
     }
+
+    /// Appends the given value to the values already present in the field, initializing the field
+    /// if necessary.
+    func appendValue<T>(_ value: T, to field: FieldLayout) {
+        // If the field isn't already present, we need to initialize a new array first.
+        let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+        if !isPresent(field) {
+            pointer.initialize(to: [value])
+            switch field.presence {
+            case .hasBit(let hasByteOffset, let hasMask):
+                _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+            case .oneOfMember(let oneofOffset):
+                _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+            }
+        } else {
+            pointer.pointee.append(value)
+        }
+    }
+
 }
 
 // MARK: - Oneof support
