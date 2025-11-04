@@ -1,0 +1,65 @@
+name: Run Protobuf Head Conformance Tests
+
+# This work workflow checks out head protocolbuffers/protobuf and runs the
+# conformances with that.
+#
+# It runs on all PRs/Commits and also runs on a Cron to keep an eye out for
+# new conformance tests that get added upstream.
+
+# NOTE: If making changes to most of the steps, please also look to update
+# build.yml also the general conformance runs say in sync.
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Every Sunday at 5am.
+    - cron: '0 5 * * 0'
+  # Also allow manual triggering from the github UX to revalidate things.
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      # Could duplicate the matrix from build.yml and test all the supported
+      # Swift versions; but especially the cron side, that doesn't seem worth
+      # doing.
+      image: swift:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        path: swift-protobuf
+        submodules: true
+    - name: Update and install dependencies
+      # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
+      run: apt-get update && apt-get install -y make g++ cmake
+    - name: Checkout protobufbuffers/protobuf
+      uses: actions/checkout@v4
+      with:
+        repository: protocolbuffers/protobuf
+        path: protobuf
+    - name: Build protobuf
+      working-directory: protobuf
+      # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
+      run: |
+        mkdir cmake_build
+        cd cmake_build
+        cmake \
+          -DCMAKE_CXX_STANDARD=17 \
+          -DCMAKE_BUILD_TYPE=Release \
+          -Dprotobuf_BUILD_TESTS=OFF \
+          -Dprotobuf_INSTALL=OFF \
+          -Dprotobuf_BUILD_CONFORMANCE=ON \
+          -S ..
+        NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
+        make -j "${NUM_CPUS}" conformance_test_runner
+    - name: Test conformance
+      working-directory: swift-protobuf
+      run: make test-conformance GOOGLE_PROTOBUF_CHECKOUT=../protobuf
