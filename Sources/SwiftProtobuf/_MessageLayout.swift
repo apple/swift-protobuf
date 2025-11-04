@@ -340,6 +340,11 @@ extension _MessageLayout {
     /// The submessage should be created if it is not already present. If already present, the
     /// storage should be made unique before the mutation.
     case mutate
+
+    /// The submessage's array storage is having a new value appended to it.
+    ///
+    /// The array should be created if it is not already present.
+    case append
 }
 
 /// Provides access to the properties of a field's layout based on a slice of the raw message

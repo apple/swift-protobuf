@@ -106,8 +106,135 @@ extension _MessageStorage {
             break
 
         case .array:
-            // TODO: Support repeated fields.
-            break
+            switch field.rawFieldType {
+            case .bool:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    try $0.nextVarint() != 0
+                }
+
+            case .bytes:
+                guard tag.wireFormat == .lengthDelimited else { return false }
+                try reader.nextLengthDelimitedSlice().withMemoryRebound(to: UInt8.self) { buffer in
+                    appendValue(Data(buffer: buffer), to: field)
+                }
+
+            case .double:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed64) {
+                    Double(bitPattern: try $0.nextLittleEndianUInt64())
+                }
+
+            case .enum:
+                // TODO: Support enums.
+                break
+
+            case .fixed32:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
+                    try $0.nextLittleEndianUInt32()
+                }
+
+            case .fixed64:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed64) {
+                    try $0.nextLittleEndianUInt64()
+                }
+
+            case .float:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
+                    Float(bitPattern: try $0.nextLittleEndianUInt32())
+                }
+
+            case .group:
+                guard tag.wireFormat == .startGroup else { return false }
+                _ = try layout.performOnSubmessageStorage(
+                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    .append
+                ) { submessageStorage in
+                    try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
+                        try submessageStorage.merge(
+                            byReadingFrom: &subReader,
+                            partial: partial,
+                            discardUnknownFields: discardUnknownFields
+                        )
+                    }
+                    return true
+                }
+
+            case .int32:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    // If the number on the wire is larger than fits into an `Int32`, this is not an
+                    // error; we truncate it.
+                    Int32(truncatingIfNeeded: try $0.nextVarint())
+                }
+
+            case .int64:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    Int64(truncatingIfNeeded: try $0.nextVarint())
+                }
+
+            case .message:
+                guard tag.wireFormat == .lengthDelimited else { return false }
+                _ = try layout.performOnSubmessageStorage(
+                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    .append
+                ) { submessageStorage in
+                    try reader.withReaderForNextLengthDelimitedSlice { subReader in
+                        try submessageStorage.merge(
+                            byReadingFrom: &subReader,
+                            partial: partial,
+                            discardUnknownFields: discardUnknownFields
+                        )
+                    }
+                    return true
+                }
+
+            case .sfixed32:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
+                    Int32(bitPattern: try $0.nextLittleEndianUInt32())
+                }
+
+            case .sfixed64:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed64) {
+                    Int64(bitPattern: try $0.nextLittleEndianUInt64())
+                }
+
+            case .sint32:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    // If the number on the wire is larger than fits into an `Int32`, this is not an
+                    // error; we truncate it.
+                    ZigZag.decoded(UInt32(truncatingIfNeeded: try $0.nextVarint()))
+                }
+
+            case .sint64:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    ZigZag.decoded(try $0.nextVarint())
+                }
+
+            case .string:
+                guard tag.wireFormat == .lengthDelimited else { return false }
+                let buffer = try reader.nextLengthDelimitedSlice()
+                guard let string = utf8ToString(bytes: buffer.baseAddress!, count: buffer.count) else {
+                    throw BinaryDecodingError.invalidUTF8
+                }
+                appendValue(string, to: field)
+
+            case .uint32:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    // If the number on the wire is larger than fits into a `UInt32`, this is not an
+                    // error; we truncate it.
+                    UInt32(truncatingIfNeeded: try $0.nextVarint())
+                }
+
+            case .uint64:
+                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                    try $0.nextVarint()
+                }
+
+            default:
+                preconditionFailure("Unreachable")
+            }
 
         case .scalar:
             switch field.rawFieldType {
@@ -231,6 +358,94 @@ extension _MessageStorage {
             preconditionFailure("Unreachable")
         }
         return true
+    }
+
+    /// Appends either a single unpacked value or multiple packed values to the array value of the
+    /// given field, depending on the wire format of the corresponding tag.
+    ///
+    /// - Parameters:
+    ///   - reader: The reader from which the values to append should be read.
+    ///   - field: The field being decoded.
+    ///   - tag: The tag that was read from the wire.
+    ///   - unpackedWireFormat: The wire format that should be expected for values of this type if
+    ///     they are unpacked.
+    ///   - decodeElement: A function that takes a `WireFormatReader` covering the slice of packed
+    ///     elements and reads and returns a single element from it.
+    /// - Returns: True if the value was consumed properly, or false if the wire format was not
+    ///   what was expected.
+    private func appendMaybePackedValues<T>(
+        from reader: inout WireFormatReader,
+        to field: FieldLayout,
+        tag: FieldTag,
+        unpackedWireFormat: WireFormat,
+        decodeElement: (inout WireFormatReader) throws -> T
+    ) throws -> Bool {
+        switch tag.wireFormat {
+        case unpackedWireFormat:
+            appendValue(try decodeElement(&reader), to: field)
+            return true
+        case .lengthDelimited:
+            try appendPackedValues(from: &reader, to: field, hasVarints: unpackedWireFormat == .varint) {
+                try decodeElement(&$0)
+            }
+            return true
+        default:
+            return false
+        }
+
+    }
+
+    /// Reads the next length-delimited slice from the reader and calls the given function to
+    /// decode and append the elements, having already initialized the array (if not present) and
+    /// reserved capacity for the expected number of new elements.
+    ///
+    /// - Parameters:
+    ///   - reader: The reader from which the next length-delimited slice of values should be read.
+    ///   - field: The field being decoded.
+    ///   - hasVarints: If true, determine the number of new elements by counting the varints in the
+    ///     slice; otherwise, compute them based on the element's fixed size.
+    ///   - decodeElement: A function that takes a `WireFormatReader` covering the slice of packed
+    ///     elements and reads and returns a single element from it.
+    private func appendPackedValues<T>(
+        from reader: inout WireFormatReader,
+        to field: FieldLayout,
+        hasVarints: Bool,
+        decodeElement: (inout WireFormatReader) throws -> T
+    ) throws {
+        // TODO: Constrain `T` to `BitwiseCopyable` if we decide to drop Swift 5.x support.
+
+        // If the field isn't already present, we need to initialize a new array first.
+        let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+        if !isPresent(field) {
+            pointer.initialize(to: [])
+            switch field.presence {
+            case .hasBit(let hasByteOffset, let hasMask):
+                _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+            case .oneOfMember(let oneofOffset):
+                _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+            }
+        }
+
+        let elementsBuffer = try reader.nextLengthDelimitedSlice()
+        guard let elementsPointer = elementsBuffer.baseAddress, elementsBuffer.count > 0 else {
+            return
+        }
+
+        // Reserve additional capacity for the number of values in the buffer. In the varint case,
+        // it's still likely cheaper to do a quick pre-scan than to potentially reallocate multiple
+        // times.
+        let count =
+            hasVarints
+            ? Varint.countVarintsInBuffer(start: elementsPointer, count: elementsBuffer.count)
+            : elementsBuffer.count / MemoryLayout<T>.size
+        pointer.pointee.reserveCapacity(pointer.pointee.count + count)
+
+        // Recursion budget is irrelevant here because we should never recurse into groups or
+        // messages here; they're not supported as packed fields.
+        var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
+        while elementsReader.hasAvailableData {
+            pointer.pointee.append(try decodeElement(&elementsReader))
+        }
     }
 
     /// Decodes the next field in the reader as an unknown field.
