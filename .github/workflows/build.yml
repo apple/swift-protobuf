@@ -122,11 +122,10 @@ jobs:
         set -eu
         git ls-files -z '*.swift' | xargs -0 swift format format --parallel --in-place
         GIT_PAGER='' git diff --exit-code '*.swift'
-    # Disabled as it produces multiple warnings at the moment.
-    # - name: Run format lint check
-    #   run:  |
-    #     set -eu
-    #     git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
+    - name: Run format lint check
+      run:  |
+        set -eu
+        git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
 
   sanitizer_testing:
     runs-on: ubuntu-latest
