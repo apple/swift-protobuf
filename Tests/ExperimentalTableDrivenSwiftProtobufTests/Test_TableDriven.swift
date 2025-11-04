@@ -1085,30 +1085,134 @@ final class Test_TableDriven: XCTestCase {
         assertEncode([248, 1, 255, 255, 255, 255, 7, 248, 1, 128, 128, 128, 128, 248, 255, 255, 255, 255, 1]) {
             (o: inout MessageTestType) in o.repeatedInt32 = [Int32.max, Int32.min]
         }
+
+        assertDecodeSucceeds([248, 1, 8, 248, 1, 247, 255, 255, 255, 15]) { $0.repeatedInt32 == [8, -9] }
+        assertDecodeFails([248, 1, 8, 248, 1, 247, 255, 255, 255, 255, 255, 255, 255, 255])
+        assertDecodeFails([248, 1, 8, 248, 1])
+        assertDecodeFails([248, 1])
+        assertDecodeFails([249, 1, 73])
+        // 250, 1 should actually work because that's packed
+        assertDecodeSucceeds([250, 1, 4, 8, 9, 10, 11]) { $0.repeatedInt32 == [8, 9, 10, 11] }
+        assertDecodeFails([251, 1, 75])
+        assertDecodeFails([252, 1, 76])
+        assertDecodeFails([253, 1, 77])
+        assertDecodeFails([254, 1, 78])
+        assertDecodeFails([255, 1, 79])
     }
 
     func testEncoding_repeatedInt64() {
         assertEncode([
             128, 2, 255, 255, 255, 255, 255, 255, 255, 255, 127, 128, 2, 128, 128, 128, 128, 128, 128, 128, 128, 128, 1,
         ]) { (o: inout MessageTestType) in o.repeatedInt64 = [Int64.max, Int64.min] }
+
+        assertDecodeSucceeds([
+            128, 2, 255, 255, 153, 166, 234, 175, 227, 1, 128, 2, 185, 156, 196, 237, 158, 222, 230, 255, 255, 1,
+        ]) { $0.repeatedInt64 == [999_999_999_999_999, -111_111_111_111_111] }
+        assertDecodeSucceeds([130, 2, 1, 1]) { $0.repeatedInt64 == [1] }  // Accepts packed coding
+        assertDecodeFails([
+            128, 2, 255, 255, 153, 166, 234, 175, 227, 1, 128, 2, 185, 156, 196, 237, 158, 222, 230, 255, 255,
+        ])
+        assertDecodeFails([128, 2, 1, 128, 2])
+        assertDecodeFails([128, 2, 128])
+        assertDecodeFails([128, 2])
+        assertDecodeFails([129, 2, 97])
+        assertDecodeFails([131, 2, 99])
+        assertDecodeFails([132, 2, 100])
+        assertDecodeFails([133, 2, 101])
+        assertDecodeFails([134, 2, 102])
+        assertDecodeFails([135, 2, 103])
     }
 
     func testEncoding_repeatedUint32() {
         assertEncode([136, 2, 255, 255, 255, 255, 15, 136, 2, 0]) { (o: inout MessageTestType) in
             o.repeatedUint32 = [UInt32.max, UInt32.min]
         }
+
+        assertDecodeSucceeds([136, 2, 210, 9, 136, 2, 213, 27]) { (o: MessageTestType) in
+            o.repeatedUint32 == [1234, 3541]
+        }
+        assertDecodeSucceeds([136, 2, 255, 255, 255, 255, 15, 136, 2, 213, 27]) { (o: MessageTestType) in
+            o.repeatedUint32 == [4_294_967_295, 3541]
+        }
+        assertDecodeSucceeds([138, 2, 2, 1, 2]) { (o: MessageTestType) in
+            o.repeatedUint32 == [1, 2]
+        }
+
+        // Truncate on 32-bit overflow
+        assertDecodeSucceeds([136, 2, 255, 255, 255, 255, 31]) { (o: MessageTestType) in
+            o.repeatedUint32 == [4_294_967_295]
+        }
+        assertDecodeSucceeds([136, 2, 255, 255, 255, 255, 255, 255, 255, 1]) { (o: MessageTestType) in
+            o.repeatedUint32 == [4_294_967_295]
+        }
+
+        assertDecodeFails([136, 2])
+        assertDecodeFails([136, 2, 210])
+        assertDecodeFails([136, 2, 210, 9, 120, 213])
+        assertDecodeFails([137, 2, 121])
+        assertDecodeFails([139, 2, 123])
+        assertDecodeFails([140, 2, 124])
+        assertDecodeFails([141, 2, 125])
+        assertDecodeFails([142, 2, 126])
+        assertDecodeFails([143, 2, 127])
     }
 
     func testEncoding_repeatedUint64() {
         assertEncode([144, 2, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1, 144, 2, 0]) {
             (o: inout MessageTestType) in o.repeatedUint64 = [UInt64.max, UInt64.min]
         }
+
+        assertDecodeSucceeds([144, 2, 149, 8]) { $0.repeatedUint64 == [1045] }
+        assertDecodeSucceeds([146, 2, 2, 0, 1]) { $0.repeatedUint64 == [0, 1] }
+        assertDecodeFails([144])
+        assertDecodeFails([144, 2])
+        assertDecodeFails([144, 2, 149])
+        assertDecodeFails([144, 2, 149, 154, 239, 255, 255, 255, 255, 255, 255, 255])
+        assertDecodeFails([145, 2])
+        assertDecodeFails([145, 2, 0])
+        assertDecodeFails([147, 2])
+        assertDecodeFails([147, 2, 0])
+        assertDecodeFails([148, 2])
+        assertDecodeFails([148, 2, 0])
+        assertDecodeFails([149, 2])
+        assertDecodeFails([149, 2, 0])
+        assertDecodeFails([150, 2])
+        assertDecodeFails([150, 2, 0])
+        assertDecodeFails([151, 2])
+        assertDecodeFails([151, 2, 0])
     }
 
     func testEncoding_repeatedSint32() {
         assertEncode([152, 2, 254, 255, 255, 255, 15, 152, 2, 255, 255, 255, 255, 15]) { (o: inout MessageTestType) in
             o.repeatedSint32 = [Int32.max, Int32.min]
         }
+
+        assertDecodeSucceeds([152, 2, 170, 180, 222, 117, 152, 2, 225, 162, 243, 173, 1]) {
+            $0.repeatedSint32 == [123_456_789, -182_347_953]
+        }
+        assertDecodeSucceeds([154, 2, 1, 0]) { $0.repeatedSint32 == [0] }
+        assertDecodeSucceeds([154, 2, 1, 1, 152, 2, 2]) { $0.repeatedSint32 == [-1, 1] }
+        // 32-bit overflow truncates
+        assertDecodeSucceeds([152, 2, 170, 180, 222, 117, 152, 2, 225, 162, 243, 173, 255, 255, 1]) {
+            $0.repeatedSint32 == [123_456_789, -2_061_396_145]
+        }
+
+        assertDecodeFails([152, 2, 170, 180, 222, 117, 152])
+        assertDecodeFails([152, 2, 170, 180, 222, 117, 152, 2])
+        assertDecodeFails([152, 2, 170, 180, 222, 117, 152, 2, 225])
+        assertDecodeFails([152, 2, 170, 180, 222, 117, 152, 2, 225, 162, 243, 173, 255, 255, 255, 255, 255, 255, 1])
+        assertDecodeFails([153, 2])
+        assertDecodeFails([153, 2, 0])
+        assertDecodeFails([155, 2])
+        assertDecodeFails([155, 2, 0])
+        assertDecodeFails([156, 2])
+        assertDecodeFails([156, 2, 0])
+        assertDecodeFails([157, 2])
+        assertDecodeFails([157, 2, 0])
+        assertDecodeFails([158, 2])
+        assertDecodeFails([158, 2, 0])
+        assertDecodeFails([159, 2])
+        assertDecodeFails([159, 2, 0])
     }
 
     func testEncoding_repeatedSint64() {
@@ -1116,58 +1220,324 @@ final class Test_TableDriven: XCTestCase {
             160, 2, 254, 255, 255, 255, 255, 255, 255, 255, 255, 1, 160, 2, 255, 255, 255, 255, 255, 255, 255, 255, 255,
             1,
         ]) { (o: inout MessageTestType) in o.repeatedSint64 = [Int64.max, Int64.min] }
+
+        assertDecodeSucceeds([160, 2, 170, 180, 222, 117, 160, 2, 225, 162, 243, 173, 255, 89]) {
+            $0.repeatedSint64 == [123_456_789, -1_546_102_139_057]
+        }
+        assertDecodeSucceeds([162, 2, 1, 1]) { $0.repeatedSint64 == [-1] }
+        assertDecodeFails([160, 2, 170, 180, 222, 117, 160])
+        assertDecodeFails([160, 2, 170, 180, 222, 117, 160, 2])
+        assertDecodeFails([160, 2, 170, 180, 222, 117, 160, 2, 225])
+        assertDecodeFails([160, 2, 170, 180, 222, 117, 160, 2, 225, 162, 243, 173, 255, 255, 255, 255, 255, 255, 1])
+        assertDecodeFails([161, 2])
+        assertDecodeFails([161, 2, 0])
+        assertDecodeFails([163, 2])
+        assertDecodeFails([163, 2, 0])
+        assertDecodeFails([164, 2])
+        assertDecodeFails([164, 2, 0])
+        assertDecodeFails([165, 2])
+        assertDecodeFails([165, 2, 0])
+        assertDecodeFails([166, 2])
+        assertDecodeFails([166, 2, 0])
+        assertDecodeFails([167, 2])
+        assertDecodeFails([167, 2, 0])
     }
 
     func testEncoding_repeatedFixed32() {
         assertEncode([173, 2, 255, 255, 255, 255, 173, 2, 0, 0, 0, 0]) { (o: inout MessageTestType) in
             o.repeatedFixed32 = [UInt32.max, UInt32.min]
         }
+
+        assertDecodeSucceeds([173, 2, 255, 255, 255, 127, 173, 2, 127, 127, 127, 127]) {
+            $0.repeatedFixed32 == [2_147_483_647, 2_139_062_143]
+        }
+        assertDecodeSucceeds([170, 2, 4, 1, 0, 0, 0, 173, 2, 255, 255, 255, 127]) {
+            $0.repeatedFixed32 == [1, 2_147_483_647]
+        }
+        assertDecodeFails([173])
+        assertDecodeFails([173, 2])
+        assertDecodeFails([173, 2, 255])
+        assertDecodeFails([173, 2, 255, 255])
+        assertDecodeFails([173, 2, 255, 255, 255])
+        assertDecodeFails([173, 2, 255, 255, 255, 127, 221])
+        assertDecodeFails([173, 2, 255, 255, 255, 127, 173, 2])
+        assertDecodeFails([173, 2, 255, 255, 255, 127, 173, 2, 255])
+        assertDecodeFails([173, 2, 255, 255, 255, 127, 173, 2, 255, 255])
+        assertDecodeFails([173, 2, 255, 255, 255, 127, 173, 2, 255, 255, 255])
+        assertDecodeFails([168, 2])
+        assertDecodesAsUnknownFields([168, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([168, 2, 0, 0, 0, 0])
+        assertDecodeFails([169, 2])
+        assertDecodeFails([169, 2, 0])
+        assertDecodeFails([169, 2, 0, 0, 0, 0])
+        assertDecodeFails([171, 2])
+        assertDecodeFails([171, 2, 0])
+        assertDecodeFails([171, 2, 0, 0, 0, 0])
+        assertDecodeFails([172, 2])
+        assertDecodeFails([172, 2, 0])
+        assertDecodeFails([172, 2, 0, 0, 0, 0])
+        assertDecodeFails([174, 2])
+        assertDecodeFails([174, 2, 0])
+        assertDecodeFails([174, 2, 0, 0, 0, 0])
+        assertDecodeFails([175, 2])
+        assertDecodeFails([175, 2, 0])
+        assertDecodeFails([175, 2, 0, 0, 0, 0])
     }
 
     func testEncoding_repeatedFixed64() {
         assertEncode([177, 2, 255, 255, 255, 255, 255, 255, 255, 255, 177, 2, 0, 0, 0, 0, 0, 0, 0, 0]) {
             (o: inout MessageTestType) in o.repeatedFixed64 = [UInt64.max, UInt64.min]
         }
+
+        assertDecodeSucceeds([
+            177, 2, 255, 255, 255, 127, 0, 0, 0, 0, 177, 2, 255, 255, 255, 255, 0, 0, 0, 0, 177, 2, 255, 255, 255, 255,
+            255, 255, 255, 255,
+        ]) { $0.repeatedFixed64 == [2_147_483_647, 4_294_967_295, 18_446_744_073_709_551_615] }
+        assertDecodeSucceeds([178, 2, 8, 1, 0, 0, 0, 0, 0, 0, 0]) { $0.repeatedFixed64 == [1] }
+        assertDecodeSucceeds([177, 2, 2, 0, 0, 0, 0, 0, 0, 0, 178, 2, 8, 1, 0, 0, 0, 0, 0, 0, 0]) {
+            $0.repeatedFixed64 == [2, 1]
+        }
+        assertDecodeFails([177])
+        assertDecodeFails([177, 2])
+        assertDecodeFails([177, 2, 255])
+        assertDecodeFails([177, 2, 255, 255])
+        assertDecodeFails([177, 2, 255, 255, 255])
+        assertDecodeFails([177, 2, 255, 255, 255, 127])
+        assertDecodeFails([177, 2, 255, 255, 255, 127, 0, 0, 0])
+        assertDecodeFails([176, 2])
+        assertDecodesAsUnknownFields([176, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([176, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([179, 2])
+        assertDecodeFails([179, 2, 0])
+        assertDecodeFails([179, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([180, 2])
+        assertDecodeFails([180, 2, 0])
+        assertDecodeFails([180, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([181, 2])
+        assertDecodeFails([181, 2, 0])
+        assertDecodeFails([181, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([182, 2])
+        assertDecodeFails([182, 2, 0])
+        assertDecodeFails([182, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([183, 2])
+        assertDecodeFails([183, 2, 0])
+        assertDecodeFails([183, 2, 0, 0, 0, 0, 0, 0, 0, 0])
     }
 
     func testEncoding_repeatedSfixed32() {
         assertEncode([189, 2, 255, 255, 255, 127, 189, 2, 0, 0, 0, 128]) { (o: inout MessageTestType) in
             o.repeatedSfixed32 = [Int32.max, Int32.min]
         }
+
+        assertDecodeSucceeds([189, 2, 0, 0, 0, 0]) { $0.repeatedSfixed32 == [0] }
+        assertDecodeSucceeds([186, 2, 4, 1, 0, 0, 0, 189, 2, 3, 0, 0, 0]) { $0.repeatedSfixed32 == [1, 3] }
+        assertDecodeFails([189])
+        assertDecodeFails([189, 2])
+        assertDecodeFails([189, 2, 0])
+        assertDecodeFails([189, 2, 0, 0])
+        assertDecodeFails([189, 2, 0, 0, 0])
+        assertDecodeFails([184, 2])
+        assertDecodesAsUnknownFields([184, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([184, 2, 0, 0, 0, 0])
+        assertDecodeFails([185, 2])
+        assertDecodeFails([185, 2, 0])
+        assertDecodeFails([185, 2, 0, 0, 0, 0])
+        assertDecodeFails([187, 2])
+        assertDecodeFails([187, 2, 0])
+        assertDecodeFails([187, 2, 0, 0, 0, 0])
+        assertDecodeFails([188, 2])
+        assertDecodeFails([188, 2, 0])
+        assertDecodeFails([188, 2, 0, 0, 0, 0])
+        assertDecodeFails([190, 2])
+        assertDecodeFails([190, 2, 0])
+        assertDecodeFails([190, 2, 0, 0, 0, 0])
+        assertDecodeFails([191, 2])
+        assertDecodeFails([191, 2, 0])
+        assertDecodeFails([191, 2, 0, 0, 0, 0])
     }
 
     func testEncoding_repeatedSfixed64() {
         assertEncode([193, 2, 255, 255, 255, 255, 255, 255, 255, 127, 193, 2, 0, 0, 0, 0, 0, 0, 0, 128]) {
             (o: inout MessageTestType) in o.repeatedSfixed64 = [Int64.max, Int64.min]
         }
+
+        assertDecodeSucceeds([
+            193, 2, 0, 0, 0, 0, 0, 0, 0, 128, 193, 2, 255, 255, 255, 255, 255, 255, 255, 255, 193, 2, 1, 0, 0, 0, 0, 0,
+            0, 0, 193, 2, 255, 255, 255, 255, 255, 255, 255, 127,
+        ]) { $0.repeatedSfixed64 == [-9_223_372_036_854_775_808, -1, 1, 9_223_372_036_854_775_807] }
+        assertDecodeSucceeds([194, 2, 8, 0, 0, 0, 0, 0, 0, 0, 0, 193, 2, 1, 0, 0, 0, 0, 0, 0, 0]) {
+            $0.repeatedSfixed64 == [0, 1]
+        }
+        assertDecodeFails([193])
+        assertDecodeFails([193, 2])
+        assertDecodeFails([193, 2, 0])
+        assertDecodeFails([193, 2, 0, 0])
+        assertDecodeFails([193, 2, 0, 0, 0])
+        assertDecodeFails([193, 2, 0, 0, 0, 0])
+        assertDecodeFails([193, 2, 0, 0, 0, 0, 0])
+        assertDecodeFails([193, 2, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([193, 2, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([192, 2])
+        assertDecodesAsUnknownFields([192, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([192, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([195, 2])
+        assertDecodeFails([195, 2, 0])
+        assertDecodeFails([195, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([196, 2])
+        assertDecodeFails([196, 2, 0])
+        assertDecodeFails([196, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([197, 2])
+        assertDecodeFails([197, 2, 0])
+        assertDecodeFails([197, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([198, 2])
+        assertDecodeFails([198, 2, 0])
+        assertDecodeFails([198, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([199, 2])
+        assertDecodeFails([199, 2, 0])
+        assertDecodeFails([199, 2, 0, 0, 0, 0, 0, 0, 0, 0])
     }
 
     func testEncoding_repeatedFloat() {
         assertEncode([205, 2, 0, 0, 0, 63, 205, 2, 0, 0, 0, 0]) { (o: inout MessageTestType) in
             o.repeatedFloat = [0.5, 0.0]
         }
+
+        assertDecodeSucceeds([205, 2, 0, 0, 0, 63, 205, 2, 0, 0, 0, 63]) { $0.repeatedFloat == [0.5, 0.5] }
+        assertDecodeSucceeds([202, 2, 8, 0, 0, 0, 63, 0, 0, 0, 63]) { $0.repeatedFloat == [0.5, 0.5] }
+        assertDecodeFails([205, 2, 0, 0, 0, 63, 205, 2, 0, 0, 128])
+        assertDecodeFails([205, 2, 0, 0, 0, 63, 205, 2])
+        assertDecodeFails([200, 2])  // Bad byte sequence
+        assertDecodeFails([200, 2, 0, 0, 0, 0])  // Bad byte sequence
+        assertDecodeFails([201, 2])  // Bad byte sequence
+        assertDecodeFails([201, 2, 0, 0, 0, 0])  // Bad byte sequence
+        assertDecodeFails([203, 2])  // Bad byte sequence
+        assertDecodeFails([203, 2, 0, 0, 0, 0])  // Bad byte sequence
+        assertDecodeFails([204, 2])  // Bad byte sequence
+        assertDecodeFails([204, 2, 0, 0, 0, 0])  // Bad byte sequence
+        assertDecodeFails([206, 2])  // Bad byte sequence
+        assertDecodeFails([206, 2, 0, 0, 0, 0])  // Bad byte sequence
+        assertDecodeFails([207, 2])  // Bad byte sequence
+        assertDecodeFails([207, 2, 0, 0, 0, 0])  // Bad byte sequence
     }
 
     func testEncoding_repeatedDouble() {
         assertEncode([209, 2, 0, 0, 0, 0, 0, 0, 224, 63, 209, 2, 0, 0, 0, 0, 0, 0, 0, 0]) {
             (o: inout MessageTestType) in o.repeatedDouble = [0.5, 0.0]
         }
+
+        assertDecodeSucceeds([209, 2, 0, 0, 0, 0, 0, 0, 224, 63, 209, 2, 0, 0, 0, 0, 0, 0, 208, 63]) {
+            $0.repeatedDouble == [0.5, 0.25]
+        }
+        assertDecodeSucceeds([210, 2, 16, 0, 0, 0, 0, 0, 0, 224, 63, 0, 0, 0, 0, 0, 0, 208, 63]) {
+            $0.repeatedDouble == [0.5, 0.25]
+        }
+        assertDecodeFails([209, 2])
+        assertDecodeFails([209, 2, 0])
+        assertDecodeFails([209, 2, 0, 0])
+        assertDecodeFails([209, 2, 0, 0, 0, 0])
+        assertDecodeFails([209, 2, 0, 0, 0, 0, 0, 0, 224, 63, 209, 2])
+        assertDecodeFails([208, 2])
+        assertDecodesAsUnknownFields([208, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([208, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([211, 2])
+        assertDecodeFails([211, 2, 0])
+        assertDecodeFails([211, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([212, 2])
+        assertDecodeFails([212, 2, 0])
+        assertDecodeFails([212, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([213, 2])
+        assertDecodeFails([213, 2, 0])
+        assertDecodeFails([213, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([214, 2])
+        assertDecodeFails([214, 2, 0])
+        assertDecodeFails([214, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodeFails([215, 2])
+        assertDecodeFails([215, 2, 0])
+        assertDecodeFails([215, 2, 0, 0, 0, 0, 0, 0, 0, 0])
     }
 
     func testEncoding_repeatedBool() {
         assertEncode([216, 2, 1, 216, 2, 0, 216, 2, 1]) { (o: inout MessageTestType) in
             o.repeatedBool = [true, false, true]
         }
+
+        assertDecodeSucceeds([216, 2, 1, 216, 2, 0, 216, 2, 0, 216, 2, 1]) {
+            $0.repeatedBool == [true, false, false, true]
+        }
+        assertDecodeSucceeds([218, 2, 3, 1, 0, 1, 216, 2, 0]) { $0.repeatedBool == [true, false, true, false] }
+        assertDecodeFails([216])
+        assertDecodeFails([216, 2])
+        assertDecodeFails([216, 2, 255])
+        assertDecodeFails([216, 2, 1, 216, 2, 255])
+        assertDecodeFails([217, 2])
+        assertDecodeFails([217, 2, 0])
+        assertDecodeFails([219, 2])
+        assertDecodeFails([219, 2, 0])
+        assertDecodeFails([220, 2])
+        assertDecodeFails([220, 2, 0])
+        assertDecodeFails([221, 2])
+        assertDecodeFails([221, 2, 0])
+        assertDecodeFails([222, 2])
+        assertDecodeFails([222, 2, 0])
+        assertDecodeFails([223, 2])
+        assertDecodeFails([223, 2, 0])
     }
 
     func testEncoding_repeatedString() {
         assertEncode([226, 2, 1, 65, 226, 2, 1, 66]) { (o: inout MessageTestType) in o.repeatedString = ["A", "B"] }
+
+        assertDecodeSucceeds([226, 2, 5, 72, 101, 108, 108, 111, 226, 2, 5, 119, 111, 114, 108, 100, 226, 2, 0]) {
+            $0.repeatedString == ["Hello", "world", ""]
+        }
+        assertDecodeFails([226])
+        assertDecodeFails([226, 2])
+        assertDecodeFails([226, 2, 1])
+        assertDecodeFails([226, 2, 2, 65])
+        assertDecodeFails([226, 2, 1, 193])  // Invalid UTF-8
+        assertDecodeFails([224, 2])
+        assertDecodesAsUnknownFields([224, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([225, 2])
+        assertDecodeFails([225, 2, 0])
+        assertDecodeFails([227, 2])
+        assertDecodeFails([227, 2, 0])
+        assertDecodeFails([228, 2])
+        assertDecodeFails([228, 2, 0])
+        assertDecodeFails([229, 2])
+        assertDecodeFails([229, 2, 0])
+        assertDecodeFails([230, 2])
+        assertDecodeFails([230, 2, 0])
+        assertDecodeFails([231, 2])
+        assertDecodeFails([231, 2, 0])
     }
 
     func testEncoding_repeatedBytes() {
         assertEncode([234, 2, 1, 1, 234, 2, 0, 234, 2, 1, 2]) { (o: inout MessageTestType) in
             o.repeatedBytes = [Data([1]), Data(), Data([2])]
         }
+
+        assertDecodeSucceeds([234, 2, 4, 0, 1, 2, 255, 234, 2, 0]) {
+            let ref = [Data([0, 1, 2, 255]), Data()]
+            for (a, b) in zip($0.repeatedBytes, ref) {
+                if a != b { return false }
+            }
+            return true
+        }
+        assertDecodeFails([234, 2])
+        assertDecodeFails([234, 2, 1])
+        assertDecodeFails([232, 2])
+        assertDecodesAsUnknownFields([232, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodeFails([233, 2])
+        assertDecodeFails([233, 2, 0])
+        assertDecodeFails([235, 2])
+        assertDecodeFails([235, 2, 0])
+        assertDecodeFails([236, 2])
+        assertDecodeFails([236, 2, 0])
+        assertDecodeFails([237, 2])
+        assertDecodeFails([237, 2, 0])
+        assertDecodeFails([238, 2])
+        assertDecodeFails([238, 2, 0])
+        assertDecodeFails([239, 2])
+        assertDecodeFails([239, 2, 0])
     }
 
     func testEncoding_repeatedGroup() {
@@ -1178,6 +1548,12 @@ final class Test_TableDriven: XCTestCase {
             // g2 has nothing set.
             o.repeatedGroup = [g1, g2]
         }
+
+        assertDecodeFails([243, 2, 248, 2, 1])  // End group missing.
+        assertDecodeFails([243, 2, 248, 2, 1, 244, 3])  // Wrong end group.
+        assertDecodeFails([240, 2])  // Wire type 0
+        assertDecodesAsUnknownFields([240, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([240, 2, 244, 2])  // Wrong wire type (varint), valid as an unknown field
     }
 
     func testEncoding_repeatedNestedMessage() {
@@ -1187,6 +1563,61 @@ final class Test_TableDriven: XCTestCase {
             var m2 = MessageTestType.NestedMessage()
             m2.bb = 2
             o.repeatedNestedMessage = [m1, m2]
+        }
+
+        assertDecodeFails([128, 3])
+        assertDecodesAsUnknownFields([128, 3, 0])  // Wrong wire type (varint), valid as an unknown field
+
+        // Ensure message field over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(
+            try MessageTestType(serializedBytes: [
+                130, 3, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+                // Don't need all the bytes, want some to let the length issue trigger.
+                0x01, 0x02, 0x03,
+            ])
+        ) {
+            XCTAssertEqual($0 as! BinaryDecodingError, .malformedProtobuf)
+        }
+    }
+
+    func testEncoding_repeatedNestedMessage_unknown() {
+        let bytes: [UInt8] = [
+            208, 41, 0,  // Unknown 666 with varint 0
+            130, 3, 8,  // Inner message with 8 bytes
+            208, 41, 8,  // Unknown 666 with varint 8
+            8, 1,  // bb = 1
+            208, 41, 9,  // Unknown 666 with varint 9
+            208, 41, 1,  // Unknown 666 with varint 1
+            130, 3, 8,  // inner message with 8 bytes
+            208, 41, 10,  // Unknown 666 with varint 10
+            8, 2,  // bb = 2
+            208, 41, 11,  // Unknown 666 with varint 11
+            208, 41, 2,  // Unknown 666 with varint 2
+        ]
+
+        do {
+            let m = try MessageTestType(serializedBytes: bytes)
+            XCTAssertEqual(m.repeatedNestedMessage.count, 2)
+            XCTAssertNotEqual(m.repeatedNestedMessage[0], MessageTestType.NestedMessage.with { $0.bb = 1 })
+            XCTAssertEqual(m.repeatedNestedMessage[0].bb, 1)
+            XCTAssertNotEqual(m.repeatedNestedMessage[1], MessageTestType.NestedMessage.with { $0.bb = 2 })
+            XCTAssertEqual(m.repeatedNestedMessage[1].bb, 2)
+            do {
+                // Same contents, but reordered
+                let expectedBytes: [UInt8] = [
+                    130, 3, 8, 8, 1, 208, 41, 8, 208, 41, 9,
+                    130, 3, 8, 8, 2, 208, 41, 10, 208, 41, 11,
+                    208, 41, 0,
+                    208, 41, 1,
+                    208, 41, 2,
+                ]
+                let recoded: [UInt8] = try m.serializedBytes()
+                XCTAssertEqual(recoded, expectedBytes)
+            } catch let e {
+                XCTFail("Failed to recode: \(e)")
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)")
         }
     }
 
@@ -1862,6 +2293,17 @@ final class Test_TableDriven: XCTestCase {
                 file: file,
                 line: line
             )
+            do {
+                let decoded = try MessageTestType(serializedBytes: encoded)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object",
+                    file: file,
+                    line: line
+                )
+            } catch let e {
+                XCTFail("Failed to decode protobuf: \(e)", file: file, line: line)
+            }
         } catch let e {
             XCTFail("Failed to encode: \(e)", file: file, line: line)
         }
