@@ -1815,11 +1815,11 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendab
     /// The removal error text if this feature is used after the edition it was
     /// removed in.
     public var removalError: String {
-      get {return _removalError ?? String()}
+      get {_removalError ?? String()}
       set {_removalError = newValue}
     }
     /// Returns true if `removalError` has been explicitly set.
-    public var hasRemovalError: Bool {return self._removalError != nil}
+    public var hasRemovalError: Bool {self._removalError != nil}
     /// Clears the value of `removalError`. Subsequent reads from it will return its default value.
     public mutating func clearRemovalError() {self._removalError = nil}
 

@@ -2226,20 +2226,20 @@ struct Proto2Unittest_TestRequiredLazyMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var child: Proto2Unittest_TestRequired {
-    get {return _storage._child ?? Proto2Unittest_TestRequired()}
+    get {_storage._child ?? Proto2Unittest_TestRequired()}
     set {_uniqueStorage()._child = newValue}
   }
   /// Returns true if `child` has been explicitly set.
-  var hasChild: Bool {return _storage._child != nil}
+  var hasChild: Bool {_storage._child != nil}
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() {_uniqueStorage()._child = nil}
 
   var recurse: Proto2Unittest_TestRequiredLazyMessage {
-    get {return _storage._recurse ?? Proto2Unittest_TestRequiredLazyMessage()}
+    get {_storage._recurse ?? Proto2Unittest_TestRequiredLazyMessage()}
     set {_uniqueStorage()._recurse = newValue}
   }
   /// Returns true if `recurse` has been explicitly set.
-  var hasRecurse: Bool {return _storage._recurse != nil}
+  var hasRecurse: Bool {_storage._recurse != nil}
   /// Clears the value of `recurse`. Subsequent reads from it will return its default value.
   mutating func clearRecurse() {_uniqueStorage()._recurse = nil}
 
@@ -2847,47 +2847,47 @@ struct Proto2Unittest_TestLazyRequiredEnum: @unchecked Sendable {
   // methods supported on all messages.
 
   var optionalRequiredOpenEnum: Proto2Unittest_TestRequiredOpenEnum {
-    get {return _storage._optionalRequiredOpenEnum ?? Proto2Unittest_TestRequiredOpenEnum()}
+    get {_storage._optionalRequiredOpenEnum ?? Proto2Unittest_TestRequiredOpenEnum()}
     set {_uniqueStorage()._optionalRequiredOpenEnum = newValue}
   }
   /// Returns true if `optionalRequiredOpenEnum` has been explicitly set.
-  var hasOptionalRequiredOpenEnum: Bool {return _storage._optionalRequiredOpenEnum != nil}
+  var hasOptionalRequiredOpenEnum: Bool {_storage._optionalRequiredOpenEnum != nil}
   /// Clears the value of `optionalRequiredOpenEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalRequiredOpenEnum() {_uniqueStorage()._optionalRequiredOpenEnum = nil}
 
   var optionalRequiredEnum: Proto2Unittest_TestRequiredEnum {
-    get {return _storage._optionalRequiredEnum ?? Proto2Unittest_TestRequiredEnum()}
+    get {_storage._optionalRequiredEnum ?? Proto2Unittest_TestRequiredEnum()}
     set {_uniqueStorage()._optionalRequiredEnum = newValue}
   }
   /// Returns true if `optionalRequiredEnum` has been explicitly set.
-  var hasOptionalRequiredEnum: Bool {return _storage._optionalRequiredEnum != nil}
+  var hasOptionalRequiredEnum: Bool {_storage._optionalRequiredEnum != nil}
   /// Clears the value of `optionalRequiredEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalRequiredEnum() {_uniqueStorage()._optionalRequiredEnum = nil}
 
   var optionalRequiredEnumNoMask: Proto2Unittest_TestRequiredEnumNoMask {
-    get {return _storage._optionalRequiredEnumNoMask ?? Proto2Unittest_TestRequiredEnumNoMask()}
+    get {_storage._optionalRequiredEnumNoMask ?? Proto2Unittest_TestRequiredEnumNoMask()}
     set {_uniqueStorage()._optionalRequiredEnumNoMask = newValue}
   }
   /// Returns true if `optionalRequiredEnumNoMask` has been explicitly set.
-  var hasOptionalRequiredEnumNoMask: Bool {return _storage._optionalRequiredEnumNoMask != nil}
+  var hasOptionalRequiredEnumNoMask: Bool {_storage._optionalRequiredEnumNoMask != nil}
   /// Clears the value of `optionalRequiredEnumNoMask`. Subsequent reads from it will return its default value.
   mutating func clearOptionalRequiredEnumNoMask() {_uniqueStorage()._optionalRequiredEnumNoMask = nil}
 
   var optionalRequiredEnumMulti: Proto2Unittest_TestRequiredEnumMulti {
-    get {return _storage._optionalRequiredEnumMulti ?? Proto2Unittest_TestRequiredEnumMulti()}
+    get {_storage._optionalRequiredEnumMulti ?? Proto2Unittest_TestRequiredEnumMulti()}
     set {_uniqueStorage()._optionalRequiredEnumMulti = newValue}
   }
   /// Returns true if `optionalRequiredEnumMulti` has been explicitly set.
-  var hasOptionalRequiredEnumMulti: Bool {return _storage._optionalRequiredEnumMulti != nil}
+  var hasOptionalRequiredEnumMulti: Bool {_storage._optionalRequiredEnumMulti != nil}
   /// Clears the value of `optionalRequiredEnumMulti`. Subsequent reads from it will return its default value.
   mutating func clearOptionalRequiredEnumMulti() {_uniqueStorage()._optionalRequiredEnumMulti = nil}
 
   var optionalRequiredNoMask: Proto2Unittest_TestRequiredNoMaskMulti {
-    get {return _storage._optionalRequiredNoMask ?? Proto2Unittest_TestRequiredNoMaskMulti()}
+    get {_storage._optionalRequiredNoMask ?? Proto2Unittest_TestRequiredNoMaskMulti()}
     set {_uniqueStorage()._optionalRequiredNoMask = newValue}
   }
   /// Returns true if `optionalRequiredNoMask` has been explicitly set.
-  var hasOptionalRequiredNoMask: Bool {return _storage._optionalRequiredNoMask != nil}
+  var hasOptionalRequiredNoMask: Bool {_storage._optionalRequiredNoMask != nil}
   /// Clears the value of `optionalRequiredNoMask`. Subsequent reads from it will return its default value.
   mutating func clearOptionalRequiredNoMask() {_uniqueStorage()._optionalRequiredNoMask = nil}
 

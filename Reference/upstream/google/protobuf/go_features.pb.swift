@@ -63,11 +63,11 @@ struct Pb_GoFeatures: Sendable {
   mutating func clearStripEnumPrefix() {self._stripEnumPrefix = nil}
 
   var optimizeMode: Pb_GoFeatures.OptimizeModeFeature.OptimizeMode {
-    get {return _optimizeMode ?? .unspecified}
+    get {_optimizeMode ?? .unspecified}
     set {_optimizeMode = newValue}
   }
   /// Returns true if `optimizeMode` has been explicitly set.
-  var hasOptimizeMode: Bool {return self._optimizeMode != nil}
+  var hasOptimizeMode: Bool {self._optimizeMode != nil}
   /// Clears the value of `optimizeMode`. Subsequent reads from it will return its default value.
   mutating func clearOptimizeMode() {self._optimizeMode = nil}
 

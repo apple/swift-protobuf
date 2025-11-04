@@ -1815,11 +1815,11 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
     /// The removal error text if this feature is used after the edition it was
     /// removed in.
     var removalError: String {
-      get {return _removalError ?? String()}
+      get {_removalError ?? String()}
       set {_removalError = newValue}
     }
     /// Returns true if `removalError` has been explicitly set.
-    var hasRemovalError: Bool {return self._removalError != nil}
+    var hasRemovalError: Bool {self._removalError != nil}
     /// Clears the value of `removalError`. Subsequent reads from it will return its default value.
     mutating func clearRemovalError() {self._removalError = nil}
 
