@@ -6,9 +6,6 @@ name: Run Protobuf Head Conformance Tests
 # It runs on all PRs/Commits and also runs on a Cron to keep an eye out for
 # new conformance tests that get added upstream.
 
-# NOTE: If making changes to most of the steps, please also look to update
-# build.yml also the general conformance runs say in sync.
-
 permissions:
   contents: read
 
@@ -17,8 +14,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  # Every Sunday at 5am to get warning on any new conformance tests upstream.
   schedule:
-    # Every Sunday at 5am.
     - cron: '0 5 * * 0'
   # Also allow manual triggering from the github UX to revalidate things.
   workflow_dispatch:
@@ -27,9 +24,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      # Could duplicate the matrix from build.yml and test all the supported
-      # Swift versions; but especially the cron side, that doesn't seem worth
-      # doing.
+      # Unlike build.yml we only worry about the conformance test with the
+      # latest Swift release.
       image: swift:latest
     steps:
     - name: Checkout
@@ -38,7 +34,7 @@ jobs:
         path: swift-protobuf
         submodules: true
     - name: Update and install dependencies
-      # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
+      # Dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       run: apt-get update && apt-get install -y make g++ cmake
     - name: Checkout protobufbuffers/protobuf
       uses: actions/checkout@v4
