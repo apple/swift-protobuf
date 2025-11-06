@@ -19,20 +19,12 @@ package enum Varint {
     ///
     /// - Parameter value: The number whose varint size should be calculated.
     /// - Returns: The size, in bytes, of the 32-bit varint.
+    @usableFromInline
     package static func encodedSize(of value: UInt32) -> Int {
-        if (value & (~0 << 7)) == 0 {
-            return 1
-        }
-        if (value & (~0 << 14)) == 0 {
-            return 2
-        }
-        if (value & (~0 << 21)) == 0 {
-            return 3
-        }
-        if (value & (~0 << 28)) == 0 {
-            return 4
-        }
-        return 5
+        // This logic comes from the upstream C++ for CodedOutputStream::VarintSize32(uint32_t),
+        // it provides a branchless calculation of the size.
+        let clz = value.leadingZeroBitCount
+        return ((UInt32.bitWidth &* 9 &+ 64) &- (clz &* 9)) / 64
     }
 
     /// Computes the number of bytes that would be needed to store a signed 32-bit varint, if it were
@@ -40,44 +32,19 @@ package enum Varint {
     ///
     /// - Parameter value: The number whose varint size should be calculated.
     /// - Returns: The size, in bytes, of the 32-bit varint.
+    @inline(__always)
     package static func encodedSize(of value: Int32) -> Int {
-        if value >= 0 {
-            return encodedSize(of: UInt32(bitPattern: value))
-        } else {
-            // Must sign-extend.
-            return encodedSize(of: Int64(value))
-        }
+        // Must sign-extend.
+        encodedSize(of: Int64(value))
     }
 
     /// Computes the number of bytes that would be needed to store a 64-bit varint.
     ///
     /// - Parameter value: The number whose varint size should be calculated.
     /// - Returns: The size, in bytes, of the 64-bit varint.
+    @inline(__always)
     static func encodedSize(of value: Int64) -> Int {
-        // Handle two common special cases up front.
-        if (value & (~0 << 7)) == 0 {
-            return 1
-        }
-        if value < 0 {
-            return 10
-        }
-
-        // Divide and conquer the remaining eight cases.
-        var value = value
-        var n = 2
-
-        if (value & (~0 << 35)) != 0 {
-            n &+= 4
-            value >>= 28
-        }
-        if (value & (~0 << 21)) != 0 {
-            n &+= 2
-            value >>= 14
-        }
-        if (value & (~0 << 14)) != 0 {
-            n &+= 1
-        }
-        return n
+        encodedSize(of: UInt64(bitPattern: value))
     }
 
     /// Computes the number of bytes that would be needed to store an unsigned 64-bit varint, if it
@@ -85,8 +52,12 @@ package enum Varint {
     ///
     /// - Parameter value: The number whose varint size should be calculated.
     /// - Returns: The size, in bytes, of the 64-bit varint.
+    @usableFromInline
     static func encodedSize(of value: UInt64) -> Int {
-        encodedSize(of: Int64(bitPattern: value))
+        // This logic comes from the upstream C++ for CodedOutputStream::VarintSize64(uint64_t),
+        // it provides a branchless calculation of the size.
+        let clz = value.leadingZeroBitCount
+        return ((UInt64.bitWidth &* 9 &+ 64) &- (clz &* 9)) / 64
     }
 
     /// Counts the number of distinct varints in a packed byte buffer.
