@@ -124,8 +124,14 @@ extension _MessageStorage {
                 }
 
             case .enum:
-                // TODO: Support enums.
-                break
+                switch tag.wireFormat {
+                case .varint:
+                    try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: true)
+                case .lengthDelimited:
+                    try appendPackedEnumValues(from: &reader, to: field, fieldNumber: tag.fieldNumber)
+                default:
+                    return false
+                }
 
             case .fixed32:
                 return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
@@ -145,7 +151,7 @@ extension _MessageStorage {
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
                 _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .append
@@ -175,7 +181,7 @@ extension _MessageStorage {
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
                 _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .append
@@ -253,8 +259,8 @@ extension _MessageStorage {
                 updateValue(of: field, to: Double(bitPattern: try reader.nextLittleEndianUInt64()))
 
             case .enum:
-                // TODO: Support enums.
-                break
+                guard tag.wireFormat == .varint else { return false }
+                try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: false)
 
             case .fixed32:
                 guard tag.wireFormat == .fixed32 else { return false }
@@ -271,7 +277,7 @@ extension _MessageStorage {
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
                 _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .mutate
@@ -299,7 +305,7 @@ extension _MessageStorage {
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
                 _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .mutate
@@ -398,7 +404,116 @@ extension _MessageStorage {
         default:
             return false
         }
+    }
 
+    /// Updates the value of the given field by reading the next varint from the reader and treating
+    /// it as the raw value of that enum field.
+    ///
+    /// This method handles both the singular case (by setting the field) and the repeated unpacked
+    /// case (by appending to it).
+    private func updateEnumValue(
+        of field: FieldLayout,
+        from reader: inout WireFormatReader,
+        fieldNumber: Int,
+        isRepeated: Bool
+    ) throws {
+        var alreadyReadValue = false
+        try layout.performOnRawEnumValues(
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            field,
+            self,
+            isRepeated ? .append : .mutate
+        ) { outRawValue in
+            // In the singular case, this doesn't matter. In the repeated case, we need to return
+            // true *exactly once* and then return false the next time this is called. This is
+            // because the same trampoline function is used to handle the packed case, where it
+            // calls the closure over and over until it returns that there is no data left.
+            guard !alreadyReadValue else { return false }
+            outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
+            alreadyReadValue = true
+            return true
+        } /*onInvalidValue*/ _: { rawValue in
+            // Serialize the invalid values into a binary blob that will be passed as a single
+            // varint field into unknown fields.
+            //
+            // Note that because we've already read the value, we have to put it into unknown fields
+            // ourselves. The `decodeUnknownField` flow assumes that we've only read the tag and
+            // are positioned at the beginning of the value.
+            let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint)
+            let fieldSize = fieldTag.encodedSize + Varint.encodedSize(of: Int64(rawValue))
+            var field = Data(count: fieldSize)
+            field.withUnsafeMutableBytes { body in
+                var encoder = BinaryEncoder(forWritingInto: body)
+                encoder.startField(tag: fieldTag)
+                encoder.putVarInt(value: Int64(rawValue))
+                unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
+            }
+        }
+    }
+
+    /// Appends either a single enum value or multiple packed values to the array value of the
+    /// given field, depending on the wire format of the corresponding tag.
+    ///
+    /// - Parameters:
+    ///   - reader: The reader from which the values to append should be read.
+    ///   - field: The field being decoded.
+    ///   - tag: The tag that was read from the wire.
+    private func appendPackedEnumValues(
+        from reader: inout WireFormatReader,
+        to field: FieldLayout,
+        fieldNumber: Int
+    ) throws {
+        assert(field.rawFieldType == .enum, "Internal error: should only be called for enum fields")
+
+        let elementsBuffer = try reader.nextLengthDelimitedSlice()
+        guard elementsBuffer.baseAddress != nil, elementsBuffer.count > 0 else {
+            return
+        }
+
+        // If we see any invalid values during decode them, save them here so we can write them
+        // into unknown fields at the end.
+        var invalidValues: [Int32] = []
+
+        // Recursion budget is irrelevant here because we should never recurse into groups or
+        // messages here; they're not supported as packed fields.
+        var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
+
+        try layout.performOnRawEnumValues(
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            field,
+            self,
+            .append
+        ) { outRawValue in
+            guard elementsReader.hasAvailableData else { return false }
+            outRawValue = Int32(try elementsReader.nextVarint())
+            return true
+        } /*onInvalidValue*/ _: {
+            invalidValues.append($0)
+        }
+
+        if invalidValues.isEmpty {
+            return
+        }
+
+        // Serialize all of the invalid values into a binary blob that will be passed as a
+        // single length-delimited field into unknown fields.
+        //
+        // Note that because we've already read the values, we have to put them into unknown fields
+        // ourselves. The `decodeUnknownField` flow assumes that we've only read the tag and
+        // are positioned at the beginning of the value.
+        let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+        let bodySize = invalidValues.reduce(0) { $0 + Varint.encodedSize(of: Int64($1)) }
+        let fieldSize = fieldTag.encodedSize + Varint.encodedSize(of: Int64(bodySize)) + bodySize
+        var field = Data(count: fieldSize)
+        field.withUnsafeMutableBytes { body in
+            var encoder = BinaryEncoder(forWritingInto: body)
+            encoder.startField(tag: fieldTag)
+            encoder.putVarInt(value: Int64(bodySize))
+            for value in invalidValues {
+                encoder.putVarInt(value: Int64(value))
+            }
+            unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
+        }
     }
 
     /// Reads the next length-delimited slice from the reader and calls the given function to

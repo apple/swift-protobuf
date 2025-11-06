@@ -72,6 +72,27 @@ enum FieldPresence {
     }
 }
 
+/// Information about a field that needs to be part of trampoline function generation.
+enum TrampolineFieldKind {
+    /// The field is a message type or an array of a message type.
+    ///
+    /// The associated value is the full Swift name of that (possibly array) type.
+    case message(String)
+
+    /// The field is an enum type or an array of an enum type.
+    ///
+    /// The associated value is the full Swift name of that (possibly array) type.
+    case `enum`(String)
+
+    /// The full Swift name of the (possibly array) type of the field.
+    var name: String {
+        switch self {
+        case .message(let name): return name
+        case .enum(let name): return name
+        }
+    }
+}
+
 /// Interface for field generators.
 protocol FieldGenerator: AnyObject {
     /// The field number of the field.
@@ -86,9 +107,8 @@ protocol FieldGenerator: AnyObject {
     /// The raw type of the field.
     var rawFieldType: RawFieldType { get }
 
-    /// The fully-qualified name of the Swift message type for this field, if it is a message or
-    /// group field.
-    var submessageTypeName: String? { get }
+    /// The kind and name of a message, group, or enum field that needs trampoline generation.
+    var trampolineFieldKind: TrampolineFieldKind? { get }
 
     /// Additional properties that describe the layout and behavior of the field.
     var fieldMode: FieldMode { get }

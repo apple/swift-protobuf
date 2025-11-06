@@ -213,7 +213,9 @@ class MessageGenerator {
                 )
             }
             p.print("}")
-            p.print("\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {")
+            p.print(
+                "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {"
+            )
             p.printIndented("_ = _uniqueStorage()")
             p.print("}")
         }
@@ -254,12 +256,16 @@ class MessageGenerator {
             // TODO: These only need to exist while we are in the transitional state of using
             // table-driven messages for testing but needing to support the old generated WKTs and
             // plugin protos. Remove them when everything is generated table-driven.
-            p.print("\(visibility)func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {")
+            p.print(
+                "\(visibility)func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {"
+            )
             p.withIndentation { p in
                 p.print("return try _storage.serializedBytes(partial: partial, options: options)")
             }
             p.print("}")
-            p.print("\(visibility)mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {")
+            p.print(
+                "\(visibility)mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {"
+            )
             p.withIndentation { p in
                 p.print("try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)")
             }
@@ -287,41 +293,42 @@ class MessageGenerator {
             )
         }
 
-        let submessages = messageLayoutCalculator.submessages
+        let trampolineFields = messageLayoutCalculator.trampolineFields
         p.print()
         p.print(
             "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString",
             newlines: false
         )
 
-        if submessages.isEmpty {
-            // If there are no submessages, we can use the layout initializer that defaults the
-            // trampoline functions to trapping placeholders.
+        if trampolineFields.isEmpty {
+            // If there are no trampoline fields, we can use the layout initializer that defaults
+            // the trampoline functions to trapping placeholders.
             p.print(")")
         } else {
             // Otherwise, pass the static member functions that will be generated below.
             p.print(
                 """
-                , deinitializeSubmessage: _protobuf_deinitializeSubmessage\
-                , copySubmessage: _protobuf_copySubmessage\
-                , areSubmessagesEqual: _protobuf_areSubmessagesEqual\
+                , deinitializeField: _protobuf_deinitializeField\
+                , copyField: _protobuf_copyField\
+                , areFieldsEqual: _protobuf_areFieldsEqual\
                 , performOnSubmessageStorage: _protobuf_performOnSubmessageStorage\
+                , performOnRawEnumValues: _protobuf_performOnRawEnumValues\
                 )
                 """
             )
             p.print(
                 "",
-                "private static func _protobuf_deinitializeSubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {"
+                "private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, submessage) in submessages.enumerated() {
+                for field in trampolineFields {
                     p.print(
-                        "case \(index + 1): storage.deinitializeField(field, type: \(submessage.typeName).self)"
+                        "case \(field.index): storage.deinitializeField(field, type: \(field.kind.name).self)"
                     )
                 }
                 p.print(
-                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
                     "}"
                 )
             }
@@ -331,17 +338,17 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_copySubmessage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {"
+                "private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, submessage) in submessages.enumerated() {
+                for field in trampolineFields {
                     p.print(
-                        "case \(index + 1): source.copyField(field, to: destination, type: \(submessage.typeName).self)"
+                        "case \(field.index): source.copyField(field, to: destination, type: \(field.kind.name).self)"
                     )
                 }
                 p.print(
-                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
                     "}"
                 )
             }
@@ -351,17 +358,17 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_areSubmessagesEqual(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {"
+                "private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, submessage) in submessages.enumerated() {
+                for field in trampolineFields {
                     p.print(
-                        "case \(index + 1): return lhs.isField(field, equalToSameFieldIn: rhs, type: \(submessage.typeName).self)"
+                        "case \(field.index): return lhs.isField(field, equalToSameFieldIn: rhs, type: \(field.kind.name).self)"
                     )
                 }
                 p.print(
-                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
                     "}"
                 )
             }
@@ -371,17 +378,41 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.SubmessageToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.SubmessageStorageOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {"
+                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for (index, submessage) in submessages.enumerated() {
+                for field in trampolineFields {
+                    // Only submessage fields need this storage trampoline.
+                    guard case .message(let name) = field.kind else { continue }
                     p.print(
-                        "case \(index + 1): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(submessage.typeName).self, perform: perform)"
+                        "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(name).self, perform: perform)"
                     )
                 }
                 p.print(
-                    "default: preconditionFailure(\"invalid submessage token; this is a generator bug\")",
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
+                    "}"
+                )
+            }
+            p.print(
+                "}"
+            )
+
+            p.print(
+                "",
+                "private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {"
+            )
+            p.withIndentation { p in
+                p.print("switch token.index {")
+                for field in trampolineFields {
+                    // Only enum fields need this raw value trampoline.
+                    guard case .enum(let name) = field.kind else { continue }
+                    p.print(
+                        "case \(field.index): return try storage.performOnRawEnumValues(of: field, operation: operation, type: \(name).self, perform: perform, onInvalidValue: onInvalidValue)"
+                    )
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
                     "}"
                 )
             }

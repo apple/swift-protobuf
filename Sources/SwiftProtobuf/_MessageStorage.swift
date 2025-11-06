@@ -81,18 +81,15 @@ import Foundation
             case .bool: deinitializeField(field, type: [Bool].self)
             case .bytes: deinitializeField(field, type: [Data].self)
             case .double: deinitializeField(field, type: [Double].self)
-            case .enum:
-                // TODO: Figure out how we represent enums (open vs. closed).
-                break
-            case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
-            case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
-            case .float: deinitializeField(field, type: [Float].self)
-            case .group, .message:
-                layout.deinitializeSubmessage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            case .enum, .group, .message:
+                layout.deinitializeField(
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self
                 )
+            case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
+            case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
+            case .float: deinitializeField(field, type: [Float].self)
             case .int32, .sfixed32, .sint32: deinitializeField(field, type: [Int32].self)
             case .int64, .sfixed64, .sint64: deinitializeField(field, type: [Int64].self)
             case .string: deinitializeField(field, type: [String].self)
@@ -104,8 +101,8 @@ import Foundation
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
-                layout.deinitializeSubmessage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                layout.deinitializeField(
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self
                 )
@@ -175,19 +172,16 @@ extension _MessageStorage {
                 case .bool: copyField(field, to: destination, type: [Bool].self)
                 case .bytes: copyField(field, to: destination, type: [Data].self)
                 case .double: copyField(field, to: destination, type: [Double].self)
-                case .enum:
-                    // TODO: Figure out how we represent enums (open vs. closed).
-                    break
-                case .fixed32, .uint32: copyField(field, to: destination, type: [UInt32].self)
-                case .fixed64, .uint64: copyField(field, to: destination, type: [UInt64].self)
-                case .float: copyField(field, to: destination, type: [Float].self)
-                case .group, .message:
-                    layout.copySubmessage(
-                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                case .enum, .group, .message:
+                    layout.copyField(
+                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
                         field,
                         self,
                         destination
                     )
+                case .fixed32, .uint32: copyField(field, to: destination, type: [UInt32].self)
+                case .fixed64, .uint64: copyField(field, to: destination, type: [UInt64].self)
+                case .float: copyField(field, to: destination, type: [Float].self)
                 case .int32, .sfixed32, .sint32: copyField(field, to: destination, type: [Int32].self)
                 case .int64, .sfixed64, .sint64: copyField(field, to: destination, type: [Int64].self)
                 case .string: copyField(field, to: destination, type: [String].self)
@@ -206,8 +200,8 @@ extension _MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    layout.copySubmessage(
-                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    layout.copyField(
+                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
                         field,
                         self,
                         destination
@@ -264,7 +258,7 @@ extension _MessageStorage {
     /// - Returns: The value returned from the closure.
     public func performOnSubmessageStorage<T: _MessageImplementationBase>(
         of field: FieldLayout,
-        operation: SubmessageStorageOperation,
+        operation: TrampolineFieldOperation,
         type: T.Type,
         perform: (_MessageStorage) throws -> Bool
     ) rethrows -> Bool {
@@ -307,7 +301,7 @@ extension _MessageStorage {
     /// - Returns: The value returned from the last invocation of the closure.
     public func performOnSubmessageStorage<T: _MessageImplementationBase>(
         of field: FieldLayout,
-        operation: SubmessageStorageOperation,
+        operation: TrampolineFieldOperation,
         type: [T].Type,
         perform: (_MessageStorage) throws -> Bool
     ) rethrows -> Bool {
@@ -341,6 +335,110 @@ extension _MessageStorage {
         }
     }
 
+    /// Called by generated trampoline functions to invoke the given closure on the raw value of a
+    /// singular enum field, providing the type hint of the concrete enum type.
+    ///
+    /// - Precondition: For read operations, the field is already known to be present.
+    ///
+    /// - Parameters:
+    ///   - field: The enum field being operated on.
+    ///   - operation: The specific operation to perform on the field.
+    ///   - type: The concrete type of the enum.
+    ///   - perform: A closure called with the (possibly mutable) value of the field. For `.read`
+    ///     operations, the incoming value will be the actual value of the field, and mutating it
+    ///     will be ignored. For `.mutate`, the incoming value is not specified and the closure
+    ///     must mutate it to supply the desired value.
+    ///   - onInvalidValue: A closure that is called during `.mutate` operations if the raw value
+    ///     returned by the `perform` closure is not a valid enum case.
+    public func performOnRawEnumValues<T: Enum>(
+        of field: FieldLayout,
+        operation: TrampolineFieldOperation,
+        type: T.Type,
+        perform: (inout Int32) throws -> Bool,
+        onInvalidValue: (Int32) -> Void
+    ) rethrows {
+        switch operation {
+        case .read:
+            // When reading, we can get the raw value directly from storage, and we don't need to
+            // verify it against the defined values in the actual enum.
+            var rawValue = assumedPresentValue(at: field.offset, as: Int32.self)
+            _ = try perform(&rawValue)
+
+        case .mutate:
+            // When updating a singular enum field, verify that it is a defined enum case. If not,
+            // call the invalid value handler.
+            var rawValue: Int32 = 0
+            _ = try perform(&rawValue)
+            if T(rawValue: Int(rawValue)) != nil {
+                updateValue(of: field, to: rawValue)
+            } else {
+                onInvalidValue(rawValue)
+            }
+
+        case .append:
+            preconditionFailure("Internal error: singular performOnRawEnumValues should not be called to append")
+        }
+    }
+
+    /// Called by generated trampoline functions to invoke the given closure on the raw value of
+    /// each element in a repeated enum field, providing the type hint of the concrete enum type.
+    ///
+    /// The closure can return false to stop iteration over the values early. Furthermore, when the
+    /// operation is `.append`, the closure will be called repeatedly **until** it returns false.
+    /// Likewise, if the closure throws an error, that error will be propagated all the way to the
+    /// caller.
+    ///
+    /// - Precondition: For the read and mutate operations, the field is already known to be
+    ///   present.
+    ///
+    /// - Parameters:
+    ///   - field: The enum field being operated on.
+    ///   - operation: The specific operation to perform on the field.
+    ///   - type: The concrete type of the enum.
+    ///   - perform: A closure called with the (possibly mutable) value of the field. For `.read`
+    ///     operations, the incoming value will be the actual value of the field, and mutating it
+    ///     will be ignored. For `.mutate` and `.append`, the incoming value is not specified, and
+    ///     the closure must mutate it to supply the desired value.
+    ///   - onInvalidValue: A closure that is called during `.mutate` and `.append` operations if
+    ///     the raw value returned by the `perform` closure is not a valid enum case.
+    public func performOnRawEnumValues<T: Enum>(
+        of field: FieldLayout,
+        operation: TrampolineFieldOperation,
+        type: [T].Type,
+        perform: (inout Int32) throws -> Bool,
+        onInvalidValue: (Int32) -> Void
+    ) rethrows {
+        switch operation {
+        case .read:
+            for value in assumedPresentValue(at: field.offset, as: [T].self) {
+                var rawValue = Int32(value.rawValue)
+                guard try perform(&rawValue) else { break }
+            }
+
+        case .mutate:
+            preconditionFailure("Internal error: repeated performOnRawEnumValues should not be called to mutate")
+
+        case .append:
+            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+            var rawValue: Int32 = 0
+            while try perform(&rawValue) {
+                if let newValue = T(rawValue: Int(rawValue)) {
+                    if !isPresent(field) {
+                        pointer.initialize(to: [])
+                        switch field.presence {
+                        case .hasBit(let hasByteOffset, let hasMask):
+                            _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+                        case .oneOfMember(let oneofOffset):
+                            _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+                        }
+                    }
+                    pointer.pointee.append(newValue)
+                } else {
+                    onInvalidValue(rawValue)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - Presence helpers
@@ -374,6 +472,20 @@ extension _MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     func assumedPresentValue<Value>(at offset: Int, as type: Value.Type = Value.self) -> Value {
         (buffer.baseAddress! + offset).bindMemory(to: Value.self, capacity: 1).pointee
+    }
+
+    /// Returns the value at the given offset in the storage.
+    ///
+    /// - Precondition: The value must already be known to be present.
+    @_alwaysEmitIntoClient @inline(__always)
+    func assumedPresentValue<Value: Enum>(at offset: Int, as type: Value.Type = Value.self) -> Value {
+        // It is always safe to force-unwrap this. For open enums, the raw value initializer never
+        // fails. For closed enums, it fails if the raw value is not a valid case, but such a value
+        // should never cause presence to be set. For example, during decoding such a value would be
+        // placed in unknown fields.
+        //
+        // TODO: Change this to `Int32` when we're using that as the raw value type.
+        Value(rawValue: Int((buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee))!
     }
 }
 
@@ -481,6 +593,20 @@ extension _MessageStorage {
         return (buffer.baseAddress! + offset).bindMemory(to: [Key: Value].self, capacity: 1).pointee
     }
 
+    /// Returns the protobuf enum value at the given offset in the storage, or the default value if
+    /// the value is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<T: Enum>(at offset: Int, default defaultValue: T, hasBit: HasBit) -> T {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        // It is always safe to force-unwrap this. For open enums, the raw value initializer never
+        // fails. For closed enums, it fails if the raw value is not a valid case, but such a value
+        // should never cause presence to be set. For example, during decoding such a value would be
+        // placed in unknown fields.
+        //
+        // TODO: Change this to `Int32` when we're using that as the raw value type.
+        return T(rawValue: Int((buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee))!
+    }
+
     /// Returns the value at the given offset in the storage, or the default value if the value is
     /// not present.
     @_alwaysEmitIntoClient @inline(__always)
@@ -560,6 +686,14 @@ extension _MessageStorage {
         pointer.pointee = newValue
     }
 
+    /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<T: Enum>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+        pointer.pointee = Int32(newValue.rawValue)
+    }
+
     /// Updates the value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
@@ -591,9 +725,6 @@ extension _MessageStorage {
             bytes.initialize(repeating: 0, count: MemoryLayout<T>.stride)
         }
     }
-
-    // TODO: Implement accessors/mutators for remaining types:
-    // - Enums
 }
 
 // MARK: - Field mutators used for parsing and reflection APIs
@@ -747,6 +878,22 @@ extension _MessageStorage {
         }
     }
 
+    /// Updates the protobuf enum value of the given field, tracking its presence accordingly.
+    func updateValue<T: Enum>(of field: FieldLayout, to newValue: T) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            updateValue(
+                at: offset,
+                to: newValue,
+                willBeSet: layout.fieldHasPresence(field) ? true : newValue != T(),
+                hasBit: (hasByteOffset, hasMask)
+            )
+        case .oneOfMember(let oneofOffset):
+            updateValue(at: offset, to: newValue, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
     /// Appends the given value to the values already present in the field, initializing the field
     /// if necessary.
     func appendValue<T>(_ value: T, to field: FieldLayout) {
@@ -764,7 +911,6 @@ extension _MessageStorage {
             pointer.pointee.append(value)
         }
     }
-
 }
 
 // MARK: - Oneof support
@@ -881,6 +1027,22 @@ extension _MessageStorage {
         return (buffer.baseAddress! + offset).bindMemory(to: Data.self, capacity: 1).pointee
     }
 
+    /// Returns the protobuf enum value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<T: Enum>(at offset: Int, default defaultValue: T, oneofPresence: OneofPresence) -> T {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        // It is always safe to force-unwrap this. For open enums, the raw value initializer never
+        // fails. For closed enums, it fails if the raw value is not a valid case, but such a value
+        // should never cause presence to be set. For example, during decoding such a value would be
+        // placed in unknown fields.
+        //
+        // TODO: Change this to `Int32` when we're using that as the raw value type.
+        return T(rawValue: Int((buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee))!
+    }
+
     /// Returns the value at the given offset in the storage if it is the currently populated
     /// member of its containing oneof, or the default value otherwise.
     @_alwaysEmitIntoClient @inline(__always)
@@ -969,6 +1131,17 @@ extension _MessageStorage {
         (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee = newValue
     }
 
+    /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<T: Enum>(at offset: Int, to newValue: T, oneofPresence: OneofPresence) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(layout[fieldNumber: oldFieldNumber]!)
+        }
+        (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).initialize(to: Int32(newValue.rawValue))
+    }
+
     /// Updates the value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T>(at offset: Int, to newValue: T, oneofPresence: OneofPresence) {
@@ -1054,22 +1227,19 @@ extension _MessageStorage {
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Data].self)
                 case .double:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Double].self)
-                case .enum:
-                    // TODO: Figure out how we represent enums (open vs. closed).
-                    break
+                case .enum, .group, .message:
+                    equalSoFar = layout.areFieldsEqual(
+                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                        field,
+                        self,
+                        other
+                    )
                 case .fixed32, .uint32:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [UInt32].self)
                 case .fixed64, .uint64:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [UInt64].self)
                 case .float:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Float].self)
-                case .group, .message:
-                    equalSoFar = layout.areSubmessagesEqual(
-                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
-                        field,
-                        self,
-                        other
-                    )
                 case .int32, .sfixed32, .sint32:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Int32].self)
                 case .int64, .sfixed64, .sint64:
@@ -1092,8 +1262,8 @@ extension _MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    equalSoFar = layout.areSubmessagesEqual(
-                        _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    equalSoFar = layout.areFieldsEqual(
+                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
                         field,
                         self,
                         other
@@ -1205,9 +1375,9 @@ extension _MessageStorage {
                 }
 
                 // This never actually throws because the closure cannot throw, but closures cannot
-                // be declared rethrows..
+                // be declared rethrows.
                 let isSubmessageInitialized = try! layout.performOnSubmessageStorage(
-                    _MessageLayout.SubmessageToken(index: field.submessageIndex),
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .read
