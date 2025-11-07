@@ -73,8 +73,11 @@ import Foundation
     @usableFromInline func deinitializeField(_ field: FieldLayout) {
         switch field.fieldMode.cardinality {
         case .map:
-            // TODO: Support map fields.
-            break
+            layout.deinitializeField(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self
+            )
 
         case .array:
             switch field.rawFieldType {
@@ -161,8 +164,12 @@ extension _MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                // TODO: Support map fields.
-                break
+                layout.copyField(
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    destination
+                )
 
             case .array:
                 if field.offset < firstNontrivialStorageOffset {
@@ -1215,8 +1222,12 @@ extension _MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                // TODO: Support map fields.
-                break
+                equalSoFar = layout.areFieldsEqual(
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    other
+                )
 
             case .array:
                 if field.offset < firstNontrivialStorageOffset {
