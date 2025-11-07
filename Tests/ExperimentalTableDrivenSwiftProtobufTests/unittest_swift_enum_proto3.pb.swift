@@ -314,10 +314,10 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0(\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{5}\u{2}\0\0\0\u{a}\u{10}\0\0\u{1}\0\u{2}\0\u{5}\u{3}\0\0\0\u{a}\u{18}\0\0\u{2}\0\u{3}\0\u{5}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{4}\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0(\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{10}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{18}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{4}\0\u{e}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{14}\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{5}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\u{2}\0\u{5}\u{3}\0\0\0\u{a}\u{c}\0\0\u{2}\0\u{3}\0\u{5}\u{4}\0\0\0\u{a}\u{10}\0\0\u{3}\0\u{4}\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{14}\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a}\u{10}\0\0\u{3}\0\u{4}\0\u{e}" }
   #else
     #error("Unsupported platform")
   #endif
@@ -413,10 +413,10 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{5}" }
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}" }
   #else
     #error("Unsupported platform")
   #endif
