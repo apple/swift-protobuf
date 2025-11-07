@@ -474,8 +474,7 @@ extension _MessageStorage {
         // into unknown fields at the end.
         var invalidValues: [Int32] = []
 
-        // Recursion budget is irrelevant here because we should never recurse into groups or
-        // messages here; they're not supported as packed fields.
+        // Recursion budget is irrelevant here because we're only reading enums.
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
 
         try layout.performOnRawEnumValues(
@@ -485,7 +484,7 @@ extension _MessageStorage {
             .append
         ) { outRawValue in
             guard elementsReader.hasAvailableData else { return false }
-            outRawValue = Int32(try elementsReader.nextVarint())
+            outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
             return true
         } /*onInvalidValue*/ _: {
             invalidValues.append($0)

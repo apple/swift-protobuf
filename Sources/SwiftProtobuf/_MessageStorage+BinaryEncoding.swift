@@ -512,6 +512,7 @@ extension _MessageStorage {
                 length += Varint.encodedSize(of: $0)
                 return true
             } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
             }
 
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -527,6 +528,7 @@ extension _MessageStorage {
                 encoder.putVarInt(value: Int64($0))
                 return true
             } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
             }
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
@@ -540,6 +542,7 @@ extension _MessageStorage {
                 encoder.putVarInt(value: Int64($0))
                 return true
             } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
             }
         }
     }

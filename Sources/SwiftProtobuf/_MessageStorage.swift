@@ -421,9 +421,10 @@ extension _MessageStorage {
         case .append:
             let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
             var rawValue: Int32 = 0
+            var isFieldPresent = isPresent(field)
             while try perform(&rawValue) {
                 if let newValue = T(rawValue: Int(rawValue)) {
-                    if !isPresent(field) {
+                    if !isFieldPresent {
                         pointer.initialize(to: [])
                         switch field.presence {
                         case .hasBit(let hasByteOffset, let hasMask):
@@ -431,6 +432,7 @@ extension _MessageStorage {
                         case .oneOfMember(let oneofOffset):
                             _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
                         }
+                        isFieldPresent = true
                     }
                     pointer.pointee.append(newValue)
                 } else {
