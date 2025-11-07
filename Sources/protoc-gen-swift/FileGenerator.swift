@@ -167,7 +167,7 @@ class FileGenerator {
         extensionSet.add(extensionFields: fileDescriptor.extensions)
 
         let enums = fileDescriptor.enums.map {
-            EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
+            EnumGenerator.makeEnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
         }
 
         let messages = fileDescriptor.messages.map {
@@ -180,7 +180,7 @@ class FileGenerator {
         }
 
         for e in enums {
-            e.generateMainEnum(printer: &p)
+            e.generateTypeDeclaration(to: &p)
         }
 
         for m in messages {

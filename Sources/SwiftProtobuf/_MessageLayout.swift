@@ -73,7 +73,7 @@ import Foundation
 /// ```
 /// +---------------------+-----------+-----------+------------------+------------+
 /// | Bytes 0-4           | Bytes 5-7 | Bytes 8-9 | Bytes 10-11      | Byte 12    |
-/// | Field number & mode | Offset    | Presence  | Submessage index | Field type |
+/// | Field number & mode | Offset    | Presence  | Trampoline index | Field type |
 /// +---------------------+-----------+-----------+------------------+------------+
 /// ```
 ///
@@ -87,8 +87,8 @@ import Foundation
 ///         field is stored.
 ///     *   Otherwise, the value is the index of the has-bit used to store the presence of the
 ///         field.
-/// *   Bytes 10-11: For message/group fields, an opaque index as a base-128 integer used to
-///     request the metatype of the submessage from the containing message's submessage accessor.
+/// *   Bytes 10-11: For message/group/enum fields, an opaque index as a base-128 integer used to
+///     perform operations on submessage or enum fields that require the concrete type hint.
 /// *   Byte 12: The type of the field.
 @_spi(ForGeneratedCodeOnly) public struct _MessageLayout: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
@@ -98,82 +98,102 @@ import Foundation
     /// The encoded layout of the fields of the message.
     private let layout: UnsafeRawBufferPointer
 
-    /// The function type for the generated function that is called to deinitialize a field
-    /// of a complex type.
-    public typealias SubmessageDeinitializer = (
-        _ token: SubmessageToken,
+    /// The function type for the generated function that is called to deinitialize a field whose
+    /// type is a message, array of messages, or array of enums.
+    public typealias TrampolineDeinitializer = (
+        _ token: TrampolineToken,
         _ field: FieldLayout,
         _ storage: _MessageStorage
     ) -> Void
 
-    /// The function type for the generated function that is called to copy a field of a
-    /// complex type.
-    public typealias SubmessageCopier = (
-        _ token: SubmessageToken,
+    /// The function type for the generated function that is called to copy a field whose type is a
+    /// message, array of messages, or array of enums.
+    public typealias TrampolineCopier = (
+        _ token: TrampolineToken,
         _ field: FieldLayout,
         _ source: _MessageStorage,
         _ destination: _MessageStorage
     ) -> Void
 
-    /// The function type for the generated function that is called to test the values of a complex
-    /// field type from two different messages for equality.
-    public typealias SubmessageEquater = (
-        _ token: SubmessageToken,
+    /// The function type for the generated function that is called to test for equality two fields
+    /// whose types are a message, array of messages, or array of enums.
+    public typealias TrampolineEquater = (
+        _ token: TrampolineToken,
         _ field: FieldLayout,
         _ lhs: _MessageStorage,
         _ rhs: _MessageStorage
     ) -> Bool
 
     /// The function type for the generated function that is called to test if a field whose type
-    /// is a submessage is initialized.
+    /// is a message or array of messages is initialized.
     public typealias SubmessageInitializedChecker = (
-        _ token: SubmessageToken,
+        _ token: TrampolineToken,
         _ field: FieldLayout,
         _ storage: _MessageStorage
     ) -> Bool
 
     /// The function type for the generated function that is called to perform an arbitrary
-    /// operation on the storage of a submessage field.
+    /// operation on the storage of a field whose type is a message or array of messages.
     public typealias SubmessageStoragePerformer = (
-        _ token: SwiftProtobuf._MessageLayout.SubmessageToken,
+        _ token: TrampolineToken,
         _ field: FieldLayout,
-        _ storage: SwiftProtobuf._MessageStorage,
-        _ operation: SubmessageStorageOperation,
-        _ perform: (SwiftProtobuf._MessageStorage) throws -> Bool
+        _ storage: _MessageStorage,
+        _ operation: TrampolineFieldOperation,
+        _ perform: (_MessageStorage) throws -> Bool
     ) throws -> Bool
 
-    /// The function that is called to deinitialize a field whose type is a message.
-    let deinitializeSubmessage: SubmessageDeinitializer
+    /// The function type for the generated function that is called to perform an arbitrary
+    /// operation on the raw values of a singular or repeated enum field.
+    public typealias RawEnumValuesPerformer = (
+        _ token: TrampolineToken,
+        _ field: FieldLayout,
+        _ storage: _MessageStorage,
+        _ operation: TrampolineFieldOperation,
+        _ perform: (inout Int32) throws -> Bool,
+        _ onInvalidValue: (Int32) -> Void
+    ) throws -> Void
 
-    /// The function that is called to copy a field whose type is a submessage.
-    let copySubmessage: SubmessageCopier
+    /// The function that is called to deinitialize a field whose type is a message (singular or
+    /// repeated) or a repeated enum field.
+    let deinitializeField: TrampolineDeinitializer
 
-    /// The function that is called to test a field whose type is a submessage for equality.
-    let areSubmessagesEqual: SubmessageEquater
+    /// The function that is called to copy a field whose type is a message (singular or repeated)
+    /// or a repeated enum field.
+    let copyField: TrampolineCopier
+
+    /// The function that is called to test a field whose type is a message, array of messages, or
+    /// array of enums for equality.
+    let areFieldsEqual: TrampolineEquater
 
     /// The function that is called to perform an arbitrary operation on the storage of a submessage
     /// field.
     let performOnSubmessageStorage: SubmessageStoragePerformer
+
+    /// The function that is called to perform an arbitrary operation on the raw values of an enum
+    /// field.
+    let performOnRawEnumValues: RawEnumValuesPerformer
 
     /// Creates a new message layout and submessage operations from the given values.
     ///
     /// This initializer is public because generated messages need to call it.
     public init(
         layout: StaticString,
-        deinitializeSubmessage: @escaping SubmessageDeinitializer,
-        copySubmessage: @escaping SubmessageCopier,
-        areSubmessagesEqual: @escaping SubmessageEquater,
-        performOnSubmessageStorage: @escaping SubmessageStoragePerformer
+        deinitializeField: @escaping TrampolineDeinitializer,
+        copyField: @escaping TrampolineCopier,
+        areFieldsEqual: @escaping TrampolineEquater,
+        performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
+        performOnRawEnumValues: @escaping RawEnumValuesPerformer
     ) {
         precondition(
             layout.hasPointerRepresentation,
             "The layout string should have a pointer-based representation; this is a generator bug"
         )
         self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
-        self.deinitializeSubmessage = deinitializeSubmessage
-        self.copySubmessage = copySubmessage
-        self.areSubmessagesEqual = areSubmessagesEqual
+        self.deinitializeField = deinitializeField
+        self.copyField = copyField
+        self.areFieldsEqual = areFieldsEqual
         self.performOnSubmessageStorage = performOnSubmessageStorage
+        self.performOnRawEnumValues = performOnRawEnumValues
         precondition(version == 0, "This runtime only supports version 0 message layouts")
         precondition(
             self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
@@ -194,16 +214,19 @@ import Foundation
     public init(layout: StaticString) {
         self.init(
             layout: layout,
-            deinitializeSubmessage: { _, _, _ in
+            deinitializeField: { _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
-            copySubmessage: { _, _, _, _ in
+            copyField: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
-            areSubmessagesEqual: { _, _, _, _ in
+            areFieldsEqual: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             performOnSubmessageStorage: { _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnRawEnumValues: { _, _, _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
@@ -323,25 +346,26 @@ extension _MessageLayout {
 
 extension _MessageLayout {
     /// An opaque token that is used to ask a message for the metatype of one of its submessage
-    /// fields.
-    public struct SubmessageToken: Sendable, Equatable {
-        /// The index that identifies the submessage type being requested.
+    /// or enum fields.
+    public struct TrampolineToken: Sendable, Equatable {
+        /// The index that identifies the submessage or enum type being requested.
         public let index: Int
     }
 }
 
-/// The nature of the operation that is being performed by `performOnSubmessageStorage`.
-@_spi(ForGeneratedCodeOnly) public enum SubmessageStorageOperation {
-    /// The submessage's storage is being read.
+/// The nature of the operation that is being performed by `performOnSubmessageStorage` or
+/// `performOnEnumRawValues`.
+@_spi(ForGeneratedCodeOnly) public enum TrampolineFieldOperation {
+    /// The submessage's storage or enum's raw value is being read.
     case read
 
-    /// The submessage's storage is being mutated.
+    /// The submessage's storage or enum's raw value is being mutated.
     ///
-    /// The submessage should be created if it is not already present. If already present, the
-    /// storage should be made unique before the mutation.
+    /// For submessages, the value should be created if it is not already present. If already
+    /// present, the storage should be made unique before the mutation.
     case mutate
 
-    /// The submessage's array storage is having a new value appended to it.
+    /// The submessage's array storage or enum's array value is having a new value appended to it.
     ///
     /// The array should be created if it is not already present.
     case append

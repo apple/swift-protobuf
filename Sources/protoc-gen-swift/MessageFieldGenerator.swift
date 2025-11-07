@@ -63,7 +63,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
     }
 
-    let submessageTypeName: String?
+    let trampolineFieldKind: TrampolineFieldKind?
 
     init(
         descriptor: FieldDescriptor,
@@ -95,9 +95,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         switch descriptor.type {
         case .group, .message:
-            submessageTypeName = swiftType
+            trampolineFieldKind = .message(swiftType)
+        case .enum:
+            trampolineFieldKind = .enum(swiftType)
         default:
-            submessageTypeName = nil
+            trampolineFieldKind = nil
         }
 
         super.init(descriptor: descriptor)

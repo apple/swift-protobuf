@@ -61,7 +61,7 @@ class OneofGenerator {
         // Only valid on message fields.
         var messageType: Descriptor? { fieldDescriptor.messageType }
 
-        let submessageTypeName: String?
+        let trampolineFieldKind: TrampolineFieldKind?
 
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
             precondition(descriptor.oneofIndex != nil)
@@ -85,9 +85,11 @@ class OneofGenerator {
 
             switch descriptor.type {
             case .group, .message:
-                submessageTypeName = swiftType
+                trampolineFieldKind = .message(swiftType)
+            case .enum:
+                trampolineFieldKind = .enum(swiftType)
             default:
-                submessageTypeName = nil
+                trampolineFieldKind = nil
             }
 
             super.init(descriptor: descriptor)
@@ -229,7 +231,9 @@ class OneofGenerator {
                 for f in fields {
                     p.print("case \(f.number): return .\(f.swiftName)(\(f.swiftName))")
                 }
-                p.print(#"default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")"#)
+                p.print(
+                    #"default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")"#
+                )
                 p.print("}")
             }
             p.print("}")

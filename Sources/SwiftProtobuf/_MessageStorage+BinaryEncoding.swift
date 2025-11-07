@@ -109,8 +109,7 @@ extension _MessageStorage {
                 }
 
             case .enum:
-                // TODO: Support enums.
-                break
+                try serializeRepeatedEnumField(for: fieldNumber, field: field, into: &encoder, isPacked: isPacked)
 
             case .fixed32:
                 let values = assumedPresentValue(at: offset, as: [UInt32].self)
@@ -274,8 +273,7 @@ extension _MessageStorage {
                 serializeDoubleField(assumedPresentValue(at: offset), for: fieldNumber, into: &encoder)
 
             case .enum:
-                // TODO: Support enums.
-                break
+                serializeInt32Field(assumedPresentValue(at: offset), for: fieldNumber, into: &encoder)
 
             case .fixed32:
                 serializeFixed32Field(assumedPresentValue(at: offset), for: fieldNumber, into: &encoder)
@@ -381,7 +379,7 @@ extension _MessageStorage {
         options: BinaryEncodingOptions
     ) throws {
         _ = try layout.performOnSubmessageStorage(
-            _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -419,7 +417,7 @@ extension _MessageStorage {
         options: BinaryEncodingOptions
     ) throws {
         _ = try layout.performOnSubmessageStorage(
-            _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -492,6 +490,60 @@ extension _MessageStorage {
         encoder.putVarInt(value: values.count * MemoryLayout<T>.size)
         for value in values {
             encode(value, &encoder)
+        }
+    }
+
+    /// Serializes the field tag and values for a repeated (packed or unpacked) `enum` field.
+    private func serializeRepeatedEnumField(
+        for fieldNumber: Int,
+        field: FieldLayout,
+        into encoder: inout BinaryEncoder,
+        isPacked: Bool
+    ) throws {
+        if isPacked {
+            // First, iterate over the values to compute the packed length.
+            var length = 0
+            _ = try layout.performOnRawEnumValues(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                .read
+            ) {
+                length += Varint.encodedSize(of: $0)
+                return true
+            } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
+            }
+
+            encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+            encoder.putVarInt(value: length)
+
+            // Then, iterate over them again to encode the actual varints.
+            _ = try layout.performOnRawEnumValues(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                .read
+            ) {
+                encoder.putVarInt(value: Int64($0))
+                return true
+            } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
+            }
+        } else {
+            // Iterate over the raw values and encode each as its own tag and varint.
+            _ = try layout.performOnRawEnumValues(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                .read
+            ) {
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
+                encoder.putVarInt(value: Int64($0))
+                return true
+            } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ struct MessageLayoutCalculator {
 
     /// Collects submessage information as it is encountered while iterating over the fields of the
     /// message.
-    private var submessageCollector = SubmessageCollector()
+    private var trampolineFieldCollector = TrampolineFieldCollector()
 
     /// The Swift string literals (without surrounding quotes) that encode the message layout in
     /// the generated source.
@@ -37,8 +37,8 @@ struct MessageLayoutCalculator {
     ///
     /// The first element in this array corresponds to the submessage with index 1, and the rest
     /// increase accordingly.
-    var submessages: [SubmessageInfo] {
-        submessageCollector.usedSubmessages.sorted { $0.value.index < $1.value.index }.map { $0.value }
+    var trampolineFields: [TrampolineField] {
+        trampolineFieldCollector.usedFields.sorted { $0.value.index < $1.value.index }.map { $0.value }
     }
 
     /// Creates a new message layout calculator for a message containing the given fields and for
@@ -128,7 +128,7 @@ struct MessageLayoutCalculator {
             field.storageOffsets = byteOffsets
             byteOffsets.add(fieldSizes)
 
-            submessageCollector.collect(field)
+            trampolineFieldCollector.collect(field)
         }
 
         // Now we have all the information we need to generate the layout string. First we write
@@ -145,7 +145,7 @@ struct MessageLayoutCalculator {
                 writer.writeBase128Int(UInt64(field.storageOffsets[which]), byteWidth: 3)
                 writer.writeBase128Int(UInt64(field.presence.rawPresence), byteWidth: 2)
                 writer.writeBase128Int(
-                    UInt64(submessageCollector.fieldNumberToSubmessageIndexMap[field.number, default: 0]),
+                    UInt64(trampolineFieldCollector.fieldNumberToTrampolineIndexMap[field.number, default: 0]),
                     byteWidth: 2
                 )
                 writer.writeBase128Int(UInt64(field.rawFieldType.rawValue), byteWidth: 1)
@@ -195,45 +195,42 @@ private struct MessageLayoutWriter {
 
 }
 
-/// Collects the submessages referenced by a message whose layout is being generated, assigning
-/// each one a unique index that will be used when looking them up by the runtime.
-private struct SubmessageCollector {
+/// Collects the message and enum types referenced by a message whose layout is being generated,
+/// assigning each one a unique index that will be used when looking them up by the runtime.
+private struct TrampolineFieldCollector {
     /// Tracks the field numbers of any submessage fields and the corresponding index of that
     /// submessage.
-    var fieldNumberToSubmessageIndexMap: [Int: Int] = [:]
+    var fieldNumberToTrampolineIndexMap: [Int: Int] = [:]
 
     /// Tracks which submessage types have already been encountered, along with their field
     /// generator and index.
-    var usedSubmessages: [String: SubmessageInfo] = [:]
+    var usedFields: [String: TrampolineField] = [:]
 
     /// Tracks the index that will be assigned to the next newly encountered submessage.
     private var nextIndex = 1
 
     /// Tracks the submessage with the given type name and field number.
     mutating func collect(_ field: any FieldGenerator) {
-        guard let name = field.submessageTypeName else { return }
-        let submessageIndex: Int
-        if let foundIndex = usedSubmessages[name]?.index {
-            submessageIndex = foundIndex
+        guard let kind = field.trampolineFieldKind else { return }
+        let trampolineIndex: Int
+        if let foundIndex = usedFields[kind.name]?.index {
+            trampolineIndex = foundIndex
         } else {
-            submessageIndex = nextIndex
-            usedSubmessages[name] = SubmessageInfo(
-                typeName: name,
-                index: submessageIndex,
+            trampolineIndex = nextIndex
+            usedFields[kind.name] = TrampolineField(
+                kind: kind,
+                index: trampolineIndex,
                 needsIsInitializedCheck: field.needsIsInitializedGeneration
             )
             nextIndex += 1
         }
-        fieldNumberToSubmessageIndexMap[field.number] = submessageIndex
+        fieldNumberToTrampolineIndexMap[field.number] = trampolineIndex
     }
 }
 
-struct SubmessageInfo {
-    /// The Swift type name of the submessage.
-    ///
-    /// Note that for repeated fields, this is the spelling of an array of the message type (e.g.,
-    /// `[Foo]`).
-    var typeName: String
+struct TrampolineField {
+    /// The kind and name of the field that needs trampoline generation.
+    var kind: TrampolineFieldKind
 
     /// The index of the submessage, which will be used to generate submessage tokens.
     var index: Int

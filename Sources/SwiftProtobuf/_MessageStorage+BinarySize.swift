@@ -23,7 +23,7 @@ extension _MessageStorage {
             serializedSize += serializedByteSize(of: field)
         }
         serializedSize += unknownFields.data.count
-         // TODO: Support extensions.
+        // TODO: Support extensions.
         return serializedSize
     }
 
@@ -59,8 +59,7 @@ extension _MessageStorage {
                 return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Double.self)
 
             case .enum:
-                // TODO: Support enums.
-                return 0
+                return serializedByteSize(ofRepeatedEnumField: field, fieldNumber: fieldNumber)
 
             case .fixed32:
                 return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: UInt32.self)
@@ -161,8 +160,8 @@ extension _MessageStorage {
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Double.self)
 
             case .enum:
-                // TODO: Support enums.
-                return 0
+                return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int32.self))
 
             case .fixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: UInt32.self)
@@ -247,6 +246,34 @@ extension _MessageStorage {
         return (tagSize + MemoryLayout<T>.size) * count
     }
 
+    /// Returns the serialized byte size of the given repeated enum field.
+    ///
+    /// This function takes the field number as a separate argument even though it can be computed
+    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// layout, since that has already been done by the caller.
+    private func serializedByteSize(ofRepeatedEnumField field: FieldLayout, fieldNumber: Int) -> Int {
+        var totalEnumsSize = 0
+        var count = 0
+        _ = try! layout.performOnRawEnumValues(
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            field,
+            self,
+            .read
+        ) {
+            count += 1
+            totalEnumsSize += Varint.encodedSize(of: $0)
+            return true
+        } /*onInvalidValue*/ _: { _ in
+        }
+        if field.fieldMode.isPacked {
+            // Packed: we need to add a single (length-delimited) tag and a varint for the length.
+            return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                + Varint.encodedSize(of: UInt64(totalEnumsSize))
+        }
+        // Unpacked: there will be a separate tag for each value.
+        return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) * count
+    }
+
     /// Returns the serialized byte size of the given submessage field.
     ///
     /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
@@ -259,7 +286,7 @@ extension _MessageStorage {
     private func serializedByteSize(ofMessageField field: FieldLayout, fieldNumber: Int) -> Int {
         var totalMessagesSize = 0
         _ = try! layout.performOnSubmessageStorage(
-            _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -288,7 +315,7 @@ extension _MessageStorage {
     private func serializedByteSize(ofGroupField field: FieldLayout, fieldNumber: Int) -> Int {
         var totalMessagesSize = 0
         _ = try! layout.performOnSubmessageStorage(
-            _MessageLayout.SubmessageToken(index: field.submessageIndex),
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
