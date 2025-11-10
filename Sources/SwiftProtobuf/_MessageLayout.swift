@@ -153,6 +153,10 @@ import Foundation
         _ onInvalidValue: (Int32) -> Void
     ) throws -> Void
 
+    /// The function type for the generated function that is called to retrieve the "message" layout
+    /// of a map entry.
+    public typealias MapEntryLayout = (_ token: TrampolineToken) -> StaticString
+
     /// The function that is called to deinitialize a field whose type is a message (singular or
     /// repeated) or a repeated enum field.
     let deinitializeField: TrampolineDeinitializer
@@ -173,6 +177,9 @@ import Foundation
     /// field.
     let performOnRawEnumValues: RawEnumValuesPerformer
 
+    /// The function that is called to retrieve the "message" layout of a map entry.
+    let mapEntryLayout: MapEntryLayout
+
     /// Creates a new message layout and submessage operations from the given values.
     ///
     /// This initializer is public because generated messages need to call it.
@@ -182,7 +189,8 @@ import Foundation
         copyField: @escaping TrampolineCopier,
         areFieldsEqual: @escaping TrampolineEquater,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
-        performOnRawEnumValues: @escaping RawEnumValuesPerformer
+        performOnRawEnumValues: @escaping RawEnumValuesPerformer,
+        mapEntryLayout: @escaping MapEntryLayout
     ) {
         precondition(
             layout.hasPointerRepresentation,
@@ -194,6 +202,7 @@ import Foundation
         self.areFieldsEqual = areFieldsEqual
         self.performOnSubmessageStorage = performOnSubmessageStorage
         self.performOnRawEnumValues = performOnRawEnumValues
+        self.mapEntryLayout = mapEntryLayout
         precondition(version == 0, "This runtime only supports version 0 message layouts")
         precondition(
             self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
@@ -227,6 +236,9 @@ import Foundation
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             performOnRawEnumValues: { _, _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            mapEntryLayout: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
