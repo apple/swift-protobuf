@@ -295,7 +295,7 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -366,6 +366,68 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
+  private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> StaticString {
+    switch token.index {
+    case 1:
+      return "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}"
+    case 2:
+      return "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}"
+    case 3:
+      return "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}"
+    case 4:
+      return "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}"
+    case 5:
+      return "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}"
+    case 6:
+      return "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}"
+    case 7:
+      return "\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}"
+    case 8:
+      #if _pointerBitWidth(_64)
+        return "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}"
+      #elseif _pointerBitWidth(_32)
+        return "\0$\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}"
+      #else
+        #error("Unsupported platform")
+      #endif
+    case 9:
+      #if _pointerBitWidth(_64)
+        return "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}"
+      #elseif _pointerBitWidth(_32)
+        return "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}"
+      #else
+        #error("Unsupported platform")
+      #endif
+    case 10:
+      return "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}"
+    case 11:
+      #if _pointerBitWidth(_64)
+        return "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #elseif _pointerBitWidth(_32)
+        return "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #else
+        #error("Unsupported platform")
+      #endif
+    case 12:
+      #if _pointerBitWidth(_64)
+        return "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #elseif _pointerBitWidth(_32)
+        return "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}"
+      #else
+        #error("Unsupported platform")
+      #endif
+    case 13:
+      #if _pointerBitWidth(_64)
+        return "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #elseif _pointerBitWidth(_32)
+        return "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #else
+        #error("Unsupported platform")
+      #endif
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -401,7 +463,7 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, Swift
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -432,6 +494,20 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, Swift
 
   private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
     switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> StaticString {
+    switch token.index {
+    case 1:
+      #if _pointerBitWidth(_64)
+        return "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #elseif _pointerBitWidth(_32)
+        return "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #else
+        #error("Unsupported platform")
+      #endif
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -475,7 +551,7 @@ extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, Swif
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -506,6 +582,20 @@ extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, Swif
 
   private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
     switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> StaticString {
+    switch token.index {
+    case 1:
+      #if _pointerBitWidth(_64)
+        return "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}"
+      #elseif _pointerBitWidth(_32)
+        return "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}"
+      #else
+        #error("Unsupported platform")
+      #endif
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

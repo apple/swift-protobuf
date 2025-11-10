@@ -322,7 +322,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -366,6 +366,12 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     case 2: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2].self, perform: perform, onInvalidValue: onInvalidValue)
     case 3: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem].self, perform: perform, onInvalidValue: onInvalidValue)
     case 4: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord].self, perform: perform, onInvalidValue: onInvalidValue)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> StaticString {
+    switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -421,7 +427,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
     #error("Unsupported platform")
   #endif
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -453,6 +459,12 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
   private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
     switch token.index {
     case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias].self, perform: perform, onInvalidValue: onInvalidValue)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> StaticString {
+    switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
