@@ -155,7 +155,19 @@ import Foundation
 
     /// The function type for the generated function that is called to retrieve the "message" layout
     /// of a map entry.
-    public typealias MapEntryLayout = (_ token: TrampolineToken) -> StaticString
+    public typealias MapEntryLayout = (_ token: TrampolineToken) -> _MessageLayout
+
+    /// The function type for the generated function that is called to perform an arbitrary
+    /// operation on the elements of a map.
+    public typealias MapEntryPerformer = (
+        _ token: TrampolineToken,
+        _ field: FieldLayout,
+        _ storage: _MessageStorage,
+        _ workingSpace: _MessageStorage,
+        _ operation: TrampolineFieldOperation,
+        _ deterministicOrdering: Bool,
+        _ perform: (_MessageStorage) throws -> Bool
+    ) throws -> Bool
 
     /// The function that is called to deinitialize a field whose type is a message (singular or
     /// repeated) or a repeated enum field.
@@ -180,6 +192,9 @@ import Foundation
     /// The function that is called to retrieve the "message" layout of a map entry.
     let mapEntryLayout: MapEntryLayout
 
+    /// The function that is called to perform an arbitrary operation on the elements of a map.
+    let performOnMapEntry: MapEntryPerformer
+
     /// Creates a new message layout and submessage operations from the given values.
     ///
     /// This initializer is public because generated messages need to call it.
@@ -190,7 +205,8 @@ import Foundation
         areFieldsEqual: @escaping TrampolineEquater,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
         performOnRawEnumValues: @escaping RawEnumValuesPerformer,
-        mapEntryLayout: @escaping MapEntryLayout
+        mapEntryLayout: @escaping MapEntryLayout,
+        performOnMapEntry: @escaping MapEntryPerformer
     ) {
         precondition(
             layout.hasPointerRepresentation,
@@ -203,6 +219,7 @@ import Foundation
         self.performOnSubmessageStorage = performOnSubmessageStorage
         self.performOnRawEnumValues = performOnRawEnumValues
         self.mapEntryLayout = mapEntryLayout
+        self.performOnMapEntry = performOnMapEntry
         precondition(version == 0, "This runtime only supports version 0 message layouts")
         precondition(
             self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
@@ -239,6 +256,77 @@ import Foundation
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             mapEntryLayout: { _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnMapEntry: { _, _, _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            }
+        )
+    }
+
+    /// Creates a new message layout for the message-like storage used to encode and decode map
+    /// entries where the value type is another message.
+    ///
+    /// This initializer is public because generated messages need to call it.
+    public init<T: _MessageImplementationBase>(layout: StaticString, forMapEntryWithValueType type: T.Type) {
+        self.init(
+            layout: layout,
+            deinitializeField: { _, field, storage in
+                storage.deinitializeField(field, type: type)
+            },
+            copyField: { _, field, source, destination in
+                source.copyField(field, to: destination, type: type)
+            },
+            areFieldsEqual: { _, field, lhs, rhs in
+                lhs.isField(field, equalToSameFieldIn: rhs, type: type)
+            },
+            performOnSubmessageStorage: { _, field, storage, operation, perform in
+                try storage.performOnSubmessageStorage(of: field, operation: operation, type: type, perform: perform)
+            },
+            performOnRawEnumValues: { _, field, storage, operation, perform, onInvalidValue in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            mapEntryLayout: { _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnMapEntry: { _, _, _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            }
+        )
+    }
+
+    /// Creates a new message layout for the message-like storage used to encode and decode map
+    /// entries where the value type is an enum.
+    ///
+    /// This initializer is public because generated messages need to call it.
+    public init<T: Enum>(layout: StaticString, forMapEntryWithValueType type: T.Type) {
+        self.init(
+            layout: layout,
+            deinitializeField: { _, field, storage in
+                storage.deinitializeField(field, type: type)
+            },
+            copyField: { _, field, source, destination in
+                source.copyField(field, to: destination, type: type)
+            },
+            areFieldsEqual: { _, field, lhs, rhs in
+                lhs.isField(field, equalToSameFieldIn: rhs, type: type)
+            },
+            performOnSubmessageStorage: { _, field, storage, operation, perform in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnRawEnumValues: { _, field, storage, operation, perform, onInvalidValue in
+                try storage.performOnRawEnumValues(
+                    of: field,
+                    operation: operation,
+                    type: type,
+                    perform: perform,
+                    onInvalidValue: onInvalidValue
+                )
+            },
+            mapEntryLayout: { _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnMapEntry: { _, _, _, _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )

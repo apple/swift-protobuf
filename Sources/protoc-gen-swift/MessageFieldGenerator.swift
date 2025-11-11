@@ -97,8 +97,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         case .group:
             trampolineFieldKind = .message(swiftType)
         case .message:
-            if descriptor.messageType?.mapKeyAndValue != nil {
-                trampolineFieldKind = .map(swiftType)
+            if let mapKeyAndValue = descriptor.messageType?.mapKeyAndValue {
+                trampolineFieldKind = .map(swiftType, valueIsMessage: mapKeyAndValue.value.type == .message)
             } else {
                 trampolineFieldKind = .message(swiftType)
             }

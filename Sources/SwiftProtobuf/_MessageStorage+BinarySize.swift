@@ -18,9 +18,10 @@ extension _MessageStorage {
     /// Computes and returns the size in bytes required to serialize this message.
     public func serializedBytesSize() -> Int {
         var serializedSize = 0
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
         for field in layout.fields {
             guard isPresent(field) else { continue }
-            serializedSize += serializedByteSize(of: field)
+            serializedSize += serializedByteSize(of: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
         }
         serializedSize += unknownFields.data.count
         // TODO: Support extensions.
@@ -30,14 +31,17 @@ extension _MessageStorage {
     /// Returns the serialized byte size of the value of the given field.
     ///
     /// - Precondition: The field is already known to be present.
-    private func serializedByteSize(of field: FieldLayout) -> Int {
+    private func serializedByteSize(of field: FieldLayout, mapEntryWorkingSpace: inout MapEntryWorkingSpace) -> Int {
         // TODO: Unify our field number APIs around `UInt32` to avoid casting.
         let fieldNumber = Int(field.fieldNumber)
         let offset = field.offset
         switch field.fieldMode.cardinality {
         case .map:
-            // TODO: Support maps.
-            return 0
+            return serializedByteSize(
+                ofMapField: field,
+                fieldNumber: fieldNumber,
+                mapEntryWorkingSpace: &mapEntryWorkingSpace
+            )
 
         case .array:
             let isPacked = field.fieldMode.isPacked
@@ -272,6 +276,39 @@ extension _MessageStorage {
         }
         // Unpacked: there will be a separate tag for each value.
         return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) * count
+    }
+
+    /// Returns the serialized byte size of the given map field.
+    ///
+    /// This function takes the field number as a separate argument even though it can be computed
+    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// layout, since that has already been done by the caller.
+    private func serializedByteSize(
+        ofMapField field: FieldLayout,
+        fieldNumber: Int,
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace
+    ) -> Int {
+        var totalEntriesSize = 0
+        _ = try! layout.performOnMapEntry(
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            field,
+            self,
+            mapEntryWorkingSpace.storage(for: field.submessageIndex),
+            .read,
+            // Deterministic ordering doesn't matter when calculating the size. Don't waste time
+            // sorting.
+            false
+        ) {
+            let entrySize = $0.serializedBytesSize()
+            totalEntriesSize +=
+                entrySize
+                // Include the size of the length-delimited tag.
+                + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                // Include the varint-encoded length.
+                + Varint.encodedSize(of: UInt64(entrySize))
+            return true
+        }
+        return totalEntriesSize
     }
 
     /// Returns the serialized byte size of the given submessage field.

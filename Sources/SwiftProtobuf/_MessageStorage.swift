@@ -342,6 +342,35 @@ extension _MessageStorage {
         }
     }
 
+    /// Called by generated trampoline functions to invoke the given closure on the storage of each
+    /// submessage among the values of a map field, providing the type hint of the concrete message
+    /// type.
+    ///
+    /// The closure can return false to stop iteration over the submessages early. Likewise, if the
+    /// closure throws an error, that error will be propagated all the way to the caller.
+    ///
+    /// - Precondition: Only the read operation is supported and the field must already be present.
+    ///
+    /// - Returns: The value returned from the last invocation of the closure.
+    public func performOnSubmessageStorage<K, V: _MessageImplementationBase>(
+        of field: FieldLayout,
+        operation: TrampolineFieldOperation,
+        type: [K: V].Type,
+        perform: (_MessageStorage) throws -> Bool
+    ) rethrows -> Bool {
+        switch operation {
+        case .read:
+            let dictionary = (buffer.baseAddress! + field.offset).bindMemory(to: [K: V].self, capacity: 1).pointee
+            for entry in dictionary {
+                guard try perform(entry.value.storageForRuntime) else { return false }
+            }
+            return true
+
+        case .mutate, .append:
+            preconditionFailure("unreachable")
+        }
+    }
+
     /// Called by generated trampoline functions to invoke the given closure on the raw value of a
     /// singular enum field, providing the type hint of the concrete enum type.
     ///
@@ -446,6 +475,75 @@ extension _MessageStorage {
                     onInvalidValue(rawValue)
                 }
             }
+        }
+    }
+
+    /// Called by generated trampoline functions to invoke the given closure on the storage of a
+    /// singular submessage, providing the type hint of the concrete message type.
+    ///
+    /// - Precondition: For read operations, the field is already known to be present.
+    ///
+    /// - Returns: The value returned from the closure.
+    public func performOnMapEntry<K: ProtobufMapKey, V: ProtobufMapParticipant>(
+        of field: FieldLayout,
+        operation: TrampolineFieldOperation,
+        workingSpace: _MessageStorage,
+        keyType: K.Type,
+        valueType: V.Type,
+        deterministicOrdering: Bool,
+        perform: (_MessageStorage) throws -> Bool
+    ) rethrows -> Bool {
+        typealias DictionaryType = [K.Base: V.Base]
+
+        guard
+            let keyField = workingSpace.layout[fieldNumber: 1],
+            let valueField = workingSpace.layout[fieldNumber: 2],
+            case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence,
+            case .hasBit(let valueHasByteOffset, let valueHasBitMask) = valueField.presence
+        else {
+            preconditionFailure("unreachable")
+        }
+        let keyHasBit = (keyHasByteOffset, keyHasBitMask)
+        let valueHasBit = (valueHasByteOffset, valueHasBitMask)
+
+        switch operation {
+        case .read:
+            let dictionary =
+                (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1).pointee
+            if deterministicOrdering {
+                for key in dictionary.keys.sorted(by: K.keyLessThan(lhs:rhs:)) {
+                    K.updateValue(at: keyField.offset, in: workingSpace, to: key, hasBit: keyHasBit)
+                    V.updateValue(at: valueField.offset, in: workingSpace, to: dictionary[key]!, hasBit: valueHasBit)
+                    guard try perform(workingSpace) else { break }
+                }
+            } else {
+                for entry in dictionary {
+                    K.updateValue(at: keyField.offset, in: workingSpace, to: entry.key, hasBit: keyHasBit)
+                    V.updateValue(at: valueField.offset, in: workingSpace, to: entry.value, hasBit: valueHasBit)
+                    guard try perform(workingSpace) else { break }
+                }
+            }
+            return true
+
+        case .mutate:
+            preconditionFailure("Internal error: performOnMapEntry should not be called to mutate")
+
+        case .append:
+            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1)
+            if !isPresent(field) {
+                pointer.initialize(to: [:])
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+                case .oneOfMember:
+                    preconditionFailure("unreachable")
+                }
+            }
+            guard try perform(workingSpace) else { return false }
+            let key = K.value(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
+            let value = V.value(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
+            pointer.pointee[key] = value
+            return true
         }
     }
 }
@@ -1387,8 +1485,8 @@ extension _MessageStorage {
                     continue
                 }
 
-                // This never actually throws because the closure cannot throw, but closures cannot
-                // be declared rethrows.
+                // This never actually throws because the closure cannot throw, but closures
+                // cannot be declared rethrows.
                 let isSubmessageInitialized = try! layout.performOnSubmessageStorage(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
@@ -1398,8 +1496,8 @@ extension _MessageStorage {
                 guard isSubmessageInitialized else { return false }
 
             default:
-                // Nothing to do for other types of fields; they've already been considered by the
-                // shallow check.
+                // Nothing to do for other types of fields; they've already been considered by
+                // the shallow check.
                 break
             }
         }
