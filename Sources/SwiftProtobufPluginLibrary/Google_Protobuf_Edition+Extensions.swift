@@ -17,16 +17,8 @@ import SwiftProtobuf
 
 /// The spec for editions calls out them being ordered and comparable.
 /// https://github.com/protocolbuffers/protobuf/blob/main/docs/design/editions/edition-naming.md
-#if compiler(>=6)
 extension Google_Protobuf_Edition: Comparable {
     public static func < (lhs: Google_Protobuf_Edition, rhs: Google_Protobuf_Edition) -> Bool {
         lhs.rawValue < rhs.rawValue
     }
 }
-#else
-extension Google_Protobuf_Edition: Comparable {
-    public static func < (lhs: Google_Protobuf_Edition, rhs: Google_Protobuf_Edition) -> Bool {
-        lhs.rawValue < rhs.rawValue
-    }
-}
-#endif
