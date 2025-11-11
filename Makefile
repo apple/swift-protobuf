@@ -61,9 +61,9 @@ GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos/Sources/SwiftProtobuf
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 
 # Where to find the conformance-test-runner. Defaults to being in your protobuf
-# checkout. Invoke make with CONFORMANCE_TEST_RUNNER=[PATH_TO_BINARY] to
-# override this value.
-CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/conformance_test_runner
+# checkout when built with CMake. Invoke make with
+# CONFORMANCE_TEST_RUNNER=[PATH_TO_BINARY] to override this value.
+CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/cmake_build/conformance_test_runner
 
 # Hook to pass arge to swift build|test (mainly for the CI setup)
 SWIFT_BUILD_TEST_HOOK?=
@@ -76,6 +76,7 @@ PROTOS_DIRS=Sources/Conformance Sources/SwiftProtobuf Sources/SwiftProtobufPlugi
 	all \
 	build \
 	check \
+	check-for-conformance-runner \
 	check-for-protobuf-checkout \
 	check-proto-files \
 	check-version-numbers \
@@ -645,8 +646,16 @@ check-proto-files: check-for-protobuf-checkout
 	    rm -f _check_protos.txt; \
 	fi
 
+check-for-conformance-runner:
+	@if [ ! -x "${CONFORMANCE_TEST_RUNNER}" ]; then \
+	  echo "ERROR: ${CONFORMANCE_TEST_RUNNER} does not appear to exist"; \
+	  echo "ERROR:   built build it or set CONFORMANCE_TEST_RUNNER to point"; \
+	  echo "ERROR:   a runner."; \
+	  exit 1; \
+	fi
+
 # Runs the conformance tests.
-test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_list_swift.txt Sources/Conformance/text_format_failure_list_swift.txt
+test-conformance: check-for-conformance-runner build Sources/Conformance/failure_list_swift.txt Sources/Conformance/text_format_failure_list_swift.txt
 	$(CONFORMANCE_TEST_RUNNER) \
 	  --enforce_recommended \
 	  --failure_list Sources/Conformance/failure_list_swift.txt \

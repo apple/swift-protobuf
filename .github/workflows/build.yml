@@ -1,7 +1,5 @@
 name: Build and Test
 
-# NOTE: If making changes to most of the steps, please also look to update
-# regular_conformance.yml also.
 permissions:
   contents: read
 
@@ -42,8 +40,12 @@ jobs:
       with:
         submodules: true
     - name: Update and install dependencies
-      # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
-      run: apt-get update && apt-get install -y make g++ cmake
+      # Just ensure we have the latest `g++` for building protoc (since it is
+      # built by SwiftPM), full dependencies available at
+      # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
+      #
+      # `make` is needed for using our own `Makefile`.
+      run: apt-get update && apt-get install -y make g++
     - name: Build
       run: make build ${{ matrix.swift.hook }}
     - name: Test runtime
@@ -60,23 +62,6 @@ jobs:
       # The protoc build isn't part of Package@swift-5.10.swift
       if: ${{ matrix.swift.version != '5.10' }}
       run: make compile-tests
-    - name: Build protobuf
-      working-directory: Sources/protobuf/protobuf
-      # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
-      run: |
-        mkdir cmake_build
-        cd cmake_build
-        cmake \
-          -DCMAKE_CXX_STANDARD=17 \
-          -DCMAKE_BUILD_TYPE=Release \
-          -Dprotobuf_BUILD_TESTS=OFF \
-          -Dprotobuf_INSTALL=OFF \
-          -Dprotobuf_BUILD_CONFORMANCE=ON \
-          -S ..
-        NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
-        make -j "${NUM_CPUS}" conformance_test_runner
-    - name: Test conformance
-      run: make test-conformance CONFORMANCE_TEST_RUNNER=Sources/protobuf/protobuf/cmake_build/conformance_test_runner
 
   api-breakage:
     name: Api Breakage Compared to main branch
