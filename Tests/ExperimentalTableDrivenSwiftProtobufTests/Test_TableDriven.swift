@@ -350,6 +350,22 @@ final class Test_TableDriven: XCTestCase {
         XCTAssertFalse(lhs == different)
     }
 
+    func testEnumClobbering() {
+        var msg = SwiftProtoTesting_EnumClobbering_EnumHolder.with {
+            $0.bar = ~0
+            $0.foo = .baz
+        }
+        XCTAssertEqual(msg.foo, .baz)
+        XCTAssertEqual(msg.bar, ~0)
+
+        // Make sure this calls the Enum-specialized clear function on storage so that we don't
+        // clobber more memory than we allocate for it (open enums as we generate them today will
+        // be larger than an Int32).
+        msg.clearFoo()
+        XCTAssertEqual(msg.foo, .foo)
+        XCTAssertEqual(msg.bar, ~0)
+    }
+
     //
     // Unknown field
     //

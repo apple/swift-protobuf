@@ -371,7 +371,7 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTest
 		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
 
 # TODO: Remove this once all the existing protos just work as table-driven.
-regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTests/map_unittest.proto Protos/Tests/SwiftProtobufTests/unittest.proto Protos/Tests/SwiftProtobufTests/unittest_import.proto Protos/Tests/SwiftProtobufTests/unittest_import_public.proto Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto Protos/Tests/SwiftProtobufTests/unittest_swift_all_required_types.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
+regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTests/map_unittest.proto Protos/Tests/SwiftProtobufTests/unittest.proto Protos/Tests/SwiftProtobufTests/unittest_import.proto Protos/Tests/SwiftProtobufTests/unittest_import_public.proto Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto Protos/Tests/SwiftProtobufTests/unittest_swift_all_required_types.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_clobbering.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
 	find Tests/ExperimentalTableDrivenSwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
@@ -383,6 +383,7 @@ regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProt
 		Protos/Tests/SwiftProtobufTests/unittest_import_public.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_all_required_types.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto \
+		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_clobbering.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
 

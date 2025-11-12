@@ -30,6 +30,24 @@ import Foundation
         to newValue: Base,
         hasBit: _MessageStorage.HasBit
     )
+
+    /// Clears the value of the field based on the given offset and presence information.
+    static func clearValue(
+        at offset: Int,
+        in storage: _MessageStorage,
+        hasBit: _MessageStorage.HasBit
+    )
+}
+
+extension ProtobufMapParticipant {
+    public static func clearValue(
+        at offset: Int,
+        in storage: _MessageStorage,
+        hasBit: _MessageStorage.HasBit
+    ) {
+        // This implementation is suitable for all types but enums; see below.
+        storage.clearValue(at: offset, type: Base.self, hasBit: hasBit)
+    }
 }
 
 /// Defines additional operations for proxy types that represent Swift types that can be used as
@@ -115,6 +133,17 @@ extension ProtobufMapKey where Base: Comparable {
         hasBit: _MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
+    }
+
+    public static func clearValue(
+        at offset: Int,
+        in storage: _MessageStorage,
+        hasBit: _MessageStorage.HasBit
+    ) {
+        // We must re-implement this here where the compiler has the additional context that
+        // `Base: Enum` to ensure that the correct specialization of `_MessageStorage.clearValue`
+        // is called.
+        storage.clearValue(at: offset, type: Base.self, hasBit: hasBit)
     }
 }
 

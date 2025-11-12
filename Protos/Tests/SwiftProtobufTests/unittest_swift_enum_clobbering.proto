@@ -1,0 +1,33 @@
+// Protos/unittest_swift_enum_clobbering.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2025 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto3";
+
+package swift_proto_testing.enum_clobbering;
+
+enum Foo {
+    FOO = 0;
+    BAR = 1;
+    BAZ = 2;
+}
+
+// The message layout algorithm will place the int64 after the enum (because the latter is stored
+// as its raw value, an int32, so it's smaller). This lets us verify that the setter and clearer
+// use the raw value correctly and don't clobber memory afterward.
+message EnumHolder {
+    optional Foo foo = 1;
+    optional int64 bar = 3;
+}

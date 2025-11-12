@@ -529,6 +529,11 @@ extension _MessageStorage {
             preconditionFailure("Internal error: performOnMapEntry should not be called to mutate")
 
         case .append:
+            // Make sure to clear out the working space before invoking the closure, so that we
+            // handle missing fields in the map entry correctly.
+            K.clearValue(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
+            V.clearValue(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
+
             let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1)
             if !isPresent(field) {
                 pointer.initialize(to: [:])
@@ -831,6 +836,16 @@ extension _MessageStorage {
         rawPointer.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<T>.stride) { bytes in
             bytes.initialize(repeating: 0, count: MemoryLayout<T>.stride)
         }
+    }
+
+    /// Clears the value at the given offset in the storage, along with its presence.
+    ///
+    /// This specialization is necessary since enums are stored as their raw values in memory.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue<T: Enum>(at offset: Int, type: T.Type, hasBit: HasBit) {
+        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1)
+        _ = updatePresence(hasBit: hasBit, willBeSet: false)
+        pointer.pointee = 0
     }
 }
 

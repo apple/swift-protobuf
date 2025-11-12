@@ -142,6 +142,10 @@ final class Test_Map: XCTestCase {
         assertDecodeSucceeds(inputBytes: [10, 0], recodedBytes: [10, 4, 8, 0, 16, 0]) {
             $0.mapInt32Int32 == [0: 0]
         }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(inputBytes: [10, 4, 8, 1, 16, 2, 10, 0], recodedBytes: [10, 4, 8, 0, 16, 0, 10, 4, 8, 1, 16, 2]) {
+            $0.mapInt32Int32 == [0: 0, 1: 2]
+        }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [10, 6, 8, 1, 24, 3, 16, 2], recodedBytes: [10, 4, 8, 1, 16, 2]) {
             $0.mapInt32Int32 == [1: 2]
@@ -170,6 +174,10 @@ final class Test_Map: XCTestCase {
         assertDecodeSucceeds(inputBytes: [18, 0], recodedBytes: [18, 4, 8, 0, 16, 0]) {
             $0.mapInt64Int64 == [0: 0]
         }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(inputBytes: [18, 4, 8, 1, 16, 2, 18, 0], recodedBytes: [18, 4, 8, 0, 16, 0, 18, 4, 8, 1, 16, 2]) {
+            $0.mapInt64Int64 == [0: 0, 1: 2]
+        }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [18, 6, 8, 1, 24, 3, 16, 2], recodedBytes: [18, 4, 8, 1, 16, 2]) {
             $0.mapInt64Int64 == [1: 2]
@@ -193,6 +201,10 @@ final class Test_Map: XCTestCase {
         assertDecodeSucceeds(inputBytes: [26, 0], recodedBytes: [26, 4, 8, 0, 16, 0]) {
             $0.mapUint32Uint32 == [0: 0]
         }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(inputBytes: [26, 4, 8, 1, 16, 2, 26, 0], recodedBytes: [26, 4, 8, 0, 16, 0, 26, 4, 8, 1, 16, 2]) {
+            $0.mapUint32Uint32 == [0: 0, 1: 2]
+        }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [26, 6, 8, 1, 24, 3, 16, 2], recodedBytes: [26, 4, 8, 1, 16, 2]) {
             $0.mapUint32Uint32 == [1: 2]
@@ -215,6 +227,10 @@ final class Test_Map: XCTestCase {
         assertDecodeSucceeds(inputBytes: [106, 0], recodedBytes: [106, 4, 8, 0, 16, 0]) {
             $0.mapBoolBool == [false: false]
         }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(inputBytes: [106, 4, 8, 1, 16, 1, 106, 0], recodedBytes: [106, 4, 8, 0, 16, 0, 106, 4, 8, 1, 16, 1]) {
+            $0.mapBoolBool == [false: false, true: true]
+        }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [106, 6, 8, 1, 24, 3, 16, 1], recodedBytes: [106, 4, 8, 1, 16, 1]) {
             $0.mapBoolBool == [true: true]
@@ -236,6 +252,13 @@ final class Test_Map: XCTestCase {
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [114, 0], recodedBytes: [114, 4, 10, 0, 18, 0]) {
             $0.mapStringString == ["": ""]
+        }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(
+            inputBytes: [114, 8, 10, 2, 65, 66, 18, 2, 97, 98, 114, 0],
+            recodedBytes: [114, 4, 10, 0, 18, 0, 114, 8, 10, 2, 65, 66, 18, 2, 97, 98]
+        ) {
+            $0.mapStringString == ["": "", "AB": "ab"]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(
@@ -268,6 +291,13 @@ final class Test_Map: XCTestCase {
         assertDecodeSucceeds(inputBytes: [122, 0], recodedBytes: [122, 4, 8, 0, 18, 0]) {
             $0.mapInt32Bytes == [0: Data()]
         }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(
+            inputBytes: [122, 7, 8, 9, 18, 3, 1, 2, 3, 122, 0],
+            recodedBytes: [122, 4, 8, 0, 18, 0, 122, 7, 8, 9, 18, 3, 1, 2, 3]
+        ) {
+            $0.mapInt32Bytes == [0: Data(), 9: Data([1, 2, 3])]
+        }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(
             inputBytes: [122, 9, 8, 9, 24, 3, 18, 3, 1, 2, 3],
@@ -292,6 +322,13 @@ final class Test_Map: XCTestCase {
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [130, 1, 0], recodedBytes: [130, 1, 4, 8, 0, 16, 0]) {
             $0.mapInt32Enum == [0: SwiftProtoTesting_MapEnum.foo]
+        }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(
+            inputBytes: [130, 1, 4, 8, 1, 16, 2, 130, 1, 0],
+            recodedBytes: [130, 1, 4, 8, 0, 16, 0, 130, 1, 4, 8, 1, 16, 2]
+        ) {
+            $0.mapInt32Enum == [0: SwiftProtoTesting_MapEnum.foo, 1: SwiftProtoTesting_MapEnum.baz]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [130, 1, 6, 8, 1, 24, 3, 16, 2], recodedBytes: [130, 1, 4, 8, 1, 16, 2]) {
@@ -318,6 +355,15 @@ final class Test_Map: XCTestCase {
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [138, 1, 0], recodedBytes: [138, 1, 4, 8, 0, 18, 0]) {
             $0.mapInt32ForeignMessage == [0: SwiftProtoTesting_ForeignMessage()]
+        }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(
+            inputBytes: [138, 1, 6, 8, 1, 18, 2, 8, 7, 138, 1, 0],
+            recodedBytes: [138, 1, 4, 8, 0, 18, 0, 138, 1, 6, 8, 1, 18, 2, 8, 7]
+        ) {
+            var m1 = SwiftProtoTesting_ForeignMessage()
+            m1.c = 7
+            return $0.mapInt32ForeignMessage == [0: SwiftProtoTesting_ForeignMessage(), 1: m1]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(
@@ -349,6 +395,15 @@ final class Test_Map: XCTestCase {
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [146, 1, 0], recodedBytes: [146, 1, 4, 10, 0, 18, 0]) {
             $0.mapStringForeignMessage == ["": SwiftProtoTesting_ForeignMessage()]
+        }
+        // Verify that we clear the shared storage between map entries.
+        assertDecodeSucceeds(
+            inputBytes: [146, 1, 7, 10, 1, 97, 18, 2, 8, 7, 146, 1, 0],
+            recodedBytes: [146, 1, 4, 10, 0, 18, 0, 146, 1, 7, 10, 1, 97, 18, 2, 8, 7]
+        ) {
+            var m1 = SwiftProtoTesting_ForeignMessage()
+            m1.c = 7
+            return $0.mapStringForeignMessage == ["": SwiftProtoTesting_ForeignMessage(), "a": m1]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(
@@ -474,7 +529,9 @@ final class Test_Map: XCTestCase {
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
-                let encoded: [UInt8] = try decoded.serializedBytes()
+                var options = BinaryEncodingOptions()
+                options.useDeterministicOrdering = true
+                let encoded: [UInt8] = try decoded.serializedBytes(options: options)
                 XCTAssertEqual(
                     recodedBytes,
                     encoded,

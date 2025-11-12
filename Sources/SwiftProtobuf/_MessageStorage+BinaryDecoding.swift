@@ -116,7 +116,7 @@ extension _MessageStorage {
                 false
             ) { workingSpace in
                 try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                    try workingSpace.merge(byReadingFrom: &subReader, partial: true, discardUnknownFields: true)
+                    try workingSpace.merge(byReadingFrom: &subReader, partial: partial, discardUnknownFields: true)
                 }
                 return true
             }
