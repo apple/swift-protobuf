@@ -84,11 +84,18 @@ enum TrampolineFieldKind {
     /// The associated value is the full Swift name of that (possibly array) type.
     case `enum`(String)
 
+    /// The field is a map type.
+    ///
+    /// The associated value is the full Swift name of that type and whether or not the value is a
+    /// message.
+    case map(String, valueIsMessage: Bool)
+
     /// The full Swift name of the (possibly array) type of the field.
     var name: String {
         switch self {
         case .message(let name): return name
         case .enum(let name): return name
+        case .map(let name, _): return name
         }
     }
 }

@@ -49,13 +49,15 @@ extension _MessageStorage {
         partial: Bool,
         discardUnknownFields: Bool
     ) throws {
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
         while reader.hasAvailableData {
             let tag = try reader.nextTag()
             let consumed = try decodeNextField(
                 from: &reader,
                 tag: tag,
                 partial: partial,
-                discardUnknownFields: discardUnknownFields
+                discardUnknownFields: discardUnknownFields,
+                mapEntryWorkingSpace: &mapEntryWorkingSpace
             )
             if !consumed {
                 try decodeUnknownField(from: &reader, tag: tag, discard: discardUnknownFields)
@@ -83,7 +85,8 @@ extension _MessageStorage {
         from reader: inout WireFormatReader,
         tag: FieldTag,
         partial: Bool,
-        discardUnknownFields: Bool
+        discardUnknownFields: Bool,
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws -> Bool {
         guard tag.wireFormat != .endGroup else {
             // Just consume it; `nextTag` has already validated that it matches the last started
@@ -102,8 +105,21 @@ extension _MessageStorage {
 
         switch field.fieldMode.cardinality {
         case .map:
-            // TODO: Support map fields.
-            break
+            guard tag.wireFormat == .lengthDelimited else { return false }
+            _ = try layout.performOnMapEntry(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                mapEntryWorkingSpace.storage(for: field.submessageIndex),
+                .append,
+                // Deterministic ordering doesn't apply to decoding.
+                false
+            ) { workingSpace in
+                try reader.withReaderForNextLengthDelimitedSlice { subReader in
+                    try workingSpace.merge(byReadingFrom: &subReader, partial: partial, discardUnknownFields: true)
+                }
+                return true
+            }
 
         case .array:
             switch field.rawFieldType {

@@ -294,7 +294,7 @@ extension FieldDescriptor {
         if case (let keyField, let valueField)? = messageType?.mapKeyAndValue {
             let keyType = keyField.swiftType(namer: namer)
             let valueType = valueField.swiftType(namer: namer)
-            return "Dictionary<" + keyType + "," + valueType + ">"
+            return "[\(keyType): \(valueType)]"
         }
 
         let result: String

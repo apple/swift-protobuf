@@ -30,6 +30,7 @@ class MessageGenerator {
     private let oneofs: [OneofGenerator]
     private let enums: [EnumGenerator]
     private let messages: [MessageGenerator]
+    private let mapEntries: [String: MapEntryGenerator]
     private let isExtensible: Bool
     private let messageLayoutCalculator: MessageLayoutCalculator
 
@@ -80,6 +81,28 @@ class MessageGenerator {
                 extensionSet: extensionSet
             )
         }
+
+        // The layout calculator will distinguish trampoline indices by the type name of the field.
+        // Even though the original descriptors for map entries will be one-per-field (even if a
+        // particular map type occurs multiple times in the message), we key these generators by
+        // type name to ensure that we coalesce them if a particular type occur multiple times.
+        mapEntries = Dictionary(
+            descriptor.fields.filter { $0.isMap }.map {
+                (
+                    key: $0.swiftType(namer: namer),
+                    value: MapEntryGenerator(
+                        descriptor: $0.messageType,
+                        generatorOptions: generatorOptions,
+                        namer: namer
+                    )
+                )
+            },
+            uniquingKeysWith: { old, new in
+                // It doesn't matter which one we take here, since we're not going to use any of
+                // the unique information (like the synthesized name of the entry message).
+                old
+            }
+        )
 
         // TODO: This is where we previously selected a specific storage class for the `Any` WKT.
         // We'll need to make sure that `Any` storage is compatible with table-driven messages
@@ -313,6 +336,8 @@ class MessageGenerator {
                 , areFieldsEqual: _protobuf_areFieldsEqual\
                 , performOnSubmessageStorage: _protobuf_performOnSubmessageStorage\
                 , performOnRawEnumValues: _protobuf_performOnRawEnumValues\
+                , mapEntryLayout: _protobuf_mapEntryLayout\
+                , performOnMapEntry: _protobuf_performOnMapEntry\
                 )
                 """
             )
@@ -382,11 +407,28 @@ class MessageGenerator {
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
+                var nonMessageMapFieldIndices = [Int]()
                 for field in trampolineFields {
-                    // Only submessage fields need this storage trampoline.
-                    guard case .message(let name) = field.kind else { continue }
+                    // Only submessage fields and map fields with message values need this storage
+                    // trampoline.
+                    switch field.kind {
+                    case .message(let name), .map(let name, valueIsMessage: true):
+                        p.print(
+                            "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(name).self, perform: perform)"
+                        )
+                    case .map(_, valueIsMessage: false):
+                        nonMessageMapFieldIndices.append(field.index)
+                    default:
+                        break
+                    }
+                }
+                if !nonMessageMapFieldIndices.isEmpty {
+                    // This will be hit when checking isInitialized for map fields with non-message
+                    // values, because that part of the runtime doesn't know what the value type of
+                    // the map is. We can trivially return true in that case, and we collapse all of
+                    // those cases together to shrink codegen.
                     p.print(
-                        "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(name).self, perform: perform)"
+                        "case \(nonMessageMapFieldIndices.map(String.init).joined(separator: ", ")): return true"
                     )
                 }
                 p.print(
@@ -409,6 +451,52 @@ class MessageGenerator {
                     guard case .enum(let name) = field.kind else { continue }
                     p.print(
                         "case \(field.index): return try storage.performOnRawEnumValues(of: field, operation: operation, type: \(name).self, perform: perform, onInvalidValue: onInvalidValue)"
+                    )
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
+                    "}"
+                )
+            }
+            p.print(
+                "}"
+            )
+
+            p.print(
+                "",
+                "private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> SwiftProtobuf._MessageLayout {"
+            )
+            p.withIndentation { p in
+                p.print("switch token.index {")
+                for field in trampolineFields {
+                    // Only map fields need this trampoline.
+                    guard case .map(let name, _) = field.kind else { continue }
+                    p.print("case \(field.index):")
+                    p.withIndentation { p in
+                        let entryGenerator = mapEntries[name]
+                        entryGenerator?.generateLayoutReturnStatement(printer: &p)
+                    }
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
+                    "}"
+                )
+            }
+            p.print(
+                "}"
+            )
+
+            p.print(
+                "",
+                "private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, workingSpace: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {"
+            )
+            p.withIndentation { p in
+                p.print("switch token.index {")
+                for field in trampolineFields {
+                    // Only map fields need this storage trampoline.
+                    guard case .map(let name, _) = field.kind, let entryGenerator = mapEntries[name] else { continue }
+                    p.print(
+                        "case \(field.index): return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: \(entryGenerator.keyParticipantType).self, valueType: \(entryGenerator.valueParticipantType).self, deterministicOrdering: deterministicOrdering, perform: perform)"
                     )
                 }
                 p.print(

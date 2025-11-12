@@ -200,6 +200,20 @@ final class Test_RequiredFields: XCTestCase {
         XCTAssertFalse(msg.isInitialized)
     }
 
+    func testMapWithRequiredFieldsInValues() {
+        var msg = SwiftProtoTesting_MapWithNestedRequiredValues()
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.map1[0] = SwiftProtoTesting_NestedRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.map1[0]!.req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.map1[0] = nil
+        XCTAssertTrue(msg.isInitialized)
+    }
+
     // Helper to assert encoding fails with a not initialized error.
     fileprivate func assertEncodeFailsNotInitialized(
         _ message: SwiftProtoTesting_TestAllRequiredTypes,

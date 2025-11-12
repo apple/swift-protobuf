@@ -94,8 +94,14 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
 
         switch descriptor.type {
-        case .group, .message:
+        case .group:
             trampolineFieldKind = .message(swiftType)
+        case .message:
+            if let mapKeyAndValue = descriptor.messageType!.mapKeyAndValue {
+                trampolineFieldKind = .map(swiftType, valueIsMessage: mapKeyAndValue.value.type == .message)
+            } else {
+                trampolineFieldKind = .message(swiftType)
+            }
         case .enum:
             trampolineFieldKind = .enum(swiftType)
         default:

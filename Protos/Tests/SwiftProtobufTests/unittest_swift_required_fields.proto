@@ -94,3 +94,7 @@ message NoneRequiredButNestedRequired {
     optional int64 opt_1 = 1;
     optional NestedRequired opt_2 = 2;
 }
+
+message MapWithNestedRequiredValues {
+    map<int32, NestedRequired> map_1 = 1;
+}

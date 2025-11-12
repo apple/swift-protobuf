@@ -54,9 +54,10 @@ extension _MessageStorage {
     /// A recursion helper that serializes the message represented by this storage into the given
     /// binary encoder.
     private func serializeBytes(into encoder: inout BinaryEncoder, options: BinaryEncodingOptions) throws {
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
         for field in layout.fields {
             guard isPresent(field) else { continue }
-            try serializeField(field, into: &encoder, options: options)
+            try serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
         }
         encoder.appendUnknown(data: unknownFields.data)
         // TODO: Support extensions.
@@ -66,14 +67,26 @@ extension _MessageStorage {
     private func serializeField(
         _ field: FieldLayout,
         into encoder: inout BinaryEncoder,
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: BinaryEncodingOptions
     ) throws {
         let fieldNumber = Int(field.fieldNumber)
         let offset = field.offset
         switch field.fieldMode.cardinality {
         case .map:
-            // TODO: Support maps.
-            break
+            _ = try! layout.performOnMapEntry(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                mapEntryWorkingSpace.storage(for: field.submessageIndex),
+                .read,
+                options.useDeterministicOrdering
+            ) {
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+                encoder.putVarInt(value: $0.serializedBytesSize())
+                try $0.serializeBytes(into: &encoder, options: options)
+                return true
+            }
 
         case .array:
             let isPacked = field.fieldMode.isPacked
