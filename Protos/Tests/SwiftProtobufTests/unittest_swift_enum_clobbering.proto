@@ -10,7 +10,8 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Test Swift reserved words used as enum or message names
+/// Used by a regression test to verify that table driven protos use operations
+/// that deal with int32s in memory, not Swift enum values.
 ///
 // -----------------------------------------------------------------------------
 
