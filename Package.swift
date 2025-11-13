@@ -426,7 +426,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
     static var packageSettings: Self {
         [
-            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("ExistentialAny")
         ]
     }
 }
