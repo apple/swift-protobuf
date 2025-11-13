@@ -82,7 +82,7 @@ extension CommandLine {
     /// - Returns: An array of command-line arguments.
     fileprivate static let safeArguments: [String] =
         UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).compactMap {
-            String(validatingUTF8: $0!)
+            String(validatingCString: $0!)
         }
 }
 

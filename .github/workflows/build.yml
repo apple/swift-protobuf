@@ -29,9 +29,6 @@ jobs:
           hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         - version: "6.0"
           hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
-        - version: "5.10"
-          # No "hook", see https://github.com/apple/swift-protobuf/issues/1560 for the
-          # current issue with using -warnings-as-errors on linux.
     container:
       image: swift:${{ matrix.swift.version }}
     steps:
@@ -51,16 +48,10 @@ jobs:
     - name: Test runtime
       run: make test-runtime ${{ matrix.swift.hook }}
     - name: Test plugin
-      # The protoc build isn't part of Package@swift-5.10.swift
-      if: ${{ matrix.swift.version != '5.10' }}
       run: make test-plugin
     - name: Test SPM plugin
-      # The protoc build isn't part of Package@swift-5.10.swift
-      if: ${{ matrix.swift.version != '5.10' }}
       run: make test-spm-plugin
     - name: Compilation Tests
-      # The protoc build isn't part of Package@swift-5.10.swift
-      if: ${{ matrix.swift.version != '5.10' }}
       run: make compile-tests
 
   api-breakage:
