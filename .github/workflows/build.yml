@@ -41,9 +41,9 @@ jobs:
       # `make` is needed for using our own `Makefile`.
       run: apt-get update && apt-get install -y make g++
     - name: Build
-      run: make build -Xswiftc -warnings-as-errors
+      run: make build SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors"
     - name: Test runtime
-      run: make test-runtime -Xswiftc -warnings-as-errors
+      run: make test-runtime SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors"
     - name: Test plugin
       run: make test-plugin
     - name: Test SPM plugin
