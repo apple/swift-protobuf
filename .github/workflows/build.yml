@@ -24,11 +24,8 @@ jobs:
         # which is also what would be desired, so we don't bother listing explicit ones.
         swift:
         - version: "6.2"
-          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         - version: "6.1"
-          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
         - version: "6.0"
-          hook: "SWIFT_BUILD_TEST_HOOK=\"-Xswiftc -warnings-as-errors\""
     container:
       image: swift:${{ matrix.swift.version }}
     steps:
@@ -44,9 +41,9 @@ jobs:
       # `make` is needed for using our own `Makefile`.
       run: apt-get update && apt-get install -y make g++
     - name: Build
-      run: make build ${{ matrix.swift.hook }}
+      run: make build -Xswiftc -warnings-as-errors
     - name: Test runtime
-      run: make test-runtime ${{ matrix.swift.hook }}
+      run: make test-runtime -Xswiftc -warnings-as-errors
     - name: Test plugin
       run: make test-plugin
     - name: Test SPM plugin
