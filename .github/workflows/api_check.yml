@@ -1,0 +1,33 @@
+name: API Breakage
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  api-breakage:
+    name: Api Breakage Compared to main branch
+    runs-on: ubuntu-latest
+    container:
+      # Test on the latest Swift release. This could run on all the support
+      # Swift versions, but that doesn't seem worth it until there are Swift
+      # version specific conditionals to justify it.
+      image: swift:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: true
+    - name: Mark the workspace as safe
+      # https://github.com/actions/checkout/issues/766
+      run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
+    - name: Check for API breaking changes
+      # This can flag things related to the generated code for the upstream
+      # protos (descriptor.proto, etc.), however those should all be OK as they
+      # are limited plugin, and most of the time everything is hidden within the
+      # generation api.
+      run: swift package diagnose-api-breaking-changes origin/main

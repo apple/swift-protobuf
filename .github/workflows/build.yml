@@ -63,28 +63,6 @@ jobs:
       if: ${{ matrix.swift.version != '5.10' }}
       run: make compile-tests
 
-  api-breakage:
-    name: Api Breakage Compared to main branch
-    # Only on pull requests
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    container:
-      # Test on the latest Swift release. This could run on all the support
-      # Swift versions, but that doesn't seem worth it until there are Swift
-      # version specific conditionals to justify it.
-      image: swift:latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        submodules: true
-    - name: Mark the workspace as safe
-      # https://github.com/actions/checkout/issues/766
-      run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
-    - name: Check for API breaking changes
-      run: swift package diagnose-api-breaking-changes origin/main --breakage-allowlist-path known_api_breaks.txt
-
   format-check:
     name: swift-format Check
     # Only on pull requests

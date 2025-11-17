@@ -1,1 +1,0 @@
-API breakage: enumelement Google_Protobuf_Edition.unstable has been added as a new enum case
