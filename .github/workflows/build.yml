@@ -83,7 +83,7 @@ jobs:
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
     - name: Check for API breaking changes
-      run: swift package diagnose-api-breaking-changes origin/main --breakage-allowlist-path known_api_breaks.txt
+      run: swift package diagnose-api-breaking-changes origin/main
 
   format-check:
     name: swift-format Check
