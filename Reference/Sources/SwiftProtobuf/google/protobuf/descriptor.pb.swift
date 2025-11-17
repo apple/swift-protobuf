@@ -82,6 +82,9 @@ enum Google_Protobuf_Edition: Int, Enum, Swift.CaseIterable {
   case edition2023 = 1000
   case edition2024 = 1001
 
+  /// A placeholder edition for developing and testing unscheduled features.
+  case unstable = 9999
+
   /// Placeholder editions for testing feature resolution.  These should not be
   /// used or relied on outside of tests.
   case edition1TestOnly = 1
@@ -2808,7 +2811,7 @@ struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Edition: _ProtoNameProviding {
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}tJ\u{18}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}fL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
 }
 
 extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
