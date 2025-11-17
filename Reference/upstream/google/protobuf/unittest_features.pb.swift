@@ -322,6 +322,15 @@ struct Pb_TestFeatures: @unchecked Sendable {
   /// Clears the value of `removedFeature`. Subsequent reads from it will return its default value.
   mutating func clearRemovedFeature() {_uniqueStorage()._removedFeature = nil}
 
+  var sameEditionRemovedFeature: Pb_EnumFeature {
+    get {_storage._sameEditionRemovedFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._sameEditionRemovedFeature = newValue}
+  }
+  /// Returns true if `sameEditionRemovedFeature` has been explicitly set.
+  var hasSameEditionRemovedFeature: Bool {_storage._sameEditionRemovedFeature != nil}
+  /// Clears the value of `sameEditionRemovedFeature`. Subsequent reads from it will return its default value.
+  mutating func clearSameEditionRemovedFeature() {_uniqueStorage()._sameEditionRemovedFeature = nil}
+
   var futureFeature: Pb_EnumFeature {
     get {_storage._futureFeature ?? .testEnumFeatureUnknown}
     set {_uniqueStorage()._futureFeature = newValue}
@@ -505,7 +514,7 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{3}same_edition_removed_feature\0")
 
   fileprivate class _StorageClass {
     var _fileFeature: Pb_EnumFeature? = nil
@@ -522,6 +531,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     var _sourceFeature: Pb_EnumFeature? = nil
     var _sourceFeature2: Pb_EnumFeature? = nil
     var _removedFeature: Pb_EnumFeature? = nil
+    var _sameEditionRemovedFeature: Pb_EnumFeature? = nil
     var _futureFeature: Pb_EnumFeature? = nil
     var _legacyFeature: Pb_EnumFeature? = nil
     var _valueLifetimeFeature: Pb_ValueLifetimeFeature? = nil
@@ -549,6 +559,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       _sourceFeature = source._sourceFeature
       _sourceFeature2 = source._sourceFeature2
       _removedFeature = source._removedFeature
+      _sameEditionRemovedFeature = source._sameEditionRemovedFeature
       _futureFeature = source._futureFeature
       _legacyFeature = source._legacyFeature
       _valueLifetimeFeature = source._valueLifetimeFeature
@@ -587,6 +598,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         case 18: try { try decoder.decodeSingularEnumField(value: &_storage._futureFeature) }()
         case 19: try { try decoder.decodeSingularEnumField(value: &_storage._legacyFeature) }()
         case 20: try { try decoder.decodeSingularEnumField(value: &_storage._valueLifetimeFeature) }()
+        case 21: try { try decoder.decodeSingularEnumField(value: &_storage._sameEditionRemovedFeature) }()
         default: break
         }
       }
@@ -650,6 +662,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       try { if let v = _storage._valueLifetimeFeature {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 20)
       } }()
+      try { if let v = _storage._sameEditionRemovedFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -673,6 +688,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         if _storage._sourceFeature != rhs_storage._sourceFeature {return false}
         if _storage._sourceFeature2 != rhs_storage._sourceFeature2 {return false}
         if _storage._removedFeature != rhs_storage._removedFeature {return false}
+        if _storage._sameEditionRemovedFeature != rhs_storage._sameEditionRemovedFeature {return false}
         if _storage._futureFeature != rhs_storage._futureFeature {return false}
         if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
         if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}
