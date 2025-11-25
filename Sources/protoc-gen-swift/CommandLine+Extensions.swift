@@ -17,7 +17,7 @@ extension CommandLine {
         // form. Idea from https://github.com/swiftlang/swift/issues/66213
         let safeArgs: [String] =
             UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).compactMap {
-                String(validatingUTF8: $0!)
+                String(validatingCString: $0!)
             }
 
         guard let base = safeArgs.first else {
