@@ -86,6 +86,8 @@ struct SwiftProtobufPlugin {
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
             var useAccessLevelOnImports: Bool?
+            /// Overrides the path to look for protobuf files
+            var protoPath: String?
         }
 
         /// The path to the `protoc` binary.
@@ -171,10 +173,14 @@ struct SwiftProtobufPlugin {
             "--swift_out=\(outputDirectory)",
         ]
 
-        // We need to add the target directory as a search path since we require the user to specify
-        // the proto files relative to it.
+        let protoDirectory = if let protoPath = invocation.protoPath {
+            directory.appending(protoPath)
+        } else {
+            directory
+        }
+
         protocArgs.append("-I")
-        protocArgs.append("\(directory)")
+        protocArgs.append("\(protoDirectory)")
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -202,7 +208,7 @@ struct SwiftProtobufPlugin {
         for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append("\(file)")
-            inputFiles.append(directory.appending(file))
+            inputFiles.append(protoDirectory.appending(file))
 
             // The name of the output file is based on the name of the input file.
             // We validated in the beginning that every file has the suffix of .proto
