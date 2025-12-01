@@ -2,6 +2,7 @@ import Import
 import Nested
 import Simple
 import XCTest
+import CustomProtoPath
 
 final class ExampleTests: XCTestCase {
     func testSimple() {
