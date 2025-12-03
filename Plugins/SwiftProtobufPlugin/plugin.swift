@@ -86,8 +86,8 @@ struct SwiftProtobufPlugin {
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
             var useAccessLevelOnImports: Bool?
-            /// Overrides the path to look for protobuf files
-            var protoPath: String?
+            /// Overrides the paths to look for protobuf files
+            var protoPaths: [String]?
         }
 
         /// The path to the `protoc` binary.
@@ -173,15 +173,16 @@ struct SwiftProtobufPlugin {
             "--swift_out=\(outputDirectory)",
         ]
 
-        let protoDirectory =
-            if let protoPath = invocation.protoPath {
-                directory.appending(protoPath)
-            } else {
-                directory
-            }
 
-        protocArgs.append("-I")
-        protocArgs.append("\(protoDirectory)")
+        if let protoPaths = invocation.protoPaths {
+            for protoPath in protoPaths {
+                protocArgs.append("-I")
+                protocArgs.append("\(directory.appending(protoPath))")
+            }
+        } else {
+            protocArgs.append("-I")
+            protocArgs.append("\(directory)")
+        }
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {

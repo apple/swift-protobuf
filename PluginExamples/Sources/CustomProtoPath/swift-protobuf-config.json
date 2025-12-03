@@ -7,7 +7,7 @@
                 "Main.proto"
             ],
             "visibility": "public",
-            "protoPath": "protos"
+            "protoPaths": ["protos"]
         }
     ]
 }
