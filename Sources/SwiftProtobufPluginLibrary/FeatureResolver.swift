@@ -75,7 +75,7 @@ package class FeatureResolver {
         featureSetDefaults defaults: Google_Protobuf_FeatureSetDefaults,
         featureExtensions extensions: [any AnyMessageExtension] = []
     ) throws {
-        guard edition >= defaults.minimumEdition && edition <= defaults.maximumEdition else {
+        guard edition >= defaults.minimumEdition && (edition <= defaults.maximumEdition || edition == .unstable) else {
             throw Error.unsupported(
                 edition: edition,
                 supported: defaults.minimumEdition...defaults.maximumEdition
