@@ -65,6 +65,10 @@ final class Test_FeatureResolver: XCTestCase {
         let defaults = Google_Protobuf_FeatureSetDefaults.with {
             $0.minimumEdition = .proto2
             $0.maximumEdition = .proto3
+            $0.defaults = [
+                .with { $0.edition = .proto2 },
+                .with { $0.edition = .proto3 },
+            ]
         }
 
         let resolver1: FeatureResolver = try FeatureResolver(
