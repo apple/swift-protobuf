@@ -61,6 +61,19 @@ final class Test_FeatureResolver: XCTestCase {
         }
     }
 
+    func testInit_EditionUnstable() {
+        let defaults = Google_Protobuf_FeatureSetDefaults.with {
+            $0.minimumEdition = .proto2
+            $0.maximumEdition = .proto3
+        }
+
+        let resolver1: FeatureResolver = try FeatureResolver(
+            edition: .unstable,
+            featureSetDefaults: defaults
+        )
+        XCTAssertEqual(resolver1.edition, .unstable)
+    }
+
     func testInit_EditionDefaultNotFound() {
         let defaults = try! Google_Protobuf_FeatureSetDefaults(
             textFormatString: """
