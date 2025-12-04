@@ -61,7 +61,7 @@ final class Test_FeatureResolver: XCTestCase {
         }
     }
 
-    func testInit_EditionUnstable() {
+    func testInit_EditionUnstable() throws {
         let defaults = Google_Protobuf_FeatureSetDefaults.with {
             $0.minimumEdition = .proto2
             $0.maximumEdition = .proto3
