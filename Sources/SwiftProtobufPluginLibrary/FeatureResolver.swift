@@ -85,7 +85,7 @@ package class FeatureResolver {
         // When protoc generates defaults, they are ordered, so find the last one.
         var found: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault?
         for d in defaults.defaults {
-            guard (d.edition <= edition || edition == unstable) else { break }
+            guard d.edition <= edition else { break }
             found = d
         }
 
