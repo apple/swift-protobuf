@@ -56,7 +56,7 @@ jobs:
       id: check_abseil
       run: |
         # Extract abseil commit from protobuf_deps.bzl
-        ABSEIL_COMMIT=$(grep -A 10 '"com_google_absl"' Sources/protobuf/protobuf/protobuf_deps.bzl | grep 'commit' | head -1 | sed 's/.*"\([a-f0-9]*\)".*/\1/')
+        ABSEIL_COMMIT=$(grep -A 10 '"abseil-cpp"' Sources/protobuf/protobuf/protobuf_deps.bzl | grep 'commit' | head -1 | sed 's/.*"\([a-f0-9]*\)".*/\1/')
 
         if [ -z "$ABSEIL_COMMIT" ]; then
           echo "Error: Could not determine abseil commit"
