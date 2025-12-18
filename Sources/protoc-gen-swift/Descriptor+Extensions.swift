@@ -483,7 +483,7 @@ extension EnumDescriptor {
 
         /// Find the original for an alias.
         ///
-        /// - Parameter value: The value descriptor to look up.
+        /// - Parameter of: The value descriptor to look up.
         /// - Returns The original/main value if this was an alias otherwise `nil`.
         package func original(of: EnumValueDescriptor) -> EnumValueDescriptor? {
             assert(mainValues.first!.enumType === of.enumType)
