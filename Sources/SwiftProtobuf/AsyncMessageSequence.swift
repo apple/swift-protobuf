@@ -63,7 +63,7 @@ public struct AsyncMessageSequence<
     /// is a varint encoding the message size followed by a message of exactly that size.
     ///
     /// - Parameters:
-    ///   - baseSequence: The `AsyncSequence` to read messages from.
+    ///   - base: The `AsyncSequence` to read messages from.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
     ///    messages encoded by this sequence, or in messages nested within these messages.
     ///   - partial: If `false` (the default), after decoding a message, ``Message/isInitialized-6abgi``
