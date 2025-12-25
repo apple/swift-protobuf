@@ -16,7 +16,7 @@ final class ExampleTests: XCTestCase {
     }
 
     func testImport() {
-        let foo = Foo.with { $0.bar = .with { $0.name = "Bar" } }
+        let foo = Import.Foo.with { $0.bar = .with { $0.name = "Bar" } }
         XCTAssertEqual(foo.bar.name, "Bar")
     }
 

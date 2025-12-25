@@ -77,6 +77,9 @@ struct SwiftProtobufPlugin {
             }
 
             /// An array of paths to `.proto` files for this invocation.
+            ///
+            /// If the `protoPath` parameter is specified, the files must be specified
+            /// relative to that directory. Otherwise, relative to the target source directory.
             var protoFiles: [String]
             /// The visibility of the generated files.
             var visibility: Visibility?
@@ -86,8 +89,15 @@ struct SwiftProtobufPlugin {
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
             var useAccessLevelOnImports: Bool?
-            /// Overrides the paths to look for protobuf files
-            var protoPaths: [String]?
+            /// Overrides the base directory used to find protobuf files.
+            ///
+            /// This must be specified as a path relative to the target source directory.
+            /// For example, if you are storing the protofiles at `MyLibrary/Sources/MyLib/protos`,
+            /// you should specify `protos` as the value for this parameter.
+            ///
+            /// If you have multiple subdirectories you wish to include,
+            /// you should specify multiple `invocations` instead.
+            var protoPath: String?
         }
 
         /// The path to the `protoc` binary.
@@ -173,16 +183,14 @@ struct SwiftProtobufPlugin {
             "--swift_out=\(outputDirectory)",
         ]
 
-
-        if let protoPaths = invocation.protoPaths {
-            for protoPath in protoPaths {
-                protocArgs.append("-I")
-                protocArgs.append("\(directory.appending(protoPath))")
-            }
+        let protoDirectory = if let protoPath = invocation.protoPath {
+            directory.appending(protoPath)
         } else {
-            protocArgs.append("-I")
-            protocArgs.append("\(directory)")
+            directory
         }
+
+        protocArgs.append("-I")
+        protocArgs.append("\(protoDirectory)")
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
