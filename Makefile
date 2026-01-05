@@ -70,7 +70,11 @@ SWIFT_BUILD_TEST_HOOK?=
 
 # The directories within Protos/ with the exception of "upstream". Use for the
 # maintenance of the 'Reference' target and test-plugin.
-PROTOS_DIRS=Sources/Conformance Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
+#
+# NOTE: Sources/Conformance is *not* in here as of Jan 2026 there are some proto file that
+# use features the release version of protobuf doesn't support. So this keeps
+# `test-plugin` working with the tagged version that predates that support.
+PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
 
 .PHONY: \
 	all \
