@@ -1,5 +1,5 @@
 # To generate the data set.
-#   FuzzTesting/make_FuzzBinary_dict Protos/SwiftProtobufTests/fuzz_testing.proto
+#   FuzzTesting/make_FuzzBinary_dict Protos/Tests/SwiftProtobufTests/fuzz_testing.proto
 # Yes, this is the same as FuzzBinary.dict to help guide the contents of the
 # messages.
 
