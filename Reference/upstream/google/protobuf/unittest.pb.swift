@@ -8323,6 +8323,18 @@ struct Proto2Unittest_TestMessageForMove_Large: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct Proto2Unittest_TestAllTypesAsExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 // MARK: - Extension support defined in unittest.proto.
 
 // MARK: - Extension Properties
@@ -9493,6 +9505,24 @@ extension Proto2Unittest_TestAllExtensions {
   }
 }
 
+extension Proto2Unittest_TestAllTypesAsExtension {
+
+  var Proto2Unittest_TestAllTypesAsExtension_ext: Proto2Unittest_TestAllTypes {
+    get {return getExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext) ?? Proto2Unittest_TestAllTypes()}
+    set {setExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_TestAllTypesAsExtension.Extensions.ext`
+  /// has been explicitly set.
+  var hasProto2Unittest_TestAllTypesAsExtension_ext: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext)
+  }
+  /// Clears the value of extension `Proto2Unittest_TestAllTypesAsExtension.Extensions.ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_TestAllTypesAsExtension_ext() {
+    clearExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext)
+  }
+}
+
 extension Proto2Unittest_TestExtensionInsideTable {
 
   var Proto2Unittest_testExtensionInsideTableExtension: Int32 {
@@ -10081,7 +10111,8 @@ let Proto2Unittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Int64ParseTester.Extensions.repeated_int64_ext,
   Proto2Unittest_Int64ParseTester.Extensions.packed_int64_ext,
   Proto2Unittest_StringParseTester.Extensions.optional_string_ext,
-  Proto2Unittest_StringParseTester.Extensions.repeated_string_ext
+  Proto2Unittest_StringParseTester.Extensions.repeated_string_ext,
+  Proto2Unittest_TestAllTypesAsExtension.Extensions.ext
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -10881,6 +10912,15 @@ extension Proto2Unittest_StringParseTester {
     static let repeated_string_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_StringParseTester>(
       _protobuf_fieldNumber: 2000001,
       fieldName: "proto2_unittest.StringParseTester.repeated_string_ext"
+    )
+  }
+}
+
+extension Proto2Unittest_TestAllTypesAsExtension {
+  enum Extensions {
+    static let ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypes>, Proto2Unittest_TestAllTypesAsExtension>(
+      _protobuf_fieldNumber: 10,
+      fieldName: "proto2_unittest.TestAllTypesAsExtension.ext"
     )
   }
 }
@@ -21240,6 +21280,35 @@ extension Proto2Unittest_TestMessageForMove_Large: SwiftProtobuf.Message, SwiftP
       if !storagesAreEqual {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_TestAllTypesAsExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestAllTypesAsExtension"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (10 <= fieldNumber && fieldNumber < 536870912) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestAllTypesAsExtension.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 10, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_TestAllTypesAsExtension, rhs: Proto2Unittest_TestAllTypesAsExtension) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
