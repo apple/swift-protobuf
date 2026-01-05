@@ -117,52 +117,6 @@ enum CustomFeatures_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum CustomFeatures_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
-  case testUnstableEnumFeatureUnknown // = 0
-  case unstable1 // = 1
-  case unstable2 // = 2
-  case unstable3 // = 3
-  case unstable4 // = 4
-  case UNRECOGNIZED(Int)
-
-  init() {
-    self = .testUnstableEnumFeatureUnknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .testUnstableEnumFeatureUnknown
-    case 1: self = .unstable1
-    case 2: self = .unstable2
-    case 3: self = .unstable3
-    case 4: self = .unstable4
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .testUnstableEnumFeatureUnknown: return 0
-    case .unstable1: return 1
-    case .unstable2: return 2
-    case .unstable3: return 3
-    case .unstable4: return 4
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [CustomFeatures_UnstableEnumFeature] = [
-    .testUnstableEnumFeatureUnknown,
-    .unstable1,
-    .unstable2,
-    .unstable3,
-    .unstable4,
-  ]
-
-}
-
 enum CustomFeatures_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testValueLifetimeUnknown // = 0
@@ -384,33 +338,6 @@ struct CustomFeatures_TestCustomFeatures: @unchecked Sendable {
   /// Clears the value of `valueLifetimeFeature`. Subsequent reads from it will return its default value.
   mutating func clearValueLifetimeFeature() {_uniqueStorage()._valueLifetimeFeature = nil}
 
-  var newUnstableFeature: CustomFeatures_UnstableEnumFeature {
-    get {_storage._newUnstableFeature ?? .testUnstableEnumFeatureUnknown}
-    set {_uniqueStorage()._newUnstableFeature = newValue}
-  }
-  /// Returns true if `newUnstableFeature` has been explicitly set.
-  var hasNewUnstableFeature: Bool {_storage._newUnstableFeature != nil}
-  /// Clears the value of `newUnstableFeature`. Subsequent reads from it will return its default value.
-  mutating func clearNewUnstableFeature() {_uniqueStorage()._newUnstableFeature = nil}
-
-  var unstableExistingFeature: CustomFeatures_UnstableEnumFeature {
-    get {_storage._unstableExistingFeature ?? .testUnstableEnumFeatureUnknown}
-    set {_uniqueStorage()._unstableExistingFeature = newValue}
-  }
-  /// Returns true if `unstableExistingFeature` has been explicitly set.
-  var hasUnstableExistingFeature: Bool {_storage._unstableExistingFeature != nil}
-  /// Clears the value of `unstableExistingFeature`. Subsequent reads from it will return its default value.
-  mutating func clearUnstableExistingFeature() {_uniqueStorage()._unstableExistingFeature = nil}
-
-  var removedUnstableFeature: CustomFeatures_UnstableEnumFeature {
-    get {_storage._removedUnstableFeature ?? .testUnstableEnumFeatureUnknown}
-    set {_uniqueStorage()._removedUnstableFeature = newValue}
-  }
-  /// Returns true if `removedUnstableFeature` has been explicitly set.
-  var hasRemovedUnstableFeature: Bool {_storage._removedUnstableFeature != nil}
-  /// Clears the value of `removedUnstableFeature`. Subsequent reads from it will return its default value.
-  mutating func clearRemovedUnstableFeature() {_uniqueStorage()._removedUnstableFeature = nil}
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -473,17 +400,13 @@ extension CustomFeatures_EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_FEATURE_UNKNOWN\0\u{1}VALUE1\0\u{1}VALUE2\0\u{1}VALUE3\0\u{1}VALUE4\0\u{1}VALUE5\0\u{1}VALUE6\0\u{1}VALUE7\0\u{1}VALUE8\0\u{1}VALUE9\0\u{1}VALUE10\0\u{1}VALUE11\0\u{1}VALUE12\0\u{1}VALUE13\0\u{1}VALUE14\0\u{1}VALUE15\0")
 }
 
-extension CustomFeatures_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_UNSTABLE_ENUM_FEATURE_UNKNOWN\0\u{1}UNSTABLE1\0\u{1}UNSTABLE2\0\u{1}UNSTABLE3\0\u{1}UNSTABLE4\0")
-}
-
 extension CustomFeatures_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_VALUE_LIFETIME_UNKNOWN\0\u{1}VALUE_LIFETIME_INHERITED\0\u{1}VALUE_LIFETIME_SUPPORT\0\u{1}VALUE_LIFETIME_EMPTY_SUPPORT\0\u{1}VALUE_LIFETIME_FUTURE\0\u{1}VALUE_LIFETIME_DEPRECATED\0\u{1}VALUE_LIFETIME_REMOVED\0")
 }
 
 extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCustomFeatures"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{3}same_edition_removed_feature\0\u{3}new_unstable_feature\0\u{3}unstable_existing_feature\0\u{3}removed_unstable_feature\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{3}same_edition_removed_feature\0")
 
   fileprivate class _StorageClass {
     var _fileFeature: CustomFeatures_EnumFeature? = nil
@@ -504,9 +427,6 @@ extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobu
     var _futureFeature: CustomFeatures_EnumFeature? = nil
     var _legacyFeature: CustomFeatures_EnumFeature? = nil
     var _valueLifetimeFeature: CustomFeatures_ValueLifetimeFeature? = nil
-    var _newUnstableFeature: CustomFeatures_UnstableEnumFeature? = nil
-    var _unstableExistingFeature: CustomFeatures_UnstableEnumFeature? = nil
-    var _removedUnstableFeature: CustomFeatures_UnstableEnumFeature? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -535,9 +455,6 @@ extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobu
       _futureFeature = source._futureFeature
       _legacyFeature = source._legacyFeature
       _valueLifetimeFeature = source._valueLifetimeFeature
-      _newUnstableFeature = source._newUnstableFeature
-      _unstableExistingFeature = source._unstableExistingFeature
-      _removedUnstableFeature = source._removedUnstableFeature
     }
   }
 
@@ -574,9 +491,6 @@ extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobu
         case 19: try { try decoder.decodeSingularEnumField(value: &_storage._legacyFeature) }()
         case 20: try { try decoder.decodeSingularEnumField(value: &_storage._valueLifetimeFeature) }()
         case 21: try { try decoder.decodeSingularEnumField(value: &_storage._sameEditionRemovedFeature) }()
-        case 22: try { try decoder.decodeSingularEnumField(value: &_storage._newUnstableFeature) }()
-        case 23: try { try decoder.decodeSingularEnumField(value: &_storage._unstableExistingFeature) }()
-        case 24: try { try decoder.decodeSingularEnumField(value: &_storage._removedUnstableFeature) }()
         default: break
         }
       }
@@ -643,15 +557,6 @@ extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobu
       try { if let v = _storage._sameEditionRemovedFeature {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
       } }()
-      try { if let v = _storage._newUnstableFeature {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 22)
-      } }()
-      try { if let v = _storage._unstableExistingFeature {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 23)
-      } }()
-      try { if let v = _storage._removedUnstableFeature {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 24)
-      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -679,9 +584,6 @@ extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobu
         if _storage._futureFeature != rhs_storage._futureFeature {return false}
         if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
         if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}
-        if _storage._newUnstableFeature != rhs_storage._newUnstableFeature {return false}
-        if _storage._unstableExistingFeature != rhs_storage._unstableExistingFeature {return false}
-        if _storage._removedUnstableFeature != rhs_storage._removedUnstableFeature {return false}
         return true
       }
       if !storagesAreEqual {return false}
