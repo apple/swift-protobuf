@@ -17,3 +17,26 @@ message SwiftJSONTest {
   // This case was omitted from test_messages_proto3.proto
   repeated google.protobuf.NullValue repeated_null_value = 318;
 }
+
+message TestMessage {
+  bool bool_value = 1;
+  int32 int32_value = 2;
+  int64 int64_value = 3;
+  uint32 uint32_value = 4;
+  uint64 uint64_value = 5;
+  float float_value = 6;
+  double double_value = 7;
+  string string_value = 8;
+  bytes bytes_value = 9;
+}
+
+message TestEvilJson {
+  int32 regular_value = 1 [json_name = "regular_name"];
+  int32 script = 2 [json_name = "</script>"];
+  int32 quotes = 3 [json_name = "unbalanced\"quotes"];
+  int32 script_and_quotes = 4
+      [json_name = "\"<script>alert('hello!);</script>"];
+  int32 empty_string = 5 [json_name = ""];
+  int32 backslash = 6 [json_name = "\\"];
+  int32 low_codepoint = 7 [json_name = "\1"];
+}
