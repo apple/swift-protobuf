@@ -335,4 +335,50 @@ final class Test_JSON_Conformance: XCTestCase {
             return
         }
     }
+
+    func testHTMLEscape() {
+        let m1 = SwiftProtoTesting_TestMessage.with {
+            $0.stringValue = "</script>"
+        }
+        do {
+            let encoded = try m1.jsonString()
+            XCTAssertEqual(encoded, "{\"stringValue\":\"</script>\"}")
+            // Reparse it to confirm parsing deals with the escapes and matching things up.
+            do {
+                let decoded = try SwiftProtoTesting_TestMessage(jsonString: encoded)
+                XCTAssertEqual(decoded, m1)
+            } catch let e {
+                XCTFail("Failed to re-decode: \(e)")
+            }
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+        // The upstream version of this use "always_print_primitive_fields" to avoid setting any
+        // fields.
+        let m2 = SwiftProtoTesting_TestEvilJson.with {
+            $0.regularValue = 1
+            $0.script = 1
+            $0.quotes = 1
+            $0.scriptAndQuotes = 1
+            $0.emptyString = 1
+            $0.backslash = 1
+            $0.lowCodepoint = 1
+        }
+        do {
+            let encoded = try m2.jsonString()
+            XCTAssertEqual(
+                encoded,
+                ##"{"regular_name":1,"</script>":1,"unbalanced\"quotes":1,"\"<script>alert('hello!);</script>":1,"":1,"\\":1,"\u0001":1}"##
+            )
+            // Reparse it to confirm parsing deals with the escapes and matching things up.
+            do {
+                let decoded = try SwiftProtoTesting_TestEvilJson(jsonString: encoded)
+                XCTAssertEqual(decoded, m2)
+            } catch let e {
+                XCTFail("Failed to re-decode: \(e)")
+            }
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+    }
 }

@@ -107,6 +107,10 @@ package struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.R
         case "\\", "\"":
             code.unicodeScalars.append("\\")
             code.unicodeScalars.append(scalar)
+        case "\0"..<" ", "\u{7f}":
+            // The Swift compiler can fail with: "unprintable ASCII character found in source file"
+            // anything below a space or DEL, escape.
+            code.append(String(format: "\\u{%x}", scalar.value))
         default:
             code.unicodeScalars.append(scalar)
         }
