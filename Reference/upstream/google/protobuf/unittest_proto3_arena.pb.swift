@@ -85,418 +85,418 @@ struct Proto3ArenaUnittest_TestAllTypes: @unchecked Sendable {
 
   /// Singular
   var optionalInt32: Int32 {
-    get {return _storage._optionalInt32}
+    get {_storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
   var optionalInt64: Int64 {
-    get {return _storage._optionalInt64}
+    get {_storage._optionalInt64}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
 
   var optionalUint32: UInt32 {
-    get {return _storage._optionalUint32}
+    get {_storage._optionalUint32}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
 
   var optionalUint64: UInt64 {
-    get {return _storage._optionalUint64}
+    get {_storage._optionalUint64}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
 
   var optionalSint32: Int32 {
-    get {return _storage._optionalSint32}
+    get {_storage._optionalSint32}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
 
   var optionalSint64: Int64 {
-    get {return _storage._optionalSint64}
+    get {_storage._optionalSint64}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
 
   var optionalFixed32: UInt32 {
-    get {return _storage._optionalFixed32}
+    get {_storage._optionalFixed32}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
 
   var optionalFixed64: UInt64 {
-    get {return _storage._optionalFixed64}
+    get {_storage._optionalFixed64}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
 
   var optionalSfixed32: Int32 {
-    get {return _storage._optionalSfixed32}
+    get {_storage._optionalSfixed32}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
 
   var optionalSfixed64: Int64 {
-    get {return _storage._optionalSfixed64}
+    get {_storage._optionalSfixed64}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
 
   var optionalFloat: Float {
-    get {return _storage._optionalFloat}
+    get {_storage._optionalFloat}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
 
   var optionalDouble: Double {
-    get {return _storage._optionalDouble}
+    get {_storage._optionalDouble}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
 
   var optionalBool: Bool {
-    get {return _storage._optionalBool}
+    get {_storage._optionalBool}
     set {_uniqueStorage()._optionalBool = newValue}
   }
 
   var optionalString: String {
-    get {return _storage._optionalString}
+    get {_storage._optionalString}
     set {_uniqueStorage()._optionalString = newValue}
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes}
+    get {_storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
   var optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
+    get {_storage._optionalNestedMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  var hasOptionalNestedMessage: Bool {_storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage {
-    get {return _storage._optionalForeignMessage ?? Proto3ArenaUnittest_ForeignMessage()}
+    get {_storage._optionalForeignMessage ?? Proto3ArenaUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
-  var hasOptionalForeignMessage: Bool {return _storage._optionalForeignMessage != nil}
+  var hasOptionalForeignMessage: Bool {_storage._optionalForeignMessage != nil}
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
   var optionalImportMessage: Proto2UnittestImport_ImportMessage {
-    get {return _storage._optionalImportMessage ?? Proto2UnittestImport_ImportMessage()}
+    get {_storage._optionalImportMessage ?? Proto2UnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalImportMessage = newValue}
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
-  var hasOptionalImportMessage: Bool {return _storage._optionalImportMessage != nil}
+  var hasOptionalImportMessage: Bool {_storage._optionalImportMessage != nil}
   /// Clears the value of `optionalImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalImportMessage() {_uniqueStorage()._optionalImportMessage = nil}
 
   var optionalNestedEnum: Proto3ArenaUnittest_TestAllTypes.NestedEnum {
-    get {return _storage._optionalNestedEnum}
+    get {_storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
   var optionalForeignEnum: Proto3ArenaUnittest_ForeignEnum {
-    get {return _storage._optionalForeignEnum}
+    get {_storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
   var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece}
+    get {_storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
 
   var optionalCord: String {
-    get {return _storage._optionalCord}
+    get {_storage._optionalCord}
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
   var optionalBytesCord: Data {
-    get {return _storage._optionalBytesCord}
+    get {_storage._optionalBytesCord}
     set {_uniqueStorage()._optionalBytesCord = newValue}
   }
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage {
-    get {return _storage._optionalPublicImportMessage ?? Proto2UnittestImport_PublicImportMessage()}
+    get {_storage._optionalPublicImportMessage ?? Proto2UnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
-  var hasOptionalPublicImportMessage: Bool {return _storage._optionalPublicImportMessage != nil}
+  var hasOptionalPublicImportMessage: Bool {_storage._optionalPublicImportMessage != nil}
   /// Clears the value of `optionalPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalPublicImportMessage() {_uniqueStorage()._optionalPublicImportMessage = nil}
 
   var optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get {return _storage._optionalLazyMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
+    get {_storage._optionalLazyMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
-  var hasOptionalLazyMessage: Bool {return _storage._optionalLazyMessage != nil}
+  var hasOptionalLazyMessage: Bool {_storage._optionalLazyMessage != nil}
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
   var optionalUnverifiedLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get {return _storage._optionalUnverifiedLazyMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
+    get {_storage._optionalUnverifiedLazyMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
   }
   /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
-  var hasOptionalUnverifiedLazyMessage: Bool {return _storage._optionalUnverifiedLazyMessage != nil}
+  var hasOptionalUnverifiedLazyMessage: Bool {_storage._optionalUnverifiedLazyMessage != nil}
   /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
 
   var optionalLazyImportMessage: Proto2UnittestImport_ImportMessage {
-    get {return _storage._optionalLazyImportMessage ?? Proto2UnittestImport_ImportMessage()}
+    get {_storage._optionalLazyImportMessage ?? Proto2UnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalLazyImportMessage = newValue}
   }
   /// Returns true if `optionalLazyImportMessage` has been explicitly set.
-  var hasOptionalLazyImportMessage: Bool {return _storage._optionalLazyImportMessage != nil}
+  var hasOptionalLazyImportMessage: Bool {_storage._optionalLazyImportMessage != nil}
   /// Clears the value of `optionalLazyImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyImportMessage() {_uniqueStorage()._optionalLazyImportMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
+    get {_storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   var repeatedInt64: [Int64] {
-    get {return _storage._repeatedInt64}
+    get {_storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   var repeatedUint32: [UInt32] {
-    get {return _storage._repeatedUint32}
+    get {_storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   var repeatedUint64: [UInt64] {
-    get {return _storage._repeatedUint64}
+    get {_storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   var repeatedSint32: [Int32] {
-    get {return _storage._repeatedSint32}
+    get {_storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   var repeatedSint64: [Int64] {
-    get {return _storage._repeatedSint64}
+    get {_storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   var repeatedFixed32: [UInt32] {
-    get {return _storage._repeatedFixed32}
+    get {_storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   var repeatedFixed64: [UInt64] {
-    get {return _storage._repeatedFixed64}
+    get {_storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   var repeatedSfixed32: [Int32] {
-    get {return _storage._repeatedSfixed32}
+    get {_storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   var repeatedSfixed64: [Int64] {
-    get {return _storage._repeatedSfixed64}
+    get {_storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   var repeatedFloat: [Float] {
-    get {return _storage._repeatedFloat}
+    get {_storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   var repeatedDouble: [Double] {
-    get {return _storage._repeatedDouble}
+    get {_storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   var repeatedBool: [Bool] {
-    get {return _storage._repeatedBool}
+    get {_storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   var repeatedString: [String] {
-    get {return _storage._repeatedString}
+    get {_storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   var repeatedBytes: [Data] {
-    get {return _storage._repeatedBytes}
+    get {_storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   /// Optional
   var proto3OptionalInt32: Int32 {
-    get {return _storage._proto3OptionalInt32 ?? 0}
+    get {_storage._proto3OptionalInt32 ?? 0}
     set {_uniqueStorage()._proto3OptionalInt32 = newValue}
   }
   /// Returns true if `proto3OptionalInt32` has been explicitly set.
-  var hasProto3OptionalInt32: Bool {return _storage._proto3OptionalInt32 != nil}
+  var hasProto3OptionalInt32: Bool {_storage._proto3OptionalInt32 != nil}
   /// Clears the value of `proto3OptionalInt32`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalInt32() {_uniqueStorage()._proto3OptionalInt32 = nil}
 
   var proto3OptionalInt64: Int64 {
-    get {return _storage._proto3OptionalInt64 ?? 0}
+    get {_storage._proto3OptionalInt64 ?? 0}
     set {_uniqueStorage()._proto3OptionalInt64 = newValue}
   }
   /// Returns true if `proto3OptionalInt64` has been explicitly set.
-  var hasProto3OptionalInt64: Bool {return _storage._proto3OptionalInt64 != nil}
+  var hasProto3OptionalInt64: Bool {_storage._proto3OptionalInt64 != nil}
   /// Clears the value of `proto3OptionalInt64`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalInt64() {_uniqueStorage()._proto3OptionalInt64 = nil}
 
   var proto3OptionalUint32: UInt32 {
-    get {return _storage._proto3OptionalUint32 ?? 0}
+    get {_storage._proto3OptionalUint32 ?? 0}
     set {_uniqueStorage()._proto3OptionalUint32 = newValue}
   }
   /// Returns true if `proto3OptionalUint32` has been explicitly set.
-  var hasProto3OptionalUint32: Bool {return _storage._proto3OptionalUint32 != nil}
+  var hasProto3OptionalUint32: Bool {_storage._proto3OptionalUint32 != nil}
   /// Clears the value of `proto3OptionalUint32`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalUint32() {_uniqueStorage()._proto3OptionalUint32 = nil}
 
   var proto3OptionalUint64: UInt64 {
-    get {return _storage._proto3OptionalUint64 ?? 0}
+    get {_storage._proto3OptionalUint64 ?? 0}
     set {_uniqueStorage()._proto3OptionalUint64 = newValue}
   }
   /// Returns true if `proto3OptionalUint64` has been explicitly set.
-  var hasProto3OptionalUint64: Bool {return _storage._proto3OptionalUint64 != nil}
+  var hasProto3OptionalUint64: Bool {_storage._proto3OptionalUint64 != nil}
   /// Clears the value of `proto3OptionalUint64`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalUint64() {_uniqueStorage()._proto3OptionalUint64 = nil}
 
   var proto3OptionalSint32: Int32 {
-    get {return _storage._proto3OptionalSint32 ?? 0}
+    get {_storage._proto3OptionalSint32 ?? 0}
     set {_uniqueStorage()._proto3OptionalSint32 = newValue}
   }
   /// Returns true if `proto3OptionalSint32` has been explicitly set.
-  var hasProto3OptionalSint32: Bool {return _storage._proto3OptionalSint32 != nil}
+  var hasProto3OptionalSint32: Bool {_storage._proto3OptionalSint32 != nil}
   /// Clears the value of `proto3OptionalSint32`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalSint32() {_uniqueStorage()._proto3OptionalSint32 = nil}
 
   var proto3OptionalSint64: Int64 {
-    get {return _storage._proto3OptionalSint64 ?? 0}
+    get {_storage._proto3OptionalSint64 ?? 0}
     set {_uniqueStorage()._proto3OptionalSint64 = newValue}
   }
   /// Returns true if `proto3OptionalSint64` has been explicitly set.
-  var hasProto3OptionalSint64: Bool {return _storage._proto3OptionalSint64 != nil}
+  var hasProto3OptionalSint64: Bool {_storage._proto3OptionalSint64 != nil}
   /// Clears the value of `proto3OptionalSint64`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalSint64() {_uniqueStorage()._proto3OptionalSint64 = nil}
 
   var proto3OptionalFixed32: UInt32 {
-    get {return _storage._proto3OptionalFixed32 ?? 0}
+    get {_storage._proto3OptionalFixed32 ?? 0}
     set {_uniqueStorage()._proto3OptionalFixed32 = newValue}
   }
   /// Returns true if `proto3OptionalFixed32` has been explicitly set.
-  var hasProto3OptionalFixed32: Bool {return _storage._proto3OptionalFixed32 != nil}
+  var hasProto3OptionalFixed32: Bool {_storage._proto3OptionalFixed32 != nil}
   /// Clears the value of `proto3OptionalFixed32`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalFixed32() {_uniqueStorage()._proto3OptionalFixed32 = nil}
 
   var proto3OptionalFixed64: UInt64 {
-    get {return _storage._proto3OptionalFixed64 ?? 0}
+    get {_storage._proto3OptionalFixed64 ?? 0}
     set {_uniqueStorage()._proto3OptionalFixed64 = newValue}
   }
   /// Returns true if `proto3OptionalFixed64` has been explicitly set.
-  var hasProto3OptionalFixed64: Bool {return _storage._proto3OptionalFixed64 != nil}
+  var hasProto3OptionalFixed64: Bool {_storage._proto3OptionalFixed64 != nil}
   /// Clears the value of `proto3OptionalFixed64`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalFixed64() {_uniqueStorage()._proto3OptionalFixed64 = nil}
 
   var proto3OptionalSfixed32: Int32 {
-    get {return _storage._proto3OptionalSfixed32 ?? 0}
+    get {_storage._proto3OptionalSfixed32 ?? 0}
     set {_uniqueStorage()._proto3OptionalSfixed32 = newValue}
   }
   /// Returns true if `proto3OptionalSfixed32` has been explicitly set.
-  var hasProto3OptionalSfixed32: Bool {return _storage._proto3OptionalSfixed32 != nil}
+  var hasProto3OptionalSfixed32: Bool {_storage._proto3OptionalSfixed32 != nil}
   /// Clears the value of `proto3OptionalSfixed32`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalSfixed32() {_uniqueStorage()._proto3OptionalSfixed32 = nil}
 
   var proto3OptionalSfixed64: Int64 {
-    get {return _storage._proto3OptionalSfixed64 ?? 0}
+    get {_storage._proto3OptionalSfixed64 ?? 0}
     set {_uniqueStorage()._proto3OptionalSfixed64 = newValue}
   }
   /// Returns true if `proto3OptionalSfixed64` has been explicitly set.
-  var hasProto3OptionalSfixed64: Bool {return _storage._proto3OptionalSfixed64 != nil}
+  var hasProto3OptionalSfixed64: Bool {_storage._proto3OptionalSfixed64 != nil}
   /// Clears the value of `proto3OptionalSfixed64`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalSfixed64() {_uniqueStorage()._proto3OptionalSfixed64 = nil}
 
   var proto3OptionalFloat: Float {
-    get {return _storage._proto3OptionalFloat ?? 0}
+    get {_storage._proto3OptionalFloat ?? 0}
     set {_uniqueStorage()._proto3OptionalFloat = newValue}
   }
   /// Returns true if `proto3OptionalFloat` has been explicitly set.
-  var hasProto3OptionalFloat: Bool {return _storage._proto3OptionalFloat != nil}
+  var hasProto3OptionalFloat: Bool {_storage._proto3OptionalFloat != nil}
   /// Clears the value of `proto3OptionalFloat`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalFloat() {_uniqueStorage()._proto3OptionalFloat = nil}
 
   var proto3OptionalDouble: Double {
-    get {return _storage._proto3OptionalDouble ?? 0}
+    get {_storage._proto3OptionalDouble ?? 0}
     set {_uniqueStorage()._proto3OptionalDouble = newValue}
   }
   /// Returns true if `proto3OptionalDouble` has been explicitly set.
-  var hasProto3OptionalDouble: Bool {return _storage._proto3OptionalDouble != nil}
+  var hasProto3OptionalDouble: Bool {_storage._proto3OptionalDouble != nil}
   /// Clears the value of `proto3OptionalDouble`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalDouble() {_uniqueStorage()._proto3OptionalDouble = nil}
 
   var proto3OptionalBool: Bool {
-    get {return _storage._proto3OptionalBool ?? false}
+    get {_storage._proto3OptionalBool ?? false}
     set {_uniqueStorage()._proto3OptionalBool = newValue}
   }
   /// Returns true if `proto3OptionalBool` has been explicitly set.
-  var hasProto3OptionalBool: Bool {return _storage._proto3OptionalBool != nil}
+  var hasProto3OptionalBool: Bool {_storage._proto3OptionalBool != nil}
   /// Clears the value of `proto3OptionalBool`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalBool() {_uniqueStorage()._proto3OptionalBool = nil}
 
   var proto3OptionalString: String {
-    get {return _storage._proto3OptionalString ?? String()}
+    get {_storage._proto3OptionalString ?? String()}
     set {_uniqueStorage()._proto3OptionalString = newValue}
   }
   /// Returns true if `proto3OptionalString` has been explicitly set.
-  var hasProto3OptionalString: Bool {return _storage._proto3OptionalString != nil}
+  var hasProto3OptionalString: Bool {_storage._proto3OptionalString != nil}
   /// Clears the value of `proto3OptionalString`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalString() {_uniqueStorage()._proto3OptionalString = nil}
 
   var proto3OptionalBytes: Data {
-    get {return _storage._proto3OptionalBytes ?? Data()}
+    get {_storage._proto3OptionalBytes ?? Data()}
     set {_uniqueStorage()._proto3OptionalBytes = newValue}
   }
   /// Returns true if `proto3OptionalBytes` has been explicitly set.
-  var hasProto3OptionalBytes: Bool {return _storage._proto3OptionalBytes != nil}
+  var hasProto3OptionalBytes: Bool {_storage._proto3OptionalBytes != nil}
   /// Clears the value of `proto3OptionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalBytes() {_uniqueStorage()._proto3OptionalBytes = nil}
 
   var repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
-    get {return _storage._repeatedNestedMessage}
+    get {_storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   var repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] {
-    get {return _storage._repeatedForeignMessage}
+    get {_storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
   var repeatedImportMessage: [Proto2UnittestImport_ImportMessage] {
-    get {return _storage._repeatedImportMessage}
+    get {_storage._repeatedImportMessage}
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
   var repeatedNestedEnum: [Proto3ArenaUnittest_TestAllTypes.NestedEnum] {
-    get {return _storage._repeatedNestedEnum}
+    get {_storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   var repeatedForeignEnum: [Proto3ArenaUnittest_ForeignEnum] {
-    get {return _storage._repeatedForeignEnum}
+    get {_storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
   var repeatedStringPiece: [String] {
-    get {return _storage._repeatedStringPiece}
+    get {_storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
   var repeatedCord: [String] {
-    get {return _storage._repeatedCord}
+    get {_storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   var repeatedLazyMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
-    get {return _storage._repeatedLazyMessage}
+    get {_storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
@@ -699,34 +699,34 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: @unchecked Sendable {
   // methods supported on all messages.
 
   var child: Proto3ArenaUnittest_NestedTestAllTypes {
-    get {return _storage._child ?? Proto3ArenaUnittest_NestedTestAllTypes()}
+    get {_storage._child ?? Proto3ArenaUnittest_NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
   /// Returns true if `child` has been explicitly set.
-  var hasChild: Bool {return _storage._child != nil}
+  var hasChild: Bool {_storage._child != nil}
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() {_uniqueStorage()._child = nil}
 
   var payload: Proto3ArenaUnittest_TestAllTypes {
-    get {return _storage._payload ?? Proto3ArenaUnittest_TestAllTypes()}
+    get {_storage._payload ?? Proto3ArenaUnittest_TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
   /// Returns true if `payload` has been explicitly set.
-  var hasPayload: Bool {return _storage._payload != nil}
+  var hasPayload: Bool {_storage._payload != nil}
   /// Clears the value of `payload`. Subsequent reads from it will return its default value.
   mutating func clearPayload() {_uniqueStorage()._payload = nil}
 
   var repeatedChild: [Proto3ArenaUnittest_NestedTestAllTypes] {
-    get {return _storage._repeatedChild}
+    get {_storage._repeatedChild}
     set {_uniqueStorage()._repeatedChild = newValue}
   }
 
   var lazyPayload: Proto3ArenaUnittest_TestAllTypes {
-    get {return _storage._lazyPayload ?? Proto3ArenaUnittest_TestAllTypes()}
+    get {_storage._lazyPayload ?? Proto3ArenaUnittest_TestAllTypes()}
     set {_uniqueStorage()._lazyPayload = newValue}
   }
   /// Returns true if `lazyPayload` has been explicitly set.
-  var hasLazyPayload: Bool {return _storage._lazyPayload != nil}
+  var hasLazyPayload: Bool {_storage._lazyPayload != nil}
   /// Clears the value of `lazyPayload`. Subsequent reads from it will return its default value.
   mutating func clearLazyPayload() {_uniqueStorage()._lazyPayload = nil}
 

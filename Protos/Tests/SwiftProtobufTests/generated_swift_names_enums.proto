@@ -154,6 +154,7 @@ message GeneratedSwiftReservedEnums {
   enum clearPositiveIntValue { NONE_clearPositiveIntValue = 0; }
   enum clearProto3Optional { NONE_clearProto3Optional = 0; }
   enum clearPyGenericServices { NONE_clearPyGenericServices = 0; }
+  enum clearRemovalError { NONE_clearRemovalError = 0; }
   enum clearRepeated { NONE_clearRepeated = 0; }
   enum clearRepeatedFieldEncoding { NONE_clearRepeatedFieldEncoding = 0; }
   enum clearReserved { NONE_clearReserved = 0; }
@@ -508,6 +509,7 @@ message GeneratedSwiftReservedEnums {
   enum hasPositiveIntValue { NONE_hasPositiveIntValue = 0; }
   enum hasProto3Optional { NONE_hasProto3Optional = 0; }
   enum hasPyGenericServices { NONE_hasPyGenericServices = 0; }
+  enum hasRemovalError { NONE_hasRemovalError = 0; }
   enum hasRepeated { NONE_hasRepeated = 0; }
   enum hasRepeatedFieldEncoding { NONE_hasRepeatedFieldEncoding = 0; }
   enum hasReserved { NONE_hasReserved = 0; }
@@ -794,6 +796,7 @@ message GeneratedSwiftReservedEnums {
   enum reader { NONE_reader = 0; }
   enum register { NONE_register = 0; }
   enum remainingProgram { NONE_remainingProgram = 0; }
+  enum removalError { NONE_removalError = 0; }
   enum removingAllFieldsOf { NONE_removingAllFieldsOf = 0; }
   enum repeated { NONE_repeated = 0; }
   enum RepeatedEnumExtensionField { NONE_RepeatedEnumExtensionField = 0; }
@@ -811,7 +814,6 @@ message GeneratedSwiftReservedEnums {
   enum result { NONE_result = 0; }
   enum retention { NONE_retention = 0; }
   enum rethrows { NONE_rethrows = 0; }
-  enum return { NONE_return = 0; }
   enum ReturnType { NONE_ReturnType = 0; }
   enum revision { NONE_revision = 0; }
   enum rhs { NONE_rhs = 0; }

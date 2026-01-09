@@ -37,11 +37,11 @@ public struct A: SwiftProtobuf.ExtensibleMessage, Sendable {
   // methods supported on all messages.
 
   public var e: E {
-    get {return _e ?? .unset}
+    get {_e ?? .unset}
     set {_e = newValue}
   }
   /// Returns true if `e` has been explicitly set.
-  public var hasE: Bool {return self._e != nil}
+  public var hasE: Bool {self._e != nil}
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
   public mutating func clearE() {self._e = nil}
 

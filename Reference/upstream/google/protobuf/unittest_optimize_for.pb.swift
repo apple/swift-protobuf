@@ -39,20 +39,20 @@ struct Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sen
   // methods supported on all messages.
 
   var i: Int32 {
-    get {return _i ?? 0}
+    get {_i ?? 0}
     set {_i = newValue}
   }
   /// Returns true if `i` has been explicitly set.
-  var hasI: Bool {return self._i != nil}
+  var hasI: Bool {self._i != nil}
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() {self._i = nil}
 
   var msg: Proto2Unittest_ForeignMessage {
-    get {return _msg ?? Proto2Unittest_ForeignMessage()}
+    get {_msg ?? Proto2Unittest_ForeignMessage()}
     set {_msg = newValue}
   }
   /// Returns true if `msg` has been explicitly set.
-  var hasMsg: Bool {return self._msg != nil}
+  var hasMsg: Bool {self._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
   mutating func clearMsg() {self._msg = nil}
 
@@ -95,11 +95,11 @@ struct Proto2Unittest_TestRequiredOptimizedForSize: Sendable {
   // methods supported on all messages.
 
   var x: Int32 {
-    get {return _x ?? 0}
+    get {_x ?? 0}
     set {_x = newValue}
   }
   /// Returns true if `x` has been explicitly set.
-  var hasX: Bool {return self._x != nil}
+  var hasX: Bool {self._x != nil}
   /// Clears the value of `x`. Subsequent reads from it will return its default value.
   mutating func clearX() {self._x = nil}
 
@@ -116,11 +116,11 @@ struct Proto2Unittest_TestOptionalOptimizedForSize: Sendable {
   // methods supported on all messages.
 
   var o: Proto2Unittest_TestRequiredOptimizedForSize {
-    get {return _o ?? Proto2Unittest_TestRequiredOptimizedForSize()}
+    get {_o ?? Proto2Unittest_TestRequiredOptimizedForSize()}
     set {_o = newValue}
   }
   /// Returns true if `o` has been explicitly set.
-  var hasO: Bool {return self._o != nil}
+  var hasO: Bool {self._o != nil}
   /// Clears the value of `o`. Subsequent reads from it will return its default value.
   mutating func clearO() {self._o = nil}
 

@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.2
 
 // Package.swift
 //
@@ -11,21 +11,16 @@
 
 import PackageDescription
 
-// Including protoc as a binary artifact can cause build issues in some environments. As a
-// temporary measure offer an opt-out by setting PROTOBUF_NO_PROTOC=true.
-let includeProtoc: Bool
-if let noProtoc = Context.environment["PROTOBUF_NO_PROTOC"] {
-    includeProtoc = !(noProtoc.lowercased() == "true" || noProtoc == "1")
-} else {
-    includeProtoc = true
-}
-
 let package = Package(
     name: "SwiftProtobuf",
     products: [
         .executable(
             name: "protoc-gen-swift",
             targets: ["protoc-gen-swift"]
+        ),
+        .executable(
+            name: "protoc",
+            targets: ["protoc"]
         ),
         .library(
             name: "SwiftProtobuf",
@@ -60,6 +55,336 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
         .executableTarget(
+            name: "protoc",
+            path: "Sources/protobuf",
+            exclude: [
+                "abseil/PrivacyInfo.xcprivacy"
+            ],
+            sources: [
+                // protoc main
+                "protobuf/src/google/protobuf/compiler/main_no_generators.cc",
+
+                // libprotoc
+                "protobuf/src/google/protobuf/any.cc",
+                "protobuf/src/google/protobuf/any.pb.cc",
+                "protobuf/src/google/protobuf/any_lite.cc",
+                "protobuf/src/google/protobuf/api.pb.cc",
+                "protobuf/src/google/protobuf/arena.cc",
+                "protobuf/src/google/protobuf/arenastring.cc",
+                "protobuf/src/google/protobuf/arenaz_sampler.cc",
+                "protobuf/src/google/protobuf/arena_align.cc",
+                "protobuf/src/google/protobuf/compiler/code_generator.cc",
+                "protobuf/src/google/protobuf/compiler/command_line_interface.cc",
+                "protobuf/src/google/protobuf/compiler/code_generator_lite.cc",
+                "protobuf/src/google/protobuf/compiler/versions.cc",
+                "protobuf/src/google/protobuf/compiler/subprocess.cc",
+                "protobuf/src/google/protobuf/compiler/importer.cc",
+                "protobuf/src/google/protobuf/compiler/parser.cc",
+                "protobuf/src/google/protobuf/compiler/plugin.cc",
+                "protobuf/src/google/protobuf/compiler/plugin.pb.cc",
+                "protobuf/src/google/protobuf/compiler/zip_writer.cc",
+                "protobuf/src/google/protobuf/compiler/retention.cc",
+
+                // libprotobuf
+                "protobuf/src/google/protobuf/cpp_features.pb.cc",
+                "protobuf/src/google/protobuf/descriptor.cc",
+                "protobuf/src/google/protobuf/descriptor.pb.cc",
+                "protobuf/src/google/protobuf/descriptor_database.cc",
+                "protobuf/src/google/protobuf/duration.pb.cc",
+                "protobuf/src/google/protobuf/dynamic_message.cc",
+                "protobuf/src/google/protobuf/empty.pb.cc",
+                "protobuf/src/google/protobuf/extension_set.cc",
+                "protobuf/src/google/protobuf/extension_set_heavy.cc",
+                "protobuf/src/google/protobuf/feature_resolver.cc",
+                "protobuf/src/google/protobuf/field_mask.pb.cc",
+                "protobuf/src/google/protobuf/generated_enum_util.cc",
+                "protobuf/src/google/protobuf/generated_message_bases.cc",
+                "protobuf/src/google/protobuf/generated_message_reflection.cc",
+                "protobuf/src/google/protobuf/generated_message_tctable_full.cc",
+                "protobuf/src/google/protobuf/generated_message_tctable_gen.cc",
+                "protobuf/src/google/protobuf/generated_message_tctable_lite.cc",
+                "protobuf/src/google/protobuf/generated_message_util.cc",
+                "protobuf/src/google/protobuf/implicit_weak_message.cc",
+                "protobuf/src/google/protobuf/inlined_string_field.cc",
+                "protobuf/src/google/protobuf/internal_feature_helper.cc",
+                "protobuf/src/google/protobuf/io/coded_stream.cc",
+                "protobuf/src/google/protobuf/io/gzip_stream.cc",
+                "protobuf/src/google/protobuf/io/io_win32.cc",
+                "protobuf/src/google/protobuf/io/printer.cc",
+                "protobuf/src/google/protobuf/io/strtod.cc",
+                "protobuf/src/google/protobuf/io/tokenizer.cc",
+                "protobuf/src/google/protobuf/io/zero_copy_sink.cc",
+                "protobuf/src/google/protobuf/io/zero_copy_stream.cc",
+                "protobuf/src/google/protobuf/io/zero_copy_stream_impl.cc",
+                "protobuf/src/google/protobuf/io/zero_copy_stream_impl_lite.cc",
+                "protobuf/src/google/protobuf/json/internal/lexer.cc",
+                "protobuf/src/google/protobuf/json/internal/message_path.cc",
+                "protobuf/src/google/protobuf/json/internal/parser.cc",
+                "protobuf/src/google/protobuf/json/internal/unparser.cc",
+                "protobuf/src/google/protobuf/json/internal/untyped_message.cc",
+                "protobuf/src/google/protobuf/json/internal/writer.cc",
+                "protobuf/src/google/protobuf/json/internal/zero_copy_buffered_stream.cc",
+                "protobuf/src/google/protobuf/json/json.cc",
+                "protobuf/src/google/protobuf/map.cc",
+                "protobuf/src/google/protobuf/map_field.cc",
+                "protobuf/src/google/protobuf/message.cc",
+                "protobuf/src/google/protobuf/message_lite.cc",
+                "protobuf/src/google/protobuf/micro_string.cc",
+                "protobuf/src/google/protobuf/parse_context.cc",
+                "protobuf/src/google/protobuf/port.cc",
+                "protobuf/src/google/protobuf/raw_ptr.cc",
+                "protobuf/src/google/protobuf/reflection_mode.cc",
+                "protobuf/src/google/protobuf/reflection_ops.cc",
+                "protobuf/src/google/protobuf/repeated_field.cc",
+                "protobuf/src/google/protobuf/repeated_ptr_field.cc",
+                "protobuf/src/google/protobuf/service.cc",
+                "protobuf/src/google/protobuf/source_context.pb.cc",
+                "protobuf/src/google/protobuf/struct.pb.cc",
+                "protobuf/src/google/protobuf/stubs/common.cc",
+                "protobuf/src/google/protobuf/text_format.cc",
+                "protobuf/src/google/protobuf/timestamp.pb.cc",
+                "protobuf/src/google/protobuf/type.pb.cc",
+                "protobuf/src/google/protobuf/unknown_field_set.cc",
+                "protobuf/src/google/protobuf/util/delimited_message_util.cc",
+                "protobuf/src/google/protobuf/util/field_comparator.cc",
+                "protobuf/src/google/protobuf/util/field_mask_util.cc",
+                "protobuf/src/google/protobuf/util/message_differencer.cc",
+                "protobuf/src/google/protobuf/util/time_util.cc",
+                "protobuf/src/google/protobuf/util/type_resolver_util.cc",
+                "protobuf/src/google/protobuf/wire_format.cc",
+                "protobuf/src/google/protobuf/wire_format_lite.cc",
+                "protobuf/src/google/protobuf/wrappers.pb.cc",
+
+                // abseil
+                "abseil/absl/base/internal/cycleclock.cc",
+                "abseil/absl/base/internal/low_level_alloc.cc",
+                "abseil/absl/base/internal/raw_logging.cc",
+                "abseil/absl/base/internal/spinlock.cc",
+                "abseil/absl/base/internal/spinlock_wait.cc",
+                "abseil/absl/base/internal/strerror.cc",
+                "abseil/absl/base/internal/sysinfo.cc",
+                "abseil/absl/base/internal/tracing.cc",
+                "abseil/absl/base/internal/thread_identity.cc",
+                "abseil/absl/base/internal/throw_delegate.cc",
+                "abseil/absl/base/internal/unscaledcycleclock.cc",
+                "abseil/absl/container/internal/raw_hash_set.cc",
+                "abseil/absl/container/internal/hashtablez_sampler.cc",
+                "abseil/absl/container/internal/hashtablez_sampler_force_weak_definition.cc",
+                "abseil/absl/crc/crc32c.cc",
+                "abseil/absl/crc/internal/cpu_detect.cc",
+                "abseil/absl/crc/internal/crc.cc",
+                "abseil/absl/crc/internal/crc_cord_state.cc",
+                "abseil/absl/crc/internal/crc_memcpy_fallback.cc",
+                "abseil/absl/crc/internal/crc_memcpy_x86_arm_combined.cc",
+                "abseil/absl/crc/internal/crc_non_temporal_memcpy.cc",
+                "abseil/absl/crc/internal/crc_x86_arm_combined.cc",
+                "abseil/absl/debugging/internal/address_is_readable.cc",
+                "abseil/absl/debugging/internal/decode_rust_punycode.cc",
+                "abseil/absl/debugging/internal/demangle.cc",
+                "abseil/absl/debugging/internal/demangle_rust.cc",
+                "abseil/absl/debugging/internal/elf_mem_image.cc",
+                "abseil/absl/debugging/internal/examine_stack.cc",
+                "abseil/absl/debugging/internal/utf8_for_code_point.cc",
+                "abseil/absl/debugging/internal/vdso_support.cc",
+                "abseil/absl/debugging/leak_check.cc",
+                "abseil/absl/debugging/stacktrace.cc",
+                "abseil/absl/debugging/symbolize.cc",
+                "abseil/absl/hash/internal/city.cc",
+                "abseil/absl/hash/internal/hash.cc",
+                "abseil/absl/hash/internal/low_level_hash.cc",
+                "abseil/absl/log/die_if_null.cc",
+                "abseil/absl/log/globals.cc",
+                "abseil/absl/log/initialize.cc",
+                "abseil/absl/log/internal/check_op.cc",
+                "abseil/absl/log/internal/conditions.cc",
+                "abseil/absl/log/internal/globals.cc",
+                "abseil/absl/log/internal/log_format.cc",
+                "abseil/absl/log/internal/log_message.cc",
+                "abseil/absl/log/internal/log_sink_set.cc",
+                "abseil/absl/log/internal/nullguard.cc",
+                "abseil/absl/log/internal/proto.cc",
+                "abseil/absl/log/internal/structured_proto.cc",
+                "abseil/absl/log/log_sink.cc",
+                "abseil/absl/numeric/int128.cc",
+                "abseil/absl/profiling/internal/exponential_biased.cc",
+                "abseil/absl/status/status.cc",
+                "abseil/absl/status/statusor.cc",
+                "abseil/absl/status/status_payload_printer.cc",
+                "abseil/absl/status/internal/status_internal.cc",
+                "abseil/absl/strings/ascii.cc",
+                "abseil/absl/strings/charconv.cc",
+                "abseil/absl/strings/cord.cc",
+                "abseil/absl/strings/cord_analysis.cc",
+                "abseil/absl/strings/escaping.cc",
+                "abseil/absl/strings/internal/charconv_bigint.cc",
+                "abseil/absl/strings/internal/charconv_parse.cc",
+                "abseil/absl/strings/internal/cordz_functions.cc",
+                "abseil/absl/strings/internal/cordz_handle.cc",
+                "abseil/absl/strings/internal/cordz_info.cc",
+                "abseil/absl/strings/internal/cord_internal.cc",
+                "abseil/absl/strings/internal/cord_rep_btree.cc",
+                "abseil/absl/strings/internal/cord_rep_btree_navigator.cc",
+                "abseil/absl/strings/internal/cord_rep_btree_reader.cc",
+                "abseil/absl/strings/internal/cord_rep_consume.cc",
+                "abseil/absl/strings/internal/cord_rep_crc.cc",
+                "abseil/absl/strings/internal/damerau_levenshtein_distance.cc",
+                "abseil/absl/strings/internal/escaping.cc",
+                "abseil/absl/strings/internal/memutil.cc",
+                "abseil/absl/strings/internal/ostringstream.cc",
+                "abseil/absl/strings/internal/stringify_sink.cc",
+                "abseil/absl/strings/internal/str_format/arg.cc",
+                "abseil/absl/strings/internal/str_format/bind.cc",
+                "abseil/absl/strings/internal/str_format/extension.cc",
+                "abseil/absl/strings/internal/str_format/float_conversion.cc",
+                "abseil/absl/strings/internal/str_format/output.cc",
+                "abseil/absl/strings/internal/str_format/parser.cc",
+                "abseil/absl/strings/internal/utf8.cc",
+                "abseil/absl/strings/match.cc",
+                "abseil/absl/strings/numbers.cc",
+                "abseil/absl/strings/string_view.cc",
+                "abseil/absl/strings/str_cat.cc",
+                "abseil/absl/strings/str_replace.cc",
+                "abseil/absl/strings/str_split.cc",
+                "abseil/absl/strings/substitute.cc",
+                "abseil/absl/synchronization/barrier.cc",
+                "abseil/absl/synchronization/blocking_counter.cc",
+                "abseil/absl/synchronization/internal/create_thread_identity.cc",
+                "abseil/absl/synchronization/internal/graphcycles.cc",
+                "abseil/absl/synchronization/internal/per_thread_sem.cc",
+                "abseil/absl/synchronization/internal/kernel_timeout.cc",
+                "abseil/absl/synchronization/internal/pthread_waiter.cc",
+                "abseil/absl/synchronization/internal/stdcpp_waiter.cc",
+                "abseil/absl/synchronization/internal/futex_waiter.cc",
+                "abseil/absl/synchronization/internal/sem_waiter.cc",
+                "abseil/absl/synchronization/internal/win32_waiter.cc",
+                "abseil/absl/synchronization/internal/waiter_base.cc",
+                "abseil/absl/synchronization/mutex.cc",
+                "abseil/absl/synchronization/notification.cc",
+                "abseil/absl/time/civil_time.cc",
+                "abseil/absl/time/clock.cc",
+                "abseil/absl/time/duration.cc",
+                "abseil/absl/time/format.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_fixed.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_format.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_if.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_impl.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_info.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_libc.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_lookup.cc",
+                "abseil/absl/time/internal/cctz/src/time_zone_posix.cc",
+                "abseil/absl/time/internal/cctz/src/zone_info_source.cc",
+                "abseil/absl/time/time.cc",
+
+                // utf8 validation
+                "protobuf/third_party/utf8_range/utf8_range.c",
+
+                // UPB files
+                "protobuf/upb/base/status.c",
+                "protobuf/upb/mem/alloc.c",
+                "protobuf/upb/mem/arena.c",
+                "protobuf/upb/wire/decode.c",
+                "protobuf/upb/wire/encode.c",
+                "protobuf/upb/wire/eps_copy_input_stream.c",
+                "protobuf/upb/wire/reader.c",
+                "protobuf/upb/wire/byte_size.c",
+                "protobuf/upb/wire/internal/decoder.c",
+                "protobuf/upb/wire/decode_fast/dispatch.c",
+                "protobuf/upb/wire/decode_fast/field_fixed.c",
+                "protobuf/upb/wire/decode_fast/field_generic.c",
+                "protobuf/upb/wire/decode_fast/field_message.c",
+                "protobuf/upb/wire/decode_fast/field_string.c",
+                "protobuf/upb/wire/decode_fast/field_varint.c",
+                "protobuf/upb/wire/decode_fast/function_array.c",
+                "protobuf/upb/wire/decode_fast/select.c",
+                "protobuf/upb/hash/common.c",
+                "protobuf/upb/message/accessors.c",
+                "protobuf/upb/message/array.c",
+                "protobuf/upb/message/compare.c",
+                "protobuf/upb/message/copy.c",
+                "protobuf/upb/message/map.c",
+                "protobuf/upb/message/map_sorter.c",
+                "protobuf/upb/message/merge.c",
+                "protobuf/upb/message/message.c",
+                "protobuf/upb/message/promote.c",
+                "protobuf/upb/message/internal/compare_unknown.c",
+                "protobuf/upb/message/internal/extension.c",
+                "protobuf/upb/message/internal/iterator.c",
+                "protobuf/upb/message/internal/message.c",
+                "protobuf/upb/mini_table/compat.c",
+                "protobuf/upb/mini_table/extension_registry.c",
+                "protobuf/upb/mini_table/message.c",
+                "protobuf/upb/mini_table/internal/message.c",
+                "protobuf/upb/mini_descriptor/build_enum.c",
+                "protobuf/upb/mini_descriptor/decode.c",
+                "protobuf/upb/mini_descriptor/link.c",
+                "protobuf/upb/mini_descriptor/internal/base92.c",
+                "protobuf/upb/mini_descriptor/internal/encode.c",
+                "protobuf/upb/reflection/def_pool.c",
+                "protobuf/upb/reflection/def_type.c",
+                "protobuf/upb/reflection/desc_state.c",
+                "protobuf/upb/reflection/enum_def.c",
+                "protobuf/upb/reflection/enum_reserved_range.c",
+                "protobuf/upb/reflection/enum_value_def.c",
+                "protobuf/upb/reflection/extension_range.c",
+                "protobuf/upb/reflection/field_def.c",
+                "protobuf/upb/reflection/file_def.c",
+                "protobuf/upb/reflection/message.c",
+                "protobuf/upb/reflection/message_def.c",
+                "protobuf/upb/reflection/message_reserved_range.c",
+                "protobuf/upb/reflection/method_def.c",
+                "protobuf/upb/reflection/oneof_def.c",
+                "protobuf/upb/reflection/service_def.c",
+                "protobuf/upb/reflection/stage0/google/protobuf/descriptor.upb.c",
+                "protobuf/upb/reflection/internal/def_builder.c",
+                "protobuf/upb/reflection/internal/strdup2.c",
+                "protobuf/upb/text/debug_string.c",
+                "protobuf/upb/text/encode.c",
+                "protobuf/upb/text/internal/encode.c",
+
+                // UPB lex files for round trip functions
+                "protobuf/upb/lex/round_trip.c",
+
+                // upb_generator additional files (minimal set)
+                "protobuf/upb_generator/plugin.cc",
+                "protobuf/upb_generator/common.cc",
+                "protobuf/upb_generator/common/names.cc",
+                "protobuf/upb_generator/file_layout.cc",
+                "protobuf/upb_generator/minitable/names.cc",
+                "protobuf/upb_generator/minitable/names_internal.cc",
+            ],
+            cSettings: [
+                .disableWarning("conversion"),
+                .disableWarning("deprecated-declarations"),
+            ],
+            cxxSettings: [
+                .headerSearchPath("abseil/"),
+                .headerSearchPath("protobuf/"),
+                .headerSearchPath("protobuf/third_party/utf8_range/"),
+                .headerSearchPath("protobuf/src/"),
+                .headerSearchPath("protobuf/upb/"),
+                .headerSearchPath("protobuf/upb_generator/"),
+                .define("UPB_BOOTSTRAP_STAGE", to: "0"),
+                .disableWarning("conversion"),
+                .disableWarning("deprecated-declarations"),
+            ],
+            linkerSettings: [
+                .linkedFramework(
+                    "CoreFoundation",
+                    .when(
+                        platforms: [
+                            .macOS,
+                            .macCatalyst,
+                            .iOS,
+                            .tvOS,
+                            .watchOS,
+                            .visionOS,
+                        ]
+                    )
+                ),
+                .linkedLibrary("m"),
+            ]
+        ),
+        .executableTarget(
             name: "protoc-gen-swift",
             dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"],
             exclude: ["CMakeLists.txt"],
@@ -74,7 +399,7 @@ let package = Package(
         .plugin(
             name: "SwiftProtobufPlugin",
             capability: .buildTool(),
-            dependencies: ["protoc-gen-swift"]
+            dependencies: ["protoc-gen-swift", "protoc"]
         ),
         // TODO: Eventually, the existing tests should just work with table-driven protos. For now,
         // limit ourselves to a much smaller set that we know will run and pass during development.
@@ -99,30 +424,9 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageModes: [.v5],
+    cxxLanguageStandard: .gnucxx17
 )
-
-if includeProtoc {
-    package.products.append(
-        .executable(
-            name: "protoc",
-            targets: ["protoc"]
-        )
-    )
-
-    package.targets.append(
-        .binaryTarget(
-            name: "protoc",
-            url:
-                "https://github.com/apple/swift-protobuf/releases/download/protoc-artifactbundle-v31.1/protoc-31.1.artifactbundle.zip",
-            checksum: "f18bf2cfbbebd83133a4c29733b01871e3afdc73c102d62949a841d4f9bab86f"
-        )
-    )
-
-    if let target = package.targets.first(where: { $0.name == "SwiftProtobufPlugin" }) {
-        target.dependencies.append("protoc")
-    }
-}
 
 // Settings for every Swift target in this package, like project-level settings
 // in an Xcode project.

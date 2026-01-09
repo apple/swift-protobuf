@@ -68,92 +68,92 @@ struct Proto2Unittest_TestMapLite: @unchecked Sendable {
   // methods supported on all messages.
 
   var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   var mapStringString: Dictionary<String,String> {
-    get {return _storage._mapStringString}
+    get {_storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapInt32Bytes}
+    get {_storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   var mapInt32Enum: Dictionary<Int32,Proto2Unittest_MapEnumLite> {
-    get {return _storage._mapInt32Enum}
+    get {_storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   var mapInt32ForeignMessage: Dictionary<Int32,Proto2Unittest_ForeignMessageLite> {
-    get {return _storage._mapInt32ForeignMessage}
+    get {_storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
   var teboring: Dictionary<Int32,Int32> {
-    get {return _storage._teboring}
+    get {_storage._teboring}
     set {_uniqueStorage()._teboring = newValue}
   }
 
@@ -170,87 +170,87 @@ struct Proto2Unittest_TestArenaMapLite: @unchecked Sendable {
   // methods supported on all messages.
 
   var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   var mapStringString: Dictionary<String,String> {
-    get {return _storage._mapStringString}
+    get {_storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapInt32Bytes}
+    get {_storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   var mapInt32Enum: Dictionary<Int32,Proto2Unittest_MapEnumLite> {
-    get {return _storage._mapInt32Enum}
+    get {_storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   var mapInt32ForeignMessage: Dictionary<Int32,Proto2Unittest_ForeignMessageArenaLite> {
-    get {return _storage._mapInt32ForeignMessage}
+    get {_storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
@@ -320,29 +320,29 @@ struct Proto2Unittest_TestRequiredLite: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
   var b: Int32 {
-    get {return _b ?? 0}
+    get {_b ?? 0}
     set {_b = newValue}
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool {return self._b != nil}
+  var hasB: Bool {self._b != nil}
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() {self._b = nil}
 
   var c: Int32 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 
@@ -361,11 +361,11 @@ struct Proto2Unittest_ForeignMessageArenaLite: Sendable {
   // methods supported on all messages.
 
   var c: Int32 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 

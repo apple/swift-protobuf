@@ -53,20 +53,20 @@ struct SDTTopLevelMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var field1: String {
-    get {return _storage._field1 ?? String()}
+    get {_storage._field1 ?? String()}
     set {_uniqueStorage()._field1 = newValue}
   }
   /// Returns true if `field1` has been explicitly set.
-  var hasField1: Bool {return _storage._field1 != nil}
+  var hasField1: Bool {_storage._field1 != nil}
   /// Clears the value of `field1`. Subsequent reads from it will return its default value.
   mutating func clearField1() {_uniqueStorage()._field1 = nil}
 
   var field2: Int32 {
-    get {return _storage._field2 ?? 0}
+    get {_storage._field2 ?? 0}
     set {_uniqueStorage()._field2 = newValue}
   }
   /// Returns true if `field2` has been explicitly set.
-  var hasField2: Bool {return _storage._field2 != nil}
+  var hasField2: Bool {_storage._field2 != nil}
   /// Clears the value of `field2`. Subsequent reads from it will return its default value.
   mutating func clearField2() {_uniqueStorage()._field2 = nil}
 
@@ -134,29 +134,29 @@ struct SDTTopLevelMessage: @unchecked Sendable {
     // methods supported on all messages.
 
     var field1: Int32 {
-      get {return _storage._field1 ?? 0}
+      get {_storage._field1 ?? 0}
       set {_uniqueStorage()._field1 = newValue}
     }
     /// Returns true if `field1` has been explicitly set.
-    var hasField1: Bool {return _storage._field1 != nil}
+    var hasField1: Bool {_storage._field1 != nil}
     /// Clears the value of `field1`. Subsequent reads from it will return its default value.
     mutating func clearField1() {_uniqueStorage()._field1 = nil}
 
     var field2: String {
-      get {return _storage._field2 ?? String()}
+      get {_storage._field2 ?? String()}
       set {_uniqueStorage()._field2 = newValue}
     }
     /// Returns true if `field2` has been explicitly set.
-    var hasField2: Bool {return _storage._field2 != nil}
+    var hasField2: Bool {_storage._field2 != nil}
     /// Clears the value of `field2`. Subsequent reads from it will return its default value.
     mutating func clearField2() {_uniqueStorage()._field2 = nil}
 
     var field3: SDTTopLevelMessage.SubMessage {
-      get {return _storage._field3 ?? SDTTopLevelMessage.SubMessage()}
+      get {_storage._field3 ?? SDTTopLevelMessage.SubMessage()}
       set {_uniqueStorage()._field3 = newValue}
     }
     /// Returns true if `field3` has been explicitly set.
-    var hasField3: Bool {return _storage._field3 != nil}
+    var hasField3: Bool {_storage._field3 != nil}
     /// Clears the value of `field3`. Subsequent reads from it will return its default value.
     mutating func clearField3() {_uniqueStorage()._field3 = nil}
 
@@ -178,20 +178,20 @@ struct SDTTopLevelMessage2: @unchecked Sendable {
   // methods supported on all messages.
 
   var left: SDTTopLevelMessage {
-    get {return _storage._left ?? SDTTopLevelMessage()}
+    get {_storage._left ?? SDTTopLevelMessage()}
     set {_uniqueStorage()._left = newValue}
   }
   /// Returns true if `left` has been explicitly set.
-  var hasLeft: Bool {return _storage._left != nil}
+  var hasLeft: Bool {_storage._left != nil}
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
   mutating func clearLeft() {_uniqueStorage()._left = nil}
 
   var right: SDTTopLevelMessage2 {
-    get {return _storage._right ?? SDTTopLevelMessage2()}
+    get {_storage._right ?? SDTTopLevelMessage2()}
     set {_uniqueStorage()._right = newValue}
   }
   /// Returns true if `right` has been explicitly set.
-  var hasRight: Bool {return _storage._right != nil}
+  var hasRight: Bool {_storage._right != nil}
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
   mutating func clearRight() {_uniqueStorage()._right = nil}
 
@@ -208,20 +208,20 @@ struct SDTExternalRefs: Sendable {
   // methods supported on all messages.
 
   var one: SwiftDescriptorTest_Import_ExtendableOne {
-    get {return _one ?? SwiftDescriptorTest_Import_ExtendableOne()}
+    get {_one ?? SwiftDescriptorTest_Import_ExtendableOne()}
     set {_one = newValue}
   }
   /// Returns true if `one` has been explicitly set.
-  var hasOne: Bool {return self._one != nil}
+  var hasOne: Bool {self._one != nil}
   /// Clears the value of `one`. Subsequent reads from it will return its default value.
   mutating func clearOne() {self._one = nil}
 
   var ver: SwiftDescriptorTest_Import_Version {
-    get {return _ver ?? SwiftDescriptorTest_Import_Version()}
+    get {_ver ?? SwiftDescriptorTest_Import_Version()}
     set {_ver = newValue}
   }
   /// Returns true if `ver` has been explicitly set.
-  var hasVer: Bool {return self._ver != nil}
+  var hasVer: Bool {self._ver != nil}
   /// Clears the value of `ver`. Subsequent reads from it will return its default value.
   mutating func clearVer() {self._ver = nil}
 
@@ -249,74 +249,74 @@ struct SDTProto2MessageForPresence: Sendable {
   // methods supported on all messages.
 
   var reqStrField: String {
-    get {return _reqStrField ?? String()}
+    get {_reqStrField ?? String()}
     set {_reqStrField = newValue}
   }
   /// Returns true if `reqStrField` has been explicitly set.
-  var hasReqStrField: Bool {return self._reqStrField != nil}
+  var hasReqStrField: Bool {self._reqStrField != nil}
   /// Clears the value of `reqStrField`. Subsequent reads from it will return its default value.
   mutating func clearReqStrField() {self._reqStrField = nil}
 
   var reqInt32Field: Int32 {
-    get {return _reqInt32Field ?? 0}
+    get {_reqInt32Field ?? 0}
     set {_reqInt32Field = newValue}
   }
   /// Returns true if `reqInt32Field` has been explicitly set.
-  var hasReqInt32Field: Bool {return self._reqInt32Field != nil}
+  var hasReqInt32Field: Bool {self._reqInt32Field != nil}
   /// Clears the value of `reqInt32Field`. Subsequent reads from it will return its default value.
   mutating func clearReqInt32Field() {self._reqInt32Field = nil}
 
   var reqEnumField: SDTTopLevelEnum {
-    get {return _reqEnumField ?? .valueZero}
+    get {_reqEnumField ?? .valueZero}
     set {_reqEnumField = newValue}
   }
   /// Returns true if `reqEnumField` has been explicitly set.
-  var hasReqEnumField: Bool {return self._reqEnumField != nil}
+  var hasReqEnumField: Bool {self._reqEnumField != nil}
   /// Clears the value of `reqEnumField`. Subsequent reads from it will return its default value.
   mutating func clearReqEnumField() {self._reqEnumField = nil}
 
   var reqMessageField: SDTTopLevelMessage {
-    get {return _reqMessageField ?? SDTTopLevelMessage()}
+    get {_reqMessageField ?? SDTTopLevelMessage()}
     set {_reqMessageField = newValue}
   }
   /// Returns true if `reqMessageField` has been explicitly set.
-  var hasReqMessageField: Bool {return self._reqMessageField != nil}
+  var hasReqMessageField: Bool {self._reqMessageField != nil}
   /// Clears the value of `reqMessageField`. Subsequent reads from it will return its default value.
   mutating func clearReqMessageField() {self._reqMessageField = nil}
 
   var optStrField: String {
-    get {return _optStrField ?? String()}
+    get {_optStrField ?? String()}
     set {_optStrField = newValue}
   }
   /// Returns true if `optStrField` has been explicitly set.
-  var hasOptStrField: Bool {return self._optStrField != nil}
+  var hasOptStrField: Bool {self._optStrField != nil}
   /// Clears the value of `optStrField`. Subsequent reads from it will return its default value.
   mutating func clearOptStrField() {self._optStrField = nil}
 
   var optInt32Field: Int32 {
-    get {return _optInt32Field ?? 0}
+    get {_optInt32Field ?? 0}
     set {_optInt32Field = newValue}
   }
   /// Returns true if `optInt32Field` has been explicitly set.
-  var hasOptInt32Field: Bool {return self._optInt32Field != nil}
+  var hasOptInt32Field: Bool {self._optInt32Field != nil}
   /// Clears the value of `optInt32Field`. Subsequent reads from it will return its default value.
   mutating func clearOptInt32Field() {self._optInt32Field = nil}
 
   var optEnumField: SDTTopLevelEnum {
-    get {return _optEnumField ?? .valueZero}
+    get {_optEnumField ?? .valueZero}
     set {_optEnumField = newValue}
   }
   /// Returns true if `optEnumField` has been explicitly set.
-  var hasOptEnumField: Bool {return self._optEnumField != nil}
+  var hasOptEnumField: Bool {self._optEnumField != nil}
   /// Clears the value of `optEnumField`. Subsequent reads from it will return its default value.
   mutating func clearOptEnumField() {self._optEnumField = nil}
 
   var optMessageField: SDTTopLevelMessage {
-    get {return _optMessageField ?? SDTTopLevelMessage()}
+    get {_optMessageField ?? SDTTopLevelMessage()}
     set {_optMessageField = newValue}
   }
   /// Returns true if `optMessageField` has been explicitly set.
-  var hasOptMessageField: Bool {return self._optMessageField != nil}
+  var hasOptMessageField: Bool {self._optMessageField != nil}
   /// Clears the value of `optMessageField`. Subsequent reads from it will return its default value.
   mutating func clearOptMessageField() {self._optMessageField = nil}
 

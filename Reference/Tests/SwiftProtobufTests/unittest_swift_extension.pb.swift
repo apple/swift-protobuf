@@ -56,11 +56,11 @@ struct SwiftProtoTesting_Extend_Foo: Sendable {
       // methods supported on all messages.
 
       var a: Int32 {
-        get {return _a ?? 0}
+        get {_a ?? 0}
         set {_a = newValue}
       }
       /// Returns true if `a` has been explicitly set.
-      var hasA: Bool {return self._a != nil}
+      var hasA: Bool {self._a != nil}
       /// Clears the value of `a`. Subsequent reads from it will return its default value.
       mutating func clearA() {self._a = nil}
 
@@ -85,11 +85,11 @@ struct SwiftProtoTesting_Extend_C: Sendable {
 
   ///      extensions 10 to 20;
   var c: Int64 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 
@@ -130,11 +130,11 @@ struct SwiftProtoTesting_Extend_MsgNoStorage: SwiftProtobuf.ExtensibleMessage, S
   // methods supported on all messages.
 
   var x: Int32 {
-    get {return _x ?? 0}
+    get {_x ?? 0}
     set {_x = newValue}
   }
   /// Returns true if `x` has been explicitly set.
-  var hasX: Bool {return self._x != nil}
+  var hasX: Bool {self._x != nil}
   /// Clears the value of `x`. Subsequent reads from it will return its default value.
   mutating func clearX() {self._x = nil}
 
@@ -152,21 +152,21 @@ struct SwiftProtoTesting_Extend_MsgUsesStorage: SwiftProtobuf.ExtensibleMessage,
   // methods supported on all messages.
 
   var x: Int32 {
-    get {return _storage._x ?? 0}
+    get {_storage._x ?? 0}
     set {_uniqueStorage()._x = newValue}
   }
   /// Returns true if `x` has been explicitly set.
-  var hasX: Bool {return _storage._x != nil}
+  var hasX: Bool {_storage._x != nil}
   /// Clears the value of `x`. Subsequent reads from it will return its default value.
   mutating func clearX() {_uniqueStorage()._x = nil}
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: SwiftProtoTesting_Extend_MsgUsesStorage {
-    get {return _storage._y ?? SwiftProtoTesting_Extend_MsgUsesStorage()}
+    get {_storage._y ?? SwiftProtoTesting_Extend_MsgUsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
   /// Returns true if `y` has been explicitly set.
-  var hasY: Bool {return _storage._y != nil}
+  var hasY: Bool {_storage._y != nil}
   /// Clears the value of `y`. Subsequent reads from it will return its default value.
   mutating func clearY() {_uniqueStorage()._y = nil}
 

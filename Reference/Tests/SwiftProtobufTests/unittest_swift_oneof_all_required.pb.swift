@@ -56,11 +56,11 @@ struct SwiftProtoTesting_OneOfOptionMessage1: Sendable {
   // methods supported on all messages.
 
   var requiredField: Int32 {
-    get {return _requiredField ?? 0}
+    get {_requiredField ?? 0}
     set {_requiredField = newValue}
   }
   /// Returns true if `requiredField` has been explicitly set.
-  var hasRequiredField: Bool {return self._requiredField != nil}
+  var hasRequiredField: Bool {self._requiredField != nil}
   /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
   mutating func clearRequiredField() {self._requiredField = nil}
 
@@ -77,11 +77,11 @@ struct SwiftProtoTesting_OneOfOptionMessage2: Sendable {
   // methods supported on all messages.
 
   var requiredField: Int32 {
-    get {return _requiredField ?? 0}
+    get {_requiredField ?? 0}
     set {_requiredField = newValue}
   }
   /// Returns true if `requiredField` has been explicitly set.
-  var hasRequiredField: Bool {return self._requiredField != nil}
+  var hasRequiredField: Bool {self._requiredField != nil}
   /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
   mutating func clearRequiredField() {self._requiredField = nil}
 
@@ -168,20 +168,20 @@ struct SwiftProtoTesting_OneOfContainer: Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 0}
+      get {_a ?? 0}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
     var b: String {
-      get {return _b ?? String()}
+      get {_b ?? String()}
       set {_b = newValue}
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool {return self._b != nil}
+    var hasB: Bool {self._b != nil}
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() {self._b = nil}
 

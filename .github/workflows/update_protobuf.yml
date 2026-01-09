@@ -1,0 +1,119 @@
+name: Update Protobuf and Abseil Submodules
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  schedule:
+    # Every night at 2am UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Check for new protobuf release
+      id: check_release
+      run: |
+        # Get the latest protobuf release tag
+        LATEST_TAG=$(curl -s https://api.github.com/repos/protocolbuffers/protobuf/releases/latest | jq -r '.tag_name')
+        echo "Latest protobuf release: $LATEST_TAG"
+
+        # Get current protobuf submodule commit
+        cd Sources/protobuf/protobuf
+        CURRENT_TAG=$(git describe --tags --exact-match 2>/dev/null || echo "none")
+        echo "Current protobuf version: $CURRENT_TAG"
+        cd ../../..
+
+        # Check if update is needed
+        if [ "$LATEST_TAG" != "$CURRENT_TAG" ] && [ "$LATEST_TAG" != "null" ]; then
+          echo "needs_update=true" >> $GITHUB_OUTPUT
+          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+          echo "Update needed: $CURRENT_TAG -> $LATEST_TAG"
+        else
+          echo "needs_update=false" >> $GITHUB_OUTPUT
+          echo "No update needed"
+        fi
+
+    - name: Update protobuf submodule
+      if: steps.check_release.outputs.needs_update == 'true'
+      run: |
+        cd Sources/protobuf/protobuf
+        git fetch --tags
+        git checkout ${{ steps.check_release.outputs.latest_tag }}
+        cd ../../..
+
+    - name: Determine required abseil version
+      if: steps.check_release.outputs.needs_update == 'true'
+      id: check_abseil
+      run: |
+        # Extract abseil commit from protobuf_deps.bzl
+        ABSEIL_COMMIT=$(grep -A 10 '"com_google_absl"' Sources/protobuf/protobuf/protobuf_deps.bzl | grep 'commit' | head -1 | sed 's/.*"\([a-f0-9]*\)".*/\1/')
+
+        if [ -z "$ABSEIL_COMMIT" ]; then
+          echo "Error: Could not determine abseil commit"
+          exit 1
+        fi
+
+        echo "Required abseil commit: $ABSEIL_COMMIT"
+        echo "abseil_commit=$ABSEIL_COMMIT" >> $GITHUB_OUTPUT
+
+    - name: Update abseil submodule
+      if: steps.check_release.outputs.needs_update == 'true'
+      run: |
+        cd Sources/protobuf/abseil
+        git fetch
+        git checkout ${{ steps.check_abseil.outputs.abseil_commit }}
+        cd ../../..
+
+    - name: Stage submodule updates
+      if: steps.check_release.outputs.needs_update == 'true'
+      run: |
+        git add Sources/protobuf/protobuf
+        git add Sources/protobuf/abseil
+
+    - name: Get abseil version info
+      if: steps.check_release.outputs.needs_update == 'true'
+      id: abseil_info
+      run: |
+        cd Sources/protobuf/abseil
+        ABSEIL_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "commit ${{ steps.check_abseil.outputs.abseil_commit }}")
+        echo "abseil_version=$ABSEIL_TAG" >> $GITHUB_OUTPUT
+        cd ../../..
+
+    - name: Create Pull Request
+      if: steps.check_release.outputs.needs_update == 'true'
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: |
+          Update protobuf to ${{ steps.check_release.outputs.latest_tag }} and abseil-cpp
+
+          - Update protobuf submodule to ${{ steps.check_release.outputs.latest_tag }}
+          - Update abseil-cpp submodule to ${{ steps.abseil_info.outputs.abseil_version }}
+        branch: automated/update-protobuf-${{ steps.check_release.outputs.latest_tag }}
+        delete-branch: true
+        title: 'Update protobuf to ${{ steps.check_release.outputs.latest_tag }}'
+        body: |
+          ## Automated Protobuf Update
+
+          This PR automatically updates the protobuf and abseil-cpp submodules to their latest versions.
+
+          ### Changes
+          - **Protobuf**: Updated to `${{ steps.check_release.outputs.latest_tag }}`
+          - **Abseil-cpp**: Updated to `${{ steps.abseil_info.outputs.abseil_version }}`
+
+          ### Release Notes
+          See the [protobuf ${{ steps.check_release.outputs.latest_tag }} release notes](https://github.com/protocolbuffers/protobuf/releases/tag/${{ steps.check_release.outputs.latest_tag }}) for details.
+
+          ---
+
+          *This PR was automatically created by the [Update Protobuf workflow](https://github.com/${{ github.repository }}/actions/workflows/update_protobuf.yml)*

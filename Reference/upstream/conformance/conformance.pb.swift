@@ -244,11 +244,11 @@ struct Conformance_ConformanceRequest: Sendable {
 
   /// Specify details for how to encode jspb.
   var jspbEncodingOptions: Conformance_JspbEncodingConfig {
-    get {return _jspbEncodingOptions ?? Conformance_JspbEncodingConfig()}
+    get {_jspbEncodingOptions ?? Conformance_JspbEncodingConfig()}
     set {_jspbEncodingOptions = newValue}
   }
   /// Returns true if `jspbEncodingOptions` has been explicitly set.
-  var hasJspbEncodingOptions: Bool {return self._jspbEncodingOptions != nil}
+  var hasJspbEncodingOptions: Bool {self._jspbEncodingOptions != nil}
   /// Clears the value of `jspbEncodingOptions`. Subsequent reads from it will return its default value.
   mutating func clearJspbEncodingOptions() {self._jspbEncodingOptions = nil}
 

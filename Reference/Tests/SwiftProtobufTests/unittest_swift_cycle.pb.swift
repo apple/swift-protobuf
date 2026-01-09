@@ -55,29 +55,29 @@ struct SwiftProtoTesting_CycleFoo: @unchecked Sendable {
   // methods supported on all messages.
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get {return _storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
+    get {_storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
   /// Returns true if `aFoo` has been explicitly set.
-  var hasAFoo: Bool {return _storage._aFoo != nil}
+  var hasAFoo: Bool {_storage._aFoo != nil}
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
   mutating func clearAFoo() {_uniqueStorage()._aFoo = nil}
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get {return _storage._aBar ?? SwiftProtoTesting_CycleBar()}
+    get {_storage._aBar ?? SwiftProtoTesting_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
   /// Returns true if `aBar` has been explicitly set.
-  var hasABar: Bool {return _storage._aBar != nil}
+  var hasABar: Bool {_storage._aBar != nil}
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
   mutating func clearABar() {_uniqueStorage()._aBar = nil}
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get {return _storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
+    get {_storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
   /// Returns true if `aBaz` has been explicitly set.
-  var hasABaz: Bool {return _storage._aBaz != nil}
+  var hasABaz: Bool {_storage._aBaz != nil}
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
   mutating func clearABaz() {_uniqueStorage()._aBaz = nil}
 
@@ -94,29 +94,29 @@ struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
   // methods supported on all messages.
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get {return _storage._aBar ?? SwiftProtoTesting_CycleBar()}
+    get {_storage._aBar ?? SwiftProtoTesting_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
   /// Returns true if `aBar` has been explicitly set.
-  var hasABar: Bool {return _storage._aBar != nil}
+  var hasABar: Bool {_storage._aBar != nil}
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
   mutating func clearABar() {_uniqueStorage()._aBar = nil}
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get {return _storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
+    get {_storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
   /// Returns true if `aBaz` has been explicitly set.
-  var hasABaz: Bool {return _storage._aBaz != nil}
+  var hasABaz: Bool {_storage._aBaz != nil}
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
   mutating func clearABaz() {_uniqueStorage()._aBaz = nil}
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get {return _storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
+    get {_storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
   /// Returns true if `aFoo` has been explicitly set.
-  var hasAFoo: Bool {return _storage._aFoo != nil}
+  var hasAFoo: Bool {_storage._aFoo != nil}
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
   mutating func clearAFoo() {_uniqueStorage()._aFoo = nil}
 
@@ -133,29 +133,29 @@ struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
   // methods supported on all messages.
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get {return _storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
+    get {_storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
   /// Returns true if `aBaz` has been explicitly set.
-  var hasABaz: Bool {return _storage._aBaz != nil}
+  var hasABaz: Bool {_storage._aBaz != nil}
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
   mutating func clearABaz() {_uniqueStorage()._aBaz = nil}
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get {return _storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
+    get {_storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
   /// Returns true if `aFoo` has been explicitly set.
-  var hasAFoo: Bool {return _storage._aFoo != nil}
+  var hasAFoo: Bool {_storage._aFoo != nil}
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
   mutating func clearAFoo() {_uniqueStorage()._aFoo = nil}
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get {return _storage._aBar ?? SwiftProtoTesting_CycleBar()}
+    get {_storage._aBar ?? SwiftProtoTesting_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
   /// Returns true if `aBar` has been explicitly set.
-  var hasABar: Bool {return _storage._aBar != nil}
+  var hasABar: Bool {_storage._aBar != nil}
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
   mutating func clearABar() {_uniqueStorage()._aBar = nil}
 

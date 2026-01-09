@@ -47,40 +47,40 @@ struct Google_Protobuf_Compiler_Version: Sendable {
   // methods supported on all messages.
 
   var major: Int32 {
-    get {return _major ?? 0}
+    get {_major ?? 0}
     set {_major = newValue}
   }
   /// Returns true if `major` has been explicitly set.
-  var hasMajor: Bool {return self._major != nil}
+  var hasMajor: Bool {self._major != nil}
   /// Clears the value of `major`. Subsequent reads from it will return its default value.
   mutating func clearMajor() {self._major = nil}
 
   var minor: Int32 {
-    get {return _minor ?? 0}
+    get {_minor ?? 0}
     set {_minor = newValue}
   }
   /// Returns true if `minor` has been explicitly set.
-  var hasMinor: Bool {return self._minor != nil}
+  var hasMinor: Bool {self._minor != nil}
   /// Clears the value of `minor`. Subsequent reads from it will return its default value.
   mutating func clearMinor() {self._minor = nil}
 
   var patch: Int32 {
-    get {return _patch ?? 0}
+    get {_patch ?? 0}
     set {_patch = newValue}
   }
   /// Returns true if `patch` has been explicitly set.
-  var hasPatch: Bool {return self._patch != nil}
+  var hasPatch: Bool {self._patch != nil}
   /// Clears the value of `patch`. Subsequent reads from it will return its default value.
   mutating func clearPatch() {self._patch = nil}
 
   /// A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
   /// be empty for mainline stable releases.
   var suffix: String {
-    get {return _suffix ?? String()}
+    get {_suffix ?? String()}
     set {_suffix = newValue}
   }
   /// Returns true if `suffix` has been explicitly set.
-  var hasSuffix: Bool {return self._suffix != nil}
+  var hasSuffix: Bool {self._suffix != nil}
   /// Clears the value of `suffix`. Subsequent reads from it will return its default value.
   mutating func clearSuffix() {self._suffix = nil}
 
@@ -107,11 +107,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: Sendable {
 
   /// The generator parameter passed on the command-line.
   var parameter: String {
-    get {return _parameter ?? String()}
+    get {_parameter ?? String()}
     set {_parameter = newValue}
   }
   /// Returns true if `parameter` has been explicitly set.
-  var hasParameter: Bool {return self._parameter != nil}
+  var hasParameter: Bool {self._parameter != nil}
   /// Clears the value of `parameter`. Subsequent reads from it will return its default value.
   mutating func clearParameter() {self._parameter = nil}
 
@@ -143,11 +143,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: Sendable {
 
   /// The version number of protocol compiler.
   var compilerVersion: Google_Protobuf_Compiler_Version {
-    get {return _compilerVersion ?? Google_Protobuf_Compiler_Version()}
+    get {_compilerVersion ?? Google_Protobuf_Compiler_Version()}
     set {_compilerVersion = newValue}
   }
   /// Returns true if `compilerVersion` has been explicitly set.
-  var hasCompilerVersion: Bool {return self._compilerVersion != nil}
+  var hasCompilerVersion: Bool {self._compilerVersion != nil}
   /// Clears the value of `compilerVersion`. Subsequent reads from it will return its default value.
   mutating func clearCompilerVersion() {self._compilerVersion = nil}
 
@@ -174,22 +174,22 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   /// unparseable -- should be reported by writing a message to stderr and
   /// exiting with a non-zero status code.
   var error: String {
-    get {return _error ?? String()}
+    get {_error ?? String()}
     set {_error = newValue}
   }
   /// Returns true if `error` has been explicitly set.
-  var hasError: Bool {return self._error != nil}
+  var hasError: Bool {self._error != nil}
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
   mutating func clearError() {self._error = nil}
 
   /// A bitmask of supported features that the code generator supports.
   /// This is a bitwise "or" of values from the Feature enum.
   var supportedFeatures: UInt64 {
-    get {return _supportedFeatures ?? 0}
+    get {_supportedFeatures ?? 0}
     set {_supportedFeatures = newValue}
   }
   /// Returns true if `supportedFeatures` has been explicitly set.
-  var hasSupportedFeatures: Bool {return self._supportedFeatures != nil}
+  var hasSupportedFeatures: Bool {self._supportedFeatures != nil}
   /// Clears the value of `supportedFeatures`. Subsequent reads from it will return its default value.
   mutating func clearSupportedFeatures() {self._supportedFeatures = nil}
 
@@ -198,11 +198,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   /// according the edition enum value, *not* the edition number.  Only takes
   /// effect for plugins that have FEATURE_SUPPORTS_EDITIONS set.
   var minimumEdition: Int32 {
-    get {return _minimumEdition ?? 0}
+    get {_minimumEdition ?? 0}
     set {_minimumEdition = newValue}
   }
   /// Returns true if `minimumEdition` has been explicitly set.
-  var hasMinimumEdition: Bool {return self._minimumEdition != nil}
+  var hasMinimumEdition: Bool {self._minimumEdition != nil}
   /// Clears the value of `minimumEdition`. Subsequent reads from it will return its default value.
   mutating func clearMinimumEdition() {self._minimumEdition = nil}
 
@@ -211,11 +211,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   /// according the edition enum value, *not* the edition number.  Only takes
   /// effect for plugins that have FEATURE_SUPPORTS_EDITIONS set.
   var maximumEdition: Int32 {
-    get {return _maximumEdition ?? 0}
+    get {_maximumEdition ?? 0}
     set {_maximumEdition = newValue}
   }
   /// Returns true if `maximumEdition` has been explicitly set.
-  var hasMaximumEdition: Bool {return self._maximumEdition != nil}
+  var hasMaximumEdition: Bool {self._maximumEdition != nil}
   /// Clears the value of `maximumEdition`. Subsequent reads from it will return its default value.
   mutating func clearMaximumEdition() {self._maximumEdition = nil}
 
@@ -253,11 +253,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
     /// this writing protoc does not optimize for this -- it will read the entire
     /// CodeGeneratorResponse before writing files to disk.
     var name: String {
-      get {return _name ?? String()}
+      get {_name ?? String()}
       set {_name = newValue}
     }
     /// Returns true if `name` has been explicitly set.
-    var hasName: Bool {return self._name != nil}
+    var hasName: Bool {self._name != nil}
     /// Clears the value of `name`. Subsequent reads from it will return its default value.
     mutating func clearName() {self._name = nil}
 
@@ -299,21 +299,21 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
     ///
     /// If |insertion_point| is present, |name| must also be present.
     var insertionPoint: String {
-      get {return _insertionPoint ?? String()}
+      get {_insertionPoint ?? String()}
       set {_insertionPoint = newValue}
     }
     /// Returns true if `insertionPoint` has been explicitly set.
-    var hasInsertionPoint: Bool {return self._insertionPoint != nil}
+    var hasInsertionPoint: Bool {self._insertionPoint != nil}
     /// Clears the value of `insertionPoint`. Subsequent reads from it will return its default value.
     mutating func clearInsertionPoint() {self._insertionPoint = nil}
 
     /// The file contents.
     var content: String {
-      get {return _content ?? String()}
+      get {_content ?? String()}
       set {_content = newValue}
     }
     /// Returns true if `content` has been explicitly set.
-    var hasContent: Bool {return self._content != nil}
+    var hasContent: Bool {self._content != nil}
     /// Clears the value of `content`. Subsequent reads from it will return its default value.
     mutating func clearContent() {self._content = nil}
 
@@ -321,11 +321,11 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
     /// point is used, this information will be appropriately offset and inserted
     /// into the code generation metadata for the generated files.
     var generatedCodeInfo: SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo {
-      get {return _generatedCodeInfo ?? SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo()}
+      get {_generatedCodeInfo ?? SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo()}
       set {_generatedCodeInfo = newValue}
     }
     /// Returns true if `generatedCodeInfo` has been explicitly set.
-    var hasGeneratedCodeInfo: Bool {return self._generatedCodeInfo != nil}
+    var hasGeneratedCodeInfo: Bool {self._generatedCodeInfo != nil}
     /// Clears the value of `generatedCodeInfo`. Subsequent reads from it will return its default value.
     mutating func clearGeneratedCodeInfo() {self._generatedCodeInfo = nil}
 

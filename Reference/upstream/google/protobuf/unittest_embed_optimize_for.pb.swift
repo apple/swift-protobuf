@@ -41,11 +41,11 @@ struct Proto2Unittest_TestEmbedOptimizedForSize: Sendable {
   /// Test that embedding a message which has optimize_for = CODE_SIZE into
   /// one optimized for speed works.
   var optionalMessage: Proto2Unittest_TestOptimizedForSize {
-    get {return _optionalMessage ?? Proto2Unittest_TestOptimizedForSize()}
+    get {_optionalMessage ?? Proto2Unittest_TestOptimizedForSize()}
     set {_optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
-  var hasOptionalMessage: Bool {return self._optionalMessage != nil}
+  var hasOptionalMessage: Bool {self._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {self._optionalMessage = nil}
 

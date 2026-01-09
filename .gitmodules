@@ -1,0 +1,8 @@
+[submodule "Sources/protobuf/protobuf"]
+	path = Sources/protobuf/protobuf
+	url = https://github.com/protocolbuffers/protobuf
+	branch = main
+[submodule "Sources/protobuf/abseil"]
+	path = Sources/protobuf/abseil
+	url = https://github.com/abseil/abseil-cpp
+	branch = main

@@ -54,255 +54,255 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @
 
   /// Singular
   public var singularInt32: Int32 {
-    get {return _storage._singularInt32 ?? 0}
+    get {_storage._singularInt32 ?? 0}
     set {_uniqueStorage()._singularInt32 = newValue}
   }
   /// Returns true if `singularInt32` has been explicitly set.
-  public var hasSingularInt32: Bool {return _storage._singularInt32 != nil}
+  public var hasSingularInt32: Bool {_storage._singularInt32 != nil}
   /// Clears the value of `singularInt32`. Subsequent reads from it will return its default value.
   public mutating func clearSingularInt32() {_uniqueStorage()._singularInt32 = nil}
 
   public var singularInt64: Int64 {
-    get {return _storage._singularInt64 ?? 0}
+    get {_storage._singularInt64 ?? 0}
     set {_uniqueStorage()._singularInt64 = newValue}
   }
   /// Returns true if `singularInt64` has been explicitly set.
-  public var hasSingularInt64: Bool {return _storage._singularInt64 != nil}
+  public var hasSingularInt64: Bool {_storage._singularInt64 != nil}
   /// Clears the value of `singularInt64`. Subsequent reads from it will return its default value.
   public mutating func clearSingularInt64() {_uniqueStorage()._singularInt64 = nil}
 
   public var singularUint32: UInt32 {
-    get {return _storage._singularUint32 ?? 0}
+    get {_storage._singularUint32 ?? 0}
     set {_uniqueStorage()._singularUint32 = newValue}
   }
   /// Returns true if `singularUint32` has been explicitly set.
-  public var hasSingularUint32: Bool {return _storage._singularUint32 != nil}
+  public var hasSingularUint32: Bool {_storage._singularUint32 != nil}
   /// Clears the value of `singularUint32`. Subsequent reads from it will return its default value.
   public mutating func clearSingularUint32() {_uniqueStorage()._singularUint32 = nil}
 
   public var singularUint64: UInt64 {
-    get {return _storage._singularUint64 ?? 0}
+    get {_storage._singularUint64 ?? 0}
     set {_uniqueStorage()._singularUint64 = newValue}
   }
   /// Returns true if `singularUint64` has been explicitly set.
-  public var hasSingularUint64: Bool {return _storage._singularUint64 != nil}
+  public var hasSingularUint64: Bool {_storage._singularUint64 != nil}
   /// Clears the value of `singularUint64`. Subsequent reads from it will return its default value.
   public mutating func clearSingularUint64() {_uniqueStorage()._singularUint64 = nil}
 
   public var singularSint32: Int32 {
-    get {return _storage._singularSint32 ?? 0}
+    get {_storage._singularSint32 ?? 0}
     set {_uniqueStorage()._singularSint32 = newValue}
   }
   /// Returns true if `singularSint32` has been explicitly set.
-  public var hasSingularSint32: Bool {return _storage._singularSint32 != nil}
+  public var hasSingularSint32: Bool {_storage._singularSint32 != nil}
   /// Clears the value of `singularSint32`. Subsequent reads from it will return its default value.
   public mutating func clearSingularSint32() {_uniqueStorage()._singularSint32 = nil}
 
   public var singularSint64: Int64 {
-    get {return _storage._singularSint64 ?? 0}
+    get {_storage._singularSint64 ?? 0}
     set {_uniqueStorage()._singularSint64 = newValue}
   }
   /// Returns true if `singularSint64` has been explicitly set.
-  public var hasSingularSint64: Bool {return _storage._singularSint64 != nil}
+  public var hasSingularSint64: Bool {_storage._singularSint64 != nil}
   /// Clears the value of `singularSint64`. Subsequent reads from it will return its default value.
   public mutating func clearSingularSint64() {_uniqueStorage()._singularSint64 = nil}
 
   public var singularFixed32: UInt32 {
-    get {return _storage._singularFixed32 ?? 0}
+    get {_storage._singularFixed32 ?? 0}
     set {_uniqueStorage()._singularFixed32 = newValue}
   }
   /// Returns true if `singularFixed32` has been explicitly set.
-  public var hasSingularFixed32: Bool {return _storage._singularFixed32 != nil}
+  public var hasSingularFixed32: Bool {_storage._singularFixed32 != nil}
   /// Clears the value of `singularFixed32`. Subsequent reads from it will return its default value.
   public mutating func clearSingularFixed32() {_uniqueStorage()._singularFixed32 = nil}
 
   public var singularFixed64: UInt64 {
-    get {return _storage._singularFixed64 ?? 0}
+    get {_storage._singularFixed64 ?? 0}
     set {_uniqueStorage()._singularFixed64 = newValue}
   }
   /// Returns true if `singularFixed64` has been explicitly set.
-  public var hasSingularFixed64: Bool {return _storage._singularFixed64 != nil}
+  public var hasSingularFixed64: Bool {_storage._singularFixed64 != nil}
   /// Clears the value of `singularFixed64`. Subsequent reads from it will return its default value.
   public mutating func clearSingularFixed64() {_uniqueStorage()._singularFixed64 = nil}
 
   public var singularSfixed32: Int32 {
-    get {return _storage._singularSfixed32 ?? 0}
+    get {_storage._singularSfixed32 ?? 0}
     set {_uniqueStorage()._singularSfixed32 = newValue}
   }
   /// Returns true if `singularSfixed32` has been explicitly set.
-  public var hasSingularSfixed32: Bool {return _storage._singularSfixed32 != nil}
+  public var hasSingularSfixed32: Bool {_storage._singularSfixed32 != nil}
   /// Clears the value of `singularSfixed32`. Subsequent reads from it will return its default value.
   public mutating func clearSingularSfixed32() {_uniqueStorage()._singularSfixed32 = nil}
 
   public var singularSfixed64: Int64 {
-    get {return _storage._singularSfixed64 ?? 0}
+    get {_storage._singularSfixed64 ?? 0}
     set {_uniqueStorage()._singularSfixed64 = newValue}
   }
   /// Returns true if `singularSfixed64` has been explicitly set.
-  public var hasSingularSfixed64: Bool {return _storage._singularSfixed64 != nil}
+  public var hasSingularSfixed64: Bool {_storage._singularSfixed64 != nil}
   /// Clears the value of `singularSfixed64`. Subsequent reads from it will return its default value.
   public mutating func clearSingularSfixed64() {_uniqueStorage()._singularSfixed64 = nil}
 
   public var singularFloat: Float {
-    get {return _storage._singularFloat ?? 0}
+    get {_storage._singularFloat ?? 0}
     set {_uniqueStorage()._singularFloat = newValue}
   }
   /// Returns true if `singularFloat` has been explicitly set.
-  public var hasSingularFloat: Bool {return _storage._singularFloat != nil}
+  public var hasSingularFloat: Bool {_storage._singularFloat != nil}
   /// Clears the value of `singularFloat`. Subsequent reads from it will return its default value.
   public mutating func clearSingularFloat() {_uniqueStorage()._singularFloat = nil}
 
   public var singularDouble: Double {
-    get {return _storage._singularDouble ?? 0}
+    get {_storage._singularDouble ?? 0}
     set {_uniqueStorage()._singularDouble = newValue}
   }
   /// Returns true if `singularDouble` has been explicitly set.
-  public var hasSingularDouble: Bool {return _storage._singularDouble != nil}
+  public var hasSingularDouble: Bool {_storage._singularDouble != nil}
   /// Clears the value of `singularDouble`. Subsequent reads from it will return its default value.
   public mutating func clearSingularDouble() {_uniqueStorage()._singularDouble = nil}
 
   public var singularBool: Bool {
-    get {return _storage._singularBool ?? false}
+    get {_storage._singularBool ?? false}
     set {_uniqueStorage()._singularBool = newValue}
   }
   /// Returns true if `singularBool` has been explicitly set.
-  public var hasSingularBool: Bool {return _storage._singularBool != nil}
+  public var hasSingularBool: Bool {_storage._singularBool != nil}
   /// Clears the value of `singularBool`. Subsequent reads from it will return its default value.
   public mutating func clearSingularBool() {_uniqueStorage()._singularBool = nil}
 
   public var singularString: String {
-    get {return _storage._singularString ?? String()}
+    get {_storage._singularString ?? String()}
     set {_uniqueStorage()._singularString = newValue}
   }
   /// Returns true if `singularString` has been explicitly set.
-  public var hasSingularString: Bool {return _storage._singularString != nil}
+  public var hasSingularString: Bool {_storage._singularString != nil}
   /// Clears the value of `singularString`. Subsequent reads from it will return its default value.
   public mutating func clearSingularString() {_uniqueStorage()._singularString = nil}
 
   public var singularBytes: Data {
-    get {return _storage._singularBytes ?? Data()}
+    get {_storage._singularBytes ?? Data()}
     set {_uniqueStorage()._singularBytes = newValue}
   }
   /// Returns true if `singularBytes` has been explicitly set.
-  public var hasSingularBytes: Bool {return _storage._singularBytes != nil}
+  public var hasSingularBytes: Bool {_storage._singularBytes != nil}
   /// Clears the value of `singularBytes`. Subsequent reads from it will return its default value.
   public mutating func clearSingularBytes() {_uniqueStorage()._singularBytes = nil}
 
   public var singularEnum: SwiftProtoTesting_Fuzz_AnEnum {
-    get {return _storage._singularEnum ?? .zero}
+    get {_storage._singularEnum ?? .zero}
     set {_uniqueStorage()._singularEnum = newValue}
   }
   /// Returns true if `singularEnum` has been explicitly set.
-  public var hasSingularEnum: Bool {return _storage._singularEnum != nil}
+  public var hasSingularEnum: Bool {_storage._singularEnum != nil}
   /// Clears the value of `singularEnum`. Subsequent reads from it will return its default value.
   public mutating func clearSingularEnum() {_uniqueStorage()._singularEnum = nil}
 
   public var singularGroup: SwiftProtoTesting_Fuzz_Message.SingularGroup {
-    get {return _storage._singularGroup ?? SwiftProtoTesting_Fuzz_Message.SingularGroup()}
+    get {_storage._singularGroup ?? SwiftProtoTesting_Fuzz_Message.SingularGroup()}
     set {_uniqueStorage()._singularGroup = newValue}
   }
   /// Returns true if `singularGroup` has been explicitly set.
-  public var hasSingularGroup: Bool {return _storage._singularGroup != nil}
+  public var hasSingularGroup: Bool {_storage._singularGroup != nil}
   /// Clears the value of `singularGroup`. Subsequent reads from it will return its default value.
   public mutating func clearSingularGroup() {_uniqueStorage()._singularGroup = nil}
 
   public var singularMessage: SwiftProtoTesting_Fuzz_Message {
-    get {return _storage._singularMessage ?? SwiftProtoTesting_Fuzz_Message()}
+    get {_storage._singularMessage ?? SwiftProtoTesting_Fuzz_Message()}
     set {_uniqueStorage()._singularMessage = newValue}
   }
   /// Returns true if `singularMessage` has been explicitly set.
-  public var hasSingularMessage: Bool {return _storage._singularMessage != nil}
+  public var hasSingularMessage: Bool {_storage._singularMessage != nil}
   /// Clears the value of `singularMessage`. Subsequent reads from it will return its default value.
   public mutating func clearSingularMessage() {_uniqueStorage()._singularMessage = nil}
 
   /// Repeated
   public var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
+    get {_storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   public var repeatedInt64: [Int64] {
-    get {return _storage._repeatedInt64}
+    get {_storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   public var repeatedUint32: [UInt32] {
-    get {return _storage._repeatedUint32}
+    get {_storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   public var repeatedUint64: [UInt64] {
-    get {return _storage._repeatedUint64}
+    get {_storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   public var repeatedSint32: [Int32] {
-    get {return _storage._repeatedSint32}
+    get {_storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   public var repeatedSint64: [Int64] {
-    get {return _storage._repeatedSint64}
+    get {_storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   public var repeatedFixed32: [UInt32] {
-    get {return _storage._repeatedFixed32}
+    get {_storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   public var repeatedFixed64: [UInt64] {
-    get {return _storage._repeatedFixed64}
+    get {_storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   public var repeatedSfixed32: [Int32] {
-    get {return _storage._repeatedSfixed32}
+    get {_storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   public var repeatedSfixed64: [Int64] {
-    get {return _storage._repeatedSfixed64}
+    get {_storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   public var repeatedFloat: [Float] {
-    get {return _storage._repeatedFloat}
+    get {_storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   public var repeatedDouble: [Double] {
-    get {return _storage._repeatedDouble}
+    get {_storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   public var repeatedBool: [Bool] {
-    get {return _storage._repeatedBool}
+    get {_storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   public var repeatedString: [String] {
-    get {return _storage._repeatedString}
+    get {_storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   public var repeatedBytes: [Data] {
-    get {return _storage._repeatedBytes}
+    get {_storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   public var repeatedEnum: [SwiftProtoTesting_Fuzz_AnEnum] {
-    get {return _storage._repeatedEnum}
+    get {_storage._repeatedEnum}
     set {_uniqueStorage()._repeatedEnum = newValue}
   }
 
   public var repeatedGroup: [SwiftProtoTesting_Fuzz_Message.RepeatedGroup] {
-    get {return _storage._repeatedGroup}
+    get {_storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
   public var repeatedMessage: [SwiftProtoTesting_Fuzz_Message] {
-    get {return _storage._repeatedMessage}
+    get {_storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
@@ -458,1186 +458,1186 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @
 
   /// Repeated Packed
   public var repeatedPackedInt32: [Int32] {
-    get {return _storage._repeatedPackedInt32}
+    get {_storage._repeatedPackedInt32}
     set {_uniqueStorage()._repeatedPackedInt32 = newValue}
   }
 
   public var repeatedPackedInt64: [Int64] {
-    get {return _storage._repeatedPackedInt64}
+    get {_storage._repeatedPackedInt64}
     set {_uniqueStorage()._repeatedPackedInt64 = newValue}
   }
 
   public var repeatedPackedUint32: [UInt32] {
-    get {return _storage._repeatedPackedUint32}
+    get {_storage._repeatedPackedUint32}
     set {_uniqueStorage()._repeatedPackedUint32 = newValue}
   }
 
   public var repeatedPackedUint64: [UInt64] {
-    get {return _storage._repeatedPackedUint64}
+    get {_storage._repeatedPackedUint64}
     set {_uniqueStorage()._repeatedPackedUint64 = newValue}
   }
 
   public var repeatedPackedSint32: [Int32] {
-    get {return _storage._repeatedPackedSint32}
+    get {_storage._repeatedPackedSint32}
     set {_uniqueStorage()._repeatedPackedSint32 = newValue}
   }
 
   public var repeatedPackedSint64: [Int64] {
-    get {return _storage._repeatedPackedSint64}
+    get {_storage._repeatedPackedSint64}
     set {_uniqueStorage()._repeatedPackedSint64 = newValue}
   }
 
   public var repeatedPackedFixed32: [UInt32] {
-    get {return _storage._repeatedPackedFixed32}
+    get {_storage._repeatedPackedFixed32}
     set {_uniqueStorage()._repeatedPackedFixed32 = newValue}
   }
 
   public var repeatedPackedFixed64: [UInt64] {
-    get {return _storage._repeatedPackedFixed64}
+    get {_storage._repeatedPackedFixed64}
     set {_uniqueStorage()._repeatedPackedFixed64 = newValue}
   }
 
   public var repeatedPackedSfixed32: [Int32] {
-    get {return _storage._repeatedPackedSfixed32}
+    get {_storage._repeatedPackedSfixed32}
     set {_uniqueStorage()._repeatedPackedSfixed32 = newValue}
   }
 
   public var repeatedPackedSfixed64: [Int64] {
-    get {return _storage._repeatedPackedSfixed64}
+    get {_storage._repeatedPackedSfixed64}
     set {_uniqueStorage()._repeatedPackedSfixed64 = newValue}
   }
 
   public var repeatedPackedFloat: [Float] {
-    get {return _storage._repeatedPackedFloat}
+    get {_storage._repeatedPackedFloat}
     set {_uniqueStorage()._repeatedPackedFloat = newValue}
   }
 
   public var repeatedPackedDouble: [Double] {
-    get {return _storage._repeatedPackedDouble}
+    get {_storage._repeatedPackedDouble}
     set {_uniqueStorage()._repeatedPackedDouble = newValue}
   }
 
   public var repeatedPackedBool: [Bool] {
-    get {return _storage._repeatedPackedBool}
+    get {_storage._repeatedPackedBool}
     set {_uniqueStorage()._repeatedPackedBool = newValue}
   }
 
   public var repeatedPackedEnum: [SwiftProtoTesting_Fuzz_AnEnum] {
-    get {return _storage._repeatedPackedEnum}
+    get {_storage._repeatedPackedEnum}
     set {_uniqueStorage()._repeatedPackedEnum = newValue}
   }
 
   /// map<>
   public var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   public var mapInt32Int64: Dictionary<Int32,Int64> {
-    get {return _storage._mapInt32Int64}
+    get {_storage._mapInt32Int64}
     set {_uniqueStorage()._mapInt32Int64 = newValue}
   }
 
   public var mapInt32Uint32: Dictionary<Int32,UInt32> {
-    get {return _storage._mapInt32Uint32}
+    get {_storage._mapInt32Uint32}
     set {_uniqueStorage()._mapInt32Uint32 = newValue}
   }
 
   public var mapInt32Uint64: Dictionary<Int32,UInt64> {
-    get {return _storage._mapInt32Uint64}
+    get {_storage._mapInt32Uint64}
     set {_uniqueStorage()._mapInt32Uint64 = newValue}
   }
 
   public var mapInt32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Sint32}
+    get {_storage._mapInt32Sint32}
     set {_uniqueStorage()._mapInt32Sint32 = newValue}
   }
 
   public var mapInt32Sint64: Dictionary<Int32,Int64> {
-    get {return _storage._mapInt32Sint64}
+    get {_storage._mapInt32Sint64}
     set {_uniqueStorage()._mapInt32Sint64 = newValue}
   }
 
   public var mapInt32Fixed32: Dictionary<Int32,UInt32> {
-    get {return _storage._mapInt32Fixed32}
+    get {_storage._mapInt32Fixed32}
     set {_uniqueStorage()._mapInt32Fixed32 = newValue}
   }
 
   public var mapInt32Fixed64: Dictionary<Int32,UInt64> {
-    get {return _storage._mapInt32Fixed64}
+    get {_storage._mapInt32Fixed64}
     set {_uniqueStorage()._mapInt32Fixed64 = newValue}
   }
 
   public var mapInt32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Sfixed32}
+    get {_storage._mapInt32Sfixed32}
     set {_uniqueStorage()._mapInt32Sfixed32 = newValue}
   }
 
   public var mapInt32Sfixed64: Dictionary<Int32,Int64> {
-    get {return _storage._mapInt32Sfixed64}
+    get {_storage._mapInt32Sfixed64}
     set {_uniqueStorage()._mapInt32Sfixed64 = newValue}
   }
 
   public var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   public var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   public var mapInt32Bool: Dictionary<Int32,Bool> {
-    get {return _storage._mapInt32Bool}
+    get {_storage._mapInt32Bool}
     set {_uniqueStorage()._mapInt32Bool = newValue}
   }
 
   public var mapInt32String: Dictionary<Int32,String> {
-    get {return _storage._mapInt32String}
+    get {_storage._mapInt32String}
     set {_uniqueStorage()._mapInt32String = newValue}
   }
 
   public var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapInt32Bytes}
+    get {_storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   public var mapInt32AnEnum: Dictionary<Int32,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapInt32AnEnum}
+    get {_storage._mapInt32AnEnum}
     set {_uniqueStorage()._mapInt32AnEnum = newValue}
   }
 
   public var mapInt32Message: Dictionary<Int32,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapInt32Message}
+    get {_storage._mapInt32Message}
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
 
   public var mapInt64Int32: Dictionary<Int64,Int32> {
-    get {return _storage._mapInt64Int32}
+    get {_storage._mapInt64Int32}
     set {_uniqueStorage()._mapInt64Int32 = newValue}
   }
 
   public var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   public var mapInt64Uint32: Dictionary<Int64,UInt32> {
-    get {return _storage._mapInt64Uint32}
+    get {_storage._mapInt64Uint32}
     set {_uniqueStorage()._mapInt64Uint32 = newValue}
   }
 
   public var mapInt64Uint64: Dictionary<Int64,UInt64> {
-    get {return _storage._mapInt64Uint64}
+    get {_storage._mapInt64Uint64}
     set {_uniqueStorage()._mapInt64Uint64 = newValue}
   }
 
   public var mapInt64Sint32: Dictionary<Int64,Int32> {
-    get {return _storage._mapInt64Sint32}
+    get {_storage._mapInt64Sint32}
     set {_uniqueStorage()._mapInt64Sint32 = newValue}
   }
 
   public var mapInt64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Sint64}
+    get {_storage._mapInt64Sint64}
     set {_uniqueStorage()._mapInt64Sint64 = newValue}
   }
 
   public var mapInt64Fixed32: Dictionary<Int64,UInt32> {
-    get {return _storage._mapInt64Fixed32}
+    get {_storage._mapInt64Fixed32}
     set {_uniqueStorage()._mapInt64Fixed32 = newValue}
   }
 
   public var mapInt64Fixed64: Dictionary<Int64,UInt64> {
-    get {return _storage._mapInt64Fixed64}
+    get {_storage._mapInt64Fixed64}
     set {_uniqueStorage()._mapInt64Fixed64 = newValue}
   }
 
   public var mapInt64Sfixed32: Dictionary<Int64,Int32> {
-    get {return _storage._mapInt64Sfixed32}
+    get {_storage._mapInt64Sfixed32}
     set {_uniqueStorage()._mapInt64Sfixed32 = newValue}
   }
 
   public var mapInt64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Sfixed64}
+    get {_storage._mapInt64Sfixed64}
     set {_uniqueStorage()._mapInt64Sfixed64 = newValue}
   }
 
   public var mapInt64Float: Dictionary<Int64,Float> {
-    get {return _storage._mapInt64Float}
+    get {_storage._mapInt64Float}
     set {_uniqueStorage()._mapInt64Float = newValue}
   }
 
   public var mapInt64Double: Dictionary<Int64,Double> {
-    get {return _storage._mapInt64Double}
+    get {_storage._mapInt64Double}
     set {_uniqueStorage()._mapInt64Double = newValue}
   }
 
   public var mapInt64Bool: Dictionary<Int64,Bool> {
-    get {return _storage._mapInt64Bool}
+    get {_storage._mapInt64Bool}
     set {_uniqueStorage()._mapInt64Bool = newValue}
   }
 
   public var mapInt64String: Dictionary<Int64,String> {
-    get {return _storage._mapInt64String}
+    get {_storage._mapInt64String}
     set {_uniqueStorage()._mapInt64String = newValue}
   }
 
   public var mapInt64Bytes: Dictionary<Int64,Data> {
-    get {return _storage._mapInt64Bytes}
+    get {_storage._mapInt64Bytes}
     set {_uniqueStorage()._mapInt64Bytes = newValue}
   }
 
   public var mapInt64AnEnum: Dictionary<Int64,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapInt64AnEnum}
+    get {_storage._mapInt64AnEnum}
     set {_uniqueStorage()._mapInt64AnEnum = newValue}
   }
 
   public var mapInt64Message: Dictionary<Int64,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapInt64Message}
+    get {_storage._mapInt64Message}
     set {_uniqueStorage()._mapInt64Message = newValue}
   }
 
   public var mapUint32Int32: Dictionary<UInt32,Int32> {
-    get {return _storage._mapUint32Int32}
+    get {_storage._mapUint32Int32}
     set {_uniqueStorage()._mapUint32Int32 = newValue}
   }
 
   public var mapUint32Int64: Dictionary<UInt32,Int64> {
-    get {return _storage._mapUint32Int64}
+    get {_storage._mapUint32Int64}
     set {_uniqueStorage()._mapUint32Int64 = newValue}
   }
 
   public var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   public var mapUint32Uint64: Dictionary<UInt32,UInt64> {
-    get {return _storage._mapUint32Uint64}
+    get {_storage._mapUint32Uint64}
     set {_uniqueStorage()._mapUint32Uint64 = newValue}
   }
 
   public var mapUint32Sint32: Dictionary<UInt32,Int32> {
-    get {return _storage._mapUint32Sint32}
+    get {_storage._mapUint32Sint32}
     set {_uniqueStorage()._mapUint32Sint32 = newValue}
   }
 
   public var mapUint32Sint64: Dictionary<UInt32,Int64> {
-    get {return _storage._mapUint32Sint64}
+    get {_storage._mapUint32Sint64}
     set {_uniqueStorage()._mapUint32Sint64 = newValue}
   }
 
   public var mapUint32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Fixed32}
+    get {_storage._mapUint32Fixed32}
     set {_uniqueStorage()._mapUint32Fixed32 = newValue}
   }
 
   public var mapUint32Fixed64: Dictionary<UInt32,UInt64> {
-    get {return _storage._mapUint32Fixed64}
+    get {_storage._mapUint32Fixed64}
     set {_uniqueStorage()._mapUint32Fixed64 = newValue}
   }
 
   public var mapUint32Sfixed32: Dictionary<UInt32,Int32> {
-    get {return _storage._mapUint32Sfixed32}
+    get {_storage._mapUint32Sfixed32}
     set {_uniqueStorage()._mapUint32Sfixed32 = newValue}
   }
 
   public var mapUint32Sfixed64: Dictionary<UInt32,Int64> {
-    get {return _storage._mapUint32Sfixed64}
+    get {_storage._mapUint32Sfixed64}
     set {_uniqueStorage()._mapUint32Sfixed64 = newValue}
   }
 
   public var mapUint32Float: Dictionary<UInt32,Float> {
-    get {return _storage._mapUint32Float}
+    get {_storage._mapUint32Float}
     set {_uniqueStorage()._mapUint32Float = newValue}
   }
 
   public var mapUint32Double: Dictionary<UInt32,Double> {
-    get {return _storage._mapUint32Double}
+    get {_storage._mapUint32Double}
     set {_uniqueStorage()._mapUint32Double = newValue}
   }
 
   public var mapUint32Bool: Dictionary<UInt32,Bool> {
-    get {return _storage._mapUint32Bool}
+    get {_storage._mapUint32Bool}
     set {_uniqueStorage()._mapUint32Bool = newValue}
   }
 
   public var mapUint32String: Dictionary<UInt32,String> {
-    get {return _storage._mapUint32String}
+    get {_storage._mapUint32String}
     set {_uniqueStorage()._mapUint32String = newValue}
   }
 
   public var mapUint32Bytes: Dictionary<UInt32,Data> {
-    get {return _storage._mapUint32Bytes}
+    get {_storage._mapUint32Bytes}
     set {_uniqueStorage()._mapUint32Bytes = newValue}
   }
 
   public var mapUint32AnEnum: Dictionary<UInt32,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapUint32AnEnum}
+    get {_storage._mapUint32AnEnum}
     set {_uniqueStorage()._mapUint32AnEnum = newValue}
   }
 
   public var mapUint32Message: Dictionary<UInt32,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapUint32Message}
+    get {_storage._mapUint32Message}
     set {_uniqueStorage()._mapUint32Message = newValue}
   }
 
   public var mapUint64Int32: Dictionary<UInt64,Int32> {
-    get {return _storage._mapUint64Int32}
+    get {_storage._mapUint64Int32}
     set {_uniqueStorage()._mapUint64Int32 = newValue}
   }
 
   public var mapUint64Int64: Dictionary<UInt64,Int64> {
-    get {return _storage._mapUint64Int64}
+    get {_storage._mapUint64Int64}
     set {_uniqueStorage()._mapUint64Int64 = newValue}
   }
 
   public var mapUint64Uint32: Dictionary<UInt64,UInt32> {
-    get {return _storage._mapUint64Uint32}
+    get {_storage._mapUint64Uint32}
     set {_uniqueStorage()._mapUint64Uint32 = newValue}
   }
 
   public var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   public var mapUint64Sint32: Dictionary<UInt64,Int32> {
-    get {return _storage._mapUint64Sint32}
+    get {_storage._mapUint64Sint32}
     set {_uniqueStorage()._mapUint64Sint32 = newValue}
   }
 
   public var mapUint64Sint64: Dictionary<UInt64,Int64> {
-    get {return _storage._mapUint64Sint64}
+    get {_storage._mapUint64Sint64}
     set {_uniqueStorage()._mapUint64Sint64 = newValue}
   }
 
   public var mapUint64Fixed32: Dictionary<UInt64,UInt32> {
-    get {return _storage._mapUint64Fixed32}
+    get {_storage._mapUint64Fixed32}
     set {_uniqueStorage()._mapUint64Fixed32 = newValue}
   }
 
   public var mapUint64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Fixed64}
+    get {_storage._mapUint64Fixed64}
     set {_uniqueStorage()._mapUint64Fixed64 = newValue}
   }
 
   public var mapUint64Sfixed32: Dictionary<UInt64,Int32> {
-    get {return _storage._mapUint64Sfixed32}
+    get {_storage._mapUint64Sfixed32}
     set {_uniqueStorage()._mapUint64Sfixed32 = newValue}
   }
 
   public var mapUint64Sfixed64: Dictionary<UInt64,Int64> {
-    get {return _storage._mapUint64Sfixed64}
+    get {_storage._mapUint64Sfixed64}
     set {_uniqueStorage()._mapUint64Sfixed64 = newValue}
   }
 
   public var mapUint64Float: Dictionary<UInt64,Float> {
-    get {return _storage._mapUint64Float}
+    get {_storage._mapUint64Float}
     set {_uniqueStorage()._mapUint64Float = newValue}
   }
 
   public var mapUint64Double: Dictionary<UInt64,Double> {
-    get {return _storage._mapUint64Double}
+    get {_storage._mapUint64Double}
     set {_uniqueStorage()._mapUint64Double = newValue}
   }
 
   public var mapUint64Bool: Dictionary<UInt64,Bool> {
-    get {return _storage._mapUint64Bool}
+    get {_storage._mapUint64Bool}
     set {_uniqueStorage()._mapUint64Bool = newValue}
   }
 
   public var mapUint64String: Dictionary<UInt64,String> {
-    get {return _storage._mapUint64String}
+    get {_storage._mapUint64String}
     set {_uniqueStorage()._mapUint64String = newValue}
   }
 
   public var mapUint64Bytes: Dictionary<UInt64,Data> {
-    get {return _storage._mapUint64Bytes}
+    get {_storage._mapUint64Bytes}
     set {_uniqueStorage()._mapUint64Bytes = newValue}
   }
 
   public var mapUint64AnEnum: Dictionary<UInt64,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapUint64AnEnum}
+    get {_storage._mapUint64AnEnum}
     set {_uniqueStorage()._mapUint64AnEnum = newValue}
   }
 
   public var mapUint64Message: Dictionary<UInt64,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapUint64Message}
+    get {_storage._mapUint64Message}
     set {_uniqueStorage()._mapUint64Message = newValue}
   }
 
   public var mapSint32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Int32}
+    get {_storage._mapSint32Int32}
     set {_uniqueStorage()._mapSint32Int32 = newValue}
   }
 
   public var mapSint32Int64: Dictionary<Int32,Int64> {
-    get {return _storage._mapSint32Int64}
+    get {_storage._mapSint32Int64}
     set {_uniqueStorage()._mapSint32Int64 = newValue}
   }
 
   public var mapSint32Uint32: Dictionary<Int32,UInt32> {
-    get {return _storage._mapSint32Uint32}
+    get {_storage._mapSint32Uint32}
     set {_uniqueStorage()._mapSint32Uint32 = newValue}
   }
 
   public var mapSint32Uint64: Dictionary<Int32,UInt64> {
-    get {return _storage._mapSint32Uint64}
+    get {_storage._mapSint32Uint64}
     set {_uniqueStorage()._mapSint32Uint64 = newValue}
   }
 
   public var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   public var mapSint32Sint64: Dictionary<Int32,Int64> {
-    get {return _storage._mapSint32Sint64}
+    get {_storage._mapSint32Sint64}
     set {_uniqueStorage()._mapSint32Sint64 = newValue}
   }
 
   public var mapSint32Fixed32: Dictionary<Int32,UInt32> {
-    get {return _storage._mapSint32Fixed32}
+    get {_storage._mapSint32Fixed32}
     set {_uniqueStorage()._mapSint32Fixed32 = newValue}
   }
 
   public var mapSint32Fixed64: Dictionary<Int32,UInt64> {
-    get {return _storage._mapSint32Fixed64}
+    get {_storage._mapSint32Fixed64}
     set {_uniqueStorage()._mapSint32Fixed64 = newValue}
   }
 
   public var mapSint32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sfixed32}
+    get {_storage._mapSint32Sfixed32}
     set {_uniqueStorage()._mapSint32Sfixed32 = newValue}
   }
 
   public var mapSint32Sfixed64: Dictionary<Int32,Int64> {
-    get {return _storage._mapSint32Sfixed64}
+    get {_storage._mapSint32Sfixed64}
     set {_uniqueStorage()._mapSint32Sfixed64 = newValue}
   }
 
   public var mapSint32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapSint32Float}
+    get {_storage._mapSint32Float}
     set {_uniqueStorage()._mapSint32Float = newValue}
   }
 
   public var mapSint32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapSint32Double}
+    get {_storage._mapSint32Double}
     set {_uniqueStorage()._mapSint32Double = newValue}
   }
 
   public var mapSint32Bool: Dictionary<Int32,Bool> {
-    get {return _storage._mapSint32Bool}
+    get {_storage._mapSint32Bool}
     set {_uniqueStorage()._mapSint32Bool = newValue}
   }
 
   public var mapSint32String: Dictionary<Int32,String> {
-    get {return _storage._mapSint32String}
+    get {_storage._mapSint32String}
     set {_uniqueStorage()._mapSint32String = newValue}
   }
 
   public var mapSint32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapSint32Bytes}
+    get {_storage._mapSint32Bytes}
     set {_uniqueStorage()._mapSint32Bytes = newValue}
   }
 
   public var mapSint32AnEnum: Dictionary<Int32,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapSint32AnEnum}
+    get {_storage._mapSint32AnEnum}
     set {_uniqueStorage()._mapSint32AnEnum = newValue}
   }
 
   public var mapSint32Message: Dictionary<Int32,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapSint32Message}
+    get {_storage._mapSint32Message}
     set {_uniqueStorage()._mapSint32Message = newValue}
   }
 
   public var mapSint64Int32: Dictionary<Int64,Int32> {
-    get {return _storage._mapSint64Int32}
+    get {_storage._mapSint64Int32}
     set {_uniqueStorage()._mapSint64Int32 = newValue}
   }
 
   public var mapSint64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Int64}
+    get {_storage._mapSint64Int64}
     set {_uniqueStorage()._mapSint64Int64 = newValue}
   }
 
   public var mapSint64Uint32: Dictionary<Int64,UInt32> {
-    get {return _storage._mapSint64Uint32}
+    get {_storage._mapSint64Uint32}
     set {_uniqueStorage()._mapSint64Uint32 = newValue}
   }
 
   public var mapSint64Uint64: Dictionary<Int64,UInt64> {
-    get {return _storage._mapSint64Uint64}
+    get {_storage._mapSint64Uint64}
     set {_uniqueStorage()._mapSint64Uint64 = newValue}
   }
 
   public var mapSint64Sint32: Dictionary<Int64,Int32> {
-    get {return _storage._mapSint64Sint32}
+    get {_storage._mapSint64Sint32}
     set {_uniqueStorage()._mapSint64Sint32 = newValue}
   }
 
   public var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   public var mapSint64Fixed32: Dictionary<Int64,UInt32> {
-    get {return _storage._mapSint64Fixed32}
+    get {_storage._mapSint64Fixed32}
     set {_uniqueStorage()._mapSint64Fixed32 = newValue}
   }
 
   public var mapSint64Fixed64: Dictionary<Int64,UInt64> {
-    get {return _storage._mapSint64Fixed64}
+    get {_storage._mapSint64Fixed64}
     set {_uniqueStorage()._mapSint64Fixed64 = newValue}
   }
 
   public var mapSint64Sfixed32: Dictionary<Int64,Int32> {
-    get {return _storage._mapSint64Sfixed32}
+    get {_storage._mapSint64Sfixed32}
     set {_uniqueStorage()._mapSint64Sfixed32 = newValue}
   }
 
   public var mapSint64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sfixed64}
+    get {_storage._mapSint64Sfixed64}
     set {_uniqueStorage()._mapSint64Sfixed64 = newValue}
   }
 
   public var mapSint64Float: Dictionary<Int64,Float> {
-    get {return _storage._mapSint64Float}
+    get {_storage._mapSint64Float}
     set {_uniqueStorage()._mapSint64Float = newValue}
   }
 
   public var mapSint64Double: Dictionary<Int64,Double> {
-    get {return _storage._mapSint64Double}
+    get {_storage._mapSint64Double}
     set {_uniqueStorage()._mapSint64Double = newValue}
   }
 
   public var mapSint64Bool: Dictionary<Int64,Bool> {
-    get {return _storage._mapSint64Bool}
+    get {_storage._mapSint64Bool}
     set {_uniqueStorage()._mapSint64Bool = newValue}
   }
 
   public var mapSint64String: Dictionary<Int64,String> {
-    get {return _storage._mapSint64String}
+    get {_storage._mapSint64String}
     set {_uniqueStorage()._mapSint64String = newValue}
   }
 
   public var mapSint64Bytes: Dictionary<Int64,Data> {
-    get {return _storage._mapSint64Bytes}
+    get {_storage._mapSint64Bytes}
     set {_uniqueStorage()._mapSint64Bytes = newValue}
   }
 
   public var mapSint64AnEnum: Dictionary<Int64,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapSint64AnEnum}
+    get {_storage._mapSint64AnEnum}
     set {_uniqueStorage()._mapSint64AnEnum = newValue}
   }
 
   public var mapSint64Message: Dictionary<Int64,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapSint64Message}
+    get {_storage._mapSint64Message}
     set {_uniqueStorage()._mapSint64Message = newValue}
   }
 
   public var mapFixed32Int32: Dictionary<UInt32,Int32> {
-    get {return _storage._mapFixed32Int32}
+    get {_storage._mapFixed32Int32}
     set {_uniqueStorage()._mapFixed32Int32 = newValue}
   }
 
   public var mapFixed32Int64: Dictionary<UInt32,Int64> {
-    get {return _storage._mapFixed32Int64}
+    get {_storage._mapFixed32Int64}
     set {_uniqueStorage()._mapFixed32Int64 = newValue}
   }
 
   public var mapFixed32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Uint32}
+    get {_storage._mapFixed32Uint32}
     set {_uniqueStorage()._mapFixed32Uint32 = newValue}
   }
 
   public var mapFixed32Uint64: Dictionary<UInt32,UInt64> {
-    get {return _storage._mapFixed32Uint64}
+    get {_storage._mapFixed32Uint64}
     set {_uniqueStorage()._mapFixed32Uint64 = newValue}
   }
 
   public var mapFixed32Sint32: Dictionary<UInt32,Int32> {
-    get {return _storage._mapFixed32Sint32}
+    get {_storage._mapFixed32Sint32}
     set {_uniqueStorage()._mapFixed32Sint32 = newValue}
   }
 
   public var mapFixed32Sint64: Dictionary<UInt32,Int64> {
-    get {return _storage._mapFixed32Sint64}
+    get {_storage._mapFixed32Sint64}
     set {_uniqueStorage()._mapFixed32Sint64 = newValue}
   }
 
   public var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   public var mapFixed32Fixed64: Dictionary<UInt32,UInt64> {
-    get {return _storage._mapFixed32Fixed64}
+    get {_storage._mapFixed32Fixed64}
     set {_uniqueStorage()._mapFixed32Fixed64 = newValue}
   }
 
   public var mapFixed32Sfixed32: Dictionary<UInt32,Int32> {
-    get {return _storage._mapFixed32Sfixed32}
+    get {_storage._mapFixed32Sfixed32}
     set {_uniqueStorage()._mapFixed32Sfixed32 = newValue}
   }
 
   public var mapFixed32Sfixed64: Dictionary<UInt32,Int64> {
-    get {return _storage._mapFixed32Sfixed64}
+    get {_storage._mapFixed32Sfixed64}
     set {_uniqueStorage()._mapFixed32Sfixed64 = newValue}
   }
 
   public var mapFixed32Float: Dictionary<UInt32,Float> {
-    get {return _storage._mapFixed32Float}
+    get {_storage._mapFixed32Float}
     set {_uniqueStorage()._mapFixed32Float = newValue}
   }
 
   public var mapFixed32Double: Dictionary<UInt32,Double> {
-    get {return _storage._mapFixed32Double}
+    get {_storage._mapFixed32Double}
     set {_uniqueStorage()._mapFixed32Double = newValue}
   }
 
   public var mapFixed32Bool: Dictionary<UInt32,Bool> {
-    get {return _storage._mapFixed32Bool}
+    get {_storage._mapFixed32Bool}
     set {_uniqueStorage()._mapFixed32Bool = newValue}
   }
 
   public var mapFixed32String: Dictionary<UInt32,String> {
-    get {return _storage._mapFixed32String}
+    get {_storage._mapFixed32String}
     set {_uniqueStorage()._mapFixed32String = newValue}
   }
 
   public var mapFixed32Bytes: Dictionary<UInt32,Data> {
-    get {return _storage._mapFixed32Bytes}
+    get {_storage._mapFixed32Bytes}
     set {_uniqueStorage()._mapFixed32Bytes = newValue}
   }
 
   public var mapFixed32AnEnum: Dictionary<UInt32,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapFixed32AnEnum}
+    get {_storage._mapFixed32AnEnum}
     set {_uniqueStorage()._mapFixed32AnEnum = newValue}
   }
 
   public var mapFixed32Message: Dictionary<UInt32,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapFixed32Message}
+    get {_storage._mapFixed32Message}
     set {_uniqueStorage()._mapFixed32Message = newValue}
   }
 
   public var mapFixed64Int32: Dictionary<UInt64,Int32> {
-    get {return _storage._mapFixed64Int32}
+    get {_storage._mapFixed64Int32}
     set {_uniqueStorage()._mapFixed64Int32 = newValue}
   }
 
   public var mapFixed64Int64: Dictionary<UInt64,Int64> {
-    get {return _storage._mapFixed64Int64}
+    get {_storage._mapFixed64Int64}
     set {_uniqueStorage()._mapFixed64Int64 = newValue}
   }
 
   public var mapFixed64Uint32: Dictionary<UInt64,UInt32> {
-    get {return _storage._mapFixed64Uint32}
+    get {_storage._mapFixed64Uint32}
     set {_uniqueStorage()._mapFixed64Uint32 = newValue}
   }
 
   public var mapFixed64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Uint64}
+    get {_storage._mapFixed64Uint64}
     set {_uniqueStorage()._mapFixed64Uint64 = newValue}
   }
 
   public var mapFixed64Sint32: Dictionary<UInt64,Int32> {
-    get {return _storage._mapFixed64Sint32}
+    get {_storage._mapFixed64Sint32}
     set {_uniqueStorage()._mapFixed64Sint32 = newValue}
   }
 
   public var mapFixed64Sint64: Dictionary<UInt64,Int64> {
-    get {return _storage._mapFixed64Sint64}
+    get {_storage._mapFixed64Sint64}
     set {_uniqueStorage()._mapFixed64Sint64 = newValue}
   }
 
   public var mapFixed64Fixed32: Dictionary<UInt64,UInt32> {
-    get {return _storage._mapFixed64Fixed32}
+    get {_storage._mapFixed64Fixed32}
     set {_uniqueStorage()._mapFixed64Fixed32 = newValue}
   }
 
   public var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   public var mapFixed64Sfixed32: Dictionary<UInt64,Int32> {
-    get {return _storage._mapFixed64Sfixed32}
+    get {_storage._mapFixed64Sfixed32}
     set {_uniqueStorage()._mapFixed64Sfixed32 = newValue}
   }
 
   public var mapFixed64Sfixed64: Dictionary<UInt64,Int64> {
-    get {return _storage._mapFixed64Sfixed64}
+    get {_storage._mapFixed64Sfixed64}
     set {_uniqueStorage()._mapFixed64Sfixed64 = newValue}
   }
 
   public var mapFixed64Float: Dictionary<UInt64,Float> {
-    get {return _storage._mapFixed64Float}
+    get {_storage._mapFixed64Float}
     set {_uniqueStorage()._mapFixed64Float = newValue}
   }
 
   public var mapFixed64Double: Dictionary<UInt64,Double> {
-    get {return _storage._mapFixed64Double}
+    get {_storage._mapFixed64Double}
     set {_uniqueStorage()._mapFixed64Double = newValue}
   }
 
   public var mapFixed64Bool: Dictionary<UInt64,Bool> {
-    get {return _storage._mapFixed64Bool}
+    get {_storage._mapFixed64Bool}
     set {_uniqueStorage()._mapFixed64Bool = newValue}
   }
 
   public var mapFixed64String: Dictionary<UInt64,String> {
-    get {return _storage._mapFixed64String}
+    get {_storage._mapFixed64String}
     set {_uniqueStorage()._mapFixed64String = newValue}
   }
 
   public var mapFixed64Bytes: Dictionary<UInt64,Data> {
-    get {return _storage._mapFixed64Bytes}
+    get {_storage._mapFixed64Bytes}
     set {_uniqueStorage()._mapFixed64Bytes = newValue}
   }
 
   public var mapFixed64AnEnum: Dictionary<UInt64,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapFixed64AnEnum}
+    get {_storage._mapFixed64AnEnum}
     set {_uniqueStorage()._mapFixed64AnEnum = newValue}
   }
 
   public var mapFixed64Message: Dictionary<UInt64,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapFixed64Message}
+    get {_storage._mapFixed64Message}
     set {_uniqueStorage()._mapFixed64Message = newValue}
   }
 
   public var mapSfixed32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Int32}
+    get {_storage._mapSfixed32Int32}
     set {_uniqueStorage()._mapSfixed32Int32 = newValue}
   }
 
   public var mapSfixed32Int64: Dictionary<Int32,Int64> {
-    get {return _storage._mapSfixed32Int64}
+    get {_storage._mapSfixed32Int64}
     set {_uniqueStorage()._mapSfixed32Int64 = newValue}
   }
 
   public var mapSfixed32Uint32: Dictionary<Int32,UInt32> {
-    get {return _storage._mapSfixed32Uint32}
+    get {_storage._mapSfixed32Uint32}
     set {_uniqueStorage()._mapSfixed32Uint32 = newValue}
   }
 
   public var mapSfixed32Uint64: Dictionary<Int32,UInt64> {
-    get {return _storage._mapSfixed32Uint64}
+    get {_storage._mapSfixed32Uint64}
     set {_uniqueStorage()._mapSfixed32Uint64 = newValue}
   }
 
   public var mapSfixed32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sint32}
+    get {_storage._mapSfixed32Sint32}
     set {_uniqueStorage()._mapSfixed32Sint32 = newValue}
   }
 
   public var mapSfixed32Sint64: Dictionary<Int32,Int64> {
-    get {return _storage._mapSfixed32Sint64}
+    get {_storage._mapSfixed32Sint64}
     set {_uniqueStorage()._mapSfixed32Sint64 = newValue}
   }
 
   public var mapSfixed32Fixed32: Dictionary<Int32,UInt32> {
-    get {return _storage._mapSfixed32Fixed32}
+    get {_storage._mapSfixed32Fixed32}
     set {_uniqueStorage()._mapSfixed32Fixed32 = newValue}
   }
 
   public var mapSfixed32Fixed64: Dictionary<Int32,UInt64> {
-    get {return _storage._mapSfixed32Fixed64}
+    get {_storage._mapSfixed32Fixed64}
     set {_uniqueStorage()._mapSfixed32Fixed64 = newValue}
   }
 
   public var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   public var mapSfixed32Sfixed64: Dictionary<Int32,Int64> {
-    get {return _storage._mapSfixed32Sfixed64}
+    get {_storage._mapSfixed32Sfixed64}
     set {_uniqueStorage()._mapSfixed32Sfixed64 = newValue}
   }
 
   public var mapSfixed32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapSfixed32Float}
+    get {_storage._mapSfixed32Float}
     set {_uniqueStorage()._mapSfixed32Float = newValue}
   }
 
   public var mapSfixed32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapSfixed32Double}
+    get {_storage._mapSfixed32Double}
     set {_uniqueStorage()._mapSfixed32Double = newValue}
   }
 
   public var mapSfixed32Bool: Dictionary<Int32,Bool> {
-    get {return _storage._mapSfixed32Bool}
+    get {_storage._mapSfixed32Bool}
     set {_uniqueStorage()._mapSfixed32Bool = newValue}
   }
 
   public var mapSfixed32String: Dictionary<Int32,String> {
-    get {return _storage._mapSfixed32String}
+    get {_storage._mapSfixed32String}
     set {_uniqueStorage()._mapSfixed32String = newValue}
   }
 
   public var mapSfixed32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapSfixed32Bytes}
+    get {_storage._mapSfixed32Bytes}
     set {_uniqueStorage()._mapSfixed32Bytes = newValue}
   }
 
   public var mapSfixed32AnEnum: Dictionary<Int32,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapSfixed32AnEnum}
+    get {_storage._mapSfixed32AnEnum}
     set {_uniqueStorage()._mapSfixed32AnEnum = newValue}
   }
 
   public var mapSfixed32Message: Dictionary<Int32,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapSfixed32Message}
+    get {_storage._mapSfixed32Message}
     set {_uniqueStorage()._mapSfixed32Message = newValue}
   }
 
   public var mapSfixed64Int32: Dictionary<Int64,Int32> {
-    get {return _storage._mapSfixed64Int32}
+    get {_storage._mapSfixed64Int32}
     set {_uniqueStorage()._mapSfixed64Int32 = newValue}
   }
 
   public var mapSfixed64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Int64}
+    get {_storage._mapSfixed64Int64}
     set {_uniqueStorage()._mapSfixed64Int64 = newValue}
   }
 
   public var mapSfixed64Uint32: Dictionary<Int64,UInt32> {
-    get {return _storage._mapSfixed64Uint32}
+    get {_storage._mapSfixed64Uint32}
     set {_uniqueStorage()._mapSfixed64Uint32 = newValue}
   }
 
   public var mapSfixed64Uint64: Dictionary<Int64,UInt64> {
-    get {return _storage._mapSfixed64Uint64}
+    get {_storage._mapSfixed64Uint64}
     set {_uniqueStorage()._mapSfixed64Uint64 = newValue}
   }
 
   public var mapSfixed64Sint32: Dictionary<Int64,Int32> {
-    get {return _storage._mapSfixed64Sint32}
+    get {_storage._mapSfixed64Sint32}
     set {_uniqueStorage()._mapSfixed64Sint32 = newValue}
   }
 
   public var mapSfixed64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sint64}
+    get {_storage._mapSfixed64Sint64}
     set {_uniqueStorage()._mapSfixed64Sint64 = newValue}
   }
 
   public var mapSfixed64Fixed32: Dictionary<Int64,UInt32> {
-    get {return _storage._mapSfixed64Fixed32}
+    get {_storage._mapSfixed64Fixed32}
     set {_uniqueStorage()._mapSfixed64Fixed32 = newValue}
   }
 
   public var mapSfixed64Fixed64: Dictionary<Int64,UInt64> {
-    get {return _storage._mapSfixed64Fixed64}
+    get {_storage._mapSfixed64Fixed64}
     set {_uniqueStorage()._mapSfixed64Fixed64 = newValue}
   }
 
   public var mapSfixed64Sfixed32: Dictionary<Int64,Int32> {
-    get {return _storage._mapSfixed64Sfixed32}
+    get {_storage._mapSfixed64Sfixed32}
     set {_uniqueStorage()._mapSfixed64Sfixed32 = newValue}
   }
 
   public var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   public var mapSfixed64Float: Dictionary<Int64,Float> {
-    get {return _storage._mapSfixed64Float}
+    get {_storage._mapSfixed64Float}
     set {_uniqueStorage()._mapSfixed64Float = newValue}
   }
 
   public var mapSfixed64Double: Dictionary<Int64,Double> {
-    get {return _storage._mapSfixed64Double}
+    get {_storage._mapSfixed64Double}
     set {_uniqueStorage()._mapSfixed64Double = newValue}
   }
 
   public var mapSfixed64Bool: Dictionary<Int64,Bool> {
-    get {return _storage._mapSfixed64Bool}
+    get {_storage._mapSfixed64Bool}
     set {_uniqueStorage()._mapSfixed64Bool = newValue}
   }
 
   public var mapSfixed64String: Dictionary<Int64,String> {
-    get {return _storage._mapSfixed64String}
+    get {_storage._mapSfixed64String}
     set {_uniqueStorage()._mapSfixed64String = newValue}
   }
 
   public var mapSfixed64Bytes: Dictionary<Int64,Data> {
-    get {return _storage._mapSfixed64Bytes}
+    get {_storage._mapSfixed64Bytes}
     set {_uniqueStorage()._mapSfixed64Bytes = newValue}
   }
 
   public var mapSfixed64AnEnum: Dictionary<Int64,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapSfixed64AnEnum}
+    get {_storage._mapSfixed64AnEnum}
     set {_uniqueStorage()._mapSfixed64AnEnum = newValue}
   }
 
   public var mapSfixed64Message: Dictionary<Int64,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapSfixed64Message}
+    get {_storage._mapSfixed64Message}
     set {_uniqueStorage()._mapSfixed64Message = newValue}
   }
 
   public var mapBoolInt32: Dictionary<Bool,Int32> {
-    get {return _storage._mapBoolInt32}
+    get {_storage._mapBoolInt32}
     set {_uniqueStorage()._mapBoolInt32 = newValue}
   }
 
   public var mapBoolInt64: Dictionary<Bool,Int64> {
-    get {return _storage._mapBoolInt64}
+    get {_storage._mapBoolInt64}
     set {_uniqueStorage()._mapBoolInt64 = newValue}
   }
 
   public var mapBoolUint32: Dictionary<Bool,UInt32> {
-    get {return _storage._mapBoolUint32}
+    get {_storage._mapBoolUint32}
     set {_uniqueStorage()._mapBoolUint32 = newValue}
   }
 
   public var mapBoolUint64: Dictionary<Bool,UInt64> {
-    get {return _storage._mapBoolUint64}
+    get {_storage._mapBoolUint64}
     set {_uniqueStorage()._mapBoolUint64 = newValue}
   }
 
   public var mapBoolSint32: Dictionary<Bool,Int32> {
-    get {return _storage._mapBoolSint32}
+    get {_storage._mapBoolSint32}
     set {_uniqueStorage()._mapBoolSint32 = newValue}
   }
 
   public var mapBoolSint64: Dictionary<Bool,Int64> {
-    get {return _storage._mapBoolSint64}
+    get {_storage._mapBoolSint64}
     set {_uniqueStorage()._mapBoolSint64 = newValue}
   }
 
   public var mapBoolFixed32: Dictionary<Bool,UInt32> {
-    get {return _storage._mapBoolFixed32}
+    get {_storage._mapBoolFixed32}
     set {_uniqueStorage()._mapBoolFixed32 = newValue}
   }
 
   public var mapBoolFixed64: Dictionary<Bool,UInt64> {
-    get {return _storage._mapBoolFixed64}
+    get {_storage._mapBoolFixed64}
     set {_uniqueStorage()._mapBoolFixed64 = newValue}
   }
 
   public var mapBoolSfixed32: Dictionary<Bool,Int32> {
-    get {return _storage._mapBoolSfixed32}
+    get {_storage._mapBoolSfixed32}
     set {_uniqueStorage()._mapBoolSfixed32 = newValue}
   }
 
   public var mapBoolSfixed64: Dictionary<Bool,Int64> {
-    get {return _storage._mapBoolSfixed64}
+    get {_storage._mapBoolSfixed64}
     set {_uniqueStorage()._mapBoolSfixed64 = newValue}
   }
 
   public var mapBoolFloat: Dictionary<Bool,Float> {
-    get {return _storage._mapBoolFloat}
+    get {_storage._mapBoolFloat}
     set {_uniqueStorage()._mapBoolFloat = newValue}
   }
 
   public var mapBoolDouble: Dictionary<Bool,Double> {
-    get {return _storage._mapBoolDouble}
+    get {_storage._mapBoolDouble}
     set {_uniqueStorage()._mapBoolDouble = newValue}
   }
 
   public var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   public var mapBoolString: Dictionary<Bool,String> {
-    get {return _storage._mapBoolString}
+    get {_storage._mapBoolString}
     set {_uniqueStorage()._mapBoolString = newValue}
   }
 
   public var mapBoolBytes: Dictionary<Bool,Data> {
-    get {return _storage._mapBoolBytes}
+    get {_storage._mapBoolBytes}
     set {_uniqueStorage()._mapBoolBytes = newValue}
   }
 
   public var mapBoolAnEnum: Dictionary<Bool,SwiftProtoTesting_Fuzz_AnEnum> {
-    get {return _storage._mapBoolAnEnum}
+    get {_storage._mapBoolAnEnum}
     set {_uniqueStorage()._mapBoolAnEnum = newValue}
   }
 
   public var mapBoolMessage: Dictionary<Bool,SwiftProtoTesting_Fuzz_Message> {
-    get {return _storage._mapBoolMessage}
+    get {_storage._mapBoolMessage}
     set {_uniqueStorage()._mapBoolMessage = newValue}
   }
 
   /// WKTs since some get special handing in JSON.
   public var wktAny: SwiftProtobuf.Google_Protobuf_Any {
-    get {return _storage._wktAny ?? SwiftProtobuf.Google_Protobuf_Any()}
+    get {_storage._wktAny ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_uniqueStorage()._wktAny = newValue}
   }
   /// Returns true if `wktAny` has been explicitly set.
-  public var hasWktAny: Bool {return _storage._wktAny != nil}
+  public var hasWktAny: Bool {_storage._wktAny != nil}
   /// Clears the value of `wktAny`. Subsequent reads from it will return its default value.
   public mutating func clearWktAny() {_uniqueStorage()._wktAny = nil}
 
   public var wktApi: SwiftProtobuf.Google_Protobuf_Api {
-    get {return _storage._wktApi ?? SwiftProtobuf.Google_Protobuf_Api()}
+    get {_storage._wktApi ?? SwiftProtobuf.Google_Protobuf_Api()}
     set {_uniqueStorage()._wktApi = newValue}
   }
   /// Returns true if `wktApi` has been explicitly set.
-  public var hasWktApi: Bool {return _storage._wktApi != nil}
+  public var hasWktApi: Bool {_storage._wktApi != nil}
   /// Clears the value of `wktApi`. Subsequent reads from it will return its default value.
   public mutating func clearWktApi() {_uniqueStorage()._wktApi = nil}
 
   public var wktDuration: SwiftProtobuf.Google_Protobuf_Duration {
-    get {return _storage._wktDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
+    get {_storage._wktDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_uniqueStorage()._wktDuration = newValue}
   }
   /// Returns true if `wktDuration` has been explicitly set.
-  public var hasWktDuration: Bool {return _storage._wktDuration != nil}
+  public var hasWktDuration: Bool {_storage._wktDuration != nil}
   /// Clears the value of `wktDuration`. Subsequent reads from it will return its default value.
   public mutating func clearWktDuration() {_uniqueStorage()._wktDuration = nil}
 
   public var wktEmpty: SwiftProtobuf.Google_Protobuf_Empty {
-    get {return _storage._wktEmpty ?? SwiftProtobuf.Google_Protobuf_Empty()}
+    get {_storage._wktEmpty ?? SwiftProtobuf.Google_Protobuf_Empty()}
     set {_uniqueStorage()._wktEmpty = newValue}
   }
   /// Returns true if `wktEmpty` has been explicitly set.
-  public var hasWktEmpty: Bool {return _storage._wktEmpty != nil}
+  public var hasWktEmpty: Bool {_storage._wktEmpty != nil}
   /// Clears the value of `wktEmpty`. Subsequent reads from it will return its default value.
   public mutating func clearWktEmpty() {_uniqueStorage()._wktEmpty = nil}
 
   public var wktFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get {return _storage._wktFieldMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
+    get {_storage._wktFieldMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._wktFieldMask = newValue}
   }
   /// Returns true if `wktFieldMask` has been explicitly set.
-  public var hasWktFieldMask: Bool {return _storage._wktFieldMask != nil}
+  public var hasWktFieldMask: Bool {_storage._wktFieldMask != nil}
   /// Clears the value of `wktFieldMask`. Subsequent reads from it will return its default value.
   public mutating func clearWktFieldMask() {_uniqueStorage()._wktFieldMask = nil}
 
   public var wktSourceContext: SwiftProtobuf.Google_Protobuf_SourceContext {
-    get {return _storage._wktSourceContext ?? SwiftProtobuf.Google_Protobuf_SourceContext()}
+    get {_storage._wktSourceContext ?? SwiftProtobuf.Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._wktSourceContext = newValue}
   }
   /// Returns true if `wktSourceContext` has been explicitly set.
-  public var hasWktSourceContext: Bool {return _storage._wktSourceContext != nil}
+  public var hasWktSourceContext: Bool {_storage._wktSourceContext != nil}
   /// Clears the value of `wktSourceContext`. Subsequent reads from it will return its default value.
   public mutating func clearWktSourceContext() {_uniqueStorage()._wktSourceContext = nil}
 
   public var wktStruct: SwiftProtobuf.Google_Protobuf_Struct {
-    get {return _storage._wktStruct ?? SwiftProtobuf.Google_Protobuf_Struct()}
+    get {_storage._wktStruct ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_uniqueStorage()._wktStruct = newValue}
   }
   /// Returns true if `wktStruct` has been explicitly set.
-  public var hasWktStruct: Bool {return _storage._wktStruct != nil}
+  public var hasWktStruct: Bool {_storage._wktStruct != nil}
   /// Clears the value of `wktStruct`. Subsequent reads from it will return its default value.
   public mutating func clearWktStruct() {_uniqueStorage()._wktStruct = nil}
 
   public var wktTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _storage._wktTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    get {_storage._wktTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._wktTimestamp = newValue}
   }
   /// Returns true if `wktTimestamp` has been explicitly set.
-  public var hasWktTimestamp: Bool {return _storage._wktTimestamp != nil}
+  public var hasWktTimestamp: Bool {_storage._wktTimestamp != nil}
   /// Clears the value of `wktTimestamp`. Subsequent reads from it will return its default value.
   public mutating func clearWktTimestamp() {_uniqueStorage()._wktTimestamp = nil}
 
   public var wktType: SwiftProtobuf.Google_Protobuf_Type {
-    get {return _storage._wktType ?? SwiftProtobuf.Google_Protobuf_Type()}
+    get {_storage._wktType ?? SwiftProtobuf.Google_Protobuf_Type()}
     set {_uniqueStorage()._wktType = newValue}
   }
   /// Returns true if `wktType` has been explicitly set.
-  public var hasWktType: Bool {return _storage._wktType != nil}
+  public var hasWktType: Bool {_storage._wktType != nil}
   /// Clears the value of `wktType`. Subsequent reads from it will return its default value.
   public mutating func clearWktType() {_uniqueStorage()._wktType = nil}
 
   public var wktDoubleValue: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get {return _storage._wktDoubleValue ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
+    get {_storage._wktDoubleValue ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._wktDoubleValue = newValue}
   }
   /// Returns true if `wktDoubleValue` has been explicitly set.
-  public var hasWktDoubleValue: Bool {return _storage._wktDoubleValue != nil}
+  public var hasWktDoubleValue: Bool {_storage._wktDoubleValue != nil}
   /// Clears the value of `wktDoubleValue`. Subsequent reads from it will return its default value.
   public mutating func clearWktDoubleValue() {_uniqueStorage()._wktDoubleValue = nil}
 
   public var wktFloatValue: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get {return _storage._wktFloatValue ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
+    get {_storage._wktFloatValue ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._wktFloatValue = newValue}
   }
   /// Returns true if `wktFloatValue` has been explicitly set.
-  public var hasWktFloatValue: Bool {return _storage._wktFloatValue != nil}
+  public var hasWktFloatValue: Bool {_storage._wktFloatValue != nil}
   /// Clears the value of `wktFloatValue`. Subsequent reads from it will return its default value.
   public mutating func clearWktFloatValue() {_uniqueStorage()._wktFloatValue = nil}
 
   public var wktInt64Value: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get {return _storage._wktInt64Value ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
+    get {_storage._wktInt64Value ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._wktInt64Value = newValue}
   }
   /// Returns true if `wktInt64Value` has been explicitly set.
-  public var hasWktInt64Value: Bool {return _storage._wktInt64Value != nil}
+  public var hasWktInt64Value: Bool {_storage._wktInt64Value != nil}
   /// Clears the value of `wktInt64Value`. Subsequent reads from it will return its default value.
   public mutating func clearWktInt64Value() {_uniqueStorage()._wktInt64Value = nil}
 
   public var wktUint64Value: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get {return _storage._wktUint64Value ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
+    get {_storage._wktUint64Value ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._wktUint64Value = newValue}
   }
   /// Returns true if `wktUint64Value` has been explicitly set.
-  public var hasWktUint64Value: Bool {return _storage._wktUint64Value != nil}
+  public var hasWktUint64Value: Bool {_storage._wktUint64Value != nil}
   /// Clears the value of `wktUint64Value`. Subsequent reads from it will return its default value.
   public mutating func clearWktUint64Value() {_uniqueStorage()._wktUint64Value = nil}
 
   public var wktInt32Value: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get {return _storage._wktInt32Value ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
+    get {_storage._wktInt32Value ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._wktInt32Value = newValue}
   }
   /// Returns true if `wktInt32Value` has been explicitly set.
-  public var hasWktInt32Value: Bool {return _storage._wktInt32Value != nil}
+  public var hasWktInt32Value: Bool {_storage._wktInt32Value != nil}
   /// Clears the value of `wktInt32Value`. Subsequent reads from it will return its default value.
   public mutating func clearWktInt32Value() {_uniqueStorage()._wktInt32Value = nil}
 
   public var wktUint32Value: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get {return _storage._wktUint32Value ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
+    get {_storage._wktUint32Value ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._wktUint32Value = newValue}
   }
   /// Returns true if `wktUint32Value` has been explicitly set.
-  public var hasWktUint32Value: Bool {return _storage._wktUint32Value != nil}
+  public var hasWktUint32Value: Bool {_storage._wktUint32Value != nil}
   /// Clears the value of `wktUint32Value`. Subsequent reads from it will return its default value.
   public mutating func clearWktUint32Value() {_uniqueStorage()._wktUint32Value = nil}
 
   public var wktBoolValue: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get {return _storage._wktBoolValue ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
+    get {_storage._wktBoolValue ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._wktBoolValue = newValue}
   }
   /// Returns true if `wktBoolValue` has been explicitly set.
-  public var hasWktBoolValue: Bool {return _storage._wktBoolValue != nil}
+  public var hasWktBoolValue: Bool {_storage._wktBoolValue != nil}
   /// Clears the value of `wktBoolValue`. Subsequent reads from it will return its default value.
   public mutating func clearWktBoolValue() {_uniqueStorage()._wktBoolValue = nil}
 
   public var wktStringValue: SwiftProtobuf.Google_Protobuf_StringValue {
-    get {return _storage._wktStringValue ?? SwiftProtobuf.Google_Protobuf_StringValue()}
+    get {_storage._wktStringValue ?? SwiftProtobuf.Google_Protobuf_StringValue()}
     set {_uniqueStorage()._wktStringValue = newValue}
   }
   /// Returns true if `wktStringValue` has been explicitly set.
-  public var hasWktStringValue: Bool {return _storage._wktStringValue != nil}
+  public var hasWktStringValue: Bool {_storage._wktStringValue != nil}
   /// Clears the value of `wktStringValue`. Subsequent reads from it will return its default value.
   public mutating func clearWktStringValue() {_uniqueStorage()._wktStringValue = nil}
 
   public var wktBytesValue: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get {return _storage._wktBytesValue ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
+    get {_storage._wktBytesValue ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._wktBytesValue = newValue}
   }
   /// Returns true if `wktBytesValue` has been explicitly set.
-  public var hasWktBytesValue: Bool {return _storage._wktBytesValue != nil}
+  public var hasWktBytesValue: Bool {_storage._wktBytesValue != nil}
   /// Clears the value of `wktBytesValue`. Subsequent reads from it will return its default value.
   public mutating func clearWktBytesValue() {_uniqueStorage()._wktBytesValue = nil}
 
   /// Get some coverage for the special message_set_wire_format.
   public var singularMessageSet: SwiftProtoTesting_Fuzz_AMessageSetMessage {
-    get {return _storage._singularMessageSet ?? SwiftProtoTesting_Fuzz_AMessageSetMessage()}
+    get {_storage._singularMessageSet ?? SwiftProtoTesting_Fuzz_AMessageSetMessage()}
     set {_uniqueStorage()._singularMessageSet = newValue}
   }
   /// Returns true if `singularMessageSet` has been explicitly set.
-  public var hasSingularMessageSet: Bool {return _storage._singularMessageSet != nil}
+  public var hasSingularMessageSet: Bool {_storage._singularMessageSet != nil}
   /// Clears the value of `singularMessageSet`. Subsequent reads from it will return its default value.
   public mutating func clearSingularMessageSet() {_uniqueStorage()._singularMessageSet = nil}
 
   public var repeatedMessageSet: [SwiftProtoTesting_Fuzz_AMessageSetMessage] {
-    get {return _storage._repeatedMessageSet}
+    get {_storage._repeatedMessageSet}
     set {_uniqueStorage()._repeatedMessageSet = newValue}
   }
 
@@ -1677,11 +1677,11 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @
     // methods supported on all messages.
 
     public var groupField: Int32 {
-      get {return _groupField ?? 0}
+      get {_groupField ?? 0}
       set {_groupField = newValue}
     }
     /// Returns true if `groupField` has been explicitly set.
-    public var hasGroupField: Bool {return self._groupField != nil}
+    public var hasGroupField: Bool {self._groupField != nil}
     /// Clears the value of `groupField`. Subsequent reads from it will return its default value.
     public mutating func clearGroupField() {self._groupField = nil}
 
@@ -1698,11 +1698,11 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @
     // methods supported on all messages.
 
     public var groupField: Int32 {
-      get {return _groupField ?? 0}
+      get {_groupField ?? 0}
       set {_groupField = newValue}
     }
     /// Returns true if `groupField` has been explicitly set.
-    public var hasGroupField: Bool {return self._groupField != nil}
+    public var hasGroupField: Bool {self._groupField != nil}
     /// Clears the value of `groupField`. Subsequent reads from it will return its default value.
     public mutating func clearGroupField() {self._groupField = nil}
 
@@ -1719,11 +1719,11 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @
     // methods supported on all messages.
 
     public var groupField: Int32 {
-      get {return _groupField ?? 0}
+      get {_groupField ?? 0}
       set {_groupField = newValue}
     }
     /// Returns true if `groupField` has been explicitly set.
-    public var hasGroupField: Bool {return self._groupField != nil}
+    public var hasGroupField: Bool {self._groupField != nil}
     /// Clears the value of `groupField`. Subsequent reads from it will return its default value.
     public mutating func clearGroupField() {self._groupField = nil}
 
@@ -1760,11 +1760,11 @@ public struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: Sendable {
   // methods supported on all messages.
 
   public var aString: String {
-    get {return _aString ?? String()}
+    get {_aString ?? String()}
     set {_aString = newValue}
   }
   /// Returns true if `aString` has been explicitly set.
-  public var hasAString: Bool {return self._aString != nil}
+  public var hasAString: Bool {self._aString != nil}
   /// Clears the value of `aString`. Subsequent reads from it will return its default value.
   public mutating func clearAString() {self._aString = nil}
 
@@ -1781,11 +1781,11 @@ public struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: Sendable {
   // methods supported on all messages.
 
   public var anInt32: Int32 {
-    get {return _anInt32 ?? 0}
+    get {_anInt32 ?? 0}
     set {_anInt32 = newValue}
   }
   /// Returns true if `anInt32` has been explicitly set.
-  public var hasAnInt32: Bool {return self._anInt32 != nil}
+  public var hasAnInt32: Bool {self._anInt32 != nil}
   /// Clears the value of `anInt32`. Subsequent reads from it will return its default value.
   public mutating func clearAnInt32() {self._anInt32 = nil}
 
@@ -1802,11 +1802,11 @@ public struct SwiftProtoTesting_Fuzz_SingularGroup_ext: Sendable {
   // methods supported on all messages.
 
   public var groupField: Int32 {
-    get {return _groupField ?? 0}
+    get {_groupField ?? 0}
     set {_groupField = newValue}
   }
   /// Returns true if `groupField` has been explicitly set.
-  public var hasGroupField: Bool {return self._groupField != nil}
+  public var hasGroupField: Bool {self._groupField != nil}
   /// Clears the value of `groupField`. Subsequent reads from it will return its default value.
   public mutating func clearGroupField() {self._groupField = nil}
 
@@ -1823,11 +1823,11 @@ public struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: Sendable {
   // methods supported on all messages.
 
   public var groupField: Int32 {
-    get {return _groupField ?? 0}
+    get {_groupField ?? 0}
     set {_groupField = newValue}
   }
   /// Returns true if `groupField` has been explicitly set.
-  public var hasGroupField: Bool {return self._groupField != nil}
+  public var hasGroupField: Bool {self._groupField != nil}
   /// Clears the value of `groupField`. Subsequent reads from it will return its default value.
   public mutating func clearGroupField() {self._groupField = nil}
 

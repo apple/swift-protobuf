@@ -51,20 +51,20 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
     /// The circular reference here forces the generator to
     /// implement heap-backed storage.
     var message: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage {
-      get {return _storage._message ?? SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage()}
+      get {_storage._message ?? SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage()}
       set {_uniqueStorage()._message = newValue}
     }
     /// Returns true if `message` has been explicitly set.
-    var hasMessage: Bool {return _storage._message != nil}
+    var hasMessage: Bool {_storage._message != nil}
     /// Clears the value of `message`. Subsequent reads from it will return its default value.
     mutating func clearMessage() {_uniqueStorage()._message = nil}
 
     var optionalEnum: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum {
-      get {return _storage._optionalEnum ?? .foo}
+      get {_storage._optionalEnum ?? .foo}
       set {_uniqueStorage()._optionalEnum = newValue}
     }
     /// Returns true if `optionalEnum` has been explicitly set.
-    var hasOptionalEnum: Bool {return _storage._optionalEnum != nil}
+    var hasOptionalEnum: Bool {_storage._optionalEnum != nil}
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
     mutating func clearOptionalEnum() {_uniqueStorage()._optionalEnum = nil}
 
@@ -90,11 +90,11 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
     // methods supported on all messages.
 
     var optionalEnum: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum {
-      get {return _optionalEnum ?? .foo}
+      get {_optionalEnum ?? .foo}
       set {_optionalEnum = newValue}
     }
     /// Returns true if `optionalEnum` has been explicitly set.
-    var hasOptionalEnum: Bool {return self._optionalEnum != nil}
+    var hasOptionalEnum: Bool {self._optionalEnum != nil}
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
     mutating func clearOptionalEnum() {self._optionalEnum = nil}
 

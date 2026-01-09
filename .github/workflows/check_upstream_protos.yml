@@ -1,5 +1,8 @@
 name: Check Upstream Proto Files
 
+permissions:
+  contents: read
+
 on:
   schedule:
     # Every Sunday at 4am.
@@ -15,6 +18,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         path: swift-protobuf
+        # Don't need the submodules since we are checking against upstream.
     - name: Checkout protobufbuffers/protobuf
       uses: actions/checkout@v4
       with:
@@ -22,4 +26,4 @@ jobs:
         path: protobuf
     - name: Check Upstream Proto Files
       working-directory: swift-protobuf
-      run: make check-proto-files
+      run: make check-proto-files GOOGLE_PROTOBUF_CHECKOUT=../protobuf

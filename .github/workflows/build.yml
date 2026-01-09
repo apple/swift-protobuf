@@ -1,7 +1,7 @@
 name: Build and Test
 
-# NOTE: If making changes to most of the steps, please also look to update
-# regular_conformance.yml also.
+permissions:
+  contents: read
 
 on:
   push:
@@ -32,84 +32,36 @@ jobs:
         - version: "5.10"
           # No "hook", see https://github.com/apple/swift-protobuf/issues/1560 for the
           # current issue with using -warnings-as-errors on linux.
-        # protobuf_git can reference a commit, tag, or branch
-        # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
-        # tag: "ref/tags/v3.11.4"
-        # branch: "ref/heads/main"
-        protobuf_git: ["ref/heads/main"]
     container:
       image: swift:${{ matrix.swift.version }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: swift-protobuf
+        submodules: true
     - name: Update and install dependencies
-      # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
-      # this step is run before get-sha because we need curl and jq for get-sha
-      run: apt-get update && apt-get install -y curl make g++ cmake jq
-    - name: Get Protobuf Commit SHA
-      id: get-sha
-      run: |
-        set -eu
-        url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
-        case ${{ matrix.protobuf_git }} in
-        ref/*)
-          echo "sha=$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )" >> $GITHUB_OUTPUT
-          ;;
-        commits/*)
-          echo "sha=$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )" >> $GITHUB_OUTPUT
-          ;;
-        esac
+      # Just ensure we have the latest `g++` for building protoc (since it is
+      # built by SwiftPM), full dependencies available at
+      # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
+      #
+      # `make` is needed for using our own `Makefile`.
+      run: apt-get update && apt-get install -y make g++
     - name: Build
-      working-directory: swift-protobuf
       run: make build ${{ matrix.swift.hook }}
     - name: Test runtime
-      working-directory: swift-protobuf
       run: make test-runtime ${{ matrix.swift.hook }}
-    - name: Cache protobuf
-      id: cache-protobuf
-      uses: actions/cache@v4
-      with:
-        path: protobuf
-        # NOTE: for refs that can float like 'main' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.swift.version}}-protobuf-${{ steps.get-sha.outputs.sha }}
-    - name: Checkout protobuf repo
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      uses: actions/checkout@v4
-      with:
-        repository: protocolbuffers/protobuf
-        ref: ${{ steps.get-sha.outputs.sha }}
-        submodules: true
-        path: protobuf
-    - name: Build protobuf
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      working-directory: protobuf
-      # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
-      run: |
-        mkdir cmake_build
-        cd cmake_build
-        cmake \
-          -DCMAKE_CXX_STANDARD=17 \
-          -DCMAKE_BUILD_TYPE=Release \
-          -Dprotobuf_BUILD_TESTS=OFF \
-          -Dprotobuf_INSTALL=OFF \
-          -Dprotobuf_BUILD_CONFORMANCE=ON \
-          -S ..
-        NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
-        make -j "${NUM_CPUS}" protoc conformance_test_runner
     - name: Test plugin
-      working-directory: swift-protobuf
-      run: make test-plugin PROTOC=../protobuf/cmake_build/protoc
-    - name: Test conformance
-      working-directory: swift-protobuf
-      run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
+      # The protoc build isn't part of Package@swift-5.10.swift
+      if: ${{ matrix.swift.version != '5.10' }}
+      run: make test-plugin
     - name: Test SPM plugin
-      working-directory: swift-protobuf
-      run: make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
+      # The protoc build isn't part of Package@swift-5.10.swift
+      if: ${{ matrix.swift.version != '5.10' }}
+      run: make test-spm-plugin
     - name: Compilation Tests
-      working-directory: swift-protobuf
-      run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
+      # The protoc build isn't part of Package@swift-5.10.swift
+      if: ${{ matrix.swift.version != '5.10' }}
+      run: make compile-tests
 
   api-breakage:
     name: Api Breakage Compared to main branch
@@ -126,6 +78,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        submodules: true
     - name: Mark the workspace as safe
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
@@ -144,6 +97,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Mark the workspace as safe
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
@@ -152,11 +107,10 @@ jobs:
         set -eu
         git ls-files -z '*.swift' | xargs -0 swift format format --parallel --in-place
         GIT_PAGER='' git diff --exit-code '*.swift'
-    # Disabled as it produces multiple warnings at the moment.
-    # - name: Run format lint check
-    #   run:  |
-    #     set -eu
-    #     git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
+    - name: Run format lint check
+      run:  |
+        set -eu
+        git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
 
   sanitizer_testing:
     runs-on: ubuntu-latest
@@ -165,11 +119,17 @@ jobs:
       matrix:
         sanitizer: ["address", "thread"]
         swiftpm_config: ["debug", "release"]
+        exclude: # Excluded due to a clang crasher that is fixed in a more recent clang https://github.com/llvm/llvm-project/issues/95928
+         - sanitizer: "address"
+           swiftpm_config: "debug"
     container:
       # Test on the latest Swift release.
       image: swift:latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
+
     - name: Test
       run: |
         set -eu
@@ -178,15 +138,11 @@ jobs:
         rm Tests/SwiftProtobufTests/generated_swift_names*
         # On linux, the tests seem to always see leaks that don't show up on macOS. Disable the
         # leak detection and just assume it is a Linux Swift issue. This still gets validation
-        # for other memory errors. Maybe https://bugs.swift.org/browse/SR-6848.
+        # for other memory errors. Maybe https://github.com/swiftlang/swift/issues/49397
         if [ "${{ matrix.sanitizer }}" = "address" ] ; then
           export ASAN_OPTIONS=detect_leaks=0
         fi
-        # 'release' doesn't support @testable, force it on.
-        if [ "${{ matrix.swiftpm_config }}" = "release" ] ; then
-          EXTRAS="-Xswiftc -enable-testing"
-        fi
-        swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
+        swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }}
 
   fuzzing_regressions:
     runs-on: ubuntu-latest
@@ -199,5 +155,7 @@ jobs:
       image: swift:latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Build
       run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions

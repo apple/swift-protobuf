@@ -35,11 +35,11 @@ struct Proto2Unittest_TestAny: Sendable {
   var int32Value: Int32 = 0
 
   var anyValue: SwiftProtobuf.Google_Protobuf_Any {
-    get {return _anyValue ?? SwiftProtobuf.Google_Protobuf_Any()}
+    get {_anyValue ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_anyValue = newValue}
   }
   /// Returns true if `anyValue` has been explicitly set.
-  var hasAnyValue: Bool {return self._anyValue != nil}
+  var hasAnyValue: Bool {self._anyValue != nil}
   /// Clears the value of `anyValue`. Subsequent reads from it will return its default value.
   mutating func clearAnyValue() {self._anyValue = nil}
 

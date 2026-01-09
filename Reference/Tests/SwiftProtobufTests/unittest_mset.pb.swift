@@ -64,11 +64,11 @@ struct SwiftProtoTesting_TestMessageSetContainer: Sendable {
   // methods supported on all messages.
 
   var messageSet: SwiftProtoTesting_WireFormat_TestMessageSet {
-    get {return _messageSet ?? SwiftProtoTesting_WireFormat_TestMessageSet()}
+    get {_messageSet ?? SwiftProtoTesting_WireFormat_TestMessageSet()}
     set {_messageSet = newValue}
   }
   /// Returns true if `messageSet` has been explicitly set.
-  var hasMessageSet: Bool {return self._messageSet != nil}
+  var hasMessageSet: Bool {self._messageSet != nil}
   /// Clears the value of `messageSet`. Subsequent reads from it will return its default value.
   mutating func clearMessageSet() {self._messageSet = nil}
 
@@ -99,20 +99,20 @@ struct SwiftProtoTesting_TestMessageSetExtension1: Sendable {
   // methods supported on all messages.
 
   var i: Int32 {
-    get {return _i ?? 0}
+    get {_i ?? 0}
     set {_i = newValue}
   }
   /// Returns true if `i` has been explicitly set.
-  var hasI: Bool {return self._i != nil}
+  var hasI: Bool {self._i != nil}
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() {self._i = nil}
 
   var recursive: SwiftProtoTesting_WireFormat_TestMessageSet {
-    get {return _recursive ?? SwiftProtoTesting_WireFormat_TestMessageSet()}
+    get {_recursive ?? SwiftProtoTesting_WireFormat_TestMessageSet()}
     set {_recursive = newValue}
   }
   /// Returns true if `recursive` has been explicitly set.
-  var hasRecursive: Bool {return self._recursive != nil}
+  var hasRecursive: Bool {self._recursive != nil}
   /// Clears the value of `recursive`. Subsequent reads from it will return its default value.
   mutating func clearRecursive() {self._recursive = nil}
 
@@ -130,11 +130,11 @@ struct SwiftProtoTesting_TestMessageSetExtension2: Sendable {
   // methods supported on all messages.
 
   var str: String {
-    get {return _str ?? String()}
+    get {_str ?? String()}
     set {_str = newValue}
   }
   /// Returns true if `str` has been explicitly set.
-  var hasStr: Bool {return self._str != nil}
+  var hasStr: Bool {self._str != nil}
   /// Clears the value of `str`. Subsequent reads from it will return its default value.
   mutating func clearStr() {self._str = nil}
 
@@ -153,11 +153,11 @@ struct SwiftProtoTesting_TestMessageSetExtension3: Sendable {
   // methods supported on all messages.
 
   var x: Int32 {
-    get {return _x ?? 0}
+    get {_x ?? 0}
     set {_x = newValue}
   }
   /// Returns true if `x` has been explicitly set.
-  var hasX: Bool {return self._x != nil}
+  var hasX: Bool {self._x != nil}
   /// Clears the value of `x`. Subsequent reads from it will return its default value.
   mutating func clearX() {self._x = nil}
 
@@ -184,20 +184,20 @@ struct SwiftProtoTesting_RawMessageSet: Sendable {
     // methods supported on all messages.
 
     var typeID: Int32 {
-      get {return _typeID ?? 0}
+      get {_typeID ?? 0}
       set {_typeID = newValue}
     }
     /// Returns true if `typeID` has been explicitly set.
-    var hasTypeID: Bool {return self._typeID != nil}
+    var hasTypeID: Bool {self._typeID != nil}
     /// Clears the value of `typeID`. Subsequent reads from it will return its default value.
     mutating func clearTypeID() {self._typeID = nil}
 
     var message: Data {
-      get {return _message ?? Data()}
+      get {_message ?? Data()}
       set {_message = newValue}
     }
     /// Returns true if `message` has been explicitly set.
-    var hasMessage: Bool {return self._message != nil}
+    var hasMessage: Bool {self._message != nil}
     /// Clears the value of `message`. Subsequent reads from it will return its default value.
     mutating func clearMessage() {self._message = nil}
 

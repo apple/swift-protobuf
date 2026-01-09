@@ -103,11 +103,11 @@ public struct Google_Protobuf_Api: Sendable {
   /// Source context for the protocol buffer service represented by this
   /// message.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {return _sourceContext ?? Google_Protobuf_SourceContext()}
+    get {_sourceContext ?? Google_Protobuf_SourceContext()}
     set {_sourceContext = newValue}
   }
   /// Returns true if `sourceContext` has been explicitly set.
-  public var hasSourceContext: Bool {return self._sourceContext != nil}
+  public var hasSourceContext: Bool {self._sourceContext != nil}
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
   public mutating func clearSourceContext() {self._sourceContext = nil}
 
