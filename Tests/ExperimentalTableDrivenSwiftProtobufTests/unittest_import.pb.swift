@@ -73,11 +73,11 @@ struct SwiftProtoTesting_Import_ImportMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var d: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `d` has been explicitly set.
-  var hasD: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasD: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 

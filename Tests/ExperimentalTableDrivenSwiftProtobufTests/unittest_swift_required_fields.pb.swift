@@ -43,38 +43,38 @@ struct SwiftProtoTesting_Required1: @unchecked Sendable {
   // methods supported on all messages.
 
   var req1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var opt2: Int64 {
-    get { return _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 2)) }
 
   var opt3: Int64 {
-    get { return _storage.value(at: 24, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 24, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `opt3` has been explicitly set.
-  var hasOpt3: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasOpt3: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `opt3`. Subsequent reads from it will return its default value.
   mutating func clearOpt3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 4)) }
 
   var opt4: Int64 {
-    get { return _storage.value(at: 32, default: 0, hasBit: (0, 8)) }
+    get { _storage.value(at: 32, default: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `opt4` has been explicitly set.
-  var hasOpt4: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasOpt4: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `opt4`. Subsequent reads from it will return its default value.
   mutating func clearOpt4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 8)) }
 
@@ -106,92 +106,92 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
   // methods supported on all messages.
 
   var req1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var req2: Int64 {
-    get { return _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `req2` has been explicitly set.
-  var hasReq2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasReq2: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `req2`. Subsequent reads from it will return its default value.
   mutating func clearReq2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 2)) }
 
   var req3: Int64 {
-    get { return _storage.value(at: 24, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 24, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `req3` has been explicitly set.
-  var hasReq3: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasReq3: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `req3`. Subsequent reads from it will return its default value.
   mutating func clearReq3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 4)) }
 
   var req4: Int64 {
-    get { return _storage.value(at: 32, default: 0, hasBit: (0, 8)) }
+    get { _storage.value(at: 32, default: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `req4` has been explicitly set.
-  var hasReq4: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasReq4: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `req4`. Subsequent reads from it will return its default value.
   mutating func clearReq4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 8)) }
 
   var req5: Int64 {
-    get { return _storage.value(at: 40, default: 0, hasBit: (0, 16)) }
+    get { _storage.value(at: 40, default: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `req5` has been explicitly set.
-  var hasReq5: Bool { return _storage.isPresent(hasBit: (0, 16)) }
+  var hasReq5: Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `req5`. Subsequent reads from it will return its default value.
   mutating func clearReq5() { _uniqueStorage().clearValue(at: 40, type: Int64.self, hasBit: (0, 16)) }
 
   var req6: Int64 {
-    get { return _storage.value(at: 48, default: 0, hasBit: (0, 32)) }
+    get { _storage.value(at: 48, default: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `req6` has been explicitly set.
-  var hasReq6: Bool { return _storage.isPresent(hasBit: (0, 32)) }
+  var hasReq6: Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `req6`. Subsequent reads from it will return its default value.
   mutating func clearReq6() { _uniqueStorage().clearValue(at: 48, type: Int64.self, hasBit: (0, 32)) }
 
   var req7: Int64 {
-    get { return _storage.value(at: 56, default: 0, hasBit: (0, 64)) }
+    get { _storage.value(at: 56, default: 0, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `req7` has been explicitly set.
-  var hasReq7: Bool { return _storage.isPresent(hasBit: (0, 64)) }
+  var hasReq7: Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `req7`. Subsequent reads from it will return its default value.
   mutating func clearReq7() { _uniqueStorage().clearValue(at: 56, type: Int64.self, hasBit: (0, 64)) }
 
   var req8: Int64 {
-    get { return _storage.value(at: 64, default: 0, hasBit: (0, 128)) }
+    get { _storage.value(at: 64, default: 0, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `req8` has been explicitly set.
-  var hasReq8: Bool { return _storage.isPresent(hasBit: (0, 128)) }
+  var hasReq8: Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `req8`. Subsequent reads from it will return its default value.
   mutating func clearReq8() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 128)) }
 
   var req9: Int64 {
-    get { return _storage.value(at: 72, default: 0, hasBit: (1, 1)) }
+    get { _storage.value(at: 72, default: 0, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `req9` has been explicitly set.
-  var hasReq9: Bool { return _storage.isPresent(hasBit: (1, 1)) }
+  var hasReq9: Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `req9`. Subsequent reads from it will return its default value.
   mutating func clearReq9() { _uniqueStorage().clearValue(at: 72, type: Int64.self, hasBit: (1, 1)) }
 
   var req10: Int64 {
-    get { return _storage.value(at: 80, default: 0, hasBit: (1, 2)) }
+    get { _storage.value(at: 80, default: 0, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `req10` has been explicitly set.
-  var hasReq10: Bool { return _storage.isPresent(hasBit: (1, 2)) }
+  var hasReq10: Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `req10`. Subsequent reads from it will return its default value.
   mutating func clearReq10() { _uniqueStorage().clearValue(at: 80, type: Int64.self, hasBit: (1, 2)) }
 
@@ -223,101 +223,101 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
   // methods supported on all messages.
 
   var req1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var req2: Int64 {
-    get { return _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `req2` has been explicitly set.
-  var hasReq2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasReq2: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `req2`. Subsequent reads from it will return its default value.
   mutating func clearReq2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 2)) }
 
   var req3: Int64 {
-    get { return _storage.value(at: 24, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 24, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `req3` has been explicitly set.
-  var hasReq3: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasReq3: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `req3`. Subsequent reads from it will return its default value.
   mutating func clearReq3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 4)) }
 
   var req4: Int64 {
-    get { return _storage.value(at: 32, default: 0, hasBit: (0, 8)) }
+    get { _storage.value(at: 32, default: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `req4` has been explicitly set.
-  var hasReq4: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasReq4: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `req4`. Subsequent reads from it will return its default value.
   mutating func clearReq4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 8)) }
 
   var req5: Int64 {
-    get { return _storage.value(at: 40, default: 0, hasBit: (0, 16)) }
+    get { _storage.value(at: 40, default: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `req5` has been explicitly set.
-  var hasReq5: Bool { return _storage.isPresent(hasBit: (0, 16)) }
+  var hasReq5: Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `req5`. Subsequent reads from it will return its default value.
   mutating func clearReq5() { _uniqueStorage().clearValue(at: 40, type: Int64.self, hasBit: (0, 16)) }
 
   var req6: Int64 {
-    get { return _storage.value(at: 48, default: 0, hasBit: (0, 32)) }
+    get { _storage.value(at: 48, default: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `req6` has been explicitly set.
-  var hasReq6: Bool { return _storage.isPresent(hasBit: (0, 32)) }
+  var hasReq6: Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `req6`. Subsequent reads from it will return its default value.
   mutating func clearReq6() { _uniqueStorage().clearValue(at: 48, type: Int64.self, hasBit: (0, 32)) }
 
   var req7: Int64 {
-    get { return _storage.value(at: 56, default: 0, hasBit: (0, 64)) }
+    get { _storage.value(at: 56, default: 0, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `req7` has been explicitly set.
-  var hasReq7: Bool { return _storage.isPresent(hasBit: (0, 64)) }
+  var hasReq7: Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `req7`. Subsequent reads from it will return its default value.
   mutating func clearReq7() { _uniqueStorage().clearValue(at: 56, type: Int64.self, hasBit: (0, 64)) }
 
   var req8: Int64 {
-    get { return _storage.value(at: 64, default: 0, hasBit: (0, 128)) }
+    get { _storage.value(at: 64, default: 0, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `req8` has been explicitly set.
-  var hasReq8: Bool { return _storage.isPresent(hasBit: (0, 128)) }
+  var hasReq8: Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `req8`. Subsequent reads from it will return its default value.
   mutating func clearReq8() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 128)) }
 
   var req9: Int64 {
-    get { return _storage.value(at: 72, default: 0, hasBit: (1, 1)) }
+    get { _storage.value(at: 72, default: 0, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `req9` has been explicitly set.
-  var hasReq9: Bool { return _storage.isPresent(hasBit: (1, 1)) }
+  var hasReq9: Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `req9`. Subsequent reads from it will return its default value.
   mutating func clearReq9() { _uniqueStorage().clearValue(at: 72, type: Int64.self, hasBit: (1, 1)) }
 
   var req10: Int64 {
-    get { return _storage.value(at: 80, default: 0, hasBit: (1, 2)) }
+    get { _storage.value(at: 80, default: 0, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `req10` has been explicitly set.
-  var hasReq10: Bool { return _storage.isPresent(hasBit: (1, 2)) }
+  var hasReq10: Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `req10`. Subsequent reads from it will return its default value.
   mutating func clearReq10() { _uniqueStorage().clearValue(at: 80, type: Int64.self, hasBit: (1, 2)) }
 
   var req11: Int64 {
-    get { return _storage.value(at: 88, default: 0, hasBit: (1, 4)) }
+    get { _storage.value(at: 88, default: 0, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `req11` has been explicitly set.
-  var hasReq11: Bool { return _storage.isPresent(hasBit: (1, 4)) }
+  var hasReq11: Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `req11`. Subsequent reads from it will return its default value.
   mutating func clearReq11() { _uniqueStorage().clearValue(at: 88, type: Int64.self, hasBit: (1, 4)) }
 
@@ -349,74 +349,74 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
   // methods supported on all messages.
 
   var req1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var opt2: Int64 {
-    get { return _storage.value(at: 16, default: 0, hasBit: (0, 16)) }
+    get { _storage.value(at: 16, default: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { return _storage.isPresent(hasBit: (0, 16)) }
+  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 16)) }
 
   var req3: Int64 {
-    get { return _storage.value(at: 24, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 24, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `req3` has been explicitly set.
-  var hasReq3: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasReq3: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `req3`. Subsequent reads from it will return its default value.
   mutating func clearReq3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 2)) }
 
   var opt4: Int64 {
-    get { return _storage.value(at: 32, default: 0, hasBit: (0, 32)) }
+    get { _storage.value(at: 32, default: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `opt4` has been explicitly set.
-  var hasOpt4: Bool { return _storage.isPresent(hasBit: (0, 32)) }
+  var hasOpt4: Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `opt4`. Subsequent reads from it will return its default value.
   mutating func clearOpt4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 32)) }
 
   var req5: Int64 {
-    get { return _storage.value(at: 40, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 40, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `req5` has been explicitly set.
-  var hasReq5: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasReq5: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `req5`. Subsequent reads from it will return its default value.
   mutating func clearReq5() { _uniqueStorage().clearValue(at: 40, type: Int64.self, hasBit: (0, 4)) }
 
   var opt6: Int64 {
-    get { return _storage.value(at: 48, default: 0, hasBit: (0, 64)) }
+    get { _storage.value(at: 48, default: 0, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `opt6` has been explicitly set.
-  var hasOpt6: Bool { return _storage.isPresent(hasBit: (0, 64)) }
+  var hasOpt6: Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `opt6`. Subsequent reads from it will return its default value.
   mutating func clearOpt6() { _uniqueStorage().clearValue(at: 48, type: Int64.self, hasBit: (0, 64)) }
 
   var req7: Int64 {
-    get { return _storage.value(at: 56, default: 0, hasBit: (0, 8)) }
+    get { _storage.value(at: 56, default: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `req7` has been explicitly set.
-  var hasReq7: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasReq7: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `req7`. Subsequent reads from it will return its default value.
   mutating func clearReq7() { _uniqueStorage().clearValue(at: 56, type: Int64.self, hasBit: (0, 8)) }
 
   var opt8: Int64 {
-    get { return _storage.value(at: 64, default: 0, hasBit: (0, 128)) }
+    get { _storage.value(at: 64, default: 0, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `opt8` has been explicitly set.
-  var hasOpt8: Bool { return _storage.isPresent(hasBit: (0, 128)) }
+  var hasOpt8: Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `opt8`. Subsequent reads from it will return its default value.
   mutating func clearOpt8() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 128)) }
 
@@ -448,11 +448,11 @@ struct SwiftProtoTesting_RequiredWithNested: @unchecked Sendable {
   // methods supported on all messages.
 
   var nested: SwiftProtoTesting_NestedRequired {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nested` has been explicitly set.
-  var hasNested: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasNested: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
   mutating func clearNested() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_NestedRequired.self, hasBit: (0, 1)) }
 
@@ -484,7 +484,7 @@ struct SwiftProtoTesting_RequiredWithRepeatedNested: @unchecked Sendable {
   // methods supported on all messages.
 
   var nested: [SwiftProtoTesting_NestedRequired] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
@@ -515,11 +515,11 @@ struct SwiftProtoTesting_NestedRequired: @unchecked Sendable {
   // methods supported on all messages.
 
   var req1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -550,20 +550,20 @@ struct SwiftProtoTesting_NoneRequired: @unchecked Sendable {
   // methods supported on all messages.
 
   var opt1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `opt1` has been explicitly set.
-  var hasOpt1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasOpt1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var opt2: SwiftProtoTesting_NestedNoneRequired {
-    get { return _storage.value(at: 16, default: SwiftProtoTesting_NestedNoneRequired(), hasBit: (0, 2)) }
+    get { _storage.value(at: 16, default: SwiftProtoTesting_NestedNoneRequired(), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_NestedNoneRequired.self, hasBit: (0, 2)) }
 
@@ -594,11 +594,11 @@ struct SwiftProtoTesting_NestedNoneRequired: @unchecked Sendable {
   // methods supported on all messages.
 
   var opt1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `opt1` has been explicitly set.
-  var hasOpt1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasOpt1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -629,20 +629,20 @@ struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Sendable {
   // methods supported on all messages.
 
   var opt1: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `opt1` has been explicitly set.
-  var hasOpt1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasOpt1: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var opt2: SwiftProtoTesting_NestedRequired {
-    get { return _storage.value(at: 16, default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 2)) }
+    get { _storage.value(at: 16, default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_NestedRequired.self, hasBit: (0, 2)) }
 
@@ -673,7 +673,7 @@ struct SwiftProtoTesting_MapWithNestedRequiredValues: @unchecked Sendable {
   // methods supported on all messages.
 
   var map1: [Int32: SwiftProtoTesting_NestedRequired] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
