@@ -42,39 +42,39 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
   // methods supported on all messages.
 
   var scalarField: Int32 {
-    get {return _storage._scalarField ?? 0}
+    get {_storage._scalarField ?? 0}
     set {_uniqueStorage()._scalarField = newValue}
   }
   /// Returns true if `scalarField` has been explicitly set.
-  var hasScalarField: Bool {return _storage._scalarField != nil}
+  var hasScalarField: Bool {_storage._scalarField != nil}
   /// Clears the value of `scalarField`. Subsequent reads from it will return its default value.
   mutating func clearScalarField() {_uniqueStorage()._scalarField = nil}
 
   var mapField: Dictionary<Int32,String> {
-    get {return _storage._mapField}
+    get {_storage._mapField}
     set {_uniqueStorage()._mapField = newValue}
   }
 
   var messageMapField: Dictionary<Int32,SwiftDescriptorTest_EditionsMessageForDelimited> {
-    get {return _storage._messageMapField}
+    get {_storage._messageMapField}
     set {_uniqueStorage()._messageMapField = newValue}
   }
 
   var delimitedField: SwiftDescriptorTest_EditionsMessageForDelimited {
-    get {return _storage._delimitedField ?? SwiftDescriptorTest_EditionsMessageForDelimited()}
+    get {_storage._delimitedField ?? SwiftDescriptorTest_EditionsMessageForDelimited()}
     set {_uniqueStorage()._delimitedField = newValue}
   }
   /// Returns true if `delimitedField` has been explicitly set.
-  var hasDelimitedField: Bool {return _storage._delimitedField != nil}
+  var hasDelimitedField: Bool {_storage._delimitedField != nil}
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedField() {_uniqueStorage()._delimitedField = nil}
 
   var lengthPrefixedField: SwiftDescriptorTest_EditionsMessageForDelimited {
-    get {return _storage._lengthPrefixedField ?? SwiftDescriptorTest_EditionsMessageForDelimited()}
+    get {_storage._lengthPrefixedField ?? SwiftDescriptorTest_EditionsMessageForDelimited()}
     set {_uniqueStorage()._lengthPrefixedField = newValue}
   }
   /// Returns true if `lengthPrefixedField` has been explicitly set.
-  var hasLengthPrefixedField: Bool {return _storage._lengthPrefixedField != nil}
+  var hasLengthPrefixedField: Bool {_storage._lengthPrefixedField != nil}
   /// Clears the value of `lengthPrefixedField`. Subsequent reads from it will return its default value.
   mutating func clearLengthPrefixedField() {_uniqueStorage()._lengthPrefixedField = nil}
 

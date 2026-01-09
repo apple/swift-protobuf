@@ -57,11 +57,11 @@ struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage, 
   // methods supported on all messages.
 
   var stringField: String {
-    get {return _stringField ?? String()}
+    get {_stringField ?? String()}
     set {_stringField = newValue}
   }
   /// Returns true if `stringField` has been explicitly set.
-  var hasStringField: Bool {return self._stringField != nil}
+  var hasStringField: Bool {self._stringField != nil}
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
   mutating func clearStringField() {self._stringField = nil}
 

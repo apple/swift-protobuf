@@ -52,11 +52,11 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: Sendable {
   // methods supported on all messages.
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
-    get {return _messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
+    get {_messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_messageSet = newValue}
   }
   /// Returns true if `messageSet` has been explicitly set.
-  var hasMessageSet: Bool {return self._messageSet != nil}
+  var hasMessageSet: Bool {self._messageSet != nil}
   /// Clears the value of `messageSet`. Subsequent reads from it will return its default value.
   mutating func clearMessageSet() {self._messageSet = nil}
 

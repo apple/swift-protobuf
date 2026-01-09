@@ -56,22 +56,22 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Sendable {
   // methods supported on all messages.
 
   var values1: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var values2: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var values3: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var values4: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
@@ -238,7 +238,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Sendable {
   // methods supported on all messages.
 
   var values: [SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 

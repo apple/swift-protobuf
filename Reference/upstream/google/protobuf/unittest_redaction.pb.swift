@@ -74,11 +74,11 @@ struct Proto2Unittest_TestRedactedNestMessage: Sendable {
   // methods supported on all messages.
 
   var foo: String {
-    get {return _foo ?? String()}
+    get {_foo ?? String()}
     set {_foo = newValue}
   }
   /// Returns true if `foo` has been explicitly set.
-  var hasFoo: Bool {return self._foo != nil}
+  var hasFoo: Bool {self._foo != nil}
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
   mutating func clearFoo() {self._foo = nil}
 
@@ -95,11 +95,11 @@ struct Proto2Unittest_TestRepeatedRedactedNestMessage: Sendable {
   // methods supported on all messages.
 
   var bar: String {
-    get {return _bar ?? String()}
+    get {_bar ?? String()}
     set {_bar = newValue}
   }
   /// Returns true if `bar` has been explicitly set.
-  var hasBar: Bool {return self._bar != nil}
+  var hasBar: Bool {self._bar != nil}
   /// Clears the value of `bar`. Subsequent reads from it will return its default value.
   mutating func clearBar() {self._bar = nil}
 
@@ -130,20 +130,20 @@ struct Proto2Unittest_TestNestedMessageEnum: Sendable {
   var directEnum: [Proto2Unittest_MetaAnnotatedEnum] = []
 
   var nestedEnum: Proto2Unittest_TestMessageEnum {
-    get {return _nestedEnum ?? Proto2Unittest_TestMessageEnum()}
+    get {_nestedEnum ?? Proto2Unittest_TestMessageEnum()}
     set {_nestedEnum = newValue}
   }
   /// Returns true if `nestedEnum` has been explicitly set.
-  var hasNestedEnum: Bool {return self._nestedEnum != nil}
+  var hasNestedEnum: Bool {self._nestedEnum != nil}
   /// Clears the value of `nestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearNestedEnum() {self._nestedEnum = nil}
 
   var redactedString: String {
-    get {return _redactedString ?? String()}
+    get {_redactedString ?? String()}
     set {_redactedString = newValue}
   }
   /// Returns true if `redactedString` has been explicitly set.
-  var hasRedactedString: Bool {return self._redactedString != nil}
+  var hasRedactedString: Bool {self._redactedString != nil}
   /// Clears the value of `redactedString`. Subsequent reads from it will return its default value.
   mutating func clearRedactedString() {self._redactedString = nil}
 
@@ -162,92 +162,92 @@ struct Proto2Unittest_TestRedactedMessage: Sendable {
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var textField: String {
-    get {return _textField ?? String()}
+    get {_textField ?? String()}
     set {_textField = newValue}
   }
   /// Returns true if `textField` has been explicitly set.
-  var hasTextField: Bool {return self._textField != nil}
+  var hasTextField: Bool {self._textField != nil}
   /// Clears the value of `textField`. Subsequent reads from it will return its default value.
   mutating func clearTextField() {self._textField = nil}
 
   var metaAnnotated: String {
-    get {return _metaAnnotated ?? String()}
+    get {_metaAnnotated ?? String()}
     set {_metaAnnotated = newValue}
   }
   /// Returns true if `metaAnnotated` has been explicitly set.
-  var hasMetaAnnotated: Bool {return self._metaAnnotated != nil}
+  var hasMetaAnnotated: Bool {self._metaAnnotated != nil}
   /// Clears the value of `metaAnnotated`. Subsequent reads from it will return its default value.
   mutating func clearMetaAnnotated() {self._metaAnnotated = nil}
 
   var repeatedMetaAnnotated: String {
-    get {return _repeatedMetaAnnotated ?? String()}
+    get {_repeatedMetaAnnotated ?? String()}
     set {_repeatedMetaAnnotated = newValue}
   }
   /// Returns true if `repeatedMetaAnnotated` has been explicitly set.
-  var hasRepeatedMetaAnnotated: Bool {return self._repeatedMetaAnnotated != nil}
+  var hasRepeatedMetaAnnotated: Bool {self._repeatedMetaAnnotated != nil}
   /// Clears the value of `repeatedMetaAnnotated`. Subsequent reads from it will return its default value.
   mutating func clearRepeatedMetaAnnotated() {self._repeatedMetaAnnotated = nil}
 
   var unredactedRepeatedAnnotations: String {
-    get {return _unredactedRepeatedAnnotations ?? String()}
+    get {_unredactedRepeatedAnnotations ?? String()}
     set {_unredactedRepeatedAnnotations = newValue}
   }
   /// Returns true if `unredactedRepeatedAnnotations` has been explicitly set.
-  var hasUnredactedRepeatedAnnotations: Bool {return self._unredactedRepeatedAnnotations != nil}
+  var hasUnredactedRepeatedAnnotations: Bool {self._unredactedRepeatedAnnotations != nil}
   /// Clears the value of `unredactedRepeatedAnnotations`. Subsequent reads from it will return its default value.
   mutating func clearUnredactedRepeatedAnnotations() {self._unredactedRepeatedAnnotations = nil}
 
   var unreportedNonMetaDebugRedactField: String {
-    get {return _unreportedNonMetaDebugRedactField ?? String()}
+    get {_unreportedNonMetaDebugRedactField ?? String()}
     set {_unreportedNonMetaDebugRedactField = newValue}
   }
   /// Returns true if `unreportedNonMetaDebugRedactField` has been explicitly set.
-  var hasUnreportedNonMetaDebugRedactField: Bool {return self._unreportedNonMetaDebugRedactField != nil}
+  var hasUnreportedNonMetaDebugRedactField: Bool {self._unreportedNonMetaDebugRedactField != nil}
   /// Clears the value of `unreportedNonMetaDebugRedactField`. Subsequent reads from it will return its default value.
   mutating func clearUnreportedNonMetaDebugRedactField() {self._unreportedNonMetaDebugRedactField = nil}
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
-    get {return _anyField ?? SwiftProtobuf.Google_Protobuf_Any()}
+    get {_anyField ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_anyField = newValue}
   }
   /// Returns true if `anyField` has been explicitly set.
-  var hasAnyField: Bool {return self._anyField != nil}
+  var hasAnyField: Bool {self._anyField != nil}
   /// Clears the value of `anyField`. Subsequent reads from it will return its default value.
   mutating func clearAnyField() {self._anyField = nil}
 
   var redactableFalse: String {
-    get {return _redactableFalse ?? String()}
+    get {_redactableFalse ?? String()}
     set {_redactableFalse = newValue}
   }
   /// Returns true if `redactableFalse` has been explicitly set.
-  var hasRedactableFalse: Bool {return self._redactableFalse != nil}
+  var hasRedactableFalse: Bool {self._redactableFalse != nil}
   /// Clears the value of `redactableFalse`. Subsequent reads from it will return its default value.
   mutating func clearRedactableFalse() {self._redactableFalse = nil}
 
   var testDirectMessageEnum: String {
-    get {return _testDirectMessageEnum ?? String()}
+    get {_testDirectMessageEnum ?? String()}
     set {_testDirectMessageEnum = newValue}
   }
   /// Returns true if `testDirectMessageEnum` has been explicitly set.
-  var hasTestDirectMessageEnum: Bool {return self._testDirectMessageEnum != nil}
+  var hasTestDirectMessageEnum: Bool {self._testDirectMessageEnum != nil}
   /// Clears the value of `testDirectMessageEnum`. Subsequent reads from it will return its default value.
   mutating func clearTestDirectMessageEnum() {self._testDirectMessageEnum = nil}
 
   var testNestedMessageEnum: String {
-    get {return _testNestedMessageEnum ?? String()}
+    get {_testNestedMessageEnum ?? String()}
     set {_testNestedMessageEnum = newValue}
   }
   /// Returns true if `testNestedMessageEnum` has been explicitly set.
-  var hasTestNestedMessageEnum: Bool {return self._testNestedMessageEnum != nil}
+  var hasTestNestedMessageEnum: Bool {self._testNestedMessageEnum != nil}
   /// Clears the value of `testNestedMessageEnum`. Subsequent reads from it will return its default value.
   mutating func clearTestNestedMessageEnum() {self._testNestedMessageEnum = nil}
 
   var testRedactedMessageEnum: String {
-    get {return _testRedactedMessageEnum ?? String()}
+    get {_testRedactedMessageEnum ?? String()}
     set {_testRedactedMessageEnum = newValue}
   }
   /// Returns true if `testRedactedMessageEnum` has been explicitly set.
-  var hasTestRedactedMessageEnum: Bool {return self._testRedactedMessageEnum != nil}
+  var hasTestRedactedMessageEnum: Bool {self._testRedactedMessageEnum != nil}
   /// Clears the value of `testRedactedMessageEnum`. Subsequent reads from it will return its default value.
   mutating func clearTestRedactedMessageEnum() {self._testRedactedMessageEnum = nil}
 

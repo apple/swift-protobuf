@@ -154,7 +154,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
 
         p.printIndented(
-            "get { return _storage.value(at: \(storageOffsetExpression), \(defaultValueArgument)\(hasBitArgument)) }",
+            "get { _storage.value(at: \(storageOffsetExpression), \(defaultValueArgument)\(hasBitArgument)) }",
             "set { _uniqueStorage().updateValue(at: \(storageOffsetExpression), to: newValue, \(willBeSetArgument)\(hasBitArgument)) }"
         )
         p.print("}")
@@ -163,7 +163,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         p.print(
             "/// Returns true if `\(swiftName)` has been explicitly set.",
-            "\(visibility)var \(swiftHasName): Bool { return _storage.isPresent(\(hasBitArgument)) }"
+            "\(visibility)var \(swiftHasName): Bool { _storage.isPresent(\(hasBitArgument)) }"
         )
 
         p.print(

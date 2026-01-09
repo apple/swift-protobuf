@@ -37,29 +37,29 @@ struct Pb_CppFeatures: Sendable {
   /// consistent with the legacy behavior of using proto3 enum types for proto2
   /// fields.
   var legacyClosedEnum: Bool {
-    get {return _legacyClosedEnum ?? false}
+    get {_legacyClosedEnum ?? false}
     set {_legacyClosedEnum = newValue}
   }
   /// Returns true if `legacyClosedEnum` has been explicitly set.
-  var hasLegacyClosedEnum: Bool {return self._legacyClosedEnum != nil}
+  var hasLegacyClosedEnum: Bool {self._legacyClosedEnum != nil}
   /// Clears the value of `legacyClosedEnum`. Subsequent reads from it will return its default value.
   mutating func clearLegacyClosedEnum() {self._legacyClosedEnum = nil}
 
   var stringType: Pb_CppFeatures.StringType {
-    get {return _stringType ?? .unknown}
+    get {_stringType ?? .unknown}
     set {_stringType = newValue}
   }
   /// Returns true if `stringType` has been explicitly set.
-  var hasStringType: Bool {return self._stringType != nil}
+  var hasStringType: Bool {self._stringType != nil}
   /// Clears the value of `stringType`. Subsequent reads from it will return its default value.
   mutating func clearStringType() {self._stringType = nil}
 
   var enumNameUsesStringView: Bool {
-    get {return _enumNameUsesStringView ?? false}
+    get {_enumNameUsesStringView ?? false}
     set {_enumNameUsesStringView = newValue}
   }
   /// Returns true if `enumNameUsesStringView` has been explicitly set.
-  var hasEnumNameUsesStringView: Bool {return self._enumNameUsesStringView != nil}
+  var hasEnumNameUsesStringView: Bool {self._enumNameUsesStringView != nil}
   /// Clears the value of `enumNameUsesStringView`. Subsequent reads from it will return its default value.
   mutating func clearEnumNameUsesStringView() {self._enumNameUsesStringView = nil}
 

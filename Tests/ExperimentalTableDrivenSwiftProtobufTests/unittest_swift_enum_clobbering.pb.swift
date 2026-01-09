@@ -84,20 +84,20 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
   // methods supported on all messages.
 
   var foo: SwiftProtoTesting_EnumClobbering_Foo {
-    get { return _storage.value(at: 4, default: .foo, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: .foo, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `foo` has been explicitly set.
-  var hasFoo: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasFoo: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
   mutating func clearFoo() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_EnumClobbering_Foo.self, hasBit: (0, 1)) }
 
   var bar: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `bar` has been explicitly set.
-  var hasBar: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasBar: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `bar`. Subsequent reads from it will return its default value.
   mutating func clearBar() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 2)) }
 

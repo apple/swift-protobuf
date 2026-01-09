@@ -57,38 +57,38 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Ex
   // methods supported on all messages.
 
   var field6: Int32 {
-    get {return _field6 ?? 0}
+    get {_field6 ?? 0}
     set {_field6 = newValue}
   }
   /// Returns true if `field6` has been explicitly set.
-  var hasField6: Bool {return self._field6 != nil}
+  var hasField6: Bool {self._field6 != nil}
   /// Clears the value of `field6`. Subsequent reads from it will return its default value.
   mutating func clearField6() {self._field6 = nil}
 
   var field124: Int32 {
-    get {return _field124 ?? 0}
+    get {_field124 ?? 0}
     set {_field124 = newValue}
   }
   /// Returns true if `field124` has been explicitly set.
-  var hasField124: Bool {return self._field124 != nil}
+  var hasField124: Bool {self._field124 != nil}
   /// Clears the value of `field124`. Subsequent reads from it will return its default value.
   mutating func clearField124() {self._field124 = nil}
 
   var field125: Int32 {
-    get {return _field125 ?? 0}
+    get {_field125 ?? 0}
     set {_field125 = newValue}
   }
   /// Returns true if `field125` has been explicitly set.
-  var hasField125: Bool {return self._field125 != nil}
+  var hasField125: Bool {self._field125 != nil}
   /// Clears the value of `field125`. Subsequent reads from it will return its default value.
   mutating func clearField125() {self._field125 = nil}
 
   var field200: Int32 {
-    get {return _field200 ?? 0}
+    get {_field200 ?? 0}
     set {_field200 = newValue}
   }
   /// Returns true if `field200` has been explicitly set.
-  var hasField200: Bool {return self._field200 != nil}
+  var hasField200: Bool {self._field200 != nil}
   /// Clears the value of `field200`. Subsequent reads from it will return its default value.
   mutating func clearField200() {self._field200 = nil}
 
@@ -110,56 +110,56 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Ext
   // methods supported on all messages.
 
   var field1: Int32 {
-    get {return _field1 ?? 0}
+    get {_field1 ?? 0}
     set {_field1 = newValue}
   }
   /// Returns true if `field1` has been explicitly set.
-  var hasField1: Bool {return self._field1 != nil}
+  var hasField1: Bool {self._field1 != nil}
   /// Clears the value of `field1`. Subsequent reads from it will return its default value.
   mutating func clearField1() {self._field1 = nil}
 
   var field2: Int32 {
-    get {return _field2 ?? 0}
+    get {_field2 ?? 0}
     set {_field2 = newValue}
   }
   /// Returns true if `field2` has been explicitly set.
-  var hasField2: Bool {return self._field2 != nil}
+  var hasField2: Bool {self._field2 != nil}
   /// Clears the value of `field2`. Subsequent reads from it will return its default value.
   mutating func clearField2() {self._field2 = nil}
 
   var field6: Int32 {
-    get {return _field6 ?? 0}
+    get {_field6 ?? 0}
     set {_field6 = newValue}
   }
   /// Returns true if `field6` has been explicitly set.
-  var hasField6: Bool {return self._field6 != nil}
+  var hasField6: Bool {self._field6 != nil}
   /// Clears the value of `field6`. Subsequent reads from it will return its default value.
   mutating func clearField6() {self._field6 = nil}
 
   var field13: Int32 {
-    get {return _field13 ?? 0}
+    get {_field13 ?? 0}
     set {_field13 = newValue}
   }
   /// Returns true if `field13` has been explicitly set.
-  var hasField13: Bool {return self._field13 != nil}
+  var hasField13: Bool {self._field13 != nil}
   /// Clears the value of `field13`. Subsequent reads from it will return its default value.
   mutating func clearField13() {self._field13 = nil}
 
   var field15: Int32 {
-    get {return _field15 ?? 0}
+    get {_field15 ?? 0}
     set {_field15 = newValue}
   }
   /// Returns true if `field15` has been explicitly set.
-  var hasField15: Bool {return self._field15 != nil}
+  var hasField15: Bool {self._field15 != nil}
   /// Clears the value of `field15`. Subsequent reads from it will return its default value.
   mutating func clearField15() {self._field15 = nil}
 
   var field21: Int32 {
-    get {return _field21 ?? 0}
+    get {_field21 ?? 0}
     set {_field21 = newValue}
   }
   /// Returns true if `field21` has been explicitly set.
-  var hasField21: Bool {return self._field21 != nil}
+  var hasField21: Bool {self._field21 != nil}
   /// Clears the value of `field21`. Subsequent reads from it will return its default value.
   mutating func clearField21() {self._field21 = nil}
 

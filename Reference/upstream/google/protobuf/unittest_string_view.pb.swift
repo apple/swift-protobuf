@@ -28,20 +28,20 @@ struct Proto2Unittest_TestStringView: Sendable {
   // methods supported on all messages.
 
   var singularString: String {
-    get {return _singularString ?? String()}
+    get {_singularString ?? String()}
     set {_singularString = newValue}
   }
   /// Returns true if `singularString` has been explicitly set.
-  var hasSingularString: Bool {return self._singularString != nil}
+  var hasSingularString: Bool {self._singularString != nil}
   /// Clears the value of `singularString`. Subsequent reads from it will return its default value.
   mutating func clearSingularString() {self._singularString = nil}
 
   var singularBytes: Data {
-    get {return _singularBytes ?? Data()}
+    get {_singularBytes ?? Data()}
     set {_singularBytes = newValue}
   }
   /// Returns true if `singularBytes` has been explicitly set.
-  var hasSingularBytes: Bool {return self._singularBytes != nil}
+  var hasSingularBytes: Bool {self._singularBytes != nil}
   /// Clears the value of `singularBytes`. Subsequent reads from it will return its default value.
   mutating func clearSingularBytes() {self._singularBytes = nil}
 

@@ -57,11 +57,11 @@ struct SwiftProtoTesting_GroupExtensions: SwiftProtobuf.ExtensibleMessage, Senda
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
@@ -79,11 +79,11 @@ struct SwiftProtoTesting_ExtensionGroup: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
@@ -100,11 +100,11 @@ struct SwiftProtoTesting_RepeatedExtensionGroup: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
@@ -121,11 +121,11 @@ struct SwiftProtoTesting_GroupUnextended: Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 
@@ -142,20 +142,20 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
   // methods supported on all messages.
 
   var outerA: Int32 {
-    get {return _outerA ?? 0}
+    get {_outerA ?? 0}
     set {_outerA = newValue}
   }
   /// Returns true if `outerA` has been explicitly set.
-  var hasOuterA: Bool {return self._outerA != nil}
+  var hasOuterA: Bool {self._outerA != nil}
   /// Clears the value of `outerA`. Subsequent reads from it will return its default value.
   mutating func clearOuterA() {self._outerA = nil}
 
   var subGroup1: SwiftProtoTesting_NestingGroupsMessage.SubGroup1 {
-    get {return _subGroup1 ?? SwiftProtoTesting_NestingGroupsMessage.SubGroup1()}
+    get {_subGroup1 ?? SwiftProtoTesting_NestingGroupsMessage.SubGroup1()}
     set {_subGroup1 = newValue}
   }
   /// Returns true if `subGroup1` has been explicitly set.
-  var hasSubGroup1: Bool {return self._subGroup1 != nil}
+  var hasSubGroup1: Bool {self._subGroup1 != nil}
   /// Clears the value of `subGroup1`. Subsequent reads from it will return its default value.
   mutating func clearSubGroup1() {self._subGroup1 = nil}
 
@@ -169,20 +169,20 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
     // methods supported on all messages.
 
     var sub1A: Int32 {
-      get {return _sub1A ?? 0}
+      get {_sub1A ?? 0}
       set {_sub1A = newValue}
     }
     /// Returns true if `sub1A` has been explicitly set.
-    var hasSub1A: Bool {return self._sub1A != nil}
+    var hasSub1A: Bool {self._sub1A != nil}
     /// Clears the value of `sub1A`. Subsequent reads from it will return its default value.
     mutating func clearSub1A() {self._sub1A = nil}
 
     var subGroup2: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2 {
-      get {return _subGroup2 ?? SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2()}
+      get {_subGroup2 ?? SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2()}
       set {_subGroup2 = newValue}
     }
     /// Returns true if `subGroup2` has been explicitly set.
-    var hasSubGroup2: Bool {return self._subGroup2 != nil}
+    var hasSubGroup2: Bool {self._subGroup2 != nil}
     /// Clears the value of `subGroup2`. Subsequent reads from it will return its default value.
     mutating func clearSubGroup2() {self._subGroup2 = nil}
 
@@ -194,11 +194,11 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
       // methods supported on all messages.
 
       var sub2A: Int32 {
-        get {return _sub2A ?? 0}
+        get {_sub2A ?? 0}
         set {_sub2A = newValue}
       }
       /// Returns true if `sub2A` has been explicitly set.
-      var hasSub2A: Bool {return self._sub2A != nil}
+      var hasSub2A: Bool {self._sub2A != nil}
       /// Clears the value of `sub2A`. Subsequent reads from it will return its default value.
       mutating func clearSub2A() {self._sub2A = nil}
 
@@ -221,11 +221,11 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
     // methods supported on all messages.
 
     var sub3A: Int32 {
-      get {return _sub3A ?? 0}
+      get {_sub3A ?? 0}
       set {_sub3A = newValue}
     }
     /// Returns true if `sub3A` has been explicitly set.
-    var hasSub3A: Bool {return self._sub3A != nil}
+    var hasSub3A: Bool {self._sub3A != nil}
     /// Clears the value of `sub3A`. Subsequent reads from it will return its default value.
     mutating func clearSub3A() {self._sub3A = nil}
 
@@ -239,11 +239,11 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
       // methods supported on all messages.
 
       var sub4A: Int32 {
-        get {return _sub4A ?? 0}
+        get {_sub4A ?? 0}
         set {_sub4A = newValue}
       }
       /// Returns true if `sub4A` has been explicitly set.
-      var hasSub4A: Bool {return self._sub4A != nil}
+      var hasSub4A: Bool {self._sub4A != nil}
       /// Clears the value of `sub4A`. Subsequent reads from it will return its default value.
       mutating func clearSub4A() {self._sub4A = nil}
 

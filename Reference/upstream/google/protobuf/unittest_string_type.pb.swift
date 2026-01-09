@@ -34,11 +34,11 @@ struct Proto2Unittest_EntryProto: Sendable {
   // methods supported on all messages.
 
   var value: Data {
-    get {return _value ?? Data()}
+    get {_value ?? Data()}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
-  var hasValue: Bool {return self._value != nil}
+  var hasValue: Bool {self._value != nil}
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
   mutating func clearValue() {self._value = nil}
 

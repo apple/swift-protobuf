@@ -239,16 +239,9 @@ private final class OpenEnumGenerator: EnumGenerator {
     private func generateRawValueProperty(to p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
-        // See https://github.com/apple/swift-protobuf/issues/904 for the full
-        // details on why the default has to get added even though the switch
-        // is complete.
-
-        // This is a "magic" value, currently picked based on the Swift 5.1
-        // compiler, it will need ensure the warning doesn't trigger on all
-        // versions of the compiler, meaning if the error starts to show up
-        // again, all one can do is lower the limit.
-        let maxCasesInSwitch = 500
-
+        // See https://github.com/apple/swift-protobuf/issues/904 for full
+        // details on why maxCasesInSwitch is necessary.
+        let maxCasesInSwitch = generatorOptions.maxCasesInSwitch
         let neededCases = mainEnumValueDescriptorsSorted.count + (enumDescriptor.isClosed ? 0 : 1)
         let useMultipleSwitches = neededCases > maxCasesInSwitch
 

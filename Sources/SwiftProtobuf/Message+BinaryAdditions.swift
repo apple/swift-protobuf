@@ -100,6 +100,34 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
+    #if compiler(>=6.2)
+    /// Creates a new message by decoding the bytes provided by a `RawSpan`
+    /// containing a serialized message in Protocol Buffer binary format.
+    ///
+    /// - Parameters:
+    ///   - serializedBytes: The `RawSpan` of binary-encoded message data to decode.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    ///   - partial: If `false` (the default), this method will check
+    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
+    ///     fields are present. If any are missing, this method throws
+    ///     ``BinaryDecodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    /// - Throws: ``BinaryDecodingError`` if decoding fails.
+    @inlinable
+    @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
+    public init(
+        serializedBytes bytes: RawSpan,
+        extensions: (any ExtensionMap)? = nil,
+        partial: Bool = false,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) throws {
+        self.init()
+        try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
+    }
+    #endif
+
     /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
     /// containing a serialized message in Protocol Buffer binary format into the
     /// receiver.
@@ -130,6 +158,39 @@ extension Message {
             try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
         }
     }
+
+    #if compiler(>=6.2)
+    /// Updates the message by decoding the bytes provided by a `RawSpan` containing
+    /// a serialized message in Protocol Buffer binary format into the receiver.
+    ///
+    /// - Note: If this method throws an error, the message may still have been
+    ///   partially mutated by the binary data that was decoded before the error
+    ///   occurred.
+    ///
+    /// - Parameters:
+    ///   - serializedBytes: The `RawSpan` of binary-encoded message data to decode.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    ///   - partial: If `false` (the default), this method will check
+    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
+    ///     fields are present. If any are missing, this method throws
+    ///     ``BinaryDecodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    /// - Throws: ``BinaryDecodingError`` if decoding fails.
+    @inlinable
+    @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
+    public mutating func merge(
+        serializedBytes bytes: RawSpan,
+        extensions: (any ExtensionMap)? = nil,
+        partial: Bool = false,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) throws {
+        try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+            try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
+        }
+    }
+    #endif
 
     // Helper for `merge()`s to keep the Decoder internal to SwiftProtobuf while
     // allowing the generic over `SwiftProtobufContiguousBytes` to get better codegen from the

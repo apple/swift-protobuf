@@ -96,97 +96,97 @@ struct SwiftProtoTesting_TestMap: @unchecked Sendable {
   // methods supported on all messages.
 
   var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   var mapStringString: Dictionary<String,String> {
-    get {return _storage._mapStringString}
+    get {_storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapInt32Bytes}
+    get {_storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   var mapInt32Enum: Dictionary<Int32,SwiftProtoTesting_MapEnum> {
-    get {return _storage._mapInt32Enum}
+    get {_storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   var mapInt32ForeignMessage: Dictionary<Int32,SwiftProtoTesting_ForeignMessage> {
-    get {return _storage._mapInt32ForeignMessage}
+    get {_storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
   var mapStringForeignMessage: Dictionary<String,SwiftProtoTesting_ForeignMessage> {
-    get {return _storage._mapStringForeignMessage}
+    get {_storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
   var mapInt32AllTypes: Dictionary<Int32,SwiftProtoTesting_TestAllTypes> {
-    get {return _storage._mapInt32AllTypes}
+    get {_storage._mapInt32AllTypes}
     set {_uniqueStorage()._mapInt32AllTypes = newValue}
   }
 

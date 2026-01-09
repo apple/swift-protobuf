@@ -35,20 +35,20 @@ struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var requiredField: Int32 {
-    get {return _storage._requiredField ?? 0}
+    get {_storage._requiredField ?? 0}
     set {_uniqueStorage()._requiredField = newValue}
   }
   /// Returns true if `requiredField` has been explicitly set.
-  var hasRequiredField: Bool {return _storage._requiredField != nil}
+  var hasRequiredField: Bool {_storage._requiredField != nil}
   /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
   mutating func clearRequiredField() {_uniqueStorage()._requiredField = nil}
 
   var delimitedField: LegacyFeaturesUnittest_TestEditionsMessage {
-    get {return _storage._delimitedField ?? LegacyFeaturesUnittest_TestEditionsMessage()}
+    get {_storage._delimitedField ?? LegacyFeaturesUnittest_TestEditionsMessage()}
     set {_uniqueStorage()._delimitedField = newValue}
   }
   /// Returns true if `delimitedField` has been explicitly set.
-  var hasDelimitedField: Bool {return _storage._delimitedField != nil}
+  var hasDelimitedField: Bool {_storage._delimitedField != nil}
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedField() {_uniqueStorage()._delimitedField = nil}
 

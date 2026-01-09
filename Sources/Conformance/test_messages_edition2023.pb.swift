@@ -72,11 +72,11 @@ struct ProtobufTestMessages_Editions_ComplexMessage: Sendable {
   // methods supported on all messages.
 
   var d: Int32 {
-    get {return _d ?? 0}
+    get {_d ?? 0}
     set {_d = newValue}
   }
   /// Returns true if `d` has been explicitly set.
-  var hasD: Bool {return self._d != nil}
+  var hasD: Bool {self._d != nil}
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() {self._d = nil}
 
@@ -94,544 +94,544 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Exte
 
   /// Singular
   var optionalInt32: Int32 {
-    get {return _storage._optionalInt32 ?? 0}
+    get {_storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
   /// Returns true if `optionalInt32` has been explicitly set.
-  var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
+  var hasOptionalInt32: Bool {_storage._optionalInt32 != nil}
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
 
   var optionalInt64: Int64 {
-    get {return _storage._optionalInt64 ?? 0}
+    get {_storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
   /// Returns true if `optionalInt64` has been explicitly set.
-  var hasOptionalInt64: Bool {return _storage._optionalInt64 != nil}
+  var hasOptionalInt64: Bool {_storage._optionalInt64 != nil}
   /// Clears the value of `optionalInt64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt64() {_uniqueStorage()._optionalInt64 = nil}
 
   var optionalUint32: UInt32 {
-    get {return _storage._optionalUint32 ?? 0}
+    get {_storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
   /// Returns true if `optionalUint32` has been explicitly set.
-  var hasOptionalUint32: Bool {return _storage._optionalUint32 != nil}
+  var hasOptionalUint32: Bool {_storage._optionalUint32 != nil}
   /// Clears the value of `optionalUint32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint32() {_uniqueStorage()._optionalUint32 = nil}
 
   var optionalUint64: UInt64 {
-    get {return _storage._optionalUint64 ?? 0}
+    get {_storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
   /// Returns true if `optionalUint64` has been explicitly set.
-  var hasOptionalUint64: Bool {return _storage._optionalUint64 != nil}
+  var hasOptionalUint64: Bool {_storage._optionalUint64 != nil}
   /// Clears the value of `optionalUint64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint64() {_uniqueStorage()._optionalUint64 = nil}
 
   var optionalSint32: Int32 {
-    get {return _storage._optionalSint32 ?? 0}
+    get {_storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
   /// Returns true if `optionalSint32` has been explicitly set.
-  var hasOptionalSint32: Bool {return _storage._optionalSint32 != nil}
+  var hasOptionalSint32: Bool {_storage._optionalSint32 != nil}
   /// Clears the value of `optionalSint32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSint32() {_uniqueStorage()._optionalSint32 = nil}
 
   var optionalSint64: Int64 {
-    get {return _storage._optionalSint64 ?? 0}
+    get {_storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
   /// Returns true if `optionalSint64` has been explicitly set.
-  var hasOptionalSint64: Bool {return _storage._optionalSint64 != nil}
+  var hasOptionalSint64: Bool {_storage._optionalSint64 != nil}
   /// Clears the value of `optionalSint64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSint64() {_uniqueStorage()._optionalSint64 = nil}
 
   var optionalFixed32: UInt32 {
-    get {return _storage._optionalFixed32 ?? 0}
+    get {_storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
   /// Returns true if `optionalFixed32` has been explicitly set.
-  var hasOptionalFixed32: Bool {return _storage._optionalFixed32 != nil}
+  var hasOptionalFixed32: Bool {_storage._optionalFixed32 != nil}
   /// Clears the value of `optionalFixed32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFixed32() {_uniqueStorage()._optionalFixed32 = nil}
 
   var optionalFixed64: UInt64 {
-    get {return _storage._optionalFixed64 ?? 0}
+    get {_storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
   /// Returns true if `optionalFixed64` has been explicitly set.
-  var hasOptionalFixed64: Bool {return _storage._optionalFixed64 != nil}
+  var hasOptionalFixed64: Bool {_storage._optionalFixed64 != nil}
   /// Clears the value of `optionalFixed64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFixed64() {_uniqueStorage()._optionalFixed64 = nil}
 
   var optionalSfixed32: Int32 {
-    get {return _storage._optionalSfixed32 ?? 0}
+    get {_storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
   /// Returns true if `optionalSfixed32` has been explicitly set.
-  var hasOptionalSfixed32: Bool {return _storage._optionalSfixed32 != nil}
+  var hasOptionalSfixed32: Bool {_storage._optionalSfixed32 != nil}
   /// Clears the value of `optionalSfixed32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSfixed32() {_uniqueStorage()._optionalSfixed32 = nil}
 
   var optionalSfixed64: Int64 {
-    get {return _storage._optionalSfixed64 ?? 0}
+    get {_storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
   /// Returns true if `optionalSfixed64` has been explicitly set.
-  var hasOptionalSfixed64: Bool {return _storage._optionalSfixed64 != nil}
+  var hasOptionalSfixed64: Bool {_storage._optionalSfixed64 != nil}
   /// Clears the value of `optionalSfixed64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSfixed64() {_uniqueStorage()._optionalSfixed64 = nil}
 
   var optionalFloat: Float {
-    get {return _storage._optionalFloat ?? 0}
+    get {_storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
   /// Returns true if `optionalFloat` has been explicitly set.
-  var hasOptionalFloat: Bool {return _storage._optionalFloat != nil}
+  var hasOptionalFloat: Bool {_storage._optionalFloat != nil}
   /// Clears the value of `optionalFloat`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFloat() {_uniqueStorage()._optionalFloat = nil}
 
   var optionalDouble: Double {
-    get {return _storage._optionalDouble ?? 0}
+    get {_storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
   /// Returns true if `optionalDouble` has been explicitly set.
-  var hasOptionalDouble: Bool {return _storage._optionalDouble != nil}
+  var hasOptionalDouble: Bool {_storage._optionalDouble != nil}
   /// Clears the value of `optionalDouble`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDouble() {_uniqueStorage()._optionalDouble = nil}
 
   var optionalBool: Bool {
-    get {return _storage._optionalBool ?? false}
+    get {_storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
   /// Returns true if `optionalBool` has been explicitly set.
-  var hasOptionalBool: Bool {return _storage._optionalBool != nil}
+  var hasOptionalBool: Bool {_storage._optionalBool != nil}
   /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBool() {_uniqueStorage()._optionalBool = nil}
 
   var optionalString: String {
-    get {return _storage._optionalString ?? String()}
+    get {_storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   /// Returns true if `optionalString` has been explicitly set.
-  var hasOptionalString: Bool {return _storage._optionalString != nil}
+  var hasOptionalString: Bool {_storage._optionalString != nil}
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {_storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
-  var hasOptionalBytes: Bool {return _storage._optionalBytes != nil}
+  var hasOptionalBytes: Bool {_storage._optionalBytes != nil}
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
   var optionalNestedMessage: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage()}
+    get {_storage._optionalNestedMessage ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  var hasOptionalNestedMessage: Bool {_storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var optionalForeignMessage: ProtobufTestMessages_Editions_ForeignMessageEdition2023 {
-    get {return _storage._optionalForeignMessage ?? ProtobufTestMessages_Editions_ForeignMessageEdition2023()}
+    get {_storage._optionalForeignMessage ?? ProtobufTestMessages_Editions_ForeignMessageEdition2023()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
-  var hasOptionalForeignMessage: Bool {return _storage._optionalForeignMessage != nil}
+  var hasOptionalForeignMessage: Bool {_storage._optionalForeignMessage != nil}
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
   var optionalNestedEnum: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
-    get {return _storage._optionalNestedEnum ?? .foo}
+    get {_storage._optionalNestedEnum ?? .foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
   /// Returns true if `optionalNestedEnum` has been explicitly set.
-  var hasOptionalNestedEnum: Bool {return _storage._optionalNestedEnum != nil}
+  var hasOptionalNestedEnum: Bool {_storage._optionalNestedEnum != nil}
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedEnum() {_uniqueStorage()._optionalNestedEnum = nil}
 
   var optionalForeignEnum: ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
-    get {return _storage._optionalForeignEnum ?? .foreignFoo}
+    get {_storage._optionalForeignEnum ?? .foreignFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
   /// Returns true if `optionalForeignEnum` has been explicitly set.
-  var hasOptionalForeignEnum: Bool {return _storage._optionalForeignEnum != nil}
+  var hasOptionalForeignEnum: Bool {_storage._optionalForeignEnum != nil}
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignEnum() {_uniqueStorage()._optionalForeignEnum = nil}
 
   var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece ?? String()}
+    get {_storage._optionalStringPiece ?? String()}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
   /// Returns true if `optionalStringPiece` has been explicitly set.
-  var hasOptionalStringPiece: Bool {return _storage._optionalStringPiece != nil}
+  var hasOptionalStringPiece: Bool {_storage._optionalStringPiece != nil}
   /// Clears the value of `optionalStringPiece`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStringPiece() {_uniqueStorage()._optionalStringPiece = nil}
 
   var optionalCord: String {
-    get {return _storage._optionalCord ?? String()}
+    get {_storage._optionalCord ?? String()}
     set {_uniqueStorage()._optionalCord = newValue}
   }
   /// Returns true if `optionalCord` has been explicitly set.
-  var hasOptionalCord: Bool {return _storage._optionalCord != nil}
+  var hasOptionalCord: Bool {_storage._optionalCord != nil}
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
   mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
 
   var recursiveMessage: ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
-    get {return _storage._recursiveMessage ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023()}
+    get {_storage._recursiveMessage ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023()}
     set {_uniqueStorage()._recursiveMessage = newValue}
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
-  var hasRecursiveMessage: Bool {return _storage._recursiveMessage != nil}
+  var hasRecursiveMessage: Bool {_storage._recursiveMessage != nil}
   /// Clears the value of `recursiveMessage`. Subsequent reads from it will return its default value.
   mutating func clearRecursiveMessage() {_uniqueStorage()._recursiveMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
+    get {_storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   var repeatedInt64: [Int64] {
-    get {return _storage._repeatedInt64}
+    get {_storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   var repeatedUint32: [UInt32] {
-    get {return _storage._repeatedUint32}
+    get {_storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   var repeatedUint64: [UInt64] {
-    get {return _storage._repeatedUint64}
+    get {_storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   var repeatedSint32: [Int32] {
-    get {return _storage._repeatedSint32}
+    get {_storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   var repeatedSint64: [Int64] {
-    get {return _storage._repeatedSint64}
+    get {_storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   var repeatedFixed32: [UInt32] {
-    get {return _storage._repeatedFixed32}
+    get {_storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   var repeatedFixed64: [UInt64] {
-    get {return _storage._repeatedFixed64}
+    get {_storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   var repeatedSfixed32: [Int32] {
-    get {return _storage._repeatedSfixed32}
+    get {_storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   var repeatedSfixed64: [Int64] {
-    get {return _storage._repeatedSfixed64}
+    get {_storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   var repeatedFloat: [Float] {
-    get {return _storage._repeatedFloat}
+    get {_storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   var repeatedDouble: [Double] {
-    get {return _storage._repeatedDouble}
+    get {_storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   var repeatedBool: [Bool] {
-    get {return _storage._repeatedBool}
+    get {_storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   var repeatedString: [String] {
-    get {return _storage._repeatedString}
+    get {_storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   var repeatedBytes: [Data] {
-    get {return _storage._repeatedBytes}
+    get {_storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   var repeatedNestedMessage: [ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage] {
-    get {return _storage._repeatedNestedMessage}
+    get {_storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
   var repeatedForeignMessage: [ProtobufTestMessages_Editions_ForeignMessageEdition2023] {
-    get {return _storage._repeatedForeignMessage}
+    get {_storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
 
   var repeatedNestedEnum: [ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum] {
-    get {return _storage._repeatedNestedEnum}
+    get {_storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
   var repeatedForeignEnum: [ProtobufTestMessages_Editions_ForeignEnumEdition2023] {
-    get {return _storage._repeatedForeignEnum}
+    get {_storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
 
   var repeatedStringPiece: [String] {
-    get {return _storage._repeatedStringPiece}
+    get {_storage._repeatedStringPiece}
     set {_uniqueStorage()._repeatedStringPiece = newValue}
   }
 
   var repeatedCord: [String] {
-    get {return _storage._repeatedCord}
+    get {_storage._repeatedCord}
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
   /// Packed
   var packedInt32: [Int32] {
-    get {return _storage._packedInt32}
+    get {_storage._packedInt32}
     set {_uniqueStorage()._packedInt32 = newValue}
   }
 
   var packedInt64: [Int64] {
-    get {return _storage._packedInt64}
+    get {_storage._packedInt64}
     set {_uniqueStorage()._packedInt64 = newValue}
   }
 
   var packedUint32: [UInt32] {
-    get {return _storage._packedUint32}
+    get {_storage._packedUint32}
     set {_uniqueStorage()._packedUint32 = newValue}
   }
 
   var packedUint64: [UInt64] {
-    get {return _storage._packedUint64}
+    get {_storage._packedUint64}
     set {_uniqueStorage()._packedUint64 = newValue}
   }
 
   var packedSint32: [Int32] {
-    get {return _storage._packedSint32}
+    get {_storage._packedSint32}
     set {_uniqueStorage()._packedSint32 = newValue}
   }
 
   var packedSint64: [Int64] {
-    get {return _storage._packedSint64}
+    get {_storage._packedSint64}
     set {_uniqueStorage()._packedSint64 = newValue}
   }
 
   var packedFixed32: [UInt32] {
-    get {return _storage._packedFixed32}
+    get {_storage._packedFixed32}
     set {_uniqueStorage()._packedFixed32 = newValue}
   }
 
   var packedFixed64: [UInt64] {
-    get {return _storage._packedFixed64}
+    get {_storage._packedFixed64}
     set {_uniqueStorage()._packedFixed64 = newValue}
   }
 
   var packedSfixed32: [Int32] {
-    get {return _storage._packedSfixed32}
+    get {_storage._packedSfixed32}
     set {_uniqueStorage()._packedSfixed32 = newValue}
   }
 
   var packedSfixed64: [Int64] {
-    get {return _storage._packedSfixed64}
+    get {_storage._packedSfixed64}
     set {_uniqueStorage()._packedSfixed64 = newValue}
   }
 
   var packedFloat: [Float] {
-    get {return _storage._packedFloat}
+    get {_storage._packedFloat}
     set {_uniqueStorage()._packedFloat = newValue}
   }
 
   var packedDouble: [Double] {
-    get {return _storage._packedDouble}
+    get {_storage._packedDouble}
     set {_uniqueStorage()._packedDouble = newValue}
   }
 
   var packedBool: [Bool] {
-    get {return _storage._packedBool}
+    get {_storage._packedBool}
     set {_uniqueStorage()._packedBool = newValue}
   }
 
   var packedNestedEnum: [ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum] {
-    get {return _storage._packedNestedEnum}
+    get {_storage._packedNestedEnum}
     set {_uniqueStorage()._packedNestedEnum = newValue}
   }
 
   /// Unpacked
   var unpackedInt32: [Int32] {
-    get {return _storage._unpackedInt32}
+    get {_storage._unpackedInt32}
     set {_uniqueStorage()._unpackedInt32 = newValue}
   }
 
   var unpackedInt64: [Int64] {
-    get {return _storage._unpackedInt64}
+    get {_storage._unpackedInt64}
     set {_uniqueStorage()._unpackedInt64 = newValue}
   }
 
   var unpackedUint32: [UInt32] {
-    get {return _storage._unpackedUint32}
+    get {_storage._unpackedUint32}
     set {_uniqueStorage()._unpackedUint32 = newValue}
   }
 
   var unpackedUint64: [UInt64] {
-    get {return _storage._unpackedUint64}
+    get {_storage._unpackedUint64}
     set {_uniqueStorage()._unpackedUint64 = newValue}
   }
 
   var unpackedSint32: [Int32] {
-    get {return _storage._unpackedSint32}
+    get {_storage._unpackedSint32}
     set {_uniqueStorage()._unpackedSint32 = newValue}
   }
 
   var unpackedSint64: [Int64] {
-    get {return _storage._unpackedSint64}
+    get {_storage._unpackedSint64}
     set {_uniqueStorage()._unpackedSint64 = newValue}
   }
 
   var unpackedFixed32: [UInt32] {
-    get {return _storage._unpackedFixed32}
+    get {_storage._unpackedFixed32}
     set {_uniqueStorage()._unpackedFixed32 = newValue}
   }
 
   var unpackedFixed64: [UInt64] {
-    get {return _storage._unpackedFixed64}
+    get {_storage._unpackedFixed64}
     set {_uniqueStorage()._unpackedFixed64 = newValue}
   }
 
   var unpackedSfixed32: [Int32] {
-    get {return _storage._unpackedSfixed32}
+    get {_storage._unpackedSfixed32}
     set {_uniqueStorage()._unpackedSfixed32 = newValue}
   }
 
   var unpackedSfixed64: [Int64] {
-    get {return _storage._unpackedSfixed64}
+    get {_storage._unpackedSfixed64}
     set {_uniqueStorage()._unpackedSfixed64 = newValue}
   }
 
   var unpackedFloat: [Float] {
-    get {return _storage._unpackedFloat}
+    get {_storage._unpackedFloat}
     set {_uniqueStorage()._unpackedFloat = newValue}
   }
 
   var unpackedDouble: [Double] {
-    get {return _storage._unpackedDouble}
+    get {_storage._unpackedDouble}
     set {_uniqueStorage()._unpackedDouble = newValue}
   }
 
   var unpackedBool: [Bool] {
-    get {return _storage._unpackedBool}
+    get {_storage._unpackedBool}
     set {_uniqueStorage()._unpackedBool = newValue}
   }
 
   var unpackedNestedEnum: [ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum] {
-    get {return _storage._unpackedNestedEnum}
+    get {_storage._unpackedNestedEnum}
     set {_uniqueStorage()._unpackedNestedEnum = newValue}
   }
 
   /// Map
   var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   var mapStringString: Dictionary<String,String> {
-    get {return _storage._mapStringString}
+    get {_storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   var mapStringBytes: Dictionary<String,Data> {
-    get {return _storage._mapStringBytes}
+    get {_storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
   var mapStringNestedMessage: Dictionary<String,ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage> {
-    get {return _storage._mapStringNestedMessage}
+    get {_storage._mapStringNestedMessage}
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
   var mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Editions_ForeignMessageEdition2023> {
-    get {return _storage._mapStringForeignMessage}
+    get {_storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
   var mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum> {
-    get {return _storage._mapStringNestedEnum}
+    get {_storage._mapStringNestedEnum}
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
 
   var mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Editions_ForeignEnumEdition2023> {
-    get {return _storage._mapStringForeignEnum}
+    get {_storage._mapStringForeignEnum}
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
@@ -713,20 +713,20 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Exte
   }
 
   var groupLikeType: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType {
-    get {return _storage._groupLikeType ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType()}
+    get {_storage._groupLikeType ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType()}
     set {_uniqueStorage()._groupLikeType = newValue}
   }
   /// Returns true if `groupLikeType` has been explicitly set.
-  var hasGroupLikeType: Bool {return _storage._groupLikeType != nil}
+  var hasGroupLikeType: Bool {_storage._groupLikeType != nil}
   /// Clears the value of `groupLikeType`. Subsequent reads from it will return its default value.
   mutating func clearGroupLikeType() {_uniqueStorage()._groupLikeType = nil}
 
   var delimitedField: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType {
-    get {return _storage._delimitedField ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType()}
+    get {_storage._delimitedField ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType()}
     set {_uniqueStorage()._delimitedField = newValue}
   }
   /// Returns true if `delimitedField` has been explicitly set.
-  var hasDelimitedField: Bool {return _storage._delimitedField != nil}
+  var hasDelimitedField: Bool {_storage._delimitedField != nil}
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedField() {_uniqueStorage()._delimitedField = nil}
 
@@ -800,20 +800,20 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Exte
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _storage._a ?? 0}
+      get {_storage._a ?? 0}
       set {_uniqueStorage()._a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return _storage._a != nil}
+    var hasA: Bool {_storage._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {_uniqueStorage()._a = nil}
 
     var corecursive: ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
-      get {return _storage._corecursive ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023()}
+      get {_storage._corecursive ?? ProtobufTestMessages_Editions_TestAllTypesEdition2023()}
       set {_uniqueStorage()._corecursive = newValue}
     }
     /// Returns true if `corecursive` has been explicitly set.
-    var hasCorecursive: Bool {return _storage._corecursive != nil}
+    var hasCorecursive: Bool {_storage._corecursive != nil}
     /// Clears the value of `corecursive`. Subsequent reads from it will return its default value.
     mutating func clearCorecursive() {_uniqueStorage()._corecursive = nil}
 
@@ -831,20 +831,20 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Exte
     // methods supported on all messages.
 
     var groupInt32: Int32 {
-      get {return _groupInt32 ?? 0}
+      get {_groupInt32 ?? 0}
       set {_groupInt32 = newValue}
     }
     /// Returns true if `groupInt32` has been explicitly set.
-    var hasGroupInt32: Bool {return self._groupInt32 != nil}
+    var hasGroupInt32: Bool {self._groupInt32 != nil}
     /// Clears the value of `groupInt32`. Subsequent reads from it will return its default value.
     mutating func clearGroupInt32() {self._groupInt32 = nil}
 
     var groupUint32: UInt32 {
-      get {return _groupUint32 ?? 0}
+      get {_groupUint32 ?? 0}
       set {_groupUint32 = newValue}
     }
     /// Returns true if `groupUint32` has been explicitly set.
-    var hasGroupUint32: Bool {return self._groupUint32 != nil}
+    var hasGroupUint32: Bool {self._groupUint32 != nil}
     /// Clears the value of `groupUint32`. Subsequent reads from it will return its default value.
     mutating func clearGroupUint32() {self._groupUint32 = nil}
 
@@ -868,11 +868,11 @@ struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: Sendable {
   // methods supported on all messages.
 
   var c: Int32 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 
@@ -889,11 +889,11 @@ struct ProtobufTestMessages_Editions_GroupLikeType: Sendable {
   // methods supported on all messages.
 
   var c: Int32 {
-    get {return _c ?? 0}
+    get {_c ?? 0}
     set {_c = newValue}
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool {return self._c != nil}
+  var hasC: Bool {self._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {self._c = nil}
 

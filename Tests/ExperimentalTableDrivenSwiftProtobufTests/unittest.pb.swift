@@ -93,484 +93,484 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
 
   /// Singular
   var optionalInt32: Int32 {
-    get { return _storage.value(at: 32, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 32, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalInt32` has been explicitly set.
-  var hasOptionalInt32: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasOptionalInt32: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt32() { _uniqueStorage().clearValue(at: 32, type: Int32.self, hasBit: (0, 1)) }
 
   var optionalInt64: Int64 {
-    get { return _storage.value(at: 112, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 112, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 112, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalInt64` has been explicitly set.
-  var hasOptionalInt64: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasOptionalInt64: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalInt64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt64() { _uniqueStorage().clearValue(at: 112, type: Int64.self, hasBit: (0, 2)) }
 
   var optionalUint32: UInt32 {
-    get { return _storage.value(at: 36, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 36, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 36, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalUint32` has been explicitly set.
-  var hasOptionalUint32: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasOptionalUint32: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalUint32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint32() { _uniqueStorage().clearValue(at: 36, type: UInt32.self, hasBit: (0, 4)) }
 
   var optionalUint64: UInt64 {
-    get { return _storage.value(at: 120, default: 0, hasBit: (0, 8)) }
+    get { _storage.value(at: 120, default: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 120, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalUint64` has been explicitly set.
-  var hasOptionalUint64: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasOptionalUint64: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optionalUint64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint64() { _uniqueStorage().clearValue(at: 120, type: UInt64.self, hasBit: (0, 8)) }
 
   var optionalSint32: Int32 {
-    get { return _storage.value(at: 40, default: 0, hasBit: (0, 16)) }
+    get { _storage.value(at: 40, default: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optionalSint32` has been explicitly set.
-  var hasOptionalSint32: Bool { return _storage.isPresent(hasBit: (0, 16)) }
+  var hasOptionalSint32: Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `optionalSint32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSint32() { _uniqueStorage().clearValue(at: 40, type: Int32.self, hasBit: (0, 16)) }
 
   var optionalSint64: Int64 {
-    get { return _storage.value(at: 128, default: 0, hasBit: (0, 32)) }
+    get { _storage.value(at: 128, default: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: 128, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `optionalSint64` has been explicitly set.
-  var hasOptionalSint64: Bool { return _storage.isPresent(hasBit: (0, 32)) }
+  var hasOptionalSint64: Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `optionalSint64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSint64() { _uniqueStorage().clearValue(at: 128, type: Int64.self, hasBit: (0, 32)) }
 
   var optionalFixed32: UInt32 {
-    get { return _storage.value(at: 44, default: 0, hasBit: (0, 64)) }
+    get { _storage.value(at: 44, default: 0, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: 44, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `optionalFixed32` has been explicitly set.
-  var hasOptionalFixed32: Bool { return _storage.isPresent(hasBit: (0, 64)) }
+  var hasOptionalFixed32: Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `optionalFixed32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFixed32() { _uniqueStorage().clearValue(at: 44, type: UInt32.self, hasBit: (0, 64)) }
 
   var optionalFixed64: UInt64 {
-    get { return _storage.value(at: 136, default: 0, hasBit: (0, 128)) }
+    get { _storage.value(at: 136, default: 0, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: 136, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `optionalFixed64` has been explicitly set.
-  var hasOptionalFixed64: Bool { return _storage.isPresent(hasBit: (0, 128)) }
+  var hasOptionalFixed64: Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `optionalFixed64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFixed64() { _uniqueStorage().clearValue(at: 136, type: UInt64.self, hasBit: (0, 128)) }
 
   var optionalSfixed32: Int32 {
-    get { return _storage.value(at: 48, default: 0, hasBit: (1, 1)) }
+    get { _storage.value(at: 48, default: 0, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `optionalSfixed32` has been explicitly set.
-  var hasOptionalSfixed32: Bool { return _storage.isPresent(hasBit: (1, 1)) }
+  var hasOptionalSfixed32: Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `optionalSfixed32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSfixed32() { _uniqueStorage().clearValue(at: 48, type: Int32.self, hasBit: (1, 1)) }
 
   var optionalSfixed64: Int64 {
-    get { return _storage.value(at: 144, default: 0, hasBit: (1, 2)) }
+    get { _storage.value(at: 144, default: 0, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: 144, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `optionalSfixed64` has been explicitly set.
-  var hasOptionalSfixed64: Bool { return _storage.isPresent(hasBit: (1, 2)) }
+  var hasOptionalSfixed64: Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `optionalSfixed64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSfixed64() { _uniqueStorage().clearValue(at: 144, type: Int64.self, hasBit: (1, 2)) }
 
   var optionalFloat: Float {
-    get { return _storage.value(at: 52, default: 0, hasBit: (1, 4)) }
+    get { _storage.value(at: 52, default: 0, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: 52, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `optionalFloat` has been explicitly set.
-  var hasOptionalFloat: Bool { return _storage.isPresent(hasBit: (1, 4)) }
+  var hasOptionalFloat: Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `optionalFloat`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFloat() { _uniqueStorage().clearValue(at: 52, type: Float.self, hasBit: (1, 4)) }
 
   var optionalDouble: Double {
-    get { return _storage.value(at: 152, default: 0, hasBit: (1, 8)) }
+    get { _storage.value(at: 152, default: 0, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(at: 152, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `optionalDouble` has been explicitly set.
-  var hasOptionalDouble: Bool { return _storage.isPresent(hasBit: (1, 8)) }
+  var hasOptionalDouble: Bool { _storage.isPresent(hasBit: (1, 8)) }
   /// Clears the value of `optionalDouble`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDouble() { _uniqueStorage().clearValue(at: 152, type: Double.self, hasBit: (1, 8)) }
 
   var optionalBool: Bool {
-    get { return _storage.value(at: 28, default: false, hasBit: (1, 16)) }
+    get { _storage.value(at: 28, default: false, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(at: 28, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `optionalBool` has been explicitly set.
-  var hasOptionalBool: Bool { return _storage.isPresent(hasBit: (1, 16)) }
+  var hasOptionalBool: Bool { _storage.isPresent(hasBit: (1, 16)) }
   /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBool() { _uniqueStorage().clearValue(at: 28, type: Bool.self, hasBit: (1, 16)) }
 
   var optionalString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(432, 324), default: String(), hasBit: (1, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(432, 324), default: String(), hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(432, 324), to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `optionalString` has been explicitly set.
-  var hasOptionalString: Bool { return _storage.isPresent(hasBit: (1, 32)) }
+  var hasOptionalString: Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(432, 324), type: String.self, hasBit: (1, 32)) }
 
   var optionalBytes: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(448, 336), default: Data(), hasBit: (1, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(448, 336), default: Data(), hasBit: (1, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(448, 336), to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `optionalBytes` has been explicitly set.
-  var hasOptionalBytes: Bool { return _storage.isPresent(hasBit: (1, 64)) }
+  var hasOptionalBytes: Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(448, 336), type: Data.self, hasBit: (1, 64)) }
 
   var optionalGroup: SwiftProtoTesting_TestAllTypes.OptionalGroup {
-    get { return _storage.value(at: 208, default: SwiftProtoTesting_TestAllTypes.OptionalGroup(), hasBit: (1, 128)) }
+    get { _storage.value(at: 208, default: SwiftProtoTesting_TestAllTypes.OptionalGroup(), hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(at: 208, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
-  var hasOptionalGroup: Bool { return _storage.isPresent(hasBit: (1, 128)) }
+  var hasOptionalGroup: Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(at: 208, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: SwiftProtoTesting_TestAllTypes.NestedMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(216, 212), default: SwiftProtoTesting_TestAllTypes.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(216, 212), default: SwiftProtoTesting_TestAllTypes.NestedMessage(), hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(216, 212), to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool { return _storage.isPresent(hasBit: (2, 1)) }
+  var hasOptionalNestedMessage: Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(216, 212), type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, hasBit: (2, 1)) }
 
   var optionalForeignMessage: SwiftProtoTesting_ForeignMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(224, 216), default: SwiftProtoTesting_ForeignMessage(), hasBit: (2, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(224, 216), default: SwiftProtoTesting_ForeignMessage(), hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(224, 216), to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
-  var hasOptionalForeignMessage: Bool { return _storage.isPresent(hasBit: (2, 2)) }
+  var hasOptionalForeignMessage: Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(224, 216), type: SwiftProtoTesting_ForeignMessage.self, hasBit: (2, 2)) }
 
   var optionalImportMessage: SwiftProtoTesting_Import_ImportMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(232, 220), default: SwiftProtoTesting_Import_ImportMessage(), hasBit: (2, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(232, 220), default: SwiftProtoTesting_Import_ImportMessage(), hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(232, 220), to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
-  var hasOptionalImportMessage: Bool { return _storage.isPresent(hasBit: (2, 4)) }
+  var hasOptionalImportMessage: Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `optionalImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalImportMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(232, 220), type: SwiftProtoTesting_Import_ImportMessage.self, hasBit: (2, 4)) }
 
   var optionalNestedEnum: SwiftProtoTesting_TestAllTypes.NestedEnum {
-    get { return _storage.value(at: 56, default: .foo, hasBit: (2, 8)) }
+    get { _storage.value(at: 56, default: .foo, hasBit: (2, 8)) }
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `optionalNestedEnum` has been explicitly set.
-  var hasOptionalNestedEnum: Bool { return _storage.isPresent(hasBit: (2, 8)) }
+  var hasOptionalNestedEnum: Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 56, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, hasBit: (2, 8)) }
 
   var optionalForeignEnum: SwiftProtoTesting_ForeignEnum {
-    get { return _storage.value(at: 60, default: .foreignFoo, hasBit: (2, 16)) }
+    get { _storage.value(at: 60, default: .foreignFoo, hasBit: (2, 16)) }
     set { _uniqueStorage().updateValue(at: 60, to: newValue, willBeSet: true, hasBit: (2, 16)) }
   }
   /// Returns true if `optionalForeignEnum` has been explicitly set.
-  var hasOptionalForeignEnum: Bool { return _storage.isPresent(hasBit: (2, 16)) }
+  var hasOptionalForeignEnum: Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 60, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (2, 16)) }
 
   var optionalImportEnum: SwiftProtoTesting_Import_ImportEnum {
-    get { return _storage.value(at: 64, default: .importFoo, hasBit: (2, 32)) }
+    get { _storage.value(at: 64, default: .importFoo, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `optionalImportEnum` has been explicitly set.
-  var hasOptionalImportEnum: Bool { return _storage.isPresent(hasBit: (2, 32)) }
+  var hasOptionalImportEnum: Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `optionalImportEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalImportEnum() { _uniqueStorage().clearValue(at: 64, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (2, 32)) }
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(240, 224), default: SwiftProtoTesting_Import_PublicImportMessage(), hasBit: (2, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(240, 224), default: SwiftProtoTesting_Import_PublicImportMessage(), hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(240, 224), to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
-  var hasOptionalPublicImportMessage: Bool { return _storage.isPresent(hasBit: (2, 64)) }
+  var hasOptionalPublicImportMessage: Bool { _storage.isPresent(hasBit: (2, 64)) }
   /// Clears the value of `optionalPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalPublicImportMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(240, 224), type: SwiftProtoTesting_Import_PublicImportMessage.self, hasBit: (2, 64)) }
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(248, 228), hasBit: (5, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(248, 228), hasBit: (5, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(248, 228), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 2)) }
   }
 
   var repeatedInt64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(256, 232), hasBit: (5, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(256, 232), hasBit: (5, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(256, 232), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 4)) }
   }
 
   var repeatedUint32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(264, 236), hasBit: (5, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(264, 236), hasBit: (5, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(264, 236), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 8)) }
   }
 
   var repeatedUint64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(272, 240), hasBit: (5, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(272, 240), hasBit: (5, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(272, 240), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 16)) }
   }
 
   var repeatedSint32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(280, 244), hasBit: (5, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(280, 244), hasBit: (5, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(280, 244), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 32)) }
   }
 
   var repeatedSint64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(288, 248), hasBit: (5, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(288, 248), hasBit: (5, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(288, 248), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 64)) }
   }
 
   var repeatedFixed32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(296, 252), hasBit: (5, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(296, 252), hasBit: (5, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(296, 252), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (5, 128)) }
   }
 
   var repeatedFixed64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(304, 256), hasBit: (6, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(304, 256), hasBit: (6, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(304, 256), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 1)) }
   }
 
   var repeatedSfixed32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(312, 260), hasBit: (6, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(312, 260), hasBit: (6, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(312, 260), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 2)) }
   }
 
   var repeatedSfixed64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(320, 264), hasBit: (6, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(320, 264), hasBit: (6, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(320, 264), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 4)) }
   }
 
   var repeatedFloat: [Float] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(328, 268), hasBit: (6, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(328, 268), hasBit: (6, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(328, 268), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 8)) }
   }
 
   var repeatedDouble: [Double] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(336, 272), hasBit: (6, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(336, 272), hasBit: (6, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(336, 272), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 16)) }
   }
 
   var repeatedBool: [Bool] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(344, 276), hasBit: (6, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(344, 276), hasBit: (6, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(344, 276), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 32)) }
   }
 
   var repeatedString: [String] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(352, 280), hasBit: (6, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(352, 280), hasBit: (6, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(352, 280), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
   }
 
   var repeatedBytes: [Data] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(360, 284), hasBit: (6, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(360, 284), hasBit: (6, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(360, 284), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 128)) }
   }
 
   var repeatedGroup: [SwiftProtoTesting_TestAllTypes.RepeatedGroup] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(368, 288), hasBit: (7, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(368, 288), hasBit: (7, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(368, 288), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
   }
 
   var repeatedNestedMessage: [SwiftProtoTesting_TestAllTypes.NestedMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(376, 292), hasBit: (7, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(376, 292), hasBit: (7, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(376, 292), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 2)) }
   }
 
   var repeatedForeignMessage: [SwiftProtoTesting_ForeignMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(384, 296), hasBit: (7, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(384, 296), hasBit: (7, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(384, 296), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 4)) }
   }
 
   var repeatedImportMessage: [SwiftProtoTesting_Import_ImportMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(392, 300), hasBit: (7, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(392, 300), hasBit: (7, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(392, 300), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 8)) }
   }
 
   var repeatedNestedEnum: [SwiftProtoTesting_TestAllTypes.NestedEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(400, 304), hasBit: (7, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(400, 304), hasBit: (7, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(400, 304), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 16)) }
   }
 
   var repeatedForeignEnum: [SwiftProtoTesting_ForeignEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(408, 308), hasBit: (7, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(408, 308), hasBit: (7, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(408, 308), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 32)) }
   }
 
   var repeatedImportEnum: [SwiftProtoTesting_Import_ImportEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(416, 312), hasBit: (7, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(416, 312), hasBit: (7, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(416, 312), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 64)) }
   }
 
   /// Singular with defaults
   var defaultInt32: Int32 {
-    get { return _storage.value(at: 68, default: 41, hasBit: (2, 128)) }
+    get { _storage.value(at: 68, default: 41, hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(at: 68, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `defaultInt32` has been explicitly set.
-  var hasDefaultInt32: Bool { return _storage.isPresent(hasBit: (2, 128)) }
+  var hasDefaultInt32: Bool { _storage.isPresent(hasBit: (2, 128)) }
   /// Clears the value of `defaultInt32`. Subsequent reads from it will return its default value.
   mutating func clearDefaultInt32() { _uniqueStorage().clearValue(at: 68, type: Int32.self, hasBit: (2, 128)) }
 
   var defaultInt64: Int64 {
-    get { return _storage.value(at: 160, default: 42, hasBit: (3, 1)) }
+    get { _storage.value(at: 160, default: 42, hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(at: 160, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `defaultInt64` has been explicitly set.
-  var hasDefaultInt64: Bool { return _storage.isPresent(hasBit: (3, 1)) }
+  var hasDefaultInt64: Bool { _storage.isPresent(hasBit: (3, 1)) }
   /// Clears the value of `defaultInt64`. Subsequent reads from it will return its default value.
   mutating func clearDefaultInt64() { _uniqueStorage().clearValue(at: 160, type: Int64.self, hasBit: (3, 1)) }
 
   var defaultUint32: UInt32 {
-    get { return _storage.value(at: 72, default: 43, hasBit: (3, 2)) }
+    get { _storage.value(at: 72, default: 43, hasBit: (3, 2)) }
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `defaultUint32` has been explicitly set.
-  var hasDefaultUint32: Bool { return _storage.isPresent(hasBit: (3, 2)) }
+  var hasDefaultUint32: Bool { _storage.isPresent(hasBit: (3, 2)) }
   /// Clears the value of `defaultUint32`. Subsequent reads from it will return its default value.
   mutating func clearDefaultUint32() { _uniqueStorage().clearValue(at: 72, type: UInt32.self, hasBit: (3, 2)) }
 
   var defaultUint64: UInt64 {
-    get { return _storage.value(at: 168, default: 44, hasBit: (3, 4)) }
+    get { _storage.value(at: 168, default: 44, hasBit: (3, 4)) }
     set { _uniqueStorage().updateValue(at: 168, to: newValue, willBeSet: true, hasBit: (3, 4)) }
   }
   /// Returns true if `defaultUint64` has been explicitly set.
-  var hasDefaultUint64: Bool { return _storage.isPresent(hasBit: (3, 4)) }
+  var hasDefaultUint64: Bool { _storage.isPresent(hasBit: (3, 4)) }
   /// Clears the value of `defaultUint64`. Subsequent reads from it will return its default value.
   mutating func clearDefaultUint64() { _uniqueStorage().clearValue(at: 168, type: UInt64.self, hasBit: (3, 4)) }
 
   var defaultSint32: Int32 {
-    get { return _storage.value(at: 76, default: -45, hasBit: (3, 8)) }
+    get { _storage.value(at: 76, default: -45, hasBit: (3, 8)) }
     set { _uniqueStorage().updateValue(at: 76, to: newValue, willBeSet: true, hasBit: (3, 8)) }
   }
   /// Returns true if `defaultSint32` has been explicitly set.
-  var hasDefaultSint32: Bool { return _storage.isPresent(hasBit: (3, 8)) }
+  var hasDefaultSint32: Bool { _storage.isPresent(hasBit: (3, 8)) }
   /// Clears the value of `defaultSint32`. Subsequent reads from it will return its default value.
   mutating func clearDefaultSint32() { _uniqueStorage().clearValue(at: 76, type: Int32.self, hasBit: (3, 8)) }
 
   var defaultSint64: Int64 {
-    get { return _storage.value(at: 176, default: 46, hasBit: (3, 16)) }
+    get { _storage.value(at: 176, default: 46, hasBit: (3, 16)) }
     set { _uniqueStorage().updateValue(at: 176, to: newValue, willBeSet: true, hasBit: (3, 16)) }
   }
   /// Returns true if `defaultSint64` has been explicitly set.
-  var hasDefaultSint64: Bool { return _storage.isPresent(hasBit: (3, 16)) }
+  var hasDefaultSint64: Bool { _storage.isPresent(hasBit: (3, 16)) }
   /// Clears the value of `defaultSint64`. Subsequent reads from it will return its default value.
   mutating func clearDefaultSint64() { _uniqueStorage().clearValue(at: 176, type: Int64.self, hasBit: (3, 16)) }
 
   var defaultFixed32: UInt32 {
-    get { return _storage.value(at: 80, default: 47, hasBit: (3, 32)) }
+    get { _storage.value(at: 80, default: 47, hasBit: (3, 32)) }
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (3, 32)) }
   }
   /// Returns true if `defaultFixed32` has been explicitly set.
-  var hasDefaultFixed32: Bool { return _storage.isPresent(hasBit: (3, 32)) }
+  var hasDefaultFixed32: Bool { _storage.isPresent(hasBit: (3, 32)) }
   /// Clears the value of `defaultFixed32`. Subsequent reads from it will return its default value.
   mutating func clearDefaultFixed32() { _uniqueStorage().clearValue(at: 80, type: UInt32.self, hasBit: (3, 32)) }
 
   var defaultFixed64: UInt64 {
-    get { return _storage.value(at: 184, default: 48, hasBit: (3, 64)) }
+    get { _storage.value(at: 184, default: 48, hasBit: (3, 64)) }
     set { _uniqueStorage().updateValue(at: 184, to: newValue, willBeSet: true, hasBit: (3, 64)) }
   }
   /// Returns true if `defaultFixed64` has been explicitly set.
-  var hasDefaultFixed64: Bool { return _storage.isPresent(hasBit: (3, 64)) }
+  var hasDefaultFixed64: Bool { _storage.isPresent(hasBit: (3, 64)) }
   /// Clears the value of `defaultFixed64`. Subsequent reads from it will return its default value.
   mutating func clearDefaultFixed64() { _uniqueStorage().clearValue(at: 184, type: UInt64.self, hasBit: (3, 64)) }
 
   var defaultSfixed32: Int32 {
-    get { return _storage.value(at: 84, default: 49, hasBit: (3, 128)) }
+    get { _storage.value(at: 84, default: 49, hasBit: (3, 128)) }
     set { _uniqueStorage().updateValue(at: 84, to: newValue, willBeSet: true, hasBit: (3, 128)) }
   }
   /// Returns true if `defaultSfixed32` has been explicitly set.
-  var hasDefaultSfixed32: Bool { return _storage.isPresent(hasBit: (3, 128)) }
+  var hasDefaultSfixed32: Bool { _storage.isPresent(hasBit: (3, 128)) }
   /// Clears the value of `defaultSfixed32`. Subsequent reads from it will return its default value.
   mutating func clearDefaultSfixed32() { _uniqueStorage().clearValue(at: 84, type: Int32.self, hasBit: (3, 128)) }
 
   var defaultSfixed64: Int64 {
-    get { return _storage.value(at: 192, default: -50, hasBit: (4, 1)) }
+    get { _storage.value(at: 192, default: -50, hasBit: (4, 1)) }
     set { _uniqueStorage().updateValue(at: 192, to: newValue, willBeSet: true, hasBit: (4, 1)) }
   }
   /// Returns true if `defaultSfixed64` has been explicitly set.
-  var hasDefaultSfixed64: Bool { return _storage.isPresent(hasBit: (4, 1)) }
+  var hasDefaultSfixed64: Bool { _storage.isPresent(hasBit: (4, 1)) }
   /// Clears the value of `defaultSfixed64`. Subsequent reads from it will return its default value.
   mutating func clearDefaultSfixed64() { _uniqueStorage().clearValue(at: 192, type: Int64.self, hasBit: (4, 1)) }
 
   var defaultFloat: Float {
-    get { return _storage.value(at: 88, default: 51.5, hasBit: (4, 2)) }
+    get { _storage.value(at: 88, default: 51.5, hasBit: (4, 2)) }
     set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (4, 2)) }
   }
   /// Returns true if `defaultFloat` has been explicitly set.
-  var hasDefaultFloat: Bool { return _storage.isPresent(hasBit: (4, 2)) }
+  var hasDefaultFloat: Bool { _storage.isPresent(hasBit: (4, 2)) }
   /// Clears the value of `defaultFloat`. Subsequent reads from it will return its default value.
   mutating func clearDefaultFloat() { _uniqueStorage().clearValue(at: 88, type: Float.self, hasBit: (4, 2)) }
 
   var defaultDouble: Double {
-    get { return _storage.value(at: 200, default: 52000, hasBit: (4, 4)) }
+    get { _storage.value(at: 200, default: 52000, hasBit: (4, 4)) }
     set { _uniqueStorage().updateValue(at: 200, to: newValue, willBeSet: true, hasBit: (4, 4)) }
   }
   /// Returns true if `defaultDouble` has been explicitly set.
-  var hasDefaultDouble: Bool { return _storage.isPresent(hasBit: (4, 4)) }
+  var hasDefaultDouble: Bool { _storage.isPresent(hasBit: (4, 4)) }
   /// Clears the value of `defaultDouble`. Subsequent reads from it will return its default value.
   mutating func clearDefaultDouble() { _uniqueStorage().clearValue(at: 200, type: Double.self, hasBit: (4, 4)) }
 
   var defaultBool: Bool {
-    get { return _storage.value(at: 29, default: true, hasBit: (4, 8)) }
+    get { _storage.value(at: 29, default: true, hasBit: (4, 8)) }
     set { _uniqueStorage().updateValue(at: 29, to: newValue, willBeSet: true, hasBit: (4, 8)) }
   }
   /// Returns true if `defaultBool` has been explicitly set.
-  var hasDefaultBool: Bool { return _storage.isPresent(hasBit: (4, 8)) }
+  var hasDefaultBool: Bool { _storage.isPresent(hasBit: (4, 8)) }
   /// Clears the value of `defaultBool`. Subsequent reads from it will return its default value.
   mutating func clearDefaultBool() { _uniqueStorage().clearValue(at: 29, type: Bool.self, hasBit: (4, 8)) }
 
   var defaultString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(464, 348), default: "hello", hasBit: (4, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(464, 348), default: "hello", hasBit: (4, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(464, 348), to: newValue, willBeSet: true, hasBit: (4, 16)) }
   }
   /// Returns true if `defaultString` has been explicitly set.
-  var hasDefaultString: Bool { return _storage.isPresent(hasBit: (4, 16)) }
+  var hasDefaultString: Bool { _storage.isPresent(hasBit: (4, 16)) }
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
   mutating func clearDefaultString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(464, 348), type: String.self, hasBit: (4, 16)) }
 
   var defaultBytes: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(480, 360), default: Data([119, 111, 114, 108, 100]), hasBit: (4, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(480, 360), default: Data([119, 111, 114, 108, 100]), hasBit: (4, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(480, 360), to: newValue, willBeSet: true, hasBit: (4, 32)) }
   }
   /// Returns true if `defaultBytes` has been explicitly set.
-  var hasDefaultBytes: Bool { return _storage.isPresent(hasBit: (4, 32)) }
+  var hasDefaultBytes: Bool { _storage.isPresent(hasBit: (4, 32)) }
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
   mutating func clearDefaultBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(480, 360), type: Data.self, hasBit: (4, 32)) }
 
   var defaultNestedEnum: SwiftProtoTesting_TestAllTypes.NestedEnum {
-    get { return _storage.value(at: 92, default: .bar, hasBit: (4, 64)) }
+    get { _storage.value(at: 92, default: .bar, hasBit: (4, 64)) }
     set { _uniqueStorage().updateValue(at: 92, to: newValue, willBeSet: true, hasBit: (4, 64)) }
   }
   /// Returns true if `defaultNestedEnum` has been explicitly set.
-  var hasDefaultNestedEnum: Bool { return _storage.isPresent(hasBit: (4, 64)) }
+  var hasDefaultNestedEnum: Bool { _storage.isPresent(hasBit: (4, 64)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 92, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, hasBit: (4, 64)) }
 
   var defaultForeignEnum: SwiftProtoTesting_ForeignEnum {
-    get { return _storage.value(at: 96, default: .foreignBar, hasBit: (4, 128)) }
+    get { _storage.value(at: 96, default: .foreignBar, hasBit: (4, 128)) }
     set { _uniqueStorage().updateValue(at: 96, to: newValue, willBeSet: true, hasBit: (4, 128)) }
   }
   /// Returns true if `defaultForeignEnum` has been explicitly set.
-  var hasDefaultForeignEnum: Bool { return _storage.isPresent(hasBit: (4, 128)) }
+  var hasDefaultForeignEnum: Bool { _storage.isPresent(hasBit: (4, 128)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 96, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (4, 128)) }
 
   var defaultImportEnum: SwiftProtoTesting_Import_ImportEnum {
-    get { return _storage.value(at: 100, default: .importBar, hasBit: (5, 1)) }
+    get { _storage.value(at: 100, default: .importBar, hasBit: (5, 1)) }
     set { _uniqueStorage().updateValue(at: 100, to: newValue, willBeSet: true, hasBit: (5, 1)) }
   }
   /// Returns true if `defaultImportEnum` has been explicitly set.
-  var hasDefaultImportEnum: Bool { return _storage.isPresent(hasBit: (5, 1)) }
+  var hasDefaultImportEnum: Bool { _storage.isPresent(hasBit: (5, 1)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 100, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (5, 1)) }
 
@@ -657,11 +657,11 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     /// a local variable named "b" in one of the generated methods.  Doh.
     /// This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 {
-      get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+      get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `bb` has been explicitly set.
-    var hasBb: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasBb: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -692,11 +692,11 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+      get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -727,11 +727,11 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+      get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -776,25 +776,25 @@ struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Sendable {
   // methods supported on all messages.
 
   var child: SwiftProtoTesting_NestedTestAllTypes {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_NestedTestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_NestedTestAllTypes(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `child` has been explicitly set.
-  var hasChild: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasChild: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_NestedTestAllTypes.self, hasBit: (0, 1)) }
 
   var payload: SwiftProtoTesting_TestAllTypes {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `payload` has been explicitly set.
-  var hasPayload: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasPayload: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `payload`. Subsequent reads from it will return its default value.
   mutating func clearPayload() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 2)) }
 
   var repeatedChild: [SwiftProtoTesting_NestedTestAllTypes] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
@@ -827,20 +827,20 @@ struct SwiftProtoTesting_ForeignMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var c: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasC: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var d: Int32 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `d` has been explicitly set.
-  var hasD: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasD: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -904,11 +904,11 @@ struct SwiftProtoTesting_OptionalGroup_extension: @unchecked Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -939,11 +939,11 @@ struct SwiftProtoTesting_RepeatedGroup_extension: @unchecked Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -1005,310 +1005,310 @@ struct SwiftProtoTesting_TestRequired: @unchecked Sendable {
   // methods supported on all messages.
 
   var a: Int32 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 1)) }
 
   var dummy2: Int32 {
-    get { return _storage.value(at: 12, default: 0, hasBit: (0, 8)) }
+    get { _storage.value(at: 12, default: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `dummy2` has been explicitly set.
-  var hasDummy2: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasDummy2: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `dummy2`. Subsequent reads from it will return its default value.
   mutating func clearDummy2() { _uniqueStorage().clearValue(at: 12, type: Int32.self, hasBit: (0, 8)) }
 
   var b: Int32 {
-    get { return _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 16, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 16, type: Int32.self, hasBit: (0, 2)) }
 
   /// Pad the field count to 32 so that we can test that IsInitialized()
   /// properly checks multiple elements of has_bits_.
   var dummy4: Int32 {
-    get { return _storage.value(at: 20, default: 0, hasBit: (0, 16)) }
+    get { _storage.value(at: 20, default: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: 20, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `dummy4` has been explicitly set.
-  var hasDummy4: Bool { return _storage.isPresent(hasBit: (0, 16)) }
+  var hasDummy4: Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `dummy4`. Subsequent reads from it will return its default value.
   mutating func clearDummy4() { _uniqueStorage().clearValue(at: 20, type: Int32.self, hasBit: (0, 16)) }
 
   var dummy5: Int32 {
-    get { return _storage.value(at: 24, default: 0, hasBit: (0, 32)) }
+    get { _storage.value(at: 24, default: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `dummy5` has been explicitly set.
-  var hasDummy5: Bool { return _storage.isPresent(hasBit: (0, 32)) }
+  var hasDummy5: Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `dummy5`. Subsequent reads from it will return its default value.
   mutating func clearDummy5() { _uniqueStorage().clearValue(at: 24, type: Int32.self, hasBit: (0, 32)) }
 
   var dummy6: Int32 {
-    get { return _storage.value(at: 28, default: 0, hasBit: (0, 64)) }
+    get { _storage.value(at: 28, default: 0, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: 28, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `dummy6` has been explicitly set.
-  var hasDummy6: Bool { return _storage.isPresent(hasBit: (0, 64)) }
+  var hasDummy6: Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `dummy6`. Subsequent reads from it will return its default value.
   mutating func clearDummy6() { _uniqueStorage().clearValue(at: 28, type: Int32.self, hasBit: (0, 64)) }
 
   var dummy7: Int32 {
-    get { return _storage.value(at: 32, default: 0, hasBit: (0, 128)) }
+    get { _storage.value(at: 32, default: 0, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `dummy7` has been explicitly set.
-  var hasDummy7: Bool { return _storage.isPresent(hasBit: (0, 128)) }
+  var hasDummy7: Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `dummy7`. Subsequent reads from it will return its default value.
   mutating func clearDummy7() { _uniqueStorage().clearValue(at: 32, type: Int32.self, hasBit: (0, 128)) }
 
   var dummy8: Int32 {
-    get { return _storage.value(at: 36, default: 0, hasBit: (1, 1)) }
+    get { _storage.value(at: 36, default: 0, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: 36, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `dummy8` has been explicitly set.
-  var hasDummy8: Bool { return _storage.isPresent(hasBit: (1, 1)) }
+  var hasDummy8: Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `dummy8`. Subsequent reads from it will return its default value.
   mutating func clearDummy8() { _uniqueStorage().clearValue(at: 36, type: Int32.self, hasBit: (1, 1)) }
 
   var dummy9: Int32 {
-    get { return _storage.value(at: 40, default: 0, hasBit: (1, 2)) }
+    get { _storage.value(at: 40, default: 0, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `dummy9` has been explicitly set.
-  var hasDummy9: Bool { return _storage.isPresent(hasBit: (1, 2)) }
+  var hasDummy9: Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `dummy9`. Subsequent reads from it will return its default value.
   mutating func clearDummy9() { _uniqueStorage().clearValue(at: 40, type: Int32.self, hasBit: (1, 2)) }
 
   var dummy10: Int32 {
-    get { return _storage.value(at: 44, default: 0, hasBit: (1, 4)) }
+    get { _storage.value(at: 44, default: 0, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: 44, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `dummy10` has been explicitly set.
-  var hasDummy10: Bool { return _storage.isPresent(hasBit: (1, 4)) }
+  var hasDummy10: Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `dummy10`. Subsequent reads from it will return its default value.
   mutating func clearDummy10() { _uniqueStorage().clearValue(at: 44, type: Int32.self, hasBit: (1, 4)) }
 
   var dummy11: Int32 {
-    get { return _storage.value(at: 48, default: 0, hasBit: (1, 8)) }
+    get { _storage.value(at: 48, default: 0, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `dummy11` has been explicitly set.
-  var hasDummy11: Bool { return _storage.isPresent(hasBit: (1, 8)) }
+  var hasDummy11: Bool { _storage.isPresent(hasBit: (1, 8)) }
   /// Clears the value of `dummy11`. Subsequent reads from it will return its default value.
   mutating func clearDummy11() { _uniqueStorage().clearValue(at: 48, type: Int32.self, hasBit: (1, 8)) }
 
   var dummy12: Int32 {
-    get { return _storage.value(at: 52, default: 0, hasBit: (1, 16)) }
+    get { _storage.value(at: 52, default: 0, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(at: 52, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `dummy12` has been explicitly set.
-  var hasDummy12: Bool { return _storage.isPresent(hasBit: (1, 16)) }
+  var hasDummy12: Bool { _storage.isPresent(hasBit: (1, 16)) }
   /// Clears the value of `dummy12`. Subsequent reads from it will return its default value.
   mutating func clearDummy12() { _uniqueStorage().clearValue(at: 52, type: Int32.self, hasBit: (1, 16)) }
 
   var dummy13: Int32 {
-    get { return _storage.value(at: 56, default: 0, hasBit: (1, 32)) }
+    get { _storage.value(at: 56, default: 0, hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `dummy13` has been explicitly set.
-  var hasDummy13: Bool { return _storage.isPresent(hasBit: (1, 32)) }
+  var hasDummy13: Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `dummy13`. Subsequent reads from it will return its default value.
   mutating func clearDummy13() { _uniqueStorage().clearValue(at: 56, type: Int32.self, hasBit: (1, 32)) }
 
   var dummy14: Int32 {
-    get { return _storage.value(at: 60, default: 0, hasBit: (1, 64)) }
+    get { _storage.value(at: 60, default: 0, hasBit: (1, 64)) }
     set { _uniqueStorage().updateValue(at: 60, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `dummy14` has been explicitly set.
-  var hasDummy14: Bool { return _storage.isPresent(hasBit: (1, 64)) }
+  var hasDummy14: Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `dummy14`. Subsequent reads from it will return its default value.
   mutating func clearDummy14() { _uniqueStorage().clearValue(at: 60, type: Int32.self, hasBit: (1, 64)) }
 
   var dummy15: Int32 {
-    get { return _storage.value(at: 64, default: 0, hasBit: (1, 128)) }
+    get { _storage.value(at: 64, default: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `dummy15` has been explicitly set.
-  var hasDummy15: Bool { return _storage.isPresent(hasBit: (1, 128)) }
+  var hasDummy15: Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `dummy15`. Subsequent reads from it will return its default value.
   mutating func clearDummy15() { _uniqueStorage().clearValue(at: 64, type: Int32.self, hasBit: (1, 128)) }
 
   var dummy16: Int32 {
-    get { return _storage.value(at: 68, default: 0, hasBit: (2, 1)) }
+    get { _storage.value(at: 68, default: 0, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(at: 68, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `dummy16` has been explicitly set.
-  var hasDummy16: Bool { return _storage.isPresent(hasBit: (2, 1)) }
+  var hasDummy16: Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `dummy16`. Subsequent reads from it will return its default value.
   mutating func clearDummy16() { _uniqueStorage().clearValue(at: 68, type: Int32.self, hasBit: (2, 1)) }
 
   var dummy17: Int32 {
-    get { return _storage.value(at: 72, default: 0, hasBit: (2, 2)) }
+    get { _storage.value(at: 72, default: 0, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `dummy17` has been explicitly set.
-  var hasDummy17: Bool { return _storage.isPresent(hasBit: (2, 2)) }
+  var hasDummy17: Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `dummy17`. Subsequent reads from it will return its default value.
   mutating func clearDummy17() { _uniqueStorage().clearValue(at: 72, type: Int32.self, hasBit: (2, 2)) }
 
   var dummy18: Int32 {
-    get { return _storage.value(at: 76, default: 0, hasBit: (2, 4)) }
+    get { _storage.value(at: 76, default: 0, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(at: 76, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `dummy18` has been explicitly set.
-  var hasDummy18: Bool { return _storage.isPresent(hasBit: (2, 4)) }
+  var hasDummy18: Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `dummy18`. Subsequent reads from it will return its default value.
   mutating func clearDummy18() { _uniqueStorage().clearValue(at: 76, type: Int32.self, hasBit: (2, 4)) }
 
   var dummy19: Int32 {
-    get { return _storage.value(at: 80, default: 0, hasBit: (2, 8)) }
+    get { _storage.value(at: 80, default: 0, hasBit: (2, 8)) }
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `dummy19` has been explicitly set.
-  var hasDummy19: Bool { return _storage.isPresent(hasBit: (2, 8)) }
+  var hasDummy19: Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `dummy19`. Subsequent reads from it will return its default value.
   mutating func clearDummy19() { _uniqueStorage().clearValue(at: 80, type: Int32.self, hasBit: (2, 8)) }
 
   var dummy20: Int32 {
-    get { return _storage.value(at: 84, default: 0, hasBit: (2, 16)) }
+    get { _storage.value(at: 84, default: 0, hasBit: (2, 16)) }
     set { _uniqueStorage().updateValue(at: 84, to: newValue, willBeSet: true, hasBit: (2, 16)) }
   }
   /// Returns true if `dummy20` has been explicitly set.
-  var hasDummy20: Bool { return _storage.isPresent(hasBit: (2, 16)) }
+  var hasDummy20: Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `dummy20`. Subsequent reads from it will return its default value.
   mutating func clearDummy20() { _uniqueStorage().clearValue(at: 84, type: Int32.self, hasBit: (2, 16)) }
 
   var dummy21: Int32 {
-    get { return _storage.value(at: 88, default: 0, hasBit: (2, 32)) }
+    get { _storage.value(at: 88, default: 0, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `dummy21` has been explicitly set.
-  var hasDummy21: Bool { return _storage.isPresent(hasBit: (2, 32)) }
+  var hasDummy21: Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `dummy21`. Subsequent reads from it will return its default value.
   mutating func clearDummy21() { _uniqueStorage().clearValue(at: 88, type: Int32.self, hasBit: (2, 32)) }
 
   var dummy22: Int32 {
-    get { return _storage.value(at: 92, default: 0, hasBit: (2, 64)) }
+    get { _storage.value(at: 92, default: 0, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(at: 92, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `dummy22` has been explicitly set.
-  var hasDummy22: Bool { return _storage.isPresent(hasBit: (2, 64)) }
+  var hasDummy22: Bool { _storage.isPresent(hasBit: (2, 64)) }
   /// Clears the value of `dummy22`. Subsequent reads from it will return its default value.
   mutating func clearDummy22() { _uniqueStorage().clearValue(at: 92, type: Int32.self, hasBit: (2, 64)) }
 
   var dummy23: Int32 {
-    get { return _storage.value(at: 96, default: 0, hasBit: (2, 128)) }
+    get { _storage.value(at: 96, default: 0, hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(at: 96, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `dummy23` has been explicitly set.
-  var hasDummy23: Bool { return _storage.isPresent(hasBit: (2, 128)) }
+  var hasDummy23: Bool { _storage.isPresent(hasBit: (2, 128)) }
   /// Clears the value of `dummy23`. Subsequent reads from it will return its default value.
   mutating func clearDummy23() { _uniqueStorage().clearValue(at: 96, type: Int32.self, hasBit: (2, 128)) }
 
   var dummy24: Int32 {
-    get { return _storage.value(at: 100, default: 0, hasBit: (3, 1)) }
+    get { _storage.value(at: 100, default: 0, hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(at: 100, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `dummy24` has been explicitly set.
-  var hasDummy24: Bool { return _storage.isPresent(hasBit: (3, 1)) }
+  var hasDummy24: Bool { _storage.isPresent(hasBit: (3, 1)) }
   /// Clears the value of `dummy24`. Subsequent reads from it will return its default value.
   mutating func clearDummy24() { _uniqueStorage().clearValue(at: 100, type: Int32.self, hasBit: (3, 1)) }
 
   var dummy25: Int32 {
-    get { return _storage.value(at: 104, default: 0, hasBit: (3, 2)) }
+    get { _storage.value(at: 104, default: 0, hasBit: (3, 2)) }
     set { _uniqueStorage().updateValue(at: 104, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `dummy25` has been explicitly set.
-  var hasDummy25: Bool { return _storage.isPresent(hasBit: (3, 2)) }
+  var hasDummy25: Bool { _storage.isPresent(hasBit: (3, 2)) }
   /// Clears the value of `dummy25`. Subsequent reads from it will return its default value.
   mutating func clearDummy25() { _uniqueStorage().clearValue(at: 104, type: Int32.self, hasBit: (3, 2)) }
 
   var dummy26: Int32 {
-    get { return _storage.value(at: 108, default: 0, hasBit: (3, 4)) }
+    get { _storage.value(at: 108, default: 0, hasBit: (3, 4)) }
     set { _uniqueStorage().updateValue(at: 108, to: newValue, willBeSet: true, hasBit: (3, 4)) }
   }
   /// Returns true if `dummy26` has been explicitly set.
-  var hasDummy26: Bool { return _storage.isPresent(hasBit: (3, 4)) }
+  var hasDummy26: Bool { _storage.isPresent(hasBit: (3, 4)) }
   /// Clears the value of `dummy26`. Subsequent reads from it will return its default value.
   mutating func clearDummy26() { _uniqueStorage().clearValue(at: 108, type: Int32.self, hasBit: (3, 4)) }
 
   var dummy27: Int32 {
-    get { return _storage.value(at: 112, default: 0, hasBit: (3, 8)) }
+    get { _storage.value(at: 112, default: 0, hasBit: (3, 8)) }
     set { _uniqueStorage().updateValue(at: 112, to: newValue, willBeSet: true, hasBit: (3, 8)) }
   }
   /// Returns true if `dummy27` has been explicitly set.
-  var hasDummy27: Bool { return _storage.isPresent(hasBit: (3, 8)) }
+  var hasDummy27: Bool { _storage.isPresent(hasBit: (3, 8)) }
   /// Clears the value of `dummy27`. Subsequent reads from it will return its default value.
   mutating func clearDummy27() { _uniqueStorage().clearValue(at: 112, type: Int32.self, hasBit: (3, 8)) }
 
   var dummy28: Int32 {
-    get { return _storage.value(at: 116, default: 0, hasBit: (3, 16)) }
+    get { _storage.value(at: 116, default: 0, hasBit: (3, 16)) }
     set { _uniqueStorage().updateValue(at: 116, to: newValue, willBeSet: true, hasBit: (3, 16)) }
   }
   /// Returns true if `dummy28` has been explicitly set.
-  var hasDummy28: Bool { return _storage.isPresent(hasBit: (3, 16)) }
+  var hasDummy28: Bool { _storage.isPresent(hasBit: (3, 16)) }
   /// Clears the value of `dummy28`. Subsequent reads from it will return its default value.
   mutating func clearDummy28() { _uniqueStorage().clearValue(at: 116, type: Int32.self, hasBit: (3, 16)) }
 
   var dummy29: Int32 {
-    get { return _storage.value(at: 120, default: 0, hasBit: (3, 32)) }
+    get { _storage.value(at: 120, default: 0, hasBit: (3, 32)) }
     set { _uniqueStorage().updateValue(at: 120, to: newValue, willBeSet: true, hasBit: (3, 32)) }
   }
   /// Returns true if `dummy29` has been explicitly set.
-  var hasDummy29: Bool { return _storage.isPresent(hasBit: (3, 32)) }
+  var hasDummy29: Bool { _storage.isPresent(hasBit: (3, 32)) }
   /// Clears the value of `dummy29`. Subsequent reads from it will return its default value.
   mutating func clearDummy29() { _uniqueStorage().clearValue(at: 120, type: Int32.self, hasBit: (3, 32)) }
 
   var dummy30: Int32 {
-    get { return _storage.value(at: 124, default: 0, hasBit: (3, 64)) }
+    get { _storage.value(at: 124, default: 0, hasBit: (3, 64)) }
     set { _uniqueStorage().updateValue(at: 124, to: newValue, willBeSet: true, hasBit: (3, 64)) }
   }
   /// Returns true if `dummy30` has been explicitly set.
-  var hasDummy30: Bool { return _storage.isPresent(hasBit: (3, 64)) }
+  var hasDummy30: Bool { _storage.isPresent(hasBit: (3, 64)) }
   /// Clears the value of `dummy30`. Subsequent reads from it will return its default value.
   mutating func clearDummy30() { _uniqueStorage().clearValue(at: 124, type: Int32.self, hasBit: (3, 64)) }
 
   var dummy31: Int32 {
-    get { return _storage.value(at: 128, default: 0, hasBit: (3, 128)) }
+    get { _storage.value(at: 128, default: 0, hasBit: (3, 128)) }
     set { _uniqueStorage().updateValue(at: 128, to: newValue, willBeSet: true, hasBit: (3, 128)) }
   }
   /// Returns true if `dummy31` has been explicitly set.
-  var hasDummy31: Bool { return _storage.isPresent(hasBit: (3, 128)) }
+  var hasDummy31: Bool { _storage.isPresent(hasBit: (3, 128)) }
   /// Clears the value of `dummy31`. Subsequent reads from it will return its default value.
   mutating func clearDummy31() { _uniqueStorage().clearValue(at: 128, type: Int32.self, hasBit: (3, 128)) }
 
   var dummy32: Int32 {
-    get { return _storage.value(at: 132, default: 0, hasBit: (4, 1)) }
+    get { _storage.value(at: 132, default: 0, hasBit: (4, 1)) }
     set { _uniqueStorage().updateValue(at: 132, to: newValue, willBeSet: true, hasBit: (4, 1)) }
   }
   /// Returns true if `dummy32` has been explicitly set.
-  var hasDummy32: Bool { return _storage.isPresent(hasBit: (4, 1)) }
+  var hasDummy32: Bool { _storage.isPresent(hasBit: (4, 1)) }
   /// Clears the value of `dummy32`. Subsequent reads from it will return its default value.
   mutating func clearDummy32() { _uniqueStorage().clearValue(at: 132, type: Int32.self, hasBit: (4, 1)) }
 
   var c: Int32 {
-    get { return _storage.value(at: 136, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 136, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 136, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `c` has been explicitly set.
-  var hasC: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasC: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() { _uniqueStorage().clearValue(at: 136, type: Int32.self, hasBit: (0, 4)) }
 
   var optionalForeign: SwiftProtoTesting_ForeignMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(144, 140), default: SwiftProtoTesting_ForeignMessage(), hasBit: (4, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(144, 140), default: SwiftProtoTesting_ForeignMessage(), hasBit: (4, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 140), to: newValue, willBeSet: true, hasBit: (4, 2)) }
   }
   /// Returns true if `optionalForeign` has been explicitly set.
-  var hasOptionalForeign: Bool { return _storage.isPresent(hasBit: (4, 2)) }
+  var hasOptionalForeign: Bool { _storage.isPresent(hasBit: (4, 2)) }
   /// Clears the value of `optionalForeign`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeign() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(144, 140), type: SwiftProtoTesting_ForeignMessage.self, hasBit: (4, 2)) }
 
@@ -1339,25 +1339,25 @@ struct SwiftProtoTesting_TestRequiredForeign: @unchecked Sendable {
   // methods supported on all messages.
 
   var optionalMessage: SwiftProtoTesting_TestRequired {
-    get { return _storage.value(at: 8, default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
-  var hasOptionalMessage: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasOptionalMessage: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() { _uniqueStorage().clearValue(at: 8, type: SwiftProtoTesting_TestRequired.self, hasBit: (0, 1)) }
 
   var repeatedMessage: [SwiftProtoTesting_TestRequired] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var dummy: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `dummy` has been explicitly set.
-  var hasDummy: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasDummy: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
   mutating func clearDummy() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
@@ -1388,25 +1388,25 @@ struct SwiftProtoTesting_TestRequiredMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var optionalMessage: SwiftProtoTesting_TestRequired {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestRequired(), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestRequired(), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
-  var hasOptionalMessage: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasOptionalMessage: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestRequired.self, hasBit: (0, 2)) }
 
   var repeatedMessage: [SwiftProtoTesting_TestRequired] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var requiredMessage: SwiftProtoTesting_TestRequired {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredMessage` has been explicitly set.
-  var hasRequiredMessage: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasRequiredMessage: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `requiredMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: SwiftProtoTesting_TestRequired.self, hasBit: (0, 1)) }
 
@@ -1467,20 +1467,20 @@ struct SwiftProtoTesting_TestReallyLargeTagNumber: @unchecked Sendable {
   /// The largest possible tag number is 2^28 - 1, since the wire format uses
   /// three bits to communicate wire type.
   var a: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var bb: Int32 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `bb` has been explicitly set.
-  var hasBb: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasBb: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `bb`. Subsequent reads from it will return its default value.
   mutating func clearBb() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -1511,20 +1511,20 @@ struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var a: SwiftProtoTesting_TestRecursiveMessage {
-    get { return _storage.value(at: 8, default: SwiftProtoTesting_TestRecursiveMessage(), hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: SwiftProtoTesting_TestRecursiveMessage(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 8, type: SwiftProtoTesting_TestRecursiveMessage.self, hasBit: (0, 1)) }
 
   var i: Int32 {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 2)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `i` has been explicitly set.
-  var hasI: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasI: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
@@ -1557,38 +1557,38 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
   // methods supported on all messages.
 
   var myString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `myString` has been explicitly set.
-  var hasMyString: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasMyString: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `myString`. Subsequent reads from it will return its default value.
   mutating func clearMyString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 24), type: String.self, hasBit: (0, 2)) }
 
   var myInt: Int64 {
-    get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `myInt` has been explicitly set.
-  var hasMyInt: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasMyInt: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `myInt`. Subsequent reads from it will return its default value.
   mutating func clearMyInt() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var myFloat: Float {
-    get { return _storage.value(at: 4, default: 0, hasBit: (0, 4)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `myFloat` has been explicitly set.
-  var hasMyFloat: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasMyFloat: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `myFloat`. Subsequent reads from it will return its default value.
   mutating func clearMyFloat() { _uniqueStorage().clearValue(at: 4, type: Float.self, hasBit: (0, 4)) }
 
   var optionalNestedMessage: SwiftProtoTesting_TestFieldOrderings.NestedMessage {
-    get { return _storage.value(at: 16, default: SwiftProtoTesting_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
+    get { _storage.value(at: 16, default: SwiftProtoTesting_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
-  var hasOptionalNestedMessage: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasOptionalNestedMessage: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self, hasBit: (0, 8)) }
 
@@ -1606,11 +1606,11 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
     // methods supported on all messages.
 
     var oo: Int64 {
-      get { return _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
+      get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `oo` has been explicitly set.
-    var hasOo: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+    var hasOo: Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `oo`. Subsequent reads from it will return its default value.
     mutating func clearOo() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 2)) }
 
@@ -1618,11 +1618,11 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
     /// a local variable named "b" in one of the generated methods.  Doh.
     /// This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 {
-      get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+      get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `bb` has been explicitly set.
-    var hasBb: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasBb: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -1673,65 +1673,65 @@ struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {
   // methods supported on all messages.
 
   var escapedBytes: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(112, 108), default: Data([0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 108), default: Data([0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 108), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `escapedBytes` has been explicitly set.
-  var hasEscapedBytes: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasEscapedBytes: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `escapedBytes`. Subsequent reads from it will return its default value.
   mutating func clearEscapedBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(112, 108), type: Data.self, hasBit: (0, 1)) }
 
   var largeUint32: UInt32 {
-    get { return _storage.value(at: 4, default: 4294967295, hasBit: (0, 2)) }
+    get { _storage.value(at: 4, default: 4294967295, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `largeUint32` has been explicitly set.
-  var hasLargeUint32: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasLargeUint32: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `largeUint32`. Subsequent reads from it will return its default value.
   mutating func clearLargeUint32() { _uniqueStorage().clearValue(at: 4, type: UInt32.self, hasBit: (0, 2)) }
 
   var largeUint64: UInt64 {
-    get { return _storage.value(at: 56, default: 18446744073709551615, hasBit: (0, 4)) }
+    get { _storage.value(at: 56, default: 18446744073709551615, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `largeUint64` has been explicitly set.
-  var hasLargeUint64: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasLargeUint64: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `largeUint64`. Subsequent reads from it will return its default value.
   mutating func clearLargeUint64() { _uniqueStorage().clearValue(at: 56, type: UInt64.self, hasBit: (0, 4)) }
 
   var smallInt32: Int32 {
-    get { return _storage.value(at: 8, default: -2147483647, hasBit: (0, 8)) }
+    get { _storage.value(at: 8, default: -2147483647, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `smallInt32` has been explicitly set.
-  var hasSmallInt32: Bool { return _storage.isPresent(hasBit: (0, 8)) }
+  var hasSmallInt32: Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `smallInt32`. Subsequent reads from it will return its default value.
   mutating func clearSmallInt32() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 8)) }
 
   var smallInt64: Int64 {
-    get { return _storage.value(at: 64, default: -9223372036854775807, hasBit: (0, 16)) }
+    get { _storage.value(at: 64, default: -9223372036854775807, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `smallInt64` has been explicitly set.
-  var hasSmallInt64: Bool { return _storage.isPresent(hasBit: (0, 16)) }
+  var hasSmallInt64: Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `smallInt64`. Subsequent reads from it will return its default value.
   mutating func clearSmallInt64() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 16)) }
 
   var reallySmallInt32: Int32 {
-    get { return _storage.value(at: 52, default: -2147483648, hasBit: (2, 16)) }
+    get { _storage.value(at: 52, default: -2147483648, hasBit: (2, 16)) }
     set { _uniqueStorage().updateValue(at: 52, to: newValue, willBeSet: true, hasBit: (2, 16)) }
   }
   /// Returns true if `reallySmallInt32` has been explicitly set.
-  var hasReallySmallInt32: Bool { return _storage.isPresent(hasBit: (2, 16)) }
+  var hasReallySmallInt32: Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `reallySmallInt32`. Subsequent reads from it will return its default value.
   mutating func clearReallySmallInt32() { _uniqueStorage().clearValue(at: 52, type: Int32.self, hasBit: (2, 16)) }
 
   var reallySmallInt64: Int64 {
-    get { return _storage.value(at: 96, default: -9223372036854775808, hasBit: (2, 32)) }
+    get { _storage.value(at: 96, default: -9223372036854775808, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(at: 96, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `reallySmallInt64` has been explicitly set.
-  var hasReallySmallInt64: Bool { return _storage.isPresent(hasBit: (2, 32)) }
+  var hasReallySmallInt64: Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `reallySmallInt64`. Subsequent reads from it will return its default value.
   mutating func clearReallySmallInt64() { _uniqueStorage().clearValue(at: 96, type: Int64.self, hasBit: (2, 32)) }
 
@@ -1739,131 +1739,131 @@ struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {
   /// the UTF-8 text directly into this text file rather than escape it, but
   /// lots of people use editors that would be confused by this.)
   var utf8String: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(128, 120), default: "ሴ", hasBit: (0, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 120), default: "ሴ", hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 120), to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `utf8String` has been explicitly set.
-  var hasUtf8String: Bool { return _storage.isPresent(hasBit: (0, 32)) }
+  var hasUtf8String: Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `utf8String`. Subsequent reads from it will return its default value.
   mutating func clearUtf8String() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(128, 120), type: String.self, hasBit: (0, 32)) }
 
   /// Tests for single-precision floating-point values.
   var zeroFloat: Float {
-    get { return _storage.value(at: 12, default: 0, hasBit: (0, 64)) }
+    get { _storage.value(at: 12, default: 0, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `zeroFloat` has been explicitly set.
-  var hasZeroFloat: Bool { return _storage.isPresent(hasBit: (0, 64)) }
+  var hasZeroFloat: Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `zeroFloat`. Subsequent reads from it will return its default value.
   mutating func clearZeroFloat() { _uniqueStorage().clearValue(at: 12, type: Float.self, hasBit: (0, 64)) }
 
   var oneFloat: Float {
-    get { return _storage.value(at: 16, default: 1, hasBit: (0, 128)) }
+    get { _storage.value(at: 16, default: 1, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `oneFloat` has been explicitly set.
-  var hasOneFloat: Bool { return _storage.isPresent(hasBit: (0, 128)) }
+  var hasOneFloat: Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `oneFloat`. Subsequent reads from it will return its default value.
   mutating func clearOneFloat() { _uniqueStorage().clearValue(at: 16, type: Float.self, hasBit: (0, 128)) }
 
   var smallFloat: Float {
-    get { return _storage.value(at: 20, default: 1.5, hasBit: (1, 1)) }
+    get { _storage.value(at: 20, default: 1.5, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: 20, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `smallFloat` has been explicitly set.
-  var hasSmallFloat: Bool { return _storage.isPresent(hasBit: (1, 1)) }
+  var hasSmallFloat: Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `smallFloat`. Subsequent reads from it will return its default value.
   mutating func clearSmallFloat() { _uniqueStorage().clearValue(at: 20, type: Float.self, hasBit: (1, 1)) }
 
   var negativeOneFloat: Float {
-    get { return _storage.value(at: 24, default: -1, hasBit: (1, 2)) }
+    get { _storage.value(at: 24, default: -1, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `negativeOneFloat` has been explicitly set.
-  var hasNegativeOneFloat: Bool { return _storage.isPresent(hasBit: (1, 2)) }
+  var hasNegativeOneFloat: Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `negativeOneFloat`. Subsequent reads from it will return its default value.
   mutating func clearNegativeOneFloat() { _uniqueStorage().clearValue(at: 24, type: Float.self, hasBit: (1, 2)) }
 
   var negativeFloat: Float {
-    get { return _storage.value(at: 28, default: -1.5, hasBit: (1, 4)) }
+    get { _storage.value(at: 28, default: -1.5, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: 28, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `negativeFloat` has been explicitly set.
-  var hasNegativeFloat: Bool { return _storage.isPresent(hasBit: (1, 4)) }
+  var hasNegativeFloat: Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `negativeFloat`. Subsequent reads from it will return its default value.
   mutating func clearNegativeFloat() { _uniqueStorage().clearValue(at: 28, type: Float.self, hasBit: (1, 4)) }
 
   /// Using exponents
   var largeFloat: Float {
-    get { return _storage.value(at: 32, default: 2e+08, hasBit: (1, 8)) }
+    get { _storage.value(at: 32, default: 2e+08, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `largeFloat` has been explicitly set.
-  var hasLargeFloat: Bool { return _storage.isPresent(hasBit: (1, 8)) }
+  var hasLargeFloat: Bool { _storage.isPresent(hasBit: (1, 8)) }
   /// Clears the value of `largeFloat`. Subsequent reads from it will return its default value.
   mutating func clearLargeFloat() { _uniqueStorage().clearValue(at: 32, type: Float.self, hasBit: (1, 8)) }
 
   var smallNegativeFloat: Float {
-    get { return _storage.value(at: 36, default: -8e-28, hasBit: (1, 16)) }
+    get { _storage.value(at: 36, default: -8e-28, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(at: 36, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `smallNegativeFloat` has been explicitly set.
-  var hasSmallNegativeFloat: Bool { return _storage.isPresent(hasBit: (1, 16)) }
+  var hasSmallNegativeFloat: Bool { _storage.isPresent(hasBit: (1, 16)) }
   /// Clears the value of `smallNegativeFloat`. Subsequent reads from it will return its default value.
   mutating func clearSmallNegativeFloat() { _uniqueStorage().clearValue(at: 36, type: Float.self, hasBit: (1, 16)) }
 
   /// Text for nonfinite floating-point values.
   var infDouble: Double {
-    get { return _storage.value(at: 72, default: Double.infinity, hasBit: (1, 32)) }
+    get { _storage.value(at: 72, default: Double.infinity, hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `infDouble` has been explicitly set.
-  var hasInfDouble: Bool { return _storage.isPresent(hasBit: (1, 32)) }
+  var hasInfDouble: Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `infDouble`. Subsequent reads from it will return its default value.
   mutating func clearInfDouble() { _uniqueStorage().clearValue(at: 72, type: Double.self, hasBit: (1, 32)) }
 
   var negInfDouble: Double {
-    get { return _storage.value(at: 80, default: -Double.infinity, hasBit: (1, 64)) }
+    get { _storage.value(at: 80, default: -Double.infinity, hasBit: (1, 64)) }
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `negInfDouble` has been explicitly set.
-  var hasNegInfDouble: Bool { return _storage.isPresent(hasBit: (1, 64)) }
+  var hasNegInfDouble: Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `negInfDouble`. Subsequent reads from it will return its default value.
   mutating func clearNegInfDouble() { _uniqueStorage().clearValue(at: 80, type: Double.self, hasBit: (1, 64)) }
 
   var nanDouble: Double {
-    get { return _storage.value(at: 88, default: Double.nan, hasBit: (1, 128)) }
+    get { _storage.value(at: 88, default: Double.nan, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `nanDouble` has been explicitly set.
-  var hasNanDouble: Bool { return _storage.isPresent(hasBit: (1, 128)) }
+  var hasNanDouble: Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `nanDouble`. Subsequent reads from it will return its default value.
   mutating func clearNanDouble() { _uniqueStorage().clearValue(at: 88, type: Double.self, hasBit: (1, 128)) }
 
   var infFloat: Float {
-    get { return _storage.value(at: 40, default: Float.infinity, hasBit: (2, 1)) }
+    get { _storage.value(at: 40, default: Float.infinity, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `infFloat` has been explicitly set.
-  var hasInfFloat: Bool { return _storage.isPresent(hasBit: (2, 1)) }
+  var hasInfFloat: Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `infFloat`. Subsequent reads from it will return its default value.
   mutating func clearInfFloat() { _uniqueStorage().clearValue(at: 40, type: Float.self, hasBit: (2, 1)) }
 
   var negInfFloat: Float {
-    get { return _storage.value(at: 44, default: -Float.infinity, hasBit: (2, 2)) }
+    get { _storage.value(at: 44, default: -Float.infinity, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(at: 44, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `negInfFloat` has been explicitly set.
-  var hasNegInfFloat: Bool { return _storage.isPresent(hasBit: (2, 2)) }
+  var hasNegInfFloat: Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `negInfFloat`. Subsequent reads from it will return its default value.
   mutating func clearNegInfFloat() { _uniqueStorage().clearValue(at: 44, type: Float.self, hasBit: (2, 2)) }
 
   var nanFloat: Float {
-    get { return _storage.value(at: 48, default: Float.nan, hasBit: (2, 4)) }
+    get { _storage.value(at: 48, default: Float.nan, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `nanFloat` has been explicitly set.
-  var hasNanFloat: Bool { return _storage.isPresent(hasBit: (2, 4)) }
+  var hasNanFloat: Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `nanFloat`. Subsequent reads from it will return its default value.
   mutating func clearNanFloat() { _uniqueStorage().clearValue(at: 48, type: Float.self, hasBit: (2, 4)) }
 
@@ -1873,39 +1873,39 @@ struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {
   /// Note that in .proto file, "\?" is a valid way to escape ? in string
   /// literals.
   var cppTrigraph: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(144, 132), default: "? ? ?? ?? ??? ??/ ??-", hasBit: (2, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(144, 132), default: "? ? ?? ?? ??? ??/ ??-", hasBit: (2, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 132), to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `cppTrigraph` has been explicitly set.
-  var hasCppTrigraph: Bool { return _storage.isPresent(hasBit: (2, 8)) }
+  var hasCppTrigraph: Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `cppTrigraph`. Subsequent reads from it will return its default value.
   mutating func clearCppTrigraph() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(144, 132), type: String.self, hasBit: (2, 8)) }
 
   /// String defaults containing the character '\000'
   var stringWithZero: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(160, 144), default: "hel\0lo", hasBit: (2, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(160, 144), default: "hel\0lo", hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(160, 144), to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `stringWithZero` has been explicitly set.
-  var hasStringWithZero: Bool { return _storage.isPresent(hasBit: (2, 64)) }
+  var hasStringWithZero: Bool { _storage.isPresent(hasBit: (2, 64)) }
   /// Clears the value of `stringWithZero`. Subsequent reads from it will return its default value.
   mutating func clearStringWithZero() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(160, 144), type: String.self, hasBit: (2, 64)) }
 
   var bytesWithZero: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(176, 156), default: Data([119, 111, 114, 0, 108, 100]), hasBit: (2, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(176, 156), default: Data([119, 111, 114, 0, 108, 100]), hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(176, 156), to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `bytesWithZero` has been explicitly set.
-  var hasBytesWithZero: Bool { return _storage.isPresent(hasBit: (2, 128)) }
+  var hasBytesWithZero: Bool { _storage.isPresent(hasBit: (2, 128)) }
   /// Clears the value of `bytesWithZero`. Subsequent reads from it will return its default value.
   mutating func clearBytesWithZero() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(176, 156), type: Data.self, hasBit: (2, 128)) }
 
   var replacementString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(192, 168), default: "${unknown}", hasBit: (3, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(192, 168), default: "${unknown}", hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(192, 168), to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `replacementString` has been explicitly set.
-  var hasReplacementString: Bool { return _storage.isPresent(hasBit: (3, 1)) }
+  var hasReplacementString: Bool { _storage.isPresent(hasBit: (3, 1)) }
   /// Clears the value of `replacementString`. Subsequent reads from it will return its default value.
   mutating func clearReplacementString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(192, 168), type: String.self, hasBit: (3, 1)) }
 
@@ -2000,20 +2000,20 @@ struct SwiftProtoTesting_TestOneof: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get { return _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+      get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var b: String {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 2)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+    var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 2)) }
 
@@ -2112,11 +2112,11 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {
     // methods supported on all messages.
 
     var requiredDouble: Double {
-      get { return _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
+      get { _storage.value(at: 8, default: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `requiredDouble` has been explicitly set.
-    var hasRequiredDouble: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasRequiredDouble: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `requiredDouble`. Subsequent reads from it will return its default value.
     mutating func clearRequiredDouble() { _uniqueStorage().clearValue(at: 8, type: Double.self, hasBit: (0, 1)) }
 
@@ -2160,72 +2160,72 @@ struct SwiftProtoTesting_TestPackedTypes: @unchecked Sendable {
   // methods supported on all messages.
 
   var packedInt32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var packedInt64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var packedUint32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var packedUint64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var packedSint32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var packedSint64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var packedFixed32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
 
   var packedFixed64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 32), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
   var packedSfixed32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(72, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   var packedSfixed64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 40), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   var packedFloat: [Float] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(88, 44), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
   }
 
   var packedDouble: [Double] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
   }
 
   var packedBool: [Bool] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 52), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
   }
 
   var packedEnum: [SwiftProtoTesting_ForeignEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
@@ -2258,72 +2258,72 @@ struct SwiftProtoTesting_TestUnpackedTypes: @unchecked Sendable {
   // methods supported on all messages.
 
   var unpackedInt32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var unpackedInt64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var unpackedUint32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var unpackedUint64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var unpackedSint32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var unpackedSint64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var unpackedFixed32: [UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
 
   var unpackedFixed64: [UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 32), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
   var unpackedSfixed32: [Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(72, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   var unpackedSfixed64: [Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 40), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   var unpackedFloat: [Float] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(88, 44), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
   }
 
   var unpackedDouble: [Double] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
   }
 
   var unpackedBool: [Bool] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 52), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
   }
 
   var unpackedEnum: [SwiftProtoTesting_ForeignEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
@@ -2389,39 +2389,39 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
   // methods supported on all messages.
 
   var requiredAllTypes: SwiftProtoTesting_TestAllTypes {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredAllTypes` has been explicitly set.
-  var hasRequiredAllTypes: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+  var hasRequiredAllTypes: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `requiredAllTypes`. Subsequent reads from it will return its default value.
   mutating func clearRequiredAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
   var optionalAllTypes: SwiftProtoTesting_TestAllTypes {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
-  var hasOptionalAllTypes: Bool { return _storage.isPresent(hasBit: (0, 2)) }
+  var hasOptionalAllTypes: Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 2)) }
 
   var repeatedAllTypes: [SwiftProtoTesting_TestAllTypes] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var optionalGroup: SwiftProtoTesting_TestParsingMerge.OptionalGroup {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), default: SwiftProtoTesting_TestParsingMerge.OptionalGroup(), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), default: SwiftProtoTesting_TestParsingMerge.OptionalGroup(), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
-  var hasOptionalGroup: Bool { return _storage.isPresent(hasBit: (0, 4)) }
+  var hasOptionalGroup: Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 16), type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self, hasBit: (0, 4)) }
 
   var repeatedGroup: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
@@ -2444,37 +2444,37 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     // methods supported on all messages.
 
     var field1: [SwiftProtoTesting_TestAllTypes] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     var field2: [SwiftProtoTesting_TestAllTypes] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
     }
 
     var field3: [SwiftProtoTesting_TestAllTypes] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
     }
 
     var group1: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
     }
 
     var group2: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
     }
 
     var ext1: [SwiftProtoTesting_TestAllTypes] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
     }
 
     var ext2: [SwiftProtoTesting_TestAllTypes] {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
     }
 
@@ -2492,11 +2492,11 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       // methods supported on all messages.
 
       var field1: SwiftProtoTesting_TestAllTypes {
-        get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+        get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
-      var hasField1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+      var hasField1: Bool { _storage.isPresent(hasBit: (0, 1)) }
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
       mutating func clearField1() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
@@ -2527,11 +2527,11 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
       // methods supported on all messages.
 
       var field1: SwiftProtoTesting_TestAllTypes {
-        get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+        get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
-      var hasField1: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+      var hasField1: Bool { _storage.isPresent(hasBit: (0, 1)) }
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
       mutating func clearField1() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
@@ -2575,11 +2575,11 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     // methods supported on all messages.
 
     var optionalGroupAllTypes: SwiftProtoTesting_TestAllTypes {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `optionalGroupAllTypes` has been explicitly set.
-    var hasOptionalGroupAllTypes: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasOptionalGroupAllTypes: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `optionalGroupAllTypes`. Subsequent reads from it will return its default value.
     mutating func clearOptionalGroupAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
@@ -2610,11 +2610,11 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
     // methods supported on all messages.
 
     var repeatedGroupAllTypes: SwiftProtoTesting_TestAllTypes {
-      get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `repeatedGroupAllTypes` has been explicitly set.
-    var hasRepeatedGroupAllTypes: Bool { return _storage.isPresent(hasBit: (0, 1)) }
+    var hasRepeatedGroupAllTypes: Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `repeatedGroupAllTypes`. Subsequent reads from it will return its default value.
     mutating func clearRepeatedGroupAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 

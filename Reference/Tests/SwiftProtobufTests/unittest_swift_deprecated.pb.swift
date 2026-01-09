@@ -78,37 +78,37 @@ struct SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.ExtensibleMessage, @unc
   ///
   /// NOTE: This field was marked as deprecated in the .proto file.
   var stringField: String {
-    get {return _storage._stringField ?? String()}
+    get {_storage._stringField ?? String()}
     set {_uniqueStorage()._stringField = newValue}
   }
   /// Returns true if `stringField` has been explicitly set.
-  var hasStringField: Bool {return _storage._stringField != nil}
+  var hasStringField: Bool {_storage._stringField != nil}
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
   mutating func clearStringField() {_uniqueStorage()._stringField = nil}
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var intField: Int32 {
-    get {return _storage._intField ?? 0}
+    get {_storage._intField ?? 0}
     set {_uniqueStorage()._intField = newValue}
   }
   /// Returns true if `intField` has been explicitly set.
-  var hasIntField: Bool {return _storage._intField != nil}
+  var hasIntField: Bool {_storage._intField != nil}
   /// Clears the value of `intField`. Subsequent reads from it will return its default value.
   mutating func clearIntField() {_uniqueStorage()._intField = nil}
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var fixedField: [UInt32] {
-    get {return _storage._fixedField}
+    get {_storage._fixedField}
     set {_uniqueStorage()._fixedField = newValue}
   }
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var msgField: SwiftProtoTesting_Deprecated_MyMsg {
-    get {return _storage._msgField ?? SwiftProtoTesting_Deprecated_MyMsg()}
+    get {_storage._msgField ?? SwiftProtoTesting_Deprecated_MyMsg()}
     set {_uniqueStorage()._msgField = newValue}
   }
   /// Returns true if `msgField` has been explicitly set.
-  var hasMsgField: Bool {return _storage._msgField != nil}
+  var hasMsgField: Bool {_storage._msgField != nil}
   /// Clears the value of `msgField`. Subsequent reads from it will return its default value.
   mutating func clearMsgField() {_uniqueStorage()._msgField = nil}
 
@@ -140,34 +140,34 @@ struct SwiftProtoTesting_Deprecated_MyMsg2: @unchecked Sendable {
   // methods supported on all messages.
 
   var stringField: String {
-    get {return _storage._stringField ?? String()}
+    get {_storage._stringField ?? String()}
     set {_uniqueStorage()._stringField = newValue}
   }
   /// Returns true if `stringField` has been explicitly set.
-  var hasStringField: Bool {return _storage._stringField != nil}
+  var hasStringField: Bool {_storage._stringField != nil}
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
   mutating func clearStringField() {_uniqueStorage()._stringField = nil}
 
   var intField: Int32 {
-    get {return _storage._intField ?? 0}
+    get {_storage._intField ?? 0}
     set {_uniqueStorage()._intField = newValue}
   }
   /// Returns true if `intField` has been explicitly set.
-  var hasIntField: Bool {return _storage._intField != nil}
+  var hasIntField: Bool {_storage._intField != nil}
   /// Clears the value of `intField`. Subsequent reads from it will return its default value.
   mutating func clearIntField() {_uniqueStorage()._intField = nil}
 
   var fixedField: [UInt32] {
-    get {return _storage._fixedField}
+    get {_storage._fixedField}
     set {_uniqueStorage()._fixedField = newValue}
   }
 
   var msgField: SwiftProtoTesting_Deprecated_MyMsg2 {
-    get {return _storage._msgField ?? SwiftProtoTesting_Deprecated_MyMsg2()}
+    get {_storage._msgField ?? SwiftProtoTesting_Deprecated_MyMsg2()}
     set {_uniqueStorage()._msgField = newValue}
   }
   /// Returns true if `msgField` has been explicitly set.
-  var hasMsgField: Bool {return _storage._msgField != nil}
+  var hasMsgField: Bool {_storage._msgField != nil}
   /// Clears the value of `msgField`. Subsequent reads from it will return its default value.
   mutating func clearMsgField() {_uniqueStorage()._msgField = nil}
 

@@ -44,11 +44,11 @@ struct Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensibl
   // methods supported on all messages.
 
   var a: Int32 {
-    get {return _a ?? 0}
+    get {_a ?? 0}
     set {_a = newValue}
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return self._a != nil}
+  var hasA: Bool {self._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() {self._a = nil}
 

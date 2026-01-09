@@ -195,11 +195,11 @@ struct Proto2Unittest_TestSubmessageMaps: Sendable {
   // methods supported on all messages.
 
   var m: Proto2Unittest_TestMaps {
-    get {return _m ?? Proto2Unittest_TestMaps()}
+    get {_m ?? Proto2Unittest_TestMaps()}
     set {_m = newValue}
   }
   /// Returns true if `m` has been explicitly set.
-  var hasM: Bool {return self._m != nil}
+  var hasM: Bool {self._m != nil}
   /// Clears the value of `m`. Subsequent reads from it will return its default value.
   mutating func clearM() {self._m = nil}
 

@@ -56,254 +56,254 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
   // methods supported on all messages.
 
   var optionalInt32: Int32 {
-    get {return _storage._optionalInt32 ?? 0}
+    get {_storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
   /// Returns true if `optionalInt32` has been explicitly set.
-  var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
+  var hasOptionalInt32: Bool {_storage._optionalInt32 != nil}
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
 
   var optionalInt64: Int64 {
-    get {return _storage._optionalInt64 ?? 0}
+    get {_storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
   /// Returns true if `optionalInt64` has been explicitly set.
-  var hasOptionalInt64: Bool {return _storage._optionalInt64 != nil}
+  var hasOptionalInt64: Bool {_storage._optionalInt64 != nil}
   /// Clears the value of `optionalInt64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt64() {_uniqueStorage()._optionalInt64 = nil}
 
   var optionalUint32: UInt32 {
-    get {return _storage._optionalUint32 ?? 0}
+    get {_storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
   /// Returns true if `optionalUint32` has been explicitly set.
-  var hasOptionalUint32: Bool {return _storage._optionalUint32 != nil}
+  var hasOptionalUint32: Bool {_storage._optionalUint32 != nil}
   /// Clears the value of `optionalUint32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint32() {_uniqueStorage()._optionalUint32 = nil}
 
   var optionalUint64: UInt64 {
-    get {return _storage._optionalUint64 ?? 0}
+    get {_storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
   /// Returns true if `optionalUint64` has been explicitly set.
-  var hasOptionalUint64: Bool {return _storage._optionalUint64 != nil}
+  var hasOptionalUint64: Bool {_storage._optionalUint64 != nil}
   /// Clears the value of `optionalUint64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint64() {_uniqueStorage()._optionalUint64 = nil}
 
   var optionalSint32: Int32 {
-    get {return _storage._optionalSint32 ?? 0}
+    get {_storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
   /// Returns true if `optionalSint32` has been explicitly set.
-  var hasOptionalSint32: Bool {return _storage._optionalSint32 != nil}
+  var hasOptionalSint32: Bool {_storage._optionalSint32 != nil}
   /// Clears the value of `optionalSint32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSint32() {_uniqueStorage()._optionalSint32 = nil}
 
   var optionalSint64: Int64 {
-    get {return _storage._optionalSint64 ?? 0}
+    get {_storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
   /// Returns true if `optionalSint64` has been explicitly set.
-  var hasOptionalSint64: Bool {return _storage._optionalSint64 != nil}
+  var hasOptionalSint64: Bool {_storage._optionalSint64 != nil}
   /// Clears the value of `optionalSint64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSint64() {_uniqueStorage()._optionalSint64 = nil}
 
   var optionalFixed32: UInt32 {
-    get {return _storage._optionalFixed32 ?? 0}
+    get {_storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
   /// Returns true if `optionalFixed32` has been explicitly set.
-  var hasOptionalFixed32: Bool {return _storage._optionalFixed32 != nil}
+  var hasOptionalFixed32: Bool {_storage._optionalFixed32 != nil}
   /// Clears the value of `optionalFixed32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFixed32() {_uniqueStorage()._optionalFixed32 = nil}
 
   var optionalFixed64: UInt64 {
-    get {return _storage._optionalFixed64 ?? 0}
+    get {_storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
   /// Returns true if `optionalFixed64` has been explicitly set.
-  var hasOptionalFixed64: Bool {return _storage._optionalFixed64 != nil}
+  var hasOptionalFixed64: Bool {_storage._optionalFixed64 != nil}
   /// Clears the value of `optionalFixed64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFixed64() {_uniqueStorage()._optionalFixed64 = nil}
 
   var optionalSfixed32: Int32 {
-    get {return _storage._optionalSfixed32 ?? 0}
+    get {_storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
   /// Returns true if `optionalSfixed32` has been explicitly set.
-  var hasOptionalSfixed32: Bool {return _storage._optionalSfixed32 != nil}
+  var hasOptionalSfixed32: Bool {_storage._optionalSfixed32 != nil}
   /// Clears the value of `optionalSfixed32`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSfixed32() {_uniqueStorage()._optionalSfixed32 = nil}
 
   var optionalSfixed64: Int64 {
-    get {return _storage._optionalSfixed64 ?? 0}
+    get {_storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
   /// Returns true if `optionalSfixed64` has been explicitly set.
-  var hasOptionalSfixed64: Bool {return _storage._optionalSfixed64 != nil}
+  var hasOptionalSfixed64: Bool {_storage._optionalSfixed64 != nil}
   /// Clears the value of `optionalSfixed64`. Subsequent reads from it will return its default value.
   mutating func clearOptionalSfixed64() {_uniqueStorage()._optionalSfixed64 = nil}
 
   var optionalFloat: Float {
-    get {return _storage._optionalFloat ?? 0}
+    get {_storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
   /// Returns true if `optionalFloat` has been explicitly set.
-  var hasOptionalFloat: Bool {return _storage._optionalFloat != nil}
+  var hasOptionalFloat: Bool {_storage._optionalFloat != nil}
   /// Clears the value of `optionalFloat`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFloat() {_uniqueStorage()._optionalFloat = nil}
 
   var optionalDouble: Double {
-    get {return _storage._optionalDouble ?? 0}
+    get {_storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
   /// Returns true if `optionalDouble` has been explicitly set.
-  var hasOptionalDouble: Bool {return _storage._optionalDouble != nil}
+  var hasOptionalDouble: Bool {_storage._optionalDouble != nil}
   /// Clears the value of `optionalDouble`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDouble() {_uniqueStorage()._optionalDouble = nil}
 
   var optionalBool: Bool {
-    get {return _storage._optionalBool ?? false}
+    get {_storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
   /// Returns true if `optionalBool` has been explicitly set.
-  var hasOptionalBool: Bool {return _storage._optionalBool != nil}
+  var hasOptionalBool: Bool {_storage._optionalBool != nil}
   /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBool() {_uniqueStorage()._optionalBool = nil}
 
   var optionalString: String {
-    get {return _storage._optionalString ?? String()}
+    get {_storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   /// Returns true if `optionalString` has been explicitly set.
-  var hasOptionalString: Bool {return _storage._optionalString != nil}
+  var hasOptionalString: Bool {_storage._optionalString != nil}
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {_storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
-  var hasOptionalBytes: Bool {return _storage._optionalBytes != nil}
+  var hasOptionalBytes: Bool {_storage._optionalBytes != nil}
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
   var optionalGroup: SwiftProtoTesting_Message2.OptionalGroup {
-    get {return _storage._optionalGroup ?? SwiftProtoTesting_Message2.OptionalGroup()}
+    get {_storage._optionalGroup ?? SwiftProtoTesting_Message2.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
   /// Returns true if `optionalGroup` has been explicitly set.
-  var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
+  var hasOptionalGroup: Bool {_storage._optionalGroup != nil}
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
   mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
 
   var optionalMessage: SwiftProtoTesting_Message2 {
-    get {return _storage._optionalMessage ?? SwiftProtoTesting_Message2()}
+    get {_storage._optionalMessage ?? SwiftProtoTesting_Message2()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
-  var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
+  var hasOptionalMessage: Bool {_storage._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {_uniqueStorage()._optionalMessage = nil}
 
   var optionalEnum: SwiftProtoTesting_Message2.Enum {
-    get {return _storage._optionalEnum ?? .foo}
+    get {_storage._optionalEnum ?? .foo}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
   /// Returns true if `optionalEnum` has been explicitly set.
-  var hasOptionalEnum: Bool {return _storage._optionalEnum != nil}
+  var hasOptionalEnum: Bool {_storage._optionalEnum != nil}
   /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalEnum() {_uniqueStorage()._optionalEnum = nil}
 
   var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
+    get {_storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
   }
 
   var repeatedInt64: [Int64] {
-    get {return _storage._repeatedInt64}
+    get {_storage._repeatedInt64}
     set {_uniqueStorage()._repeatedInt64 = newValue}
   }
 
   var repeatedUint32: [UInt32] {
-    get {return _storage._repeatedUint32}
+    get {_storage._repeatedUint32}
     set {_uniqueStorage()._repeatedUint32 = newValue}
   }
 
   var repeatedUint64: [UInt64] {
-    get {return _storage._repeatedUint64}
+    get {_storage._repeatedUint64}
     set {_uniqueStorage()._repeatedUint64 = newValue}
   }
 
   var repeatedSint32: [Int32] {
-    get {return _storage._repeatedSint32}
+    get {_storage._repeatedSint32}
     set {_uniqueStorage()._repeatedSint32 = newValue}
   }
 
   var repeatedSint64: [Int64] {
-    get {return _storage._repeatedSint64}
+    get {_storage._repeatedSint64}
     set {_uniqueStorage()._repeatedSint64 = newValue}
   }
 
   var repeatedFixed32: [UInt32] {
-    get {return _storage._repeatedFixed32}
+    get {_storage._repeatedFixed32}
     set {_uniqueStorage()._repeatedFixed32 = newValue}
   }
 
   var repeatedFixed64: [UInt64] {
-    get {return _storage._repeatedFixed64}
+    get {_storage._repeatedFixed64}
     set {_uniqueStorage()._repeatedFixed64 = newValue}
   }
 
   var repeatedSfixed32: [Int32] {
-    get {return _storage._repeatedSfixed32}
+    get {_storage._repeatedSfixed32}
     set {_uniqueStorage()._repeatedSfixed32 = newValue}
   }
 
   var repeatedSfixed64: [Int64] {
-    get {return _storage._repeatedSfixed64}
+    get {_storage._repeatedSfixed64}
     set {_uniqueStorage()._repeatedSfixed64 = newValue}
   }
 
   var repeatedFloat: [Float] {
-    get {return _storage._repeatedFloat}
+    get {_storage._repeatedFloat}
     set {_uniqueStorage()._repeatedFloat = newValue}
   }
 
   var repeatedDouble: [Double] {
-    get {return _storage._repeatedDouble}
+    get {_storage._repeatedDouble}
     set {_uniqueStorage()._repeatedDouble = newValue}
   }
 
   var repeatedBool: [Bool] {
-    get {return _storage._repeatedBool}
+    get {_storage._repeatedBool}
     set {_uniqueStorage()._repeatedBool = newValue}
   }
 
   var repeatedString: [String] {
-    get {return _storage._repeatedString}
+    get {_storage._repeatedString}
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
   var repeatedBytes: [Data] {
-    get {return _storage._repeatedBytes}
+    get {_storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
   var repeatedGroup: [SwiftProtoTesting_Message2.RepeatedGroup] {
-    get {return _storage._repeatedGroup}
+    get {_storage._repeatedGroup}
     set {_uniqueStorage()._repeatedGroup = newValue}
   }
 
   var repeatedMessage: [SwiftProtoTesting_Message2] {
-    get {return _storage._repeatedMessage}
+    get {_storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
   var repeatedEnum: [SwiftProtoTesting_Message2.Enum] {
-    get {return _storage._repeatedEnum}
+    get {_storage._repeatedEnum}
     set {_uniqueStorage()._repeatedEnum = newValue}
   }
 
@@ -458,97 +458,97 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
 
   /// Some token map cases, too many combinations to list them all.
   var mapInt32Int32: Dictionary<Int32,Int32> {
-    get {return _storage._mapInt32Int32}
+    get {_storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
   }
 
   var mapInt64Int64: Dictionary<Int64,Int64> {
-    get {return _storage._mapInt64Int64}
+    get {_storage._mapInt64Int64}
     set {_uniqueStorage()._mapInt64Int64 = newValue}
   }
 
   var mapUint32Uint32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapUint32Uint32}
+    get {_storage._mapUint32Uint32}
     set {_uniqueStorage()._mapUint32Uint32 = newValue}
   }
 
   var mapUint64Uint64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapUint64Uint64}
+    get {_storage._mapUint64Uint64}
     set {_uniqueStorage()._mapUint64Uint64 = newValue}
   }
 
   var mapSint32Sint32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSint32Sint32}
+    get {_storage._mapSint32Sint32}
     set {_uniqueStorage()._mapSint32Sint32 = newValue}
   }
 
   var mapSint64Sint64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSint64Sint64}
+    get {_storage._mapSint64Sint64}
     set {_uniqueStorage()._mapSint64Sint64 = newValue}
   }
 
   var mapFixed32Fixed32: Dictionary<UInt32,UInt32> {
-    get {return _storage._mapFixed32Fixed32}
+    get {_storage._mapFixed32Fixed32}
     set {_uniqueStorage()._mapFixed32Fixed32 = newValue}
   }
 
   var mapFixed64Fixed64: Dictionary<UInt64,UInt64> {
-    get {return _storage._mapFixed64Fixed64}
+    get {_storage._mapFixed64Fixed64}
     set {_uniqueStorage()._mapFixed64Fixed64 = newValue}
   }
 
   var mapSfixed32Sfixed32: Dictionary<Int32,Int32> {
-    get {return _storage._mapSfixed32Sfixed32}
+    get {_storage._mapSfixed32Sfixed32}
     set {_uniqueStorage()._mapSfixed32Sfixed32 = newValue}
   }
 
   var mapSfixed64Sfixed64: Dictionary<Int64,Int64> {
-    get {return _storage._mapSfixed64Sfixed64}
+    get {_storage._mapSfixed64Sfixed64}
     set {_uniqueStorage()._mapSfixed64Sfixed64 = newValue}
   }
 
   var mapInt32Float: Dictionary<Int32,Float> {
-    get {return _storage._mapInt32Float}
+    get {_storage._mapInt32Float}
     set {_uniqueStorage()._mapInt32Float = newValue}
   }
 
   var mapInt32Double: Dictionary<Int32,Double> {
-    get {return _storage._mapInt32Double}
+    get {_storage._mapInt32Double}
     set {_uniqueStorage()._mapInt32Double = newValue}
   }
 
   var mapBoolBool: Dictionary<Bool,Bool> {
-    get {return _storage._mapBoolBool}
+    get {_storage._mapBoolBool}
     set {_uniqueStorage()._mapBoolBool = newValue}
   }
 
   var mapStringString: Dictionary<String,String> {
-    get {return _storage._mapStringString}
+    get {_storage._mapStringString}
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
   var mapStringBytes: Dictionary<String,Data> {
-    get {return _storage._mapStringBytes}
+    get {_storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
   var mapStringMessage: Dictionary<String,SwiftProtoTesting_Message2> {
-    get {return _storage._mapStringMessage}
+    get {_storage._mapStringMessage}
     set {_uniqueStorage()._mapStringMessage = newValue}
   }
 
   var mapInt32Bytes: Dictionary<Int32,Data> {
-    get {return _storage._mapInt32Bytes}
+    get {_storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
   var mapInt32Enum: Dictionary<Int32,SwiftProtoTesting_Message2.Enum> {
-    get {return _storage._mapInt32Enum}
+    get {_storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
   var mapInt32Message: Dictionary<Int32,SwiftProtoTesting_Message2> {
-    get {return _storage._mapInt32Message}
+    get {_storage._mapInt32Message}
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
 
@@ -594,11 +594,11 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 0}
+      get {_a ?? 0}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
@@ -615,11 +615,11 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 0}
+      get {_a ?? 0}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
@@ -636,20 +636,20 @@ struct SwiftProtoTesting_Message2: @unchecked Sendable {
     // methods supported on all messages.
 
     var a: Int32 {
-      get {return _a ?? 116}
+      get {_a ?? 116}
       set {_a = newValue}
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool {return self._a != nil}
+    var hasA: Bool {self._a != nil}
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
     var b: Int32 {
-      get {return _b ?? 0}
+      get {_b ?? 0}
       set {_b = newValue}
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool {return self._b != nil}
+    var hasB: Bool {self._b != nil}
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() {self._b = nil}
 
@@ -683,11 +683,11 @@ struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Sendable {
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: SwiftProtoTesting_Msg2UsesStorage {
-    get {return _storage._y ?? SwiftProtoTesting_Msg2UsesStorage()}
+    get {_storage._y ?? SwiftProtoTesting_Msg2UsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
   /// Returns true if `y` has been explicitly set.
-  var hasY: Bool {return _storage._y != nil}
+  var hasY: Bool {_storage._y != nil}
   /// Clears the value of `y`. Subsequent reads from it will return its default value.
   mutating func clearY() {_uniqueStorage()._y = nil}
 
@@ -705,29 +705,29 @@ struct SwiftProtoTesting_Msg2NamesNoStorage: Sendable {
   // methods supported on all messages.
 
   var isInitialized_p: Int32 {
-    get {return _isInitialized_p ?? 0}
+    get {_isInitialized_p ?? 0}
     set {_isInitialized_p = newValue}
   }
   /// Returns true if `isInitialized_p` has been explicitly set.
-  var hasIsInitialized_p: Bool {return self._isInitialized_p != nil}
+  var hasIsInitialized_p: Bool {self._isInitialized_p != nil}
   /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
   mutating func clearIsInitialized_p() {self._isInitialized_p = nil}
 
   var debugDescription_p: Int32 {
-    get {return _debugDescription_p ?? 0}
+    get {_debugDescription_p ?? 0}
     set {_debugDescription_p = newValue}
   }
   /// Returns true if `debugDescription_p` has been explicitly set.
-  var hasDebugDescription_p: Bool {return self._debugDescription_p != nil}
+  var hasDebugDescription_p: Bool {self._debugDescription_p != nil}
   /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
   mutating func clearDebugDescription_p() {self._debugDescription_p = nil}
 
   var value: Int32 {
-    get {return _value ?? 0}
+    get {_value ?? 0}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
-  var hasValue: Bool {return self._value != nil}
+  var hasValue: Bool {self._value != nil}
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
   mutating func clearValue() {self._value = nil}
 
@@ -747,30 +747,30 @@ struct SwiftProtoTesting_Msg2NamesUsesStorage: Sendable {
   // methods supported on all messages.
 
   var isInitialized_p: Int32 {
-    get {return _isInitialized_p ?? 0}
+    get {_isInitialized_p ?? 0}
     set {_isInitialized_p = newValue}
   }
   /// Returns true if `isInitialized_p` has been explicitly set.
-  var hasIsInitialized_p: Bool {return self._isInitialized_p != nil}
+  var hasIsInitialized_p: Bool {self._isInitialized_p != nil}
   /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
   mutating func clearIsInitialized_p() {self._isInitialized_p = nil}
 
   var debugDescription_p: Int32 {
-    get {return _debugDescription_p ?? 0}
+    get {_debugDescription_p ?? 0}
     set {_debugDescription_p = newValue}
   }
   /// Returns true if `debugDescription_p` has been explicitly set.
-  var hasDebugDescription_p: Bool {return self._debugDescription_p != nil}
+  var hasDebugDescription_p: Bool {self._debugDescription_p != nil}
   /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
   mutating func clearDebugDescription_p() {self._debugDescription_p = nil}
 
   /// Recursive class, forces _StorageClass
   var value: SwiftProtoTesting_Msg2UsesStorage {
-    get {return _value ?? SwiftProtoTesting_Msg2UsesStorage()}
+    get {_value ?? SwiftProtoTesting_Msg2UsesStorage()}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
-  var hasValue: Bool {return self._value != nil}
+  var hasValue: Bool {self._value != nil}
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
   mutating func clearValue() {self._value = nil}
 

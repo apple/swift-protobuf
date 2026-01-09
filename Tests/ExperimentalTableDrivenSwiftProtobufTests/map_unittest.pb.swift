@@ -96,97 +96,97 @@ struct SwiftProtoTesting_TestMap: @unchecked Sendable {
   // methods supported on all messages.
 
   var mapInt32Int32: [Int32: Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var mapInt64Int64: [Int64: Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var mapUint32Uint32: [UInt32: UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var mapUint64Uint64: [UInt64: UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var mapSint32Sint32: [Int32: Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var mapSint64Sint64: [Int64: Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var mapFixed32Fixed32: [UInt32: UInt32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
 
   var mapFixed64Fixed64: [UInt64: UInt64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 32), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
   var mapSfixed32Sfixed32: [Int32: Int32] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(72, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   var mapSfixed64Sfixed64: [Int64: Int64] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 40), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   var mapInt32Float: [Int32: Float] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(88, 44), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
   }
 
   var mapInt32Double: [Int32: Double] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
   }
 
   var mapBoolBool: [Bool: Bool] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 52), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
   }
 
   var mapStringString: [String: String] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
   var mapInt32Bytes: [Int32: Data] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(120, 60), hasBit: (1, 64)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(120, 60), hasBit: (1, 64)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(120, 60), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 64)) }
   }
 
   var mapInt32Enum: [Int32: SwiftProtoTesting_MapEnum] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(128, 64), hasBit: (1, 128)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 64), hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 64), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 128)) }
   }
 
   var mapInt32ForeignMessage: [Int32: SwiftProtoTesting_ForeignMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(136, 68), hasBit: (2, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(136, 68), hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(136, 68), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 1)) }
   }
 
   var mapStringForeignMessage: [String: SwiftProtoTesting_ForeignMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(144, 72), hasBit: (2, 2)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(144, 72), hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 72), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 2)) }
   }
 
   var mapInt32AllTypes: [Int32: SwiftProtoTesting_TestAllTypes] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(152, 76), hasBit: (2, 4)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(152, 76), hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(152, 76), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 4)) }
   }
 
@@ -218,7 +218,7 @@ struct SwiftProtoTesting_TestRequiredMessageMap: @unchecked Sendable {
   // methods supported on all messages.
 
   var mapField: [Int32: SwiftProtoTesting_TestRequired] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
@@ -249,7 +249,7 @@ struct SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Sendable {
   // methods supported on all messages.
 
   var a: [String: SwiftProtoTesting_TestRecursiveMapMessage] {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 

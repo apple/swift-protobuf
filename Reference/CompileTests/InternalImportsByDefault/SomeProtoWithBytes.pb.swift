@@ -27,20 +27,20 @@ public struct SomeProtoWithBytes: Sendable {
   // methods supported on all messages.
 
   public var someBytes: Data {
-    get {return _someBytes ?? Data()}
+    get {_someBytes ?? Data()}
     set {_someBytes = newValue}
   }
   /// Returns true if `someBytes` has been explicitly set.
-  public var hasSomeBytes: Bool {return self._someBytes != nil}
+  public var hasSomeBytes: Bool {self._someBytes != nil}
   /// Clears the value of `someBytes`. Subsequent reads from it will return its default value.
   public mutating func clearSomeBytes() {self._someBytes = nil}
 
   public var extStr: String {
-    get {return _extStr ?? String()}
+    get {_extStr ?? String()}
     set {_extStr = newValue}
   }
   /// Returns true if `extStr` has been explicitly set.
-  public var hasExtStr: Bool {return self._extStr != nil}
+  public var hasExtStr: Bool {self._extStr != nil}
   /// Clears the value of `extStr`. Subsequent reads from it will return its default value.
   public mutating func clearExtStr() {self._extStr = nil}
 

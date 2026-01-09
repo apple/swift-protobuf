@@ -38,11 +38,11 @@ struct Proto2UnittestImportOption_TestMessage: Sendable {
   // methods supported on all messages.
 
   var field1: Int32 {
-    get {return _field1 ?? 0}
+    get {_field1 ?? 0}
     set {_field1 = newValue}
   }
   /// Returns true if `field1` has been explicitly set.
-  var hasField1: Bool {return self._field1 != nil}
+  var hasField1: Bool {self._field1 != nil}
   /// Clears the value of `field1`. Subsequent reads from it will return its default value.
   mutating func clearField1() {self._field1 = nil}
 
