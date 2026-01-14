@@ -13,6 +13,9 @@ on:
 jobs:
   check-and-update:
     runs-on: ubuntu-latest
+    # Ensure we have the lastest Swift incase so Reference can be updated.
+    container:
+      image: swift:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
