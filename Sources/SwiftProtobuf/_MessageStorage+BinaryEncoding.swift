@@ -94,7 +94,7 @@ extension _MessageStorage {
             case .bool:
                 let values = assumedPresentValue(at: offset, as: [Bool].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putBoolValue(value: $0)
                     }
                 } else {
@@ -112,7 +112,7 @@ extension _MessageStorage {
             case .double:
                 let values = assumedPresentValue(at: offset, as: [Double].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putDoubleValue(value: $0)
                     }
                 } else {
@@ -127,7 +127,7 @@ extension _MessageStorage {
             case .fixed32:
                 let values = assumedPresentValue(at: offset, as: [UInt32].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putFixedUInt32(value: $0)
                     }
                 } else {
@@ -139,7 +139,7 @@ extension _MessageStorage {
             case .fixed64:
                 let values = assumedPresentValue(at: offset, as: [UInt64].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putFixedUInt64(value: $0)
                     }
                 } else {
@@ -151,7 +151,7 @@ extension _MessageStorage {
             case .float:
                 let values = assumedPresentValue(at: offset, as: [Float].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putFloatValue(value: $0)
                     }
                 } else {
@@ -167,8 +167,10 @@ extension _MessageStorage {
             case .int32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
-                        $1.putVarInt(value: UInt64(UInt32(bitPattern: $0)))
+                    serializePackedVarintsField(values, for: fieldNumber, into: &encoder) {
+                        $1.putVarInt(value: UInt64(bitPattern: Int64($0)))
+                    } lengthOfElement: {
+                        Varint.encodedSize(of: $0)
                     }
                 } else {
                     for value in values {
@@ -179,8 +181,10 @@ extension _MessageStorage {
             case .int64:
                 let values = assumedPresentValue(at: offset, as: [Int64].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedVarintsField(values, for: fieldNumber, into: &encoder) {
                         $1.putVarInt(value: UInt64(bitPattern: $0))
+                    } lengthOfElement: {
+                        Varint.encodedSize(of: $0)
                     }
                 } else {
                     for value in values {
@@ -195,7 +199,7 @@ extension _MessageStorage {
             case .sfixed32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putFixedUInt32(value: UInt32(bitPattern: $0))
                     }
                 } else {
@@ -207,7 +211,7 @@ extension _MessageStorage {
             case .sfixed64:
                 let values = assumedPresentValue(at: offset, as: [Int64].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedFixedField(values, for: fieldNumber, into: &encoder) {
                         $1.putFixedUInt64(value: UInt64(bitPattern: $0))
                     }
                 } else {
@@ -219,8 +223,10 @@ extension _MessageStorage {
             case .sint32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
-                        $1.putVarInt(value: UInt64(ZigZag.encoded($0)))
+                    serializePackedVarintsField(values, for: fieldNumber, into: &encoder) {
+                        $1.putVarInt(value: ZigZag.encoded(Int64($0)))
+                    } lengthOfElement: {
+                        Varint.encodedSize(of: ZigZag.encoded(Int64($0)))
                     }
                 } else {
                     for value in values {
@@ -231,8 +237,10 @@ extension _MessageStorage {
             case .sint64:
                 let values = assumedPresentValue(at: offset, as: [Int64].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedVarintsField(values, for: fieldNumber, into: &encoder) {
                         $1.putVarInt(value: ZigZag.encoded($0))
+                    } lengthOfElement: {
+                        Varint.encodedSize(of: ZigZag.encoded($0))
                     }
                 } else {
                     for value in values {
@@ -249,8 +257,10 @@ extension _MessageStorage {
             case .uint32:
                 let values = assumedPresentValue(at: offset, as: [UInt32].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedVarintsField(values, for: fieldNumber, into: &encoder) {
                         $1.putVarInt(value: UInt64($0))
+                    } lengthOfElement: {
+                        Varint.encodedSize(of: $0)
                     }
                 } else {
                     for value in values {
@@ -261,8 +271,10 @@ extension _MessageStorage {
             case .uint64:
                 let values = assumedPresentValue(at: offset, as: [UInt64].self)
                 if isPacked {
-                    serializePackedTrivialField(values, for: fieldNumber, into: &encoder) {
+                    serializePackedVarintsField(values, for: fieldNumber, into: &encoder) {
                         $1.putVarInt(value: $0)
+                    } lengthOfElement: {
+                        Varint.encodedSize(of: $0)
                     }
                 } else {
                     for value in values {
@@ -491,9 +503,10 @@ extension _MessageStorage {
         encoder.putVarInt(value: value)
     }
 
-    /// Serializes a packed repeated field of trivial values by writing the tag and length-delimited
-    /// prefix, then calls the given closure to encode the individual values themselves.
-    private func serializePackedTrivialField<T>(
+    /// Serializes a packed repeated field of fixed-size values by writing the tag and
+    /// length-delimited prefix, then calls the given closure to encode the individual values
+    /// themselves.
+    private func serializePackedFixedField<T>(
         _ values: [T],
         for fieldNumber: Int,
         into encoder: inout BinaryEncoder,
@@ -501,6 +514,26 @@ extension _MessageStorage {
     ) {
         encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
         encoder.putVarInt(value: values.count * MemoryLayout<T>.size)
+        for value in values {
+            encode(value, &encoder)
+        }
+    }
+
+    /// Serializes a packed repeated field of varints by writing the tag and length-delimited
+    /// prefix, then calls the given closure to encode the individual values themselves.
+    private func serializePackedVarintsField<T>(
+        _ values: [T],
+        for fieldNumber: Int,
+        into encoder: inout BinaryEncoder,
+        encode: (T, inout BinaryEncoder) -> Void,
+        lengthOfElement: (T) -> Int
+    ) {
+        encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+        var length = 0
+        for value in values {
+            length += lengthOfElement(value)
+        }
+        encoder.putVarInt(value: length)
         for value in values {
             encode(value, &encoder)
         }

@@ -311,7 +311,7 @@ fileprivate let _protobuf_package = "swift_proto_testing.enum3"
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0(\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{10}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{18}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{4}\0\u{e}" }
@@ -321,8 +321,10 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -398,6 +400,12 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_Enum3_SwiftEnumTest, rhs: SwiftProtoTesting_Enum3_SwiftEnumTest) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -422,7 +430,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord: SwiftProto
 
 extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}" }
@@ -432,8 +440,10 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}values\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -496,6 +506,12 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest, rhs: SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest) -> Bool {

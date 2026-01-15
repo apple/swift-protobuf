@@ -91,6 +91,15 @@ extension Message {
         extensions: (any ExtensionMap)? = nil
     ) throws {
         self.init()
+        try _merge(textFormatString: textFormatString, options: options, extensions: extensions)
+    }
+
+    // TODO: Delete this when we have removed the old implementation.
+    public mutating func _merge(
+        textFormatString: String,
+        options: TextFormatDecodingOptions,
+        extensions: (any ExtensionMap)?
+    ) throws {
         if !textFormatString.isEmpty {
             if let data = textFormatString.data(using: String.Encoding.utf8) {
                 try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in

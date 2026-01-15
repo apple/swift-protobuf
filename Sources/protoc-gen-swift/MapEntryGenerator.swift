@@ -59,22 +59,25 @@ class MapEntryGenerator {
 
     func generateLayoutReturnStatement(printer: inout CodePrinter) {
         let valueTypeArgument: String
+        let layoutLabel: String
         switch descriptor.mapKeyAndValue!.value.type {
         case .message, .enum:
             valueTypeArgument = ", forMapEntryWithValueType: \(swiftValueType).self"
+            layoutLabel = "layout"
         default:
             valueTypeArgument = ""
+            layoutLabel = "layoutForMapEntryWithScalarValues"
         }
         if let layoutString = entryLayoutCalculator.layoutLiterals.valueIfAllEqual {
             printer.print(
-                #"return SwiftProtobuf._MessageLayout(layout: "\#(layoutString)"\#(valueTypeArgument))"#
+                #"return SwiftProtobuf._MessageLayout(\#(layoutLabel): "\#(layoutString)"\#(valueTypeArgument))"#
             )
         } else {
             entryLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &printer) { layoutString, _, printer in
                 printer.print(#"let layoutString: StaticString = "\#(layoutString)""#)
             }
             printer.print(
-                "return SwiftProtobuf._MessageLayout(layout: layoutString\(valueTypeArgument))"
+                "return SwiftProtobuf._MessageLayout(\(layoutLabel): layoutString\(valueTypeArgument))"
             )
         }
     }

@@ -704,7 +704,7 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Required1"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_1\0\u{3}opt_2\0\u{3}opt_3\0\u{3}opt_4\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0(\0\0\u{4}\0\0\u{1}\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}" }
@@ -714,8 +714,10 @@ extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._Mes
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}req_1\0\u{3}opt_2\0\u{3}opt_3\0\u{3}opt_4\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -736,6 +738,12 @@ extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Required1, rhs: SwiftProtoTesting_Required1) -> Bool {
@@ -745,7 +753,7 @@ extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Required8"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_1\0\u{3}req_2\0\u{3}req_3\0\u{3}req_4\0\u{3}req_5\0\u{3}req_6\0\u{3}req_7\0\u{3}req_8\0\u{3}req_9\0\u{3}req_10\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0X\0\0\u{a}\0\0\u{8}\0\0\u{a}\0\0\u{b}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}" }
@@ -755,8 +763,10 @@ extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._Mes
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}req_1\0\u{3}req_2\0\u{3}req_3\0\u{3}req_4\0\u{3}req_5\0\u{3}req_6\0\u{3}req_7\0\u{3}req_8\0\u{3}req_9\0\u{3}req_10\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -777,6 +787,12 @@ extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Required8, rhs: SwiftProtoTesting_Required8) -> Bool {
@@ -786,7 +802,7 @@ extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Required9"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_1\0\u{3}req_2\0\u{3}req_3\0\u{3}req_4\0\u{3}req_5\0\u{3}req_6\0\u{3}req_7\0\u{3}req_8\0\u{3}req_9\0\u{3}req_10\0\u{3}req_11\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0`\0\0\u{b}\0\0\u{9}\0\0\u{b}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{b}\0\0\0\0X\0\0\u{a}\0\0\0\u{3}" }
@@ -796,8 +812,10 @@ extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._Mes
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}req_1\0\u{3}req_2\0\u{3}req_3\0\u{3}req_4\0\u{3}req_5\0\u{3}req_6\0\u{3}req_7\0\u{3}req_8\0\u{3}req_9\0\u{3}req_10\0\u{3}req_11\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -818,6 +836,12 @@ extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_Required9, rhs: SwiftProtoTesting_Required9) -> Bool {
@@ -827,7 +851,7 @@ extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RequiredMixedOrder"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_1\0\u{3}opt_2\0\u{3}req_3\0\u{3}opt_4\0\u{3}req_5\0\u{3}opt_6\0\u{3}req_7\0\u{3}opt_8\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0H\0\0\u{8}\0\0\u{4}\0\0\u{8}\0\0\u{9}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{5}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{2}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{6}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{3}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}" }
@@ -837,8 +861,10 @@ extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProt
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}req_1\0\u{3}opt_2\0\u{3}req_3\0\u{3}opt_4\0\u{3}req_5\0\u{3}opt_6\0\u{3}req_7\0\u{3}opt_8\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -860,6 +886,12 @@ extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProt
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_RequiredMixedOrder, rhs: SwiftProtoTesting_RequiredMixedOrder) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -868,7 +900,7 @@ extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RequiredWithNested"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nested\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}" }
@@ -878,8 +910,10 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProt
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}nested\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -947,6 +981,12 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProt
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_RequiredWithNested, rhs: SwiftProtoTesting_RequiredWithNested) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -955,7 +995,7 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RequiredWithRepeatedNested"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}nested\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}" }
@@ -965,8 +1005,10 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, S
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}nested\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -1034,6 +1076,12 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, S
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_RequiredWithRepeatedNested, rhs: SwiftProtoTesting_RequiredWithRepeatedNested) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1042,7 +1090,7 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, S
 
 extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedRequired"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_1\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}" }
@@ -1052,8 +1100,10 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}req_1\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -1075,6 +1125,12 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_NestedRequired, rhs: SwiftProtoTesting_NestedRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1083,7 +1139,7 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
 
 extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NoneRequired"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}opt_1\0\u{3}opt_2\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}" }
@@ -1093,8 +1149,10 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}opt_1\0\u{3}opt_2\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -1158,6 +1216,12 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_NoneRequired, rhs: SwiftProtoTesting_NoneRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1166,7 +1230,7 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedNoneRequired"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}opt_1\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}" }
@@ -1176,8 +1240,10 @@ extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProt
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}opt_1\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -1195,6 +1261,12 @@ extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProt
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_NestedNoneRequired, rhs: SwiftProtoTesting_NestedNoneRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1203,7 +1275,7 @@ extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProt
 
 extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NoneRequiredButNestedRequired"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}opt_1\0\u{3}opt_2\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}" }
@@ -1213,8 +1285,10 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}opt_1\0\u{3}opt_2\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -1282,6 +1356,12 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
 
   static func ==(lhs: SwiftProtoTesting_NoneRequiredButNestedRequired, rhs: SwiftProtoTesting_NoneRequiredButNestedRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1290,7 +1370,7 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
 
 extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MapWithNestedRequiredValues"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_1\0")
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}" }
@@ -1300,8 +1380,10 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message, 
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{3}map_1\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
     switch token.index {
@@ -1378,6 +1460,12 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message, 
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
 
   static func ==(lhs: SwiftProtoTesting_MapWithNestedRequiredValues, rhs: SwiftProtoTesting_MapWithNestedRequiredValues) -> Bool {

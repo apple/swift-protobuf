@@ -98,6 +98,22 @@ import Foundation
     /// The encoded layout of the fields of the message.
     private let layout: UnsafeRawBufferPointer
 
+    /// The name map for the message.
+    ///
+    /// TODO: This is a big but temporary performance regression while we're moving to the new
+    /// implementation. Previously, name maps were a `static let` on the individual message types,
+    /// which meant their initialization only occurred when they were first used (e.g., when
+    /// performing text/JSON serialization). Now, the name map needs to be part of the layout to
+    /// satisfy the self-describing nature of `_MessageStorage` for the new table-driven text/JSON
+    /// implementation, which forces it to be initialized whenever any part of the layout is
+    /// requested (even during binary serialization). In the near future, we will replace the
+    /// current name map implementation with a new one that eliminates this first-time
+    /// initialization cost.
+    ///
+    /// TODO: This is public so that it can be read by generated messages to satisfy the
+    /// `ProtoNameProviding` requirement. Make it internal once that's no longer necessary.
+    public let nameMap: _NameMap
+
     /// The function type for the generated function that is called to deinitialize a field whose
     /// type is a message, array of messages, or array of enums.
     public typealias TrampolineDeinitializer = (
@@ -200,6 +216,7 @@ import Foundation
     /// This initializer is public because generated messages need to call it.
     public init(
         layout: StaticString,
+        names: StaticString,
         deinitializeField: @escaping TrampolineDeinitializer,
         copyField: @escaping TrampolineCopier,
         areFieldsEqual: @escaping TrampolineEquater,
@@ -213,6 +230,7 @@ import Foundation
             "The layout string should have a pointer-based representation; this is a generator bug"
         )
         self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
+        self.nameMap = names.utf8CodeUnitCount != 0 ? _NameMap(bytecode: names) : _NameMap()
         self.deinitializeField = deinitializeField
         self.copyField = copyField
         self.areFieldsEqual = areFieldsEqual
@@ -237,9 +255,10 @@ import Foundation
     /// submessage operation placeholder will be used.
     ///
     /// This initializer is public because generated messages need to call it.
-    public init(layout: StaticString) {
+    public init(layout: StaticString, names: StaticString) {
         self.init(
             layout: layout,
+            names: names,
             deinitializeField: { _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
@@ -265,12 +284,19 @@ import Foundation
     }
 
     /// Creates a new message layout for the message-like storage used to encode and decode map
+    /// entries where the value type is a scalar.
+    public init(layoutForMapEntryWithScalarValues layout: StaticString) {
+        self.init(layout: layout, names: mapEntryFieldNameBytecode)
+    }
+
+    /// Creates a new message layout for the message-like storage used to encode and decode map
     /// entries where the value type is another message.
     ///
     /// This initializer is public because generated messages need to call it.
     public init<T: _MessageImplementationBase>(layout: StaticString, forMapEntryWithValueType type: T.Type) {
         self.init(
             layout: layout,
+            names: mapEntryFieldNameBytecode,
             deinitializeField: { _, field, storage in
                 storage.deinitializeField(field, type: type)
             },
@@ -302,6 +328,7 @@ import Foundation
     public init<T: Enum>(layout: StaticString, forMapEntryWithValueType type: T.Type) {
         self.init(
             layout: layout,
+            names: mapEntryFieldNameBytecode,
             deinitializeField: { _, field, storage in
                 storage.deinitializeField(field, type: type)
             },
@@ -332,6 +359,13 @@ import Foundation
         )
     }
 }
+
+/// The name map bytecode that represents the fields of a map entry, which is needed when
+/// serializing or parsing maps in text format.
+///
+/// TODO: Consider ways to replace this hardcoded bytecode with a less fragile representation of a
+/// fixed name map.
+private let mapEntryFieldNameBytecode: StaticString = "\0\u{1}key\0\u{1}value\0"
 
 extension _MessageLayout {
     /// The version of the layout data.
