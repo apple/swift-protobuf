@@ -29,6 +29,7 @@ extension Google_Protobuf_Any {
     /// decoding/recoding when writing JSON format.
     ///
     /// - Parameters:
+    ///   - message: The ``Message`` to serialized into this Any.
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
     ///     fields are present. If any are missing, this method throws

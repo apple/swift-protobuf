@@ -88,26 +88,23 @@ internal struct JSONEncoder {
     }
 
     /// Append a `_NameMap.Name` to the JSON text surrounded by quotes.
-    /// As with StaticString above, a `_NameMap.Name` provides pre-converted
-    /// UTF8 bytes, so this is much faster than appending a regular
-    /// `String`.
     internal mutating func appendQuoted(name: _NameMap.Name) {
         data.append(asciiDoubleQuote)
-        data.append(contentsOf: name.utf8Buffer)
+        // 99.999% of all JSON field names are ASCII, but `json_name` exists as an option in
+        // the .proto file grammar, and allows folks to do some bad things. So when writing we
+        // still have to do escaping as needed.
+        appendEscapedStringValue(utf8Buffer: name.utf8Buffer)
         data.append(asciiDoubleQuote)
     }
 
-    /// Append a `String` to the JSON text.
+    /// Append a `String` to the JSON text. The text is assumed well formed for the current context
+    /// and so no processing is done.
     internal mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
 
-    /// Append a raw utf8 in a `Data` to the JSON text.
-    internal mutating func append(utf8Data: Data) {
-        data.append(contentsOf: utf8Data)
-    }
-
-    /// Append a raw utf8 in a `[UInt8]` to the JSON text.
+    /// Append a raw utf8 in a `[UInt8]` to the JSON text. The text is assumed well formed for
+    /// the current context and so no processing is done.
     internal mutating func append(utf8Bytes: [UInt8]) {
         data.append(contentsOf: utf8Bytes)
     }
@@ -127,11 +124,11 @@ internal struct JSONEncoder {
         if let s = separator {
             data.append(s)
         }
-        data.append(asciiDoubleQuote)
-        // Can avoid overhead of putStringValue, since
-        // the JSON field names are always clean ASCII.
-        data.append(contentsOf: name.utf8)
-        append(staticText: "\":")
+        // 99.999% of all JSON field names are ASCII, but `json_name` exists as an option in
+        // the .proto file grammar, and allows folks to do some bad things. So when writing we
+        // still have to do escaping as needed.
+        putStringValue(value: name)
+        data.append(asciiColon)
         separator = asciiComma
     }
 
@@ -141,7 +138,7 @@ internal struct JSONEncoder {
             data.append(s)
         }
         append(staticText: "\"[")
-        data.append(contentsOf: name.utf8)
+        appendEscapedStringValue(string: name)
         append(staticText: "]\":")
         separator = asciiComma
     }
@@ -315,10 +312,33 @@ internal struct JSONEncoder {
         }
     }
 
-    /// Append a string value escaping special characters as needed.
-    internal mutating func putStringValue(value: String) {
-        data.append(asciiDoubleQuote)
-        for c in value.unicodeScalars {
+    /// Append a buffer with valid utf8 data as if it were a string value, escaping special
+    /// characters as needed, but assume quotes are handled be the caller.
+    private mutating func appendEscapedStringValue(utf8Buffer: UnsafeRawBufferPointer) {
+        for b in utf8Buffer {
+            switch b {
+            // Special two-byte escapes
+            case 8: append(staticText: "\\b")
+            case 9: append(staticText: "\\t")
+            case 10: append(staticText: "\\n")
+            case 12: append(staticText: "\\f")
+            case 13: append(staticText: "\\r")
+            case 34: append(staticText: "\\\"")
+            case 92: append(staticText: "\\\\")
+            case 0...31, 127...159:  // Hex form for C0 control chars
+                append(staticText: "\\u00")
+                data.append(hexDigits[Int(b / 16)])
+                data.append(hexDigits[Int(b & 15)])
+            default:
+                data.append(b)
+            }
+        }
+    }
+
+    /// Append a string value escaping special characters as needed, but assume quotes are
+    /// handled be the caller.
+    private mutating func appendEscapedStringValue(string: String) {
+        for c in string.unicodeScalars {
             switch c.value {
             // Special two-byte escapes
             case 8: append(staticText: "\\b")
@@ -348,6 +368,12 @@ internal struct JSONEncoder {
                 data.append(0x80 + UInt8(truncatingIfNeeded: c.value & 0x3f))
             }
         }
+    }
+
+    /// Append a quoted string value escaping special characters as needed.
+    internal mutating func putStringValue(value: String) {
+        data.append(asciiDoubleQuote)
+        appendEscapedStringValue(string: value)
         data.append(asciiDoubleQuote)
     }
 
