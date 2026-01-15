@@ -46,6 +46,7 @@ extension _MessageStorage {
         options: TextFormatEncodingOptions
     ) {
         let fieldNumber = Int(field.fieldNumber)
+        let fieldType = field.rawFieldType
         let offset = field.offset
 
         switch field.fieldMode.cardinality {
@@ -75,8 +76,13 @@ extension _MessageStorage {
                     emitName(ofFieldNumber: fieldNumber, into: &encoder)
                     encoder.startRegularField()
                     encoder.startArray()
+                    var firstItem = true
                     for value in values {
+                        if !firstItem {
+                            encoder.arraySeparator()
+                        }
                         emitValue(value)
+                        firstItem = false
                     }
                     encoder.endArray()
                     encoder.endRegularField()
@@ -91,7 +97,7 @@ extension _MessageStorage {
                 }
             }
 
-            switch field.rawFieldType {
+            switch fieldType {
             case .bool:
                 emitRepeatedField { encoder.putBoolValue(value: $0) }
 
@@ -103,7 +109,7 @@ extension _MessageStorage {
                 emitRepeatedField { encoder.putDoubleValue(value: $0) }
 
             case .enum:
-                // TODO: serializeInt32Field(assumedPresentValue(at: offset), for: fieldNumber, into: &encoder)
+                // TODO: Support enums.
                 break
 
             case .fixed32, .uint32:
@@ -144,36 +150,11 @@ extension _MessageStorage {
             }
 
         case .scalar:
-            func emitScalarField<Value>(_ emitValue: (Value) -> Void) {
-                emitName(ofFieldNumber: fieldNumber, into: &encoder)
-                encoder.startRegularField()
-                emitValue(assumedPresentValue(at: offset))
-                encoder.endRegularField()
-            }
+            emitName(ofFieldNumber: fieldNumber, into: &encoder)
 
-            switch field.rawFieldType {
-            case .bool:
-                emitScalarField { encoder.putBoolValue(value: $0) }
-
-            case .bytes:
-                emitScalarField { encoder.putBytesValue(value: $0) }
-
-            case .double:
-                emitScalarField { encoder.putDoubleValue(value: $0) }
-
-            case .enum:
-                // TODO: serializeInt32Field(assumedPresentValue(at: offset), for: fieldNumber, into: &encoder)
-                break
-
-            case .fixed32, .uint32:
-                emitScalarField { (value: UInt32) in encoder.putUInt64(value: UInt64(value)) }
-
-            case .fixed64, .uint64:
-                emitScalarField { (value: UInt64) in encoder.putUInt64(value: value) }
-
-            case .float:
-                emitScalarField { encoder.putFloatValue(value: $0) }
-
+            // Handle groups/messages separately since they have different delimiters than regular
+            // fields.
+            switch fieldType {
             case .group, .message:
                 _ = try! layout.performOnSubmessageStorage(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
@@ -181,24 +162,56 @@ extension _MessageStorage {
                     self,
                     .read
                 ) {
-                    emitName(ofFieldNumber: fieldNumber, into: &encoder)
                     encoder.startMessageField()
                     $0.serializeText(into: &encoder, options: options)
                     encoder.endMessageField()
                     return true
                 }
+                return
+
+            default:
+                // Continue below.
+                break
+            }
+
+            encoder.startRegularField()
+
+            switch fieldType {
+            case .bool:
+                encoder.putBoolValue(value: assumedPresentValue(at: offset))
+
+            case .bytes:
+                encoder.putBytesValue(value: assumedPresentValue(at: offset))
+
+            case .double:
+                encoder.putDoubleValue(value: assumedPresentValue(at: offset))
+
+            case .enum:
+                // TODO: Support enums.
+                break
+
+            case .fixed32, .uint32:
+                encoder.putUInt64(value: UInt64(assumedPresentValue(at: offset) as UInt32))
+
+            case .fixed64, .uint64:
+                encoder.putUInt64(value: assumedPresentValue(at: offset))
+
+            case .float:
+                encoder.putFloatValue(value: assumedPresentValue(at: offset))
 
             case .int32, .sfixed32, .sint32:
-                emitScalarField { (value: Int32) in encoder.putInt64(value: Int64(value)) }
+                encoder.putInt64(value: Int64(assumedPresentValue(at: offset) as Int32))
 
             case .int64, .sfixed64, .sint64:
-                emitScalarField { (value: Int64) in encoder.putInt64(value: value) }
+                encoder.putInt64(value: assumedPresentValue(at: offset))
 
             case .string:
-                emitScalarField { encoder.putStringValue(value: $0) }
+                encoder.putStringValue(value: assumedPresentValue(at: offset))
 
             default: preconditionFailure("Unreachable")
             }
+
+            encoder.endRegularField()
 
         default: preconditionFailure("Unreachable")
         }

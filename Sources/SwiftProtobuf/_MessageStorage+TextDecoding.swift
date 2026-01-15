@@ -115,71 +115,53 @@ extension _MessageStorage {
             }
 
         case .array:
-            switch fieldType {
-            case .bool:
-                try scanPossibleArray(from: &reader) { reader in
+            try scanPossibleArray(from: &reader) { reader in
+                switch fieldType {
+                case .bool:
                     appendValue(try reader.scanner.nextBool(), to: field)
-                }
 
-            case .bytes:
-                try scanPossibleArray(from: &reader) { reader in
+                case .bytes:
                     appendValue(try reader.scanner.nextBytesValue(), to: field)
-                }
 
-            case .double:
-                try scanPossibleArray(from: &reader) { reader in
+                case .double:
                     appendValue(try reader.scanner.nextDouble(), to: field)
-                }
 
-            case .enum:
-                // TODO: Support enums.
-                break
+                case .enum:
+                    // TODO: Support enums.
+                    break
 
-            case .fixed32, .uint32:
-                try scanPossibleArray(from: &reader) { reader in
+                case .fixed32, .uint32:
                     let n = try reader.scanner.nextSInt()
                     if n > UInt64(UInt32.max) {
                         throw TextFormatDecodingError.malformedNumber
                     }
                     appendValue(UInt32(truncatingIfNeeded: n), to: field)
-                }
 
-            case .fixed64, .uint64:
-                try scanPossibleArray(from: &reader) { reader in
+                case .fixed64, .uint64:
                     appendValue(try reader.scanner.nextUInt(), to: field)
-                }
 
-            case .float:
-                try scanPossibleArray(from: &reader) { reader in
+                case .float:
                     appendValue(try reader.scanner.nextFloat(), to: field)
-                }
 
-            case .group, .message:
-                try scanPossibleArray(from: &reader) { reader in
+                case .group, .message:
                     try scanSubmessageValue(field, from: &reader, operation: .append)
-                }
 
-            case .int32, .sfixed32, .sint32:
-                try scanPossibleArray(from: &reader) { reader in
+                case .int32, .sfixed32, .sint32:
                     let n = try reader.scanner.nextSInt()
                     if n > Int64(Int32.max) || n < Int64(Int32.min) {
                         throw TextFormatDecodingError.malformedNumber
                     }
                     appendValue(Int32(truncatingIfNeeded: n), to: field)
-                }
 
-            case .int64, .sfixed64, .sint64:
-                try scanPossibleArray(from: &reader) { reader in
+                case .int64, .sfixed64, .sint64:
                     appendValue(try reader.scanner.nextSInt(), to: field)
-                }
 
-            case .string:
-                try scanPossibleArray(from: &reader) { reader in
+                case .string:
                     appendValue(try reader.scanner.nextStringValue(), to: field)
-                }
 
-            default:
-                preconditionFailure("Unreachable")
+                default:
+                    preconditionFailure("Unreachable")
+                }
             }
 
         case .scalar:
