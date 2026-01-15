@@ -239,12 +239,12 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1].self, perform: perform, onInvalidValue: onInvalidValue)
-    case 2: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2].self, perform: perform, onInvalidValue: onInvalidValue)
-    case 3: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem].self, perform: perform, onInvalidValue: onInvalidValue)
-    case 4: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord].self, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1].self, enumLayout: SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 2: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2].self, enumLayout: SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 3: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem].self, enumLayout: SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 4: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord].self, enumLayout: SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -290,19 +290,35 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_1_FIRST_VALUE\0\u{1}ENUM_TEST_1_SECOND_VALUE\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{1}ENUM_TEST_1_FIRST_VALUE\0\u{1}ENUM_TEST_1_SECOND_VALUE\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_2_FIRST_VALUE\0\u{1}SECOND_VALUE\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{1}ENUM_TEST_2_FIRST_VALUE\0\u{1}SECOND_VALUE\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_NO_STEM_1\0\u{1}ENUM_TEST_NO_STEM_2\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{1}ENUM_TEST_NO_STEM_1\0\u{1}ENUM_TEST_NO_STEM_2\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_RESERVED_WORD_VAR\0\u{1}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{1}ENUM_TEST_RESERVED_WORD_VAR\0\u{1}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -349,9 +365,9 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias].self, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias].self, enumLayout: SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -397,5 +413,9 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }

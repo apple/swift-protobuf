@@ -127,7 +127,11 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing.enum_clobbering"
 
 extension SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -174,9 +178,9 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, Sw
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_EnumClobbering_Foo.self, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_EnumClobbering_Foo.self, enumLayout: SwiftProtoTesting_EnumClobbering_Foo._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
