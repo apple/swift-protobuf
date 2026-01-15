@@ -40,7 +40,7 @@ public enum BinaryDelimited {
     ///
     /// - Parameters:
     ///   - message: The message to be written.
-    ///   - to: The `OutputStream` to write the message to.  The stream is
+    ///   - stream: The `OutputStream` to write the message to.  The stream is
     ///     is assumed to be ready to be written to.
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
@@ -92,7 +92,7 @@ public enum BinaryDelimited {
     ///
     /// - Parameters:
     ///   - messageType: The type of message to read.
-    ///   - from: The `InputStream` to read the data from.  The stream is assumed
+    ///   - stream: The `InputStream` to read the data from.  The stream is assumed
     ///     to be ready to read from.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
@@ -134,8 +134,8 @@ public enum BinaryDelimited {
     ///   occurred.
     ///
     /// - Parameters:
-    ///   - mergingTo: The message to merge the data into.
-    ///   - from: The `InputStream` to read the data from.  The stream is assumed
+    ///   - message: The message to merge the data into.
+    ///   - stream: The `InputStream` to read the data from.  The stream is assumed
     ///     to be ready to read from.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's

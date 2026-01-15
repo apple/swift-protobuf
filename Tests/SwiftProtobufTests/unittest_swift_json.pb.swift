@@ -17,6 +17,7 @@
 // See http://swift.org/LICENSE.txt for license information
 // See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
 
+import Foundation
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -36,6 +37,58 @@ struct SwiftProtoTesting_SwiftJSONTest: Sendable {
 
   /// This case was omitted from test_messages_proto3.proto
   var repeatedNullValue: [SwiftProtobuf.Google_Protobuf_NullValue] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SwiftProtoTesting_TestMessage: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var boolValue: Bool = false
+
+  var int32Value: Int32 = 0
+
+  var int64Value: Int64 = 0
+
+  var uint32Value: UInt32 = 0
+
+  var uint64Value: UInt64 = 0
+
+  var floatValue: Float = 0
+
+  var doubleValue: Double = 0
+
+  var stringValue: String = String()
+
+  var bytesValue: Data = Data()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct SwiftProtoTesting_TestEvilJson: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var regularValue: Int32 = 0
+
+  var script: Int32 = 0
+
+  var quotes: Int32 = 0
+
+  var scriptAndQuotes: Int32 = 0
+
+  var emptyString: Int32 = 0
+
+  var backslash: Int32 = 0
+
+  var lowCodepoint: Int32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -71,6 +124,136 @@ extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf.
 
   static func ==(lhs: SwiftProtoTesting_SwiftJSONTest, rhs: SwiftProtoTesting_SwiftJSONTest) -> Bool {
     if lhs.repeatedNullValue != rhs.repeatedNullValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessage"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bool_value\0\u{3}int32_value\0\u{3}int64_value\0\u{3}uint32_value\0\u{3}uint64_value\0\u{3}float_value\0\u{3}double_value\0\u{3}string_value\0\u{3}bytes_value\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.boolValue) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.int32Value) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.int64Value) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.uint32Value) }()
+      case 5: try { try decoder.decodeSingularUInt64Field(value: &self.uint64Value) }()
+      case 6: try { try decoder.decodeSingularFloatField(value: &self.floatValue) }()
+      case 7: try { try decoder.decodeSingularDoubleField(value: &self.doubleValue) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.stringValue) }()
+      case 9: try { try decoder.decodeSingularBytesField(value: &self.bytesValue) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.boolValue != false {
+      try visitor.visitSingularBoolField(value: self.boolValue, fieldNumber: 1)
+    }
+    if self.int32Value != 0 {
+      try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 2)
+    }
+    if self.int64Value != 0 {
+      try visitor.visitSingularInt64Field(value: self.int64Value, fieldNumber: 3)
+    }
+    if self.uint32Value != 0 {
+      try visitor.visitSingularUInt32Field(value: self.uint32Value, fieldNumber: 4)
+    }
+    if self.uint64Value != 0 {
+      try visitor.visitSingularUInt64Field(value: self.uint64Value, fieldNumber: 5)
+    }
+    if self.floatValue.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.floatValue, fieldNumber: 6)
+    }
+    if self.doubleValue.bitPattern != 0 {
+      try visitor.visitSingularDoubleField(value: self.doubleValue, fieldNumber: 7)
+    }
+    if !self.stringValue.isEmpty {
+      try visitor.visitSingularStringField(value: self.stringValue, fieldNumber: 8)
+    }
+    if !self.bytesValue.isEmpty {
+      try visitor.visitSingularBytesField(value: self.bytesValue, fieldNumber: 9)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_TestMessage, rhs: SwiftProtoTesting_TestMessage) -> Bool {
+    if lhs.boolValue != rhs.boolValue {return false}
+    if lhs.int32Value != rhs.int32Value {return false}
+    if lhs.int64Value != rhs.int64Value {return false}
+    if lhs.uint32Value != rhs.uint32Value {return false}
+    if lhs.uint64Value != rhs.uint64Value {return false}
+    if lhs.floatValue != rhs.floatValue {return false}
+    if lhs.doubleValue != rhs.doubleValue {return false}
+    if lhs.stringValue != rhs.stringValue {return false}
+    if lhs.bytesValue != rhs.bytesValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestEvilJson"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{5}regular_value\0regular_name\0\u{5}script\0</script>\0\u{5}quotes\0unbalanced\"quotes\0\u{5}script_and_quotes\0\"<script>alert('hello!);</script>\0\u{5}empty_string\0\0\u{5}backslash\0\\\0\u{5}low_codepoint\0\u{1}\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.regularValue) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.script) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.quotes) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.scriptAndQuotes) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self.emptyString) }()
+      case 6: try { try decoder.decodeSingularInt32Field(value: &self.backslash) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self.lowCodepoint) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.regularValue != 0 {
+      try visitor.visitSingularInt32Field(value: self.regularValue, fieldNumber: 1)
+    }
+    if self.script != 0 {
+      try visitor.visitSingularInt32Field(value: self.script, fieldNumber: 2)
+    }
+    if self.quotes != 0 {
+      try visitor.visitSingularInt32Field(value: self.quotes, fieldNumber: 3)
+    }
+    if self.scriptAndQuotes != 0 {
+      try visitor.visitSingularInt32Field(value: self.scriptAndQuotes, fieldNumber: 4)
+    }
+    if self.emptyString != 0 {
+      try visitor.visitSingularInt32Field(value: self.emptyString, fieldNumber: 5)
+    }
+    if self.backslash != 0 {
+      try visitor.visitSingularInt32Field(value: self.backslash, fieldNumber: 6)
+    }
+    if self.lowCodepoint != 0 {
+      try visitor.visitSingularInt32Field(value: self.lowCodepoint, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_TestEvilJson, rhs: SwiftProtoTesting_TestEvilJson) -> Bool {
+    if lhs.regularValue != rhs.regularValue {return false}
+    if lhs.script != rhs.script {return false}
+    if lhs.quotes != rhs.quotes {return false}
+    if lhs.scriptAndQuotes != rhs.scriptAndQuotes {return false}
+    if lhs.emptyString != rhs.emptyString {return false}
+    if lhs.backslash != rhs.backslash {return false}
+    if lhs.lowCodepoint != rhs.lowCodepoint {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
