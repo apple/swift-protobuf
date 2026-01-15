@@ -262,7 +262,10 @@ class MessageGenerator {
             } else {
                 p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
             }
-            generateProtoNameProviding(printer: &p)
+            // TODO: Remove this compatibility property for the name map.
+            p.print(
+                "\(visibility)static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }"
+            )
             generateMessageLayout(printer: &p)
             p.print(
                 "",
@@ -293,6 +296,20 @@ class MessageGenerator {
                 p.print("try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)")
             }
             p.print("}")
+            p.print(
+                "\(visibility)func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {"
+            )
+            p.withIndentation { p in
+                p.print("return _storage.textFormatString(options: options)")
+            }
+            p.print("}")
+            p.print(
+                "\(visibility)mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {"
+            )
+            p.withIndentation { p in
+                p.print("try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)")
+            }
+            p.print("}")
 
             p.print()
             generateMessageEquality(printer: &p)
@@ -309,6 +326,17 @@ class MessageGenerator {
     }
 
     private func generateMessageLayout(printer p: inout CodePrinter) {
+        var writer = ProtoNameInstructionWriter()
+        for f in fieldsSortedByNumber {
+            f.writeProtoNameInstruction(to: &writer)
+        }
+        for name in descriptor.reservedNames {
+            writer.writeReservedName(name)
+        }
+        for range in descriptor.reservedRanges {
+            writer.writeReservedNumbers(range)
+        }
+
         messageLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &p) { value, _, p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
@@ -316,10 +344,15 @@ class MessageGenerator {
             )
         }
 
+        p.print(
+            "@_alwaysEmitIntoClient @inline(__always)",
+            #"private static var _protobuf_fieldNamesString: StaticString { \#(writer.bytecode.stringLiteral) }"#
+        )
+
         let trampolineFields = messageLayoutCalculator.trampolineFields
         p.print()
         p.print(
-            "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString",
+            "private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString",
             newlines: false
         )
 
@@ -506,26 +539,6 @@ class MessageGenerator {
             }
             p.print(
                 "}"
-            )
-        }
-    }
-
-    private func generateProtoNameProviding(printer p: inout CodePrinter) {
-        var writer = ProtoNameInstructionWriter()
-        for f in fieldsSortedByNumber {
-            f.writeProtoNameInstruction(to: &writer)
-        }
-        for name in descriptor.reservedNames {
-            writer.writeReservedName(name)
-        }
-        for range in descriptor.reservedRanges {
-            writer.writeReservedNumbers(range)
-        }
-        if writer.shouldUseEmptyNameMapInitializer {
-            p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
-        } else {
-            p.print(
-                "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: \(writer.bytecode.stringLiteral))"
             )
         }
     }

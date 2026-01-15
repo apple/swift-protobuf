@@ -112,10 +112,10 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// types.
     func isEqualTo(message: any Message) -> Bool
 
-    // TODO: I am *temporarily* making this a protocol requirement so that I can replace its
+    // TODO: I am *temporarily* making these protocol requirements so that I can replace their
     // implementation in generated table-driven messages. That will let me support decoding in all
     // of its forms (init a new message, merge into an existing message) by only generating this
-    // `_merge` method instead of multiple initializers and methods. This will be removed once the
+    // `_merge` method instead of multiple initializers and methods. They will be removed once the
     // implementation is far enough along that I can regenerate the WKTs and plugin protos, since
     // everything will be moved into the runtime at that point.
     mutating func _merge(
@@ -123,6 +123,11 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
         extensions: (any ExtensionMap)?,
         partial: Bool,
         options: BinaryDecodingOptions
+    ) throws
+    mutating func _merge(
+        textFormatString: String,
+        options: TextFormatDecodingOptions,
+        extensions: (any ExtensionMap)?
     ) throws
 }
 

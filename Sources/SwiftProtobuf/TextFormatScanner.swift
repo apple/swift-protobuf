@@ -1163,7 +1163,7 @@ internal struct TextFormatScanner {
     /// time of the entire parse.
     internal mutating func nextFieldNumber(
         names: _NameMap,
-        messageType: any Message.Type,
+        messageType: (any Message.Type)?,
         terminator: UInt8?
     ) throws -> Int? {
         while true {
@@ -1196,7 +1196,9 @@ internal struct TextFormatScanner {
                 break
             case asciiOpenSquareBracket:  // Start of an extension field
                 let key = try parseExtensionKey()
-                if let fieldNumber = extensions?.fieldNumberForProto(messageType: messageType, protoFieldName: key) {
+                if let messageType = messageType,
+                    let fieldNumber = extensions?.fieldNumberForProto(messageType: messageType, protoFieldName: key)
+                {
                     return fieldNumber
                 }
                 if !options.ignoreUnknownExtensionFields {
