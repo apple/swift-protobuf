@@ -390,7 +390,8 @@ extension _MessageStorage {
         of field: FieldLayout,
         operation: TrampolineFieldOperation,
         type: T.Type,
-        perform: (inout Int32) throws -> Bool,
+        enumLayout: EnumLayout,
+        perform: (EnumLayout, inout Int32) throws -> Bool,
         onInvalidValue: (Int32) -> Void
     ) rethrows {
         switch operation {
@@ -398,13 +399,13 @@ extension _MessageStorage {
             // When reading, we can get the raw value directly from storage, and we don't need to
             // verify it against the defined values in the actual enum.
             var rawValue = assumedPresentValue(at: field.offset, as: Int32.self)
-            _ = try perform(&rawValue)
+            _ = try perform(enumLayout, &rawValue)
 
         case .mutate:
             // When updating a singular enum field, verify that it is a defined enum case. If not,
             // call the invalid value handler.
             var rawValue: Int32 = 0
-            _ = try perform(&rawValue)
+            _ = try perform(enumLayout, &rawValue)
             if T(rawValue: Int(rawValue)) != nil {
                 updateValue(of: field, to: rawValue)
             } else {
@@ -441,14 +442,15 @@ extension _MessageStorage {
         of field: FieldLayout,
         operation: TrampolineFieldOperation,
         type: [T].Type,
-        perform: (inout Int32) throws -> Bool,
+        enumLayout: EnumLayout,
+        perform: (EnumLayout, inout Int32) throws -> Bool,
         onInvalidValue: (Int32) -> Void
     ) rethrows {
         switch operation {
         case .read:
             for value in assumedPresentValue(at: field.offset, as: [T].self) {
                 var rawValue = Int32(value.rawValue)
-                guard try perform(&rawValue) else { break }
+                guard try perform(enumLayout, &rawValue) else { break }
             }
 
         case .mutate:
@@ -458,7 +460,7 @@ extension _MessageStorage {
             let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
             var rawValue: Int32 = 0
             var isFieldPresent = isPresent(field)
-            while try perform(&rawValue) {
+            while try perform(enumLayout, &rawValue) {
                 if let newValue = T(rawValue: Int(rawValue)) {
                     if !isFieldPresent {
                         pointer.initialize(to: [])

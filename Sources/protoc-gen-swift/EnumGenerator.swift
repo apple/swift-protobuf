@@ -91,11 +91,19 @@ class EnumGenerator {
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter) {
+        // TODO: Drop the _ProtoNameProviding conformance and the old name map property.
         p.print(
             "",
             "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
         )
         p.withIndentation { p in
+            p.print(
+                "@_alwaysEmitIntoClient @inline(__always)",
+                #"private static var _protobuf_enumLayoutString: StaticString { "" }"#
+            )
+            p.print(
+                "\(generatorOptions.visibilitySourceSnippet)static let _protobuf_enumLayout = \(namer.swiftProtobufModulePrefix)EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)"
+            )
             generateProtoNameProviding(printer: &p)
         }
         p.print("}")
@@ -154,7 +162,8 @@ class EnumGenerator {
             }
         }
         p.print(
-            "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap(bytecode: \(writer.bytecode.stringLiteral))"
+            "private static var _protobuf_valueNamesString: Swift.StaticString { \(writer.bytecode.stringLiteral) }",
+            "\(visibility)static var _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap { _protobuf_enumLayout.nameMap }"
         )
     }
 }

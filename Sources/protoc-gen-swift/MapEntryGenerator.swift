@@ -58,26 +58,30 @@ class MapEntryGenerator {
     }
 
     func generateLayoutReturnStatement(printer: inout CodePrinter) {
-        let valueTypeArgument: String
+        let trailingArguments: String
         let layoutLabel: String
         switch descriptor.mapKeyAndValue!.value.type {
-        case .message, .enum:
-            valueTypeArgument = ", forMapEntryWithValueType: \(swiftValueType).self"
+        case .message:
+            trailingArguments = ", forMapEntryWithValueType: \(swiftValueType).self"
+            layoutLabel = "layout"
+        case .enum:
+            trailingArguments =
+                ", forMapEntryWithValueType: \(swiftValueType).self, enumLayout: \(swiftValueType)._protobuf_enumLayout"
             layoutLabel = "layout"
         default:
-            valueTypeArgument = ""
+            trailingArguments = ""
             layoutLabel = "layoutForMapEntryWithScalarValues"
         }
         if let layoutString = entryLayoutCalculator.layoutLiterals.valueIfAllEqual {
             printer.print(
-                #"return SwiftProtobuf._MessageLayout(\#(layoutLabel): "\#(layoutString)"\#(valueTypeArgument))"#
+                #"return SwiftProtobuf._MessageLayout(\#(layoutLabel): "\#(layoutString)"\#(trailingArguments))"#
             )
         } else {
             entryLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &printer) { layoutString, _, printer in
                 printer.print(#"let layoutString: StaticString = "\#(layoutString)""#)
             }
             printer.print(
-                "return SwiftProtobuf._MessageLayout(\(layoutLabel): layoutString\(valueTypeArgument))"
+                "return SwiftProtobuf._MessageLayout(\(layoutLabel): layoutString\(trailingArguments))"
             )
         }
     }

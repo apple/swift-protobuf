@@ -439,7 +439,7 @@ extension _MessageStorage {
             field,
             self,
             isRepeated ? .append : .mutate
-        ) { outRawValue in
+        ) { _, outRawValue in
             // In the singular case, this doesn't matter. In the repeated case, we need to return
             // true *exactly once* and then return false the next time this is called. This is
             // because the same trampoline function is used to handle the packed case, where it
@@ -498,7 +498,7 @@ extension _MessageStorage {
             field,
             self,
             .append
-        ) { outRawValue in
+        ) { _, outRawValue in
             guard elementsReader.hasAvailableData else { return false }
             outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
             return true

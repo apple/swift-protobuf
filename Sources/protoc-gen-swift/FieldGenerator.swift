@@ -77,12 +77,12 @@ enum TrampolineFieldKind {
     /// The field is a message type or an array of a message type.
     ///
     /// The associated value is the full Swift name of that (possibly array) type.
-    case message(String)
+    case message(String, isArray: Bool)
 
     /// The field is an enum type or an array of an enum type.
     ///
     /// The associated value is the full Swift name of that (possibly array) type.
-    case `enum`(String)
+    case `enum`(String, isArray: Bool)
 
     /// The field is a map type.
     ///
@@ -93,9 +93,21 @@ enum TrampolineFieldKind {
     /// The full Swift name of the (possibly array) type of the field.
     var name: String {
         switch self {
-        case .message(let name): return name
-        case .enum(let name): return name
-        case .map(let name, _): return name
+        case .message(let name, let isArray): isArray ? "[\(name)]" : name
+        case .enum(let name, let isArray): isArray ? "[\(name)]" : name
+        case .map(let name, _): name
+        }
+    }
+
+    /// The full Swift name of the type of the field, ignoring arrays.
+    ///
+    /// If this does correspond to a repeated array, the name returned is the element type, not the
+    /// array type.
+    var singularName: String {
+        switch self {
+        case .message(let name, _): name
+        case .enum(let name, _): name
+        case .map: preconditionFailure("Should never be called")
         }
     }
 }

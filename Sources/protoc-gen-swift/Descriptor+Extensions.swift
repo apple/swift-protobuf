@@ -290,6 +290,33 @@ extension Descriptor {
 }
 
 extension FieldDescriptor {
+    func swiftSingularType(namer: SwiftProtobufNamer) -> String {
+        guard messageType?.mapKeyAndValue == nil else {
+            preconditionFailure("Should not be called")
+        }
+
+        switch type {
+        case .double: return "Double"
+        case .float: return "Float"
+        case .int64: return "Int64"
+        case .uint64: return "UInt64"
+        case .int32: return "Int32"
+        case .fixed64: return "UInt64"
+        case .fixed32: return "UInt32"
+        case .bool: return "Bool"
+        case .string: return "String"
+        case .group: return namer.fullName(message: messageType!)
+        case .message: return namer.fullName(message: messageType!)
+        case .bytes: return "Data"
+        case .uint32: return "UInt32"
+        case .enum: return namer.fullName(enum: enumType!)
+        case .sfixed32: return "Int32"
+        case .sfixed64: return "Int64"
+        case .sint32: return "Int32"
+        case .sint64: return "Int64"
+        }
+    }
+
     func swiftType(namer: SwiftProtobufNamer) -> String {
         if case (let keyField, let valueField)? = messageType?.mapKeyAndValue {
             let keyType = keyField.swiftType(namer: namer)
@@ -297,28 +324,7 @@ extension FieldDescriptor {
             return "[\(keyType): \(valueType)]"
         }
 
-        let result: String
-        switch type {
-        case .double: result = "Double"
-        case .float: result = "Float"
-        case .int64: result = "Int64"
-        case .uint64: result = "UInt64"
-        case .int32: result = "Int32"
-        case .fixed64: result = "UInt64"
-        case .fixed32: result = "UInt32"
-        case .bool: result = "Bool"
-        case .string: result = "String"
-        case .group: result = namer.fullName(message: messageType!)
-        case .message: result = namer.fullName(message: messageType!)
-        case .bytes: result = "Data"
-        case .uint32: result = "UInt32"
-        case .enum: result = namer.fullName(enum: enumType!)
-        case .sfixed32: result = "Int32"
-        case .sfixed64: result = "Int64"
-        case .sint32: result = "Int32"
-        case .sint64: result = "Int64"
-        }
-
+        let result = swiftSingularType(namer: namer)
         if isRepeated {
             return "[\(result)]"
         }

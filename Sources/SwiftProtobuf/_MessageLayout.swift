@@ -165,7 +165,7 @@ import Foundation
         _ field: FieldLayout,
         _ storage: _MessageStorage,
         _ operation: TrampolineFieldOperation,
-        _ perform: (inout Int32) throws -> Bool,
+        _ perform: (EnumLayout, inout Int32) throws -> Bool,
         _ onInvalidValue: (Int32) -> Void
     ) throws -> Void
 
@@ -309,7 +309,7 @@ import Foundation
             performOnSubmessageStorage: { _, field, storage, operation, perform in
                 try storage.performOnSubmessageStorage(of: field, operation: operation, type: type, perform: perform)
             },
-            performOnRawEnumValues: { _, field, storage, operation, perform, onInvalidValue in
+            performOnRawEnumValues: { _, _, _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             mapEntryLayout: { _ in
@@ -325,7 +325,7 @@ import Foundation
     /// entries where the value type is an enum.
     ///
     /// This initializer is public because generated messages need to call it.
-    public init<T: Enum>(layout: StaticString, forMapEntryWithValueType type: T.Type) {
+    public init<T: Enum>(layout: StaticString, forMapEntryWithValueType type: T.Type, enumLayout: EnumLayout) {
         self.init(
             layout: layout,
             names: mapEntryFieldNameBytecode,
@@ -346,6 +346,7 @@ import Foundation
                     of: field,
                     operation: operation,
                     type: type,
+                    enumLayout: enumLayout,
                     perform: perform,
                     onInvalidValue: onInvalidValue
                 )
