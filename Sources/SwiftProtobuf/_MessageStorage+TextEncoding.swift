@@ -109,8 +109,7 @@ extension _MessageStorage {
                 emitRepeatedField { encoder.putDoubleValue(value: $0) }
 
             case .enum:
-                // TODO: Support enums.
-                break
+                emitRepeatedEnumField(field, into: &encoder)
 
             case .fixed32, .uint32:
                 emitRepeatedField { (value: UInt32) in encoder.putUInt64(value: UInt64(value)) }
@@ -187,8 +186,17 @@ extension _MessageStorage {
                 encoder.putDoubleValue(value: assumedPresentValue(at: offset))
 
             case .enum:
-                // TODO: Support enums.
-                break
+                _ = try! layout.performOnRawEnumValues(
+                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    .read
+                ) { enumLayout, value in
+                    encoder.putEnumValue(rawValue: value, nameMap: enumLayout.nameMap)
+                    return true
+                } /*onInvalidValue*/ _: { _ in
+                    assertionFailure("invalid value handler should never be called for .read")
+                }
 
             case .fixed32, .uint32:
                 encoder.putUInt64(value: UInt64(assumedPresentValue(at: offset) as UInt32))
@@ -226,6 +234,54 @@ extension _MessageStorage {
             encoder.emitFieldName(name: protoName.utf8Buffer)
         } else {
             encoder.emitFieldNumber(number: fieldNumber)
+        }
+    }
+
+    /// Emits the name and values of a repeated enum field, using compact representation if the
+    /// field is packed.
+    private func emitRepeatedEnumField(_ field: FieldLayout, into encoder: inout TextFormatEncoder) {
+        let fieldNumber = Int(field.fieldNumber)
+        if field.fieldMode.isPacked {
+            // Use the shorthand representation, "fieldName: [...]".
+            emitName(ofFieldNumber: fieldNumber, into: &encoder)
+            encoder.startRegularField()
+            encoder.startArray()
+            var firstItem = true
+
+            _ = try! layout.performOnRawEnumValues(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                .read
+            ) { enumLayout, value in
+                if !firstItem {
+                    encoder.arraySeparator()
+                }
+                encoder.putEnumValue(rawValue: value, nameMap: enumLayout.nameMap)
+                firstItem = false
+                return true
+            } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
+            }
+
+            encoder.endArray()
+            encoder.endRegularField()
+        } else {
+            // Each element is a fully serialized "name: value" pair.
+            _ = try! layout.performOnRawEnumValues(
+                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                field,
+                self,
+                .read
+            ) { enumLayout, value in
+                emitName(ofFieldNumber: fieldNumber, into: &encoder)
+                encoder.startRegularField()
+                encoder.putEnumValue(rawValue: value, nameMap: enumLayout.nameMap)
+                encoder.endRegularField()
+                return true
+            } /*onInvalidValue*/ _: { _ in
+                assertionFailure("invalid value handler should never be called for .read")
+            }
         }
     }
 

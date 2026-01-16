@@ -392,7 +392,7 @@ extension _MessageStorage {
         type: T.Type,
         enumLayout: EnumLayout,
         perform: (EnumLayout, inout Int32) throws -> Bool,
-        onInvalidValue: (Int32) -> Void
+        onInvalidValue: (Int32) throws -> Void
     ) rethrows {
         switch operation {
         case .read:
@@ -409,7 +409,7 @@ extension _MessageStorage {
             if T(rawValue: Int(rawValue)) != nil {
                 updateValue(of: field, to: rawValue)
             } else {
-                onInvalidValue(rawValue)
+                try onInvalidValue(rawValue)
             }
 
         case .append:
@@ -444,7 +444,7 @@ extension _MessageStorage {
         type: [T].Type,
         enumLayout: EnumLayout,
         perform: (EnumLayout, inout Int32) throws -> Bool,
-        onInvalidValue: (Int32) -> Void
+        onInvalidValue: (Int32) throws -> Void
     ) rethrows {
         switch operation {
         case .read:
@@ -474,7 +474,7 @@ extension _MessageStorage {
                     }
                     pointer.pointee.append(newValue)
                 } else {
-                    onInvalidValue(rawValue)
+                    try onInvalidValue(rawValue)
                 }
             }
         }

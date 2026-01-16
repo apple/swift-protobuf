@@ -166,7 +166,7 @@ import Foundation
         _ storage: _MessageStorage,
         _ operation: TrampolineFieldOperation,
         _ perform: (EnumLayout, inout Int32) throws -> Bool,
-        _ onInvalidValue: (Int32) -> Void
+        _ onInvalidValue: (Int32) throws -> Void
     ) throws -> Void
 
     /// The function type for the generated function that is called to retrieve the "message" layout
