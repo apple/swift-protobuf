@@ -445,9 +445,9 @@ class MessageGenerator {
                     // Only submessage fields and map fields with message values need this storage
                     // trampoline.
                     switch field.kind {
-                    case .message(let name), .map(let name, valueIsMessage: true):
+                    case .message, .map(_, valueIsMessage: true):
                         p.print(
-                            "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(name).self, perform: perform)"
+                            "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(field.kind.name).self, perform: perform)"
                         )
                     case .map(_, valueIsMessage: false):
                         nonMessageMapFieldIndices.append(field.index)
@@ -475,15 +475,15 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {"
+                "private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for field in trampolineFields {
                     // Only enum fields need this raw value trampoline.
-                    guard case .enum(let name) = field.kind else { continue }
+                    guard case .enum(let singularName, _) = field.kind else { continue }
                     p.print(
-                        "case \(field.index): return try storage.performOnRawEnumValues(of: field, operation: operation, type: \(name).self, perform: perform, onInvalidValue: onInvalidValue)"
+                        "case \(field.index): return try storage.performOnRawEnumValues(of: field, operation: operation, type: \(field.kind.name).self, enumLayout: \(singularName)._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)"
                     )
                 }
                 p.print(

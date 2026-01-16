@@ -95,15 +95,18 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         switch descriptor.type {
         case .group:
-            trampolineFieldKind = .message(swiftType)
+            let swiftSingularType = descriptor.swiftSingularType(namer: namer)
+            trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
         case .message:
             if let mapKeyAndValue = descriptor.messageType!.mapKeyAndValue {
                 trampolineFieldKind = .map(swiftType, valueIsMessage: mapKeyAndValue.value.type == .message)
             } else {
-                trampolineFieldKind = .message(swiftType)
+                let swiftSingularType = descriptor.swiftSingularType(namer: namer)
+                trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
             }
         case .enum:
-            trampolineFieldKind = .enum(swiftType)
+            let swiftSingularType = descriptor.swiftSingularType(namer: namer)
+            trampolineFieldKind = .enum(swiftSingularType, isArray: descriptor.isRepeated)
         default:
             trampolineFieldKind = nil
         }

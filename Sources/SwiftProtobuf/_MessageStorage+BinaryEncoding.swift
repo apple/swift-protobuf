@@ -554,8 +554,8 @@ extension _MessageStorage {
                 field,
                 self,
                 .read
-            ) {
-                length += Varint.encodedSize(of: $0)
+            ) { _, value in
+                length += Varint.encodedSize(of: value)
                 return true
             } /*onInvalidValue*/ _: { _ in
                 assertionFailure("invalid value handler should never be called for .read")
@@ -570,8 +570,8 @@ extension _MessageStorage {
                 field,
                 self,
                 .read
-            ) {
-                encoder.putVarInt(value: Int64($0))
+            ) { _, value in
+                encoder.putVarInt(value: Int64(value))
                 return true
             } /*onInvalidValue*/ _: { _ in
                 assertionFailure("invalid value handler should never be called for .read")
@@ -583,9 +583,9 @@ extension _MessageStorage {
                 field,
                 self,
                 .read
-            ) {
+            ) { _, value in
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
-                encoder.putVarInt(value: Int64($0))
+                encoder.putVarInt(value: Int64(value))
                 return true
             } /*onInvalidValue*/ _: { _ in
                 assertionFailure("invalid value handler should never be called for .read")

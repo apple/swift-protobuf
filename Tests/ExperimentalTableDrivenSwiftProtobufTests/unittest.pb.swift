@@ -4216,11 +4216,19 @@ extension SwiftProtoTesting_TestParsingMerge {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\u{4}FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4318,14 +4326,14 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, perform: perform, onInvalidValue: onInvalidValue)
-    case 2: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, perform: perform, onInvalidValue: onInvalidValue)
-    case 3: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, perform: perform, onInvalidValue: onInvalidValue)
-    case 13: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self, perform: perform, onInvalidValue: onInvalidValue)
-    case 14: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, perform: perform, onInvalidValue: onInvalidValue)
-    case 15: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Import_ImportEnum].self, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumLayout: SwiftProtoTesting_TestAllTypes.NestedEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 2: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumLayout: SwiftProtoTesting_ForeignEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 3: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumLayout: SwiftProtoTesting_Import_ImportEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 13: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self, enumLayout: SwiftProtoTesting_TestAllTypes.NestedEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 14: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumLayout: SwiftProtoTesting_ForeignEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 15: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Import_ImportEnum].self, enumLayout: SwiftProtoTesting_Import_ImportEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -4371,7 +4379,11 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension SwiftProtoTesting_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4562,7 +4574,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -4882,7 +4894,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -4981,7 +4993,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -5080,7 +5092,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -5265,7 +5277,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -5356,7 +5368,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -5545,7 +5557,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -5681,7 +5693,7 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -5824,9 +5836,9 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumLayout: SwiftProtoTesting_ForeignEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5915,9 +5927,9 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumLayout: SwiftProtoTesting_ForeignEnum._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6068,7 +6080,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -6171,7 +6183,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -6262,7 +6274,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -6353,7 +6365,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -6444,7 +6456,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -6535,7 +6547,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (inout Int32) throws -> Bool, onInvalidValue: (Int32) -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }

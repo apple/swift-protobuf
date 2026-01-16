@@ -132,6 +132,14 @@ internal struct TextFormatEncoder {
         }
     }
 
+    mutating func putEnumValue(rawValue: Int32, nameMap: _NameMap) {
+        if let name = nameMap.names(for: Int(rawValue))?.proto {
+            data.append(contentsOf: name.utf8Buffer)
+        } else {
+            appendInt(value: Int64(rawValue))
+        }
+    }
+
     mutating func putFloatValue(value: Float) {
         if value.isNaN {
             append(staticText: "nan")

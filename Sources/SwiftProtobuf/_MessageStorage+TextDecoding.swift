@@ -127,8 +127,7 @@ extension _MessageStorage {
                     appendValue(try reader.scanner.nextDouble(), to: field)
 
                 case .enum:
-                    // TODO: Support enums.
-                    break
+                    try scanEnumValue(field, from: &reader, operation: .append)
 
                 case .fixed32, .uint32:
                     let n = try reader.scanner.nextSInt()
@@ -176,8 +175,7 @@ extension _MessageStorage {
                 updateValue(of: field, to: try reader.scanner.nextDouble())
 
             case .enum:
-                // TODO: Support enums.
-                break
+                try scanEnumValue(field, from: &reader, operation: .mutate)
 
             case .fixed32, .uint32:
                 let n = try reader.scanner.nextUInt()
@@ -267,6 +265,48 @@ extension _MessageStorage {
                 try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
             }
             return true
+        }
+    }
+
+    /// Scans the enum value of the given field from the reader (handling both name and numeric
+    /// cases), performing the given operation on its raw value (either mutate or append).
+    private func scanEnumValue(
+        _ field: FieldLayout,
+        from reader: inout TextFormatReader,
+        operation: TrampolineFieldOperation
+    ) throws {
+        var hasSeenValue = false
+
+        _ = try layout.performOnRawEnumValues(
+            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            field,
+            self,
+            operation
+        ) { enumLayout, value in
+            // For the repeated case, terminate the loop inside `performOnRawEnumValues` after
+            // having read one value.
+            if hasSeenValue {
+                return false
+            }
+            hasSeenValue = true
+
+            if let name = try reader.scanner.nextOptionalEnumName() {
+                guard let number = enumLayout.nameMap.number(forProtoName: name) else {
+                    throw TextFormatDecodingError.unrecognizedEnumValue
+                }
+                value = Int32(number)
+                return true
+            }
+
+            let number = try reader.scanner.nextSInt()
+            guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
+                throw TextFormatDecodingError.malformedText
+            }
+
+            value = Int32(truncatingIfNeeded: number)
+            return true
+        } /*onInvalidValue*/ _: { _ in
+            throw TextFormatDecodingError.unrecognizedEnumValue
         }
     }
 }

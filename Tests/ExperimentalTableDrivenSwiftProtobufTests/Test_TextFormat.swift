@@ -908,8 +908,6 @@ final class Test_TextFormat_proto3: XCTestCase {
     }
 
     func testEncoding_optionalNestedEnum() throws {
-        throw XCTSkip("TODO: Support enums in text format")
-
         var a = MessageTestType()
         a.optionalNestedEnum = .baz
 
@@ -931,16 +929,12 @@ final class Test_TextFormat_proto3: XCTestCase {
         assertTextFormatDecodeFails("optional_nested_enum: FOOBAR")
         assertTextFormatDecodeFails("optional_nested_enum: \"BAR\"\n")
 
-        // Note: This implementation currently preserves numeric unknown
-        // enum values, unlike Google's C++ implementation, which considers
-        // it a parse error.
-        let b = try SwiftProtoTesting_TestAllTypes(textFormatString: "optional_nested_enum: 999\n")
-        XCTAssertEqual("optional_nested_enum: 999\n", b.textFormatString())
+        // Note: This is a proto2 test case (the enum is closed), so an
+        // unknown raw value is a parse error.
+        assertTextFormatDecodeFails("optional_nested_enum: 999\n")
     }
 
     func testEncoding_optionalForeignEnum() throws {
-        throw XCTSkip("TODO: Support enums in text format")
-
         var a = MessageTestType()
         a.optionalForeignEnum = .foreignBaz
 
@@ -1298,9 +1292,7 @@ final class Test_TextFormat_proto3: XCTestCase {
     }
 
     func testEncoding_repeatedNestedEnum() throws {
-        throw XCTSkip("TODO: Support enums in text format")
-
-        assertTextFormatEncode("repeated_nested_enum: [BAR, BAZ]\n") { (o: inout MessageTestType) in
+        assertTextFormatEncode("repeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n") { (o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
 
@@ -1324,9 +1316,7 @@ final class Test_TextFormat_proto3: XCTestCase {
     }
 
     func testEncoding_repeatedForeignEnum() throws {
-        throw XCTSkip("TODO: Support enums in text format")
-
-        assertTextFormatEncode("repeated_foreign_enum: [FOREIGN_BAR, FOREIGN_BAZ]\n") { (o: inout MessageTestType) in
+        assertTextFormatEncode("repeated_foreign_enum: FOREIGN_BAR\nrepeated_foreign_enum: FOREIGN_BAZ\n") { (o: inout MessageTestType) in
             o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
         }
 
@@ -1421,9 +1411,8 @@ final class Test_TextFormat_proto3: XCTestCase {
         var importMessage = SwiftProtoTesting_Import_ImportMessage()
         importMessage.d = -9
         o.optionalImportMessage = importMessage
-        // TODO: Support enums in text format.
-        // o.optionalNestedEnum = .baz
-        // o.optionalForeignEnum = .foreignBaz
+        o.optionalNestedEnum = .baz
+        o.optionalForeignEnum = .foreignBaz
         var publicImportMessage = SwiftProtoTesting_Import_PublicImportMessage()
         publicImportMessage.e = -999999
         o.optionalPublicImportMessage = publicImportMessage
@@ -1451,9 +1440,8 @@ final class Test_TextFormat_proto3: XCTestCase {
         var importMessage2 = importMessage
         importMessage2.d = 999999
         o.repeatedImportMessage = [importMessage, importMessage2]
-        // TODO: Support enums in text format.
-        // o.repeatedNestedEnum = [.bar, .baz]
-        // o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
+        o.repeatedNestedEnum = [.bar, .baz]
+        o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
         o.oneofUint32 = 99
     }
 
@@ -1483,9 +1471,8 @@ final class Test_TextFormat_proto3: XCTestCase {
          + "optional_import_message {\n"
          + "  d: -9\n"
          + "}\n"
-         // TODO: Support enums in text format.
-         // + "optional_nested_enum: BAZ\n"
-         // + "optional_foreign_enum: FOREIGN_BAZ\n"
+         + "optional_nested_enum: BAZ\n"
+         + "optional_foreign_enum: FOREIGN_BAZ\n"
          + "optional_public_import_message {\n"
          + "  e: -999999\n"
          + "}\n"
@@ -1524,9 +1511,8 @@ final class Test_TextFormat_proto3: XCTestCase {
          + "repeated_import_message {\n"
          + "  d: 999999\n"
          + "}\n"
-         // TODO: Support enums in text format.
-         // + "repeated_nested_enum: [BAR, BAZ]\n"
-         // + "repeated_foreign_enum: [FOREIGN_BAR, FOREIGN_BAZ]\n"
+         + "repeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n"
+         + "repeated_foreign_enum: FOREIGN_BAR\nrepeated_foreign_enum: FOREIGN_BAZ\n"
          + "oneof_uint32: 99\n")
 
         assertTextFormatEncode(expected, configure: configureLargeObject)
@@ -1558,9 +1544,8 @@ final class Test_TextFormat_proto3: XCTestCase {
          + "20 {\n"
          + "  d: -9\n"
          + "}\n"
-         // TODO: Support enums in text format.
-         // + "21: BAZ\n"
-         // + "22: FOREIGN_BAZ\n"
+         + "21: BAZ\n"
+         + "22: FOREIGN_BAZ\n"
          + "26 {\n"
          + "  e: -999999\n"
          + "}\n"
@@ -1599,9 +1584,8 @@ final class Test_TextFormat_proto3: XCTestCase {
          + "50 {\n"
          + "  d: 999999\n"
          + "}\n"
-         // TODO: Support enums in text format.
-         // + "51: [BAR, BAZ]\n"
-         // + "52: [FOREIGN_BAR, FOREIGN_BAZ]\n"
+         + "51: BAR\n51: BAZ\n"
+         + "52: FOREIGN_BAR\n52: FOREIGN_BAZ\n"
          + "111: 99\n")
 
         let expected = MessageTestType.with { configureLargeObject(&$0) }

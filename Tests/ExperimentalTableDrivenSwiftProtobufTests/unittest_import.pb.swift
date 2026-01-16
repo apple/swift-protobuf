@@ -107,7 +107,11 @@ struct SwiftProtoTesting_Import_ImportMessage: @unchecked Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing.import"
 
 extension SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0")
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumLayoutString: StaticString { "" }
+  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0" }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
 extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

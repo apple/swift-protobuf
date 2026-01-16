@@ -675,8 +675,6 @@ final class Test_Map: XCTestCase {
     }
 
     func test_textFormat_Int32Enum_ignore_unknown_fields() throws {
-        throw XCTSkip("TODO: Support enums in text format")
-
         var options = TextFormatDecodingOptions()
         options.ignoreUnknownFields = true
 

@@ -263,9 +263,9 @@ extension _MessageStorage {
             field,
             self,
             .read
-        ) {
+        ) { _, value in
             count += 1
-            totalEnumsSize += Varint.encodedSize(of: $0)
+            totalEnumsSize += Varint.encodedSize(of: value)
             return true
         } /*onInvalidValue*/ _: { _ in
         }
