@@ -123,6 +123,15 @@ extension Message {
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws {
         self.init()
+        try self._merge(jsonUTF8Bytes: jsonUTF8Bytes, options: options, extensions: extensions)
+    }
+
+    // TODO: Delete this when we have removed the old implementation.
+    public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(
+        jsonUTF8Bytes: Bytes,
+        options: JSONDecodingOptions,
+        extensions: (any ExtensionMap)?
+    ) throws {
         try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
             // Empty input is valid for binary, but not for JSON.
             guard body.count > 0 else {

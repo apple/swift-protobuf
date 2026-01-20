@@ -310,6 +310,29 @@ class MessageGenerator {
                 p.print("try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)")
             }
             p.print("}")
+            p.print(
+                "\(visibility)func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {"
+            )
+            p.withIndentation { p in
+                p.print("return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)")
+            }
+            p.print("}")
+            p.print(
+                "\(visibility)func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {"
+            )
+            p.withIndentation { p in
+                p.print("return try _storage.jsonUTF8Bytes(options: options)")
+            }
+            p.print("}")
+            p.print(
+                "\(visibility)mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {"
+            )
+            p.withIndentation { p in
+                p.print("try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in")
+                p.printIndented("try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)")
+                p.print("}")
+            }
+            p.print("}")
 
             p.print()
             generateMessageEquality(printer: &p)

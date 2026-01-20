@@ -504,6 +504,14 @@ extension _MessageLayout {
     ///
     /// The array should be created if it is not already present.
     case append
+
+    /// The (singular/repeated) submessage or (repeated) enum field is being cleared.
+    ///
+    /// This is only needed for handling of JSON `null` values, which needs to be able to clear
+    /// the underlying storage for singular/repeated message fields and repeated enum fields, since
+    /// this required knowledge of the concrete type so that memory can be properly deinitialized.
+    /// The closure passed to the function is not actually used by this operation.
+    case clear
 }
 
 /// Provides access to the properties of a field's layout based on a slice of the raw message

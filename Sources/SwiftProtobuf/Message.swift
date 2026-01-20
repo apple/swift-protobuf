@@ -129,6 +129,11 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
         options: TextFormatDecodingOptions,
         extensions: (any ExtensionMap)?
     ) throws
+    mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(
+        jsonUTF8Bytes: Bytes,
+        options: JSONDecodingOptions,
+        extensions: (any ExtensionMap)?
+    ) throws
 }
 
 extension Message {
