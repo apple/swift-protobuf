@@ -98,7 +98,7 @@ extension _MessageStorage {
                     try scanEnumValue(field, from: &reader, operation: .append)
 
                 case .fixed32, .uint32:
-                    let n = try reader.scanner.nextSInt()
+                    let n = try reader.scanner.nextUInt()
                     if n > UInt64(UInt32.max) {
                         throw TextFormatDecodingError.malformedNumber
                     }
@@ -153,9 +153,10 @@ extension _MessageStorage {
         from reader: inout JSONReader,
         requireQuotedBool: Bool = false
     ) throws {
+        let isNull = reader.scanner.skipOptionalNull()
         switch field.rawFieldType {
         case .bool:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: Bool.self)
                 break
             }
@@ -165,21 +166,21 @@ extension _MessageStorage {
             )
 
         case .bytes:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: Data.self)
                 break
             }
             updateValue(of: field, to: try reader.scanner.nextBytesValue())
 
         case .double:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: Double.self)
                 break
             }
             updateValue(of: field, to: try reader.scanner.nextDouble())
 
         case .enum:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 // We don't have the concrete type information for the enum here, but that's
                 // fine because we store the raw value for singular enum fields.
                 clearValue(of: field, type: Int32.self)
@@ -188,7 +189,7 @@ extension _MessageStorage {
             try scanEnumValue(field, from: &reader, operation: .mutate)
 
         case .fixed32, .uint32:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: UInt32.self)
                 break
             }
@@ -199,21 +200,21 @@ extension _MessageStorage {
             updateValue(of: field, to: UInt32(truncatingIfNeeded: n))
 
         case .fixed64, .uint64:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: UInt64.self)
                 break
             }
             updateValue(of: field, to: try reader.scanner.nextUInt())
 
         case .float:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: Float.self)
                 break
             }
             updateValue(of: field, to: try reader.scanner.nextFloat())
 
         case .group, .message:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 _ = try layout.performOnSubmessageStorage(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
@@ -225,7 +226,7 @@ extension _MessageStorage {
             try scanSubmessageValue(field, from: &reader, operation: .mutate)
 
         case .int32, .sfixed32, .sint32:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: Int32.self)
                 break
             }
@@ -236,14 +237,14 @@ extension _MessageStorage {
             updateValue(of: field, to: Int32(truncatingIfNeeded: n))
 
         case .int64, .sfixed64, .sint64:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: Int64.self)
                 break
             }
             updateValue(of: field, to: try reader.scanner.nextSInt())
 
         case .string:
-            if reader.scanner.skipOptionalNull() {
+            if isNull {
                 clearValue(of: field, type: String.self)
                 break
             }
