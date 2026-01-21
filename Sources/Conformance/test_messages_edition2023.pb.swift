@@ -930,6 +930,36 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
     clearExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_int32)
   }
 
+  var ProtobufTestMessages_Editions_extensionString: String {
+    get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_string) ?? String()}
+    set {setExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_string, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufTestMessages_Editions_Extensions_extension_string`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Editions_extensionString: Bool {
+    return hasExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_string)
+  }
+  /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_extension_string`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Editions_extensionString() {
+    clearExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_string)
+  }
+
+  var ProtobufTestMessages_Editions_extensionBytes: Data {
+    get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_bytes) ?? Data()}
+    set {setExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_bytes, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufTestMessages_Editions_Extensions_extension_bytes`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Editions_extensionBytes: Bool {
+    return hasExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_bytes)
+  }
+  /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_extension_bytes`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Editions_extensionBytes() {
+    clearExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_extension_bytes)
+  }
+
   var ProtobufTestMessages_Editions_groupLikeType: ProtobufTestMessages_Editions_GroupLikeType {
     get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_GroupLikeType) ?? ProtobufTestMessages_Editions_GroupLikeType()}
     set {setExtensionValue(ext: ProtobufTestMessages_Editions_Extensions_GroupLikeType, value: newValue)}
@@ -970,6 +1000,8 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_Editions_Extensions_extension_int32,
+  ProtobufTestMessages_Editions_Extensions_extension_string,
+  ProtobufTestMessages_Editions_Extensions_extension_bytes,
   ProtobufTestMessages_Editions_Extensions_GroupLikeType,
   ProtobufTestMessages_Editions_Extensions_delimited_ext
 ]
@@ -981,6 +1013,16 @@ let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProto
 let ProtobufTestMessages_Editions_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
   _protobuf_fieldNumber: 120,
   fieldName: "protobuf_test_messages.editions.extension_int32"
+)
+
+let ProtobufTestMessages_Editions_Extensions_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
+  _protobuf_fieldNumber: 133,
+  fieldName: "protobuf_test_messages.editions.extension_string"
+)
+
+let ProtobufTestMessages_Editions_Extensions_extension_bytes = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
+  _protobuf_fieldNumber: 134,
+  fieldName: "protobuf_test_messages.editions.extension_bytes"
 )
 
 let ProtobufTestMessages_Editions_Extensions_GroupLikeType = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufTestMessages_Editions_GroupLikeType>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
