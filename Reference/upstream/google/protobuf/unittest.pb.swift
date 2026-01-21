@@ -5533,11 +5533,6 @@ struct Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, @un
   /// Clears the value of `optionalStringPiece`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStringPiece() {_uniqueStorage()._optionalStringPiece = nil}
 
-  var repeatedUtf8String: [String] {
-    get {_storage._repeatedUtf8String}
-    set {_uniqueStorage()._repeatedUtf8String = newValue}
-  }
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_OneofField: Equatable, Sendable {
@@ -17762,7 +17757,7 @@ extension Proto2Unittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}pq\u{7f}\u{7f}\u{1f}optional_int32\0\u{3}fixed_32\0\u{3}repeated_int32\0\u{3}packed_int32\0\u{3}optional_enum\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_message\0\u{7}OptionalGroup\0\u{4}\u{2}string_string_map\0\u{3}oneof_uint32\0\u{3}oneof_test_all_types\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}optional_bool\0\u{3}optional_int64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_utf8_string\0\u{3}optional_cord\0\u{3}optional_string_piece\0\u{3}repeated_utf8_string\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}pq\u{7f}\u{7f}\u{1f}optional_int32\0\u{3}fixed_32\0\u{3}repeated_int32\0\u{3}packed_int32\0\u{3}optional_enum\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_message\0\u{7}OptionalGroup\0\u{4}\u{2}string_string_map\0\u{3}oneof_uint32\0\u{3}oneof_test_all_types\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}optional_bool\0\u{3}optional_int64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_utf8_string\0\u{3}optional_cord\0\u{3}optional_string_piece\0")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -17783,7 +17778,6 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
     var _optionalUtf8String: String? = nil
     var _optionalCord: String? = nil
     var _optionalStringPiece: String? = nil
-    var _repeatedUtf8String: [String] = []
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -17812,7 +17806,6 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
       _optionalUtf8String = source._optionalUtf8String
       _optionalCord = source._optionalCord
       _optionalStringPiece = source._optionalStringPiece
-      _repeatedUtf8String = source._repeatedUtf8String
     }
   }
 
@@ -17890,7 +17883,6 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
         case 536870019: try { try decoder.decodeSingularStringField(value: &_storage._optionalUtf8String) }()
         case 536870020: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 536870021: try { try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece) }()
-        case 536870022: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedUtf8String) }()
         case 536860000..<536870000:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestHugeFieldNumbers.self, fieldNumber: fieldNumber) }()
         default: break
@@ -17976,9 +17968,6 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
       try { if let v = _storage._optionalStringPiece {
         try visitor.visitSingularStringField(value: v, fieldNumber: 536870021)
       } }()
-      if !_storage._repeatedUtf8String.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._repeatedUtf8String, fieldNumber: 536870022)
-      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -18006,7 +17995,6 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
         if _storage._optionalUtf8String != rhs_storage._optionalUtf8String {return false}
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
-        if _storage._repeatedUtf8String != rhs_storage._repeatedUtf8String {return false}
         return true
       }
       if !storagesAreEqual {return false}

@@ -43,8 +43,15 @@ INSTALL=install
 # Where to find a google/protobuf checkout. Defaults to the submodule.
 # Invoke make with GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT] to
 # override this value, i.e. -
-#   make [TARGET] GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT]
+#   make check-proto-files GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT]
+# Usually the only time this needs overriding is when needed to pick up
+# newer proto files that are bundled or when wanting to use a newer
+# conformance test.
 GOOGLE_PROTOBUF_CHECKOUT?=Sources/protobuf/protobuf
+
+# This is not intended to be overridden, it is needed for `test-plugin` so
+# the generation of lot of proto files can be checked.
+LOCAL_PROTOBUF=Sources/protobuf/protobuf
 
 # Helpers for the common parts of source generation.
 #
@@ -53,7 +60,7 @@ GOOGLE_PROTOBUF_CHECKOUT?=Sources/protobuf/protobuf
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 # Need to provide paths to find the language specific editions features files
 # also. If we used a released protoc distro, they would be bundled like the WKTs.
-GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I Protos/upstream/go -I Protos/upstream/java/core/src/main/resources
+GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I ${GOOGLE_PROTOBUF_CHECKOUT}/go -I ${GOOGLE_PROTOBUF_CHECKOUT}/java/core/src/main/resources
 # Search 'Protos/Sources/SwiftProtobuf/' so the WKTs can be found (google/protobuf/*).
 GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos/Sources/SwiftProtobuf
 
@@ -68,9 +75,13 @@ CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/cmake_build/conformance_tes
 # Hook to pass arge to swift build|test (mainly for the CI setup)
 SWIFT_BUILD_TEST_HOOK?=
 
-# The directories within Protos/ with the exception of "upstream". Use for the
-# maintenance of the 'Reference' target and test-plugin.
-PROTOS_DIRS=Sources/Conformance Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
+# The directories within Protos/. Used for the maintenance of the 'Reference' target and
+# test-plugin.
+#
+# NOTE: Sources/Conformance is *not* in here as of Jan 2026 there are some proto file that
+# use features the release version of protobuf doesn't support. So this keeps
+# `test-plugin` working with the tagged version that predates that support.
+PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
 
 .PHONY: \
 	all \
@@ -182,9 +193,16 @@ test-runtime: build
 # one at a time instead.
 test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf _test && mkdir -p _test/upstream
-	for p in `find Protos/upstream -type f -name '*.proto'`; do \
+	for p in `find \
+	            "${LOCAL_PROTOBUF}/conformance" \
+	            "${LOCAL_PROTOBUF}/go" \
+	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
+	            "${LOCAL_PROTOBUF}/src" \
+	            -type f -name '*.proto'`; do \
 		${GENERATE_SRCS_BASE} \
-		  -I Protos/upstream \
+		  -I "${LOCAL_PROTOBUF}/src" \
+		  -I "${LOCAL_PROTOBUF}" \
+		  -I "${LOCAL_PROTOBUF}/src/google/protobuf/compiler/ruby" \
 		  --tfiws_out=_test/upstream $$p || exit 1; \
 	done
 	for d in ${PROTOS_DIRS}; do \
@@ -254,9 +272,16 @@ compile-tests-internalimportsbydefault:
 # done one at a time instead.
 reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf Reference && mkdir -p Reference/upstream
-	for p in `find Protos/upstream -type f -name '*.proto'`; do \
+	for p in `find \
+	            "${LOCAL_PROTOBUF}/conformance" \
+	            "${LOCAL_PROTOBUF}/go" \
+	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
+	            "${LOCAL_PROTOBUF}/src" \
+	            -type f -name '*.proto'`; do \
 		${GENERATE_SRCS_BASE} \
-		  -I Protos/upstream \
+		  -I "${LOCAL_PROTOBUF}/src" \
+		  -I "${LOCAL_PROTOBUF}" \
+		  -I "${LOCAL_PROTOBUF}/src/google/protobuf/compiler/ruby" \
 		  --tfiws_out=Reference/upstream $$p || exit 1; \
 	done
 	for d in ${PROTOS_DIRS}; do \
@@ -574,49 +599,34 @@ check-for-protobuf-checkout:
 # provide them on input paths.)
 #
 update-proto-files: check-for-protobuf-checkout
-	@rm -rf Protos/upstream
-	@mkdir -p \
-	  Protos/upstream/conformance/test_protos \
-	  Protos/upstream/google/protobuf/compiler \
-	  Protos/upstream/editions/golden \
-	  Protos/upstream/go/google/protobuf \
-	  Protos/upstream/java/core/src/main/resources/google/protobuf
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/upstream/conformance/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/test_protos/*.proto Protos/upstream/conformance/test_protos/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/upstream/google/protobuf/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/upstream/google/protobuf/compiler/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/editions/golden/test_messages_proto?_editions.proto Protos/upstream/editions/golden/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/go/google/protobuf/*_features.proto Protos/upstream/go/google/protobuf/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/java/core/src/main/resources/google/protobuf/*_features.proto Protos/upstream/java/core/src/main/resources/google/protobuf/
-	# Now copy into the Proto directories for the local targets.
 	@rm -rf Protos/Sources/Conformance/conformance/test_protos && mkdir -p Protos/Sources/Conformance/conformance/test_protos
-	@cp -v Protos/upstream/conformance/*.proto Protos/Sources/Conformance/conformance
-	@cp -v Protos/upstream/conformance/test_protos/*.proto Protos/Sources/Conformance/conformance/test_protos
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/Sources/Conformance/conformance
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/test_protos/*.proto Protos/Sources/Conformance/conformance/test_protos
 	@rm -rf Protos/Sources/Conformance/google && mkdir -p Protos/Sources/Conformance/google/protobuf Protos/Sources/Conformance/editions
 	@cp -v \
-	  Protos/upstream/google/protobuf/test_messages_proto2.proto \
-	  Protos/upstream/google/protobuf/test_messages_proto3.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/test_messages_proto2.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/test_messages_proto3.proto \
 	  Protos/Sources/Conformance/google/protobuf/
 	@cp -v \
-	  Protos/upstream/editions/golden/test_messages_proto2_editions.proto \
-	  Protos/upstream/editions/golden/test_messages_proto3_editions.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/editions/golden/test_messages_proto2_editions.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/editions/golden/test_messages_proto3_editions.proto \
 	  Protos/Sources/Conformance/editions/
 	@rm -rf Protos/Sources/SwiftProtobuf/google && mkdir -p Protos/Sources/SwiftProtobuf/google/protobuf
 	@cp -v \
-	  Protos/upstream/google/protobuf/timestamp.proto \
-	  Protos/upstream/google/protobuf/field_mask.proto \
-	  Protos/upstream/google/protobuf/api.proto \
-	  Protos/upstream/google/protobuf/duration.proto \
-	  Protos/upstream/google/protobuf/struct.proto \
-	  Protos/upstream/google/protobuf/wrappers.proto \
-	  Protos/upstream/google/protobuf/source_context.proto \
-	  Protos/upstream/google/protobuf/any.proto \
-	  Protos/upstream/google/protobuf/type.proto \
-	  Protos/upstream/google/protobuf/empty.proto \
-	  Protos/upstream/google/protobuf/descriptor.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/timestamp.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/field_mask.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/api.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/duration.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/struct.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/wrappers.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/source_context.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/any.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/type.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/empty.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/descriptor.proto \
 	  Protos/Sources/SwiftProtobuf/google/protobuf
 	@rm -rf Protos/Sources/SwiftProtobufPluginLibrary/google && mkdir -p Protos/Sources/SwiftProtobufPluginLibrary/google/protobuf/compiler
-	@cp -v Protos/upstream/google/protobuf/compiler/*.proto Protos/Sources/SwiftProtobufPluginLibrary/google/protobuf/compiler
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/Sources/SwiftProtobufPluginLibrary/google/protobuf/compiler
 
 #
 # Helper to see if update-proto-files should be done
@@ -629,13 +639,13 @@ update-proto-files: check-for-protobuf-checkout
 check-proto-files: check-for-protobuf-checkout
 	@rm -f _check_protos.txt && touch _check_protos.txt
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto conformance/test_protos/*.proto`; do \
-		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" >> _check_protos.txt; \
+		diff -u "Protos/Sources/Conformance/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" >> _check_protos.txt; \
 	done
-	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test`; do \
-		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
+	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test | grep -v features | grep -v option | grep -v sample`; do \
+		diff -u "Protos/Sources/SwiftProtobuf/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
-		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
+		diff -u "Protos/Sources/SwiftProtobufPluginLibrary/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
 	done
 	@if [ -s _check_protos.txt ] ; then \
 	    cat _check_protos.txt; \
