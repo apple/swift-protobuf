@@ -293,6 +293,10 @@ extension _MessageStorage {
 
         case .append:
             preconditionFailure("Internal error: singular performOnSubmessageStorage should not be called to append")
+
+        case .clear:
+            clearValue(of: field, type: type)
+            return true
         }
     }
 
@@ -339,6 +343,10 @@ extension _MessageStorage {
             guard try perform(submessage.storageForRuntime) else { return false }
             pointer.pointee.append(submessage)
             return true
+
+        case .clear:
+            clearValue(of: field, type: type)
+            return true
         }
     }
 
@@ -368,6 +376,10 @@ extension _MessageStorage {
 
         case .mutate, .append:
             preconditionFailure("unreachable")
+
+        case .clear:
+            clearValue(of: field, type: type)
+            return true
         }
     }
 
@@ -414,6 +426,9 @@ extension _MessageStorage {
 
         case .append:
             preconditionFailure("Internal error: singular performOnRawEnumValues should not be called to append")
+
+        case .clear:
+            preconditionFailure("Internal error: singular performOnRawEnumValues should not be called to clear")
         }
     }
 
@@ -477,6 +492,9 @@ extension _MessageStorage {
                     try onInvalidValue(rawValue)
                 }
             }
+
+        case .clear:
+            clearValue(of: field, type: type)
         }
     }
 
@@ -551,6 +569,9 @@ extension _MessageStorage {
             let value = V.value(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
             pointer.pointee[key] = value
             return true
+
+        case .clear:
+            preconditionFailure("Internal error: performOnMapEntry should not be called to clear")
         }
     }
 }
@@ -1033,6 +1054,30 @@ extension _MessageStorage {
             }
         } else {
             pointer.pointee.append(value)
+        }
+    }
+
+    /// Clears the given non-enum field, tracking its presence accordingly.
+    func clearValue<T>(of field: FieldLayout, type: T.Type = T.self) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            clearValue(at: offset, type: T.self, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            clearPopulatedOneofMember(at: oneofOffset)
+        }
+    }
+
+    /// Clears the given enum field, tracking its presence accordingly.
+    ///
+    /// This specialization is necessary since enums are stored as their raw values in memory.
+    func clearValue<T: Enum>(of field: FieldLayout, type: T.Type = T.self) {
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            clearValue(at: offset, type: T.self, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            clearPopulatedOneofMember(at: oneofOffset)
         }
     }
 }

@@ -745,6 +745,17 @@ extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._Mes
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
+  }
 
   static func ==(lhs: SwiftProtoTesting_Required1, rhs: SwiftProtoTesting_Required1) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -793,6 +804,17 @@ extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
   }
 
   static func ==(lhs: SwiftProtoTesting_Required8, rhs: SwiftProtoTesting_Required8) -> Bool {
@@ -843,6 +865,17 @@ extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._Mes
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
+  }
 
   static func ==(lhs: SwiftProtoTesting_Required9, rhs: SwiftProtoTesting_Required9) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -891,6 +924,17 @@ extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProt
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
   }
 
   static func ==(lhs: SwiftProtoTesting_RequiredMixedOrder, rhs: SwiftProtoTesting_RequiredMixedOrder) -> Bool {
@@ -987,6 +1031,17 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProt
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
+  }
 
   static func ==(lhs: SwiftProtoTesting_RequiredWithNested, rhs: SwiftProtoTesting_RequiredWithNested) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1082,6 +1137,17 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, S
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
+  }
 
   static func ==(lhs: SwiftProtoTesting_RequiredWithRepeatedNested, rhs: SwiftProtoTesting_RequiredWithRepeatedNested) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1130,6 +1196,17 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
   }
 
   static func ==(lhs: SwiftProtoTesting_NestedRequired, rhs: SwiftProtoTesting_NestedRequired) -> Bool {
@@ -1222,6 +1299,17 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
+  }
 
   static func ==(lhs: SwiftProtoTesting_NoneRequired, rhs: SwiftProtoTesting_NoneRequired) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
@@ -1266,6 +1354,17 @@ extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProt
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
   }
 
   static func ==(lhs: SwiftProtoTesting_NestedNoneRequired, rhs: SwiftProtoTesting_NestedNoneRequired) -> Bool {
@@ -1361,6 +1460,17 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
   }
 
   static func ==(lhs: SwiftProtoTesting_NoneRequiredButNestedRequired, rhs: SwiftProtoTesting_NoneRequiredButNestedRequired) -> Bool {
@@ -1466,6 +1576,17 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message, 
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+    }
   }
 
   static func ==(lhs: SwiftProtoTesting_MapWithNestedRequiredValues, rhs: SwiftProtoTesting_MapWithNestedRequiredValues) -> Bool {

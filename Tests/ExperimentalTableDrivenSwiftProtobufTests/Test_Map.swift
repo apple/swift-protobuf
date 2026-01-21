@@ -143,7 +143,10 @@ final class Test_Map: XCTestCase {
             $0.mapInt32Int32 == [0: 0]
         }
         // Verify that we clear the shared storage between map entries.
-        assertDecodeSucceeds(inputBytes: [10, 4, 8, 1, 16, 2, 10, 0], recodedBytes: [10, 4, 8, 0, 16, 0, 10, 4, 8, 1, 16, 2]) {
+        assertDecodeSucceeds(
+            inputBytes: [10, 4, 8, 1, 16, 2, 10, 0],
+            recodedBytes: [10, 4, 8, 0, 16, 0, 10, 4, 8, 1, 16, 2]
+        ) {
             $0.mapInt32Int32 == [0: 0, 1: 2]
         }
         // Skip other field numbers within map entry.
@@ -175,7 +178,10 @@ final class Test_Map: XCTestCase {
             $0.mapInt64Int64 == [0: 0]
         }
         // Verify that we clear the shared storage between map entries.
-        assertDecodeSucceeds(inputBytes: [18, 4, 8, 1, 16, 2, 18, 0], recodedBytes: [18, 4, 8, 0, 16, 0, 18, 4, 8, 1, 16, 2]) {
+        assertDecodeSucceeds(
+            inputBytes: [18, 4, 8, 1, 16, 2, 18, 0],
+            recodedBytes: [18, 4, 8, 0, 16, 0, 18, 4, 8, 1, 16, 2]
+        ) {
             $0.mapInt64Int64 == [0: 0, 1: 2]
         }
         // Skip other field numbers within map entry.
@@ -202,7 +208,10 @@ final class Test_Map: XCTestCase {
             $0.mapUint32Uint32 == [0: 0]
         }
         // Verify that we clear the shared storage between map entries.
-        assertDecodeSucceeds(inputBytes: [26, 4, 8, 1, 16, 2, 26, 0], recodedBytes: [26, 4, 8, 0, 16, 0, 26, 4, 8, 1, 16, 2]) {
+        assertDecodeSucceeds(
+            inputBytes: [26, 4, 8, 1, 16, 2, 26, 0],
+            recodedBytes: [26, 4, 8, 0, 16, 0, 26, 4, 8, 1, 16, 2]
+        ) {
             $0.mapUint32Uint32 == [0: 0, 1: 2]
         }
         // Skip other field numbers within map entry.
@@ -228,7 +237,10 @@ final class Test_Map: XCTestCase {
             $0.mapBoolBool == [false: false]
         }
         // Verify that we clear the shared storage between map entries.
-        assertDecodeSucceeds(inputBytes: [106, 4, 8, 1, 16, 1, 106, 0], recodedBytes: [106, 4, 8, 0, 16, 0, 106, 4, 8, 1, 16, 1]) {
+        assertDecodeSucceeds(
+            inputBytes: [106, 4, 8, 1, 16, 1, 106, 0],
+            recodedBytes: [106, 4, 8, 0, 16, 0, 106, 4, 8, 1, 16, 1]
+        ) {
             $0.mapBoolBool == [false: false, true: true]
         }
         // Skip other field numbers within map entry.
@@ -746,6 +758,306 @@ final class Test_Map: XCTestCase {
         }
     }
 
+    func testJSON_MapInt32Int32() throws {
+        assertJSONEncode("{\"mapInt32Int32\":{\"1\":2}}") { (o: inout MessageTestType) in
+            o.mapInt32Int32 = [1: 2]
+        }
+
+        var o = MessageTestType()
+        o.mapInt32Int32 = [1: 2, 3: 4]
+        let json = try o.jsonString()
+        // Must be in one of these two orders
+        if json != "{\"mapInt32Int32\":{\"1\":2,\"3\":4}}"
+            && json != "{\"mapInt32Int32\":{\"3\":4,\"1\":2}}"
+        {
+            XCTFail("Got:  \(json)")
+        }
+
+        // Decode should work same regardless of order
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":2, \"3\":4}}") { $0.mapInt32Int32 == [1: 2, 3: 4] }
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"3\":4,\"1\":2}}") { $0.mapInt32Int32 == [1: 2, 3: 4] }
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"2147483647\":2147483647}}") {
+            $0.mapInt32Int32 == [2_147_483_647: 2_147_483_647]
+        }
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"-2147483648\":-2147483648}}") {
+            $0.mapInt32Int32 == [-2_147_483_648: -2_147_483_648]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"2147483647\":2147483648}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"2147483648\":2147483647}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"-2147483649\":2147483647}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"2147483647\":-2147483649}}")
+        // JSON RFC does not allow trailing comma
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"3\":4,\"1\":2,}}")
+        // Int values should support being quoted or unquoted
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":\"2\", \"3\":4}}") { $0.mapInt32Int32 == [1: 2, 3: 4] }
+        // Space should not affect result
+        assertJSONDecodeSucceeds(" { \"mapInt32Int32\" : { \"1\" : \"2\" , \"3\" : 4 } } ") {
+            $0.mapInt32Int32 == [1: 2, 3: 4]
+        }
+        // Keys must be quoted, else decode fails
+        assertJSONDecodeFails("{\"mapInt32Int32\":{1:2, 3:4}}")
+        // Fail on other syntax errors:
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2,, \"3\":4}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\",\"4\"}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":, \"3\":4}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2,,}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2}} X")
+    }
+
+    func testJSON_MapInt64Int64() throws {
+        assertJSONEncode("{\"mapInt64Int64\":{\"1\":\"2\"}}") { (o: inout MessageTestType) in
+            o.mapInt64Int64 = [1: 2]
+        }
+        assertJSONEncode("{\"mapInt64Int64\":{\"9223372036854775807\":\"-9223372036854775808\"}}") {
+            (o: inout MessageTestType) in
+            o.mapInt64Int64 = [9_223_372_036_854_775_807: -9_223_372_036_854_775_808]
+        }
+        assertJSONDecodeSucceeds("{\"mapInt64Int64\":{\"9223372036854775807\":-9223372036854775808}}") {
+            $0.mapInt64Int64 == [9_223_372_036_854_775_807: -9_223_372_036_854_775_808]
+        }
+        assertJSONDecodeFails("{\"mapInt64Int64\":{\"9223372036854775807\":9223372036854775808}}")
+    }
+
+    func testJSON_MapUInt32UInt32() throws {
+        assertJSONEncode("{\"mapUint32Uint32\":{\"1\":2}}") { (o: inout MessageTestType) in
+            o.mapUint32Uint32 = [1: 2]
+        }
+        assertJSONDecodeFails("{\"mapUint32Uint32\":{\"1\":-2}}")
+        assertJSONDecodeFails("{\"mapUint32Uint32\":{\"-1\":2}}")
+        assertJSONDecodeFails("{\"mapUint32Uint32\":{1:2}}")
+        assertJSONDecodeSucceeds("{\"mapUint32Uint32\":{\"1\":\"2\"}}") {
+            $0.mapUint32Uint32 == [1: 2]
+        }
+    }
+
+    func testJSON_MapUInt64UInt64() throws {
+        assertJSONEncode("{\"mapUint64Uint64\":{\"1\":\"2\"}}") { (o: inout MessageTestType) in
+            o.mapUint64Uint64 = [1: 2]
+        }
+        assertJSONEncode("{\"mapUint64Uint64\":{\"1\":\"18446744073709551615\"}}") { (o: inout MessageTestType) in
+            o.mapUint64Uint64 = [1: 18_446_744_073_709_551_615 as UInt64]
+        }
+        assertJSONDecodeSucceeds("{\"mapUint64Uint64\":{\"1\":18446744073709551615}}") {
+            $0.mapUint64Uint64 == [1: 18_446_744_073_709_551_615 as UInt64]
+        }
+        assertJSONDecodeFails("{\"mapUint64Uint64\":{\"1\":\"18446744073709551616\"}}")
+        assertJSONDecodeFails("{\"mapUint64Uint64\":{1:\"18446744073709551615\"}}")
+    }
+
+    func testJSON_MapSInt32SInt32() throws {
+        assertJSONEncode("{\"mapSint32Sint32\":{\"1\":2}}") { (o: inout MessageTestType) in
+            o.mapSint32Sint32 = [1: 2]
+        }
+        assertJSONDecodeSucceeds("{\"mapSint32Sint32\":{\"1\":\"-2\"}}") {
+            $0.mapSint32Sint32 == [1: -2]
+        }
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{1:-2}}")
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapSint32Sint32\":{\"2147483647\":2147483647}}") {
+            $0.mapSint32Sint32 == [2_147_483_647: 2_147_483_647]
+        }
+        assertJSONDecodeSucceeds("{\"mapSint32Sint32\":{\"-2147483648\":-2147483648}}") {
+            $0.mapSint32Sint32 == [-2_147_483_648: -2_147_483_648]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"2147483647\":2147483648}}")
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"2147483648\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"-2147483649\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"2147483647\":-2147483649}}")
+    }
+
+    func testJSON_MapSInt64SInt64() throws {
+        assertJSONEncode("{\"mapSint64Sint64\":{\"1\":\"2\"}}") { (o: inout MessageTestType) in
+            o.mapSint64Sint64 = [1: 2]
+        }
+        assertJSONEncode("{\"mapSint64Sint64\":{\"9223372036854775807\":\"-9223372036854775808\"}}") {
+            (o: inout MessageTestType) in
+            o.mapSint64Sint64 = [9_223_372_036_854_775_807: -9_223_372_036_854_775_808]
+        }
+        assertJSONDecodeSucceeds("{\"mapSint64Sint64\":{\"9223372036854775807\":-9223372036854775808}}") {
+            $0.mapSint64Sint64 == [9_223_372_036_854_775_807: -9_223_372_036_854_775_808]
+        }
+        assertJSONDecodeFails("{\"mapSint64Sint64\":{\"9223372036854775807\":9223372036854775808}}")
+    }
+
+    func testJSON_Fixed32Fixed32() throws {
+        assertJSONEncode("{\"mapFixed32Fixed32\":{\"1\":2}}") { (o: inout MessageTestType) in
+            o.mapFixed32Fixed32 = [1: 2]
+        }
+        assertJSONEncode("{\"mapFixed32Fixed32\":{\"0\":0}}") { (o: inout MessageTestType) in
+            o.mapFixed32Fixed32 = [0: 0]
+        }
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapFixed32Fixed32\":{\"4294967295\":4294967295}}") {
+            $0.mapFixed32Fixed32 == [4_294_967_295: 4_294_967_295]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"4294967295\":4294967296}}")
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"4294967296\":4294967295}}")
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"-1\":4294967295}}")
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"4294967295\":-1}}")
+    }
+
+    func testJSON_Fixed64Fixed64() throws {
+        assertJSONEncode("{\"mapFixed64Fixed64\":{\"1\":\"2\"}}") { (o: inout MessageTestType) in
+            o.mapFixed64Fixed64 = [1: 2]
+        }
+        assertJSONEncode("{\"mapFixed64Fixed64\":{\"1\":\"18446744073709551615\"}}") { (o: inout MessageTestType) in
+            o.mapFixed64Fixed64 = [1: 18_446_744_073_709_551_615 as UInt64]
+        }
+        assertJSONDecodeSucceeds("{\"mapFixed64Fixed64\":{\"1\":18446744073709551615}}") {
+            $0.mapFixed64Fixed64 == [1: 18_446_744_073_709_551_615 as UInt64]
+        }
+        assertJSONDecodeFails("{\"mapFixed64Fixed64\":{\"1\":\"18446744073709551616\"}}")
+        assertJSONDecodeFails("{\"mapFixed64Fixed64\":{1:\"18446744073709551615\"}}")
+    }
+
+    func testJSON_SFixed32SFixed32() throws {
+        assertJSONEncode("{\"mapSfixed32Sfixed32\":{\"1\":2}}") { (o: inout MessageTestType) in
+            o.mapSfixed32Sfixed32 = [1: 2]
+        }
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapSfixed32Sfixed32\":{\"2147483647\":2147483647}}") {
+            $0.mapSfixed32Sfixed32 == [2_147_483_647: 2_147_483_647]
+        }
+        assertJSONDecodeSucceeds("{\"mapSfixed32Sfixed32\":{\"-2147483648\":-2147483648}}") {
+            $0.mapSfixed32Sfixed32 == [-2_147_483_648: -2_147_483_648]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"2147483647\":2147483648}}")
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"2147483648\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"-2147483649\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"2147483647\":-2147483649}}")
+    }
+
+    func testJSON_SFixed64SFixed64() throws {
+        assertJSONEncode("{\"mapSfixed64Sfixed64\":{\"1\":\"2\"}}") { (o: inout MessageTestType) in
+            o.mapSfixed64Sfixed64 = [1: 2]
+        }
+        assertJSONEncode("{\"mapSfixed64Sfixed64\":{\"9223372036854775807\":\"-9223372036854775808\"}}") {
+            (o: inout MessageTestType) in
+            o.mapSfixed64Sfixed64 = [9_223_372_036_854_775_807: -9_223_372_036_854_775_808]
+        }
+        assertJSONDecodeSucceeds("{\"mapSfixed64Sfixed64\":{\"9223372036854775807\":-9223372036854775808}}") {
+            $0.mapSfixed64Sfixed64 == [9_223_372_036_854_775_807: -9_223_372_036_854_775_808]
+        }
+        assertJSONDecodeFails("{\"mapSfixed64Sfixed64\":{\"9223372036854775807\":9223372036854775808}}")
+    }
+
+    func testJSON_mapInt32Float() {
+        assertJSONDecodeSucceeds("{\"mapInt32Float\":{\"1\":1}}") {
+            $0.mapInt32Float == [1: Float(1.0)]
+        }
+
+        assertJSONEncode("{\"mapInt32Float\":{\"1\":1.0}}") {
+            $0.mapInt32Float[1] = Float(1.0)
+        }
+
+        assertJSONDecodeSucceeds("{\"mapInt32Float\":{\"1\":3.141592}}") {
+            $0.mapInt32Float[1] == 3.141592 as Float
+        }
+    }
+
+    func testJSON_mapInt32Double() {
+        assertJSONDecodeSucceeds("{\"mapInt32Double\":{\"1\":1}}") {
+            $0.mapInt32Double == [1: Double(1.0)]
+        }
+
+        assertJSONEncode("{\"mapInt32Double\":{\"1\":1.0}}") {
+            $0.mapInt32Double[1] = Double(1.0)
+        }
+
+        assertJSONDecodeSucceeds("{\"mapInt32Double\":{\"1\":3.141592}}") {
+            $0.mapInt32Double[1] == 3.141592
+        }
+    }
+
+    func testJSON_mapBoolBool() {
+        assertJSONDecodeSucceeds("{\"mapBoolBool\": {\"true\": true, \"false\": false}}") {
+            $0.mapBoolBool == [true: true, false: false]
+        }
+        assertJSONDecodeFails("{\"mapBoolBool\": {true: true}}")
+        assertJSONDecodeFails("{\"mapBoolBool\": {false: false}}")
+    }
+
+    func testJSON_MapStringString() throws {
+        assertJSONEncode("{\"mapStringString\":{\"3\":\"4\"}}") { (o: inout MessageTestType) in
+            o.mapStringString = ["3": "4"]
+        }
+
+        var o = MessageTestType()
+        o.mapStringString = ["foo": "bar", "baz": "quux"]
+        let json = try o.jsonString()
+        // Must be in one of these two orders
+        if json != "{\"mapStringString\":{\"foo\":\"bar\",\"baz\":\"quux\"}}"
+            && json != "{\"mapStringString\":{\"baz\":\"quux\",\"foo\":\"bar\"}}"
+        {
+            XCTFail("Got:  \(json)")
+        }
+    }
+
+    func testJSON_MapInt32Bytes() {
+        assertJSONEncode("{\"mapInt32Bytes\":{\"1\":\"\"}}") { (o: inout MessageTestType) in
+            o.mapInt32Bytes = [1: Data()]
+        }
+        assertJSONDecodeSucceeds("{\"mapInt32Bytes\":{\"1\":\"\", \"2\":\"QUI=\", \"3\": \"AAA=\"}}") {
+            $0.mapInt32Bytes == [1: Data(), 2: Data([65, 66]), 3: Data([0, 0])]
+        }
+    }
+
+    func testJSON_MapInt32Enum() throws {
+        assertJSONEncode("{\"mapInt32Enum\":{\"3\":\"MAP_ENUM_FOO\"}}") { (o: inout MessageTestType) in
+            o.mapInt32Enum = [3: .foo]
+        }
+
+        var o = MessageTestType()
+        o.mapInt32Enum = [1: .foo, 3: .baz]
+        let json = try o.jsonString()
+        // Must be in one of these two orders
+        if json != "{\"mapInt32Enum\":{\"1\":\"MAP_ENUM_FOO\",\"3\":\"MAP_ENUM_BAZ\"}}"
+            && json != "{\"mapInt32Enum\":{\"3\":\"MAP_ENUM_BAZ\",\"1\":\"MAP_ENUM_FOO\"}}"
+        {
+            XCTFail("Got:  \(json)")
+        }
+
+        let decoded = try MessageTestType(jsonString: json)
+        XCTAssertEqual(decoded.mapInt32Enum, [1: .foo, 3: .baz])
+    }
+
+    func testJSON_MapInt32Enum_JSONdecodingOptions() {
+        var options = JSONDecodingOptions()
+
+        // Test_Enum covers the single and repeated field cases.
+
+        let json_with_unknown_enum =
+            "{\"mapInt32Enum\": {\"1\": \"MAP_ENUM_FOO\", \"2\": \"NEW_VALUE\", \"3\":\"MAP_ENUM_BAZ\"}}"
+
+        options.ignoreUnknownFields = false
+        assertJSONDecodeFails(json_with_unknown_enum)
+
+        options.ignoreUnknownFields = true
+        assertJSONDecodeSucceeds(json_with_unknown_enum, options: options) { (m: MessageTestType) -> Bool in
+            m.mapInt32Enum == [1: .foo, 3: .baz]
+        }
+    }
+
+    func testJSON_MapInt32Message() {
+        assertJSONEncode("{\"mapInt32ForeignMessage\":{\"7\":{\"c\":999}}}") { (o: inout MessageTestType) in
+            var m = SwiftProtoTesting_ForeignMessage()
+            m.c = 999
+            o.mapInt32ForeignMessage[7] = m
+        }
+        assertJSONDecodeSucceeds("{\"mapInt32ForeignMessage\":{\"7\":{\"c\":7},\"8\":{\"c\":8}}}") {
+            var sub7 = SwiftProtoTesting_ForeignMessage()
+            sub7.c = 7
+            var sub8 = SwiftProtoTesting_ForeignMessage()
+            sub8.c = 8
+            return $0.mapInt32ForeignMessage == [7: sub7, 8: sub8]
+        }
+    }
+
     func assertMapEncode(
         _ expectedBlocks: [[UInt8]],
         file: StaticString = #file,
@@ -960,5 +1272,177 @@ final class Test_Map: XCTestCase {
         } catch {
             // Yay! It failed!
         }
+    }
+
+    func assertJSONEncode(
+        _ expected: String,
+        extensions: any ExtensionMap = SimpleExtensionMap(),
+        encodingOptions: JSONEncodingOptions = .init(),
+        file: StaticString = #file,
+        line: UInt = #line,
+        configure: (inout MessageTestType) -> Void
+    ) {
+        let empty = MessageTestType()
+        var configured = empty
+        configure(&configured)
+        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
+        do {
+            let encoded = try configured.jsonString(options: encodingOptions)
+            XCTAssert(
+                expected == encoded,
+                "Did not encode correctly: got \(encoded) but expected \(expected)",
+                file: file,
+                line: line
+            )
+            do {
+                let decoded = try MessageTestType(jsonString: encoded, extensions: extensions)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
+            } catch {
+                XCTFail(
+                    "Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)",
+                    file: file,
+                    line: line
+                )
+            }
+        } catch let e {
+            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+        }
+
+        do {
+            let encodedData: [UInt8] = try configured.jsonUTF8Bytes(options: encodingOptions)
+            let encodedOptString = String(bytes: encodedData, encoding: String.Encoding.utf8)
+            XCTAssertNotNil(encodedOptString)
+            let encodedString = encodedOptString!
+            XCTAssert(
+                expected == encodedString,
+                "Did not encode correctly: got \(encodedString)",
+                file: file,
+                line: line
+            )
+            do {
+                let decoded = try MessageTestType(jsonUTF8Bytes: encodedData, extensions: extensions)
+                XCTAssert(
+                    decoded == configured,
+                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+                    file: file,
+                    line: line
+                )
+            } catch {
+                XCTFail(
+                    "Encode/decode cycle should not throw error decoding: \(encodedString), but it threw \(error)",
+                    file: file,
+                    line: line
+                )
+            }
+        } catch let e {
+            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+        }
+    }
+
+    func assertJSONDecodeSucceeds(
+        _ json: String,
+        options: JSONDecodingOptions = JSONDecodingOptions(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
+        file: StaticString = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
+        do {
+            let decoded: MessageTestType = try MessageTestType(
+                jsonString: json,
+                extensions: extensions,
+                options: options
+            )
+            XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
+
+            do {
+                let encoded = try decoded.jsonString()
+                do {
+                    let redecoded = try MessageTestType(jsonString: encoded, extensions: extensions, options: options)
+                    XCTAssert(
+                        check(redecoded),
+                        "Condition failed for redecoded \(redecoded) from \(encoded)",
+                        file: file,
+                        line: line
+                    )
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch {
+                    XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
+                }
+            } catch let e {
+                XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
+            return
+        }
+
+        do {
+            let jsonData = json.data(using: String.Encoding.utf8)!
+            let decoded: MessageTestType = try MessageTestType(
+                jsonUTF8Bytes: jsonData,
+                extensions: extensions,
+                options: options
+            )
+            XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
+
+            do {
+                let encoded: [UInt8] = try decoded.jsonUTF8Bytes()
+                let encodedString = String(decoding: encoded, as: UTF8.self)
+                do {
+                    let redecoded = try MessageTestType(
+                        jsonUTF8Bytes: encoded,
+                        extensions: extensions,
+                        options: options
+                    )
+                    XCTAssert(
+                        check(redecoded),
+                        "Condition failed for redecoded \(redecoded) from binary \(encodedString)",
+                        file: file,
+                        line: line
+                    )
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch {
+                    XCTFail(
+                        "Swift should have recoded/redecoded without error: \(encodedString)",
+                        file: file,
+                        line: line
+                    )
+                }
+            } catch let e {
+                XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
+            return
+        }
+    }
+
+    func assertJSONDecodeFails(
+        _ json: String,
+        extensions: any ExtensionMap = SimpleExtensionMap(),
+        options: JSONDecodingOptions = JSONDecodingOptions(),
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        //        do {
+        //            let _ = try MessageTestType(jsonString: json, extensions: extensions, options: options)
+        //            XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
+        //        } catch {
+        //            // Yay! It failed!
+        //        }
+        //
+        //        let jsonData = json.data(using: String.Encoding.utf8)!
+        //        do {
+        //            let _ = try MessageTestType(jsonUTF8Bytes: jsonData, extensions: extensions, options: options)
+        //            XCTFail("Swift decode should have failed for binary: \(json)", file: file, line: line)
+        //        } catch {
+        //            // Yay! It failed again!
+        //        }
     }
 }

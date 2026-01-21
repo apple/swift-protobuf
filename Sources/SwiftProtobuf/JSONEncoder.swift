@@ -247,6 +247,15 @@ internal struct JSONEncoder {
         appendInt(value: Int64(value))
     }
 
+    internal mutating func putEnumValue(rawValue: Int32, nameMap: _NameMap, alwaysPrintEnumsAsInts: Bool) {
+        // JSON names of enum cases are equivalent to their text format names.
+        if !alwaysPrintEnumsAsInts, let name = nameMap.names(for: Int(rawValue))?.proto {
+            appendQuoted(name: name)
+        } else {
+            appendInt(value: Int64(rawValue))
+        }
+    }
+
     /// Write an `Int64` using protobuf JSON quoting conventions.
     internal mutating func putQuotedInt64(value: Int64) {
         data.append(asciiDoubleQuote)
