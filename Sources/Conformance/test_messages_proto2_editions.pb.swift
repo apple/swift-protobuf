@@ -2133,6 +2133,36 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2 {
     clearExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_int32)
   }
 
+  var ProtobufTestMessages_Editions_Proto2_extensionString: String {
+    get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_string) ?? String()}
+    set {setExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_string, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufTestMessages_Editions_Proto2_Extensions_extension_string`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Editions_Proto2_extensionString: Bool {
+    return hasExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_string)
+  }
+  /// Clears the value of extension `ProtobufTestMessages_Editions_Proto2_Extensions_extension_string`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Editions_Proto2_extensionString() {
+    clearExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_string)
+  }
+
+  var ProtobufTestMessages_Editions_Proto2_extensionBytes: Data {
+    get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes) ?? Data()}
+    set {setExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Editions_Proto2_extensionBytes: Bool {
+    return hasExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes)
+  }
+  /// Clears the value of extension `ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Editions_Proto2_extensionBytes() {
+    clearExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes)
+  }
+
   var ProtobufTestMessages_Editions_Proto2_groupField: ProtobufTestMessages_Editions_Proto2_GroupField {
     get {return getExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_GroupField) ?? ProtobufTestMessages_Editions_Proto2_GroupField()}
     set {setExtensionValue(ext: ProtobufTestMessages_Editions_Proto2_Extensions_GroupField, value: newValue)}
@@ -2206,6 +2236,8 @@ extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorr
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufTestMessages_Editions_Proto2_TestMessagesProto2Editions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_Editions_Proto2_Extensions_extension_int32,
+  ProtobufTestMessages_Editions_Proto2_Extensions_extension_string,
+  ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes,
   ProtobufTestMessages_Editions_Proto2_Extensions_GroupField,
   ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension,
   ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension,
@@ -2221,6 +2253,16 @@ let ProtobufTestMessages_Editions_Proto2_TestMessagesProto2Editions_Extensions: 
 let ProtobufTestMessages_Editions_Proto2_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2>(
   _protobuf_fieldNumber: 120,
   fieldName: "protobuf_test_messages.editions.proto2.extension_int32"
+)
+
+let ProtobufTestMessages_Editions_Proto2_Extensions_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2>(
+  _protobuf_fieldNumber: 133,
+  fieldName: "protobuf_test_messages.editions.proto2.extension_string"
+)
+
+let ProtobufTestMessages_Editions_Proto2_Extensions_extension_bytes = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2>(
+  _protobuf_fieldNumber: 134,
+  fieldName: "protobuf_test_messages.editions.proto2.extension_bytes"
 )
 
 let ProtobufTestMessages_Editions_Proto2_Extensions_GroupField = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufTestMessages_Editions_Proto2_GroupField>, ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2>(
