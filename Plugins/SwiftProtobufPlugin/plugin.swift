@@ -77,6 +77,9 @@ struct SwiftProtobufPlugin {
             }
 
             /// An array of paths to `.proto` files for this invocation.
+            ///
+            /// If the `protoPath` parameter is specified, the files must be specified
+            /// relative to that directory. Otherwise, relative to the target source directory.
             var protoFiles: [String]
             /// The visibility of the generated files.
             var visibility: Visibility?
@@ -86,6 +89,15 @@ struct SwiftProtobufPlugin {
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
             var useAccessLevelOnImports: Bool?
+            /// Overrides the base directory used to find protobuf files.
+            ///
+            /// This must be specified as a path relative to the target source directory.
+            /// For example, if you are storing the protofiles at `MyLibrary/Sources/MyLib/protos`,
+            /// you should specify `protos` as the value for this parameter.
+            ///
+            /// If you have multiple subdirectories you wish to include,
+            /// you should specify multiple `invocations` instead.
+            var protoPath: String?
         }
 
         /// The path to the `protoc` binary.
@@ -171,10 +183,15 @@ struct SwiftProtobufPlugin {
             "--swift_out=\(outputDirectory)",
         ]
 
-        // We need to add the target directory as a search path since we require the user to specify
-        // the proto files relative to it.
+        let protoDirectory =
+            if let protoPath = invocation.protoPath {
+                directory.appending(protoPath)
+            } else {
+                directory
+            }
+
         protocArgs.append("-I")
-        protocArgs.append("\(directory)")
+        protocArgs.append("\(protoDirectory)")
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -202,7 +219,7 @@ struct SwiftProtobufPlugin {
         for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append("\(file)")
-            inputFiles.append(directory.appending(file))
+            inputFiles.append(protoDirectory.appending(file))
 
             // The name of the output file is based on the name of the input file.
             // We validated in the beginning that every file has the suffix of .proto
