@@ -828,6 +828,15 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {
     set {_uniqueStorage()._optionalNullValue = newValue}
   }
 
+  var optionalEmpty: SwiftProtobuf.Google_Protobuf_Empty {
+    get {_storage._optionalEmpty ?? SwiftProtobuf.Google_Protobuf_Empty()}
+    set {_uniqueStorage()._optionalEmpty = newValue}
+  }
+  /// Returns true if `optionalEmpty` has been explicitly set.
+  var hasOptionalEmpty: Bool {_storage._optionalEmpty != nil}
+  /// Clears the value of `optionalEmpty`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalEmpty() {_uniqueStorage()._optionalEmpty = nil}
+
   var repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] {
     get {_storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
@@ -861,6 +870,11 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {
   var repeatedListValue: [SwiftProtobuf.Google_Protobuf_ListValue] {
     get {_storage._repeatedListValue}
     set {_uniqueStorage()._repeatedListValue = newValue}
+  }
+
+  var repeatedEmpty: [SwiftProtobuf.Google_Protobuf_Empty] {
+    get {_storage._repeatedEmpty}
+    set {_uniqueStorage()._repeatedEmpty = newValue}
   }
 
   /// Test field-name-to-JSON-name convention.
@@ -1162,7 +1176,7 @@ extension ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf._ProtoNameProvi
 
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesProto3"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{4}\u{2}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_aliased_enum\0\u{3}optional_string_piece\0\u{3}optional_cord\0\u{4}\u{2}recursive_message\0\u{4}\u{4}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{4}\u{2}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4}\u{2}repeated_string_piece\0\u{3}repeated_cord\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_bytes\0\u{3}map_string_nested_message\0\u{3}map_string_foreign_message\0\u{3}map_string_nested_enum\0\u{3}map_string_foreign_enum\0\u{3}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_nested_enum\0\u{3}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_nested_enum\0\u{4}\u{9}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_bool\0\u{3}oneof_uint64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_enum\0\u{3}oneof_null_value\0\u{4}Q\u{1}optional_bool_wrapper\0\u{3}optional_int32_wrapper\0\u{3}optional_int64_wrapper\0\u{3}optional_uint32_wrapper\0\u{3}optional_uint64_wrapper\0\u{3}optional_float_wrapper\0\u{3}optional_double_wrapper\0\u{3}optional_string_wrapper\0\u{3}optional_bytes_wrapper\0\u{4}\u{2}repeated_bool_wrapper\0\u{3}repeated_int32_wrapper\0\u{3}repeated_int64_wrapper\0\u{3}repeated_uint32_wrapper\0\u{3}repeated_uint64_wrapper\0\u{3}repeated_float_wrapper\0\u{3}repeated_double_wrapper\0\u{3}repeated_string_wrapper\0\u{3}repeated_bytes_wrapper\0\u{4}R\u{1}optional_duration\0\u{3}optional_timestamp\0\u{3}optional_field_mask\0\u{3}optional_struct\0\u{3}optional_any\0\u{3}optional_value\0\u{3}optional_null_value\0\u{4}\u{4}repeated_duration\0\u{3}repeated_timestamp\0\u{3}repeated_fieldmask\0\u{4}\u{2}repeated_any\0\u{3}repeated_value\0\u{3}repeated_list_value\0\u{4}\u{7}repeated_struct\0\u{2}M\u{1}fieldname1\0\u{3}field_name2\0\u{3}_field_name3\0\u{3}field__name4_\0\u{1}field0name5\0\u{3}field_0_name6\0\u{1}fieldName7\0\u{1}FieldName8\0\u{3}field_Name9\0\u{3}Field_Name10\0\u{3}FIELD_NAME11\0\u{3}FIELD_name12\0\u{3}__field_name13\0\u{3}__Field_name14\0\u{3}field__name15\0\u{3}field__Name16\0\u{3}field_name17__\0\u{3}Field_name18__\0\u{b}reserved_field\0\u{c}u\u{7}\u{a}\u{c}\u{7f}Ht\u{3}\u{1}")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{4}\u{2}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_aliased_enum\0\u{3}optional_string_piece\0\u{3}optional_cord\0\u{4}\u{2}recursive_message\0\u{4}\u{4}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{4}\u{2}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4}\u{2}repeated_string_piece\0\u{3}repeated_cord\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_bytes\0\u{3}map_string_nested_message\0\u{3}map_string_foreign_message\0\u{3}map_string_nested_enum\0\u{3}map_string_foreign_enum\0\u{3}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_nested_enum\0\u{3}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_nested_enum\0\u{4}\u{9}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_bool\0\u{3}oneof_uint64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_enum\0\u{3}oneof_null_value\0\u{4}Q\u{1}optional_bool_wrapper\0\u{3}optional_int32_wrapper\0\u{3}optional_int64_wrapper\0\u{3}optional_uint32_wrapper\0\u{3}optional_uint64_wrapper\0\u{3}optional_float_wrapper\0\u{3}optional_double_wrapper\0\u{3}optional_string_wrapper\0\u{3}optional_bytes_wrapper\0\u{4}\u{2}repeated_bool_wrapper\0\u{3}repeated_int32_wrapper\0\u{3}repeated_int64_wrapper\0\u{3}repeated_uint32_wrapper\0\u{3}repeated_uint64_wrapper\0\u{3}repeated_float_wrapper\0\u{3}repeated_double_wrapper\0\u{3}repeated_string_wrapper\0\u{3}repeated_bytes_wrapper\0\u{4}R\u{1}optional_duration\0\u{3}optional_timestamp\0\u{3}optional_field_mask\0\u{3}optional_struct\0\u{3}optional_any\0\u{3}optional_value\0\u{3}optional_null_value\0\u{3}optional_empty\0\u{4}\u{3}repeated_duration\0\u{3}repeated_timestamp\0\u{3}repeated_fieldmask\0\u{4}\u{2}repeated_any\0\u{3}repeated_value\0\u{3}repeated_list_value\0\u{3}repeated_empty\0\u{4}\u{6}repeated_struct\0\u{2}M\u{1}fieldname1\0\u{3}field_name2\0\u{3}_field_name3\0\u{3}field__name4_\0\u{1}field0name5\0\u{3}field_0_name6\0\u{1}fieldName7\0\u{1}FieldName8\0\u{3}field_Name9\0\u{3}Field_Name10\0\u{3}FIELD_NAME11\0\u{3}FIELD_name12\0\u{3}__field_name13\0\u{3}__Field_name14\0\u{3}field__name15\0\u{3}field__Name16\0\u{3}field_name17__\0\u{3}Field_name18__\0\u{b}reserved_field\0\u{c}u\u{7}\u{a}\u{c}\u{7f}Ht\u{3}\u{1}")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32 = 0
@@ -1282,6 +1296,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _optionalAny: SwiftProtobuf.Google_Protobuf_Any? = nil
     var _optionalValue: SwiftProtobuf.Google_Protobuf_Value? = nil
     var _optionalNullValue: SwiftProtobuf.Google_Protobuf_NullValue = .nullValue
+    var _optionalEmpty: SwiftProtobuf.Google_Protobuf_Empty? = nil
     var _repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] = []
     var _repeatedTimestamp: [SwiftProtobuf.Google_Protobuf_Timestamp] = []
     var _repeatedFieldmask: [SwiftProtobuf.Google_Protobuf_FieldMask] = []
@@ -1289,6 +1304,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _repeatedAny: [SwiftProtobuf.Google_Protobuf_Any] = []
     var _repeatedValue: [SwiftProtobuf.Google_Protobuf_Value] = []
     var _repeatedListValue: [SwiftProtobuf.Google_Protobuf_ListValue] = []
+    var _repeatedEmpty: [SwiftProtobuf.Google_Protobuf_Empty] = []
     var _fieldname1: Int32 = 0
     var _fieldName2: Int32 = 0
     var _fieldName3: Int32 = 0
@@ -1434,6 +1450,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       _optionalAny = source._optionalAny
       _optionalValue = source._optionalValue
       _optionalNullValue = source._optionalNullValue
+      _optionalEmpty = source._optionalEmpty
       _repeatedDuration = source._repeatedDuration
       _repeatedTimestamp = source._repeatedTimestamp
       _repeatedFieldmask = source._repeatedFieldmask
@@ -1441,6 +1458,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       _repeatedAny = source._repeatedAny
       _repeatedValue = source._repeatedValue
       _repeatedListValue = source._repeatedListValue
+      _repeatedEmpty = source._repeatedEmpty
       _fieldname1 = source._fieldname1
       _fieldName2 = source._fieldName2
       _fieldName3 = source._fieldName3
@@ -1678,12 +1696,14 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         case 305: try { try decoder.decodeSingularMessageField(value: &_storage._optionalAny) }()
         case 306: try { try decoder.decodeSingularMessageField(value: &_storage._optionalValue) }()
         case 307: try { try decoder.decodeSingularEnumField(value: &_storage._optionalNullValue) }()
+        case 308: try { try decoder.decodeSingularMessageField(value: &_storage._optionalEmpty) }()
         case 311: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDuration) }()
         case 312: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedTimestamp) }()
         case 313: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask) }()
         case 315: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAny) }()
         case 316: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedValue) }()
         case 317: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedListValue) }()
+        case 318: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedEmpty) }()
         case 324: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct) }()
         case 401: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldname1) }()
         case 402: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldName2) }()
@@ -2106,6 +2126,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       if _storage._optionalNullValue != .nullValue {
         try visitor.visitSingularEnumField(value: _storage._optionalNullValue, fieldNumber: 307)
       }
+      try { if let v = _storage._optionalEmpty {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 308)
+      } }()
       if !_storage._repeatedDuration.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedDuration, fieldNumber: 311)
       }
@@ -2123,6 +2146,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       }
       if !_storage._repeatedListValue.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedListValue, fieldNumber: 317)
+      }
+      if !_storage._repeatedEmpty.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedEmpty, fieldNumber: 318)
       }
       if !_storage._repeatedStruct.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedStruct, fieldNumber: 324)
@@ -2307,6 +2333,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         if _storage._optionalAny != rhs_storage._optionalAny {return false}
         if _storage._optionalValue != rhs_storage._optionalValue {return false}
         if _storage._optionalNullValue != rhs_storage._optionalNullValue {return false}
+        if _storage._optionalEmpty != rhs_storage._optionalEmpty {return false}
         if _storage._repeatedDuration != rhs_storage._repeatedDuration {return false}
         if _storage._repeatedTimestamp != rhs_storage._repeatedTimestamp {return false}
         if _storage._repeatedFieldmask != rhs_storage._repeatedFieldmask {return false}
@@ -2314,6 +2341,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         if _storage._repeatedAny != rhs_storage._repeatedAny {return false}
         if _storage._repeatedValue != rhs_storage._repeatedValue {return false}
         if _storage._repeatedListValue != rhs_storage._repeatedListValue {return false}
+        if _storage._repeatedEmpty != rhs_storage._repeatedEmpty {return false}
         if _storage._fieldname1 != rhs_storage._fieldname1 {return false}
         if _storage._fieldName2 != rhs_storage._fieldName2 {return false}
         if _storage._fieldName3 != rhs_storage._fieldName3 {return false}

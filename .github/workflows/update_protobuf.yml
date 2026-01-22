@@ -13,6 +13,9 @@ on:
 jobs:
   check-and-update:
     runs-on: ubuntu-latest
+    # Ensure we have the lastest Swift incase so Reference can be updated.
+    container:
+      image: swift:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -88,6 +91,18 @@ jobs:
         ABSEIL_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "commit ${{ steps.check_abseil.outputs.abseil_commit }}")
         echo "abseil_version=$ABSEIL_TAG" >> $GITHUB_OUTPUT
         cd ../../..
+
+    - name: Update Reference Protos
+      # The Reference/upstream contents is generated from Source/protobuf/protobuf, so
+      # update them.
+      #
+      # Note: we could move the work in `make reference` to a helper script and skip the
+      # install of Make, but given it shares setup with other targets in the Makefile,
+      # not sure it's worth while.
+      if: steps.check_release.outputs.needs_update == 'true'
+      run: |
+        apt-get update && apt-get install -y make
+        make reference
 
     - name: Create Pull Request
       if: steps.check_release.outputs.needs_update == 'true'

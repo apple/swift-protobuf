@@ -62,15 +62,6 @@ struct Pb_GoFeatures: Sendable {
   /// Clears the value of `stripEnumPrefix`. Subsequent reads from it will return its default value.
   mutating func clearStripEnumPrefix() {self._stripEnumPrefix = nil}
 
-  var optimizeMode: Pb_GoFeatures.OptimizeModeFeature.OptimizeMode {
-    get {_optimizeMode ?? .unspecified}
-    set {_optimizeMode = newValue}
-  }
-  /// Returns true if `optimizeMode` has been explicitly set.
-  var hasOptimizeMode: Bool {self._optimizeMode != nil}
-  /// Clears the value of `optimizeMode`. Subsequent reads from it will return its default value.
-  mutating func clearOptimizeMode() {self._optimizeMode = nil}
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum APILevel: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -101,43 +92,11 @@ struct Pb_GoFeatures: Sendable {
 
   }
 
-  /// Wrap the OptimizeMode enum in a message for scoping:
-  /// This way, users can type shorter names (SPEED, CODE_SIZE).
-  struct OptimizeModeFeature: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    /// The name of this enum matches OptimizeMode in descriptor.proto.
-    enum OptimizeMode: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
-
-      /// OPTIMIZE_MODE_UNSPECIFIED results in falling back to the default
-      /// (optimize for code size), but needs to be a separate value to distinguish
-      /// between an explicitly set optimize mode or a missing optimize mode.
-      case unspecified = 0
-      case speed = 1
-
-      /// There is no enum entry for LITE_RUNTIME (descriptor.proto),
-      /// because Go Protobuf does not have the concept of a lite runtime.
-      case codeSize = 2
-
-      init() {
-        self = .unspecified
-      }
-
-    }
-
-    init() {}
-  }
-
   init() {}
 
   fileprivate var _legacyUnmarshalJsonEnum: Bool? = nil
   fileprivate var _apiLevel: Pb_GoFeatures.APILevel? = nil
   fileprivate var _stripEnumPrefix: Pb_GoFeatures.StripEnumPrefix? = nil
-  fileprivate var _optimizeMode: Pb_GoFeatures.OptimizeModeFeature.OptimizeMode? = nil
 }
 
 // MARK: - Extension support defined in go_features.proto.
@@ -193,7 +152,7 @@ fileprivate let _protobuf_package = "pb"
 
 extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GoFeatures"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}legacy_unmarshal_json_enum\0\u{3}api_level\0\u{3}strip_enum_prefix\0\u{3}optimize_mode\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}legacy_unmarshal_json_enum\0\u{3}api_level\0\u{3}strip_enum_prefix\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -204,7 +163,6 @@ extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
       case 1: try { try decoder.decodeSingularBoolField(value: &self._legacyUnmarshalJsonEnum) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self._apiLevel) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self._stripEnumPrefix) }()
-      case 4: try { try decoder.decodeSingularEnumField(value: &self._optimizeMode) }()
       default: break
       }
     }
@@ -224,9 +182,6 @@ extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try { if let v = self._stripEnumPrefix {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
     } }()
-    try { if let v = self._optimizeMode {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -234,7 +189,6 @@ extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if lhs._legacyUnmarshalJsonEnum != rhs._legacyUnmarshalJsonEnum {return false}
     if lhs._apiLevel != rhs._apiLevel {return false}
     if lhs._stripEnumPrefix != rhs._stripEnumPrefix {return false}
-    if lhs._optimizeMode != rhs._optimizeMode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -246,27 +200,4 @@ extension Pb_GoFeatures.APILevel: SwiftProtobuf._ProtoNameProviding {
 
 extension Pb_GoFeatures.StripEnumPrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0STRIP_ENUM_PREFIX_UNSPECIFIED\0\u{1}STRIP_ENUM_PREFIX_KEEP\0\u{1}STRIP_ENUM_PREFIX_GENERATE_BOTH\0\u{1}STRIP_ENUM_PREFIX_STRIP\0")
-}
-
-extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Pb_GoFeatures.protoMessageName + ".OptimizeModeFeature"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Pb_GoFeatures.OptimizeModeFeature, rhs: Pb_GoFeatures.OptimizeModeFeature) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OPTIMIZE_MODE_UNSPECIFIED\0\u{1}SPEED\0\u{1}CODE_SIZE\0")
 }
