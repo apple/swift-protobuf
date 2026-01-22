@@ -16,7 +16,7 @@ import Foundation
 import SwiftProtobuf
 import XCTest
 
-final class Test_TextFormat_proto3: XCTestCase {
+final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     //
@@ -1591,84 +1591,6 @@ final class Test_TextFormat_proto3: XCTestCase {
         let expected = MessageTestType.with { configureLargeObject(&$0) }
         assertTextFormatDecodeSucceeds(text) { (o: MessageTestType) in
             o == expected
-        }
-    }
-
-    /// Verify the preferred encoding/decoding of a particular object.
-    /// This uses the provided block to initialize the object, then:
-    /// * Encodes the object and checks that the result is the expected result
-    /// * Decodes it again and verifies that the round-trip gives an equal object
-    func assertTextFormatEncode(
-        _ expected: String,
-        extensions: (any ExtensionMap)? = nil,
-        file: StaticString = #file,
-        line: UInt = #line,
-        configure: (inout MessageTestType) -> Void
-    ) {
-        let empty = MessageTestType()
-        var configured = empty
-        configure(&configured)
-        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
-        let encoded = configured.textFormatString()
-
-        XCTAssertEqual(expected, encoded, "Did not encode correctly", file: file, line: line)
-        do {
-            let decoded = try MessageTestType(textFormatString: encoded, extensions: extensions)
-            XCTAssert(
-                decoded == configured,
-                "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
-                file: file,
-                line: line
-            )
-        } catch {
-            XCTFail(
-                "Encode/decode cycle should not throw error but got \(error) while decoding \(encoded)",
-                file: file,
-                line: line
-            )
-        }
-    }
-
-    func assertTextFormatDecodeSucceeds(
-        _ text: String,
-        options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        file: StaticString = #file,
-        line: UInt = #line,
-        check: (MessageTestType) throws -> Bool
-    ) {
-        do {
-            let decoded: MessageTestType = try MessageTestType(textFormatString: text, options: options)
-            do {
-                let r = try check(decoded)
-                XCTAssert(r, "Condition failed for \(decoded)", file: file, line: line)
-            } catch let e {
-                XCTFail("Object check failed: \(e)")
-            }
-            let encoded = decoded.textFormatString()
-            do {
-                let redecoded = try MessageTestType(textFormatString: encoded)
-                do {
-                    let r = try check(redecoded)
-                    XCTAssert(r, "Condition failed for redecoded \(redecoded)", file: file, line: line)
-                } catch let e {
-                    XCTFail("Object check failed for redecoded: \(e)\n   \(redecoded)")
-                }
-                XCTAssertEqual(decoded, redecoded, file: file, line: line)
-            } catch {
-                XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
-            }
-        } catch let e {
-            XCTFail("Swift should have decoded without error but got \(e) decoding: \(text)", file: file, line: line)
-            return
-        }
-    }
-
-    func assertTextFormatDecodeFails(_ text: String, file: StaticString = #file, line: UInt = #line) {
-        do {
-            let _ = try MessageTestType(textFormatString: text)
-            XCTFail("Swift decode should have failed: \(text)", file: file, line: line)
-        } catch {
-            // Yay! It failed!
         }
     }
 }

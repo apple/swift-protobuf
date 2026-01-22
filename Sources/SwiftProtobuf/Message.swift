@@ -114,21 +114,29 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
 
     // TODO: I am *temporarily* making these protocol requirements so that I can replace their
     // implementation in generated table-driven messages. That will let me support decoding in all
-    // of its forms (init a new message, merge into an existing message) by only generating this
-    // `_merge` method instead of multiple initializers and methods. They will be removed once the
-    // implementation is far enough along that I can regenerate the WKTs and plugin protos, since
-    // everything will be moved into the runtime at that point.
+    // of its forms (encoding and decoding) by only generating these methods and ensure that all
+    // encoding/decoding code paths go through these hooks instead of the protocol extension
+    // defaults. They will be removed once the implementation is far enough along that I can
+    // regenerate all the WKTs and plugin protos, since everything will be moved into the runtime at
+    // that point.
+    func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
+        partial: Bool,
+        options: BinaryEncodingOptions
+    ) throws -> Bytes
     mutating func _merge(
         rawBuffer body: UnsafeRawBufferPointer,
         extensions: (any ExtensionMap)?,
         partial: Bool,
         options: BinaryDecodingOptions
     ) throws
+    func _textFormatString(options: TextFormatEncodingOptions) -> String
     mutating func _merge(
         textFormatString: String,
         options: TextFormatDecodingOptions,
         extensions: (any ExtensionMap)?
     ) throws
+    func _jsonString(options: JSONEncodingOptions) throws -> String
+    func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions) throws -> Bytes
     mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(
         jsonUTF8Bytes: Bytes,
         options: JSONDecodingOptions,

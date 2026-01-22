@@ -17,7 +17,7 @@ import Foundation
 import SwiftProtobuf
 import XCTest
 
-final class Test_TableDriven: XCTestCase {
+final class Test_TableDriven: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     func testCreation() {
@@ -2368,128 +2368,6 @@ final class Test_TableDriven: XCTestCase {
             } catch {
                 // Nothing should error!
             }
-        }
-    }
-
-    func assertEncode(
-        _ expected: [UInt8],
-        file: StaticString = #file,
-        line: UInt = #line,
-        configure: (inout MessageTestType) -> Void
-    ) {
-        let empty = MessageTestType()
-        var configured = empty
-        configure(&configured)
-        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
-        do {
-            let encoded: [UInt8] = try configured.serializedBytes()
-            XCTAssert(
-                expected == encoded,
-                "Did not encode correctly: got \(encoded)",
-                file: file,
-                line: line
-            )
-            do {
-                let decoded = try MessageTestType(serializedBytes: encoded)
-                XCTAssert(
-                    decoded == configured,
-                    "Encode/decode cycle should generate equal object",
-                    file: file,
-                    line: line
-                )
-            } catch let e {
-                XCTFail("Failed to decode protobuf: \(e)", file: file, line: line)
-            }
-        } catch let e {
-            XCTFail("Failed to encode: \(e)", file: file, line: line)
-        }
-    }
-
-    func assertDecodeSucceeds(
-        _ bytes: [UInt8],
-        file: StaticString = #file,
-        line: UInt = #line,
-        check: (MessageTestType) -> Bool
-    ) {
-        do {
-            let decoded = try MessageTestType(serializedBytes: bytes)
-            XCTAssert(check(decoded), "Condition failed for decode", file: file, line: line)
-
-            do {
-                let encoded: [UInt8] = try decoded.serializedBytes()
-                do {
-                    let redecoded = try MessageTestType(serializedBytes: encoded)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded", file: file, line: line)
-                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
-                } catch let e {
-                    XCTFail("Failed to redecode: \(e)", file: file, line: line)
-                }
-            } catch let e {
-                XCTFail("Failed to encode: \(e)", file: file, line: line)
-            }
-        } catch let e {
-            XCTFail("Failed to decode: \(e)", file: file, line: line)
-        }
-
-        do {
-            // Make sure unknown fields are preserved by empty message decode/encode
-            let empty = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: bytes)
-            do {
-                let newBytes: [UInt8] = try empty.serializedBytes()
-                XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match; \(bytes) != \(newBytes)", file: file, line: line)
-            } catch let e {
-                XCTFail("Reserializing empty threw an error: \(e)", file: file, line: line)
-            }
-        } catch {
-            XCTFail("Empty decoding threw an error: \(error)", file: file, line: line)
-        }
-    }
-
-    func assertDecodeFails(_ bytes: [UInt8], file: StaticString = #file, line: UInt = #line) {
-        do {
-            let _ = try MessageTestType(serializedBytes: bytes)
-            XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
-        } catch {
-            // Yay!  It failed!
-        }
-
-    }
-
-    // Helper to check that decode succeeds by the data ended up in unknown fields.
-    // Supports an optional `check` to do additional validation.
-    func assertDecodesAsUnknownFields(
-        _ bytes: [UInt8],
-        file: StaticString = #file,
-        line: UInt = #line,
-        check: ((MessageTestType) -> Bool)? = nil
-    ) {
-        assertDecodeSucceeds(bytes, file: file, line: line) {
-            if $0.unknownFields.data != Data(bytes) {
-                return false
-            }
-            if let check = check {
-                return check($0)
-            }
-            return true
-        }
-    }
-
-    func assertMergesAsUnknownFields(
-        _ bytes: [UInt8],
-        inTo message: MessageTestType,
-        file: StaticString = #file,
-        line: UInt = #line,
-        check: ((MessageTestType) -> Bool)? = nil
-    ) {
-        var msgCopy = message
-        do {
-            try msgCopy.merge(serializedBytes: bytes)
-        } catch let e {
-            XCTFail("Failed to decode: \(e)", file: file, line: line)
-        }
-        XCTAssertEqual(msgCopy.unknownFields.data, Data(bytes), file: file, line: line)
-        if let check = check {
-            XCTAssert(check(msgCopy), "Condition failed", file: file, line: line)
         }
     }
 }
