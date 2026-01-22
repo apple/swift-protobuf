@@ -4360,22 +4360,22 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4424,22 +4424,22 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4480,22 +4480,22 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4536,22 +4536,22 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4646,22 +4646,22 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4702,22 +4702,22 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4762,22 +4762,22 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4818,22 +4818,22 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4874,22 +4874,22 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -4930,22 +4930,22 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5036,22 +5036,22 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5146,22 +5146,22 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5256,22 +5256,22 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5312,22 +5312,22 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5368,22 +5368,22 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5470,22 +5470,22 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5576,22 +5576,22 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5632,22 +5632,22 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5688,22 +5688,22 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5794,22 +5794,22 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5850,22 +5850,22 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -5956,22 +5956,22 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6016,22 +6016,22 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6118,22 +6118,22 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6220,22 +6220,22 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6280,22 +6280,22 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6398,22 +6398,22 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6508,22 +6508,22 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6610,22 +6610,22 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6712,22 +6712,22 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6814,22 +6814,22 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
@@ -6916,22 +6916,22 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {

@@ -207,22 +207,22 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, Sw
     fatalError("table-driven traverse not yet implemented")
   }
 
-  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+  func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
     try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
   }
-  func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+  func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
   }
-  func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+  func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
   }
-  func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+  func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
     return try _storage.jsonUTF8Bytes(options: options)
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {

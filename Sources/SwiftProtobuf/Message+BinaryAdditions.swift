@@ -33,6 +33,14 @@ extension Message {
         partial: Bool = false,
         options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws -> Bytes {
+        return try _serializedBytes(partial: partial, options: options)
+    }
+
+    // TODO: Delete this when we have removed the old implementation.
+    public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
+        partial: Bool,
+        options: BinaryEncodingOptions
+    ) throws -> Bytes {
         if !partial && !isInitialized {
             throw BinaryEncodingError.missingRequiredFields
         }

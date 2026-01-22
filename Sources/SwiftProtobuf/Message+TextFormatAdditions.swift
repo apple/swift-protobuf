@@ -42,6 +42,13 @@ extension Message {
     public func textFormatString(
         options: TextFormatEncodingOptions
     ) -> String {
+        return _textFormatString(options: options)
+    }
+
+    // TODO: Delete this when we have removed the old implementation.
+    public func _textFormatString(
+        options: TextFormatEncodingOptions
+    ) -> String {
         var visitor = TextFormatEncodingVisitor(message: self, options: options)
         if let any = self as? Google_Protobuf_Any {
             any._storage.textTraverse(visitor: &visitor)

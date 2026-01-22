@@ -283,7 +283,7 @@ class MessageGenerator {
             // table-driven messages for testing but needing to support the old generated WKTs and
             // plugin protos. Remove them when everything is generated table-driven.
             p.print(
-                "\(visibility)func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {"
+                "\(visibility)func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {"
             )
             p.withIndentation { p in
                 p.print("return try _storage.serializedBytes(partial: partial, options: options)")
@@ -297,7 +297,7 @@ class MessageGenerator {
             }
             p.print("}")
             p.print(
-                "\(visibility)func textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {"
+                "\(visibility)func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {"
             )
             p.withIndentation { p in
                 p.print("return _storage.textFormatString(options: options)")
@@ -311,14 +311,14 @@ class MessageGenerator {
             }
             p.print("}")
             p.print(
-                "\(visibility)func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {"
+                "\(visibility)func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {"
             )
             p.withIndentation { p in
                 p.print("return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)")
             }
             p.print("}")
             p.print(
-                "\(visibility)func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {"
+                "\(visibility)func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {"
             )
             p.withIndentation { p in
                 p.print("return try _storage.jsonUTF8Bytes(options: options)")

@@ -25,9 +25,12 @@ extension Message {
     /// - Parameters:
     ///   - options: The JSONEncodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
-    public func jsonString(
-        options: JSONEncodingOptions = JSONEncodingOptions()
-    ) throws -> String {
+    public func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+        return try _jsonString(options: options)
+    }
+
+    // TODO: Delete this when we have removed the old implementation.
+    public func _jsonString(options: JSONEncodingOptions) throws -> String {
         if let m = self as? (any _CustomJSONCodable) {
             return try m.encodedJSONString(options: options)
         }
@@ -47,6 +50,11 @@ extension Message {
     public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> Bytes {
+        return try _jsonUTF8Bytes(options: options)
+    }
+
+    // TODO: Delete this when we have removed the old implementation.
+    public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions) throws -> Bytes {
         if let m = self as? (any _CustomJSONCodable) {
             let string = try m.encodedJSONString(options: options)
             return Bytes(string.utf8)
