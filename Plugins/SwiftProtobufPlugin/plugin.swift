@@ -183,11 +183,12 @@ struct SwiftProtobufPlugin {
             "--swift_out=\(outputDirectory)",
         ]
 
-        let protoDirectory = if let protoPath = invocation.protoPath {
-            directory.appending(protoPath)
-        } else {
-            directory
-        }
+        let protoDirectory =
+            if let protoPath = invocation.protoPath {
+                directory.appending(protoPath)
+            } else {
+                directory
+            }
 
         protocArgs.append("-I")
         protocArgs.append("\(protoDirectory)")
