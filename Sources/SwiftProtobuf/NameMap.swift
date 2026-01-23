@@ -154,6 +154,12 @@ package enum ProtoNameInstruction: UInt64, CaseIterable {
     ///   of the reserved number range.
     case reservedNumbers = 12
 
+    /// Represents the fully-qualified name of the owning message or enum.
+    ///
+    /// ## Operands
+    /// * The fully-qualified name of the message or enum.
+    case fullyQualifiedName = 13
+
     /// Indicates whether the opcode represents an instruction that has an explicit delta encoded
     /// as its first operand.
     var hasExplicitDelta: Bool {
@@ -290,6 +296,9 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// The reserved numbers in for this object. Currently only used for Message to
     /// support TextFormat's requirement to skip these numbers in all cases.
     private var reservedRanges: [Range<Int32>] = []
+
+    /// The fully-qualified name of the owning message or enum.
+    @_spi(ForGeneratedCodeOnly) public private(set) var fullyQualifiedName: String = ""
 
     /// Creates a new empty field/enum-case name/number mapping.
     public init() {}
@@ -465,6 +474,9 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
                 let lowerBound = reader.nextInt32()
                 let upperBound = lowerBound + reader.nextInt32()
                 reservedRanges.append(lowerBound..<upperBound)
+
+            case .fullyQualifiedName:
+                fullyQualifiedName = String(decoding: reader.nextNullTerminatedString(), as: UTF8.self)
             }
         }
     }

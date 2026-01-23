@@ -33,6 +33,7 @@ final class Test_OpcodeCompatibility: XCTestCase {
             (ProtoNameInstruction.aliasDelta, 10),
             (ProtoNameInstruction.reservedName, 11),
             (ProtoNameInstruction.reservedNumbers, 12),
+            (ProtoNameInstruction.fullyQualifiedName, 13),
         ])
     }
 

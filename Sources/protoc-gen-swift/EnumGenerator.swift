@@ -154,6 +154,7 @@ class EnumGenerator {
         let visibility = generatorOptions.visibilitySourceSnippet
 
         var writer = ProtoNameInstructionWriter()
+        writer.writeFullyQualifiedName(enumDescriptor.fullName)
         for v in mainEnumValueDescriptorsSorted {
             if let aliases = aliasInfo.aliases(v) {
                 writer.writeAliased(v, aliases: aliases)

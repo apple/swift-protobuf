@@ -93,6 +93,11 @@ struct ProtoNameInstructionWriter {
         bytecode.writeInt32(range.upperBound - range.lowerBound)
     }
 
+    mutating func writeFullyQualifiedName(_ name: String) {
+        bytecode.writeOpcode(of: .fullyQualifiedName)
+        bytecode.writeNullTerminatedString(name)
+    }
+
     /// Returns the delta between the given field/case number and the previous number, updating the
     /// previous number afterwards to the new value.
     private mutating func delta(updatingToNextNumber number: Int32) -> Int32 {
