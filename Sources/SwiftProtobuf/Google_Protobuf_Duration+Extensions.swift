@@ -21,7 +21,7 @@ private let maxDurationSeconds: Int64 = 315_576_000_000
 private let minDurationNanos: Int32 = -maxDurationNanos
 private let maxDurationNanos: Int32 = 999_999_999
 
-private func parseDuration(text: String) throws -> (Int64, Int32) {
+func parseDuration(text: String) throws -> (Int64, Int32) {
     var digits = [Character]()
     var digitCount = 0
     var total = 0
@@ -100,7 +100,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
     throw JSONDecodingError.malformedDuration
 }
 
-private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
+func formatDuration(seconds: Int64, nanos: Int32) -> String? {
     // Upstream's json file unparse.cc:WriteDuration() for these checks for reference.
 
     // Range check...

@@ -294,8 +294,32 @@ extension _MessageStorage {
         case .append:
             preconditionFailure("Internal error: singular performOnSubmessageStorage should not be called to append")
 
-        case .clear:
-            clearValue(of: field, type: type)
+        case .jsonNull:
+            if type == Google_Protobuf_Value.self {
+                // This well-known-type represents `null` as a populated `Value` instance whose
+                // `nullValue` field (a one-of member) is initialized to the `nullValue` enum value.
+                // Handle that accordingly. By getting the storage (initializing it if necessary)
+                // and then updating it.
+                let pointer = (buffer.baseAddress! + field.offset).bindMemory(
+                    to: Google_Protobuf_Value.self,
+                    capacity: 1
+                )
+                if !isPresent(field) {
+                    pointer.initialize(to: .init())
+                    switch field.presence {
+                    case .hasBit(let hasByteOffset, let hasMask):
+                        _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+                    case .oneOfMember(let oneofOffset):
+                        _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+                    }
+                } else {
+                    pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+                }
+                pointer.pointee.nullValue = .nullValue
+                return true
+            } else {
+                clearValue(of: field, type: type)
+            }
             return true
         }
     }
@@ -344,7 +368,7 @@ extension _MessageStorage {
             pointer.pointee.append(submessage)
             return true
 
-        case .clear:
+        case .jsonNull:
             clearValue(of: field, type: type)
             return true
         }
@@ -377,7 +401,7 @@ extension _MessageStorage {
         case .mutate, .append:
             preconditionFailure("unreachable")
 
-        case .clear:
+        case .jsonNull:
             clearValue(of: field, type: type)
             return true
         }
@@ -427,8 +451,8 @@ extension _MessageStorage {
         case .append:
             preconditionFailure("Internal error: singular performOnRawEnumValues should not be called to append")
 
-        case .clear:
-            preconditionFailure("Internal error: singular performOnRawEnumValues should not be called to clear")
+        case .jsonNull:
+            preconditionFailure("Internal error: singular performOnRawEnumValues should not be called for jsonNull")
         }
     }
 
@@ -493,7 +517,7 @@ extension _MessageStorage {
                 }
             }
 
-        case .clear:
+        case .jsonNull:
             clearValue(of: field, type: type)
         }
     }
@@ -570,8 +594,8 @@ extension _MessageStorage {
             pointer.pointee[key] = value
             return true
 
-        case .clear:
-            preconditionFailure("Internal error: performOnMapEntry should not be called to clear")
+        case .jsonNull:
+            preconditionFailure("Internal error: performOnMapEntry should not be called for jsonNull")
         }
     }
 }
@@ -872,13 +896,144 @@ extension _MessageStorage {
     }
 }
 
-// MARK: - Field mutators used for parsing and reflection APIs
+// MARK: - Field accessors and mutators used for parsing and reflection APIs
 
 // Unlike the above APIs, these only take a `FieldLayout` as an argument. These are used when
 // parsing messages and in reflection APIs, where we don't know the nature of an arbitrary field's
 // explicit presence (or lack of it) as we do when we generate accessors directly.
 
 extension _MessageStorage {
+    /// Returns the `Bool` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: Bool = false) -> Bool {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `Int32` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: Int32 = 0) -> Int32 {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `UInt32` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: UInt32 = 0) -> UInt32 {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `Int64` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: Int64 = 0) -> Int64 {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `UInt64` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: UInt64 = 0) -> UInt64 {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `Float` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: Float = 0) -> Float {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `Double` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: Double = 0) -> Double {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `String` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: String = "") -> String {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the `Data` value of the given field, or the default value if it is not present.
+    func value(of field: FieldLayout, default: Data = Data()) -> Data {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the enum value of the given field, or the default value if it is not present.
+    func value<T: Enum>(of field: FieldLayout, default: T = .init()) -> T {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, default: `default`, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember(let oneofOffset):
+            return value(at: offset, default: `default`, oneofPresence: (oneofOffset, field.fieldNumber))
+        }
+    }
+
+    /// Returns the field number of the oneof member that is populated, using the given field to
+    /// look up its containing oneof.
+    public func populatedOneofMember(of field: FieldLayout) -> UInt32 {
+        switch field.presence {
+        case .hasBit:
+            preconditionFailure("field was not a member of a oneof")
+        case .oneOfMember(let oneofOffset):
+            return populatedOneofMember(at: oneofOffset)
+        }
+    }
+
     /// Updates the `Bool` value of the given field, tracking its presence accordingly.
     func updateValue(of field: FieldLayout, to newValue: Bool) {
         let offset = field.offset
