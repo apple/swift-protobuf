@@ -148,12 +148,16 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             switch fieldDescriptor.type {
             case .string, .bytes:
                 willBeSetArgument = "willBeSet: !newValue.isEmpty, "
+                defaultValueArgument = ""
+            case .enum:
+                willBeSetArgument = "willBeSet: newValue != \(swiftDefaultValue), "
+                defaultValueArgument = "default: \(swiftDefaultValue), "
             case .message, .group:
                 preconditionFailure("message/group fields should have been handled by hasFieldPresence")
             default:
                 willBeSetArgument = "willBeSet: newValue != \(swiftDefaultValue), "
+                defaultValueArgument = ""
             }
-            defaultValueArgument = ""
         }
 
         p.printIndented(
