@@ -23,6 +23,10 @@ jobs:
         submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Update and install dependencies
+      # This step is run before check_release because we need curl and jq
+      run: apt-get update && apt-get install -y curl jq
+
     - name: Check for new protobuf release
       id: check_release
       run: |
