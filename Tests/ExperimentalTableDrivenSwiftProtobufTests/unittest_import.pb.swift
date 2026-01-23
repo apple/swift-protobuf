@@ -110,7 +110,7 @@ extension SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf._ProtoNameProviding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.import.ImportEnum\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
@@ -127,7 +127,7 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}d\0" }
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.import.ImportMessage\0\u{1}d\0" }
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 

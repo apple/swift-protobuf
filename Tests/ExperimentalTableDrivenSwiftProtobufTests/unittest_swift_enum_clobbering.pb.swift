@@ -130,7 +130,7 @@ extension SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf._ProtoNameProvidin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum_clobbering.Foo\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
@@ -147,7 +147,7 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, Sw
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}foo\0\u{2}\u{2}bar\0" }
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.enum_clobbering.EnumHolder\0\u{1}foo\0\u{2}\u{2}bar\0" }
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 

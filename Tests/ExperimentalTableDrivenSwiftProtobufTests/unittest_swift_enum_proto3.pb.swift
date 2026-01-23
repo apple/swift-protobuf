@@ -322,7 +322,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0" }
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumTest\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0" }
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -427,7 +427,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoN
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\0ENUM_TEST_1_FIRST_VALUE\0\u{2}\u{2}ENUM_TEST_1_SECOND_VALUE\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumTest.EnumTest1\0\u{2}\0ENUM_TEST_1_FIRST_VALUE\0\u{2}\u{2}ENUM_TEST_1_SECOND_VALUE\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
@@ -435,7 +435,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoN
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\0ENUM_TEST_2_FIRST_VALUE\0\u{2}\u{2}SECOND_VALUE\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumTest.EnumTest2\0\u{2}\0ENUM_TEST_2_FIRST_VALUE\0\u{2}\u{2}SECOND_VALUE\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
@@ -443,7 +443,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._P
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\0ENUM_TEST_NO_STEM_1\0\u{2}\u{2}ENUM_TEST_NO_STEM_2\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumTest.EnumTestNoStem\0\u{2}\0ENUM_TEST_NO_STEM_1\0\u{2}\u{2}ENUM_TEST_NO_STEM_2\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
@@ -451,7 +451,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord: SwiftProto
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{2}\0ENUM_TEST_RESERVED_WORD_VAR\0\u{2}\u{2}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumTest.EnumTestReservedWord\0\u{2}\0ENUM_TEST_RESERVED_WORD_VAR\0\u{2}\u{2}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }
 
@@ -468,7 +468,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}values\0" }
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumWithAliasTest\0\u{1}values\0" }
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -561,6 +561,6 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias: SwiftPro
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumLayoutString: StaticString { "" }
   static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{a}\0FOO1\0\u{1}FOO2\0\u{a}\u{2}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0" }
+  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum3.SwiftEnumWithAliasTest.EnumWithAlias\0\u{a}\0FOO1\0\u{1}FOO2\0\u{a}\u{2}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0" }
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
 }

@@ -104,7 +104,7 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{1}e\0" }
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.import.PublicImportMessage\0\u{1}e\0" }
 
   private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
