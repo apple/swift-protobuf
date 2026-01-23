@@ -86,6 +86,8 @@ jobs:
       run: |
         git add Sources/protobuf/protobuf
         git add Sources/protobuf/abseil
+        # Avoid "detected dubious ownership in repository at '/__w/swift-protobuf/swift-protobuf'"
+        git config --global --add safe.directory /__w/swift-protobuf/swift-protobuf
 
     - name: Get abseil version info
       if: steps.check_release.outputs.needs_update == 'true'
