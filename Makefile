@@ -235,9 +235,9 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 test-spm-plugin:
 	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
 	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
-		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples; \
+		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples --scratch-path ./.build; \
 	else \
-		${SWIFT} test --package-path PluginExamples; \
+		${SWIFT} test --package-path PluginExamples --scratch-path ./.build; \
 	fi
 
 compile-tests: \
@@ -247,7 +247,7 @@ compile-tests: \
 # Test that ensures generating public into multiple modules with `import public`
 # yields buildable code.
 compile-tests-multimodule:
-	${SWIFT} test --package-path CompileTests/MultiModule
+	${SWIFT} test --package-path CompileTests/MultiModule --scratch-path ./.build
 
 # Test that ensures that using access level modifiers on imports yields code that's buildable
 # when `InternalImportsByDefault` is enabled on the module.
@@ -255,9 +255,9 @@ compile-tests-multimodule:
 compile-tests-internalimportsbydefault:
 	@SWIFT_VERSION=$$(${SWIFT} --version | head -n1 | sed 's/.*Swift version \([0-9]*\)\..*/\1/'); \
 	if [ "$$SWIFT_VERSION" -lt 6 ]; then \
-		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
+		env PROTOC_PATH=$$(realpath ${PROTOC}) ${SWIFT} build --package-path CompileTests/InternalImportsByDefault --scratch-path ./.build; \
 	else \
-		${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
+		${SWIFT} build --package-path CompileTests/InternalImportsByDefault --scratch-path ./.build; \
 	fi
 
 
