@@ -267,7 +267,7 @@ class OneofGenerator {
         // suitable default value in that overload).
         let defaultValueArgument: String
         switch field.rawFieldType {
-        case .group, .message:
+        case .enum, .group, .message:
             defaultValueArgument = "default: \(field.swiftDefaultValue), "
         default:
             defaultValueArgument = field.hasExplicitDefaultValue ? "default: \(field.swiftDefaultValue), " : ""

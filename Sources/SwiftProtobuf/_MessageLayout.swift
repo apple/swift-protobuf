@@ -505,13 +505,13 @@ extension _MessageLayout {
     /// The array should be created if it is not already present.
     case append
 
-    /// The (singular/repeated) submessage or (repeated) enum field is being cleared.
+    /// The (singular/repeated) submessage or (repeated) enum field is parsed as `null` from JSON.
     ///
-    /// This is only needed for handling of JSON `null` values, which needs to be able to clear
-    /// the underlying storage for singular/repeated message fields and repeated enum fields, since
-    /// this required knowledge of the concrete type so that memory can be properly deinitialized.
-    /// The closure passed to the function is not actually used by this operation.
-    case clear
+    /// JSON `null` values have special treatment; most of the time they clear the underlying
+    /// storage, but for the `Value` well-known type, it's actually populated by a non-empty
+    /// instance. Note that for this operation, the closure passed into the trampoline function is
+    /// never called.`
+    case jsonNull
 }
 
 /// Provides access to the properties of a field's layout based on a slice of the raw message

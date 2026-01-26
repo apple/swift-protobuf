@@ -74,17 +74,36 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_DoubleValue: Sendable {
+public struct Google_Protobuf_DoubleValue: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The double value.
-  public var value: Double = 0
+  public var value: Double {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `float`.
@@ -93,17 +112,36 @@ public struct Google_Protobuf_DoubleValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_FloatValue: Sendable {
+public struct Google_Protobuf_FloatValue: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The float value.
-  public var value: Float = 0
+  public var value: Float {
+    get { _storage.value(at: 4, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `int64`.
@@ -112,17 +150,36 @@ public struct Google_Protobuf_FloatValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_Int64Value: Sendable {
+public struct Google_Protobuf_Int64Value: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The int64 value.
-  public var value: Int64 = 0
+  public var value: Int64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `uint64`.
@@ -131,17 +188,36 @@ public struct Google_Protobuf_Int64Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_UInt64Value: Sendable {
+public struct Google_Protobuf_UInt64Value: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The uint64 value.
-  public var value: UInt64 = 0
+  public var value: UInt64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `int32`.
@@ -150,17 +226,36 @@ public struct Google_Protobuf_UInt64Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_Int32Value: Sendable {
+public struct Google_Protobuf_Int32Value: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The int32 value.
-  public var value: Int32 = 0
+  public var value: Int32 {
+    get { _storage.value(at: 4, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `uint32`.
@@ -169,17 +264,36 @@ public struct Google_Protobuf_Int32Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_UInt32Value: Sendable {
+public struct Google_Protobuf_UInt32Value: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The uint32 value.
-  public var value: UInt32 = 0
+  public var value: UInt32 {
+    get { _storage.value(at: 4, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `bool`.
@@ -188,17 +302,36 @@ public struct Google_Protobuf_UInt32Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_BoolValue: Sendable {
+public struct Google_Protobuf_BoolValue: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The bool value.
-  public var value: Bool = false
+  public var value: Bool {
+    get { _storage.value(at: 1, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 1, to: newValue, willBeSet: newValue != false, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `string`.
@@ -207,17 +340,36 @@ public struct Google_Protobuf_BoolValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_StringValue: Sendable {
+public struct Google_Protobuf_StringValue: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The string value.
-  public var value: String = String()
+  public var value: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Wrapper message for `bytes`.
@@ -226,17 +378,36 @@ public struct Google_Protobuf_StringValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_BytesValue: Sendable {
+public struct Google_Protobuf_BytesValue: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The bytes value.
-  public var value: Data = Data()
+  public var value: Data {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -245,270 +416,504 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".DoubleValue"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.DoubleValue\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularDoubleField(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value.bitPattern != 0 {
-      try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_DoubleValue, rhs: Google_Protobuf_DoubleValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FloatValue"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{2}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{2}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.FloatValue\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularFloatField(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value.bitPattern != 0 {
-      try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_FloatValue, rhs: Google_Protobuf_FloatValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Int64Value"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Int64Value\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Int64Value, rhs: Google_Protobuf_Int64Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UInt64Value"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.UInt64Value\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_UInt64Value, rhs: Google_Protobuf_UInt64Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Int32Value"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Int32Value\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Int32Value, rhs: Google_Protobuf_Int32Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UInt32Value"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.UInt32Value\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_UInt32Value, rhs: Google_Protobuf_UInt32Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".BoolValue"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.BoolValue\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBoolField(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != false {
-      try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_BoolValue, rhs: Google_Protobuf_BoolValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StringValue"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.StringValue\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_StringValue, rhs: Google_Protobuf_StringValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }
 
 extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".BytesValue"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{c}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{c}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.BytesValue\0\u{1}value\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.value) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_BytesValue, rhs: Google_Protobuf_BytesValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }

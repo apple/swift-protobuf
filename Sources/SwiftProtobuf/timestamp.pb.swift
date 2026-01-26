@@ -139,7 +139,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// the Joda Time's [`ISODateTimeFormat.dateTime()`](
 /// http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
 /// ) to obtain a formatter capable of generating timestamps in this format.
-public struct Google_Protobuf_Timestamp: Sendable {
+public struct Google_Protobuf_Timestamp: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -147,18 +147,40 @@ public struct Google_Protobuf_Timestamp: Sendable {
   /// Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must
   /// be between -62135596800 and 253402300799 inclusive (which corresponds to
   /// 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z).
-  public var seconds: Int64 = 0
+  public var seconds: Int64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
   /// Non-negative fractions of a second at nanosecond resolution. This field is
   /// the nanosecond portion of the duration, not an alternative to seconds.
   /// Negative second values with fractions must still have non-negative nanos
   /// values that count forward in time. Must be between 0 and 999,999,999
   /// inclusive.
-  public var nanos: Int32 = 0
+  public var nanos: Int32 {
+    get { _storage.value(at: 4, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 2)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -167,35 +189,56 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}seconds\0\u{1}nanos\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Timestamp\0\u{1}seconds\0\u{1}nanos\0" }
+
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.seconds) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.nanos) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
     }
-    if self.nanos != 0 {
-      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp) -> Bool {
-    if lhs.seconds != rhs.seconds {return false}
-    if lhs.nanos != rhs.nanos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
   }
 }

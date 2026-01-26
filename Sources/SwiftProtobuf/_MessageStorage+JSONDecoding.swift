@@ -37,31 +37,117 @@ extension _MessageStorage {
     }
 
     private func merge(byParsingJSONFrom reader: inout JSONReader) throws {
-        // TODO: If the message being parsed is a WKT that has a custom JSON representation,
-        // do that here instead. If we move the fully-qualified message name into the layout, we
-        // can compare against that.
-
-        try reader.scanner.skipRequiredObjectStart()
-        if reader.scanner.skipOptionalObjectEnd() {
-            return
+        // Helper function that throws an appropriate error if `null` is encountered as the next
+        // value. `null` is disallowed at the top-level but allowed as the value of a keyed field
+        // (this is handled in `scanSingularValue`).
+        func disallowingNull<Result>(_ perform: () throws -> Result) throws -> Result {
+            if reader.scanner.skipOptionalNull() {
+                throw JSONDecodingError.illegalNull
+            }
+            return try perform()
         }
 
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
-        while let fieldNumber = try reader.nextFieldNumber() {
-            guard let field = layout[fieldNumber: fieldNumber] else {
-                // The scanner should have already skipped any unknown fields or thrown an error
-                // (depending on the decoding options), so any field we get back from this reader
-                // should always exist.
-                preconditionFailure("unreachable")
+        switch CustomJSONWKTClassification(messageLayout: layout) {
+        case .boolValue:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextBool())
             }
-            // It is an error in JSON if we encounter values for more than one member of the same
-            // `oneof`.
-            if case .oneOfMember(let oneOfOffset) = field.presence {
-                if populatedOneofMember(at: oneOfOffset) != 0 {
-                    throw JSONDecodingError.conflictingOneOf
+
+        case .bytesValue:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextBytesValue())
+            }
+
+        case .doubleValue:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextDouble())
+            }
+
+        case .duration:
+            try parseAsDuration(from: &reader)
+
+        case .floatValue:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextFloat())
+            }
+
+        case .int32Value:
+            try disallowingNull {
+                let n = try reader.scanner.nextSInt()
+                if n > Int64(Int32.max) || n < Int64(Int32.min) {
+                    throw JSONDecodingError.malformedNumber
                 }
+                updateValue(of: layout[fieldNumber: 1]!, to: Int32(truncatingIfNeeded: n))
             }
-            try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
+
+        case .int64Value:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextSInt())
+            }
+
+        case .listValue:
+            try parseAsListValue(from: &reader)
+
+        case .nullValue:
+            // `NullValue` is an enum, so we should never see it here.
+            preconditionFailure("Unreachable")
+
+        case .stringValue:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextQuotedString())
+            }
+
+        case .struct:
+            try parseAsStruct(from: &reader)
+
+        case .timestamp:
+            try parseAsTimestamp(from: &reader)
+
+        case .uint32Value:
+            try disallowingNull {
+                let n = try reader.scanner.nextUInt()
+                if n > UInt64(UInt32.max) {
+                    throw JSONDecodingError.malformedNumber
+                }
+                updateValue(of: layout[fieldNumber: 1]!, to: UInt32(truncatingIfNeeded: n))
+            }
+
+        case .uint64Value:
+            try disallowingNull {
+                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextUInt())
+            }
+
+        case .value:
+            try parseAsValue(from: &reader)
+
+        case .any, .fieldMask:
+            // TODO: Actually implement these. For now, just fall through to the default.
+            fallthrough
+
+        case .notWellKnown:
+            // This is the common case.
+            try reader.scanner.skipRequiredObjectStart()
+            if reader.scanner.skipOptionalObjectEnd() {
+                return
+            }
+
+            var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
+            while let fieldNumber = try reader.nextFieldNumber() {
+                guard let field = layout[fieldNumber: fieldNumber] else {
+                    // The scanner should have already skipped any unknown fields or thrown an error
+                    // (depending on the decoding options), so any field we get back from this reader
+                    // should always exist.
+                    preconditionFailure("unreachable")
+                }
+                // It is an error in JSON if we encounter values for more than one member of the same
+                // `oneof`.
+                if case .oneOfMember(let oneOfOffset) = field.presence {
+                    if populatedOneofMember(at: oneOfOffset) != 0 {
+                        throw JSONDecodingError.conflictingOneOf
+                    }
+                }
+                try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
+            }
         }
     }
 
@@ -100,7 +186,7 @@ extension _MessageStorage {
                 case .fixed32, .uint32:
                     let n = try reader.scanner.nextUInt()
                     if n > UInt64(UInt32.max) {
-                        throw TextFormatDecodingError.malformedNumber
+                        throw JSONDecodingError.malformedNumber
                     }
                     appendValue(UInt32(truncatingIfNeeded: n), to: field)
 
@@ -116,7 +202,7 @@ extension _MessageStorage {
                 case .int32, .sfixed32, .sint32:
                     let n = try reader.scanner.nextSInt()
                     if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                        throw TextFormatDecodingError.malformedNumber
+                        throw JSONDecodingError.malformedNumber
                     }
                     appendValue(Int32(truncatingIfNeeded: n), to: field)
 
@@ -195,7 +281,7 @@ extension _MessageStorage {
             }
             let n = try reader.scanner.nextUInt()
             if n > UInt64(UInt32.max) {
-                throw TextFormatDecodingError.malformedNumber
+                throw JSONDecodingError.malformedNumber
             }
             updateValue(of: field, to: UInt32(truncatingIfNeeded: n))
 
@@ -219,7 +305,7 @@ extension _MessageStorage {
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
-                    .clear
+                    .jsonNull
                 ) { _ in preconditionFailure("should never be called") }
                 return
             }
@@ -232,7 +318,7 @@ extension _MessageStorage {
             }
             let n = try reader.scanner.nextSInt()
             if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                throw TextFormatDecodingError.malformedNumber
+                throw JSONDecodingError.malformedNumber
             }
             updateValue(of: field, to: Int32(truncatingIfNeeded: n))
 
@@ -350,7 +436,6 @@ extension _MessageStorage {
                 return isEntryValid
             }
         }
-
     }
 
     /// Scans the submessage value of the given field from the reader, performing the given
@@ -422,6 +507,149 @@ extension _MessageStorage {
             return true
         } /*onInvalidValue*/ _: { _ in
             throw JSONDecodingError.unrecognizedEnumValue
+        }
+    }
+
+    /// Parses the next quoted string from the input and interprets it as the JSON representation
+    /// of a well-known type `Duration`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Duration`.
+    private func parseAsDuration(from reader: inout JSONReader) throws {
+        let durationString = try reader.scanner.nextQuotedString()
+        let (seconds, nanos) = try parseDuration(text: durationString)
+        updateValue(of: layout[fieldNumber: 1]!, to: seconds)
+        updateValue(of: layout[fieldNumber: 2]!, to: nanos)
+    }
+
+    /// Parses the next value from the input and interprets it as the JSON representation of a
+    /// well-known type `ListValue`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.ListValue`.
+    private func parseAsListValue(from reader: inout JSONReader) throws {
+        if reader.scanner.skipOptionalNull() {
+            // TODO: Figure out if we should clear the field. The old JSONDecoder implementation
+            // just returns, but that might be because we don't have a distinction between
+            // merge and init for JSON.
+            return
+        }
+        try reader.scanner.skipRequiredArrayStart()
+        // Since we override the JSON decoding, we can't rely on the default recursion depth
+        // tracking.
+        try reader.scanner.incrementRecursionDepth()
+        if reader.scanner.skipOptionalArrayEnd() {
+            reader.scanner.decrementRecursionDepth()
+            return
+        }
+
+        while true {
+            try scanSubmessageValue(layout[fieldNumber: 1]!, from: &reader, operation: .append)
+            if reader.scanner.skipOptionalArrayEnd() {
+                reader.scanner.decrementRecursionDepth()
+                return
+            }
+            try reader.scanner.skipRequiredComma()
+        }
+    }
+
+    /// Parses the next value from the input and interprets it as the JSON representation of a
+    /// well-known type `Struct`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Value`.
+    private func parseAsStruct(from reader: inout JSONReader) throws {
+        try reader.scanner.skipRequiredObjectStart()
+        if reader.scanner.skipOptionalObjectEnd() {
+            return
+        }
+
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
+        let fieldsField = layout[fieldNumber: 1]!
+        var hasNextElement = true
+        while hasNextElement {
+            _ = try layout.performOnMapEntry(
+                _MessageLayout.TrampolineToken(index: fieldsField.submessageIndex),
+                fieldsField,
+                self,
+                mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex),
+                .append,
+                // Deterministic ordering doesn't apply to decoding.
+                false
+            ) { submessageStorage in
+                let mapEntryLayout = submessageStorage.layout
+
+                // The next character must be double quotes, because map keys must always be
+                // quoted strings.
+                let c = try reader.scanner.peekOneCharacter()
+                guard c == "\"" else {
+                    throw JSONDecodingError.unquotedMapKey
+                }
+                try submessageStorage.scanSingularValue(
+                    of: mapEntryLayout[fieldNumber: 1]!,
+                    from: &reader,
+                    requireQuotedBool: true
+                )
+                try reader.scanner.skipRequiredColon()
+
+                let isEntryValid: Bool
+                do {
+                    try submessageStorage.scanSingularValue(of: mapEntryLayout[fieldNumber: 2]!, from: &reader)
+                    isEntryValid = true
+                } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                    // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
+                    // here, set a value indicating that we should discard the map entry instead
+                    // of inserting it into the map.
+                    isEntryValid = false
+                } catch {
+                    throw error
+                }
+
+                if reader.scanner.skipOptionalObjectEnd() {
+                    hasNextElement = false
+                } else {
+                    try reader.scanner.skipRequiredComma()
+                }
+                return isEntryValid
+            }
+        }
+    }
+
+    /// Parses the next quoted string from the input and interprets it as the JSON representation
+    /// of a well-known type `Timestamp`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Timestamp`.
+    private func parseAsTimestamp(from reader: inout JSONReader) throws {
+        let timestampString = try reader.scanner.nextQuotedString()
+        let (seconds, nanos) = try parseTimestamp(s: timestampString)
+        updateValue(of: layout[fieldNumber: 1]!, to: seconds)
+        updateValue(of: layout[fieldNumber: 2]!, to: nanos)
+    }
+
+    /// Parses the next value from the input and interprets it as the JSON representation of a
+    /// well-known type `Value`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Value`.
+    private func parseAsValue(from reader: inout JSONReader) throws {
+        let c = try reader.scanner.peekOneCharacter()
+        switch c {
+        case "n":
+            if !reader.scanner.skipOptionalNull() {
+                throw JSONDecodingError.failure
+            }
+            updateValue(of: layout[fieldNumber: 1]!, to: Google_Protobuf_NullValue.nullValue)
+
+        case "[":
+            try scanSubmessageValue(layout[fieldNumber: 6]!, from: &reader, operation: .mutate)
+
+        case "{":
+            try scanSubmessageValue(layout[fieldNumber: 5]!, from: &reader, operation: .mutate)
+
+        case "t", "f":
+            updateValue(of: layout[fieldNumber: 4]!, to: try reader.scanner.nextBool())
+
+        case "\"":
+            updateValue(of: layout[fieldNumber: 3]!, to: try reader.scanner.nextQuotedString())
+
+        default:
+            updateValue(of: layout[fieldNumber: 2]!, to: try reader.scanner.nextDouble())
         }
     }
 }

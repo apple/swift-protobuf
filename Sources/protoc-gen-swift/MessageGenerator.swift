@@ -314,7 +314,9 @@ class MessageGenerator {
                 "\(visibility)func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {"
             )
             p.withIndentation { p in
-                p.print("return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)")
+                p.print(
+                    "return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)"
+                )
             }
             p.print("}")
             p.print(
@@ -350,6 +352,7 @@ class MessageGenerator {
 
     private func generateMessageLayout(printer p: inout CodePrinter) {
         var writer = ProtoNameInstructionWriter()
+        writer.writeFullyQualifiedName(descriptor.fullName)
         for f in fieldsSortedByNumber {
             f.writeProtoNameInstruction(to: &writer)
         }

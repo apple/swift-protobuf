@@ -22,7 +22,11 @@ import Foundation
 /// TODO: For now, this type only holds a placeholder (empty) layout string and the name map for
 /// the enum's values, similarly to how the name map is represented for messages. In the future,
 /// we can store additional information here that's relevant for reflection.
-@_spi(ForGeneratedCodeOnly) public struct EnumLayout: @unchecked Sendable {
+///
+/// TODO: This needs to be hidden better. It can't be SPI because a generated message in module A
+/// could have a generated enum in module B, and A needs to access B's layout in the trampoline
+/// function. This could also be solved by proper reflection APIs.
+public struct EnumLayout: @unchecked Sendable {
     /// The encoded layout of the values of this enum.
     ///
     /// TODO: This is currently unused; decide whether we want to adopt something like the sparse

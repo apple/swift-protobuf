@@ -31,7 +31,7 @@ private let maxTimestampNanos: Int32 = 999_999_999
 // NSDateTime (on Apple platforms only?), others?
 
 // Parse an RFC3339 timestamp into a pair of seconds-since-1970 and nanos.
-private func parseTimestamp(s: String) throws -> (Int64, Int32) {
+func parseTimestamp(s: String) throws -> (Int64, Int32) {
     // Convert to an array of integer character values
     let value = s.utf8.map { Int($0) }
     if value.count < 20 {
@@ -191,7 +191,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     return (seconds, nanos)
 }
 
-private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
+func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
     guard
         (seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds)
             && (nanos >= minTimestampNanos && nanos <= maxTimestampNanos)
