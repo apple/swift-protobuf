@@ -511,7 +511,7 @@ extension _MessageStorage {
     }
 
     /// Parses the next quoted string from the input and interprets it as the JSON representation
-    /// of a duration.
+    /// of a well-known type `Duration`.
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Duration`.
     private func parseAsDuration(from reader: inout JSONReader) throws {
@@ -521,8 +521,8 @@ extension _MessageStorage {
         updateValue(of: layout[fieldNumber: 2]!, to: nanos)
     }
 
-    /// Parses the next value from the input and interprets it as the JSON representation of an
-    /// arbitrary list.
+    /// Parses the next value from the input and interprets it as the JSON representation of a
+    /// well-known type `ListValue`.
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.ListValue`.
     private func parseAsListValue(from reader: inout JSONReader) throws {
@@ -551,8 +551,8 @@ extension _MessageStorage {
         }
     }
 
-    /// Parses the next value from the input and interprets it as the JSON representation of an
-    /// arbitrary value.
+    /// Parses the next value from the input and interprets it as the JSON representation of a
+    /// well-known type `Struct`.
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Value`.
     private func parseAsStruct(from reader: inout JSONReader) throws {
@@ -613,7 +613,7 @@ extension _MessageStorage {
     }
 
     /// Parses the next quoted string from the input and interprets it as the JSON representation
-    /// of a timestamp.
+    /// of a well-known type `Timestamp`.
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Timestamp`.
     private func parseAsTimestamp(from reader: inout JSONReader) throws {
@@ -623,8 +623,8 @@ extension _MessageStorage {
         updateValue(of: layout[fieldNumber: 2]!, to: nanos)
     }
 
-    /// Parses the next value from the input and interprets it as the JSON representation of an
-    /// arbitrary value.
+    /// Parses the next value from the input and interprets it as the JSON representation of a
+    /// well-known type `Value`.
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Value`.
     private func parseAsValue(from reader: inout JSONReader) throws {

@@ -295,31 +295,31 @@ extension _MessageStorage {
             preconditionFailure("Internal error: singular performOnSubmessageStorage should not be called to append")
 
         case .jsonNull:
-            if type == Google_Protobuf_Value.self {
-                // This well-known-type represents `null` as a populated `Value` instance whose
-                // `nullValue` field (a one-of member) is initialized to the `nullValue` enum value.
-                // Handle that accordingly. By getting the storage (initializing it if necessary)
-                // and then updating it.
-                let pointer = (buffer.baseAddress! + field.offset).bindMemory(
-                    to: Google_Protobuf_Value.self,
-                    capacity: 1
-                )
-                if !isPresent(field) {
-                    pointer.initialize(to: .init())
-                    switch field.presence {
-                    case .hasBit(let hasByteOffset, let hasMask):
-                        _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-                    case .oneOfMember(let oneofOffset):
-                        _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
-                    }
-                } else {
-                    pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
-                }
-                pointer.pointee.nullValue = .nullValue
-                return true
-            } else {
+            if type != Google_Protobuf_Value.self {
                 clearValue(of: field, type: type)
+                return true
             }
+
+            // This well-known-type represents `null` as a populated `Value` instance whose
+            // `nullValue` field (a one-of member) is initialized to the `nullValue` enum value.
+            // Handle that accordingly. By getting the storage (initializing it if necessary)
+            // and then updating it.
+            let pointer = (buffer.baseAddress! + field.offset).bindMemory(
+                to: Google_Protobuf_Value.self,
+                capacity: 1
+            )
+            if !isPresent(field) {
+                pointer.initialize(to: .init())
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
+                case .oneOfMember(let oneofOffset):
+                    _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
+                }
+            } else {
+                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+            }
+            pointer.pointee.nullValue = .nullValue
             return true
         }
     }
