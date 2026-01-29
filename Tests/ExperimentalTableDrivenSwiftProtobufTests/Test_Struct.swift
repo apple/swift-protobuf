@@ -95,14 +95,12 @@ final class Test_Struct: XCTestCase, PBTestHelpers {
         var a1literal = Google_Protobuf_Struct()
         a1literal.fields["a"] = Google_Protobuf_Value(numberValue: 1)
         XCTAssertEqual(a1literal, a1decoded)
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(a1literal.hashValue, a1decoded.hashValue)
+        XCTAssertEqual(a1literal.hashValue, a1decoded.hashValue)
         XCTAssertNotEqual(a1decoded, a2decoded)
         // Hash inequality is not guaranteed, but a collision here would be suspicious
-        // TODO: Implement hashing.
-        //        let a1literalHash = a1literal.hashValue
-        //        let a2decodedHash = a2decoded.hashValue
-        //        XCTAssertNotEqual(a1literalHash, a2decodedHash)
+        let a1literalHash = a1literal.hashValue
+        let a2decodedHash = a2decoded.hashValue
+        XCTAssertNotEqual(a1literalHash, a2decodedHash)
     }
 }
 
@@ -189,13 +187,11 @@ final class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
         var a1literal = Google_Protobuf_ListValue()
         a1literal.values.append(Google_Protobuf_Value(numberValue: 1))
         XCTAssertEqual(a1literal, a1decoded)
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(a1literal.hashValue, a1decoded.hashValue)
+        XCTAssertEqual(a1literal.hashValue, a1decoded.hashValue)
         XCTAssertNotEqual(a1decoded, a2decoded)
         // Hash inequality is not guaranteed, but a collision here would be suspicious
-        // TODO: Implement hashing.
-        //        XCTAssertNotEqual(a1literal.hashValue, a2decoded.hashValue)
-        //        XCTAssertNotEqual(a1literal, a2decoded)
+        XCTAssertNotEqual(a1literal.hashValue, a2decoded.hashValue)
+        XCTAssertNotEqual(a1literal, a2decoded)
     }
 }
 

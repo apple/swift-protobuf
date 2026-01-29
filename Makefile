@@ -429,7 +429,7 @@ regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProt
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobuf \
-		`find Protos/Sources/SwiftProtobuf -type f -name "*.proto" ! -name any.proto ! -name api.pb.swift ! -name descriptor.proto ! -name field_mask.pb.swift ! -name type.pb.swift`
+		`find Protos/Sources/SwiftProtobuf -type f -name "*.proto" ! -name any.proto ! -name api.proto ! -name descriptor.proto ! -name field_mask.proto ! -name type.proto`
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.

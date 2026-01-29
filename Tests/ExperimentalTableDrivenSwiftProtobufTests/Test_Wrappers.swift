@@ -63,9 +63,8 @@ final class Test_Wrappers: XCTestCase {
         XCTAssertEqual(m, try Google_Protobuf_DoubleValue(serializedBytes: [9, 0, 0, 0, 0, 0, 0, 240, 63]))
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_DoubleValue(jsonString: "1.0").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_DoubleValue(jsonString: "1.1").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_DoubleValue(jsonString: "1.0").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_DoubleValue(jsonString: "1.1").hashValue)
 
         // TODO: Google documents that nulls are preserved; what does this mean?
         // TODO: Is Google_Protobuf_DoubleValue allowed to quote large numbers when serializing?
@@ -107,9 +106,8 @@ final class Test_Wrappers: XCTestCase {
         XCTAssertEqual(try Google_Protobuf_FloatValue(jsonString: "3.402823e+38"), 3.402823e+38)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_FloatValue(jsonString: "1.0").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_FloatValue(jsonString: "1.1").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_FloatValue(jsonString: "1.0").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_FloatValue(jsonString: "1.1").hashValue)
 
         // TODO: Google documents that nulls are preserved; what does this mean?
         // TODO: Is Google_Protobuf_FloatValue allowed to quote large numbers when serializing?
@@ -133,9 +131,8 @@ final class Test_Wrappers: XCTestCase {
         assertJSONDecodeNullFails(for: Google_Protobuf_Int64Value.self)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString: "777").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString: "778").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString: "777").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString: "778").hashValue)
     }
 
     func testUInt64Value() throws {
@@ -154,9 +151,8 @@ final class Test_Wrappers: XCTestCase {
         assertJSONDecodeNullFails(for: Google_Protobuf_UInt64Value.self)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt64Value(jsonString: "777").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_UInt64Value(jsonString: "778").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt64Value(jsonString: "777").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_UInt64Value(jsonString: "778").hashValue)
     }
 
     func testInt32Value() throws {
@@ -175,9 +171,8 @@ final class Test_Wrappers: XCTestCase {
         assertJSONDecodeNullFails(for: Google_Protobuf_Int32Value.self)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString: "777").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString: "778").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString: "777").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString: "778").hashValue)
     }
 
     func testUInt32Value() throws {
@@ -196,9 +191,8 @@ final class Test_Wrappers: XCTestCase {
         assertJSONDecodeNullFails(for: Google_Protobuf_UInt32Value.self)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt32Value(jsonString: "777").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_UInt32Value(jsonString: "778").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt32Value(jsonString: "777").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_UInt32Value(jsonString: "778").hashValue)
     }
 
     func testBoolValue() throws {
@@ -217,9 +211,8 @@ final class Test_Wrappers: XCTestCase {
         assertJSONDecodeNullFails(for: Google_Protobuf_BoolValue.self)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString: "true").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString: "false").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString: "true").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString: "false").hashValue)
     }
 
     func testStringValue() throws {
@@ -248,9 +241,8 @@ final class Test_Wrappers: XCTestCase {
         )
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_StringValue(jsonString: "\"abc\"").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_StringValue(jsonString: "\"def\"").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_StringValue(jsonString: "\"abc\"").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_StringValue(jsonString: "\"def\"").hashValue)
     }
 
     func testBytesValue() throws {
@@ -269,8 +261,7 @@ final class Test_Wrappers: XCTestCase {
         assertJSONDecodeNullFails(for: Google_Protobuf_BytesValue.self)
 
         // hash
-        // TODO: Implement hashing.
-        //        XCTAssertEqual(m.hashValue, try Google_Protobuf_BytesValue(jsonString: "\"AAEC\"").hashValue)
-        //        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_BytesValue(jsonString: "\"AAED\"").hashValue)
+        XCTAssertEqual(m.hashValue, try Google_Protobuf_BytesValue(jsonString: "\"AAEC\"").hashValue)
+        XCTAssertNotEqual(m.hashValue, try Google_Protobuf_BytesValue(jsonString: "\"AAED\"").hashValue)
     }
 }
