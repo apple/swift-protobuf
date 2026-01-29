@@ -816,6 +816,9 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
   static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes, rhs: SwiftProtoTesting_TestAllRequiredTypes) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
@@ -884,6 +887,9 @@ extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Me
   static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage, rhs: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -943,6 +949,9 @@ extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Me
 
   static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup, rhs: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 
@@ -1049,6 +1058,9 @@ extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftP
 
   static func ==(lhs: SwiftProtoTesting_TestSomeRequiredTypes, rhs: SwiftProtoTesting_TestSomeRequiredTypes) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 

@@ -141,4 +141,7 @@ extension Google_Protobuf_Empty: Message, _MessageImplementationBase, _ProtoName
   public static func ==(lhs: Google_Protobuf_Empty, rhs: Google_Protobuf_Empty) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }

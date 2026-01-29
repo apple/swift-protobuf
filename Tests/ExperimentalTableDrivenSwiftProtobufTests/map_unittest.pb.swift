@@ -499,6 +499,9 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
   static func ==(lhs: SwiftProtoTesting_TestMap, rhs: SwiftProtoTesting_TestMap) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -615,6 +618,9 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, Swift
   static func ==(lhs: SwiftProtoTesting_TestRequiredMessageMap, rhs: SwiftProtoTesting_TestRequiredMessageMap) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -726,5 +732,8 @@ extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, Swif
 
   static func ==(lhs: SwiftProtoTesting_TestRecursiveMapMessage, rhs: SwiftProtoTesting_TestRecursiveMapMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
