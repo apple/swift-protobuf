@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Manages the in-memory storage of the fields of a message.
+/// Implementation of hashing for `_MessageStorage`.
 ///
 // -----------------------------------------------------------------------------
 
@@ -30,7 +30,6 @@ extension _MessageStorage {
         // the trivial ones here, instead tracking the byte offset of the first non-trivial field
         // so that we can hash them as a contiguous byte buffer slice afterwards.
         var firstNontrivialStorageOffset = layout.size
-        var equalSoFar = true
         for field in layout.fields {
             guard isPresent(field) else {
                 continue
