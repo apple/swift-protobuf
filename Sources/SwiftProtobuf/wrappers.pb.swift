@@ -468,6 +468,9 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
   public static func ==(lhs: Google_Protobuf_DoubleValue, rhs: Google_Protobuf_DoubleValue) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -523,6 +526,9 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
 
   public static func ==(lhs: Google_Protobuf_FloatValue, rhs: Google_Protobuf_FloatValue) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 
@@ -580,6 +586,9 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _Prot
   public static func ==(lhs: Google_Protobuf_Int64Value, rhs: Google_Protobuf_Int64Value) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -635,6 +644,9 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _Pro
 
   public static func ==(lhs: Google_Protobuf_UInt64Value, rhs: Google_Protobuf_UInt64Value) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 
@@ -692,6 +704,9 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _Prot
   public static func ==(lhs: Google_Protobuf_Int32Value, rhs: Google_Protobuf_Int32Value) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -747,6 +762,9 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _Pro
 
   public static func ==(lhs: Google_Protobuf_UInt32Value, rhs: Google_Protobuf_UInt32Value) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 
@@ -804,6 +822,9 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _Proto
   public static func ==(lhs: Google_Protobuf_BoolValue, rhs: Google_Protobuf_BoolValue) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -860,6 +881,9 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _Pro
   public static func ==(lhs: Google_Protobuf_StringValue, rhs: Google_Protobuf_StringValue) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -915,5 +939,8 @@ extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _Prot
 
   public static func ==(lhs: Google_Protobuf_BytesValue, rhs: Google_Protobuf_BytesValue) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }

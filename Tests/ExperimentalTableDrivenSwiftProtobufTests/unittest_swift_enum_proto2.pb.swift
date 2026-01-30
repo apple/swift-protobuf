@@ -298,6 +298,9 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
   static func ==(lhs: SwiftProtoTesting_Enum2_SwiftEnumTest, rhs: SwiftProtoTesting_Enum2_SwiftEnumTest) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
@@ -431,6 +434,9 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
 
   static func ==(lhs: SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest, rhs: SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 

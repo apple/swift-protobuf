@@ -337,7 +337,7 @@ class MessageGenerator {
             p.print("}")
 
             p.print()
-            generateMessageEquality(printer: &p)
+            generateMessageEqualityAndHash(printer: &p)
         }
         p.print("}")
 
@@ -593,10 +593,15 @@ class MessageGenerator {
         p.print("}")
     }
 
-    private func generateMessageEquality(printer p: inout CodePrinter) {
+    private func generateMessageEqualityAndHash(printer p: inout CodePrinter) {
         p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
         p.withIndentation { p in
             p.print("return lhs._storage.isEqual(to: rhs._storage)")
+        }
+        p.print("}")
+        p.print("\(visibility)func hash(into hasher: inout Swift.Hasher) {")
+        p.withIndentation { p in
+            p.print("_storage.hash(into: &hasher)")
         }
         p.print("}")
     }

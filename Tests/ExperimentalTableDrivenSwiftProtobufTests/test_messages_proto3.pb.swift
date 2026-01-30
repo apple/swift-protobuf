@@ -1181,6 +1181,9 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.Message, Swi
   static func ==(lhs: SwiftProtoTesting_Test3_TestAllTypesProto3, rhs: SwiftProtoTesting_Test3_TestAllTypesProto3) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
   }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
+  }
 }
 
 extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum: SwiftProtobuf._ProtoNameProviding {
@@ -1290,5 +1293,8 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobu
 
   static func ==(lhs: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage, rhs: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage) -> Bool {
     return lhs._storage.isEqual(to: rhs._storage)
+  }
+  func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
