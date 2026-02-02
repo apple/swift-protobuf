@@ -28,6 +28,10 @@ add_library(SwiftProtobufPluginLibrary
 target_link_libraries(SwiftProtobufPluginLibrary PUBLIC
   SwiftProtobuf)
 
+target_compile_options(SwiftProtobufPluginLibrary PRIVATE
+    "SHELL:-package-name SwiftProtobuf"
+    "SHELL:-module-name SwiftProtobufPluginLibrary")
+
 
 install(TARGETS SwiftProtobufPluginLibrary
   ARCHIVE DESTINATION lib/swift$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:_static>/$<LOWER_CASE:${CMAKE_SYSTEM_NAME}>

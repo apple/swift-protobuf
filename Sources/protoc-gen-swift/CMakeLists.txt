@@ -27,6 +27,8 @@ target_link_libraries(protoc-gen-swift PRIVATE
   SwiftProtobufPluginLibrary
   SwiftProtobuf)
 
+target_compile_options(protoc-gen-swift PRIVATE
+    "SHELL:-package-name SwiftProtobuf")
 
 install(TARGETS protoc-gen-swift
   DESTINATION bin)

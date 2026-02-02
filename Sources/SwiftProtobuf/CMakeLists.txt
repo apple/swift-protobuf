@@ -96,6 +96,10 @@ add_library(SwiftProtobuf
 set_target_properties(SwiftProtobuf PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_Swift_MODULE_DIRECTORY})
 
+target_compile_options(SwiftProtobuf PRIVATE
+    "SHELL:-package-name SwiftProtobuf"
+    "SHELL:-module-name SwiftProtobuf")
+
 
 install(TARGETS SwiftProtobuf
   ARCHIVE DESTINATION lib/swift$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:_static>/$<LOWER_CASE:${CMAKE_SYSTEM_NAME}>
