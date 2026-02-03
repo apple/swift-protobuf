@@ -1,23 +1,36 @@
 add_library(SwiftProtobufPluginLibrary
-  Array+Extensions.swift
+  CodeGenerator.swift
+  CodeGeneratorParameter.swift
   CodePrinter.swift
-  Descriptor+Extensions.swift
   Descriptor.swift
+  Descriptor+Extensions.swift
+  FeatureResolver.swift
   FieldNumbers.swift
+  GeneratorOutputs.swift
   Google_Protobuf_Compiler_CodeGeneratorResponse+Extensions.swift
+  Google_Protobuf_Edition+Extensions.swift
   Google_Protobuf_SourceCodeInfo+Extensions.swift
   NamingUtils.swift
   plugin.pb.swift
+  PluginLibEditionDefaults.swift
+  ProtoCompilerContext.swift
   ProtoFileToModuleMappings.swift
+  ProvidesDeprecationComment.swift
   ProvidesLocationPath.swift
   ProvidesSourceCodeLocation.swift
+  StandardErrorOutputStream.swift
+  StringUtils.swift
+  swift_protobuf_module_mappings.pb.swift
   SwiftLanguage.swift
   SwiftProtobufInfo.swift
   SwiftProtobufNamer.swift
-  swift_protobuf_module_mappings.pb.swift
   UnicodeScalar+Extensions.swift)
 target_link_libraries(SwiftProtobufPluginLibrary PUBLIC
   SwiftProtobuf)
+
+target_compile_options(SwiftProtobufPluginLibrary PRIVATE
+    "SHELL:-package-name SwiftProtobuf"
+    "SHELL:-module-name SwiftProtobufPluginLibrary")
 
 
 install(TARGETS SwiftProtobufPluginLibrary
