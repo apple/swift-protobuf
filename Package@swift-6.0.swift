@@ -408,7 +408,7 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
     ],
-    swiftLanguageVersions: [.v5],
+    swiftLanguageModes: [.v5],
     cxxLanguageStandard: .gnucxx17
 )
 
