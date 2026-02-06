@@ -38,6 +38,7 @@ PROTOBUF_REMOTE = "https://github.com/protocolbuffers/protobuf.git"
 ABSEIL_REMOTE = "https://github.com/abseil/abseil-cpp.git"
 PROTOBUF_PREFIX = Path("Sources/protobuf/protobuf")
 ABSEIL_PREFIX = Path("Sources/protobuf/abseil")
+INCLUDE_PREFIX = Path("Sources/protobuf/include")
 METADATA_FILE = Path("Sources/protobuf/VERSIONS.json")
 
 # Paths copied from protocolbuffers/protobuf into the vendored subtree.
@@ -158,6 +159,59 @@ def vendor_update(prefix: Path, source_dir: Path, paths: list[str]) -> None:
     git(["add", str(prefix)])
 
 
+# Proto files bundled with protoc releases, mirroring wkt_protos_files and
+# compiler_plugin_protos_files from protobuf's pkg/BUILD.bazel.
+# Each entry is (source_path_in_checkout, dest_path_under_include).
+INCLUDE_PROTOS: list[tuple[str, str]] = [
+    # Well-known types
+    ("src/google/protobuf/any.proto", "google/protobuf/any.proto"),
+    ("src/google/protobuf/api.proto", "google/protobuf/api.proto"),
+    ("src/google/protobuf/duration.proto", "google/protobuf/duration.proto"),
+    ("src/google/protobuf/empty.proto", "google/protobuf/empty.proto"),
+    ("src/google/protobuf/field_mask.proto", "google/protobuf/field_mask.proto"),
+    ("src/google/protobuf/source_context.proto", "google/protobuf/source_context.proto"),
+    ("src/google/protobuf/struct.proto", "google/protobuf/struct.proto"),
+    ("src/google/protobuf/timestamp.proto", "google/protobuf/timestamp.proto"),
+    ("src/google/protobuf/type.proto", "google/protobuf/type.proto"),
+    ("src/google/protobuf/wrappers.proto", "google/protobuf/wrappers.proto"),
+    # Descriptor
+    ("src/google/protobuf/descriptor.proto", "google/protobuf/descriptor.proto"),
+    # Edition feature protos
+    ("src/google/protobuf/cpp_features.proto", "google/protobuf/cpp_features.proto"),
+    ("go/google/protobuf/go_features.proto", "google/protobuf/go_features.proto"),
+    ("java/core/src/main/resources/google/protobuf/java_features.proto", "google/protobuf/java_features.proto"),
+    # Compiler plugin
+    ("src/google/protobuf/compiler/plugin.proto", "google/protobuf/compiler/plugin.proto"),
+]
+
+# Proto files that may not exist in older protobuf versions.
+INCLUDE_PROTOS_OPTIONAL: list[tuple[str, str]] = [
+    ("csharp/google/protobuf/c_sharp_features.proto", "google/protobuf/c_sharp_features.proto"),
+]
+
+
+def build_include_dir(protobuf_checkout: Path) -> None:
+    """Build the include/ directory with proto files that protoc ships."""
+    if INCLUDE_PREFIX.exists():
+        shutil.rmtree(INCLUDE_PREFIX)
+    INCLUDE_PREFIX.mkdir(parents=True, exist_ok=True)
+    for src_rel, dst_rel in INCLUDE_PROTOS:
+        src = protobuf_checkout / src_rel
+        dst = INCLUDE_PREFIX / dst_rel
+        if not src.exists():
+            raise CommandError(f"Expected proto file missing from checkout: {src_rel}")
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+    for src_rel, dst_rel in INCLUDE_PROTOS_OPTIONAL:
+        src = protobuf_checkout / src_rel
+        if not src.exists():
+            continue
+        dst = INCLUDE_PREFIX / dst_rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+    git(["add", str(INCLUDE_PREFIX)])
+
+
 def write_json(path: Path, data: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -227,6 +281,7 @@ def main() -> int:
 
         vendor_update(PROTOBUF_PREFIX, protobuf_checkout, PROTOBUF_PATHS)
         vendor_update(ABSEIL_PREFIX, abseil_checkout, ABSEIL_PATHS)
+        build_include_dir(protobuf_checkout)
 
         write_json(METADATA_FILE, {
             "protobuf": {"commit": result.protobuf_commit, "tag": result.protobuf_tag},
