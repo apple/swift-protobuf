@@ -12,6 +12,14 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(Glibc)
+import Glibc
+#elseif canImport(Musl)
+import Musl
+#elseif canImport(Android)
+import Android
+#endif
+
 import Foundation
 
 /// Support parsing float/double values from UTF-8
