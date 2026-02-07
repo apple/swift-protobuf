@@ -18,9 +18,9 @@ import Glibc
 import Musl
 #elseif canImport(Android)
 import Android
+#elseif canImport(Darwin)
+import Darwin
 #endif
-
-import Foundation
 
 /// Support parsing float/double values from UTF-8
 internal class DoubleParser {
