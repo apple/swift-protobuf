@@ -18,8 +18,12 @@ import Glibc
 import Musl
 #elseif canImport(Android)
 import Android
+#elseif canImport(WASILibc)
+import WASILibc
 #elseif canImport(Darwin)
 import Darwin
+#elseif os(Windows)
+import CRT
 #endif
 
 /// Support parsing float/double values from UTF-8
