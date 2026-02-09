@@ -29,14 +29,12 @@ struct TestOptions: SupportsFuzzOptions {
 
     var sets: [String] = []
 
-    static var fuzzOptionsList: [FuzzCommon.FuzzOption<Self>] {
-        [
-            .boolean(\.bool1),
-            .boolean(\.bool2),
-            .byte(\.int1),
-            .byte(\.int2, mod: 16),
-        ]
-    }
+    static var fuzzOptionsList: [FuzzCommon.FuzzOption<Self>] = [
+        .boolean(\.bool1),
+        .boolean(\.bool2),
+        .byte(\.int1),
+        .byte(\.int2, mod: 16),
+    ]
 
     init() {}
 }
@@ -76,20 +74,18 @@ struct TestOptionsLarge: SupportsFuzzOptions {
 
     var sets: [String] = []
 
-    static var fuzzOptionsList: [FuzzCommon.FuzzOption<Self>] {
-        [
-            .boolean(\.bool1),
-            .boolean(\.bool2),
-            .boolean(\.bool3),
-            .boolean(\.bool4),
-            .byte(\.int1),
-            .boolean(\.bool5),
-            .boolean(\.bool6),
-            .boolean(\.bool7),
-            .boolean(\.bool8),
-            .byte(\.int2),
-        ]
-    }
+    static var fuzzOptionsList: [FuzzCommon.FuzzOption<Self>] = [
+        .boolean(\.bool1),
+        .boolean(\.bool2),
+        .boolean(\.bool3),
+        .boolean(\.bool4),
+        .byte(\.int1),
+        .boolean(\.bool5),
+        .boolean(\.bool6),
+        .boolean(\.bool7),
+        .boolean(\.bool8),
+        .byte(\.int2),
+    ]
 
     init() {}
 }
