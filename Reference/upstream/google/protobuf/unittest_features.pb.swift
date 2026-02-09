@@ -117,6 +117,52 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+enum Pb_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case testUnstableEnumFeatureUnknown // = 0
+  case unstable1 // = 1
+  case unstable2 // = 2
+  case unstable3 // = 3
+  case unstable4 // = 4
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .testUnstableEnumFeatureUnknown
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .testUnstableEnumFeatureUnknown
+    case 1: self = .unstable1
+    case 2: self = .unstable2
+    case 3: self = .unstable3
+    case 4: self = .unstable4
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .testUnstableEnumFeatureUnknown: return 0
+    case .unstable1: return 1
+    case .unstable2: return 2
+    case .unstable3: return 3
+    case .unstable4: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Pb_UnstableEnumFeature] = [
+    .testUnstableEnumFeatureUnknown,
+    .unstable1,
+    .unstable2,
+    .unstable3,
+    .unstable4,
+  ]
+
+}
+
 enum Pb_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testValueLifetimeUnknown // = 0
@@ -189,6 +235,48 @@ struct Pb_TestMessage: Sendable {
   }
 
   init() {}
+}
+
+struct Pb_TestMessageFeatures: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var fileFeature: Pb_EnumFeature {
+    get {_fileFeature ?? .testEnumFeatureUnknown}
+    set {_fileFeature = newValue}
+  }
+  /// Returns true if `fileFeature` has been explicitly set.
+  var hasFileFeature: Bool {self._fileFeature != nil}
+  /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
+  mutating func clearFileFeature() {self._fileFeature = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _fileFeature: Pb_EnumFeature? = nil
+}
+
+struct Pb_TestNestedFeatures: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var fileFeature: Pb_EnumFeature {
+    get {_fileFeature ?? .testEnumFeatureUnknown}
+    set {_fileFeature = newValue}
+  }
+  /// Returns true if `fileFeature` has been explicitly set.
+  var hasFileFeature: Bool {self._fileFeature != nil}
+  /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
+  mutating func clearFileFeature() {self._fileFeature = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _fileFeature: Pb_EnumFeature? = nil
 }
 
 struct Pb_TestFeatures: @unchecked Sendable {
@@ -349,6 +437,33 @@ struct Pb_TestFeatures: @unchecked Sendable {
   /// Clears the value of `valueLifetimeFeature`. Subsequent reads from it will return its default value.
   mutating func clearValueLifetimeFeature() {_uniqueStorage()._valueLifetimeFeature = nil}
 
+  var newUnstableFeature: Pb_UnstableEnumFeature {
+    get {_storage._newUnstableFeature ?? .testUnstableEnumFeatureUnknown}
+    set {_uniqueStorage()._newUnstableFeature = newValue}
+  }
+  /// Returns true if `newUnstableFeature` has been explicitly set.
+  var hasNewUnstableFeature: Bool {_storage._newUnstableFeature != nil}
+  /// Clears the value of `newUnstableFeature`. Subsequent reads from it will return its default value.
+  mutating func clearNewUnstableFeature() {_uniqueStorage()._newUnstableFeature = nil}
+
+  var unstableExistingFeature: Pb_UnstableEnumFeature {
+    get {_storage._unstableExistingFeature ?? .testUnstableEnumFeatureUnknown}
+    set {_uniqueStorage()._unstableExistingFeature = newValue}
+  }
+  /// Returns true if `unstableExistingFeature` has been explicitly set.
+  var hasUnstableExistingFeature: Bool {_storage._unstableExistingFeature != nil}
+  /// Clears the value of `unstableExistingFeature`. Subsequent reads from it will return its default value.
+  mutating func clearUnstableExistingFeature() {_uniqueStorage()._unstableExistingFeature = nil}
+
+  var removedUnstableFeature: Pb_UnstableEnumFeature {
+    get {_storage._removedUnstableFeature ?? .testUnstableEnumFeatureUnknown}
+    set {_uniqueStorage()._removedUnstableFeature = newValue}
+  }
+  /// Returns true if `removedUnstableFeature` has been explicitly set.
+  var hasRemovedUnstableFeature: Bool {_storage._removedUnstableFeature != nil}
+  /// Clears the value of `removedUnstableFeature`. Subsequent reads from it will return its default value.
+  mutating func clearRemovedUnstableFeature() {_uniqueStorage()._removedUnstableFeature = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -382,8 +497,8 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
     clearExtensionValue(ext: Pb_Extensions_test)
   }
 
-  var Pb_TestMessage_testMessage: Pb_TestFeatures {
-    get {return getExtensionValue(ext: Pb_TestMessage.Extensions.test_message) ?? Pb_TestFeatures()}
+  var Pb_TestMessage_testMessage: Pb_TestMessageFeatures {
+    get {return getExtensionValue(ext: Pb_TestMessage.Extensions.test_message) ?? Pb_TestMessageFeatures()}
     set {setExtensionValue(ext: Pb_TestMessage.Extensions.test_message, value: newValue)}
   }
   /// Returns true if extension `Pb_TestMessage.Extensions.test_message`
@@ -397,8 +512,8 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
     clearExtensionValue(ext: Pb_TestMessage.Extensions.test_message)
   }
 
-  var Pb_TestMessage_Nested_testNested: Pb_TestFeatures {
-    get {return getExtensionValue(ext: Pb_TestMessage.Nested.Extensions.test_nested) ?? Pb_TestFeatures()}
+  var Pb_TestMessage_Nested_testNested: Pb_TestNestedFeatures {
+    get {return getExtensionValue(ext: Pb_TestMessage.Nested.Extensions.test_nested) ?? Pb_TestNestedFeatures()}
     set {setExtensionValue(ext: Pb_TestMessage.Nested.Extensions.test_nested, value: newValue)}
   }
   /// Returns true if extension `Pb_TestMessage.Nested.Extensions.test_nested`
@@ -437,7 +552,7 @@ let Pb_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMe
 
 extension Pb_TestMessage {
   enum Extensions {
-    static let test_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
+    static let test_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestMessageFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
       _protobuf_fieldNumber: 9998,
       fieldName: "pb.TestMessage.test_message"
     )
@@ -446,7 +561,7 @@ extension Pb_TestMessage {
 
 extension Pb_TestMessage.Nested {
   enum Extensions {
-    static let test_nested = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
+    static let test_nested = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestNestedFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
       _protobuf_fieldNumber: 9997,
       fieldName: "pb.TestMessage.Nested.test_nested"
     )
@@ -459,6 +574,10 @@ fileprivate let _protobuf_package = "pb"
 
 extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_FEATURE_UNKNOWN\0\u{1}VALUE1\0\u{1}VALUE2\0\u{1}VALUE3\0\u{1}VALUE4\0\u{1}VALUE5\0\u{1}VALUE6\0\u{1}VALUE7\0\u{1}VALUE8\0\u{1}VALUE9\0\u{1}VALUE10\0\u{1}VALUE11\0\u{1}VALUE12\0\u{1}VALUE13\0\u{1}VALUE14\0\u{1}VALUE15\0")
+}
+
+extension Pb_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_UNSTABLE_ENUM_FEATURE_UNKNOWN\0\u{1}UNSTABLE1\0\u{1}UNSTABLE2\0\u{1}UNSTABLE3\0\u{1}UNSTABLE4\0")
 }
 
 extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
@@ -503,9 +622,77 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
+extension Pb_TestMessageFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageFeatures"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._fileFeature) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._fileFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Pb_TestMessageFeatures, rhs: Pb_TestMessageFeatures) -> Bool {
+    if lhs._fileFeature != rhs._fileFeature {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Pb_TestNestedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedFeatures"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._fileFeature) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._fileFeature {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Pb_TestNestedFeatures, rhs: Pb_TestNestedFeatures) -> Bool {
+    if lhs._fileFeature != rhs._fileFeature {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{4}\u{2}new_unstable_feature\0\u{3}unstable_existing_feature\0\u{3}removed_unstable_feature\0")
 
   fileprivate class _StorageClass {
     var _fileFeature: Pb_EnumFeature? = nil
@@ -525,6 +712,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     var _futureFeature: Pb_EnumFeature? = nil
     var _legacyFeature: Pb_EnumFeature? = nil
     var _valueLifetimeFeature: Pb_ValueLifetimeFeature? = nil
+    var _newUnstableFeature: Pb_UnstableEnumFeature? = nil
+    var _unstableExistingFeature: Pb_UnstableEnumFeature? = nil
+    var _removedUnstableFeature: Pb_UnstableEnumFeature? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -552,6 +742,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       _futureFeature = source._futureFeature
       _legacyFeature = source._legacyFeature
       _valueLifetimeFeature = source._valueLifetimeFeature
+      _newUnstableFeature = source._newUnstableFeature
+      _unstableExistingFeature = source._unstableExistingFeature
+      _removedUnstableFeature = source._removedUnstableFeature
     }
   }
 
@@ -587,6 +780,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         case 18: try { try decoder.decodeSingularEnumField(value: &_storage._futureFeature) }()
         case 19: try { try decoder.decodeSingularEnumField(value: &_storage._legacyFeature) }()
         case 20: try { try decoder.decodeSingularEnumField(value: &_storage._valueLifetimeFeature) }()
+        case 22: try { try decoder.decodeSingularEnumField(value: &_storage._newUnstableFeature) }()
+        case 23: try { try decoder.decodeSingularEnumField(value: &_storage._unstableExistingFeature) }()
+        case 24: try { try decoder.decodeSingularEnumField(value: &_storage._removedUnstableFeature) }()
         default: break
         }
       }
@@ -650,6 +846,15 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       try { if let v = _storage._valueLifetimeFeature {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 20)
       } }()
+      try { if let v = _storage._newUnstableFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 22)
+      } }()
+      try { if let v = _storage._unstableExistingFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 23)
+      } }()
+      try { if let v = _storage._removedUnstableFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 24)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -676,6 +881,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         if _storage._futureFeature != rhs_storage._futureFeature {return false}
         if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
         if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}
+        if _storage._newUnstableFeature != rhs_storage._newUnstableFeature {return false}
+        if _storage._unstableExistingFeature != rhs_storage._unstableExistingFeature {return false}
+        if _storage._removedUnstableFeature != rhs_storage._removedUnstableFeature {return false}
         return true
       }
       if !storagesAreEqual {return false}

@@ -82,6 +82,9 @@ enum Google_Protobuf_Edition: Int, Enum, Swift.CaseIterable {
   case edition2023 = 1000
   case edition2024 = 1001
 
+  /// A placeholder edition for developing and testing unscheduled features.
+  case unstable = 9999
+
   /// Placeholder editions for testing feature resolution.  These should not be
   /// used or relied on outside of tests.
   case edition1TestOnly = 1
@@ -1812,17 +1815,6 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
     /// Clears the value of `editionRemoved`. Subsequent reads from it will return its default value.
     mutating func clearEditionRemoved() {self._editionRemoved = nil}
 
-    /// The removal error text if this feature is used after the edition it was
-    /// removed in.
-    var removalError: String {
-      get {_removalError ?? String()}
-      set {_removalError = newValue}
-    }
-    /// Returns true if `removalError` has been explicitly set.
-    var hasRemovalError: Bool {self._removalError != nil}
-    /// Clears the value of `removalError`. Subsequent reads from it will return its default value.
-    mutating func clearRemovalError() {self._removalError = nil}
-
     var unknownFields = UnknownStorage()
 
     init() {}
@@ -1831,7 +1823,6 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unchecked Sendable {
     fileprivate var _editionDeprecated: Google_Protobuf_Edition? = nil
     fileprivate var _deprecationWarning: String? = nil
     fileprivate var _editionRemoved: Google_Protobuf_Edition? = nil
-    fileprivate var _removalError: String? = nil
   }
 
   init() {}
@@ -2808,7 +2799,7 @@ struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Edition: _ProtoNameProviding {
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}tJ\u{18}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}fL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
 }
 
 extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
@@ -4354,7 +4345,7 @@ extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplemen
 
 extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".FeatureSupport"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}edition_introduced\0\u{3}edition_deprecated\0\u{3}deprecation_warning\0\u{3}edition_removed\0\u{3}removal_error\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}edition_introduced\0\u{3}edition_deprecated\0\u{3}deprecation_warning\0\u{3}edition_removed\0")
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -4366,7 +4357,6 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplemen
       case 2: try { try decoder.decodeSingularEnumField(value: &self._editionDeprecated) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self._deprecationWarning) }()
       case 4: try { try decoder.decodeSingularEnumField(value: &self._editionRemoved) }()
-      case 5: try { try decoder.decodeSingularStringField(value: &self._removalError) }()
       default: break
       }
     }
@@ -4389,9 +4379,6 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplemen
     try { if let v = self._editionRemoved {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
     } }()
-    try { if let v = self._removalError {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -4400,7 +4387,6 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplemen
     if lhs._editionDeprecated != rhs._editionDeprecated {return false}
     if lhs._deprecationWarning != rhs._deprecationWarning {return false}
     if lhs._editionRemoved != rhs._editionRemoved {return false}
-    if lhs._removalError != rhs._removalError {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

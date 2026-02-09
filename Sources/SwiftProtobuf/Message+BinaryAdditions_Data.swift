@@ -21,7 +21,7 @@ extension Message {
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
-    ///   - serializedData: The binary-encoded message `Data` to decode.
+    ///   - data: The binary-encoded message `Data` to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
@@ -47,7 +47,7 @@ extension Message {
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
-    ///   - contiguousBytes: The binary-encoded message data to decode.
+    ///   - bytes: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
@@ -74,7 +74,7 @@ extension Message {
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
-    ///   - serializedBytes: The binary-encoded message data to decode.
+    ///   - bytes: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
@@ -111,7 +111,7 @@ extension Message {
     ///   occurred.
     ///
     /// - Parameters:
-    ///   - contiguousBytes: The binary-encoded message data to decode.
+    ///   - bytes: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
@@ -144,7 +144,7 @@ extension Message {
     ///   occurred.
     ///
     /// - Parameters:
-    ///   - serializedBytes: The binary-encoded message data to decode.
+    ///   - bytes: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
@@ -183,7 +183,7 @@ extension Message {
     ///   occurred.
     ///
     /// - Parameters:
-    ///   - serializedData: The binary-encoded message data to decode.
+    ///   - data: The binary-encoded message data to decode.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.

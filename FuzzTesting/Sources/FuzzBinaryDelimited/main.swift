@@ -10,6 +10,12 @@ import Foundation
 import FuzzCommon
 import SwiftProtobuf
 
+// Put a limit on how many messages will be read because oss-fuzz seems
+// occational timeouts on really large input sets, likely because there is just
+// too much garbage so things just keep failing to parse. Just need to exercise
+// things enough to read a few messages in a row.
+private let kMaxMessages = 50
+
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzDelimited(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
     // No decoding options here, a leading zero is actually valid (zero length message),
@@ -18,7 +24,8 @@ public func FuzzDelimited(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
     let bytes = UnsafeRawBufferPointer(start: start, count: count)
     let istream = InputStream(data: Data(bytes))
     istream.open()
-    while true {
+    var msgCount = 0
+    while msgCount < kMaxMessages {
         let msg: SwiftProtoTesting_Fuzz_Message?
         do {
             msg = try BinaryDelimited.parse(
@@ -26,6 +33,7 @@ public func FuzzDelimited(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
                 from: istream,
                 extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
             )
+            msgCount += 1
         } catch {
             // Error parsing are to be expected since not all input will be well formed.
             break
