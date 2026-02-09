@@ -3,16 +3,19 @@ add_library(SwiftProtobuf
   AnyMessageStorage.swift
   AnyUnpackError.swift
   api.pb.swift
+  AsyncMessageSequence.swift
   BinaryDecoder.swift
   BinaryDecodingError.swift
   BinaryDecodingOptions.swift
   BinaryDelimited.swift
   BinaryEncoder.swift
   BinaryEncodingError.swift
+  BinaryEncodingOptions.swift
   BinaryEncodingSizeVisitor.swift
   BinaryEncodingVisitor.swift
+  BytecodeInterpreter.swift
+  BytecodeReader.swift
   CustomJSONCodable.swift
-  Data+Extensions.swift
   Decoder.swift
   descriptor.pb.swift
   DoubleParser.swift
@@ -23,9 +26,9 @@ add_library(SwiftProtobuf
   ExtensionFields.swift
   ExtensionFieldValueSet.swift
   ExtensionMap.swift
+  field_mask.pb.swift
   FieldTag.swift
   FieldTypes.swift
-  field_mask.pb.swift
   Google_Protobuf_Any+Extensions.swift
   Google_Protobuf_Any+Registry.swift
   Google_Protobuf_Duration+Extensions.swift
@@ -48,13 +51,16 @@ add_library(SwiftProtobuf
   JSONMapEncodingVisitor.swift
   JSONScanner.swift
   MathUtils.swift
+  Message.swift
   Message+AnyAdditions.swift
+  Message+BinaryAdditions_Data.swift
   Message+BinaryAdditions.swift
   Message+FieldMask.swift
+  Message+JSONAdditions_Data.swift
   Message+JSONAdditions.swift
+  Message+JSONArrayAdditions_Data.swift
   Message+JSONArrayAdditions.swift
   Message+TextFormatAdditions.swift
-  Message.swift
   MessageExtension.swift
   NameMap.swift
   PathDecoder.swift
@@ -67,9 +73,11 @@ add_library(SwiftProtobuf
   source_context.pb.swift
   StringUtils.swift
   struct.pb.swift
+  SwiftProtobufContiguousBytes.swift
   SwiftProtobufError.swift
   TextFormatDecoder.swift
   TextFormatDecodingError.swift
+  TextFormatDecodingOptions.swift
   TextFormatEncoder.swift
   TextFormatEncodingOptions.swift
   TextFormatEncodingVisitor.swift
@@ -78,7 +86,6 @@ add_library(SwiftProtobuf
   TimeUtils.swift
   type.pb.swift
   UnknownStorage.swift
-  UnsafeBufferPointer+Shims.swift
   UnsafeRawPointer+Shims.swift
   Varint.swift
   Version.swift
@@ -88,6 +95,10 @@ add_library(SwiftProtobuf
   ZigZag.swift)
 set_target_properties(SwiftProtobuf PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_Swift_MODULE_DIRECTORY})
+
+target_compile_options(SwiftProtobuf PRIVATE
+    "SHELL:-package-name SwiftProtobuf"
+    "SHELL:-module-name SwiftProtobuf")
 
 
 install(TARGETS SwiftProtobuf

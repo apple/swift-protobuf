@@ -90,7 +90,7 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A Swift 5.10 or later compiler (or, if building with Xcode, Xcode 15.3 or later
+* A Swift 6.0 or later compiler (or, if building with Xcode, Xcode 16.0 or later
   as required by the App Store). The Swift protobuf project is being developed
   and tested against the latest release version of Swift available from
   [Swift.org](https://swift.org)
@@ -269,7 +269,7 @@ let binaryData: Data = try info.serializedBytes()
 let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
 
 // Note that while the `serializedBytes()` spelling is generally preferred,
-// you may also use `serializedData()` to get the bytes as an instance of 
+// you may also use `serializedData()` to get the bytes as an instance of
 // `Data` where required.
 // This means that the following two statements are equivalent:
 // let binaryData: Data = try info.serializedBytes()
