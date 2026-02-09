@@ -2,3 +2,25 @@
 Recommended.*.JsonInput.FieldNameDuplicate # Should have failed to parse, but didn't.
 Recommended.*.JsonInput.FieldNameDuplicateDifferentCasing1 # Should have failed to parse, but didn't.
 Recommended.*.JsonInput.FieldNameDuplicateDifferentCasing2 # Should have failed to parse, but didn't.
+
+# Tracking in #1970
+Required.Editions.TextFormatInput.ExtensionNameWithComment.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions.TextFormatInput.ExtensionNameWithComment.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions.TextFormatInput.ExtensionNameWithWhitespace.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions.TextFormatInput.ExtensionNameWithWhitespace.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
