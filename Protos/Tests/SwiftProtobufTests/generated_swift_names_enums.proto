@@ -184,6 +184,7 @@ message GeneratedSwiftReservedEnums {
   enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
   enum comma { NONE_comma = 0; }
+  enum complexName { NONE_complexName = 0; }
   enum consumedBytes { NONE_consumedBytes = 0; }
   enum contains { NONE_contains = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
@@ -568,6 +569,7 @@ message GeneratedSwiftReservedEnums {
   enum isPathValid { NONE_isPathValid = 0; }
   enum isReserved { NONE_isReserved = 0; }
   enum isValid { NONE_isValid = 0; }
+  enum isValidHexDigit { NONE_isValidHexDigit = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
   enum iterator { NONE_iterator = 0; }
   enum javaGenerateEqualsAndHash { NONE_javaGenerateEqualsAndHash = 0; }
@@ -821,6 +823,7 @@ message GeneratedSwiftReservedEnums {
   enum rubyPackage { NONE_rubyPackage = 0; }
   enum s { NONE_s = 0; }
   enum sawBackslash { NONE_sawBackslash = 0; }
+  enum sawPercentEncoding { NONE_sawPercentEncoding = 0; }
   enum sawSection4Characters { NONE_sawSection4Characters = 0; }
   enum sawSection5Characters { NONE_sawSection5Characters = 0; }
   enum Scalar { NONE_Scalar = 0; }

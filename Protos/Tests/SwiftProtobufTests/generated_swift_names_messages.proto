@@ -184,6 +184,7 @@ message GeneratedSwiftReservedMessages {
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
   message comma { int32 comma = 1; }
+  message complexName { int32 complexName = 1; }
   message consumedBytes { int32 consumedBytes = 1; }
   message contains { int32 contains = 1; }
   message contentsOf { int32 contentsOf = 1; }
@@ -568,6 +569,7 @@ message GeneratedSwiftReservedMessages {
   message isPathValid { int32 isPathValid = 1; }
   message isReserved { int32 isReserved = 1; }
   message isValid { int32 isValid = 1; }
+  message isValidHexDigit { int32 isValidHexDigit = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
   message iterator { int32 iterator = 1; }
   message javaGenerateEqualsAndHash { int32 javaGenerateEqualsAndHash = 1; }
@@ -821,6 +823,7 @@ message GeneratedSwiftReservedMessages {
   message rubyPackage { int32 rubyPackage = 1; }
   message s { int32 s = 1; }
   message sawBackslash { int32 sawBackslash = 1; }
+  message sawPercentEncoding { int32 sawPercentEncoding = 1; }
   message sawSection4Characters { int32 sawSection4Characters = 1; }
   message sawSection5Characters { int32 sawSection5Characters = 1; }
   message Scalar { int32 Scalar = 1; }
