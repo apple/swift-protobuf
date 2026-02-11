@@ -18,6 +18,7 @@ message GeneratedSwiftReservedMessages {
   message AnyMessageStorage { int32 AnyMessageStorage = 1; }
   message AnyUnpackError { int32 AnyUnpackError = 1; }
   message append { int32 append = 1; }
+  message appendCurrent { int32 appendCurrent = 1; }
   message appended { int32 appended = 1; }
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
@@ -183,6 +184,7 @@ message GeneratedSwiftReservedMessages {
   message codePoint { int32 codePoint = 1; }
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
+  message collector { int32 collector = 1; }
   message comma { int32 comma = 1; }
   message complexName { int32 complexName = 1; }
   message consumedBytes { int32 consumedBytes = 1; }
