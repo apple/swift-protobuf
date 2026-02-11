@@ -5,17 +5,9 @@ Required.Editions.TextFormatInput.ExtensionNameWithWhitespace.ProtobufOutput # F
 Required.Editions.TextFormatInput.ExtensionNameWithWhitespace.TextFormatOutput # Failed to parse input or produce output.
 Required.Editions_Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
 Required.Editions_Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
-Required.Editions_Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
-Required.Editions_Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
-Required.Editions_Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
-Required.Editions_Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
 Required.Editions_Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
 Required.Editions_Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
 Required.Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
 Required.Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
-Required.Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
-Required.Proto3.TextFormatInput.AnyFieldWithSpecialCharactersInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
-Required.Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.ProtobufOutput # Failed to parse input or produce output.
-Required.Proto3.TextFormatInput.AnyFieldWithValidUrlPercentEscapeInTypeUrlPrefix.TextFormatOutput # Failed to parse input or produce output.
 Required.Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
 Required.Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
