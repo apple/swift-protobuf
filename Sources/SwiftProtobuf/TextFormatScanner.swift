@@ -292,14 +292,18 @@ internal struct TextFormatScanner {
     }
 
     /// Skip whitespace
+    ///
+    /// https://protobuf.dev/reference/protobuf/textformat-spec/#whitespace
     private mutating func skipWhitespace() {
         while p != end {
             let u = p[0]
             switch u {
             case asciiSpace,
-                asciiTab,
-                asciiNewLine,
-                asciiCarriageReturn:  // space, tab, NL, CR
+                asciiTab,  // 9
+                asciiNewLine,  // 10
+                asciiVerticalTab,  // 11
+                asciiFormFeed,  // 12
+                asciiCarriageReturn:  // 13
                 p += 1
             case asciiHash:  // # comment
                 p += 1
@@ -307,6 +311,8 @@ internal struct TextFormatScanner {
                     // Skip until end of line
                     let c = p[0]
                     p += 1
+                    // NOTE: The support for asciiCarriageReturn (13) to end the comment is not
+                    // actually to spec.
                     if c == asciiNewLine || c == asciiCarriageReturn {
                         break
                     }
