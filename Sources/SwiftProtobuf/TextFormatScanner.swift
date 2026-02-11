@@ -1092,10 +1092,11 @@ internal struct TextFormatScanner {
     private mutating func parseComplexFieldName(allowAnyName: Bool) throws -> String {
         assert(p[0] == asciiOpenSquareBracket)
         p += 1
+        skipWhitespace()
         if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let start = p
+        var start = p
         var sawPercentEncoding: Bool = false
         if allowAnyName {
             switch p[0] {
@@ -1135,6 +1136,18 @@ internal struct TextFormatScanner {
                 throw TextFormatDecodingError.malformedText
             }
         }
+        var collector: String? = nil
+        func appendCurrent() throws {
+            guard p != start else { return }
+            guard let complexName = utf8ToString(bytes: start, count: p - start) else {
+                throw TextFormatDecodingError.malformedText
+            }
+            if collector == nil {
+                collector = complexName
+            } else {
+                collector!.append(complexName)
+            }
+        }
         loop: while p != end {
             switch p[0] {
             case asciiLowerA...asciiLowerZ,  // spec: IDENT - letter
@@ -1169,6 +1182,19 @@ internal struct TextFormatScanner {
                 }
                 sawPercentEncoding = true
                 p += 1
+            // Don't really want to call skipWhitespace after each character, so duplicate
+            // the cases here.
+            case asciiSpace,
+                asciiTab,  // 9
+                asciiNewLine,  // 10
+                asciiVerticalTab,  // 11
+                asciiFormFeed,  // 12
+                asciiCarriageReturn,  // 13
+                asciiHash:  // # comment
+                // Append what we have, then skip the whitespace/comments and grab the star.
+                try appendCurrent()
+                skipWhitespace()
+                start = p
             default:
                 throw TextFormatDecodingError.malformedText
             }
@@ -1176,7 +1202,9 @@ internal struct TextFormatScanner {
         if p == end || p[0] != asciiCloseSquareBracket {
             throw TextFormatDecodingError.malformedText
         }
-        guard let complexName = utf8ToString(bytes: start, count: p - start) else {
+        try appendCurrent()
+        // If there was never anything in the braces, it was malformed.
+        guard let complexName = collector else {
             throw TextFormatDecodingError.malformedText
         }
         p += 1  // Skip ]
