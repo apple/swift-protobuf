@@ -1,4 +1,4 @@
-// swift-tools-version:6.2
+// swift-tools-version:6.1
 
 // Package.swift
 //
@@ -36,8 +36,11 @@ let package = Package(
         ),
     ],
     traits: [
-        .trait(name: "BinaryDelimitedStreams", description: "Enables APIs to read/write from Foundation Input/Output streams"),
-        .default(enabledTraits: ["BinaryDelimitedStreams"])
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description: "Enables APIs to read/write from Foundation Input/Output streams"
+        ),
+        .default(enabledTraits: ["BinaryDelimitedStreams"]),
     ],
     targets: [
         .target(
