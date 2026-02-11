@@ -299,7 +299,7 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     private func assertRoundTripText(
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
