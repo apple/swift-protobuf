@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 
 // Package.swift
 //
@@ -34,6 +34,13 @@ let package = Package(
             name: "SwiftProtobufPlugin",
             targets: ["SwiftProtobufPlugin"]
         ),
+    ],
+    traits: [
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description: "Enables APIs to read/write from Foundation Input/Output streams"
+        ),
+        .default(enabledTraits: ["BinaryDelimitedStreams"]),
     ],
     targets: [
         .target(
@@ -420,8 +427,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
     static var packageSettings: Self {
         [
-            .enableUpcomingFeature("ExistentialAny"),
-            .define("BinaryDelimitedStreams"),  // Trait in 6.1+
+            .enableUpcomingFeature("ExistentialAny")
         ]
     }
 }
