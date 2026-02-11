@@ -18,6 +18,7 @@ message GeneratedSwiftReservedEnums {
   enum AnyMessageStorage { NONE_AnyMessageStorage = 0; }
   enum AnyUnpackError { NONE_AnyUnpackError = 0; }
   enum append { NONE_append = 0; }
+  enum appendCurrent { NONE_appendCurrent = 0; }
   enum appended { NONE_appended = 0; }
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
@@ -183,6 +184,7 @@ message GeneratedSwiftReservedEnums {
   enum codePoint { NONE_codePoint = 0; }
   enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
+  enum collector { NONE_collector = 0; }
   enum comma { NONE_comma = 0; }
   enum complexName { NONE_complexName = 0; }
   enum consumedBytes { NONE_consumedBytes = 0; }
