@@ -1096,13 +1096,45 @@ internal struct TextFormatScanner {
             throw TextFormatDecodingError.malformedText
         }
         let start = p
-        switch p[0] {
-        case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
-            p += 1
-        default:
-            throw TextFormatDecodingError.malformedText
-        }
         var sawPercentEncoding: Bool = false
+        if allowAnyName {
+            switch p[0] {
+            case asciiLowerA...asciiLowerZ,  // spec: url_unreserved - letter
+                asciiUpperA...asciiUpperZ,  // spec: url_unreserved - letter
+                asciiZero...asciiNine,  // spec: url_unreserved - dec
+                asciiUnderscore,  // spec: url_unreserved
+                asciiPeriod,  // spec: url_unreserved
+                asciiMinus,  // spec: url_unreserved
+                asciiPeriod,  // spec: url_unreserved
+                asciiTilde,  // spec: url_unreserved
+                asciiExclamation,  // spec: url_sub_delim
+                asciiDollarSign,  // spec: url_sub_delim
+                asciiAmpersand,  // spec: url_sub_delim
+                asciiOpenParenthesis,  // spec: url_sub_delim
+                asciiCloseParenthesis,  // spec: url_sub_delim
+                asciiAsterisk,  // spec: url_sub_delim
+                asciiEquals,  // spec: url_sub_delim
+                asciiPlus,  // spec: url_sub_delim
+                asciiComma,  // spec: url_sub_delim
+                asciiSemicolon:  // spec: url_sub_delim
+                p += 1
+            case asciiPercent:  // spec: url_pct_encoded
+                sawPercentEncoding = true
+                p += 1
+            default:
+                throw TextFormatDecodingError.malformedText
+            }
+        } else {
+            switch p[0] {
+            // spec: IDENT for start of TypeName
+            case asciiLowerA...asciiLowerZ,
+                asciiUpperA...asciiUpperZ,
+                asciiUnderscore:
+                p += 1
+            default:
+                throw TextFormatDecodingError.malformedText
+            }
+        }
         loop: while p != end {
             switch p[0] {
             case asciiLowerA...asciiLowerZ,  // spec: IDENT - letter
@@ -1173,7 +1205,7 @@ internal struct TextFormatScanner {
 
     /// Returns text of next regular key or nil if end-of-input.
     internal mutating func nextKey(allowExtensions: Bool, allowAnyNames: Bool = false) throws -> String? {
-        precondition(allowExtensions || !allowAnyNames)  // allowAnyNames doesn't make sense without allowExtensions
+        assert(allowExtensions || !allowAnyNames)  // allowAnyNames doesn't make sense without allowExtensions
         skipWhitespace()
         if p == end {
             return nil
