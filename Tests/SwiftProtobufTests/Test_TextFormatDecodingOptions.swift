@@ -115,7 +115,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         _ value: String,
         includeColon: Bool = true,
         fieldModes: FieldModes = .all,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         assert(!fieldModes.isEmpty)
@@ -203,7 +203,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         _ value: String,
         includeColon: Bool = true,
         fieldModes: FieldModes = .all,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         assert(!fieldModes.isEmpty)
