@@ -1,5 +1,5 @@
 import Foundation
-@preconcurrency import PackagePlugin
+import PackagePlugin
 
 @main
 struct SwiftProtobufPlugin {
@@ -119,40 +119,40 @@ struct SwiftProtobufPlugin {
     ///   - tool: The tool method from the context.
     /// - Returns: The build commands configured based on the arguments.
     func createBuildCommands(
-        pluginWorkDirectory: PackagePlugin.Path,
+        pluginWorkDirectory: URL,
         sourceFiles: FileList,
         tool: (String) throws -> PackagePlugin.PluginContext.Tool
     ) throws -> [Command] {
         guard
             let configurationFilePath = sourceFiles.first(
                 where: {
-                    $0.path.lastComponent == Self.configurationFileName
+                    $0.url.lastPathComponent == Self.configurationFileName
                 }
-            )?.path
+            )?.url
         else {
             throw PluginError.noConfigFound(Self.configurationFileName)
         }
-        let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
+        let data = try Data(contentsOf: configurationFilePath)
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
         try validateConfiguration(configuration)
 
         // We need to find the path of protoc and protoc-gen-swift
-        let protocPath: Path
+        let protocPath: URL
         if let configuredProtocPath = configuration.protocPath {
             // The user set the config path in the file. So let's take that
-            protocPath = Path(configuredProtocPath)
+            protocPath = URL(fileURLWithPath: configuredProtocPath)
         } else if let environmentPath = ProcessInfo.processInfo.environment["PROTOC_PATH"] {
             // The user set the env variable. So let's take that
-            protocPath = Path(environmentPath)
+            protocPath = URL(fileURLWithPath: environmentPath)
         } else {
             // The user didn't set anything so let's try see if SPM can find a binary for us
-            protocPath = try tool("protoc").path
+            protocPath = try tool("protoc").url
         }
-        let protocGenSwiftPath = try tool("protoc-gen-swift").path
+        let protocGenSwiftPath = try tool("protoc-gen-swift").url
 
         return configuration.invocations.map { invocation in
             self.invokeProtoc(
-                directory: configurationFilePath.removingLastComponent(),
+                directory: configurationFilePath.deletingLastPathComponent(),
                 invocation: invocation,
                 protocPath: protocPath,
                 protocGenSwiftPath: protocGenSwiftPath,
@@ -171,27 +171,27 @@ struct SwiftProtobufPlugin {
     ///   - outputDirectory: The output directory for the generated files.
     /// - Returns: The build command configured based on the arguments.
     private func invokeProtoc(
-        directory: PackagePlugin.Path,
+        directory: URL,
         invocation: Configuration.Invocation,
-        protocPath: Path,
-        protocGenSwiftPath: Path,
-        outputDirectory: Path
+        protocPath: URL,
+        protocGenSwiftPath: URL,
+        outputDirectory: URL
     ) -> Command {
         // Construct the `protoc` arguments.
         var protocArgs = [
-            "--plugin=protoc-gen-swift=\(protocGenSwiftPath)",
-            "--swift_out=\(outputDirectory)",
+            "--plugin=protoc-gen-swift=\(protocGenSwiftPath.path())",
+            "--swift_out=\(outputDirectory.path())",
         ]
 
         let protoDirectory =
             if let protoPath = invocation.protoPath {
-                directory.appending(protoPath)
+                directory.appending(path: protoPath)
             } else {
                 directory
             }
 
         protocArgs.append("-I")
-        protocArgs.append("\(protoDirectory)")
+        protocArgs.append(protoDirectory.path())
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -213,20 +213,20 @@ struct SwiftProtobufPlugin {
             protocArgs.append("--swift_opt=UseAccessLevelOnImports=\(useAccessLevelOnImports)")
         }
 
-        var inputFiles = [Path]()
-        var outputFiles = [Path]()
+        var inputFiles = [URL]()
+        var outputFiles = [URL]()
 
         for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
-            protocArgs.append("\(file)")
-            inputFiles.append(protoDirectory.appending(file))
+            protocArgs.append(file)
+            inputFiles.append(protoDirectory.appending(path: file))
 
             // The name of the output file is based on the name of the input file.
             // We validated in the beginning that every file has the suffix of .proto
             // This means we can just drop the last 5 elements and append the new suffix
             file.removeLast(5)
             file.append("pb.swift")
-            let protobufOutputPath = outputDirectory.appending(file)
+            let protobufOutputPath = outputDirectory.appending(path: file)
 
             // Add the outputPath as an output file
             outputFiles.append(protobufOutputPath)
@@ -265,7 +265,7 @@ extension SwiftProtobufPlugin: BuildToolPlugin {
             throw PluginError.invalidTarget(String(describing: type(of: target)))
         }
         return try createBuildCommands(
-            pluginWorkDirectory: context.pluginWorkDirectory,
+            pluginWorkDirectory: context.pluginWorkDirectoryURL,
             sourceFiles: swiftTarget.sourceFiles,
             tool: context.tool
         )
@@ -281,7 +281,7 @@ extension SwiftProtobufPlugin: XcodeBuildToolPlugin {
         target: XcodeTarget
     ) throws -> [Command] {
         try createBuildCommands(
-            pluginWorkDirectory: context.pluginWorkDirectory,
+            pluginWorkDirectory: context.pluginWorkDirectoryURL,
             sourceFiles: target.inputFiles,
             tool: context.tool
         )
