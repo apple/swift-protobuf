@@ -5431,6 +5431,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum complexName: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneComplexName // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneComplexName
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneComplexName
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneComplexName: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.complexName] = [
+      .noneComplexName,
+    ]
+
+  }
+
   enum consumedBytes: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneConsumedBytes // = 0
@@ -16951,6 +16981,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum isValidHexDigit: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneIsValidHexDigit // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIsValidHexDigit
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIsValidHexDigit
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIsValidHexDigit: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isValidHexDigit] = [
+      .noneIsValidHexDigit,
+    ]
+
+  }
+
   enum itemTagsEncodedSize: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneItemTagsEncodedSize // = 0
@@ -24541,6 +24601,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum sawPercentEncoding: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneSawPercentEncoding // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSawPercentEncoding
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSawPercentEncoding
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSawPercentEncoding: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawPercentEncoding] = [
+      .noneSawPercentEncoding,
+    ]
+
+  }
+
   enum sawSection4Characters: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneSawSection4Characters // = 0
@@ -31587,6 +31677,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.comma: SwiftPr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_comma\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.complexName: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_complexName\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.consumedBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_consumedBytes\0")
 }
@@ -33123,6 +33217,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isValid: Swift
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_isValid\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isValidHexDigit: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_isValidHexDigit\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.itemTagsEncodedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_itemTagsEncodedSize\0")
 }
@@ -34133,6 +34231,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.s: SwiftProtob
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawBackslash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_sawBackslash\0")
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawPercentEncoding: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_sawPercentEncoding\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection4Characters: SwiftProtobuf._ProtoNameProviding {
