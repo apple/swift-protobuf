@@ -1,6 +1,7 @@
 // swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 // **NOTE**: 5.3 due to https://github.com/swiftlang/swift/issues/75800
+//   This is fixed in 6.2 but oss-fuzz is still using 6.1.
 
 import PackageDescription
 

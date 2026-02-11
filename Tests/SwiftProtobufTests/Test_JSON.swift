@@ -455,7 +455,7 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
     }
 
     private func assertRoundTripJSON(
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {

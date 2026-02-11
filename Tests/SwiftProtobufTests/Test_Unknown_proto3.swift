@@ -26,7 +26,7 @@ final class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestEmptyMessage
 
     /// Verify that json decode ignores the provided fields but otherwise succeeds
-    func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #filePath, line: UInt = #line) {
         do {
             var options = JSONDecodingOptions()
             options.ignoreUnknownFields = true
@@ -44,7 +44,7 @@ final class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
 
     // Binary PB coding preserves unknown fields for proto3
     func testBinaryPB() {
-        func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #filePath, line: UInt = #line) {
             do {
                 let empty = try MessageTestType(serializedBytes: protobufBytes)
                 do {
@@ -57,7 +57,7 @@ final class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
                 XCTFail("Decoding threw error \(protobufBytes)", file: file, line: line)
             }
         }
-        func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #filePath, line: UInt = #line) {
             XCTAssertThrowsError(try MessageTestType(serializedBytes: protobufBytes), file: file, line: line)
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode

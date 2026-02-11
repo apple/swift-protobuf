@@ -30,7 +30,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertEncode(
         _ expected: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
@@ -64,7 +64,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func baseAssertDecodeSucceeds(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
@@ -91,7 +91,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertDecodeSucceeds(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
@@ -102,7 +102,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     // Supports an optional `check` to do additional validation.
     func assertDecodesAsUnknownFields(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: ((MessageTestType) -> Bool)? = nil
     ) {
@@ -120,7 +120,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertMergesAsUnknownFields(
         _ bytes: [UInt8],
         inTo message: MessageTestType,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: ((MessageTestType) -> Bool)? = nil
     ) {
@@ -139,7 +139,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertDecodeSucceeds(
         inputBytes bytes: [UInt8],
         recodedBytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
@@ -171,7 +171,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #filePath, line: UInt = #line) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
@@ -185,7 +185,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         _ expected: String,
         extensions: any ExtensionMap = SimpleExtensionMap(),
         encodingOptions: JSONEncodingOptions = .init(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
@@ -258,7 +258,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertTextFormatEncode(
         _ expected: String,
         extensions: (any ExtensionMap)? = nil,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
@@ -289,7 +289,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertJSONArrayEncode(
         _ expected: String,
         extensions: any ExtensionMap = SimpleExtensionMap(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout [MessageTestType]) -> Void
     ) {
@@ -327,7 +327,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         _ json: String,
         options: JSONDecodingOptions = JSONDecodingOptions(),
         extensions: any ExtensionMap = SimpleExtensionMap(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
@@ -405,7 +405,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertTextFormatDecodeSucceeds(
         _ text: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) throws -> Bool
     ) {
@@ -438,7 +438,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONArrayDecodeSucceeds(
         _ json: String,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: ([MessageTestType]) -> Bool
     ) {
@@ -468,7 +468,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         _ json: String,
         extensions: any ExtensionMap = SimpleExtensionMap(),
         options: JSONDecodingOptions = JSONDecodingOptions(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -487,7 +487,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertTextFormatDecodeFails(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertTextFormatDecodeFails(_ text: String, file: XCTestFileArgType = #filePath, line: UInt = #line) {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Swift decode should have failed: \(text)", file: file, line: line)
@@ -499,7 +499,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertJSONArrayDecodeFails(
         _ json: String,
         extensions: any ExtensionMap = SimpleExtensionMap(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -512,7 +512,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertDebugDescription(
         _ expected: String,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
@@ -531,7 +531,7 @@ extension XCTestCase {
         _ expected: String,
         _ m: any SwiftProtobuf.Message,
         fmt: String? = nil,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
@@ -547,7 +547,7 @@ extension XCTestCase {
         _ expectedSuffix: String,
         _ m: any SwiftProtobuf.Message,
         fmt: String? = nil,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         // `assertDebugDescriptionSuffix` is a no-op in release as `debugDescription` is unavailable.

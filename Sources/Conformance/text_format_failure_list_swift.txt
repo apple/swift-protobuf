@@ -1,1 +1,13 @@
-# No known failures.
+# Tracking in #1970
+Required.Editions.TextFormatInput.ExtensionNameWithComment.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions.TextFormatInput.ExtensionNameWithComment.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions.TextFormatInput.ExtensionNameWithWhitespace.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions.TextFormatInput.ExtensionNameWithWhitespace.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Editions_Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithCommentsInTypeUrl.TextFormatOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.ProtobufOutput # Failed to parse input or produce output.
+Required.Proto3.TextFormatInput.AnyFieldWithWhitespaceInTypeUrl.TextFormatOutput # Failed to parse input or produce output.

@@ -262,7 +262,7 @@ let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions:
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable>(
+let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable>(
   _protobuf_fieldNumber: 120,
   fieldName: "protobuf_test_messages.edition_unstable.extension_int32"
 )
@@ -285,7 +285,7 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Mes
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularSFixed32Field(value: &self._d) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._d) }()
       default: break
       }
     }
@@ -297,7 +297,7 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Mes
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     try { if let v = self._d {
-      try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -380,14 +380,14 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try { try decoder.decodeSingularSFixed32Field(value: &_storage._optionalInt32) }()
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32) }()
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage) }()
         case 3: try { try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum) }()
         case 4: try { try decoder.decodeSingularMessageField(value: &_storage._recursiveMessage) }()
-        case 5: try { try decoder.decodeRepeatedSFixed32Field(value: &_storage._repeatedInt32) }()
+        case 5: try { try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32) }()
         case 6: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedForeignMessage) }()
         case 7: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum) }()
-        case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: &_storage._mapInt32Int32) }()
+        case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._mapInt32Int32) }()
         case 9: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool) }()
         case 10: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString) }()
         case 11: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable>.self, value: &_storage._mapStringForeignMessage) }()
@@ -410,7 +410,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
       // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
       // https://github.com/apple/swift-protobuf/issues/1182
       try { if let v = _storage._optionalInt32 {
-        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       } }()
       try { if let v = _storage._optionalForeignMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
@@ -422,7 +422,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
         try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       } }()
       if !_storage._repeatedInt32.isEmpty {
-        try visitor.visitPackedSFixed32Field(value: _storage._repeatedInt32, fieldNumber: 5)
+        try visitor.visitPackedInt32Field(value: _storage._repeatedInt32, fieldNumber: 5)
       }
       if !_storage._repeatedForeignMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedForeignMessage, fieldNumber: 6)
@@ -431,7 +431,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
         try visitor.visitPackedEnumField(value: _storage._repeatedForeignEnum, fieldNumber: 7)
       }
       if !_storage._mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapInt32Int32, fieldNumber: 8)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 8)
       }
       if !_storage._mapBoolBool.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapBoolBool, fieldNumber: 9)
@@ -499,7 +499,7 @@ extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Sw
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularSFixed32Field(value: &self._c) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._c) }()
       default: break
       }
     }
@@ -511,7 +511,7 @@ extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Sw
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     try { if let v = self._c {
-      try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     } }()
     try unknownFields.traverse(visitor: &visitor)
   }

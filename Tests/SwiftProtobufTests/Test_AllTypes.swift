@@ -26,7 +26,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
     // message to make sure unknown fields are consistently preserved by proto2.
     func assertDecodeSucceeds(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {

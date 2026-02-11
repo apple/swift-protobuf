@@ -424,7 +424,7 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
     ],
-    swiftLanguageModes: [.v5],
+    swiftLanguageModes: [.v6],
     cxxLanguageStandard: .gnucxx17
 )
 
@@ -433,8 +433,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
     static var packageSettings: Self {
         [
-            .enableExperimentalFeature("StrictConcurrency=complete"),
-            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("ExistentialAny")
         ]
     }
 }
