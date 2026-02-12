@@ -292,14 +292,18 @@ internal struct TextFormatScanner {
     }
 
     /// Skip whitespace
+    ///
+    /// https://protobuf.dev/reference/protobuf/textformat-spec/#whitespace
     private mutating func skipWhitespace() {
         while p != end {
             let u = p[0]
             switch u {
             case asciiSpace,
-                asciiTab,
-                asciiNewLine,
-                asciiCarriageReturn:  // space, tab, NL, CR
+                asciiTab,  // 9
+                asciiNewLine,  // 10
+                asciiVerticalTab,  // 11
+                asciiFormFeed,  // 12
+                asciiCarriageReturn:  // 13
                 p += 1
             case asciiHash:  // # comment
                 p += 1
@@ -307,6 +311,8 @@ internal struct TextFormatScanner {
                     // Skip until end of line
                     let c = p[0]
                     p += 1
+                    // NOTE: The support for asciiCarriageReturn (13) to end the comment is not
+                    // actually to spec.
                     if c == asciiNewLine || c == asciiCarriageReturn {
                         break
                     }
@@ -1086,17 +1092,62 @@ internal struct TextFormatScanner {
     private mutating func parseComplexFieldName(allowAnyName: Bool) throws -> String {
         assert(p[0] == asciiOpenSquareBracket)
         p += 1
+        skipWhitespace()
         if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let start = p
-        switch p[0] {
-        case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
-            p += 1
-        default:
-            throw TextFormatDecodingError.malformedText
-        }
+        var start = p
         var sawPercentEncoding: Bool = false
+        if allowAnyName {
+            switch p[0] {
+            case asciiLowerA...asciiLowerZ,  // spec: url_unreserved - letter
+                asciiUpperA...asciiUpperZ,  // spec: url_unreserved - letter
+                asciiZero...asciiNine,  // spec: url_unreserved - dec
+                asciiUnderscore,  // spec: url_unreserved
+                asciiPeriod,  // spec: url_unreserved
+                asciiMinus,  // spec: url_unreserved
+                asciiPeriod,  // spec: url_unreserved
+                asciiTilde,  // spec: url_unreserved
+                asciiExclamation,  // spec: url_sub_delim
+                asciiDollarSign,  // spec: url_sub_delim
+                asciiAmpersand,  // spec: url_sub_delim
+                asciiOpenParenthesis,  // spec: url_sub_delim
+                asciiCloseParenthesis,  // spec: url_sub_delim
+                asciiAsterisk,  // spec: url_sub_delim
+                asciiEquals,  // spec: url_sub_delim
+                asciiPlus,  // spec: url_sub_delim
+                asciiComma,  // spec: url_sub_delim
+                asciiSemicolon:  // spec: url_sub_delim
+                p += 1
+            case asciiPercent:  // spec: url_pct_encoded
+                sawPercentEncoding = true
+                p += 1
+            default:
+                throw TextFormatDecodingError.malformedText
+            }
+        } else {
+            switch p[0] {
+            // spec: IDENT for start of TypeName
+            case asciiLowerA...asciiLowerZ,
+                asciiUpperA...asciiUpperZ,
+                asciiUnderscore:
+                p += 1
+            default:
+                throw TextFormatDecodingError.malformedText
+            }
+        }
+        var collector: String? = nil
+        func appendCurrent() throws {
+            guard p != start else { return }
+            guard let complexName = utf8ToString(bytes: start, count: p - start) else {
+                throw TextFormatDecodingError.malformedText
+            }
+            if collector == nil {
+                collector = complexName
+            } else {
+                collector!.append(complexName)
+            }
+        }
         loop: while p != end {
             switch p[0] {
             case asciiLowerA...asciiLowerZ,  // spec: IDENT - letter
@@ -1131,6 +1182,19 @@ internal struct TextFormatScanner {
                 }
                 sawPercentEncoding = true
                 p += 1
+            // Don't really want to call skipWhitespace after each character, so duplicate
+            // the cases here.
+            case asciiSpace,
+                asciiTab,  // 9
+                asciiNewLine,  // 10
+                asciiVerticalTab,  // 11
+                asciiFormFeed,  // 12
+                asciiCarriageReturn,  // 13
+                asciiHash:  // # comment
+                // Append what we have, then skip the whitespace/comments and grab the star.
+                try appendCurrent()
+                skipWhitespace()
+                start = p
             default:
                 throw TextFormatDecodingError.malformedText
             }
@@ -1138,7 +1202,9 @@ internal struct TextFormatScanner {
         if p == end || p[0] != asciiCloseSquareBracket {
             throw TextFormatDecodingError.malformedText
         }
-        guard let complexName = utf8ToString(bytes: start, count: p - start) else {
+        try appendCurrent()
+        // If there was never anything in the braces, it was malformed.
+        guard let complexName = collector else {
             throw TextFormatDecodingError.malformedText
         }
         p += 1  // Skip ]
@@ -1167,7 +1233,7 @@ internal struct TextFormatScanner {
 
     /// Returns text of next regular key or nil if end-of-input.
     internal mutating func nextKey(allowExtensions: Bool, allowAnyNames: Bool = false) throws -> String? {
-        precondition(allowExtensions || !allowAnyNames)  // allowAnyNames doesn't make sense without allowExtensions
+        assert(allowExtensions || !allowAnyNames)  // allowAnyNames doesn't make sense without allowExtensions
         skipWhitespace()
         if p == end {
             return nil

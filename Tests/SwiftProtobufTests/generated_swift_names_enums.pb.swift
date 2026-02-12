@@ -451,6 +451,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum appendCurrent: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneAppendCurrent // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAppendCurrent
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAppendCurrent
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAppendCurrent: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appendCurrent] = [
+      .noneAppendCurrent,
+    ]
+
+  }
+
   enum appended: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAppended // = 0
@@ -5397,6 +5427,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Collection] = [
       .noneCollection,
+    ]
+
+  }
+
+  enum collector: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneCollector // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCollector
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCollector
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCollector: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.collector] = [
+      .noneCollector,
     ]
 
   }
@@ -31013,6 +31073,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.append: SwiftP
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_append\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appendCurrent: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_appendCurrent\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appended: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_appended\0")
 }
@@ -31671,6 +31735,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.codeUnits: Swi
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Collection: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_Collection\0")
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.collector: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_collector\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.comma: SwiftProtobuf._ProtoNameProviding {
