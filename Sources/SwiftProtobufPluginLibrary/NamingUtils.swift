@@ -609,4 +609,36 @@ public enum NamingUtils {
         }
         return String(result)
     }
+
+    /// Converts proto package to nested namespace components.
+    /// Examples:
+    ///   "com.example.foo" -> ["Com", "Example", "Foo"]
+    ///   "swift_proto_testing" -> ["SwiftProtoTesting"]
+    ///   "" -> []
+    package static func packageToNamespaceComponents(protoPackage: String) -> [String] {
+        guard !protoPackage.isEmpty else { return [] }
+
+        return protoPackage.split(separator: ".").map { segment in
+            var result = String.UnicodeScalarView()
+            var makeUpper = true
+
+            for c in segment.unicodeScalars {
+                if c == "_" {
+                    makeUpper = true
+                } else {
+                    if result.isEmpty && c.isASCDigit {
+                        result.append("_")
+                    }
+                    if makeUpper {
+                        result.append(c.ascUppercased())
+                        makeUpper = false
+                    } else {
+                        result.append(c)
+                    }
+                }
+            }
+
+            return String(result)
+        }
+    }
 }

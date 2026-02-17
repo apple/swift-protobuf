@@ -370,4 +370,50 @@ final class Test_NamingUtils: XCTestCase {
             XCTAssertEqual(NamingUtils.toUpperCamelCase(input), expectedUppper)
         }
     }
+
+    func testPackageToNamespaceComponents() {
+        // input proto package, expected namespace components
+        let tests: [(String, [String])] = [
+            // Empty package
+            ("", []),
+
+            // Single-segment packages
+            ("foo", ["Foo"]),
+            ("FOO", ["FOO"]),
+            ("fooBar", ["FooBar"]),
+            ("foo_bar", ["FooBar"]),
+
+            // Multi-segment packages (dots)
+            ("com.example.foo", ["Com", "Example", "Foo"]),
+            ("foo.bar.baz", ["Foo", "Bar", "Baz"]),
+            ("swift.proto.testing", ["Swift", "Proto", "Testing"]),
+
+            // Underscores within segments
+            ("swift_proto_testing", ["SwiftProtoTesting"]),
+            ("com.example.foo_bar", ["Com", "Example", "FooBar"]),
+            ("foo_bar.baz_qux", ["FooBar", "BazQux"]),
+
+            // Mixed dots and underscores
+            ("com.example.foo_bar_baz", ["Com", "Example", "FooBarBaz"]),
+            ("com_example.foo.bar", ["ComExample", "Foo", "Bar"]),
+
+            // Leading underscores and digits
+            ("_foo", ["Foo"]),
+            ("_1foo", ["_1foo"]),
+            ("com.example._1foo", ["Com", "Example", "_1foo"]),
+
+            // Real-world examples
+            ("google.protobuf", ["Google", "Protobuf"]),
+            ("com.google.api", ["Com", "Google", "Api"]),
+            ("io.grpc.examples.helloworld", ["Io", "Grpc", "Examples", "Helloworld"]),
+        ]
+
+        for (input, expected) in tests {
+            XCTAssertEqual(
+                NamingUtils.packageToNamespaceComponents(protoPackage: input),
+                expected,
+                "Failed for input: \(input)"
+            )
+        }
+    }
 }

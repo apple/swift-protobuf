@@ -1,0 +1,11 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "FlatPackageNaming.proto",
+            ],
+            "visibility": "public",
+            "packageNaming": "flat"
+        }
+    ]
+}

@@ -103,6 +103,23 @@ The possible values for `FileNaming` are:
   "foo/bar/baz.proto" makes "foo_bar_baz.pb.swift".
 * `DropPath`: Drop the path from the input and just write all files
   into the output directory; "foo/bar/baz.proto" makes "baz.pb.swift".
+  
+##### Generation Option: `PackageNaming` - Naming of proto packages
+
+By default, proto package names are prefixed to message names. This transforms
+the proto package name into valid Swift identifiers e.g. dots are transformed
+to underscores. The Swift plugin supports an option to control this, the option
+is given as part of the `--swift_opt` argument like this:
+
+```
+protoc --swift_opt=PackageNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `FileNaming` are:
+
+* `Flat` (default): Prefixes the messages with the protoname e.g.
+  "Package_Name_Message_Name".
+* `Nested`: Generates a namespace file with enums and nests the messages inside.
 
 ##### Generation Option: `Visibility` - Visibility of Generated Types
 

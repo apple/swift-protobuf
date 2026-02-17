@@ -46,7 +46,8 @@ class FileGenerator {
         self.generatorOptions = generatorOptions
         namer = SwiftProtobufNamer(
             currentFile: fileDescriptor,
-            protoFileToModuleMappings: generatorOptions.protoToModuleMappings
+            protoFileToModuleMappings: generatorOptions.protoToModuleMappings,
+            useNestedNamespaces: generatorOptions.packageNaming == .nested
         )
     }
 
@@ -177,12 +178,31 @@ class FileGenerator {
             )
         }
 
+        // Start namespace extension if using nested naming
+        let namespaceComponents = namer.namespaceComponents(forFile: fileDescriptor)
+        let useNestedNaming =
+            generatorOptions.packageNaming == .nested
+            && !namespaceComponents.isEmpty
+
+        if useNestedNaming {
+            let namespacePath = namespaceComponents.joined(separator: ".")
+            p.print()
+            p.print("extension \(namespacePath) {")
+            p.indent()
+        }
+
         for e in enums {
             e.generateMainEnum(printer: &p)
         }
 
         for m in messages {
             m.generateMainStruct(printer: &p, parent: nil, errorString: &errorString)
+        }
+
+        // End namespace extension
+        if useNestedNaming {
+            p.outdent()
+            p.print("}")
         }
 
         if !extensionSet.isEmpty {

@@ -19,6 +19,7 @@ public final class SwiftProtobufNamer {
     var enumValueRelativeNameCache = [String: String]()
     public let mappings: ProtoFileToModuleMappings
     public let targetModule: String
+    public let useNestedNamespaces: Bool
 
     public var swiftProtobufModuleName: String { mappings.swiftProtobufModuleName }
 
@@ -31,67 +32,137 @@ public final class SwiftProtobufNamer {
 
     /// Initializes a a new namer, assuming everything will be in the same Swift module.
     public convenience init() {
-        self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
+        self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "", useNestedNamespaces: false)
     }
 
     /// Initializes a a new namer.  All names will be generated as from the pov of the
     /// given file using the provided file to module mapper.
     public convenience init(
         currentFile file: FileDescriptor,
-        protoFileToModuleMappings mappings: ProtoFileToModuleMappings
+        protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
+        useNestedNamespaces: Bool = false
     ) {
         let targetModule = mappings.moduleName(forFile: file) ?? ""
-        self.init(protoFileToModuleMappings: mappings, targetModule: targetModule)
+        self.init(
+            protoFileToModuleMappings: mappings,
+            targetModule: targetModule,
+            useNestedNamespaces: useNestedNamespaces
+        )
     }
 
     /// Internal initializer.
     init(
         protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
-        targetModule: String
+        targetModule: String,
+        useNestedNamespaces: Bool = false
     ) {
         self.mappings = mappings
         self.targetModule = targetModule
+        self.useNestedNamespaces = useNestedNamespaces
     }
 
     /// Calculate the relative name for the given message.
     public func relativeName(message: Descriptor) -> String {
         if message.containingType != nil {
-            return NamingUtils.sanitize(messageName: message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
-        } else {
-            let prefix = typePrefix(forFile: message.file)
+            // Nested types always just use their name
             return NamingUtils.sanitize(
-                messageName: prefix + message.name,
+                messageName: message.name,
                 forbiddenTypeNames: [self.swiftProtobufModuleName]
             )
+        } else {
+            // Top-level types
+            if useNestedNamespaces {
+                // In nested mode, no prefix - type will be in namespace extension
+                return NamingUtils.sanitize(
+                    messageName: message.name,
+                    forbiddenTypeNames: [self.swiftProtobufModuleName]
+                )
+            } else {
+                // Flat mode - use prefix as before
+                let prefix = typePrefix(forFile: message.file)
+                return NamingUtils.sanitize(
+                    messageName: prefix + message.name,
+                    forbiddenTypeNames: [self.swiftProtobufModuleName]
+                )
+            }
         }
     }
 
     /// Calculate the full name for the given message.
     public func fullName(message: Descriptor) -> String {
         let relativeName = self.relativeName(message: message)
-        guard let containingType = message.containingType else {
-            return modulePrefix(file: message.file) + relativeName
+
+        guard message.containingType == nil else {
+            // Nested type - recurse up to parent
+            return fullName(message: message.containingType!) + "." + relativeName
         }
-        return fullName(message: containingType) + "." + relativeName
+
+        // Top-level type
+        let modulePrefix = modulePrefix(file: message.file)
+
+        if useNestedNamespaces && !message.file.package.isEmpty {
+            // In nested mode, add namespace path
+            let namespaceComponents = NamingUtils.packageToNamespaceComponents(
+                protoPackage: message.file.package
+            )
+            let namespacePath = namespaceComponents.joined(separator: ".")
+            return modulePrefix + namespacePath + "." + relativeName
+        } else {
+            // Flat mode or no package
+            return modulePrefix + relativeName
+        }
     }
 
     /// Calculate the relative name for the given enum.
     public func relativeName(enum e: EnumDescriptor) -> String {
         if e.containingType != nil {
-            return NamingUtils.sanitize(enumName: e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
+            // Nested types always just use their name
+            return NamingUtils.sanitize(
+                enumName: e.name,
+                forbiddenTypeNames: [self.swiftProtobufModuleName]
+            )
         } else {
-            let prefix = typePrefix(forFile: e.file)
-            return NamingUtils.sanitize(enumName: prefix + e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
+            // Top-level types
+            if useNestedNamespaces {
+                // In nested mode, no prefix - type will be in namespace extension
+                return NamingUtils.sanitize(
+                    enumName: e.name,
+                    forbiddenTypeNames: [self.swiftProtobufModuleName]
+                )
+            } else {
+                // Flat mode - use prefix as before
+                let prefix = typePrefix(forFile: e.file)
+                return NamingUtils.sanitize(
+                    enumName: prefix + e.name,
+                    forbiddenTypeNames: [self.swiftProtobufModuleName]
+                )
+            }
         }
     }
 
     /// Calculate the full name for the given enum.
     public func fullName(enum e: EnumDescriptor) -> String {
         let relativeName = self.relativeName(enum: e)
-        guard let containingType = e.containingType else {
-            return modulePrefix(file: e.file) + relativeName
+
+        guard e.containingType == nil else {
+            // Nested type - recurse up to parent
+            return fullName(message: e.containingType!) + "." + relativeName
         }
-        return fullName(message: containingType) + "." + relativeName
+
+        // Top-level type
+        let modulePrefix = modulePrefix(file: e.file)
+
+        if useNestedNamespaces && !e.file.package.isEmpty {
+            // In nested mode, add namespace path
+            let namespaceComponents = NamingUtils.packageToNamespaceComponents(
+                protoPackage: e.file.package
+            )
+            let namespacePath = namespaceComponents.joined(separator: ".")
+            return modulePrefix + namespacePath + "." + relativeName
+        } else {
+            // Flat mode or no package
+            return modulePrefix + relativeName
+        }
     }
 
     /// Compute the short names to use for the values of this enum.
@@ -366,5 +437,11 @@ public final class SwiftProtobufNamer {
         }
 
         return "\(prefix)."
+    }
+
+    /// Returns the namespace path components for a file's package.
+    /// Only used when generating nested namespaces.
+    public func namespaceComponents(forFile file: FileDescriptor) -> [String] {
+        NamingUtils.packageToNamespaceComponents(protoPackage: file.package)
     }
 }

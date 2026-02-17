@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package com.apple.foo;
+
+message FlatPackageNaming {
+    string name = 1;
+}

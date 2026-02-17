@@ -30,6 +30,22 @@ package class GeneratorOptions {
         }
     }
 
+    enum PackageNaming: String {
+        case flat
+        case nested
+
+        init?(flag: String) {
+            switch flag.lowercased() {
+            case "flat":
+                self = .flat
+            case "nested":
+                self = .nested
+            default:
+                return nil
+            }
+        }
+    }
+
     package enum Visibility: String {
         case `internal`
         case `public`
@@ -65,6 +81,7 @@ package class GeneratorOptions {
     }
 
     let outputNaming: OutputNaming
+    let packageNaming: PackageNaming
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
@@ -85,6 +102,7 @@ package class GeneratorOptions {
 
     init(parameter: any CodeGeneratorParameter) throws {
         var outputNaming: OutputNaming = .fullPath
+        var packageNaming: PackageNaming = .flat
         var moduleMapPath: String?
         var visibility: Visibility = .internal
         var swiftProtobufModuleName: String? = nil
@@ -97,6 +115,15 @@ package class GeneratorOptions {
             case "FileNaming":
                 if let naming = OutputNaming(flag: pair.value) {
                     outputNaming = naming
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
+            case "PackageNaming":
+                if let naming = PackageNaming(flag: pair.value) {
+                    packageNaming = naming
                 } else {
                     throw GenerationError.invalidParameterValue(
                         name: pair.key,
@@ -178,6 +205,7 @@ package class GeneratorOptions {
         }
 
         self.outputNaming = outputNaming
+        self.packageNaming = packageNaming
         self.visibility = visibility
 
         switch visibility {

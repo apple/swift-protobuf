@@ -31,6 +31,23 @@ struct SwiftGeneratorPlugin: CodeGenerator {
     ) throws {
         let options = try GeneratorOptions(parameter: parameter)
 
+        // Generate namespace file if using nested naming
+        if options.packageNaming == .nested {
+            let packages = Set(files.map { $0.package }.filter { !$0.isEmpty })
+            if !packages.isEmpty {
+                let namespaceGenerator = NamespaceGenerator(
+                    packages: packages,
+                    generatorOptions: options
+                )
+                let namespaceContent = namespaceGenerator.generateNamespaceFile()
+                try generatorOutputs
+                    .add(
+                        fileName: "namespace.swift",
+                        contents: namespaceContent
+                    )
+            }
+        }
+
         auditProtoCVersion(context: protoCompilerContext)
         var errorString: String? = nil
         for fileDescriptor in files {

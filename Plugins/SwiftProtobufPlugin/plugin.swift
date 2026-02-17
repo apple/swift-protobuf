@@ -76,6 +76,11 @@ struct SwiftProtobufPlugin {
                 }
             }
 
+            enum PackageNaming: String, Codable {
+                case flat
+                case nested
+            }
+
             /// An array of paths to `.proto` files for this invocation.
             ///
             /// If the `protoPath` parameter is specified, the files must be specified
@@ -85,6 +90,8 @@ struct SwiftProtobufPlugin {
             var visibility: Visibility?
             /// The file naming strategy to use.
             var fileNaming: FileNaming?
+            /// The package naming strategy to use.
+            var packageNaming: PackageNaming?
             /// Whether internal imports should be annotated as `@_implementationOnly`.
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
@@ -193,6 +200,9 @@ struct SwiftProtobufPlugin {
         protocArgs.append("-I")
         protocArgs.append(protoDirectory.path())
 
+        var inputFiles = [URL]()
+        var outputFiles = [URL]()
+
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
             protocArgs.append("--swift_opt=Visibility=\(visibility.rawValue)")
@@ -201,6 +211,18 @@ struct SwiftProtobufPlugin {
         // Add the file naming if it was set
         if let fileNaming = invocation.fileNaming {
             protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue)")
+        }
+
+        // Add the package naming if it was set
+        if let packageNaming = invocation.packageNaming {
+            protocArgs.append("--swift_opt=PackageNaming=\(packageNaming.rawValue)")
+            switch packageNaming {
+            case .flat:
+                break
+            case .nested:
+                outputFiles.append(outputDirectory.appending(path: "namespace.swift"))
+            }
+
         }
 
         // Add the implementation only imports flag if it was set
@@ -212,9 +234,6 @@ struct SwiftProtobufPlugin {
         if let useAccessLevelOnImports = invocation.useAccessLevelOnImports {
             protocArgs.append("--swift_opt=UseAccessLevelOnImports=\(useAccessLevelOnImports)")
         }
-
-        var inputFiles = [URL]()
-        var outputFiles = [URL]()
 
         for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
