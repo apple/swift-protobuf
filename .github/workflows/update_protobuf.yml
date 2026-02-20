@@ -25,6 +25,14 @@ jobs:
         submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Fetch tags in protobuf submodule
+      run: |
+        # The checkout doesn't fetch the tags in submodules, we'll need them. so
+        # rather then forcing a full history checkout ('fetch-depth: 0 modules: true')
+        # of the main and all submodules, just do this one place ourselves.
+        cd Sources/protobuf/protobuf
+        git fetch --tags
+
     - name: Update and install dependencies
       # This step is run before check_release because we need curl and jq
       run: apt-get update && apt-get install -y curl jq
@@ -36,9 +44,27 @@ jobs:
         LATEST_TAG=$(curl -s https://api.github.com/repos/protocolbuffers/protobuf/releases/latest | jq -r '.tag_name')
         echo "Latest protobuf release: $LATEST_TAG"
 
-        # Get current protobuf submodule commit
+        # Get current protobuf submodule tag
+        #
+        # It would be nice to just use `git describe --tags --exact-match`, but
+        # the protobuf repo also cuts langugage specific tags. So odds are one
+        # of those is "closer" than the main protobuf tag, so look for all tags
+        # for the current commit and then filter down to the right style.
         cd Sources/protobuf/protobuf
-        CURRENT_TAG=$(git describe --tags --exact-match 2>/dev/null || echo "none")
+        TAG_REGEX='^v[0-9]+\.[0-9]+$'
+        TAG_MATCHES=$(git tag --points-at HEAD | grep -E "$TAG_REGEX")
+        if [ -z "$TAG_MATCHES" ]; then
+          echo "Error: Failed to figure out any current tag."
+          exit 1
+        fi
+        NUM_TAG_MATCHES=$(echo "$TAG_MATCHES" | wc -l)
+        if [ "$NUM_TAG_MATCHES" -gt 1 ]; then
+          echo "Error: Found $NUM_TAG_MATCHES lines that could be the current tag:" >&2
+          echo "$TAG_MATCHES" >&2
+          exit 1
+        fi
+        # At this point, only one match, so good to use it as the current.
+        CURRENT_TAG="$TAG_MATCHES"
         echo "Current protobuf version: $CURRENT_TAG"
         cd ../../..
 
@@ -56,7 +82,6 @@ jobs:
       if: steps.check_release.outputs.needs_update == 'true'
       run: |
         cd Sources/protobuf/protobuf
-        git fetch --tags
         git checkout ${{ steps.check_release.outputs.latest_tag }}
         cd ../../..
 
