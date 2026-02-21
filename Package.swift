@@ -35,6 +35,13 @@ let package = Package(
             targets: ["SwiftProtobufPlugin"]
         ),
     ],
+    traits: [
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description: "Enables APIs to read/write from Foundation Input/Output streams"
+        ),
+        .default(enabledTraits: ["BinaryDelimitedStreams"]),
+    ],
     targets: [
         .target(
             name: "SwiftProtobuf",
