@@ -57,11 +57,23 @@ class EnumGenerator {
 
     func generateMainEnum(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
+        let comments = enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
+        let enumDecl =
+            "\(visibility)enum \(swiftRelativeName): \(enumDescriptor.isClosed ? "Int, " : "")\(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
 
-        p.print(
-            "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(enumDescriptor.isClosed ? "Int, " : "")\(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
-        )
+        if generatorOptions.enumGeneration != .none && !enumDescriptor.isClosed {
+            let annotation = generatorOptions.enumAnnotation
+            p.print(
+                "",
+                "\(comments)\(annotation)",
+                enumDecl
+            )
+        } else {
+            p.print(
+                "",
+                "\(comments)\(enumDecl)"
+            )
+        }
         p.withIndentation { p in
             if !enumDescriptor.isClosed {
                 p.print("\(visibility)typealias RawValue = Int")
