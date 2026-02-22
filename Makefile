@@ -228,6 +228,12 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	@mkdir -p _test/Tests/protoc-gen-swiftTests/NonExhaustive
+	${GENERATE_SRCS} \
+	    -I Protos/Tests/protoc-gen-swiftTests \
+		--tfiws_opt=EnumGeneration=NonExhaustive \
+		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
+		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
 	diff -ru _test Reference
 
 # Test the SPM plugin.
@@ -295,6 +301,12 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=Reference/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	@mkdir -p Reference/Tests/protoc-gen-swiftTests/NonExhaustive
+	${GENERATE_SRCS} \
+	    -I Protos/Tests/protoc-gen-swiftTests \
+		--tfiws_opt=EnumGeneration=NonExhaustive \
+		--tfiws_out=Reference/Tests/protoc-gen-swiftTests/NonExhaustive \
+		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
 
 #
 # Rebuild the generated .pb.swift test files by running
