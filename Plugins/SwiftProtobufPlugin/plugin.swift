@@ -179,8 +179,8 @@ struct SwiftProtobufPlugin {
     ) -> Command {
         // Construct the `protoc` arguments.
         var protocArgs = [
-            "--plugin=protoc-gen-swift=\(protocGenSwiftPath.path())",
-            "--swift_out=\(outputDirectory.path())",
+            "--plugin=protoc-gen-swift=\(protocGenSwiftPath.fileSystemPath)",
+            "--swift_out=\(outputDirectory.fileSystemPath)",
         ]
 
         let protoDirectory =
@@ -191,7 +191,7 @@ struct SwiftProtobufPlugin {
             }
 
         protocArgs.append("-I")
-        protocArgs.append(protoDirectory.path())
+        protocArgs.append(protoDirectory.fileSystemPath)
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -269,6 +269,16 @@ extension SwiftProtobufPlugin: BuildToolPlugin {
             sourceFiles: swiftTarget.sourceFiles,
             tool: context.tool
         )
+    }
+}
+
+extension URL {
+    fileprivate var fileSystemPath: String {
+        #if canImport(Darwin)
+        return self.path(percentEncoded: false)
+        #else
+        return self.path()
+        #endif
     }
 }
 
