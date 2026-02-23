@@ -28,7 +28,6 @@ message GeneratedSwiftReservedEnums {
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
   enum as { NONE_as = 0; }
-  enum asciiOpenCurlyBracket { NONE_asciiOpenCurlyBracket = 0; }
   enum asciiZero { NONE_asciiZero = 0; }
   enum async { NONE_async = 0; }
   enum AsyncIterator { NONE_AsyncIterator = 0; }
