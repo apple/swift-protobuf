@@ -5,7 +5,7 @@
 This document covers two types of releases:
 
 1. **Swift Protobuf Library Releases** - New versions of the Swift protobuf library itself
-2. **Protoc Artifactbundle Releases** - Updates to the bundled protoc compiler when new protoc versions are available
+2. **Updating Protobuf and Abseil Submodules** - Updates the git submodules used to build `protoc` to the latest release.
 
 ## Swift Protobuf Library Releases
 
