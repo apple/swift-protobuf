@@ -273,13 +273,13 @@ extension SwiftProtobufPlugin: BuildToolPlugin {
 }
 
 extension URL {
-  fileprivate var fileSystemPath: String {
-    #if canImport(Darwin)
-    return self.path(percentEncoded: false)
-    #else
-    return self.path()
-    #endif
-  }
+    fileprivate var fileSystemPath: String {
+        #if canImport(Darwin)
+        return self.path(percentEncoded: false)
+        #else
+        return self.path()
+        #endif
+    }
 }
 
 #if canImport(XcodeProjectPlugin)
