@@ -22,7 +22,11 @@
 // This file is similar to unittest_mset_wire_format.proto, but does not
 // have a TestMessageSet, so it can be downgraded to proto1.
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
