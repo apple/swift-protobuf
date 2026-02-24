@@ -28,7 +28,6 @@ message GeneratedSwiftReservedMessages {
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
   message as { int32 as = 1; }
-  message asciiOpenCurlyBracket { int32 asciiOpenCurlyBracket = 1; }
   message asciiZero { int32 asciiZero = 1; }
   message async { int32 async = 1; }
   message AsyncIterator { int32 AsyncIterator = 1; }

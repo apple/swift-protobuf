@@ -751,36 +751,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum asciiOpenCurlyBracket: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
-    case noneAsciiOpenCurlyBracket // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneAsciiOpenCurlyBracket
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneAsciiOpenCurlyBracket
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneAsciiOpenCurlyBracket: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asciiOpenCurlyBracket] = [
-      .noneAsciiOpenCurlyBracket,
-    ]
-
-  }
-
   enum asciiZero: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneAsciiZero // = 0
@@ -31111,10 +31081,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.arraySeparator
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_as\0")
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asciiOpenCurlyBracket: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_asciiOpenCurlyBracket\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asciiZero: SwiftProtobuf._ProtoNameProviding {
