@@ -46,7 +46,11 @@
 // A valid .proto file can be translated directly to a FileDescriptorProto
 // without any other information (e.g. without reading its imports).
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 // 'import SwiftProtobuf' suppressed, this proto file is meant to be bundled in the runtime.
 
 // If the compiler emits an error on this type, it is because this file

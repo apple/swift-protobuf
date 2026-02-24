@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 private let minTimestampSeconds: Int64 = -62_135_596_800  // 0001-01-01T00:00:00Z
 private let maxTimestampSeconds: Int64 = 253_402_300_799  // 9999-12-31T23:59:59Z

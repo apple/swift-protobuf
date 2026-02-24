@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Visitor that encodes a message graph in the protobuf binary wire format.
 internal struct BinaryEncodingVisitor: Visitor {

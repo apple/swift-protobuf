@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Visitor that calculates the binary-encoded size of a message so that a
 /// properly sized `Data` or `UInt8` array can be pre-allocated before

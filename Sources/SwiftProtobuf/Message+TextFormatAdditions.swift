@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Text format encoding and decoding methods for messages.
 extension Message {

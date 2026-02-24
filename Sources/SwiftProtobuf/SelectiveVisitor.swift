@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// A base for Visitors that only expects a subset of things to called.
 internal protocol SelectiveVisitor: Visitor {

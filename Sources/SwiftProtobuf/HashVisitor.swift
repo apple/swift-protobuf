@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 private let i_2166136261 = Int(bitPattern: 2_166_136_261)
 private let i_16777619 = Int(16_777_619)

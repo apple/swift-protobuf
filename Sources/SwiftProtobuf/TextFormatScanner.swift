@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 private let asciiBell = UInt8(7)
 private let asciiBackspace = UInt8(8)
