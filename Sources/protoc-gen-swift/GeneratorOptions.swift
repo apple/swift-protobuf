@@ -107,8 +107,8 @@ package class GeneratorOptions {
     var enumAnnotation: String {
         switch enumGeneration {
         case .none: return ""
-        case .nonexhaustive: return "@nonexhaustive"
-        case .nonexhaustiveWarn: return "@nonexhaustive(warn)"
+        case .nonexhaustive: return "@nonexhaustive "
+        case .nonexhaustiveWarn: return "@nonexhaustive(warn) "
         }
     }
 

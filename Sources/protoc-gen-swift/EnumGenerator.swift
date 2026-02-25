@@ -65,8 +65,7 @@ class EnumGenerator {
             let annotation = generatorOptions.enumAnnotation
             p.print(
                 "",
-                "\(comments)\(annotation)",
-                enumDecl
+                "\(comments)\(annotation)\(enumDecl)"
             )
         } else {
             p.print(

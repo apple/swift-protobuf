@@ -90,7 +90,7 @@ struct SwiftProtobufPlugin {
                         self = .none
                     case "nonexhaustive":
                         self = .nonexhaustive
-                    case "nonexhaustivewithwarn":
+                    case "nonexhaustivewarn":
                         self = .nonexhaustiveWarn
                     default:
                         return nil

@@ -39,8 +39,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// An open proto3 enum. With EnumGeneration=Nonexhaustive this should be
 /// annotated with @nonexhaustive in the generated Swift.
-@nonexhaustive
-enum OpenEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+@nonexhaustive enum OpenEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unknown // = 0
   case valueA // = 1
@@ -105,8 +104,7 @@ struct EnumGenerationTestMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  @nonexhaustive
-  enum OneOf_Payload: Equatable, Sendable {
+  @nonexhaustive enum OneOf_Payload: Equatable, Sendable {
     case text(String)
     case data(Data)
 
