@@ -1,11 +1,12 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 
 import PackageDescription
 
 let package = Package(
     name: "PluginExamples",
     dependencies: [
-        .package(path: "../")
+        .package(path: "../"),
+        .package(path: "Subpackage"),
     ],
     targets: [
         .target(
@@ -84,6 +85,7 @@ let package = Package(
                 .target(name: "CustomProtoPath"),
                 .target(name: "UsesWKTs"),
                 .target(name: "PathToUnderscores"),
+                .product(name: "Nonexhaustive", package: "Subpackage"),
             ]
         ),
     ],

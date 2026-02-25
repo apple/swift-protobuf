@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+
+enum TestEnum {
+    TEST_ENUM_UNKNOWN = 0;
+    TEST_ENUM_VALUE_A = 1;
+    TEST_ENUM_VALUE_B = 2;
+}
+
+message TestMessage {
+    oneof payload {
+        string text = 2;
+        bytes data = 3;
+    }
+}
+
