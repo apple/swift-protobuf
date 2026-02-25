@@ -1,12 +1,11 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.0
 
 import PackageDescription
 
 let package = Package(
     name: "PluginExamples",
     dependencies: [
-        .package(path: "../"),
-        .package(path: "Subpackage"),
+        .package(path: "../")
     ],
     targets: [
         .target(
@@ -65,7 +64,6 @@ let package = Package(
                 .target(name: "Import"),
                 .target(name: "AccessLevelOnImport"),
                 .target(name: "CustomProtoPath"),
-                .product(name: "Nonexhaustive", package: "Subpackage"),
             ]
         ),
     ],

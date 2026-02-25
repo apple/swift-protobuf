@@ -211,12 +211,13 @@ class OneofGenerator {
 
     func generateMainEnum(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
+        let enumDecl = "\(visibility)enum \(swiftRelativeName): Equatable, Sendable {"
 
         // Repeat the comment from the oneof to provide some context
         // to this enum we generated.
         p.print(
             "",
-            "\(comments)\(visibility)enum \(swiftRelativeName): Equatable, Sendable {"
+            "\(comments)\(generatorOptions.enumAnnotation)\(enumDecl)"
         )
         p.withIndentation { p in
             // Oneof case for each ivar

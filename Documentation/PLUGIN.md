@@ -198,8 +198,33 @@ The possible values for `UseAccessLevelOnImports` are:
 * `true`: Imports of internal dependencies and any modules defined in the module
 mappings will be preceded by a visibility modifier corresponding to the visibility of the generated types - see `Visibility` option. 
 
-**Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports. 
-Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
+**Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports.
+Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other.
+
+
+##### Generation Option: `EnumGeneration` - `@nonexhaustive` annotation on generated enums
+
+By default, SwiftProtobuf does not annotate generated enums with `@nonexhaustive`.
+This option controls whether open proto enums and oneof enums are annotated with
+the `@nonexhaustive` attribute introduced in Swift SE-0487.
+
+Both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof enums
+are annotated, because adding a new case to either is wire-compatible and should not
+be a source-breaking Swift change.
+
+**Requires Swift 6.2.3 or later.**
+
+```
+protoc --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `EnumGeneration` are:
+
+* `None` (default): No `@nonexhaustive` attribute is emitted.
+* `Nonexhaustive`: Open proto enums and oneof enums are annotated with `@nonexhaustive`.
+* `NonexhaustiveWarn`: Open proto enums and oneof enums are annotated with `@nonexhaustive(warn)`,
+  which causes the Swift compiler to emit a warning when a `switch` statement does not
+  cover all known cases.
 
 
 ### Building your project
