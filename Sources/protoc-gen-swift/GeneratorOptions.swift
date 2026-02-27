@@ -30,6 +30,25 @@ package class GeneratorOptions {
         }
     }
 
+    package enum EnumGeneration: String {
+        case none
+        case nonexhaustive
+        case nonexhaustiveWarn
+
+        init?(flag: String) {
+            switch flag.lowercased() {
+            case "none":
+                self = .none
+            case "nonexhaustive":
+                self = .nonexhaustive
+            case "nonexhaustivewarn":
+                self = .nonexhaustiveWarn
+            default:
+                return nil
+            }
+        }
+    }
+
     package enum Visibility: String {
         case `internal`
         case `public`
@@ -65,6 +84,7 @@ package class GeneratorOptions {
     }
 
     let outputNaming: OutputNaming
+    let enumGeneration: EnumGeneration
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
@@ -83,8 +103,18 @@ package class GeneratorOptions {
     /// A string snippet to insert for the visibility
     let visibilitySourceSnippet: String
 
+    /// A string snippet to insert for the @nonexhaustive attribute, or empty if not applicable.
+    var enumAnnotation: String {
+        switch enumGeneration {
+        case .none: return ""
+        case .nonexhaustive: return "@nonexhaustive "
+        case .nonexhaustiveWarn: return "@nonexhaustive(warn) "
+        }
+    }
+
     init(parameter: any CodeGeneratorParameter) throws {
         var outputNaming: OutputNaming = .fullPath
+        var enumGeneration: EnumGeneration = .none
         var moduleMapPath: String?
         var visibility: Visibility = .internal
         var swiftProtobufModuleName: String? = nil
@@ -97,6 +127,15 @@ package class GeneratorOptions {
             case "FileNaming":
                 if let naming = OutputNaming(flag: pair.value) {
                     outputNaming = naming
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
+            case "EnumGeneration":
+                if let generation = EnumGeneration(flag: pair.value) {
+                    enumGeneration = generation
                 } else {
                     throw GenerationError.invalidParameterValue(
                         name: pair.key,
@@ -178,6 +217,7 @@ package class GeneratorOptions {
         }
 
         self.outputNaming = outputNaming
+        self.enumGeneration = enumGeneration
         self.visibility = visibility
 
         switch visibility {

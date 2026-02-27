@@ -76,6 +76,28 @@ struct SwiftProtobufPlugin {
                 }
             }
 
+            enum EnumGeneration: String, Codable {
+                /// No `@nonexhaustive` attribute is emitted (default).
+                /// Open proto enums are annotated with `@nonexhaustive`.
+                case none = "None"
+                case nonexhaustive = "Nonexhaustive"
+                /// Open proto enums are annotated with `@nonexhaustive(warn)`.
+                case nonexhaustiveWarn = "NonexhaustiveWarn"
+
+                init?(rawValue: String) {
+                    switch rawValue.lowercased() {
+                    case "none":
+                        self = .none
+                    case "nonexhaustive":
+                        self = .nonexhaustive
+                    case "nonexhaustivewarn":
+                        self = .nonexhaustiveWarn
+                    default:
+                        return nil
+                    }
+                }
+            }
+
             /// An array of paths to `.proto` files for this invocation.
             ///
             /// If the `protoPath` parameter is specified, the files must be specified
@@ -89,6 +111,8 @@ struct SwiftProtobufPlugin {
             var implementationOnlyImports: Bool?
             /// Whether import statements should be preceded with visibility.
             var useAccessLevelOnImports: Bool?
+            /// The enum generation strategy to use.
+            var enumGeneration: EnumGeneration?
             /// Overrides the base directory used to find protobuf files.
             ///
             /// This must be specified as a path relative to the target source directory.
@@ -213,6 +237,10 @@ struct SwiftProtobufPlugin {
             protocArgs.append("--swift_opt=UseAccessLevelOnImports=\(useAccessLevelOnImports)")
         }
 
+        // Add the enum generation strategy if it was set
+        if let enumGeneration = invocation.enumGeneration {
+            protocArgs.append("--swift_opt=EnumGeneration=\(enumGeneration.rawValue)")
+        }
         var inputFiles = [URL]()
         var outputFiles = [URL]()
 
