@@ -22,7 +22,11 @@
 // extensions. This should have every field type so the fuzz testing can attempt
 // to execersize just about everything.
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

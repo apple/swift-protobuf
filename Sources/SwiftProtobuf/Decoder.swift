@@ -14,7 +14,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Abstract protocol used by the generated code
 /// to deserialize data.

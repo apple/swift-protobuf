@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// SwiftProtobuf Internal: Support for Encoding/Decoding.
 public struct _ProtobufMap<KeyType: MapKeyType, ValueType: FieldType> {
