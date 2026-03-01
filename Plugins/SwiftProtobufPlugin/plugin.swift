@@ -57,7 +57,7 @@ struct SwiftProtobufPlugin {
             enum FileNaming: String, Codable {
                 /// The generated Swift file paths will be using the same relative path as the input proto files.
                 case fullPath = "FullPath"
-                /// The generated Swift file paths will the the relative paths but each directory replaced with an `_`.
+                /// The generated Swift file paths will use the relative paths but each directory replaced with an `_`.
                 case pathToUnderscores = "PathToUnderscores"
                 /// The generated Swift files will just be using the file name and drop the rest of the relative path.
                 case dropPath = "DropPath"
