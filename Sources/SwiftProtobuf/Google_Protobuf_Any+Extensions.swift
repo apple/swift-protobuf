@@ -14,7 +14,11 @@
 
 // Explicit import of Foundation is necessary on Linux,
 // don't remove unless obsolete on all platforms
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
 

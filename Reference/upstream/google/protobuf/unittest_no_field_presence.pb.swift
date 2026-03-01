@@ -17,7 +17,11 @@
 
 // A proto file used to test a message type with no explicit field presence.
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

@@ -14,7 +14,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Functions that are public only because they are used by generated message implementations.
 /// - Important: NOT INTENDED TO BE CALLED BY CLIENTS.
