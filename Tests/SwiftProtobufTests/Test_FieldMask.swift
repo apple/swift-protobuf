@@ -57,6 +57,8 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertDebugDescriptionSuffix(".Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n", m)
     }
 
+    #if FieldMaskSupport
+
     func testConvenienceInits() {
         var m = Google_Protobuf_FieldMask()
         m.paths = ["foo", "bar"]
@@ -820,4 +822,6 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         try m1.merge(from: m2, fieldMask: .with({ $0.paths = ["singulargroup"] }))
         XCTAssertEqual(m1.singularGroup, m2.singularGroup)
     }
+
+    #endif
 }

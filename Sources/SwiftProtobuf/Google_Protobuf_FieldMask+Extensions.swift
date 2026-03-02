@@ -113,6 +113,32 @@ private func parseJSONFieldNames(names: String) -> [String]? {
     return split
 }
 
+extension Google_Protobuf_FieldMask: _CustomJSONCodable {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        let s = try decoder.scanner.nextQuotedString()
+        if let names = parseJSONFieldNames(names: s) {
+            paths = names
+        } else {
+            throw JSONDecodingError.malformedFieldMask
+        }
+    }
+
+    func encodedJSONString(options: JSONEncodingOptions) throws -> String {
+        // Note:  Proto requires alphanumeric field names, so there
+        // cannot be a ',' or '"' character to mess up this formatting.
+        var jsonPaths = [String]()
+        for p in paths {
+            if let jsonPath = ProtoToJSON(name: p) {
+                jsonPaths.append(jsonPath)
+            } else {
+                throw JSONEncodingError.fieldMaskConversion
+            }
+        }
+        return "\"" + jsonPaths.joined(separator: ",") + "\""
+    }
+}
+
+#if FieldMaskSupport
 extension Google_Protobuf_FieldMask {
     /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
     ///
@@ -152,31 +178,6 @@ extension Google_Protobuf_FieldMask {
     // It would be nice if to have an initializer that accepted Swift property
     // names, but translating between swift and protobuf/json property
     // names is not entirely deterministic.
-}
-
-extension Google_Protobuf_FieldMask: _CustomJSONCodable {
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        if let names = parseJSONFieldNames(names: s) {
-            paths = names
-        } else {
-            throw JSONDecodingError.malformedFieldMask
-        }
-    }
-
-    func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-        // Note:  Proto requires alphanumeric field names, so there
-        // cannot be a ',' or '"' character to mess up this formatting.
-        var jsonPaths = [String]()
-        for p in paths {
-            if let jsonPath = ProtoToJSON(name: p) {
-                jsonPaths.append(jsonPath)
-            } else {
-                throw JSONEncodingError.fieldMaskConversion
-            }
-        }
-        return "\"" + jsonPaths.joined(separator: ",") + "\""
-    }
 }
 
 extension Google_Protobuf_FieldMask {
@@ -365,3 +366,5 @@ extension Message where Self: _ProtoNameProviding {
         Self._protobuf_nameMap.names.map(\.description)
     }
 }
+
+#endif
