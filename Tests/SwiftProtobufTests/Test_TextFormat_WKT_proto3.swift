@@ -153,6 +153,8 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         }
     }
 
+    #if FieldMaskSupport
+
     func testFieldMask() {
         assertTextFormatEncode(
             "field_mask_field {\n  paths: \"foo\"\n  paths: \"bar.baz\"\n}\n"
@@ -161,6 +163,8 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             o.fieldMaskField = Google_Protobuf_FieldMask(protoPaths: "foo", "bar.baz")
         }
     }
+
+    #endif
 
     func tesetSourceContext() {
     }

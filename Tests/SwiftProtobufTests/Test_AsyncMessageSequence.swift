@@ -13,6 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if BinaryDelimitedStreams
+
 import Foundation
 import SwiftProtobuf
 import XCTest
@@ -241,3 +243,5 @@ final class Test_AsyncMessageSequence: XCTestCase {
         return [UInt8](data)
     }
 }
+
+#endif
