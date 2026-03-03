@@ -13,6 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+// We are disabling these tests, because they use
+// APIs gated behind the trait.
 #if BinaryDelimitedStreams
 
 import Foundation
