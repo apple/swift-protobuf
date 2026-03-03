@@ -27,7 +27,7 @@ extension Google_Protobuf_FieldMask {
     }
 }
 
-#if FieldMaskSupport
+#if FieldMaskUtilities
 
 #if canImport(FoundationEssentials)
 import FoundationEssentials

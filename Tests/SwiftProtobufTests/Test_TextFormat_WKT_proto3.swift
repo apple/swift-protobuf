@@ -153,7 +153,7 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         }
     }
 
-    #if FieldMaskSupport
+    #if FieldMaskUtilities
 
     func testFieldMask() {
         assertTextFormatEncode(

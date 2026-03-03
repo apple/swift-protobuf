@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-#if FieldMaskSupport
+#if FieldMaskUtilities
 
 #if canImport(FoundationEssentials)
 import FoundationEssentials

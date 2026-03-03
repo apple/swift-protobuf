@@ -138,7 +138,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
     }
 }
 
-#if FieldMaskSupport
+#if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
     /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
     ///

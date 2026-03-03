@@ -37,8 +37,8 @@ let package = Package(
     ],
     traits: [
         .trait(name: "BinaryDelimitedStreams", description: "This trait enables the APIs to serializing binary delimited messages with Foundation Input/Output streams."),
-        .trait(name: "FieldMaskSupport", description: "This trait enables APIs for improved FieldMask support."),
-        .default(enabledTraits: ["BinaryDelimitedStreams", "FieldMaskSupport"])
+        .trait(name: "FieldMaskUtilities", description: "This trait enables APIs for improved FieldMask support."),
+        .default(enabledTraits: ["BinaryDelimitedStreams", "FieldMaskUtilities"])
     ],
     targets: [
         .target(

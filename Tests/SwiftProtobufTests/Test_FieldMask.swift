@@ -57,7 +57,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertDebugDescriptionSuffix(".Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n", m)
     }
 
-    #if FieldMaskSupport
+    #if FieldMaskUtilities
 
     func testConvenienceInits() {
         var m = Google_Protobuf_FieldMask()
