@@ -45,11 +45,11 @@ extension _MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                equalSoFar = layout.areFieldsEqual(
+                equalSoFar = layout.performNontrivialFieldOperation(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    .isEqual(other: other),
                     field,
-                    self,
-                    other
+                    self
                 )
 
             case .array:
@@ -64,11 +64,11 @@ extension _MessageStorage {
                 case .double:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Double].self)
                 case .enum, .group, .message:
-                    equalSoFar = layout.areFieldsEqual(
+                    equalSoFar = layout.performNontrivialFieldOperation(
                         _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                        .isEqual(other: other),
                         field,
-                        self,
-                        other
+                        self
                     )
                 case .fixed32, .uint32:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [UInt32].self)
@@ -98,11 +98,11 @@ extension _MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    equalSoFar = layout.areFieldsEqual(
+                    equalSoFar = layout.performNontrivialFieldOperation(
                         _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                        .isEqual(other: other),
                         field,
-                        self,
-                        other
+                        self
                     )
 
                 case .string:
@@ -142,7 +142,7 @@ extension _MessageStorage {
 
     /// Returns whether the given field in the receiver is equal to the same field in the other
     /// storage, given the expected type of that field.
-    public func isField<T: Equatable>(
+    func isField<T: Equatable>(
         _ field: FieldLayout,
         equalToSameFieldIn other: _MessageStorage,
         type: T.Type
