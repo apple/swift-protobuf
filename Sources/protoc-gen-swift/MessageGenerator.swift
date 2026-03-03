@@ -390,9 +390,7 @@ class MessageGenerator {
             // Otherwise, pass the static member functions that will be generated below.
             p.print(
                 """
-                , deinitializeField: _protobuf_deinitializeField\
-                , copyField: _protobuf_copyField\
-                , areFieldsEqual: _protobuf_areFieldsEqual\
+                , performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation\
                 , performOnSubmessageStorage: _protobuf_performOnSubmessageStorage\
                 , performOnRawEnumValues: _protobuf_performOnRawEnumValues\
                 , mapEntryLayout: _protobuf_mapEntryLayout\
@@ -402,53 +400,13 @@ class MessageGenerator {
             )
             p.print(
                 "",
-                "private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {"
+                "private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for field in trampolineFields {
                     p.print(
-                        "case \(field.index): storage.deinitializeField(field, type: \(field.kind.name).self)"
-                    )
-                }
-                p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
-                    "}"
-                )
-            }
-            p.print(
-                "}"
-            )
-
-            p.print(
-                "",
-                "private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {"
-            )
-            p.withIndentation { p in
-                p.print("switch token.index {")
-                for field in trampolineFields {
-                    p.print(
-                        "case \(field.index): source.copyField(field, to: destination, type: \(field.kind.name).self)"
-                    )
-                }
-                p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
-                    "}"
-                )
-            }
-            p.print(
-                "}"
-            )
-
-            p.print(
-                "",
-                "private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {"
-            )
-            p.withIndentation { p in
-                p.print("switch token.index {")
-                for field in trampolineFields {
-                    p.print(
-                        "case \(field.index): return lhs.isField(field, equalToSameFieldIn: rhs, type: \(field.kind.name).self)"
+                        "case \(field.index): return storage.performNontrivialFieldOperation(operation, field: field, type: \(field.kind.name).self)"
                     )
                 }
                 p.print(

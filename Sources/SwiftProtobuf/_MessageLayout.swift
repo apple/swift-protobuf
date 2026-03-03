@@ -114,36 +114,12 @@ import Foundation
     /// `ProtoNameProviding` requirement. Make it internal once that's no longer necessary.
     public let nameMap: _NameMap
 
-    /// The function type for the generated function that is called to deinitialize a field whose
-    /// type is a message, array of messages, or array of enums.
-    public typealias TrampolineDeinitializer = (
+    /// The function type for the generated function that is called to perform a basic operation
+    /// on certain kinds of nontrivial fields (a message, array of messages, array of enums, or map)
+    /// such as deinitialization, copying, or testing for equality.
+    public typealias NontrivialFieldOperationPerformer = (
         _ token: TrampolineToken,
-        _ field: FieldLayout,
-        _ storage: _MessageStorage
-    ) -> Void
-
-    /// The function type for the generated function that is called to copy a field whose type is a
-    /// message, array of messages, or array of enums.
-    public typealias TrampolineCopier = (
-        _ token: TrampolineToken,
-        _ field: FieldLayout,
-        _ source: _MessageStorage,
-        _ destination: _MessageStorage
-    ) -> Void
-
-    /// The function type for the generated function that is called to test for equality two fields
-    /// whose types are a message, array of messages, or array of enums.
-    public typealias TrampolineEquater = (
-        _ token: TrampolineToken,
-        _ field: FieldLayout,
-        _ lhs: _MessageStorage,
-        _ rhs: _MessageStorage
-    ) -> Bool
-
-    /// The function type for the generated function that is called to test if a field whose type
-    /// is a message or array of messages is initialized.
-    public typealias SubmessageInitializedChecker = (
-        _ token: TrampolineToken,
+        _ operation: NontrivialFieldOperation,
         _ field: FieldLayout,
         _ storage: _MessageStorage
     ) -> Bool
@@ -187,15 +163,7 @@ import Foundation
 
     /// The function that is called to deinitialize a field whose type is a message (singular or
     /// repeated) or a repeated enum field.
-    let deinitializeField: TrampolineDeinitializer
-
-    /// The function that is called to copy a field whose type is a message (singular or repeated)
-    /// or a repeated enum field.
-    let copyField: TrampolineCopier
-
-    /// The function that is called to test a field whose type is a message, array of messages, or
-    /// array of enums for equality.
-    let areFieldsEqual: TrampolineEquater
+    let performNontrivialFieldOperation: NontrivialFieldOperationPerformer
 
     /// The function that is called to perform an arbitrary operation on the storage of a submessage
     /// field.
@@ -217,9 +185,7 @@ import Foundation
     public init(
         layout: StaticString,
         names: StaticString,
-        deinitializeField: @escaping TrampolineDeinitializer,
-        copyField: @escaping TrampolineCopier,
-        areFieldsEqual: @escaping TrampolineEquater,
+        performNontrivialFieldOperation: @escaping NontrivialFieldOperationPerformer,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
         performOnRawEnumValues: @escaping RawEnumValuesPerformer,
         mapEntryLayout: @escaping MapEntryLayout,
@@ -231,9 +197,7 @@ import Foundation
         )
         self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
         self.nameMap = names.utf8CodeUnitCount != 0 ? _NameMap(bytecode: names) : _NameMap()
-        self.deinitializeField = deinitializeField
-        self.copyField = copyField
-        self.areFieldsEqual = areFieldsEqual
+        self.performNontrivialFieldOperation = performNontrivialFieldOperation
         self.performOnSubmessageStorage = performOnSubmessageStorage
         self.performOnRawEnumValues = performOnRawEnumValues
         self.mapEntryLayout = mapEntryLayout
@@ -259,13 +223,7 @@ import Foundation
         self.init(
             layout: layout,
             names: names,
-            deinitializeField: { _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            copyField: { _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            areFieldsEqual: { _, _, _, _ in
+            performNontrivialFieldOperation: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             performOnSubmessageStorage: { _, _, _, _, _ in
@@ -297,14 +255,8 @@ import Foundation
         self.init(
             layout: layout,
             names: mapEntryFieldNameBytecode,
-            deinitializeField: { _, field, storage in
-                storage.deinitializeField(field, type: type)
-            },
-            copyField: { _, field, source, destination in
-                source.copyField(field, to: destination, type: type)
-            },
-            areFieldsEqual: { _, field, lhs, rhs in
-                lhs.isField(field, equalToSameFieldIn: rhs, type: type)
+            performNontrivialFieldOperation: { _, operation, field, storage in
+                return storage.performNontrivialFieldOperation(operation, field: field, type: type)
             },
             performOnSubmessageStorage: { _, field, storage, operation, perform in
                 try storage.performOnSubmessageStorage(of: field, operation: operation, type: type, perform: perform)
@@ -329,14 +281,8 @@ import Foundation
         self.init(
             layout: layout,
             names: mapEntryFieldNameBytecode,
-            deinitializeField: { _, field, storage in
-                storage.deinitializeField(field, type: type)
-            },
-            copyField: { _, field, source, destination in
-                source.copyField(field, to: destination, type: type)
-            },
-            areFieldsEqual: { _, field, lhs, rhs in
-                lhs.isField(field, equalToSameFieldIn: rhs, type: type)
+            performNontrivialFieldOperation: { _, operation, field, storage in
+                return storage.performNontrivialFieldOperation(operation, field: field, type: type)
             },
             performOnSubmessageStorage: { _, field, storage, operation, perform in
                 preconditionFailure("This should have been unreachable; this is a generator bug")

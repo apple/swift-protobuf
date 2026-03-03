@@ -71,10 +71,13 @@ import Foundation
 
     /// Deinitializes the given field.
     @usableFromInline func deinitializeField(_ field: FieldLayout) {
+        guard isPresent(field) else { return }
+
         switch field.fieldMode.cardinality {
         case .map:
-            layout.deinitializeField(
+            _ = layout.performNontrivialFieldOperation(
                 _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                .deinitialize,
                 field,
                 self
             )
@@ -85,8 +88,9 @@ import Foundation
             case .bytes: deinitializeField(field, type: [Data].self)
             case .double: deinitializeField(field, type: [Double].self)
             case .enum, .group, .message:
-                layout.deinitializeField(
+                _ = layout.performNontrivialFieldOperation(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    .deinitialize,
                     field,
                     self
                 )
@@ -104,8 +108,9 @@ import Foundation
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
-                layout.deinitializeField(
+                _ = layout.performNontrivialFieldOperation(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    .deinitialize,
                     field,
                     self
                 )
@@ -120,8 +125,7 @@ import Foundation
     }
 
     /// Deinitializes the field associated with the given concrete type information.
-    public func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
-        guard isPresent(field) else { return }
+    private func deinitializeField<T>(_ field: FieldLayout, type: T.Type) {
         (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
     }
 
@@ -140,6 +144,51 @@ import Foundation
             return populatedOneofMember(at: oneofOffset) == field.fieldNumber
         case .hasBit(let byteOffset, let mask):
             return isPresent(hasBit: (byteOffset, mask))
+        }
+    }
+}
+
+/// An operation that the runtime requests to be performed on nontrivial fields that require
+/// trampolining through a generated function to propagate the correct concrete type.
+@_spi(ForGeneratedCodeOnly)
+public enum NontrivialFieldOperation {
+    /// The value of the field should be deinitialized.
+    case deinitialize
+
+    /// The value of the field should be copied to its correct memory offset in the destination
+    /// storage.
+    case copy(destination: _MessageStorage)
+
+    /// The value of the field should be checked for equality against the value of the same field
+    /// in the other storage.
+    case isEqual(other: _MessageStorage)
+}
+
+extension _MessageStorage {
+    /// Performs the given operation on the nontrivial value of a field.
+    ///
+    /// - Parameters:
+    ///   - operation: The operation to perform.
+    ///   - field: The field on which to perform the operation.
+    ///   - type: The concrete type of the field.
+    /// - Returns: If the operation being performed is `isEqual`, then the result indicates whether
+    ///   the two values were equal. Otherwise, the result is always true and can be ignored.
+    public func performNontrivialFieldOperation<T: Equatable>(
+        _ operation: NontrivialFieldOperation,
+        field: FieldLayout,
+        type: T.Type
+    ) -> Bool {
+        switch operation {
+        case .deinitialize:
+            deinitializeField(field, type: type)
+            return true
+
+        case .copy(destination: let destination):
+            copyField(field, to: destination, type: type)
+            return true
+
+        case .isEqual(other: let other):
+            return isField(field, equalToSameFieldIn: other, type: type)
         }
     }
 }
@@ -164,11 +213,11 @@ extension _MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                layout.copyField(
+                _ = layout.performNontrivialFieldOperation(
                     _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    .copy(destination: destination),
                     field,
-                    self,
-                    destination
+                    self
                 )
 
             case .array:
@@ -180,11 +229,11 @@ extension _MessageStorage {
                 case .bytes: copyField(field, to: destination, type: [Data].self)
                 case .double: copyField(field, to: destination, type: [Double].self)
                 case .enum, .group, .message:
-                    layout.copyField(
+                    _ = layout.performNontrivialFieldOperation(
                         _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                        .copy(destination: destination),
                         field,
-                        self,
-                        destination
+                        self
                     )
                 case .fixed32, .uint32: copyField(field, to: destination, type: [UInt32].self)
                 case .fixed64, .uint64: copyField(field, to: destination, type: [UInt64].self)
@@ -207,11 +256,11 @@ extension _MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    layout.copyField(
+                    _ = layout.performNontrivialFieldOperation(
                         _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                        .copy(destination: destination),
                         field,
-                        self,
-                        destination
+                        self
                     )
 
                 case .string:
@@ -242,7 +291,7 @@ extension _MessageStorage {
 
     /// Copy-initializes the field associated with the given layout information in the destination
     /// storage using its value from this storage.
-    public func copyField<T>(_ field: FieldLayout, to destination: _MessageStorage, type: T.Type) {
+    private func copyField<T>(_ field: FieldLayout, to destination: _MessageStorage, type: T.Type) {
         guard isPresent(field) else { return }
 
         let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)

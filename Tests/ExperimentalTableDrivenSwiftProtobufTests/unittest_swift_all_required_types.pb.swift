@@ -699,46 +699,18 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestAllRequiredTypes\0\u{3}required_int32\0\u{3}required_int64\0\u{3}required_uint32\0\u{3}required_uint64\0\u{3}required_sint32\0\u{3}required_sint64\0\u{3}required_fixed32\0\u{3}required_fixed64\0\u{3}required_sfixed32\0\u{3}required_sfixed64\0\u{3}required_float\0\u{3}required_double\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{7}RequiredGroup\0\u{4}\u{2}required_nested_message\0\u{3}required_foreign_message\0\u{3}required_import_message\0\u{3}required_nested_enum\0\u{3}required_foreign_enum\0\u{3}required_import_enum\0\u{4}\u{3}required_public_import_message\0\u{4}#default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{4}\u{1c}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum.self)
-    case 2: storage.deinitializeField(field, type: SwiftProtoTesting_ForeignEnum.self)
-    case 3: storage.deinitializeField(field, type: SwiftProtoTesting_Import_ImportEnum.self)
-    case 4: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self)
-    case 5: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self)
-    case 6: storage.deinitializeField(field, type: SwiftProtoTesting_ForeignMessage.self)
-    case 7: storage.deinitializeField(field, type: SwiftProtoTesting_Import_ImportMessage.self)
-    case 8: storage.deinitializeField(field, type: SwiftProtoTesting_Import_PublicImportMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum.self)
-    case 2: source.copyField(field, to: destination, type: SwiftProtoTesting_ForeignEnum.self)
-    case 3: source.copyField(field, to: destination, type: SwiftProtoTesting_Import_ImportEnum.self)
-    case 4: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self)
-    case 5: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self)
-    case 6: source.copyField(field, to: destination, type: SwiftProtoTesting_ForeignMessage.self)
-    case 7: source.copyField(field, to: destination, type: SwiftProtoTesting_Import_ImportMessage.self)
-    case 8: source.copyField(field, to: destination, type: SwiftProtoTesting_Import_PublicImportMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignEnum.self)
-    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_ImportEnum.self)
-    case 4: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self)
-    case 5: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self)
-    case 6: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignMessage.self)
-    case 7: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_ImportMessage.self)
-    case 8: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_PublicImportMessage.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_ForeignEnum.self)
+    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Import_ImportEnum.self)
+    case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self)
+    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self)
+    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_ForeignMessage.self)
+    case 7: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Import_ImportMessage.self)
+    case 8: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Import_PublicImportMessage.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -970,25 +942,11 @@ extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftP
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestSomeRequiredTypes\0\u{3}required_int32\0\u{3}required_float\0\u{3}required_bool\0\u{3}required_string\0\u{3}required_bytes\0\u{3}required_nested_enum\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

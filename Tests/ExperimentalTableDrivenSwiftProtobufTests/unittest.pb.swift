@@ -4246,67 +4246,25 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestAllTypes\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{7}OptionalGroup\0\u{4}\u{2}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_import_enum\0\u{4}\u{3}optional_public_import_message\0\u{4}\u{5}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{3}repeated_import_enum\0\u{4}\u{8}default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{4}\u{1c}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{b}something_old\0\u{b}reserved_field\0\u{b}something_long_gone\0\u{c}JIt\u{3}\u{1}\u{c}LIt\u{3}\u{1}\u{c}lHt\u{3}\u{a}\u{c}~Ht\u{3}\u{2}\u{c}KIt\u{3}\u{1}" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
-    case 2: storage.deinitializeField(field, type: SwiftProtoTesting_ForeignEnum.self)
-    case 3: storage.deinitializeField(field, type: SwiftProtoTesting_Import_ImportEnum.self)
-    case 4: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self)
-    case 5: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
-    case 6: storage.deinitializeField(field, type: SwiftProtoTesting_ForeignMessage.self)
-    case 7: storage.deinitializeField(field, type: SwiftProtoTesting_Import_ImportMessage.self)
-    case 8: storage.deinitializeField(field, type: SwiftProtoTesting_Import_PublicImportMessage.self)
-    case 9: storage.deinitializeField(field, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self)
-    case 10: storage.deinitializeField(field, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
-    case 11: storage.deinitializeField(field, type: [SwiftProtoTesting_ForeignMessage].self)
-    case 12: storage.deinitializeField(field, type: [SwiftProtoTesting_Import_ImportMessage].self)
-    case 13: storage.deinitializeField(field, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
-    case 14: storage.deinitializeField(field, type: [SwiftProtoTesting_ForeignEnum].self)
-    case 15: storage.deinitializeField(field, type: [SwiftProtoTesting_Import_ImportEnum].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
-    case 2: source.copyField(field, to: destination, type: SwiftProtoTesting_ForeignEnum.self)
-    case 3: source.copyField(field, to: destination, type: SwiftProtoTesting_Import_ImportEnum.self)
-    case 4: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self)
-    case 5: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
-    case 6: source.copyField(field, to: destination, type: SwiftProtoTesting_ForeignMessage.self)
-    case 7: source.copyField(field, to: destination, type: SwiftProtoTesting_Import_ImportMessage.self)
-    case 8: source.copyField(field, to: destination, type: SwiftProtoTesting_Import_PublicImportMessage.self)
-    case 9: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self)
-    case 10: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
-    case 11: source.copyField(field, to: destination, type: [SwiftProtoTesting_ForeignMessage].self)
-    case 12: source.copyField(field, to: destination, type: [SwiftProtoTesting_Import_ImportMessage].self)
-    case 13: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
-    case 14: source.copyField(field, to: destination, type: [SwiftProtoTesting_ForeignEnum].self)
-    case 15: source.copyField(field, to: destination, type: [SwiftProtoTesting_Import_ImportEnum].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignEnum.self)
-    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_ImportEnum.self)
-    case 4: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self)
-    case 5: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
-    case 6: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignMessage.self)
-    case 7: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_ImportMessage.self)
-    case 8: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_Import_PublicImportMessage.self)
-    case 9: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self)
-    case 10: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
-    case 11: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_ForeignMessage].self)
-    case 12: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_Import_ImportMessage].self)
-    case 13: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
-    case 14: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_ForeignEnum].self)
-    case 15: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_Import_ImportEnum].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_ForeignEnum.self)
+    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Import_ImportEnum.self)
+    case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self)
+    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_ForeignMessage.self)
+    case 7: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Import_ImportMessage.self)
+    case 8: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Import_PublicImportMessage.self)
+    case 9: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestAllTypes.RepeatedGroup].self)
+    case 10: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
+    case 11: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_ForeignMessage].self)
+    case 12: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_Import_ImportMessage].self)
+    case 13: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
+    case 14: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_ForeignEnum].self)
+    case 15: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_Import_ImportEnum].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -4592,31 +4550,13 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.NestedTestAllTypes\0\u{1}child\0\u{1}payload\0\u{3}repeated_child\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_NestedTestAllTypes.self)
-    case 2: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    case 3: storage.deinitializeField(field, type: [SwiftProtoTesting_NestedTestAllTypes].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_NestedTestAllTypes.self)
-    case 2: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    case 3: source.copyField(field, to: destination, type: [SwiftProtoTesting_NestedTestAllTypes].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_NestedTestAllTypes.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
-    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_NestedTestAllTypes].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_NestedTestAllTypes.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
+    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_NestedTestAllTypes].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5004,25 +4944,11 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestRequired\0\u{1}a\0\u{1}dummy2\0\u{1}b\0\u{1}dummy4\0\u{1}dummy5\0\u{1}dummy6\0\u{1}dummy7\0\u{1}dummy8\0\u{1}dummy9\0\u{1}dummy10\0\u{1}dummy11\0\u{1}dummy12\0\u{1}dummy13\0\u{1}dummy14\0\u{1}dummy15\0\u{1}dummy16\0\u{1}dummy17\0\u{1}dummy18\0\u{1}dummy19\0\u{1}dummy20\0\u{1}dummy21\0\u{1}dummy22\0\u{1}dummy23\0\u{1}dummy24\0\u{1}dummy25\0\u{1}dummy26\0\u{1}dummy27\0\u{1}dummy28\0\u{1}dummy29\0\u{1}dummy30\0\u{1}dummy31\0\u{1}dummy32\0\u{1}c\0\u{3}optional_foreign\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_ForeignMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_ForeignMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_ForeignMessage.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_ForeignMessage.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5113,28 +5039,12 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestRequiredForeign\0\u{3}optional_message\0\u{3}repeated_message\0\u{1}dummy\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestRequired.self)
-    case 2: storage.deinitializeField(field, type: [SwiftProtoTesting_TestRequired].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRequired.self)
-    case 2: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestRequired].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRequired.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestRequired].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestRequired.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestRequired].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5226,28 +5136,12 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestRequiredMessage\0\u{3}optional_message\0\u{3}repeated_message\0\u{3}required_message\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestRequired.self)
-    case 2: storage.deinitializeField(field, type: [SwiftProtoTesting_TestRequired].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRequired.self)
-    case 2: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestRequired].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRequired.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestRequired].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestRequired.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestRequired].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5457,25 +5351,11 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestRecursiveMessage\0\u{1}a\0\u{1}i\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestRecursiveMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRecursiveMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRecursiveMessage.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestRecursiveMessage.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5562,25 +5442,11 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestFieldOrderings\0\u{3}my_int\0\u{4}\u{a}my_string\0\u{4}Z\u{1}my_float\0\u{4}c\u{1}optional_nested_message\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5789,28 +5655,12 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestOneof\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0\u{7}FooGroup\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    case 2: storage.deinitializeField(field, type: SwiftProtoTesting_TestOneof.FooGroup.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    case 2: source.copyField(field, to: destination, type: SwiftProtoTesting_TestOneof.FooGroup.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestOneof.FooGroup.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestOneof.FooGroup.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -5957,25 +5807,11 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestRequiredOneof\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestRequiredOneof.NestedMessage.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6129,25 +5965,11 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestPackedTypes\0\u{4}Z\u{1}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_enum\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: [SwiftProtoTesting_ForeignEnum].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: [SwiftProtoTesting_ForeignEnum].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_ForeignEnum].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_ForeignEnum].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6234,25 +6056,11 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestUnpackedTypes\0\u{4}Z\u{1}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_enum\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: [SwiftProtoTesting_ForeignEnum].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: [SwiftProtoTesting_ForeignEnum].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_ForeignEnum].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_ForeignEnum].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6402,34 +6210,14 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestParsingMerge\0\u{3}required_all_types\0\u{3}optional_all_types\0\u{3}repeated_all_types\0\u{8}\u{7}OptionalGroup\0\u{8}\u{a}RepeatedGroup\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    case 2: storage.deinitializeField(field, type: [SwiftProtoTesting_TestAllTypes].self)
-    case 3: storage.deinitializeField(field, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self)
-    case 4: storage.deinitializeField(field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    case 2: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestAllTypes].self)
-    case 3: source.copyField(field, to: destination, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self)
-    case 4: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes].self)
-    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self)
-    case 4: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestAllTypes].self)
+    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestParsingMerge.OptionalGroup.self)
+    case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6523,31 +6311,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestParsingMerge.RepeatedFieldsGenerator\0\u{1}field1\0\u{1}field2\0\u{1}field3\0\u{8}\u{7}Group1\0\u{8}\u{a}Group2\0\u{2}T\u{f}ext1\0\u{1}ext2\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: [SwiftProtoTesting_TestAllTypes].self)
-    case 2: storage.deinitializeField(field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self)
-    case 3: storage.deinitializeField(field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestAllTypes].self)
-    case 2: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self)
-    case 3: source.copyField(field, to: destination, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestAllTypes].self)
-    case 2: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self)
-    case 3: return lhs.isField(field, equalToSameFieldIn: rhs, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestAllTypes].self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1].self)
+    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6636,25 +6406,11 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestParsingMerge.RepeatedFieldsGenerator.Group1\0\u{2}\u{b}field1\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6741,25 +6497,11 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestParsingMerge.RepeatedFieldsGenerator.Group2\0\u{2}\u{15}field1\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6846,25 +6588,11 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestParsingMerge.OptionalGroup\0\u{4}\u{b}optional_group_all_types\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -6951,25 +6679,11 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestParsingMerge.RepeatedGroup\0\u{4}\u{15}repeated_group_all_types\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, deinitializeField: _protobuf_deinitializeField, copyField: _protobuf_copyField, areFieldsEqual: _protobuf_areFieldsEqual, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_deinitializeField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
-    case 1: storage.deinitializeField(field, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_copyField(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, from source: SwiftProtobuf._MessageStorage, to destination: SwiftProtobuf._MessageStorage) {
-    switch token.index {
-    case 1: source.copyField(field, to: destination, type: SwiftProtoTesting_TestAllTypes.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_areFieldsEqual(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, lhs: SwiftProtobuf._MessageStorage, rhs: SwiftProtobuf._MessageStorage) -> Bool {
-    switch token.index {
-    case 1: return lhs.isField(field, equalToSameFieldIn: rhs, type: SwiftProtoTesting_TestAllTypes.self)
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_TestAllTypes.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
