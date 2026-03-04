@@ -422,7 +422,7 @@ extension Array where Element == PackageDescription.SwiftSetting {
         [
             .enableUpcomingFeature("ExistentialAny"),
             .define("BinaryDelimitedStreams"),
-            .define("FieldMaskUtilities")
+            .define("FieldMaskUtilities"),
         ]
     }
 }
