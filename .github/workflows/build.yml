@@ -63,10 +63,13 @@ jobs:
     - name: Test runtime
       run: make test-runtime SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors ${{ matrix.flags }}"
     - name: Test plugin
+      if: ${{ matrix.traits == 'default' }}
       run: make test-plugin
     - name: Test SPM plugin
+      if: ${{ matrix.traits == 'default' }}
       run: make test-spm-plugin
     - name: Compilation Tests
+      if: ${{ matrix.traits == 'default' }}
       run: make compile-tests
 
   api-breakage:
