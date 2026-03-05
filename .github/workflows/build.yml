@@ -24,11 +24,11 @@ jobs:
         # could use different Ubuntu releases. At the moment they are all the "noble",
         # which is also what would be desired, so we don't bother listing explicit ones.
         swift: ["6.2", "6.1", "6.0"]
-        traits: ["default", "all-disabled", "BinaryDelimitedStreams", "FieldMaskUtilities"]
+        traits: ["default", "disable-default-traits", "BinaryDelimitedStreams", "FieldMaskUtilities"]
 
         exclude:
           - swift: "6.0"
-            traits: "all-disabled"
+            traits: "disable-default-traits"
           - swift: "6.0"
             traits: "BinaryDelimitedStreams"
           - swift: "6.0"
@@ -37,7 +37,7 @@ jobs:
         include:
           - traits: "default"
             flags: ""
-          - traits: "all-disabled"
+          - traits: "disable-default-traits"
             flags: "--disable-default-traits"
           - traits: "BinaryDelimitedStreams"
             flags: "--traits BinaryDelimitedStreams"
