@@ -11,6 +11,14 @@
 
 import PackageDescription
 
+#if canImport(Darwin)
+let resources: [Resource] = [
+    .copy("PrivacyInfo.xcprivacy")
+]
+#else
+let resources = [Resource]()
+#endif
+
 let package = Package(
     name: "SwiftProtobuf",
     products: [
@@ -48,14 +56,14 @@ let package = Package(
         .target(
             name: "SwiftProtobuf",
             exclude: ["CMakeLists.txt"],
-            resources: [.copy("PrivacyInfo.xcprivacy")],
+            resources: resources,
             swiftSettings: .packageSettings
         ),
         .target(
             name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"],
             exclude: ["CMakeLists.txt"],
-            resources: [.copy("PrivacyInfo.xcprivacy")],
+            resources: resources,
             swiftSettings: .packageSettings
         ),
         .target(
