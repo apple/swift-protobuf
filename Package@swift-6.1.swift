@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.1
 
 // Package.swift
 //
@@ -34,6 +34,15 @@ let package = Package(
             name: "SwiftProtobufPlugin",
             targets: ["SwiftProtobufPlugin"]
         ),
+    ],
+    traits: [
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description:
+                "This trait enables the APIs to serializing binary delimited messages with Foundation Input/Output streams."
+        ),
+        .trait(name: "FieldMaskUtilities", description: "This trait enables APIs for improved FieldMask support."),
+        .default(enabledTraits: ["BinaryDelimitedStreams", "FieldMaskUtilities"]),
     ],
     targets: [
         .target(
@@ -420,9 +429,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
     static var packageSettings: Self {
         [
-            .enableUpcomingFeature("ExistentialAny"),
-            .define("BinaryDelimitedStreams"),
-            .define("FieldMaskUtilities"),
+            .enableUpcomingFeature("ExistentialAny")
         ]
     }
 }

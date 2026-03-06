@@ -13,6 +13,10 @@
 ///
 // -----------------------------------------------------------------------------
 
+// We are disabling these tests, because they use
+// APIs gated behind the trait.
+#if BinaryDelimitedStreams
+
 import Foundation
 import SwiftProtobuf
 import XCTest
@@ -241,3 +245,5 @@ final class Test_AsyncMessageSequence: XCTestCase {
         return [UInt8](data)
     }
 }
+
+#endif

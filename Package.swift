@@ -35,6 +35,15 @@ let package = Package(
             targets: ["SwiftProtobufPlugin"]
         ),
     ],
+    traits: [
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description:
+                "This trait enables the APIs to serializing binary delimited messages with Foundation Input/Output streams."
+        ),
+        .trait(name: "FieldMaskUtilities", description: "This trait enables APIs for improved FieldMask support."),
+        .default(enabledTraits: ["BinaryDelimitedStreams", "FieldMaskUtilities"]),
+    ],
     targets: [
         .target(
             name: "SwiftProtobuf",

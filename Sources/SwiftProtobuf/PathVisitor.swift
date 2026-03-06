@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if FieldMaskUtilities
+
 #if canImport(FoundationEssentials)
 import FoundationEssentials
 #else
@@ -286,3 +288,5 @@ struct PathVisitor<T: Message>: Visitor {
         visit(value, fieldNumber: fieldNumber)
     }
 }
+
+#endif

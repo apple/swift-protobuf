@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if FieldMaskUtilities
+
 #if canImport(FoundationEssentials)
 import FoundationEssentials
 #else
@@ -445,3 +447,5 @@ extension Message {
         try decodeMessage(decoder: &decoder)
     }
 }
+
+#endif

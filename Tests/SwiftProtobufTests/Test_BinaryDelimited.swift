@@ -8,6 +8,8 @@
 //
 // -----------------------------------------------------------------------------
 
+#if BinaryDelimitedStreams
+
 import Foundation
 import SwiftProtobuf
 import XCTest
@@ -188,3 +190,5 @@ final class Test_BinaryDelimited: XCTestCase {
         )
     }
 }
+
+#endif

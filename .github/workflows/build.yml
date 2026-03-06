@@ -23,12 +23,29 @@ jobs:
         # Looking at https://hub.docker.com/_/swift, the version only tags (i.e. - 6.1)
         # could use different Ubuntu releases. At the moment they are all the "noble",
         # which is also what would be desired, so we don't bother listing explicit ones.
-        swift:
-        - version: "6.2"
-        - version: "6.1"
-        - version: "6.0"
+        swift: ["6.2", "6.1", "6.0"]
+        traits: ["default", "disable-default-traits", "BinaryDelimitedStreams", "FieldMaskUtilities"]
+
+        exclude:
+          - swift: "6.0"
+            traits: "disable-default-traits"
+          - swift: "6.0"
+            traits: "BinaryDelimitedStreams"
+          - swift: "6.0"
+            traits: "FieldMaskUtilities"
+
+        include:
+          - traits: "default"
+            flags: ""
+          - traits: "disable-default-traits"
+            flags: "--disable-default-traits"
+          - traits: "BinaryDelimitedStreams"
+            flags: "--traits BinaryDelimitedStreams"
+          - traits: "FieldMaskUtilities"
+            flags: "--traits FieldMaskUtilities"
+    name: Swift ${{ matrix.swift }} | Traits - ${{ matrix.traits }}
     container:
-      image: swift:${{ matrix.swift.version }}
+      image: swift:${{ matrix.swift }}
     steps:
     - name: Checkout
       uses: actions/checkout@v6
@@ -42,14 +59,17 @@ jobs:
       # `make` is needed for using our own `Makefile`.
       run: apt-get update && apt-get install -y make g++
     - name: Build
-      run: make build SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors"
+      run: make build SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors ${{ matrix.flags }}"
     - name: Test runtime
-      run: make test-runtime SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors"
+      run: make test-runtime SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors ${{ matrix.flags }}"
     - name: Test plugin
+      if: ${{ matrix.traits == 'default' }}
       run: make test-plugin
     - name: Test SPM plugin
+      if: ${{ matrix.traits == 'default' }}
       run: make test-spm-plugin
     - name: Compilation Tests
+      if: ${{ matrix.traits == 'default' }}
       run: make compile-tests
 
   api-breakage:
