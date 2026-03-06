@@ -81,7 +81,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v6
     - name: Run linkage test
-      run: chmod +x ./scripts/run-linkage-test.sh && ./scripts/run-linkage-test.sh
+      run: ./scripts/run-linkage-test.sh
     
 
   api-breakage:
