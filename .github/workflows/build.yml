@@ -72,6 +72,18 @@ jobs:
       if: ${{ matrix.traits == 'default' }}
       run: make compile-tests
 
+  linkage-test:
+    runs-on: ubuntu-latest
+    name: Foundation linkage test
+    container:
+      image: swift:6.2
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+    - name: Run linkage test
+      run: chmod +x ./scripts/run-linkage-test.sh && ./scripts/run-linkage-test.sh
+    
+
   api-breakage:
     name: Api Breakage Compared to main branch
     # Only on pull requests
