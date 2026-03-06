@@ -24,10 +24,10 @@ echo "Running on Linux - proceeding with linkage test..."
 
 # Build the linkage test package
 echo "Building linkage test package..."
-swift build --package-path Tests/LinkageTest
+swift build --package-path CompileTests/LinkageTest
 
 # Construct build path
-build_path=$(swift build --package-path Tests/LinkageTest --show-bin-path)
+build_path=$(swift build --package-path CompileTests/LinkageTest --show-bin-path)
 binary_path=$build_path/linkageTest
 
 # Verify the binary exists
