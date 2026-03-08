@@ -86,9 +86,7 @@ jobs:
       # Just ensure we have the latest `g++` for building protoc (since it is
       # built by SwiftPM), full dependencies available at
       # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
-      #
-      # `make` is needed for using our own `Makefile`.
-      run: apt-get update && apt-get install -y make g++
+      run: apt-get update && apt-get install -y g++
     - name: Run linkage test
       run: ./scripts/run-linkage-test.sh
     
