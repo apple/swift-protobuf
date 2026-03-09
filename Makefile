@@ -91,6 +91,10 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Tests/proto
 	check-for-protobuf-checkout \
 	check-proto-files \
 	check-version-numbers \
+	check-traits \
+	check-traits-disable-default \
+	check-traits-BinaryDelimitedStreams \
+	check-traits-FieldMaskUtilities \
 	clean \
 	compile-tests \
 	compile-tests-multimodule \
@@ -254,6 +258,19 @@ compile-tests-multimodule:
 compile-tests-internalimportsbydefault:
 	${SWIFT} build --package-path CompileTests/InternalImportsByDefault
 
+
+# Ensure all the the different traits compile correct.
+# NOTE: Not currently part of the regular "check" target.
+check-traits: check-traits-disable-default check-traits-BinaryDelimitedStreams check-traits-FieldMaskUtilities
+
+check-traits-disable-default:
+	${SWIFT} test --disable-default-traits
+
+check-traits-BinaryDelimitedStreams:
+	${SWIFT} test --traits BinaryDelimitedStreams
+
+check-traits-FieldMaskUtilities:
+	${SWIFT} test --traits FieldMaskUtilities
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
 # against our menagerie of sample protos.
