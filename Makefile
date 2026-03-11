@@ -168,7 +168,7 @@ test-all test-everything: test
 
 # Check the version numbers are all in sync.
 check-version-numbers:
-	@DevTools/LibraryVersions.py --validate
+	@scripts/LibraryVersions.py --validate
 
 #
 # The Swift test suite includes unit tests for the runtime library

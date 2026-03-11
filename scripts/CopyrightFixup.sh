@@ -2,8 +2,8 @@
 
 set -eu
 
-readonly DevToolsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
-readonly RootDir="${DevToolsDir}/.."
+readonly ScriptsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
+readonly RootDir="${ScriptsDir}/.."
 
 cd "${RootDir}"
 
