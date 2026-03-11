@@ -13,15 +13,150 @@
 ///
 // -----------------------------------------------------------------------------
 
-// We are disabling these tests, because they use
-// APIs gated behind the trait.
-#if BinaryDelimitedStreams
-
 import Foundation
 import SwiftProtobuf
 import XCTest
 
 final class Test_AsyncMessageSequence: XCTestCase {
+
+    // Stream with a single zero varint
+    func testStreamZeroVarintOnly() async throws {
+        let seq = asyncByteStream(bytes: [0])
+        let decoded = seq.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+
+        var count = 0
+        for try await message in decoded {
+            XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
+            count += 1
+        }
+        XCTAssertEqual(count, 1)
+    }
+
+    // Empty stream with zero bytes
+    func testEmptyStream() async throws {
+        let asyncBytes = asyncByteStream(bytes: [])
+        let messages = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+        for try await _ in messages {
+            XCTFail("Shouldn't have returned a value for an empty stream.")
+        }
+    }
+
+    // A stream with legal non-zero varint but no message
+    func testNonZeroVarintNoMessage() async throws {
+        let asyncBytes = asyncByteStream(bytes: [0x96, 0x01])
+        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+        var truncatedThrown = false
+        do {
+            for try await _ in decoded {
+                XCTFail("Shouldn't have returned a value for truncated stream.")
+            }
+        } catch {
+            if error as! BinaryDelimited.Error == .truncated {
+                truncatedThrown = true
+            }
+        }
+        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryDelimited.truncated")
+    }
+
+    // The data stops before the indicated payload length.
+    func testNotEnoughDataForMessage() async throws {
+        let asyncBytes = asyncByteStream(bytes: [0x96, 0x01, 0x01, 0x02, 0x03])
+        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+        var truncatedThrown = false
+        do {
+            for try await _ in decoded {
+                XCTFail("Shouldn't have returned a value for truncated stream.")
+            }
+        } catch {
+            if error as! BinaryDelimited.Error == .truncated {
+                truncatedThrown = true
+            }
+        }
+        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryDelimited.truncated")
+    }
+
+    // Single varint describing a 2GB message
+    func testTooLarge() async throws {
+        let asyncBytes = asyncByteStream(bytes: [128, 128, 128, 128, 8])
+        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+        do {
+            for try await _ in decoded {
+                XCTFail("Shouldn't have returned a value for an invalid stream.")
+            }
+        } catch {
+            XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.tooLarge()))
+        }
+    }
+
+    // Stream with truncated varint
+    func testTruncatedVarint() async throws {
+        let asyncBytes = asyncByteStream(bytes: [192])
+
+        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+        var truncatedThrown = false
+        do {
+            for try await _ in decoded {
+                XCTFail("Shouldn't have returned a value for an empty stream.")
+            }
+        } catch {
+            if error as! BinaryDelimited.Error == .truncated {
+                truncatedThrown = true
+            }
+        }
+        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryDelimited.truncated")
+    }
+
+    // Test with an over encoded varint value.
+    func testOverEncodedVarint() async throws {
+        let asyncBytes = asyncByteStream(bytes: [
+            0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x08,
+        ])
+
+        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+        do {
+            for try await _ in decoded {
+                XCTFail("Shouldn't have returned a value for an empty stream.")
+            }
+        } catch {
+            XCTAssertTrue(
+                self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryStreamDecoding.malformedLength())
+            )
+        }
+    }
+
+    // Slow test case found by oss-fuzz: 1 million zero-sized messages
+    // A similar test with BinaryDelimited is about 4x faster, showing
+    // that we have some room for improvement here.
+    // (Note this currently only tests 100,000 zero-sized messages,
+    // but the constant below is easy to edit if you want to experiment.)
+    func testLargeExample() async throws {
+        let messageCount = 100_000
+        let bytes = [UInt8](repeating: 0, count: messageCount)
+        let byteStream = asyncByteStream(bytes: bytes)
+        let decodedStream = byteStream.binaryProtobufDelimitedMessages(
+            of: SwiftProtoTesting_TestAllTypes.self,
+            extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
+        )
+        var count = 0
+        for try await message in decodedStream {
+            XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
+            count += 1
+        }
+        XCTAssertEqual(count, messageCount)
+    }
+
+    fileprivate func asyncByteStream(bytes: [UInt8]) -> AsyncStream<UInt8> {
+        AsyncStream(UInt8.self) { continuation in
+            for byte in bytes {
+                continuation.yield(byte)
+            }
+            continuation.finish()
+        }
+    }
+
+    // These tests all make use of other runtime apis gated against the trait, so the tests are also
+    // gated.
+    #if BinaryDelimitedStreams
 
     // Decode a valid binary delimited stream
     func testValidSequence() async throws {
@@ -98,76 +233,6 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTAssertEqual(count, 5, "Expected five messages with default fields.")
     }
 
-    // Stream with a single zero varint
-    func testStreamZeroVarintOnly() async throws {
-        let seq = asyncByteStream(bytes: [0])
-        let decoded = seq.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
-
-        var count = 0
-        for try await message in decoded {
-            XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
-            count += 1
-        }
-        XCTAssertEqual(count, 1)
-    }
-
-    // Empty stream with zero bytes
-    func testEmptyStream() async throws {
-        let asyncBytes = asyncByteStream(bytes: [])
-        let messages = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
-        for try await _ in messages {
-            XCTFail("Shouldn't have returned a value for an empty stream.")
-        }
-    }
-
-    // A stream with legal non-zero varint but no message
-    func testNonZeroVarintNoMessage() async throws {
-        let asyncBytes = asyncByteStream(bytes: [0x96, 0x01])
-        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
-        var truncatedThrown = false
-        do {
-            for try await _ in decoded {
-                XCTFail("Shouldn't have returned a value for an empty stream.")
-            }
-        } catch {
-            if error as! BinaryDelimited.Error == .truncated {
-                truncatedThrown = true
-            }
-        }
-        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryStreamDecoding.truncated")
-    }
-
-    // Single varint describing a 2GB message
-    func testTooLarge() async throws {
-        let asyncBytes = asyncByteStream(bytes: [128, 128, 128, 128, 8])
-        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
-        do {
-            for try await _ in decoded {
-                XCTFail("Shouldn't have returned a value for an invalid stream.")
-            }
-        } catch {
-            XCTAssertTrue(self.isSwiftProtobufErrorEqual(error as! SwiftProtobufError, .BinaryDecoding.tooLarge()))
-        }
-    }
-
-    // Stream with truncated varint
-    func testTruncatedVarint() async throws {
-        let asyncBytes = asyncByteStream(bytes: [192])
-
-        let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
-        var truncatedThrown = false
-        do {
-            for try await _ in decoded {
-                XCTFail("Shouldn't have returned a value for an empty stream.")
-            }
-        } catch {
-            if error as! BinaryDelimited.Error == .truncated {
-                truncatedThrown = true
-            }
-        }
-        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobufError.BinaryStreamDecoding.truncated")
-    }
-
     // Stream with a valid varint and message, but the following varint is truncated
     func testValidMessageThenTruncatedVarint() async throws {
         var truncatedThrown = false
@@ -200,37 +265,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
                 truncatedThrown = true
             }
         }
-        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobuf.BinaryStreamDecoding.truncated")
-    }
-
-    // Slow test case found by oss-fuzz: 1 million zero-sized messages
-    // A similar test with BinaryDelimited is about 4x faster, showing
-    // that we have some room for improvement here.
-    // (Note this currently only tests 100,000 zero-sized messages,
-    // but the constant below is easy to edit if you want to experiment.)
-    func testLargeExample() async throws {
-        let messageCount = 100_000
-        let bytes = [UInt8](repeating: 0, count: messageCount)
-        let byteStream = asyncByteStream(bytes: bytes)
-        let decodedStream = byteStream.binaryProtobufDelimitedMessages(
-            of: SwiftProtoTesting_TestAllTypes.self,
-            extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
-        )
-        var count = 0
-        for try await message in decodedStream {
-            XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
-            count += 1
-        }
-        XCTAssertEqual(count, messageCount)
-    }
-
-    fileprivate func asyncByteStream(bytes: [UInt8]) -> AsyncStream<UInt8> {
-        AsyncStream(UInt8.self) { continuation in
-            for byte in bytes {
-                continuation.yield(byte)
-            }
-            continuation.finish()
-        }
+        XCTAssertTrue(truncatedThrown, "Should throw a SwiftProtobuf.BinaryDelimited.truncated")
     }
 
     fileprivate func serializedMessageData(messages: [any Message]) throws -> [UInt8] {
@@ -244,6 +279,6 @@ final class Test_AsyncMessageSequence: XCTestCase {
         let data = Data(referencing: nsData)
         return [UInt8](data)
     }
-}
+    #endif  // BinaryDelimitedStreams
 
-#endif
+}
