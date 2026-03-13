@@ -16,8 +16,10 @@ Pod::Spec.new do |s|
 
   s.cocoapods_version = '>= 1.13.0'
 
-  # Support `package` visibility.
   s.pod_target_xcconfig = {
+    # Support the default `traits` from the package.
+    'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => '$(inherited) BinaryDelimitedStreams FieldMaskUtilities',
+     # Support `package` visibility.
     'OTHER_SWIFT_FLAGS' => '-package-name SwiftProtobuf'
   }
 
