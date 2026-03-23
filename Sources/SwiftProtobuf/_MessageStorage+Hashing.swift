@@ -22,15 +22,15 @@ extension _MessageStorage {
     /// differently from one where that field is not present but has a default defined to be 100.
     @inline(never)
     public func hash(into hasher: inout Hasher) {
-        // TODO: If we store the offset of the first non-trivial field in the layout, we can make
+        // TODO: If we store the offset of the first non-trivial field in the schema, we can make
         // this extremely fast by hashing the trivial fields as a single slice of bytes. Likewise,
         // we could avoid the loop entirely if the message contains only trivial fields.
 
         // Loops through the fields, combining the hashes for any with non-trivial types. We ignore
         // the trivial ones here, instead tracking the byte offset of the first non-trivial field
         // so that we can hash them as a contiguous byte buffer slice afterwards.
-        var firstNontrivialStorageOffset = layout.size
-        for field in layout.fields {
+        var firstNontrivialStorageOffset = schema.storageSize
+        for field in schema.fields {
             guard isPresent(field) else {
                 continue
             }
@@ -40,8 +40,8 @@ extension _MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                _ = try! layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try! schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .read
@@ -62,8 +62,8 @@ extension _MessageStorage {
                 case .double:
                     hashField(field, into: &hasher, type: [Double].self)
                 case .enum, .group, .message:
-                    _ = try! layout.performOnSubmessageStorage(
-                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    _ = try! schema.performOnSubmessageStorage(
+                        MessageSchema.TrampolineToken(index: field.submessageIndex),
                         field,
                         self,
                         .read
@@ -99,8 +99,8 @@ extension _MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    _ = try! layout.performOnSubmessageStorage(
-                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    _ = try! schema.performOnSubmessageStorage(
+                        MessageSchema.TrampolineToken(index: field.submessageIndex),
                         field,
                         self,
                         .read
@@ -134,7 +134,7 @@ extension _MessageStorage {
     }
 
     /// Hashes the value of the field, given the expected type of that field.
-    private func hashField<T: Hashable>(_ field: FieldLayout, into hasher: inout Hasher, type: T.Type) {
+    private func hashField<T: Hashable>(_ field: FieldSchema, into hasher: inout Hasher, type: T.Type) {
         hasher.combine((buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee)
     }
 }

@@ -99,10 +99,10 @@ class EnumGenerator {
         p.withIndentation { p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_enumLayoutString: StaticString { "" }"#
+                #"private static var _protobuf_enumSchemaString: StaticString { "" }"#
             )
             p.print(
-                "\(generatorOptions.visibilitySourceSnippet)static let _protobuf_enumLayout = \(namer.swiftProtobufModulePrefix)EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)"
+                "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)"
             )
             generateProtoNameProviding(printer: &p)
         }
@@ -164,7 +164,7 @@ class EnumGenerator {
         }
         p.print(
             "private static var _protobuf_valueNamesString: Swift.StaticString { \(writer.bytecode.stringLiteral) }",
-            "\(visibility)static var _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap { _protobuf_enumLayout.nameMap }"
+            "\(visibility)static var _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap { enumSchema.nameMap }"
         )
     }
 }

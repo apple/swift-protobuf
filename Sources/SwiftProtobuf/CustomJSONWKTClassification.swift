@@ -40,9 +40,9 @@ package enum CustomJSONWKTClassification {
         }
     }
 
-    /// Classifies the message represented by the given layout.
-    package init(messageLayout: _MessageLayout) {
-        guard let suffix = suffixIfWellKnown(messageLayout.nameMap.fullyQualifiedName) else {
+    /// Classifies the message represented by the given schema.
+    package init(messageSchema: MessageSchema) {
+        guard let suffix = suffixIfWellKnown(messageSchema.nameMap.fullyQualifiedName) else {
             self = .notWellKnown
             return
         }
@@ -67,9 +67,9 @@ package enum CustomJSONWKTClassification {
         }
     }
 
-    /// Classifies the enum represented by the given layout.
-    package init(enumLayout: EnumLayout) {
-        self = enumLayout.nameMap.fullyQualifiedName == "google.protobuf.NullValue" ? .nullValue : .notWellKnown
+    /// Classifies the enum represented by the given schema.
+    package init(enumSchema: EnumSchema) {
+        self = enumSchema.nameMap.fullyQualifiedName == "google.protobuf.NullValue" ? .nullValue : .notWellKnown
     }
 }
 

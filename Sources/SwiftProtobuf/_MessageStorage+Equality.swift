@@ -29,7 +29,7 @@ extension _MessageStorage {
             /// Identical message storage means they must be equal.
             return true
         }
-        // TODO: If we store the offset of the first non-trivial field in the layout, we can make
+        // TODO: If we store the offset of the first non-trivial field in the schema, we can make
         // this extremely fast by doing the memcmp up front and failing fast. Likewise, we can also
         // avoid the loop entirely if the message contains only trivial fields. We could see similar
         // performance wins for copy and deinit.
@@ -37,16 +37,16 @@ extension _MessageStorage {
         // Loops through the fields, checking equality of any that are non-trivial types. We ignore
         // the trivial ones here, instead tracking the byte offset of the first non-trivial field
         // so that we can bitwise-compare those as a block afterward.
-        var firstNontrivialStorageOffset = layout.size
+        var firstNontrivialStorageOffset = schema.storageSize
         var equalSoFar = true
-        for field in layout.fields {
+        for field in schema.fields {
             switch field.fieldMode.cardinality {
             case .map:
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                equalSoFar = layout.performNontrivialFieldOperation(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                equalSoFar = schema.performNontrivialFieldOperation(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     .isEqual(other: other),
                     field,
                     self
@@ -64,8 +64,8 @@ extension _MessageStorage {
                 case .double:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Double].self)
                 case .enum, .group, .message:
-                    equalSoFar = layout.performNontrivialFieldOperation(
-                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    equalSoFar = schema.performNontrivialFieldOperation(
+                        MessageSchema.TrampolineToken(index: field.submessageIndex),
                         .isEqual(other: other),
                         field,
                         self
@@ -98,8 +98,8 @@ extension _MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    equalSoFar = layout.performNontrivialFieldOperation(
-                        _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                    equalSoFar = schema.performNontrivialFieldOperation(
+                        MessageSchema.TrampolineToken(index: field.submessageIndex),
                         .isEqual(other: other),
                         field,
                         self
@@ -143,7 +143,7 @@ extension _MessageStorage {
     /// Returns whether the given field in the receiver is equal to the same field in the other
     /// storage, given the expected type of that field.
     func isField<T: Equatable>(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         equalToSameFieldIn other: _MessageStorage,
         type: T.Type
     ) -> Bool {

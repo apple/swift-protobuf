@@ -25,15 +25,15 @@
 /// workspace before/after transferring the key and value into/out of the dictionary. This allows
 /// map entry serialization to be implemented in essentially the same fashion as other types.
 struct MapEntryWorkingSpace {
-    /// The layout of the message that contains the map field being encoded/decoded.
-    private let ownerLayout: _MessageLayout
+    /// The schema of the message that contains the map field being encoded/decoded.
+    private let ownerSchema: MessageSchema
 
     /// The cache of `_MessageStorage` objects used for the map entries in this message.
     private var entryStorage: [Int: _MessageStorage]
 
-    /// Creates a new map entry working space for the message with the given layout.
-    init(ownerLayout: _MessageLayout) {
-        self.ownerLayout = ownerLayout
+    /// Creates a new map entry working space for the message with the given schema.
+    init(ownerSchema: MessageSchema) {
+        self.ownerSchema = ownerSchema
         self.entryStorage = [:]
     }
 
@@ -46,7 +46,7 @@ struct MapEntryWorkingSpace {
 
         // It didn't already exist, so create it and cache it.
         let storage = _MessageStorage(
-            layout: ownerLayout.mapEntryLayout(_MessageLayout.TrampolineToken(index: trampolineIndex))
+            schema: ownerSchema.mapEntrySchema(MessageSchema.TrampolineToken(index: trampolineIndex))
         )
         entryStorage[trampolineIndex] = storage
         return storage

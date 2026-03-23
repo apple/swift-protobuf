@@ -46,7 +46,7 @@ extension _MessageStorage {
         // TODO: Support extensions.
         var reader = TextFormatReader(
             buffer: buffer,
-            nameMap: layout.nameMap,
+            nameMap: schema.nameMap,
             options: options,
             extensions: nil
         )
@@ -58,9 +58,9 @@ extension _MessageStorage {
     }
 
     private func merge(byParsingTextFormatFrom reader: inout TextFormatReader) throws {
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         while let fieldNumber = try reader.nextFieldNumber() {
-            guard let field = layout[fieldNumber: fieldNumber] else {
+            guard let field = schema[fieldNumber: fieldNumber] else {
                 // The scanner should have already skipped any unknown fields or thrown an error
                 // (depending on the decoding options), so any field we get back from this reader
                 // should always exist.
@@ -73,7 +73,7 @@ extension _MessageStorage {
 
     private func decodeNextFieldValue(
         from reader: inout TextFormatReader,
-        field: FieldLayout,
+        field: FieldSchema,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
         let fieldType = field.rawFieldType
@@ -89,8 +89,8 @@ extension _MessageStorage {
         switch field.fieldMode.cardinality {
         case .map:
             try scanPossibleArray(from: &reader) { reader in
-                _ = try layout.performOnMapEntry(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try schema.performOnMapEntry(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     mapEntryWorkingSpace.storage(for: field.submessageIndex),
@@ -98,14 +98,14 @@ extension _MessageStorage {
                     // Deterministic ordering doesn't apply to decoding.
                     false
                 ) { submessageStorage in
-                    let mapEntryLayout = submessageStorage.layout
-                    try reader.withReaderForNextObject(expectedLayout: mapEntryLayout) { subReader in
+                    let mapEntrySchema = submessageStorage.schema
+                    try reader.withReaderForNextObject(expectedSchema: mapEntrySchema) { subReader in
                         try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
 
                         // Throw an error if the key or the value was missing.
                         guard
-                            submessageStorage.isPresent(mapEntryLayout[fieldNumber: 1]!)
-                                && submessageStorage.isPresent(mapEntryLayout[fieldNumber: 2]!)
+                            submessageStorage.isPresent(mapEntrySchema[fieldNumber: 1]!)
+                                && submessageStorage.isPresent(mapEntrySchema[fieldNumber: 2]!)
                         else {
                             throw TextFormatDecodingError.malformedText
                         }
@@ -251,17 +251,17 @@ extension _MessageStorage {
     /// Scans the submessage value of the given field from the reader, performing the given
     /// operation on its storage (either mutate or append).
     private func scanSubmessageValue(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         from reader: inout TextFormatReader,
         operation: TrampolineFieldOperation
     ) throws {
-        _ = try layout.performOnSubmessageStorage(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try schema.performOnSubmessageStorage(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             operation
         ) { submessageStorage in
-            try reader.withReaderForNextObject(expectedLayout: submessageStorage.layout) { subReader in
+            try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
                 try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
             }
             return true
@@ -271,18 +271,18 @@ extension _MessageStorage {
     /// Scans the enum value of the given field from the reader (handling both name and numeric
     /// cases), performing the given operation on its raw value (either mutate or append).
     private func scanEnumValue(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         from reader: inout TextFormatReader,
         operation: TrampolineFieldOperation
     ) throws {
         var hasSeenValue = false
 
-        _ = try layout.performOnRawEnumValues(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try schema.performOnRawEnumValues(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             operation
-        ) { enumLayout, value in
+        ) { enumSchema, value in
             // For the repeated case, terminate the loop inside `performOnRawEnumValues` after
             // having read one value.
             if hasSeenValue {
@@ -291,7 +291,7 @@ extension _MessageStorage {
             hasSeenValue = true
 
             if let name = try reader.scanner.nextOptionalEnumName() {
-                guard let number = enumLayout.nameMap.number(forProtoName: name) else {
+                guard let number = enumSchema.nameMap.number(forProtoName: name) else {
                     throw TextFormatDecodingError.unrecognizedEnumValue
                 }
                 value = Int32(number)

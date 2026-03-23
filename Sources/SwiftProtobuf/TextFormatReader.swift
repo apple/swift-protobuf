@@ -82,15 +82,15 @@ struct TextFormatReader {
     /// closing of the object that was read.
     ///
     /// - Parameters:
-    ///   - expectedLayout: The `_MessageLayout` of the message that we are expecting to read, from
+    ///   - expectedSchema: The `MessageSchema` of the message that we are expecting to read, from
     ///     which the name map will be retrieved.
     ///   - body: A closure that will be executed within the context of the sub-reader.
     mutating func withReaderForNextObject(
-        expectedLayout: _MessageLayout,
+        expectedSchema: MessageSchema,
         _ body: (inout TextFormatReader) throws -> Void
     ) throws {
         let subTerminator = try scanner.skipObjectStart()
-        var subReader = TextFormatReader(scanner: scanner, nameMap: expectedLayout.nameMap, terminator: subTerminator)
+        var subReader = TextFormatReader(scanner: scanner, nameMap: expectedSchema.nameMap, terminator: subTerminator)
         try body(&subReader)
         assert((scanner.recursionBudget + 1) == subReader.scanner.recursionBudget)
         self.scanner = subReader.scanner
