@@ -50,10 +50,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
   typealias Version = _2
 }
 
-/// `NullValue` is a singleton enumeration to represent the null value for the
-/// `Value` type union.
+/// Represents a JSON `null`.
 ///
-/// The JSON representation for `NullValue` is JSON `null`.
+/// `NullValue` is a sentinel, using an enum with only one value to represent
+/// the null value for the `Value` type union.
+///
+/// A field of type `NullValue` with any value other than `0` is considered
+/// invalid. Most ProtoJSON serializers will emit a Value with a `null_value` set
+/// as a JSON `null` regardless of the integer value, and so will round trip to
+/// a `0` value.
 enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
@@ -86,15 +91,19 @@ enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
 
 }
 
-/// Represents an unordered key-value map, intending to perfectly
-/// capture the semantics of a JSON object. This enables parsing any arbitrary
-/// JSON payload as a message field in ProtoJSON format.
+/// Represents a JSON object.
 ///
-/// This type cannot represent large Int64 values or `NaN`/`Infinity` numbers,
-/// since JSON format generally does not support them in its number type.
+/// An unordered key-value map, intending to perfectly capture the semantics of a
+/// JSON object. This enables parsing any arbitrary JSON payload as a message
+/// field in ProtoJSON format.
+///
+/// This follows RFC 8259 guidelines for interoperable JSON: notably this type
+/// cannot represent large Int64 values or `NaN`/`Infinity` numbers,
+/// since the JSON format generally does not support those values in its number
+/// type.
 ///
 /// If you do not intend to parse arbitrary JSON into your message, a custom
-/// typed message should be preferred instead.
+/// typed message should be preferred instead of using this type.
 struct Google_Protobuf_Struct: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -108,12 +117,12 @@ struct Google_Protobuf_Struct: Sendable {
   init() {}
 }
 
+/// Represents a JSON value.
+///
 /// `Value` represents a dynamically typed value which can be either
 /// null, a number, a string, a boolean, a recursive struct value, or a
 /// list of values. A producer of value is expected to set one of these
-/// variants. Absence of any variant indicates an error.
-///
-/// The JSON representation for `Value` is JSON value.
+/// variants. Absence of any variant is an invalid state.
 struct Google_Protobuf_Value: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -122,7 +131,7 @@ struct Google_Protobuf_Value: Sendable {
   /// The kind of value.
   var kind: Google_Protobuf_Value.OneOf_Kind? = nil
 
-  /// Represents a null value.
+  /// Represents a JSON `null`.
   var nullValue: Google_Protobuf_NullValue {
     get {
       if case .nullValue(let v)? = kind {return v}
@@ -131,7 +140,10 @@ struct Google_Protobuf_Value: Sendable {
     set {kind = .nullValue(newValue)}
   }
 
-  /// Represents a double value. Must not be `NaN`, `Infinity` or `-Infinity`.
+  /// Represents a JSON number. Must not be `NaN`, `Infinity` or
+  /// `-Infinity`, since those are not supported in JSON. This also cannot
+  /// represent large Int64 values, since JSON format generally does not
+  /// support them in its number type.
   var numberValue: Double {
     get {
       if case .numberValue(let v)? = kind {return v}
@@ -140,7 +152,7 @@ struct Google_Protobuf_Value: Sendable {
     set {kind = .numberValue(newValue)}
   }
 
-  /// Represents a string value.
+  /// Represents a JSON string.
   var stringValue: String {
     get {
       if case .stringValue(let v)? = kind {return v}
@@ -149,7 +161,7 @@ struct Google_Protobuf_Value: Sendable {
     set {kind = .stringValue(newValue)}
   }
 
-  /// Represents a boolean value.
+  /// Represents a JSON boolean (`true` or `false` literal in JSON).
   var boolValue: Bool {
     get {
       if case .boolValue(let v)? = kind {return v}
@@ -158,7 +170,7 @@ struct Google_Protobuf_Value: Sendable {
     set {kind = .boolValue(newValue)}
   }
 
-  /// Represents a structured value.
+  /// Represents a JSON object.
   var structValue: Google_Protobuf_Struct {
     get {
       if case .structValue(let v)? = kind {return v}
@@ -167,7 +179,7 @@ struct Google_Protobuf_Value: Sendable {
     set {kind = .structValue(newValue)}
   }
 
-  /// Represents a repeated `Value`.
+  /// Represents a JSON array.
   var listValue: Google_Protobuf_ListValue {
     get {
       if case .listValue(let v)? = kind {return v}
@@ -180,17 +192,20 @@ struct Google_Protobuf_Value: Sendable {
 
   /// The kind of value.
   enum OneOf_Kind: Equatable, Sendable {
-    /// Represents a null value.
+    /// Represents a JSON `null`.
     case nullValue(Google_Protobuf_NullValue)
-    /// Represents a double value. Must not be `NaN`, `Infinity` or `-Infinity`.
+    /// Represents a JSON number. Must not be `NaN`, `Infinity` or
+    /// `-Infinity`, since those are not supported in JSON. This also cannot
+    /// represent large Int64 values, since JSON format generally does not
+    /// support them in its number type.
     case numberValue(Double)
-    /// Represents a string value.
+    /// Represents a JSON string.
     case stringValue(String)
-    /// Represents a boolean value.
+    /// Represents a JSON boolean (`true` or `false` literal in JSON).
     case boolValue(Bool)
-    /// Represents a structured value.
+    /// Represents a JSON object.
     case structValue(Google_Protobuf_Struct)
-    /// Represents a repeated `Value`.
+    /// Represents a JSON array.
     case listValue(Google_Protobuf_ListValue)
 
   }
@@ -198,9 +213,7 @@ struct Google_Protobuf_Value: Sendable {
   init() {}
 }
 
-/// `ListValue` is a wrapper around a repeated field of values.
-///
-/// The JSON representation for `ListValue` is JSON array.
+/// Represents a JSON array.
 struct Google_Protobuf_ListValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
