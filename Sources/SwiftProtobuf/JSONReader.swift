@@ -78,14 +78,14 @@ struct JSONReader {
     /// closing of the object that was read.
     ///
     /// - Parameters:
-    ///   - expectedLayout: The `_MessageLayout` of the message that we are expecting to read, from
+    ///   - expectedSchema: The `MessageSchema` of the message that we are expecting to read, from
     ///     which the name map will be retrieved.
     ///   - body: A closure that will be executed within the context of the sub-reader.
     mutating func withReaderForNextObject(
-        expectedLayout: _MessageLayout,
+        expectedSchema: MessageSchema,
         _ body: (inout JSONReader) throws -> Void
     ) throws {
-        var subReader = JSONReader(scanner: scanner, nameMap: expectedLayout.nameMap)
+        var subReader = JSONReader(scanner: scanner, nameMap: expectedSchema.nameMap)
         try body(&subReader)
         assert(scanner.recursionBudget == subReader.scanner.recursionBudget)
         self.scanner = subReader.scanner

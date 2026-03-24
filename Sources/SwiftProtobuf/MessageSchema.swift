@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageLayout.swift - Table-driven message layout
+// Sources/SwiftProtobuf/MessageSchema.swift - Table-driven message schema
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -14,98 +14,96 @@
 
 import Foundation
 
-/// Defines the in-memory layout of the storage for a message.
-///
-/// This type is public because it needs to be referenced and initialized from generated messages.
-/// Clients should not access it directly.
-///
-/// ## Encoded Layout
-///
-/// The message layout is encoded in UTF-8-compatible form as a `StaticString`. Unlike `_NameMap`,
-/// which uses variable-width sequences of "instructions", the message layout is represented as a
-/// fixed size "header" followed by a sequence of fixed size field layout descriptors. This allows
-/// for fast lookup of those fields (constant time in some cases, falling back to binary search
-/// when needed).
-///
-/// ### General integer encoding
-///
-/// Since the string must be valid UTF-8, it is simplest to restrict all bytes in the string to
-/// 7-bit ASCII (0x00...0x7F). Therefore, we encode larger integers in a fixed base-128 format;
-/// no continuation bit is used (the MSB is always 0) and the layout specification determines the
-/// expected width of any encoded integers. For example, if we were encoding 16-bit integers, we
-/// would need 3 bytes, because 65536 would be encoded as 00000011 01111111 01111111.
-///
-/// ### Message layout header
-///
-/// The **message layout header** describes properties of the entire message:
-///
-/// ```
-/// +---------+--------------+-------------+----------------+-------------------------+-------------------+
-/// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Bytes 10-12             | Byte 13-15        |
-/// | Version | Message size | Field count | Required count | Explicit presence count | Density threshold |
-/// +---------+--------------+-------------+----------------+-------------------------+-------------------+
-/// ```
-/// *   Byte 0: A `UInt8` that describes the version of the layout. Currently, this is always 0.
-///     This value allows for future enhancements to be made to the layout but preserving backward
-///     compatibility.
-/// *   Bytes 1-3: The size of the message in bytes, as a base-128 integer. 64KB is an upper bound
-///     on message size imposed in practice by µpb, since it uses a `uint16_t` to represent field
-///     offsets in their own mini-tables.
-/// *   Bytes 4-6: The number of fields defined by the message, as a base-128 integer.
-///     65536 is an upper bound imposed in practice by the core protobuf implementation
-///     (https://github.com/protocolbuffers/protobuf/commit/90824aaa69000452bff5ad8db3240215a3b9a595)
-///     since larger messages would overflow various data structures.
-/// *   Bytes 7-9: The number of required fields defined by the message, as a base-128 integer.
-/// *   Bytes 10-12: The number of fields that have explicit presence, as a base-128 integer. Note
-///     that this will always be greater than or equal to the required count, because required
-///     fields also have explicit presence.
-/// *   Bytes 13-15: The largest field number `N` for which all fields in the range `1..<N` are
-///     inhabited, as a base-128 integer. We only need three bytes to represent this because the
-///     largest possible number is 65537; otherwise, it would imply that the message had more than
-///     65536 fields in violation of the bound above.
-///
-/// ### Field layouts
-///
-/// After the header above, starting at byte offset 13, is a sequence of encoded field layouts.
-/// Each field layout is 13 bytes long and they are written in field number order. Each entry
-/// encodes the following information:
-///
-/// ```
-/// +---------------------+-----------+-----------+------------------+------------+
-/// | Bytes 0-4           | Bytes 5-7 | Bytes 8-9 | Bytes 10-11      | Byte 12    |
-/// | Field number & mode | Offset    | Presence  | Trampoline index | Field type |
-/// +---------------------+-----------+-----------+------------------+------------+
-/// ```
-///
-/// *   Bytes 0-4: A packed value where the low 33-bits are a base-128 integer that encodes the
-///     29-bit field number, and the remaining bits of byte 4 represent the field mode.
-/// *   Bytes 5-7: The byte offset of the field in in-memory storage, as a base-128 integer. To
-///     match µpb's layout constraints, this value will never be larger than 2^16 - 1.
-/// *   Bytes 8-9: Information about the field's presence. Specifically,
-///     *   If this field is a member of a `oneof`, then the bitwise inverse of this value is the
-///         byte offset into in-memory storage where the field number of the populated `oneof`
-///         field is stored.
-///     *   Otherwise, the value is the index of the has-bit used to store the presence of the
-///         field.
-/// *   Bytes 10-11: For message/group/enum fields, an opaque index as a base-128 integer used to
-///     perform operations on submessage or enum fields that require the concrete type hint.
-/// *   Byte 12: The type of the field.
-@_spi(ForGeneratedCodeOnly) public struct _MessageLayout: @unchecked Sendable {
+/// Describes the layout of a message with enough detail that the runtime library can serialize and
+/// parse the message in all the required formats and manage its internal storage.
+public struct MessageSchema: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
     // `@unchecked`. Clearly this is safe because the pointer obtained from a `StaticString` is an
-    // immortal compile-time constant and we only read from it.
+    // immortal compile-time constant and we only read from it, and because the trampoline functions
+    // do not capture mutable state.
 
-    /// The encoded layout of the fields of the message.
-    private let layout: UnsafeRawBufferPointer
+    /// The encoded schema of the fields of the message.
+    ///
+    /// The message schema is encoded in UTF-8-compatible form as a `StaticString`. Unlike
+    /// `_NameMap`, which uses variable-width sequences of "instructions", the message schema is
+    /// represented as a fixed size "header" followed by a sequence of fixed size field schema
+    /// descriptors. This allows for fast lookup of those fields (constant time in some cases,
+    /// falling back to binary search when needed).
+    ///
+    /// ## General integer encoding
+    ///
+    /// Since the string must be valid UTF-8, it is simplest to restrict all bytes in the string to
+    /// 7-bit ASCII (0x00...0x7F). Therefore, we encode larger integers in a fixed base-128 format;
+    /// no continuation bit is used (the MSB is always 0) and the schema specification determines
+    /// the expected width of any encoded integers. For example, if we were encoding 16-bit
+    /// integers, we would need 3 bytes, because 65536 would be encoded as
+    /// 00000011 01111111 01111111.
+    ///
+    /// ## Message schema header
+    ///
+    /// The **message schema header** describes properties of the entire message:
+    ///
+    /// ```
+    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+
+    /// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Bytes 10-12             | Byte 13-15        |
+    /// | Version | Message size | Field count | Required count | Explicit presence count | Density threshold |
+    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+
+    /// ```
+    /// *   Byte 0: A `UInt8` that describes the version of the schema. Currently, this is always 0.
+    ///     This value allows for future enhancements to be made to the schema but preserving
+    ///     backward compatibility.
+    /// *   Bytes 1-3: The size of the message in bytes, as a base-128 integer. 64KB is an upper
+    ///     bound on message size imposed in practice by µpb, since it uses a `uint16_t` to
+    ///     represent field offsets in their own mini-tables.
+    /// *   Bytes 4-6: The number of fields defined by the message, as a base-128 integer.
+    ///     65536 is an upper bound imposed in practice by the core protobuf implementation
+    ///     (https://github.com/protocolbuffers/protobuf/commit/90824aaa69000452bff5ad8db3240215a3b9a595)
+    ///     since larger messages would overflow various data structures.
+    /// *   Bytes 7-9: The number of required fields defined by the message, as a base-128 integer.
+    /// *   Bytes 10-12: The number of fields that have explicit presence, as a base-128 integer.
+    ///     Note that this will always be greater than or equal to the required count, because
+    ///     required fields also have explicit presence.
+    /// *   Bytes 13-15: The largest field number `N` for which all fields in the range `1..<N` are
+    ///     inhabited, as a base-128 integer. We only need three bytes to represent this because the
+    ///     largest possible number is 65537; otherwise, it would imply that the message had more
+    ///     than 65536 fields in violation of the bound above.
+    ///
+    /// ## Field schemas
+    ///
+    /// After the header above, starting at byte offset 13, is a sequence of encoded field schemas.
+    /// Each field schema is 13 bytes long and they are written in field number order. Each entry
+    /// encodes the following information:
+    ///
+    /// ```
+    /// +---------------------+-----------+-----------+------------------+------------+
+    /// | Bytes 0-4           | Bytes 5-7 | Bytes 8-9 | Bytes 10-11      | Byte 12    |
+    /// | Field number & mode | Offset    | Presence  | Trampoline index | Field type |
+    /// +---------------------+-----------+-----------+------------------+------------+
+    /// ```
+    ///
+    /// *   Bytes 0-4: A packed value where the low 33-bits are a base-128 integer that encodes the
+    ///     29-bit field number, and the remaining bits of byte 4 represent the field mode.
+    /// *   Bytes 5-7: The byte offset of the field in in-memory storage, as a base-128 integer. To
+    ///     match µpb's layout constraints, this value will never be larger than 2^16 - 1.
+    /// *   Bytes 8-9: Information about the field's presence. Specifically,
+    ///     *   If this field is a member of a `oneof`, then the bitwise inverse of this value is
+    ///         the byte offset into in-memory storage where the field number of the populated
+    ///         `oneof` field is stored.
+    ///     *   Otherwise, the value is the index of the has-bit used to store the presence of the
+    ///         field.
+    /// *   Bytes 10-11: For message/group/enum fields, an opaque index as a base-128 integer used
+    ///     to perform operations on submessage or enum fields that require the concrete type hint.
+    /// *   Byte 12: The type of the field.
+    private let schema: UnsafeRawBufferPointer
 
     /// The name map for the message.
     ///
     /// TODO: This is a big but temporary performance regression while we're moving to the new
     /// implementation. Previously, name maps were a `static let` on the individual message types,
     /// which meant their initialization only occurred when they were first used (e.g., when
-    /// performing text/JSON serialization). Now, the name map needs to be part of the layout to
+    /// performing text/JSON serialization). Now, the name map needs to be part of the schema to
     /// satisfy the self-describing nature of `_MessageStorage` for the new table-driven text/JSON
-    /// implementation, which forces it to be initialized whenever any part of the layout is
+    /// implementation, which forces it to be initialized whenever any part of the schema is
     /// requested (even during binary serialization). In the near future, we will replace the
     /// current name map implementation with a new one that eliminates this first-time
     /// initialization cost.
@@ -117,18 +115,20 @@ import Foundation
     /// The function type for the generated function that is called to perform a basic operation
     /// on certain kinds of nontrivial fields (a message, array of messages, array of enums, or map)
     /// such as deinitialization, copying, or testing for equality.
+    @_spi(ForGeneratedCodeOnly)
     public typealias NontrivialFieldOperationPerformer = (
         _ token: TrampolineToken,
         _ operation: NontrivialFieldOperation,
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         _ storage: _MessageStorage
     ) -> Bool
 
     /// The function type for the generated function that is called to perform an arbitrary
     /// operation on the storage of a field whose type is a message or array of messages.
+    @_spi(ForGeneratedCodeOnly)
     public typealias SubmessageStoragePerformer = (
         _ token: TrampolineToken,
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         _ storage: _MessageStorage,
         _ operation: TrampolineFieldOperation,
         _ perform: (_MessageStorage) throws -> Bool
@@ -136,24 +136,27 @@ import Foundation
 
     /// The function type for the generated function that is called to perform an arbitrary
     /// operation on the raw values of a singular or repeated enum field.
+    @_spi(ForGeneratedCodeOnly)
     public typealias RawEnumValuesPerformer = (
         _ token: TrampolineToken,
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         _ storage: _MessageStorage,
         _ operation: TrampolineFieldOperation,
-        _ perform: (EnumLayout, inout Int32) throws -> Bool,
+        _ perform: (EnumSchema, inout Int32) throws -> Bool,
         _ onInvalidValue: (Int32) throws -> Void
     ) throws -> Void
 
-    /// The function type for the generated function that is called to retrieve the "message" layout
+    /// The function type for the generated function that is called to retrieve the "message" schema
     /// of a map entry.
-    public typealias MapEntryLayout = (_ token: TrampolineToken) -> _MessageLayout
+    @_spi(ForGeneratedCodeOnly)
+    public typealias MapEntrySchema = (_ token: TrampolineToken) -> MessageSchema
 
     /// The function type for the generated function that is called to perform an arbitrary
     /// operation on the elements of a map.
+    @_spi(ForGeneratedCodeOnly)
     public typealias MapEntryPerformer = (
         _ token: TrampolineToken,
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         _ storage: _MessageStorage,
         _ workingSpace: _MessageStorage,
         _ operation: TrampolineFieldOperation,
@@ -173,55 +176,53 @@ import Foundation
     /// field.
     let performOnRawEnumValues: RawEnumValuesPerformer
 
-    /// The function that is called to retrieve the "message" layout of a map entry.
-    let mapEntryLayout: MapEntryLayout
+    /// The function that is called to retrieve the "message" schema of a map entry.
+    let mapEntrySchema: MapEntrySchema
 
     /// The function that is called to perform an arbitrary operation on the elements of a map.
     let performOnMapEntry: MapEntryPerformer
 
-    /// Creates a new message layout and submessage operations from the given values.
-    ///
-    /// This initializer is public because generated messages need to call it.
+    /// Creates a new message schema and submessage operations from the given values.
+    @_spi(ForGeneratedCodeOnly)
     public init(
-        layout: StaticString,
+        schema: StaticString,
         names: StaticString,
         performNontrivialFieldOperation: @escaping NontrivialFieldOperationPerformer,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
         performOnRawEnumValues: @escaping RawEnumValuesPerformer,
-        mapEntryLayout: @escaping MapEntryLayout,
+        mapEntrySchema: @escaping MapEntrySchema,
         performOnMapEntry: @escaping MapEntryPerformer
     ) {
         precondition(
-            layout.hasPointerRepresentation,
-            "The layout string should have a pointer-based representation; this is a generator bug"
+            schema.hasPointerRepresentation,
+            "The schema string should have a pointer-based representation; this is a generator bug"
         )
-        self.layout = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
+        self.schema = UnsafeRawBufferPointer(start: schema.utf8Start, count: schema.utf8CodeUnitCount)
         self.nameMap = names.utf8CodeUnitCount != 0 ? _NameMap(bytecode: names) : _NameMap()
         self.performNontrivialFieldOperation = performNontrivialFieldOperation
         self.performOnSubmessageStorage = performOnSubmessageStorage
         self.performOnRawEnumValues = performOnRawEnumValues
-        self.mapEntryLayout = mapEntryLayout
+        self.mapEntrySchema = mapEntrySchema
         self.performOnMapEntry = performOnMapEntry
-        precondition(version == 0, "This runtime only supports version 0 message layouts")
+        precondition(version == 0, "This runtime only supports version 0 message schemas")
         precondition(
-            self.layout.count == messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize,
+            self.schema.count == messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
             """
-            The layout size in bytes was not consistent with the number of fields \
-            (got \(self.layout.count), expected \(messageLayoutHeaderSize + self.fieldCount * fieldLayoutSize)); \
+            The schema size in bytes was not consistent with the number of fields \
+            (got \(self.schema.count), expected \(messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize)); \
             this is a generator bug
             """
         )
     }
 
-    /// Creates a new message layout from the given layout string.
+    /// Creates a new message schema from the given schema string.
     ///
-    /// Layouts created with this initalizer must have no submessage fields because the invalid
+    /// Schemas created with this initalizer must have no submessage fields because the invalid
     /// submessage operation placeholder will be used.
-    ///
-    /// This initializer is public because generated messages need to call it.
-    public init(layout: StaticString, names: StaticString) {
+    @_spi(ForGeneratedCodeOnly)
+    public init(schema: StaticString, names: StaticString) {
         self.init(
-            layout: layout,
+            schema: schema,
             names: names,
             performNontrivialFieldOperation: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -232,7 +233,7 @@ import Foundation
             performOnRawEnumValues: { _, _, _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
-            mapEntryLayout: { _ in
+            mapEntrySchema: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             performOnMapEntry: { _, _, _, _, _, _, _ in
@@ -241,19 +242,19 @@ import Foundation
         )
     }
 
-    /// Creates a new message layout for the message-like storage used to encode and decode map
+    /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is a scalar.
-    public init(layoutForMapEntryWithScalarValues layout: StaticString) {
-        self.init(layout: layout, names: mapEntryFieldNameBytecode)
+    @_spi(ForGeneratedCodeOnly)
+    public init(schemaForMapEntryWithScalarValues schema: StaticString) {
+        self.init(schema: schema, names: mapEntryFieldNameBytecode)
     }
 
-    /// Creates a new message layout for the message-like storage used to encode and decode map
+    /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is another message.
-    ///
-    /// This initializer is public because generated messages need to call it.
-    public init<T: _MessageImplementationBase>(layout: StaticString, forMapEntryWithValueType type: T.Type) {
+    @_spi(ForGeneratedCodeOnly)
+    public init<T: _MessageImplementationBase>(schema: StaticString, forMapEntryWithValueType type: T.Type) {
         self.init(
-            layout: layout,
+            schema: schema,
             names: mapEntryFieldNameBytecode,
             performNontrivialFieldOperation: { _, operation, field, storage in
                 return storage.performNontrivialFieldOperation(operation, field: field, type: type)
@@ -264,7 +265,7 @@ import Foundation
             performOnRawEnumValues: { _, _, _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
-            mapEntryLayout: { _ in
+            mapEntrySchema: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             performOnMapEntry: { _, _, _, _, _, _, _ in
@@ -273,13 +274,12 @@ import Foundation
         )
     }
 
-    /// Creates a new message layout for the message-like storage used to encode and decode map
+    /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is an enum.
-    ///
-    /// This initializer is public because generated messages need to call it.
-    public init<T: Enum>(layout: StaticString, forMapEntryWithValueType type: T.Type, enumLayout: EnumLayout) {
+    @_spi(ForGeneratedCodeOnly)
+    public init<T: Enum>(schema: StaticString, forMapEntryWithValueType type: T.Type, enumSchema: EnumSchema) {
         self.init(
-            layout: layout,
+            schema: schema,
             names: mapEntryFieldNameBytecode,
             performNontrivialFieldOperation: { _, operation, field, storage in
                 return storage.performNontrivialFieldOperation(operation, field: field, type: type)
@@ -292,12 +292,12 @@ import Foundation
                     of: field,
                     operation: operation,
                     type: type,
-                    enumLayout: enumLayout,
+                    enumSchema: enumSchema,
                     perform: perform,
                     onInvalidValue: onInvalidValue
                 )
             },
-            mapEntryLayout: { _ in
+            mapEntrySchema: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
             performOnMapEntry: { _, _, _, _, _, _, _ in
@@ -314,24 +314,24 @@ import Foundation
 /// fixed name map.
 private let mapEntryFieldNameBytecode: StaticString = "\0\u{1}key\0\u{1}value\0"
 
-extension _MessageLayout {
-    /// The version of the layout data.
+extension MessageSchema {
+    /// The version of the schema data.
     ///
-    /// Currently, the runtime only supports version 0. If the layout needs to change in a breaking
+    /// Currently, the runtime only supports version 0. If the schema needs to change in a breaking
     /// way, the generator should increment the version and the runtime implementation should detect
-    /// the new version while maintaining the ability to read the older layouts.
+    /// the new version while maintaining the ability to read the older schemas.
     private var version: UInt8 {
-        layout.load(fromByteOffset: 0, as: UInt8.self)
+        schema.load(fromByteOffset: 0, as: UInt8.self)
     }
 
-    /// The size of the message in bytes.
-    var size: Int {
-        fixed3ByteBase128(in: layout, atByteOffset: 1)
+    /// The storage size of the message in bytes.
+    var storageSize: Int {
+        fixed3ByteBase128(in: schema, atByteOffset: 1)
     }
 
     /// The number of non-extension fields defined by the message.
     var fieldCount: Int {
-        fixed3ByteBase128(in: layout, atByteOffset: 4)
+        fixed3ByteBase128(in: schema, atByteOffset: 4)
     }
 
     /// The number of required fields defined by the message.
@@ -339,79 +339,79 @@ extension _MessageLayout {
     /// Required fields have their has-bits arranged first in storage so that the runtime can
     /// efficiently compute whether the message is definitely not initialized.
     var requiredCount: Int {
-        fixed3ByteBase128(in: layout, atByteOffset: 7)
+        fixed3ByteBase128(in: schema, atByteOffset: 7)
     }
 
     /// The number of fields defined by the message that have explicit presence.
     ///
     /// Fields with explicit presence have their has-bits arranged after the required has-bits but
     /// before those with implicit presence so that we can determine the nature of a field's
-    /// presence without increasing the size of field layouts.
+    /// presence without increasing the size of field schemas.
     var explicitPresenceCount: Int {
-        fixed3ByteBase128(in: layout, atByteOffset: 10)
+        fixed3ByteBase128(in: schema, atByteOffset: 10)
     }
 
     /// The largest field number `N` for which all fields in the range `1..<N` are inhabited.
     ///
-    /// Looking up the field layout for a field below `N` can be done via constant-time random
+    /// Looking up the field schema for a field below `N` can be done via constant-time random
     /// access; fields numbered `N` or higher must be found via binary search.
     var denseBelow: UInt32 {
-        UInt32(fixed3ByteBase128(in: layout, atByteOffset: 13))
+        UInt32(fixed3ByteBase128(in: schema, atByteOffset: 13))
     }
 
     /// Returns a value indicating whether or not the given field is required.
-    func isFieldRequired(_ field: FieldLayout) -> Bool {
+    func isFieldRequired(_ field: FieldSchema) -> Bool {
         let raw = field.rawPresence
         return 0 <= raw && raw < requiredCount
     }
 
     /// Returns a value indicating whether ot not the given field has explicit presence.
-    func fieldHasPresence(_ field: FieldLayout) -> Bool {
+    func fieldHasPresence(_ field: FieldSchema) -> Bool {
         let raw = field.rawPresence
         return 0 <= raw && raw < explicitPresenceCount
     }
 }
 
-/// The size, in bytes, of the header the describes the overall message layout.
-private var messageLayoutHeaderSize: Int { 16 }
+/// The size, in bytes, of the header the describes the overall message schema.
+private var messageSchemaHeaderSize: Int { 16 }
 
-/// The size, in bytes, of an encoded field layout in the static string representation.
-private var fieldLayoutSize: Int { 13 }
+/// The size, in bytes, of an encoded field schema in the static string representation.
+private var fieldSchemaSize: Int { 13 }
 
-extension _MessageLayout {
-    /// Iterates over the field layouts in the layout string.
+extension MessageSchema {
+    /// Iterates over the field schemas in the schema string.
     struct FieldIterator: IteratorProtocol {
         var current: Slice<UnsafeRawBufferPointer>
 
-        init(layout: UnsafeRawBufferPointer) {
-            self.current = layout.dropFirst(messageLayoutHeaderSize)
+        init(schema: UnsafeRawBufferPointer) {
+            self.current = schema.dropFirst(messageSchemaHeaderSize)
         }
 
-        mutating func next() -> FieldLayout? {
+        mutating func next() -> FieldSchema? {
             guard !current.isEmpty else { return nil }
-            defer { current = current.dropFirst(fieldLayoutSize) }
-            return FieldLayout(slice: current.prefix(fieldLayoutSize))
+            defer { current = current.dropFirst(fieldSchemaSize) }
+            return FieldSchema(slice: current.prefix(fieldSchemaSize))
         }
     }
 
-    /// Returns a sequence that represents the layout descriptions of the fields in the message,
-    /// in field number order.
-    var fields: some Sequence<FieldLayout> { IteratorSequence(FieldIterator(layout: self.layout)) }
+    /// Returns a sequence that represents the schemas of the fields in the message, in field number
+    /// order.
+    var fields: some Sequence<FieldSchema> { IteratorSequence(FieldIterator(schema: self.schema)) }
 
-    /// Returns the layout for the field with the given number in the message, or nil if the field
+    /// Returns the schema for the field with the given number in the message, or nil if the field
     /// is not defined.
-    @usableFromInline subscript(fieldNumber number: UInt32) -> FieldLayout? {
+    @usableFromInline subscript(fieldNumber number: UInt32) -> FieldSchema? {
         if number < denseBelow {
-            let index = messageLayoutHeaderSize + (Int(number) - 1) * fieldLayoutSize
-            return FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
+            let index = messageSchemaHeaderSize + (Int(number) - 1) * fieldSchemaSize
+            return FieldSchema(slice: schema[index..<(index + fieldSchemaSize)])
         }
 
         var low = Int(denseBelow - 1)
         var high = fieldCount - 1
         while high >= low {
             let mid = (high + low) / 2
-            let index = messageLayoutHeaderSize + mid * fieldLayoutSize
-            let field = FieldLayout(slice: layout[index..<(index + fieldLayoutSize)])
+            let index = messageSchemaHeaderSize + mid * fieldSchemaSize
+            let field = FieldSchema(slice: schema[index..<(index + fieldSchemaSize)])
             if number == field.fieldNumber {
                 return field
             }
@@ -425,9 +425,10 @@ extension _MessageLayout {
     }
 }
 
-extension _MessageLayout {
+extension MessageSchema {
     /// An opaque token that is used to ask a message for the metatype of one of its submessage
     /// or enum fields.
+    @_spi(ForGeneratedCodeOnly)
     public struct TrampolineToken: Sendable, Equatable {
         /// The index that identifies the submessage or enum type being requested.
         public let index: Int
@@ -436,7 +437,8 @@ extension _MessageLayout {
 
 /// The nature of the operation that is being performed by `performOnSubmessageStorage` or
 /// `performOnEnumRawValues`.
-@_spi(ForGeneratedCodeOnly) public enum TrampolineFieldOperation {
+@_spi(ForGeneratedCodeOnly)
+public enum TrampolineFieldOperation {
     /// The submessage's storage or enum's raw value is being read.
     case read
 
@@ -460,9 +462,9 @@ extension _MessageLayout {
     case jsonNull
 }
 
-/// Provides access to the properties of a field's layout based on a slice of the raw message
-/// layout string.
-@_spi(ForGeneratedCodeOnly) public struct FieldLayout {
+/// Provides access to the properties of a field's schema based on a slice of the raw message
+/// schema string.
+public struct FieldSchema {
     /// Describes the presence information of a field, translated from its raw bytecode
     /// representation.
     enum Presence: Sendable, Equatable {
@@ -486,12 +488,12 @@ extension _MessageLayout {
         }
     }
 
-    /// The rebased slice of `_MessageLayout.fields` that describes the layout of this field.
+    /// The rebased slice of `MessageSchema.schema` that describes the schema of this field.
     private let buffer: UnsafeRawBufferPointer
 
-    /// The number of the field whose layout is being described.
+    /// The number of the field whose schema is being described.
     var fieldNumber: UInt32 {
-        // The layout ensures that there will always be at least 8 bytes that we can read here, so
+        // The schema ensures that there will always be at least 8 bytes that we can read here, so
         // we can do a single memory read and mask off what we don't need.
         let rawBits = UInt64(littleEndian: buffer.loadUnaligned(fromByteOffset: 0, as: UInt64.self))
         return UInt32(
@@ -583,7 +585,7 @@ extension _MessageLayout {
         }
     }
 
-    /// Creates a new field layout from the given slice of a message's field layout string.
+    /// Creates a new field schema from the given slice of a message's field schema string.
     fileprivate init(slice: Slice<UnsafeRawBufferPointer>) {
         self.buffer = UnsafeRawBufferPointer(rebasing: slice)
     }

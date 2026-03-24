@@ -352,6 +352,9 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
 fileprivate let _protobuf_package = "google.protobuf.compiler"
 
 extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static var messageSchema: MessageSchema { fatalError() }
+  public var messageSchema: MessageSchema { fatalError() }
+
   public static let protoMessageName: String = _protobuf_package + ".Version"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}major\0\u{1}minor\0\u{1}patch\0\u{1}suffix\0")
 
@@ -401,6 +404,9 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static var messageSchema: MessageSchema { fatalError() }
+  public var messageSchema: MessageSchema { fatalError() }
+
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_to_generate\0\u{1}parameter\0\u{3}compiler_version\0\u{4}\u{c}proto_file\0\u{4}\u{2}source_file_descriptors\0")
 
@@ -461,6 +467,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static var messageSchema: MessageSchema { fatalError() }
+  public var messageSchema: MessageSchema { fatalError() }
+
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{3}supported_features\0\u{3}minimum_edition\0\u{3}maximum_edition\0\u{2}\u{b}file\0")
 
@@ -519,6 +528,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf.
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static var messageSchema: MessageSchema { fatalError() }
+  public var messageSchema: MessageSchema { fatalError() }
+
   public static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}insertion_point\0\u{2}\u{d}content\0\u{3}generated_code_info\0")
 

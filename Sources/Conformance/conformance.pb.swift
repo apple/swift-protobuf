@@ -451,6 +451,9 @@ extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".TestStatus"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}failure_message\0\u{3}matched_name\0")
 
@@ -491,6 +494,9 @@ extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".FailureSet"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}test\0\u{c}\u{1}\u{1}")
 
@@ -521,6 +527,9 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{3}requested_output_format\0\u{3}message_type\0\u{3}test_category\0\u{3}jspb_encoding_options\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}print_unknown_fields\0")
 
@@ -630,6 +639,9 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}parse_error\0\u{3}runtime_error\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{1}skipped\0\u{3}serialize_error\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}timeout_error\0")
 
@@ -771,6 +783,9 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".JspbEncodingConfig"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}use_jspb_array_any_format\0")
 

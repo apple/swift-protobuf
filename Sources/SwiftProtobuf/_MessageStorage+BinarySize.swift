@@ -18,8 +18,8 @@ extension _MessageStorage {
     /// Computes and returns the size in bytes required to serialize this message.
     public func serializedBytesSize() -> Int {
         var serializedSize = 0
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
-        for field in layout.fields {
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+        for field in schema.fields {
             guard isPresent(field) else { continue }
             serializedSize += serializedByteSize(of: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
         }
@@ -31,7 +31,7 @@ extension _MessageStorage {
     /// Returns the serialized byte size of the value of the given field.
     ///
     /// - Precondition: The field is already known to be present.
-    private func serializedByteSize(of field: FieldLayout, mapEntryWorkingSpace: inout MapEntryWorkingSpace) -> Int {
+    private func serializedByteSize(of field: FieldSchema, mapEntryWorkingSpace: inout MapEntryWorkingSpace) -> Int {
         // TODO: Unify our field number APIs around `UInt32` to avoid casting.
         let fieldNumber = Int(field.fieldNumber)
         let offset = field.offset
@@ -253,13 +253,13 @@ extension _MessageStorage {
     /// Returns the serialized byte size of the given repeated enum field.
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// layout, since that has already been done by the caller.
-    private func serializedByteSize(ofRepeatedEnumField field: FieldLayout, fieldNumber: Int) -> Int {
+    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// schema, since that has already been done by the caller.
+    private func serializedByteSize(ofRepeatedEnumField field: FieldSchema, fieldNumber: Int) -> Int {
         var totalEnumsSize = 0
         var count = 0
-        _ = try! layout.performOnRawEnumValues(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try! schema.performOnRawEnumValues(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -281,16 +281,16 @@ extension _MessageStorage {
     /// Returns the serialized byte size of the given map field.
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// layout, since that has already been done by the caller.
+    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// schema, since that has already been done by the caller.
     private func serializedByteSize(
-        ofMapField field: FieldLayout,
+        ofMapField field: FieldSchema,
         fieldNumber: Int,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) -> Int {
         var totalEntriesSize = 0
-        _ = try! layout.performOnMapEntry(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try! schema.performOnMapEntry(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             mapEntryWorkingSpace.storage(for: field.submessageIndex),
@@ -318,12 +318,12 @@ extension _MessageStorage {
     /// the elements).
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// layout, since that has already been done by the caller.
-    private func serializedByteSize(ofMessageField field: FieldLayout, fieldNumber: Int) -> Int {
+    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// schema, since that has already been done by the caller.
+    private func serializedByteSize(ofMessageField field: FieldSchema, fieldNumber: Int) -> Int {
         var totalMessagesSize = 0
-        _ = try! layout.performOnSubmessageStorage(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try! schema.performOnSubmessageStorage(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -347,12 +347,12 @@ extension _MessageStorage {
     /// the elements).
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldLayout` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// layout, since that has already been done by the caller.
-    private func serializedByteSize(ofGroupField field: FieldLayout, fieldNumber: Int) -> Int {
+    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
+    /// schema, since that has already been done by the caller.
+    private func serializedByteSize(ofGroupField field: FieldSchema, fieldNumber: Int) -> Int {
         var totalMessagesSize = 0
-        _ = try! layout.performOnSubmessageStorage(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try! schema.performOnSubmessageStorage(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read

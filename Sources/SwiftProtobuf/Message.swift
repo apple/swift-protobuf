@@ -53,6 +53,13 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// not known at generation time. When encountered, they are stored here.
     var unknownFields: UnknownStorage { get set }
 
+    /// The schema that describes this message.
+    ///
+    /// The schema describes the layout of the message with only enough detail that the Swift
+    /// protobuf runtime library can serialize and parse the message in all the required formats.
+    /// It is *not* a full descriptor.
+    var messageSchema: MessageSchema { get }
+
     //
     // General serialization/deserialization machinery
     //
@@ -211,6 +218,12 @@ extension Message {
 /// or uses them as `Dictionary` keys.
 @preconcurrency
 public protocol _MessageImplementationBase: Message, Hashable {
+    /// Returns the schema for all messages of this generated message type.
+    ///
+    /// This is identical to the instance property `messageSchema`, but provides a way to access the
+    /// statically-known schema for a message without creating an instance of it.
+    static var messageSchema: MessageSchema { get }
+
     // This is an implementation detail of the runtime; users should not call it. The return type
     // is a class-bound existential because the true SPI type cannot be used in a protocol
     // requirement.
@@ -224,6 +237,15 @@ public protocol _MessageImplementationBase: Message, Hashable {
 }
 
 extension _MessageImplementationBase {
+    // TODO: Remove this default implementation when we've regenerated all messages.
+    public static var messageSchema: MessageSchema {
+        fatalError()
+    }
+
+    public var messageSchema: MessageSchema {
+        Self.messageSchema
+    }
+
     // TODO: Remove this default implementation once we're generating all the WKTs with the new
     // implementation.
     public func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject {

@@ -57,31 +57,31 @@ class MapEntryGenerator {
         valueParticipantType = participantTypeName(for: valueDescriptor, namer: namer)
     }
 
-    func generateLayoutReturnStatement(printer: inout CodePrinter) {
+    func generateSchemaReturnStatement(printer: inout CodePrinter) {
         let trailingArguments: String
-        let layoutLabel: String
+        let schemaLabel: String
         switch descriptor.mapKeyAndValue!.value.type {
         case .message:
             trailingArguments = ", forMapEntryWithValueType: \(swiftValueType).self"
-            layoutLabel = "layout"
+            schemaLabel = "schema"
         case .enum:
             trailingArguments =
-                ", forMapEntryWithValueType: \(swiftValueType).self, enumLayout: \(swiftValueType)._protobuf_enumLayout"
-            layoutLabel = "layout"
+                ", forMapEntryWithValueType: \(swiftValueType).self, enumSchema: \(swiftValueType).enumSchema"
+            schemaLabel = "schema"
         default:
             trailingArguments = ""
-            layoutLabel = "layoutForMapEntryWithScalarValues"
+            schemaLabel = "schemaForMapEntryWithScalarValues"
         }
-        if let layoutString = entryLayoutCalculator.layoutLiterals.valueIfAllEqual {
+        if let schemaString = entryLayoutCalculator.layoutLiterals.valueIfAllEqual {
             printer.print(
-                #"return SwiftProtobuf._MessageLayout(\#(layoutLabel): "\#(layoutString)"\#(trailingArguments))"#
+                #"return SwiftProtobuf.MessageSchema(\#(schemaLabel): "\#(schemaString)"\#(trailingArguments))"#
             )
         } else {
-            entryLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &printer) { layoutString, _, printer in
-                printer.print(#"let layoutString: StaticString = "\#(layoutString)""#)
+            entryLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &printer) { schemaString, _, printer in
+                printer.print(#"let schemaString: StaticString = "\#(schemaString)""#)
             }
             printer.print(
-                "return SwiftProtobuf._MessageLayout(\(layoutLabel): layoutString\(trailingArguments))"
+                "return SwiftProtobuf.MessageSchema(\(schemaLabel): schemaString\(trailingArguments))"
             )
         }
     }

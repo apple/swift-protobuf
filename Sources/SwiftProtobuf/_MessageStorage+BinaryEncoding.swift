@@ -54,8 +54,8 @@ extension _MessageStorage {
     /// A recursion helper that serializes the message represented by this storage into the given
     /// binary encoder.
     private func serializeBytes(into encoder: inout BinaryEncoder, options: BinaryEncodingOptions) throws {
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
-        for field in layout.fields {
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+        for field in schema.fields {
             guard isPresent(field) else { continue }
             try serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
         }
@@ -65,7 +65,7 @@ extension _MessageStorage {
 
     /// Serializes a single field in the storage into the given binary encoder.
     private func serializeField(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         into encoder: inout BinaryEncoder,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: BinaryEncodingOptions
@@ -74,8 +74,8 @@ extension _MessageStorage {
         let offset = field.offset
         switch field.fieldMode.cardinality {
         case .map:
-            _ = try! layout.performOnMapEntry(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try! schema.performOnMapEntry(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
@@ -399,12 +399,12 @@ extension _MessageStorage {
     /// the elements).
     private func serializeGroupField(
         for fieldNumber: Int,
-        field: FieldLayout,
+        field: FieldSchema,
         into encoder: inout BinaryEncoder,
         options: BinaryEncodingOptions
     ) throws {
-        _ = try layout.performOnSubmessageStorage(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try schema.performOnSubmessageStorage(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -437,12 +437,12 @@ extension _MessageStorage {
     /// the elements).
     private func serializeMessageField(
         for fieldNumber: Int,
-        field: FieldLayout,
+        field: FieldSchema,
         into encoder: inout BinaryEncoder,
         options: BinaryEncodingOptions
     ) throws {
-        _ = try layout.performOnSubmessageStorage(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try schema.performOnSubmessageStorage(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .read
@@ -542,15 +542,15 @@ extension _MessageStorage {
     /// Serializes the field tag and values for a repeated (packed or unpacked) `enum` field.
     private func serializeRepeatedEnumField(
         for fieldNumber: Int,
-        field: FieldLayout,
+        field: FieldSchema,
         into encoder: inout BinaryEncoder,
         isPacked: Bool
     ) throws {
         if isPacked {
             // First, iterate over the values to compute the packed length.
             var length = 0
-            _ = try layout.performOnRawEnumValues(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try schema.performOnRawEnumValues(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 .read
@@ -565,8 +565,8 @@ extension _MessageStorage {
             encoder.putVarInt(value: length)
 
             // Then, iterate over them again to encode the actual varints.
-            _ = try layout.performOnRawEnumValues(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try schema.performOnRawEnumValues(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 .read
@@ -578,8 +578,8 @@ extension _MessageStorage {
             }
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
-            _ = try layout.performOnRawEnumValues(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try schema.performOnRawEnumValues(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 .read

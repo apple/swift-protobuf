@@ -276,6 +276,9 @@ extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: Swift
 }
 
 extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".ComplexMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
 
@@ -310,6 +313,9 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Mes
 }
 
 extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesEditionUnstable"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_foreign_message\0\u{3}optional_foreign_enum\0\u{3}recursive_message\0\u{3}repeated_int32\0\u{3}repeated_foreign_message\0\u{3}repeated_foreign_enum\0\u{3}map_int32_int32\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_foreign_message\0\u{3}map_string_foreign_enum\0\u{3}optional_bytes\0\u{3}repeated_bytes\0\u{3}map_string_bytes\0")
 
@@ -490,6 +496,9 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
 }
 
 extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static var messageSchema: MessageSchema { fatalError() }
+  var messageSchema: MessageSchema { fatalError() }
+
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageEditionUnstable"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0")
 

@@ -49,7 +49,7 @@ extension _MessageStorage {
         partial: Bool,
         discardUnknownFields: Bool
     ) throws {
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         while reader.hasAvailableData {
             let tag = try reader.nextTag()
             let consumed = try decodeNextField(
@@ -94,7 +94,7 @@ extension _MessageStorage {
             return true
         }
 
-        guard let field = layout[fieldNumber: UInt32(tag.fieldNumber)] else {
+        guard let field = schema[fieldNumber: UInt32(tag.fieldNumber)] else {
             // If the field number didn't exist, return false to indicate to the caller that the
             // field wasn't consumed so that they can put it into unknown fields.
 
@@ -106,8 +106,8 @@ extension _MessageStorage {
         switch field.fieldMode.cardinality {
         case .map:
             guard tag.wireFormat == .lengthDelimited else { return false }
-            _ = try layout.performOnMapEntry(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try schema.performOnMapEntry(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
@@ -166,8 +166,8 @@ extension _MessageStorage {
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
-                _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .append
@@ -196,8 +196,8 @@ extension _MessageStorage {
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
-                _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .append
@@ -292,8 +292,8 @@ extension _MessageStorage {
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
-                _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .mutate
@@ -320,8 +320,8 @@ extension _MessageStorage {
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
-                _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .mutate
@@ -397,7 +397,7 @@ extension _MessageStorage {
     ///   what was expected.
     private func appendMaybePackedValues<T>(
         from reader: inout WireFormatReader,
-        to field: FieldLayout,
+        to field: FieldSchema,
         tag: FieldTag,
         unpackedWireFormat: WireFormat,
         decodeElement: (inout WireFormatReader) throws -> T
@@ -428,14 +428,14 @@ extension _MessageStorage {
     /// This method handles both the singular case (by setting the field) and the repeated unpacked
     /// case (by appending to it).
     private func updateEnumValue(
-        of field: FieldLayout,
+        of field: FieldSchema,
         from reader: inout WireFormatReader,
         fieldNumber: Int,
         isRepeated: Bool
     ) throws {
         var alreadyReadValue = false
-        try layout.performOnRawEnumValues(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        try schema.performOnRawEnumValues(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             isRepeated ? .append : .mutate
@@ -476,7 +476,7 @@ extension _MessageStorage {
     ///   - tag: The tag that was read from the wire.
     private func appendPackedEnumValues(
         from reader: inout WireFormatReader,
-        to field: FieldLayout,
+        to field: FieldSchema,
         fieldNumber: Int
     ) throws {
         assert(field.rawFieldType == .enum, "Internal error: should only be called for enum fields")
@@ -493,8 +493,8 @@ extension _MessageStorage {
         // Recursion budget is irrelevant here because we're only reading enums.
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
 
-        try layout.performOnRawEnumValues(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        try schema.performOnRawEnumValues(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             .append
@@ -544,7 +544,7 @@ extension _MessageStorage {
     ///     elements and reads and returns a single element from it.
     private func appendPackedValues<T>(
         from reader: inout WireFormatReader,
-        to field: FieldLayout,
+        to field: FieldSchema,
         hasVarints: Bool,
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws {

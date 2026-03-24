@@ -25,7 +25,7 @@ extension _MessageStorage {
         // TODO: Support extensions.
         var reader = JSONReader(
             buffer: buffer,
-            nameMap: layout.nameMap,
+            nameMap: schema.nameMap,
             options: options,
             extensions: nil
         )
@@ -47,20 +47,20 @@ extension _MessageStorage {
             return try perform()
         }
 
-        switch CustomJSONWKTClassification(messageLayout: layout) {
+        switch CustomJSONWKTClassification(messageSchema: schema) {
         case .boolValue:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextBool())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextBool())
             }
 
         case .bytesValue:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextBytesValue())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextBytesValue())
             }
 
         case .doubleValue:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextDouble())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextDouble())
             }
 
         case .duration:
@@ -68,7 +68,7 @@ extension _MessageStorage {
 
         case .floatValue:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextFloat())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextFloat())
             }
 
         case .int32Value:
@@ -77,12 +77,12 @@ extension _MessageStorage {
                 if n > Int64(Int32.max) || n < Int64(Int32.min) {
                     throw JSONDecodingError.malformedNumber
                 }
-                updateValue(of: layout[fieldNumber: 1]!, to: Int32(truncatingIfNeeded: n))
+                updateValue(of: schema[fieldNumber: 1]!, to: Int32(truncatingIfNeeded: n))
             }
 
         case .int64Value:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextSInt())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextSInt())
             }
 
         case .listValue:
@@ -94,7 +94,7 @@ extension _MessageStorage {
 
         case .stringValue:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextQuotedString())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextQuotedString())
             }
 
         case .struct:
@@ -109,12 +109,12 @@ extension _MessageStorage {
                 if n > UInt64(UInt32.max) {
                     throw JSONDecodingError.malformedNumber
                 }
-                updateValue(of: layout[fieldNumber: 1]!, to: UInt32(truncatingIfNeeded: n))
+                updateValue(of: schema[fieldNumber: 1]!, to: UInt32(truncatingIfNeeded: n))
             }
 
         case .uint64Value:
             try disallowingNull {
-                updateValue(of: layout[fieldNumber: 1]!, to: try reader.scanner.nextUInt())
+                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextUInt())
             }
 
         case .value:
@@ -131,9 +131,9 @@ extension _MessageStorage {
                 return
             }
 
-            var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
+            var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             while let fieldNumber = try reader.nextFieldNumber() {
-                guard let field = layout[fieldNumber: fieldNumber] else {
+                guard let field = schema[fieldNumber: fieldNumber] else {
                     // The scanner should have already skipped any unknown fields or thrown an error
                     // (depending on the decoding options), so any field we get back from this reader
                     // should always exist.
@@ -153,7 +153,7 @@ extension _MessageStorage {
 
     private func decodeNextFieldValue(
         from reader: inout JSONReader,
-        field: FieldLayout,
+        field: FieldSchema,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
         let fieldType = field.rawFieldType
@@ -227,15 +227,15 @@ extension _MessageStorage {
     }
 
     /// Scans a value from the JSON reader, whose storage location and type are provided by the
-    /// given field layout.
+    /// given field schema.
     ///
     /// - Parameters:
-    ///   - field: The ``FieldLayout`` of the field being scanned.
+    ///   - field: The ``FieldSchema`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     ///   - requireQuotedBool: If true and the field's type is `bool`, the value is expected to be
     ///     quoted. This is used when scanning map keys.
     private func scanSingularValue(
-        of field: FieldLayout,
+        of field: FieldSchema,
         from reader: inout JSONReader,
         requireQuotedBool: Bool = false
     ) throws {
@@ -301,8 +301,8 @@ extension _MessageStorage {
 
         case .group, .message:
             if isNull {
-                _ = try layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .jsonNull
@@ -375,12 +375,12 @@ extension _MessageStorage {
     /// Scans a map represented as a JSON object from the reader.
     ///
     /// - Parameters:
-    ///   - field: The ``FieldLayout`` of the field being scanned.
+    ///   - field: The ``FieldSchema`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     ///   - mapEntryWorkingSpace: The working space that manages reusable map storage objects during
     ///     decoding.
     private func scanMapField(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         from reader: inout JSONReader,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
@@ -391,8 +391,8 @@ extension _MessageStorage {
 
         var hasNextElement = true
         while hasNextElement {
-            _ = try layout.performOnMapEntry(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try schema.performOnMapEntry(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
@@ -400,7 +400,7 @@ extension _MessageStorage {
                 // Deterministic ordering doesn't apply to decoding.
                 false
             ) { submessageStorage in
-                let mapEntryLayout = submessageStorage.layout
+                let mapEntrySchema = submessageStorage.schema
 
                 // The next character must be double quotes, because map keys must always be
                 // quoted strings.
@@ -409,7 +409,7 @@ extension _MessageStorage {
                     throw JSONDecodingError.unquotedMapKey
                 }
                 try submessageStorage.scanSingularValue(
-                    of: mapEntryLayout[fieldNumber: 1]!,
+                    of: mapEntrySchema[fieldNumber: 1]!,
                     from: &reader,
                     requireQuotedBool: true
                 )
@@ -417,7 +417,7 @@ extension _MessageStorage {
 
                 let isEntryValid: Bool
                 do {
-                    try submessageStorage.scanSingularValue(of: mapEntryLayout[fieldNumber: 2]!, from: &reader)
+                    try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
                     isEntryValid = true
                 } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
                     // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
@@ -442,21 +442,21 @@ extension _MessageStorage {
     /// operation on its storage (either mutate or append).
     ///
     /// - Parameters:
-    ///   - field: The ``FieldLayout`` of the field being scanned.
+    ///   - field: The ``FieldSchema`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     ///   - operation: The trampoline operation to perform on the submessage storage.
     private func scanSubmessageValue(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         from reader: inout JSONReader,
         operation: TrampolineFieldOperation
     ) throws {
-        _ = try layout.performOnSubmessageStorage(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try schema.performOnSubmessageStorage(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             operation
         ) { submessageStorage in
-            try reader.withReaderForNextObject(expectedLayout: submessageStorage.layout) { subReader in
+            try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
                 try submessageStorage.merge(byParsingJSONFrom: &subReader)
             }
             return true
@@ -467,22 +467,22 @@ extension _MessageStorage {
     /// cases), performing the given operation on its raw value (either mutate or append).
     ///
     /// - Parameters:
-    ///   - field: The ``FieldLayout`` of the field being scanned.
+    ///   - field: The ``FieldSchema`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     ///   - operation: The trampoline operation to perform on the enum's raw value.
     private func scanEnumValue(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         from reader: inout JSONReader,
         operation: TrampolineFieldOperation
     ) throws {
         var hasSeenValue = false
 
-        _ = try layout.performOnRawEnumValues(
-            _MessageLayout.TrampolineToken(index: field.submessageIndex),
+        _ = try schema.performOnRawEnumValues(
+            MessageSchema.TrampolineToken(index: field.submessageIndex),
             field,
             self,
             operation
-        ) { enumLayout, value in
+        ) { enumSchema, value in
             // For the repeated case, terminate the loop inside `performOnRawEnumValues` after
             // having read one value.
             if hasSeenValue {
@@ -491,7 +491,7 @@ extension _MessageStorage {
             hasSeenValue = true
 
             if let name = try reader.scanner.nextOptionalQuotedString() {
-                guard let number = enumLayout.nameMap.number(forJSONName: name) else {
+                guard let number = enumSchema.nameMap.number(forJSONName: name) else {
                     throw JSONDecodingError.unrecognizedEnumValue
                 }
                 value = Int32(number)
@@ -517,8 +517,8 @@ extension _MessageStorage {
     private func parseAsDuration(from reader: inout JSONReader) throws {
         let durationString = try reader.scanner.nextQuotedString()
         let (seconds, nanos) = try parseDuration(text: durationString)
-        updateValue(of: layout[fieldNumber: 1]!, to: seconds)
-        updateValue(of: layout[fieldNumber: 2]!, to: nanos)
+        updateValue(of: schema[fieldNumber: 1]!, to: seconds)
+        updateValue(of: schema[fieldNumber: 2]!, to: nanos)
     }
 
     /// Parses the next value from the input and interprets it as the JSON representation of a
@@ -542,7 +542,7 @@ extension _MessageStorage {
         }
 
         while true {
-            try scanSubmessageValue(layout[fieldNumber: 1]!, from: &reader, operation: .append)
+            try scanSubmessageValue(schema[fieldNumber: 1]!, from: &reader, operation: .append)
             if reader.scanner.skipOptionalArrayEnd() {
                 reader.scanner.decrementRecursionDepth()
                 return
@@ -561,12 +561,12 @@ extension _MessageStorage {
             return
         }
 
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
-        let fieldsField = layout[fieldNumber: 1]!
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+        let fieldsField = schema[fieldNumber: 1]!
         var hasNextElement = true
         while hasNextElement {
-            _ = try layout.performOnMapEntry(
-                _MessageLayout.TrampolineToken(index: fieldsField.submessageIndex),
+            _ = try schema.performOnMapEntry(
+                MessageSchema.TrampolineToken(index: fieldsField.submessageIndex),
                 fieldsField,
                 self,
                 mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex),
@@ -574,7 +574,7 @@ extension _MessageStorage {
                 // Deterministic ordering doesn't apply to decoding.
                 false
             ) { submessageStorage in
-                let mapEntryLayout = submessageStorage.layout
+                let mapEntrySchema = submessageStorage.schema
 
                 // The next character must be double quotes, because map keys must always be
                 // quoted strings.
@@ -583,7 +583,7 @@ extension _MessageStorage {
                     throw JSONDecodingError.unquotedMapKey
                 }
                 try submessageStorage.scanSingularValue(
-                    of: mapEntryLayout[fieldNumber: 1]!,
+                    of: mapEntrySchema[fieldNumber: 1]!,
                     from: &reader,
                     requireQuotedBool: true
                 )
@@ -591,7 +591,7 @@ extension _MessageStorage {
 
                 let isEntryValid: Bool
                 do {
-                    try submessageStorage.scanSingularValue(of: mapEntryLayout[fieldNumber: 2]!, from: &reader)
+                    try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
                     isEntryValid = true
                 } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
                     // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
@@ -619,8 +619,8 @@ extension _MessageStorage {
     private func parseAsTimestamp(from reader: inout JSONReader) throws {
         let timestampString = try reader.scanner.nextQuotedString()
         let (seconds, nanos) = try parseTimestamp(s: timestampString)
-        updateValue(of: layout[fieldNumber: 1]!, to: seconds)
-        updateValue(of: layout[fieldNumber: 2]!, to: nanos)
+        updateValue(of: schema[fieldNumber: 1]!, to: seconds)
+        updateValue(of: schema[fieldNumber: 2]!, to: nanos)
     }
 
     /// Parses the next value from the input and interprets it as the JSON representation of a
@@ -634,22 +634,22 @@ extension _MessageStorage {
             if !reader.scanner.skipOptionalNull() {
                 throw JSONDecodingError.failure
             }
-            updateValue(of: layout[fieldNumber: 1]!, to: Google_Protobuf_NullValue.nullValue)
+            updateValue(of: schema[fieldNumber: 1]!, to: Google_Protobuf_NullValue.nullValue)
 
         case "[":
-            try scanSubmessageValue(layout[fieldNumber: 6]!, from: &reader, operation: .mutate)
+            try scanSubmessageValue(schema[fieldNumber: 6]!, from: &reader, operation: .mutate)
 
         case "{":
-            try scanSubmessageValue(layout[fieldNumber: 5]!, from: &reader, operation: .mutate)
+            try scanSubmessageValue(schema[fieldNumber: 5]!, from: &reader, operation: .mutate)
 
         case "t", "f":
-            updateValue(of: layout[fieldNumber: 4]!, to: try reader.scanner.nextBool())
+            updateValue(of: schema[fieldNumber: 4]!, to: try reader.scanner.nextBool())
 
         case "\"":
-            updateValue(of: layout[fieldNumber: 3]!, to: try reader.scanner.nextQuotedString())
+            updateValue(of: schema[fieldNumber: 3]!, to: try reader.scanner.nextQuotedString())
 
         default:
-            updateValue(of: layout[fieldNumber: 2]!, to: try reader.scanner.nextDouble())
+            updateValue(of: schema[fieldNumber: 2]!, to: try reader.scanner.nextDouble())
         }
     }
 }

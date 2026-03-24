@@ -27,8 +27,8 @@ extension _MessageStorage {
 
     /// A recursion helper that serializes the fields in the storage into the given text format encoder.
     private func serializeText(into encoder: inout TextFormatEncoder, options: TextFormatEncodingOptions) {
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerLayout: layout)
-        for field in layout.fields {
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+        for field in schema.fields {
             guard isPresent(field) else { continue }
             serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
         }
@@ -40,7 +40,7 @@ extension _MessageStorage {
 
     /// Serializes a single field in the storage into the given text format encoder.
     private func serializeField(
-        _ field: FieldLayout,
+        _ field: FieldSchema,
         into encoder: inout TextFormatEncoder,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: TextFormatEncodingOptions
@@ -51,8 +51,8 @@ extension _MessageStorage {
 
         switch field.fieldMode.cardinality {
         case .map:
-            _ = try! layout.performOnMapEntry(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try! schema.performOnMapEntry(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
@@ -122,8 +122,8 @@ extension _MessageStorage {
 
             case .group, .message:
                 precondition(!isPacked, "a packed group/message field should not be reachable")
-                _ = try! layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try! schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .read
@@ -155,8 +155,8 @@ extension _MessageStorage {
             // fields.
             switch fieldType {
             case .group, .message:
-                _ = try! layout.performOnSubmessageStorage(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try! schema.performOnSubmessageStorage(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .read
@@ -186,13 +186,13 @@ extension _MessageStorage {
                 encoder.putDoubleValue(value: assumedPresentValue(at: offset))
 
             case .enum:
-                _ = try! layout.performOnRawEnumValues(
-                    _MessageLayout.TrampolineToken(index: field.submessageIndex),
+                _ = try! schema.performOnRawEnumValues(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
                     field,
                     self,
                     .read
-                ) { enumLayout, value in
-                    encoder.putEnumValue(rawValue: value, nameMap: enumLayout.nameMap)
+                ) { enumSchema, value in
+                    encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
                     return true
                 } /*onInvalidValue*/ _: { _ in
                     assertionFailure("invalid value handler should never be called for .read")
@@ -230,7 +230,7 @@ extension _MessageStorage {
     /// If the field name cannot be found, the field number is used instead.
     private func emitName(ofFieldNumber fieldNumber: Int, into encoder: inout TextFormatEncoder) {
         // TODO: Check extensions if the first check fails.
-        if let protoName = layout.nameMap.names(for: fieldNumber)?.proto {
+        if let protoName = schema.nameMap.names(for: fieldNumber)?.proto {
             encoder.emitFieldName(name: protoName.utf8Buffer)
         } else {
             encoder.emitFieldNumber(number: fieldNumber)
@@ -239,7 +239,7 @@ extension _MessageStorage {
 
     /// Emits the name and values of a repeated enum field, using compact representation if the
     /// field is packed.
-    private func emitRepeatedEnumField(_ field: FieldLayout, into encoder: inout TextFormatEncoder) {
+    private func emitRepeatedEnumField(_ field: FieldSchema, into encoder: inout TextFormatEncoder) {
         let fieldNumber = Int(field.fieldNumber)
         if field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
@@ -248,16 +248,16 @@ extension _MessageStorage {
             encoder.startArray()
             var firstItem = true
 
-            _ = try! layout.performOnRawEnumValues(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try! schema.performOnRawEnumValues(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 .read
-            ) { enumLayout, value in
+            ) { enumSchema, value in
                 if !firstItem {
                     encoder.arraySeparator()
                 }
-                encoder.putEnumValue(rawValue: value, nameMap: enumLayout.nameMap)
+                encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
                 firstItem = false
                 return true
             } /*onInvalidValue*/ _: { _ in
@@ -268,15 +268,15 @@ extension _MessageStorage {
             encoder.endRegularField()
         } else {
             // Each element is a fully serialized "name: value" pair.
-            _ = try! layout.performOnRawEnumValues(
-                _MessageLayout.TrampolineToken(index: field.submessageIndex),
+            _ = try! schema.performOnRawEnumValues(
+                MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
                 .read
-            ) { enumLayout, value in
+            ) { enumSchema, value in
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startRegularField()
-                encoder.putEnumValue(rawValue: value, nameMap: enumLayout.nameMap)
+                encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
                 encoder.endRegularField()
                 return true
             } /*onInvalidValue*/ _: { _ in
