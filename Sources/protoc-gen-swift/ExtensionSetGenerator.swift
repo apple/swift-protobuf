@@ -39,7 +39,7 @@ class ExtensionSetGenerator {
         // just zero it out in the field layout.
         var presence: FieldPresence {
             get { .hasBit(0) }
-            set {}
+            set { preconditionFailure("this should be unreachable; it is a generator bug") }
         }
 
         // For `FieldGenerator` conformance; extension fields track presence differently so we
