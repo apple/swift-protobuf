@@ -22,8 +22,7 @@ import SwiftProtobufPluginLibrary
 class ExtensionSetGenerator {
 
     /// Private helper used for the ExtensionSetGenerator.
-    private class ExtensionGenerator {
-        let fieldDescriptor: FieldDescriptor
+    private class ExtensionGenerator: FieldGeneratorBase, FieldGenerator {
         let generatorOptions: GeneratorOptions
         let namer: SwiftProtobufNamer
 
@@ -31,42 +30,61 @@ class ExtensionSetGenerator {
         let containingTypeSwiftFullName: String
         let swiftFullExtensionName: String
 
-        var extensionFieldType: String {
-            let label: String
-            if fieldDescriptor.isRequired {
-                label = "Required"
-            } else if fieldDescriptor.isRepeated {
-                label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
-            } else {
-                label = "Optional"
-            }
+        var trampolineFieldKind: TrampolineFieldKind?
 
-            let modifier: String
-            switch fieldDescriptor.type {
-            case .group: modifier = "Group"
-            case .message: modifier = "Message"
-            case .enum: modifier = "Enum"
-            default: modifier = ""
-            }
+        // For `FieldGenerator` conformance; extension fields are never oneof members.
+        var oneofIndex: Int? { nil }
 
-            return "\(namer.swiftProtobufModulePrefix)\(label)\(modifier)ExtensionField"
+        // For `FieldGenerator` conformance; extension fields track presence differently so we
+        // just zero it out in the field layout.
+        var presence: FieldPresence {
+            get { .hasBit(0) }
+            set {}
         }
 
+        // For `FieldGenerator` conformance; extension fields track presence differently so we
+        // don't need to special case `isInitialized`.
+        var needsIsInitializedGeneration: Bool { false }
+
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
-            self.fieldDescriptor = descriptor
             self.generatorOptions = generatorOptions
             self.namer = namer
 
             swiftFullExtensionName = namer.fullName(extensionField: descriptor)
 
             comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
-            containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
+            containingTypeSwiftFullName = namer.fullName(message: descriptor.containingType)
+
+            switch descriptor.type {
+            case .group:
+                let swiftSingularType = descriptor.swiftSingularType(namer: namer)
+                trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
+            case .message:
+                if let mapKeyAndValue = descriptor.messageType!.mapKeyAndValue {
+                    let swiftType = descriptor.swiftType(namer: namer)
+                    trampolineFieldKind = .map(swiftType, valueIsMessage: mapKeyAndValue.value.type == .message)
+                } else {
+                    let swiftSingularType = descriptor.swiftSingularType(namer: namer)
+                    trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
+                }
+            case .enum:
+                let swiftSingularType = descriptor.swiftSingularType(namer: namer)
+                trampolineFieldKind = .enum(swiftSingularType, isArray: descriptor.isRepeated)
+            default:
+                trampolineFieldKind = nil
+            }
+
+            super.init(descriptor: descriptor)
         }
 
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
+            let extensionLayoutCalculator = MessageLayoutCalculator(extensionField: self)
+            guard let layoutLiteral = extensionLayoutCalculator.layoutLiterals.valueIfAllEqual else {
+                preconditionFailure("extension field layouts should not be target-sensitive")
+            }
+
             let visibility = generatorOptions.visibilitySourceSnippet
             let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
-            let traitsType = fieldDescriptor.traitsType(namer: namer)
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
             var fieldNamePath: String
@@ -80,30 +98,52 @@ class ExtensionSetGenerator {
             }
 
             p.print(
-                "\(comments)\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>("
+                "\(comments)\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)ExtensionSchema("
             )
-            p.printIndented(
-                "_protobuf_fieldNumber: \(fieldDescriptor.number),",
-                "fieldName: \"\(fieldNamePath)\""
-            )
-            p.print(")")
+            p.withIndentation { p in
+                // Since an extension is just a single field, there will be either zero or one of
+                // these.
+                if let field = extensionLayoutCalculator.trampolineFields.first {
+                    p.withIndentation { p in
+                        p.print(#"schema: "\#(layoutLiteral)\#(fieldNamePath)","#)
+                        p.print("performNontrivialExtensionOperation: { operation, ext, storage in")
+                        p.printIndented("storage.performNontrivialExtensionOperation(operation, extension: ext, type: \(field.kind.name).self)")
+                        p.print("},")
+
+                        switch field.kind {
+                        case .message:
+                            p.print("performOnSubmessageStorage: { ext, storage, operation, perform in")
+                            p.printIndented("try storage.performOnSubmessageStorage(of: ext, operation: operation, type: \(field.kind.name).self, perform: perform)")
+                            p.print("}")
+                        case .enum(let singularName, _):
+                            p.print("performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in")
+                            p.printIndented("try storage.performOnRawEnumValues(of: ext, operation: operation, type: \(field.kind.name).self, enumSchema: \(singularName).enumSchema, perform: perform, onInvalidValue: onInvalidValue)")
+                            p.print("}")
+                        case .map:
+                            preconditionFailure("unreachable; extensions cannot be map fields")
+                        }
+                    }
+                } else {
+                    p.print(#"schema: "\#(layoutLiteral)\#(fieldNamePath)""#, newlines: false)
+                }
+                p.print(")")
+            }
         }
 
-        func generateMessageSwiftExtension(printer p: inout CodePrinter) {
+        func generateInterface(printer p: inout CodePrinter) {
             let visibility = generatorOptions.visibilitySourceSnippet
             let apiType = fieldDescriptor.swiftType(namer: namer)
             let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
             let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
             // ExtensionSetGenerator provides the context to write out the properties.
-
             p.print(
                 "",
                 "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {"
             )
             p.printIndented(
-                "get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}",
-                "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}"
+                "get { _storage.extensionStorage.value(of: \(swiftFullExtensionName), default: \(defaultValue)) }",
+                "set { _uniqueStorage().extensionStorage.updateValue(of: \(swiftFullExtensionName), to: newValue) }"
             )
             p.print("}")
 
@@ -112,18 +152,13 @@ class ExtensionSetGenerator {
             if !fieldDescriptor.isRepeated {
                 p.print(
                     "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.",
-                    "\(visibility)var \(extensionNames.has): Bool {"
+                    "\(visibility)var \(extensionNames.has): Bool { _storage.extensionStorage.hasValue(for: \(swiftFullExtensionName)) }"
                 )
-                p.printIndented("return hasExtensionValue(ext: \(swiftFullExtensionName))")
-                p.print("}")
-
                 p.print(
                     "/// Clears the value of extension `\(swiftFullExtensionName)`.",
                     "/// Subsequent reads from it will return its default value.",
-                    "\(visibility)mutating func \(extensionNames.clear)() {"
+                    "\(visibility)mutating func \(extensionNames.clear)() { _uniqueStorage().extensionStorage.clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
                 )
-                p.printIndented("clearExtensionValue(ext: \(swiftFullExtensionName))")
-                p.print("}")
             }
         }
     }
@@ -207,7 +242,7 @@ class ExtensionSetGenerator {
                 )
                 p.indent()
             }
-            e.generateMessageSwiftExtension(printer: &p)
+            e.generateInterface(printer: &p)
         }
         p.outdent()
         p.print(

@@ -152,6 +152,25 @@ struct MessageLayoutCalculator {
             }
         }
     }
+
+    /// Creates a new message layout writer for a single extension field.
+    init(extensionField: any FieldGenerator) {
+        trampolineFieldCollector.collect(extensionField)
+
+        self.layoutWriters = .init(forAllTargets: .init())
+        layoutWriters.modify { writer, _ in
+            writer.writeBase128Int(0, byteWidth: 1)
+            writer.writeBase128Int(
+                UInt64(extensionField.number) | (UInt64(extensionField.fieldMode.rawValue) << 28), byteWidth: 5)
+            writer.writeBase128Int(UInt64(0), byteWidth: 3)
+            writer.writeBase128Int(UInt64(0), byteWidth: 2)
+            writer.writeBase128Int(
+                UInt64(trampolineFieldCollector.fieldNumberToTrampolineIndexMap[extensionField.number, default: 0]),
+                byteWidth: 2
+            )
+            writer.writeBase128Int(UInt64(extensionField.rawFieldType.rawValue), byteWidth: 1)
+        }
+    }
 }
 
 /// Manages the generation of a message layout string for a single platform.

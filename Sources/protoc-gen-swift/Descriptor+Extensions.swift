@@ -421,42 +421,6 @@ extension FieldDescriptor {
             return "0"
         }
     }
-
-    /// Calculates the traits type used for maps and extensions, they
-    /// are used in decoding and visiting.
-    func traitsType(namer: SwiftProtobufNamer) -> String {
-        if case (let keyField, let valueField)? = messageType?.mapKeyAndValue {
-            let keyTraits = keyField.traitsType(namer: namer)
-            let valueTraits = valueField.traitsType(namer: namer)
-            switch valueField.type {
-            case .message:  // Map's can't have a group as the value
-                return "\(namer.swiftProtobufModulePrefix)_ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
-            case .enum:
-                return "\(namer.swiftProtobufModulePrefix)_ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
-            default:
-                return "\(namer.swiftProtobufModulePrefix)_ProtobufMap<\(keyTraits),\(valueTraits)>"
-            }
-        }
-        switch type {
-        case .double: return "\(namer.swiftProtobufModulePrefix)ProtobufDouble"
-        case .float: return "\(namer.swiftProtobufModulePrefix)ProtobufFloat"
-        case .int64: return "\(namer.swiftProtobufModulePrefix)ProtobufInt64"
-        case .uint64: return "\(namer.swiftProtobufModulePrefix)ProtobufUInt64"
-        case .int32: return "\(namer.swiftProtobufModulePrefix)ProtobufInt32"
-        case .fixed64: return "\(namer.swiftProtobufModulePrefix)ProtobufFixed64"
-        case .fixed32: return "\(namer.swiftProtobufModulePrefix)ProtobufFixed32"
-        case .bool: return "\(namer.swiftProtobufModulePrefix)ProtobufBool"
-        case .string: return "\(namer.swiftProtobufModulePrefix)ProtobufString"
-        case .group, .message: return namer.fullName(message: messageType!)
-        case .bytes: return "\(namer.swiftProtobufModulePrefix)ProtobufBytes"
-        case .uint32: return "\(namer.swiftProtobufModulePrefix)ProtobufUInt32"
-        case .enum: return namer.fullName(enum: enumType!)
-        case .sfixed32: return "\(namer.swiftProtobufModulePrefix)ProtobufSFixed32"
-        case .sfixed64: return "\(namer.swiftProtobufModulePrefix)ProtobufSFixed64"
-        case .sint32: return "\(namer.swiftProtobufModulePrefix)ProtobufSInt32"
-        case .sint64: return "\(namer.swiftProtobufModulePrefix)ProtobufSInt64"
-        }
-    }
 }
 
 extension EnumDescriptor {

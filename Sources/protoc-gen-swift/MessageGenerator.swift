@@ -31,7 +31,6 @@ class MessageGenerator {
     private let enums: [EnumGenerator]
     private let messages: [MessageGenerator]
     private let mapEntries: [String: MapEntryGenerator]
-    private let isExtensible: Bool
     private let messageLayoutCalculator: MessageLayoutCalculator
 
     init(
@@ -45,7 +44,6 @@ class MessageGenerator {
         self.namer = namer
 
         visibility = generatorOptions.visibilitySourceSnippet
-        isExtensible = !descriptor.messageExtensionRanges.isEmpty
         swiftRelativeName = namer.relativeName(message: descriptor)
         swiftFullName = namer.fullName(message: descriptor)
 
@@ -140,9 +138,6 @@ class MessageGenerator {
         }
 
         var conformances = [String]()
-        if isExtensible {
-            conformances.append("\(namer.swiftProtobufModulePrefix)ExtensibleMessage")
-        }
 
         // `Sendable` conformance for generated messages is unchecked because the `_MessageStorage`
         // property is a class type with mutable state. However, the generated code ensures that
@@ -204,27 +199,8 @@ class MessageGenerator {
                 "\(visibility)init() {}"
             )
 
-            // Optional extension support
-            if isExtensible {
-                p.print(
-                    "",
-                    "\(visibility)var _protobuf_extensionFieldValues: \(namer.swiftProtobufModulePrefix)ExtensionFieldValueSet {"
-                )
-                p.withIndentation { p in
-                    p.print("get { _storage.extensionFieldValues }")
-                    p.print("_modify {")
-                    p.printIndented(
-                        "_ = _uniqueStorage()",
-                        "yield &_storage.extensionFieldValues"
-                    )
-                    p.print("}")
-                }
-                p.print("}")
-            }
-            if !isExtensible {
-                p.print()
-            }
             p.print(
+                "",
                 "private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)",
                 "",
                 "private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {"
