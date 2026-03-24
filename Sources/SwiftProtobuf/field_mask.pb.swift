@@ -270,7 +270,7 @@ public struct Google_Protobuf_FieldMask: @unchecked Sendable {
 
   public init() {}
 
-  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+  private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
@@ -287,7 +287,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FieldMask"
-  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}" }
@@ -300,7 +300,7 @@ extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase, _Proto
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.FieldMask\0\u{1}paths\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString)
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

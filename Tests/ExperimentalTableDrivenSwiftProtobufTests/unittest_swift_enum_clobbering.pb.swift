@@ -111,7 +111,7 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
 
   init() {}
 
-  private var _storage = SwiftProtobuf._MessageStorage(layout: Self._protobuf_messageLayout)
+  private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
@@ -128,56 +128,56 @@ fileprivate let _protobuf_package = "swift_proto_testing.enum_clobbering"
 
 extension SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf._ProtoNameProviding {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumLayoutString: StaticString { "" }
-  static let _protobuf_enumLayout = SwiftProtobuf.EnumLayout(layout: _protobuf_enumLayoutString, names: _protobuf_valueNamesString)
+  private static var _protobuf_enumSchemaString: StaticString { "" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
   private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum_clobbering.Foo\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_enumLayout.nameMap }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
 }
 
 extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumHolder"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { _protobuf_messageLayout.nameMap }
+  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageLayoutString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.enum_clobbering.EnumHolder\0\u{1}foo\0\u{2}\u{2}bar\0" }
 
-  private static let _protobuf_messageLayout = SwiftProtobuf._MessageLayout(layout: _protobuf_messageLayoutString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntryLayout: _protobuf_mapEntryLayout, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf._MessageLayout.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_EnumClobbering_Foo.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumLayout, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
     switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_EnumClobbering_Foo.self, enumLayout: SwiftProtoTesting_EnumClobbering_Foo._protobuf_enumLayout, perform: perform, onInvalidValue: onInvalidValue)
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_EnumClobbering_Foo.self, enumSchema: SwiftProtoTesting_EnumClobbering_Foo.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_mapEntryLayout(for token: SwiftProtobuf._MessageLayout.TrampolineToken) -> SwiftProtobuf._MessageLayout {
+  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf._MessageLayout.TrampolineToken, field: SwiftProtobuf.FieldLayout, storage: SwiftProtobuf._MessageStorage, workingSpace: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, workingSpace: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }

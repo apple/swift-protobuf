@@ -72,6 +72,9 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: Sendable {
 fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
 
 extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static var messageSchema: MessageSchema { fatalError() }
+  public var messageSchema: MessageSchema { fatalError() }
+
   public static let protoMessageName: String = _protobuf_package + ".ModuleMappings"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}mapping\0")
 
@@ -102,6 +105,9 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
 }
 
 extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static var messageSchema: MessageSchema { fatalError() }
+  public var messageSchema: MessageSchema { fatalError() }
+
   public static let protoMessageName: String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}module_name\0\u{3}proto_file_path\0")
 
