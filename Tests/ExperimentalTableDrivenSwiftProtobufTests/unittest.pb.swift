@@ -865,7 +865,7 @@ struct SwiftProtoTesting_ForeignMessage: @unchecked Sendable {
   }
 }
 
-struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct SwiftProtoTesting_TestAllExtensions: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -880,13 +880,6 @@ struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, @un
 
   init() {}
 
-  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
-    get { _storage.extensionFieldValues }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.extensionFieldValues
-    }
-  }
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -1551,7 +1544,7 @@ struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
 
 /// We list fields out of order, to ensure that we're using field number and not
 /// field index to determine serialization order.
-struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct SwiftProtoTesting_TestFieldOrderings: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1649,13 +1642,6 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, @u
 
   init() {}
 
-  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
-    get { _storage.extensionFieldValues }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.extensionFieldValues
-    }
-  }
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -2348,7 +2334,7 @@ struct SwiftProtoTesting_TestUnpackedTypes: @unchecked Sendable {
   }
 }
 
-struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct SwiftProtoTesting_TestPackedExtensions: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2363,13 +2349,6 @@ struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, 
 
   init() {}
 
-  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
-    get { _storage.extensionFieldValues }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.extensionFieldValues
-    }
-  }
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -2383,7 +2362,7 @@ struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, 
 
 /// Test that if an optional or required message/group field appears multiple
 /// times in the input, they need to be merged.
-struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+struct SwiftProtoTesting_TestParsingMerge: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2641,13 +2620,6 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, @unc
 
   init() {}
 
-  var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet {
-    get { _storage.extensionFieldValues }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.extensionFieldValues
-    }
-  }
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
 
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
@@ -2672,1542 +2644,1230 @@ extension SwiftProtoTesting_TestAllExtensions {
 
   /// Singular
   var SwiftProtoTesting_optionalInt32Extension: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_int32_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_int32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_int32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalInt32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension)
-  }
+  var hasSwiftProtoTesting_optionalInt32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_int32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalInt32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalInt32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_int32_extension, type: Int32.self) }
 
   var SwiftProtoTesting_optionalInt64Extension: Int64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int64_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_int64_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_int64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_int64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalInt64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int64_extension)
-  }
+  var hasSwiftProtoTesting_optionalInt64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_int64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalInt64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int64_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalInt64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_int64_extension, type: Int64.self) }
 
   var SwiftProtoTesting_optionalUint32Extension: UInt32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint32_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_uint32_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_uint32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_uint32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalUint32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint32_extension)
-  }
+  var hasSwiftProtoTesting_optionalUint32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_uint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalUint32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint32_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalUint32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_uint32_extension, type: UInt32.self) }
 
   var SwiftProtoTesting_optionalUint64Extension: UInt64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint64_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_uint64_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_uint64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_uint64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalUint64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint64_extension)
-  }
+  var hasSwiftProtoTesting_optionalUint64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_uint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalUint64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_uint64_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalUint64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_uint64_extension, type: UInt64.self) }
 
   var SwiftProtoTesting_optionalSint32Extension: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint32_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_sint32_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_sint32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_sint32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalSint32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint32_extension)
-  }
+  var hasSwiftProtoTesting_optionalSint32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_sint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSint32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint32_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalSint32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_sint32_extension, type: Int32.self) }
 
   var SwiftProtoTesting_optionalSint64Extension: Int64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint64_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_sint64_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_sint64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_sint64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalSint64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint64_extension)
-  }
+  var hasSwiftProtoTesting_optionalSint64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_sint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSint64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sint64_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalSint64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_sint64_extension, type: Int64.self) }
 
   var SwiftProtoTesting_optionalFixed32Extension: UInt32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed32_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_fixed32_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_fixed32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_fixed32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalFixed32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed32_extension)
-  }
+  var hasSwiftProtoTesting_optionalFixed32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_fixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalFixed32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed32_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalFixed32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_fixed32_extension, type: UInt32.self) }
 
   var SwiftProtoTesting_optionalFixed64Extension: UInt64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed64_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_fixed64_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_fixed64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_fixed64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalFixed64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed64_extension)
-  }
+  var hasSwiftProtoTesting_optionalFixed64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_fixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalFixed64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_fixed64_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalFixed64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_fixed64_extension, type: UInt64.self) }
 
   var SwiftProtoTesting_optionalSfixed32Extension: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed32_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_sfixed32_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_sfixed32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_sfixed32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalSfixed32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed32_extension)
-  }
+  var hasSwiftProtoTesting_optionalSfixed32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_sfixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSfixed32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed32_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalSfixed32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_sfixed32_extension, type: Int32.self) }
 
   var SwiftProtoTesting_optionalSfixed64Extension: Int64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed64_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_sfixed64_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_sfixed64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_sfixed64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalSfixed64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed64_extension)
-  }
+  var hasSwiftProtoTesting_optionalSfixed64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_sfixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSfixed64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_sfixed64_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalSfixed64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_sfixed64_extension, type: Int64.self) }
 
   var SwiftProtoTesting_optionalFloatExtension: Float {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_float_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_float_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_float_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_float_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_float_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalFloatExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_float_extension)
-  }
+  var hasSwiftProtoTesting_optionalFloatExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_float_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalFloatExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_float_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalFloatExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_float_extension, type: Float.self) }
 
   var SwiftProtoTesting_optionalDoubleExtension: Double {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_double_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_double_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_double_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_double_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_double_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalDoubleExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_double_extension)
-  }
+  var hasSwiftProtoTesting_optionalDoubleExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_double_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalDoubleExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_double_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalDoubleExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_double_extension, type: Double.self) }
 
   var SwiftProtoTesting_optionalBoolExtension: Bool {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bool_extension) ?? false}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bool_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_bool_extension, default: false) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_bool_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_bool_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalBoolExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bool_extension)
-  }
+  var hasSwiftProtoTesting_optionalBoolExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_bool_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalBoolExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bool_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalBoolExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_bool_extension, type: Bool.self) }
 
   var SwiftProtoTesting_optionalStringExtension: String {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension) ?? String()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_string_extension, default: String()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_string_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_string_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalStringExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension)
-  }
+  var hasSwiftProtoTesting_optionalStringExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalStringExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalStringExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_string_extension, type: String.self) }
 
   var SwiftProtoTesting_optionalBytesExtension: Data {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension) ?? Data()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_bytes_extension, default: Data()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_bytes_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_bytes_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalBytesExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension)
-  }
+  var hasSwiftProtoTesting_optionalBytesExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_bytes_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalBytesExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalBytesExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_bytes_extension, type: Data.self) }
 
   var SwiftProtoTesting_optionalGroupExtension: SwiftProtoTesting_OptionalGroup_extension {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_OptionalGroup_extension) ?? SwiftProtoTesting_OptionalGroup_extension()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_OptionalGroup_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_OptionalGroup_extension, default: SwiftProtoTesting_OptionalGroup_extension()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_OptionalGroup_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_OptionalGroup_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalGroupExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_OptionalGroup_extension)
-  }
+  var hasSwiftProtoTesting_optionalGroupExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_OptionalGroup_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_OptionalGroup_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalGroupExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_OptionalGroup_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalGroupExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_OptionalGroup_extension, type: SwiftProtoTesting_OptionalGroup_extension.self) }
 
   var SwiftProtoTesting_optionalNestedMessageExtension: SwiftProtoTesting_TestAllTypes.NestedMessage {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension) ?? SwiftProtoTesting_TestAllTypes.NestedMessage()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_nested_message_extension, default: SwiftProtoTesting_TestAllTypes.NestedMessage()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_nested_message_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_nested_message_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalNestedMessageExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension)
-  }
+  var hasSwiftProtoTesting_optionalNestedMessageExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_nested_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalNestedMessageExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalNestedMessageExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_nested_message_extension, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self) }
 
   var SwiftProtoTesting_optionalForeignMessageExtension: SwiftProtoTesting_ForeignMessage {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_message_extension) ?? SwiftProtoTesting_ForeignMessage()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_foreign_message_extension, default: SwiftProtoTesting_ForeignMessage()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_foreign_message_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_foreign_message_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalForeignMessageExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_message_extension)
-  }
+  var hasSwiftProtoTesting_optionalForeignMessageExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_foreign_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_foreign_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalForeignMessageExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_message_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalForeignMessageExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_foreign_message_extension, type: SwiftProtoTesting_ForeignMessage.self) }
 
   var SwiftProtoTesting_optionalImportMessageExtension: SwiftProtoTesting_Import_ImportMessage {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_message_extension) ?? SwiftProtoTesting_Import_ImportMessage()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_import_message_extension, default: SwiftProtoTesting_Import_ImportMessage()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_import_message_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_import_message_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalImportMessageExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_message_extension)
-  }
+  var hasSwiftProtoTesting_optionalImportMessageExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_import_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalImportMessageExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_message_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalImportMessageExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_import_message_extension, type: SwiftProtoTesting_Import_ImportMessage.self) }
 
   var SwiftProtoTesting_optionalNestedEnumExtension: SwiftProtoTesting_TestAllTypes.NestedEnum {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension) ?? .foo}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_nested_enum_extension, default: .foo) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_nested_enum_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_nested_enum_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalNestedEnumExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension)
-  }
+  var hasSwiftProtoTesting_optionalNestedEnumExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_nested_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalNestedEnumExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalNestedEnumExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_nested_enum_extension, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self) }
 
   var SwiftProtoTesting_optionalForeignEnumExtension: SwiftProtoTesting_ForeignEnum {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_enum_extension) ?? .foreignFoo}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_foreign_enum_extension, default: .foreignFoo) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_foreign_enum_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_foreign_enum_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalForeignEnumExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_enum_extension)
-  }
+  var hasSwiftProtoTesting_optionalForeignEnumExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_foreign_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalForeignEnumExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_foreign_enum_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalForeignEnumExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_foreign_enum_extension, type: SwiftProtoTesting_ForeignEnum.self) }
 
   var SwiftProtoTesting_optionalImportEnumExtension: SwiftProtoTesting_Import_ImportEnum {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_enum_extension) ?? .importFoo}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_import_enum_extension, default: .importFoo) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_import_enum_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_import_enum_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalImportEnumExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_enum_extension)
-  }
+  var hasSwiftProtoTesting_optionalImportEnumExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_import_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalImportEnumExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_import_enum_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalImportEnumExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_import_enum_extension, type: SwiftProtoTesting_Import_ImportEnum.self) }
 
   var SwiftProtoTesting_optionalPublicImportMessageExtension: SwiftProtoTesting_Import_PublicImportMessage {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_public_import_message_extension) ?? SwiftProtoTesting_Import_PublicImportMessage()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_public_import_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_optional_public_import_message_extension, default: SwiftProtoTesting_Import_PublicImportMessage()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_optional_public_import_message_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_optional_public_import_message_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_optionalPublicImportMessageExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_public_import_message_extension)
-  }
+  var hasSwiftProtoTesting_optionalPublicImportMessageExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_optional_public_import_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_public_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalPublicImportMessageExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_public_import_message_extension)
-  }
+  mutating func clearSwiftProtoTesting_optionalPublicImportMessageExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_optional_public_import_message_extension, type: SwiftProtoTesting_Import_PublicImportMessage.self) }
 
   /// Repeated
   var SwiftProtoTesting_repeatedInt32Extension: [Int32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_int32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_int32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedInt64Extension: [Int64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_int64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_int64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedUint32Extension: [UInt32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_uint32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_uint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_uint32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_uint32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedUint64Extension: [UInt64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_uint64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_uint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_uint64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_uint64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedSint32Extension: [Int32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sint32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_sint32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_sint32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedSint64Extension: [Int64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sint64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_sint64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_sint64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedFixed32Extension: [UInt32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_fixed32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_fixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_fixed32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_fixed32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedFixed64Extension: [UInt64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_fixed64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_fixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_fixed64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_fixed64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedSfixed32Extension: [Int32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sfixed32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sfixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_sfixed32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_sfixed32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedSfixed64Extension: [Int64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sfixed64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_sfixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_sfixed64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_sfixed64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedFloatExtension: [Float] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_float_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_float_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_float_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_float_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedDoubleExtension: [Double] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_double_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_double_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_double_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_double_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedBoolExtension: [Bool] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_bool_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_bool_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_bool_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_bool_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedStringExtension: [String] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_string_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_string_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_string_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_string_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedBytesExtension: [Data] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_bytes_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_bytes_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_bytes_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_bytes_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedGroupExtension: [SwiftProtoTesting_RepeatedGroup_extension] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_RepeatedGroup_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_RepeatedGroup_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_RepeatedGroup_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_RepeatedGroup_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedNestedMessageExtension: [SwiftProtoTesting_TestAllTypes.NestedMessage] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_message_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_nested_message_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_nested_message_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedForeignMessageExtension: [SwiftProtoTesting_ForeignMessage] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_foreign_message_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_foreign_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_foreign_message_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_foreign_message_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedImportMessageExtension: [SwiftProtoTesting_Import_ImportMessage] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_import_message_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_import_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_import_message_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_import_message_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedNestedEnumExtension: [SwiftProtoTesting_TestAllTypes.NestedEnum] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_enum_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_nested_enum_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_nested_enum_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedForeignEnumExtension: [SwiftProtoTesting_ForeignEnum] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_foreign_enum_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_foreign_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_foreign_enum_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_foreign_enum_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_repeatedImportEnumExtension: [SwiftProtoTesting_Import_ImportEnum] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_import_enum_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_import_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_repeated_import_enum_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_repeated_import_enum_extension, to: newValue) }
   }
 
   /// Singular with defaults
   var SwiftProtoTesting_defaultInt32Extension: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_int32_extension) ?? 41}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_int32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_int32_extension, default: 41) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_int32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_int32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultInt32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_int32_extension)
-  }
+  var hasSwiftProtoTesting_defaultInt32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_int32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultInt32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_int32_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultInt32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_int32_extension, type: Int32.self) }
 
   var SwiftProtoTesting_defaultInt64Extension: Int64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_int64_extension) ?? 42}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_int64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_int64_extension, default: 42) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_int64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_int64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultInt64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_int64_extension)
-  }
+  var hasSwiftProtoTesting_defaultInt64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_int64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultInt64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_int64_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultInt64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_int64_extension, type: Int64.self) }
 
   var SwiftProtoTesting_defaultUint32Extension: UInt32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint32_extension) ?? 43}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_uint32_extension, default: 43) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_uint32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_uint32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultUint32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint32_extension)
-  }
+  var hasSwiftProtoTesting_defaultUint32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_uint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultUint32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint32_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultUint32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_uint32_extension, type: UInt32.self) }
 
   var SwiftProtoTesting_defaultUint64Extension: UInt64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint64_extension) ?? 44}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_uint64_extension, default: 44) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_uint64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_uint64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultUint64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint64_extension)
-  }
+  var hasSwiftProtoTesting_defaultUint64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_uint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultUint64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_uint64_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultUint64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_uint64_extension, type: UInt64.self) }
 
   var SwiftProtoTesting_defaultSint32Extension: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint32_extension) ?? -45}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_sint32_extension, default: -45) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_sint32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_sint32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultSint32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint32_extension)
-  }
+  var hasSwiftProtoTesting_defaultSint32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_sint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSint32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint32_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultSint32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_sint32_extension, type: Int32.self) }
 
   var SwiftProtoTesting_defaultSint64Extension: Int64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint64_extension) ?? 46}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_sint64_extension, default: 46) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_sint64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_sint64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultSint64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint64_extension)
-  }
+  var hasSwiftProtoTesting_defaultSint64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_sint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSint64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_sint64_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultSint64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_sint64_extension, type: Int64.self) }
 
   var SwiftProtoTesting_defaultFixed32Extension: UInt32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed32_extension) ?? 47}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_fixed32_extension, default: 47) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_fixed32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_fixed32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultFixed32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed32_extension)
-  }
+  var hasSwiftProtoTesting_defaultFixed32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_fixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultFixed32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed32_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultFixed32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_fixed32_extension, type: UInt32.self) }
 
   var SwiftProtoTesting_defaultFixed64Extension: UInt64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed64_extension) ?? 48}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_fixed64_extension, default: 48) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_fixed64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_fixed64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultFixed64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed64_extension)
-  }
+  var hasSwiftProtoTesting_defaultFixed64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_fixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultFixed64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_fixed64_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultFixed64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_fixed64_extension, type: UInt64.self) }
 
   var SwiftProtoTesting_defaultSfixed32Extension: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed32_extension) ?? 49}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_sfixed32_extension, default: 49) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_sfixed32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_sfixed32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultSfixed32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed32_extension)
-  }
+  var hasSwiftProtoTesting_defaultSfixed32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_sfixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSfixed32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed32_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultSfixed32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_sfixed32_extension, type: Int32.self) }
 
   var SwiftProtoTesting_defaultSfixed64Extension: Int64 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed64_extension) ?? -50}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_sfixed64_extension, default: -50) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_sfixed64_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_sfixed64_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultSfixed64Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed64_extension)
-  }
+  var hasSwiftProtoTesting_defaultSfixed64Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_sfixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSfixed64Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_sfixed64_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultSfixed64Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_sfixed64_extension, type: Int64.self) }
 
   var SwiftProtoTesting_defaultFloatExtension: Float {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_float_extension) ?? 51.5}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_float_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_float_extension, default: 51.5) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_float_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_float_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultFloatExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_float_extension)
-  }
+  var hasSwiftProtoTesting_defaultFloatExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_float_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultFloatExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_float_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultFloatExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_float_extension, type: Float.self) }
 
   var SwiftProtoTesting_defaultDoubleExtension: Double {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_double_extension) ?? 52000}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_double_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_double_extension, default: 52000) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_double_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_double_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultDoubleExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_double_extension)
-  }
+  var hasSwiftProtoTesting_defaultDoubleExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_double_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultDoubleExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_double_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultDoubleExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_double_extension, type: Double.self) }
 
   var SwiftProtoTesting_defaultBoolExtension: Bool {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_bool_extension) ?? true}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_bool_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_bool_extension, default: true) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_bool_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_bool_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultBoolExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_bool_extension)
-  }
+  var hasSwiftProtoTesting_defaultBoolExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_bool_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultBoolExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_bool_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultBoolExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_bool_extension, type: Bool.self) }
 
   var SwiftProtoTesting_defaultStringExtension: String {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_string_extension) ?? "hello"}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_string_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_string_extension, default: "hello") }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_string_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_string_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultStringExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_string_extension)
-  }
+  var hasSwiftProtoTesting_defaultStringExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultStringExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_string_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultStringExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_string_extension, type: String.self) }
 
   var SwiftProtoTesting_defaultBytesExtension: Data {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_bytes_extension) ?? Data([119, 111, 114, 108, 100])}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_bytes_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_bytes_extension, default: Data([119, 111, 114, 108, 100])) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_bytes_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_bytes_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultBytesExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_bytes_extension)
-  }
+  var hasSwiftProtoTesting_defaultBytesExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_bytes_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultBytesExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_bytes_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultBytesExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_bytes_extension, type: Data.self) }
 
   var SwiftProtoTesting_defaultNestedEnumExtension: SwiftProtoTesting_TestAllTypes.NestedEnum {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_nested_enum_extension) ?? .bar}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_nested_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_nested_enum_extension, default: .bar) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_nested_enum_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_nested_enum_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultNestedEnumExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_nested_enum_extension)
-  }
+  var hasSwiftProtoTesting_defaultNestedEnumExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_nested_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultNestedEnumExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_nested_enum_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultNestedEnumExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_nested_enum_extension, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self) }
 
   var SwiftProtoTesting_defaultForeignEnumExtension: SwiftProtoTesting_ForeignEnum {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_foreign_enum_extension) ?? .foreignBar}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_foreign_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_foreign_enum_extension, default: .foreignBar) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_foreign_enum_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_foreign_enum_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultForeignEnumExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_foreign_enum_extension)
-  }
+  var hasSwiftProtoTesting_defaultForeignEnumExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_foreign_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultForeignEnumExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_foreign_enum_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultForeignEnumExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_foreign_enum_extension, type: SwiftProtoTesting_ForeignEnum.self) }
 
   var SwiftProtoTesting_defaultImportEnumExtension: SwiftProtoTesting_Import_ImportEnum {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_default_import_enum_extension) ?? .importBar}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_default_import_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_default_import_enum_extension, default: .importBar) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_default_import_enum_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_default_import_enum_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_defaultImportEnumExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_default_import_enum_extension)
-  }
+  var hasSwiftProtoTesting_defaultImportEnumExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_default_import_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultImportEnumExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_default_import_enum_extension)
-  }
+  mutating func clearSwiftProtoTesting_defaultImportEnumExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_default_import_enum_extension, type: SwiftProtoTesting_Import_ImportEnum.self) }
 
   /// For oneof test
   var SwiftProtoTesting_oneofUint32Extension: UInt32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_uint32_extension) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_uint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_oneof_uint32_extension, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_oneof_uint32_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_oneof_uint32_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_oneofUint32Extension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_uint32_extension)
-  }
+  var hasSwiftProtoTesting_oneofUint32Extension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_oneof_uint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofUint32Extension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_uint32_extension)
-  }
+  mutating func clearSwiftProtoTesting_oneofUint32Extension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_oneof_uint32_extension, type: UInt32.self) }
 
   var SwiftProtoTesting_oneofNestedMessageExtension: SwiftProtoTesting_TestAllTypes.NestedMessage {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_nested_message_extension) ?? SwiftProtoTesting_TestAllTypes.NestedMessage()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_nested_message_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_oneof_nested_message_extension, default: SwiftProtoTesting_TestAllTypes.NestedMessage()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_oneof_nested_message_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_oneof_nested_message_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_oneofNestedMessageExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_nested_message_extension)
-  }
+  var hasSwiftProtoTesting_oneofNestedMessageExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_oneof_nested_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofNestedMessageExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_nested_message_extension)
-  }
+  mutating func clearSwiftProtoTesting_oneofNestedMessageExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_oneof_nested_message_extension, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self) }
 
   var SwiftProtoTesting_oneofStringExtension: String {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_string_extension) ?? String()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_string_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_oneof_string_extension, default: String()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_oneof_string_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_oneof_string_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_oneofStringExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_string_extension)
-  }
+  var hasSwiftProtoTesting_oneofStringExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_oneof_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofStringExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_string_extension)
-  }
+  mutating func clearSwiftProtoTesting_oneofStringExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_oneof_string_extension, type: String.self) }
 
   var SwiftProtoTesting_oneofBytesExtension: Data {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_bytes_extension) ?? Data()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_bytes_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_oneof_bytes_extension, default: Data()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_oneof_bytes_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_oneof_bytes_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_oneofBytesExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_bytes_extension)
-  }
+  var hasSwiftProtoTesting_oneofBytesExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_oneof_bytes_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofBytesExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_oneof_bytes_extension)
-  }
+  mutating func clearSwiftProtoTesting_oneofBytesExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_oneof_bytes_extension, type: Data.self) }
 
   /// Check for bug where string extensions declared in tested scope did not
   /// compile.
   var SwiftProtoTesting_TestNestedExtension_test: String {
-    get {return getExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.test) ?? "test"}
-    set {setExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.test, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_TestNestedExtension.Extensions.test, default: "test") }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.test, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_TestNestedExtension.Extensions.test`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_TestNestedExtension_test: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.test)
-  }
+  var hasSwiftProtoTesting_TestNestedExtension_test: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_TestNestedExtension.Extensions.test) }
   /// Clears the value of extension `SwiftProtoTesting_TestNestedExtension.Extensions.test`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestNestedExtension_test() {
-    clearExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.test)
-  }
+  mutating func clearSwiftProtoTesting_TestNestedExtension_test() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.test, type: String.self) }
 
   /// Used to test if generated extension name is correct when there are
   /// underscores.
   var SwiftProtoTesting_TestNestedExtension_nestedStringExtension: String {
-    get {return getExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension) ?? String()}
-    set {setExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension, default: String()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_TestNestedExtension_nestedStringExtension: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension)
-  }
+  var hasSwiftProtoTesting_TestNestedExtension_nestedStringExtension: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestNestedExtension_nestedStringExtension() {
-    clearExtensionValue(ext: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension)
-  }
+  mutating func clearSwiftProtoTesting_TestNestedExtension_nestedStringExtension() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension, type: String.self) }
 
   var SwiftProtoTesting_TestRequired_single: SwiftProtoTesting_TestRequired {
-    get {return getExtensionValue(ext: SwiftProtoTesting_TestRequired.Extensions.single) ?? SwiftProtoTesting_TestRequired()}
-    set {setExtensionValue(ext: SwiftProtoTesting_TestRequired.Extensions.single, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_TestRequired.Extensions.single, default: SwiftProtoTesting_TestRequired()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_TestRequired.Extensions.single, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_TestRequired.Extensions.single`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_TestRequired_single: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_TestRequired.Extensions.single)
-  }
+  var hasSwiftProtoTesting_TestRequired_single: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_TestRequired.Extensions.single) }
   /// Clears the value of extension `SwiftProtoTesting_TestRequired.Extensions.single`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestRequired_single() {
-    clearExtensionValue(ext: SwiftProtoTesting_TestRequired.Extensions.single)
-  }
+  mutating func clearSwiftProtoTesting_TestRequired_single() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_TestRequired.Extensions.single, type: SwiftProtoTesting_TestRequired.self) }
 
   var SwiftProtoTesting_TestRequired_multi: [SwiftProtoTesting_TestRequired] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_TestRequired.Extensions.multi) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_TestRequired.Extensions.multi, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_TestRequired.Extensions.multi, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_TestRequired.Extensions.multi, to: newValue) }
   }
 }
 
 extension SwiftProtoTesting_TestFieldOrderings {
 
   var SwiftProtoTesting_myExtensionString: String {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_string) ?? String()}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_string, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_my_extension_string, default: String()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_my_extension_string, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_my_extension_string`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_myExtensionString: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_string)
-  }
+  var hasSwiftProtoTesting_myExtensionString: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_my_extension_string) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_my_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_myExtensionString() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_string)
-  }
+  mutating func clearSwiftProtoTesting_myExtensionString() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_my_extension_string, type: String.self) }
 
   var SwiftProtoTesting_myExtensionInt: Int32 {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_int) ?? 0}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_int, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_my_extension_int, default: 0) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_my_extension_int, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_Extensions_my_extension_int`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_myExtensionInt: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_int)
-  }
+  var hasSwiftProtoTesting_myExtensionInt: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_Extensions_my_extension_int) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_my_extension_int`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_myExtensionInt() {
-    clearExtensionValue(ext: SwiftProtoTesting_Extensions_my_extension_int)
-  }
+  mutating func clearSwiftProtoTesting_myExtensionInt() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_Extensions_my_extension_int, type: Int32.self) }
 }
 
 extension SwiftProtoTesting_TestPackedExtensions {
 
   var SwiftProtoTesting_packedInt32Extension: [Int32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_int32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_int32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedInt64Extension: [Int64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_int64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_int64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedUint32Extension: [UInt32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_uint32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_uint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_uint32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_uint32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedUint64Extension: [UInt64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_uint64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_uint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_uint64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_uint64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedSint32Extension: [Int32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sint32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sint32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_sint32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_sint32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedSint64Extension: [Int64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sint64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sint64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_sint64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_sint64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedFixed32Extension: [UInt32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_fixed32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_fixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_fixed32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_fixed32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedFixed64Extension: [UInt64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_fixed64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_fixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_fixed64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_fixed64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedSfixed32Extension: [Int32] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sfixed32_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sfixed32_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_sfixed32_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_sfixed32_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedSfixed64Extension: [Int64] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sfixed64_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_sfixed64_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_sfixed64_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_sfixed64_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedFloatExtension: [Float] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_float_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_float_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_float_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_float_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedDoubleExtension: [Double] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_double_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_double_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_double_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_double_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedBoolExtension: [Bool] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_bool_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_bool_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_bool_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_bool_extension, to: newValue) }
   }
 
   var SwiftProtoTesting_packedEnumExtension: [SwiftProtoTesting_ForeignEnum] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_enum_extension) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_enum_extension, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_Extensions_packed_enum_extension, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_Extensions_packed_enum_extension, to: newValue) }
   }
 }
 
 extension SwiftProtoTesting_TestParsingMerge {
 
   var SwiftProtoTesting_TestParsingMerge_optionalExt: SwiftProtoTesting_TestAllTypes {
-    get {return getExtensionValue(ext: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext) ?? SwiftProtoTesting_TestAllTypes()}
-    set {setExtensionValue(ext: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext, default: SwiftProtoTesting_TestAllTypes()) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext, to: newValue) }
   }
   /// Returns true if extension `SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext`
   /// has been explicitly set.
-  var hasSwiftProtoTesting_TestParsingMerge_optionalExt: Bool {
-    return hasExtensionValue(ext: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext)
-  }
+  var hasSwiftProtoTesting_TestParsingMerge_optionalExt: Bool { _storage.extensionStorage.hasValue(for: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext) }
   /// Clears the value of extension `SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestParsingMerge_optionalExt() {
-    clearExtensionValue(ext: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext)
-  }
+  mutating func clearSwiftProtoTesting_TestParsingMerge_optionalExt() { _uniqueStorage().extensionStorage.clearValue(of: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext, type: SwiftProtoTesting_TestAllTypes.self) }
 
   var SwiftProtoTesting_TestParsingMerge_repeatedExt: [SwiftProtoTesting_TestAllTypes] {
-    get {return getExtensionValue(ext: SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext) ?? []}
-    set {setExtensionValue(ext: SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext, value: newValue)}
+    get { _storage.extensionStorage.value(of: SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext, default: []) }
+    set { _uniqueStorage().extensionStorage.updateValue(of: SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext, to: newValue) }
   }
 
 }
-
-// MARK: - File's ExtensionMap: SwiftProtoTesting_Unittest_Extensions
-
-/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
-/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
-/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
-/// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  SwiftProtoTesting_Extensions_optional_int32_extension,
-  SwiftProtoTesting_Extensions_optional_int64_extension,
-  SwiftProtoTesting_Extensions_optional_uint32_extension,
-  SwiftProtoTesting_Extensions_optional_uint64_extension,
-  SwiftProtoTesting_Extensions_optional_sint32_extension,
-  SwiftProtoTesting_Extensions_optional_sint64_extension,
-  SwiftProtoTesting_Extensions_optional_fixed32_extension,
-  SwiftProtoTesting_Extensions_optional_fixed64_extension,
-  SwiftProtoTesting_Extensions_optional_sfixed32_extension,
-  SwiftProtoTesting_Extensions_optional_sfixed64_extension,
-  SwiftProtoTesting_Extensions_optional_float_extension,
-  SwiftProtoTesting_Extensions_optional_double_extension,
-  SwiftProtoTesting_Extensions_optional_bool_extension,
-  SwiftProtoTesting_Extensions_optional_string_extension,
-  SwiftProtoTesting_Extensions_optional_bytes_extension,
-  SwiftProtoTesting_Extensions_OptionalGroup_extension,
-  SwiftProtoTesting_Extensions_optional_nested_message_extension,
-  SwiftProtoTesting_Extensions_optional_foreign_message_extension,
-  SwiftProtoTesting_Extensions_optional_import_message_extension,
-  SwiftProtoTesting_Extensions_optional_nested_enum_extension,
-  SwiftProtoTesting_Extensions_optional_foreign_enum_extension,
-  SwiftProtoTesting_Extensions_optional_import_enum_extension,
-  SwiftProtoTesting_Extensions_optional_public_import_message_extension,
-  SwiftProtoTesting_Extensions_repeated_int32_extension,
-  SwiftProtoTesting_Extensions_repeated_int64_extension,
-  SwiftProtoTesting_Extensions_repeated_uint32_extension,
-  SwiftProtoTesting_Extensions_repeated_uint64_extension,
-  SwiftProtoTesting_Extensions_repeated_sint32_extension,
-  SwiftProtoTesting_Extensions_repeated_sint64_extension,
-  SwiftProtoTesting_Extensions_repeated_fixed32_extension,
-  SwiftProtoTesting_Extensions_repeated_fixed64_extension,
-  SwiftProtoTesting_Extensions_repeated_sfixed32_extension,
-  SwiftProtoTesting_Extensions_repeated_sfixed64_extension,
-  SwiftProtoTesting_Extensions_repeated_float_extension,
-  SwiftProtoTesting_Extensions_repeated_double_extension,
-  SwiftProtoTesting_Extensions_repeated_bool_extension,
-  SwiftProtoTesting_Extensions_repeated_string_extension,
-  SwiftProtoTesting_Extensions_repeated_bytes_extension,
-  SwiftProtoTesting_Extensions_RepeatedGroup_extension,
-  SwiftProtoTesting_Extensions_repeated_nested_message_extension,
-  SwiftProtoTesting_Extensions_repeated_foreign_message_extension,
-  SwiftProtoTesting_Extensions_repeated_import_message_extension,
-  SwiftProtoTesting_Extensions_repeated_nested_enum_extension,
-  SwiftProtoTesting_Extensions_repeated_foreign_enum_extension,
-  SwiftProtoTesting_Extensions_repeated_import_enum_extension,
-  SwiftProtoTesting_Extensions_default_int32_extension,
-  SwiftProtoTesting_Extensions_default_int64_extension,
-  SwiftProtoTesting_Extensions_default_uint32_extension,
-  SwiftProtoTesting_Extensions_default_uint64_extension,
-  SwiftProtoTesting_Extensions_default_sint32_extension,
-  SwiftProtoTesting_Extensions_default_sint64_extension,
-  SwiftProtoTesting_Extensions_default_fixed32_extension,
-  SwiftProtoTesting_Extensions_default_fixed64_extension,
-  SwiftProtoTesting_Extensions_default_sfixed32_extension,
-  SwiftProtoTesting_Extensions_default_sfixed64_extension,
-  SwiftProtoTesting_Extensions_default_float_extension,
-  SwiftProtoTesting_Extensions_default_double_extension,
-  SwiftProtoTesting_Extensions_default_bool_extension,
-  SwiftProtoTesting_Extensions_default_string_extension,
-  SwiftProtoTesting_Extensions_default_bytes_extension,
-  SwiftProtoTesting_Extensions_default_nested_enum_extension,
-  SwiftProtoTesting_Extensions_default_foreign_enum_extension,
-  SwiftProtoTesting_Extensions_default_import_enum_extension,
-  SwiftProtoTesting_Extensions_oneof_uint32_extension,
-  SwiftProtoTesting_Extensions_oneof_nested_message_extension,
-  SwiftProtoTesting_Extensions_oneof_string_extension,
-  SwiftProtoTesting_Extensions_oneof_bytes_extension,
-  SwiftProtoTesting_Extensions_my_extension_string,
-  SwiftProtoTesting_Extensions_my_extension_int,
-  SwiftProtoTesting_Extensions_packed_int32_extension,
-  SwiftProtoTesting_Extensions_packed_int64_extension,
-  SwiftProtoTesting_Extensions_packed_uint32_extension,
-  SwiftProtoTesting_Extensions_packed_uint64_extension,
-  SwiftProtoTesting_Extensions_packed_sint32_extension,
-  SwiftProtoTesting_Extensions_packed_sint64_extension,
-  SwiftProtoTesting_Extensions_packed_fixed32_extension,
-  SwiftProtoTesting_Extensions_packed_fixed64_extension,
-  SwiftProtoTesting_Extensions_packed_sfixed32_extension,
-  SwiftProtoTesting_Extensions_packed_sfixed64_extension,
-  SwiftProtoTesting_Extensions_packed_float_extension,
-  SwiftProtoTesting_Extensions_packed_double_extension,
-  SwiftProtoTesting_Extensions_packed_bool_extension,
-  SwiftProtoTesting_Extensions_packed_enum_extension,
-  SwiftProtoTesting_TestNestedExtension.Extensions.test,
-  SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension,
-  SwiftProtoTesting_TestRequired.Extensions.single,
-  SwiftProtoTesting_TestRequired.Extensions.multi,
-  SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext,
-  SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext
-]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
 /// Singular
-let SwiftProtoTesting_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_proto_testing.optional_int32_extension"
-)
+let SwiftProtoTesting_Extensions_optional_int32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.optional_int32_extension")
 
-let SwiftProtoTesting_Extensions_optional_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_proto_testing.optional_int64_extension"
-)
+let SwiftProtoTesting_Extensions_optional_int64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}swift_proto_testing.optional_int64_extension")
 
-let SwiftProtoTesting_Extensions_optional_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_proto_testing.optional_uint32_extension"
-)
+let SwiftProtoTesting_Extensions_optional_uint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.optional_uint32_extension")
 
-let SwiftProtoTesting_Extensions_optional_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_proto_testing.optional_uint64_extension"
-)
+let SwiftProtoTesting_Extensions_optional_uint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}swift_proto_testing.optional_uint64_extension")
 
-let SwiftProtoTesting_Extensions_optional_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 5,
-  fieldName: "swift_proto_testing.optional_sint32_extension"
-)
+let SwiftProtoTesting_Extensions_optional_sint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}swift_proto_testing.optional_sint32_extension")
 
-let SwiftProtoTesting_Extensions_optional_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 6,
-  fieldName: "swift_proto_testing.optional_sint64_extension"
-)
+let SwiftProtoTesting_Extensions_optional_sint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{6}\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}swift_proto_testing.optional_sint64_extension")
 
-let SwiftProtoTesting_Extensions_optional_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 7,
-  fieldName: "swift_proto_testing.optional_fixed32_extension"
-)
+let SwiftProtoTesting_Extensions_optional_fixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{7}\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}swift_proto_testing.optional_fixed32_extension")
 
-let SwiftProtoTesting_Extensions_optional_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 8,
-  fieldName: "swift_proto_testing.optional_fixed64_extension"
-)
+let SwiftProtoTesting_Extensions_optional_fixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{8}\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}swift_proto_testing.optional_fixed64_extension")
 
-let SwiftProtoTesting_Extensions_optional_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 9,
-  fieldName: "swift_proto_testing.optional_sfixed32_extension"
-)
+let SwiftProtoTesting_Extensions_optional_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{9}\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}swift_proto_testing.optional_sfixed32_extension")
 
-let SwiftProtoTesting_Extensions_optional_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 10,
-  fieldName: "swift_proto_testing.optional_sfixed64_extension"
-)
+let SwiftProtoTesting_Extensions_optional_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{a}\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}swift_proto_testing.optional_sfixed64_extension")
 
-let SwiftProtoTesting_Extensions_optional_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_proto_testing.optional_float_extension"
-)
+let SwiftProtoTesting_Extensions_optional_float_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}swift_proto_testing.optional_float_extension")
 
-let SwiftProtoTesting_Extensions_optional_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_proto_testing.optional_double_extension"
-)
+let SwiftProtoTesting_Extensions_optional_double_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}swift_proto_testing.optional_double_extension")
 
-let SwiftProtoTesting_Extensions_optional_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_proto_testing.optional_bool_extension"
-)
+let SwiftProtoTesting_Extensions_optional_bool_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}swift_proto_testing.optional_bool_extension")
 
-let SwiftProtoTesting_Extensions_optional_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_proto_testing.optional_string_extension"
-)
+let SwiftProtoTesting_Extensions_optional_string_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.optional_string_extension")
 
-let SwiftProtoTesting_Extensions_optional_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 15,
-  fieldName: "swift_proto_testing.optional_bytes_extension"
-)
+let SwiftProtoTesting_Extensions_optional_bytes_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{f}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.optional_bytes_extension")
 
-let SwiftProtoTesting_Extensions_OptionalGroup_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_OptionalGroup_extension>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 16,
-  fieldName: "swift_proto_testing.optionalgroup_extension"
-)
+let SwiftProtoTesting_Extensions_OptionalGroup_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{10}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}swift_proto_testing.optionalgroup_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_OptionalGroup_extension.self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_OptionalGroup_extension.self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestAllTypes.NestedMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 18,
-  fieldName: "swift_proto_testing.optional_nested_message_extension"
-)
+let SwiftProtoTesting_Extensions_optional_nested_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{12}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_nested_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_ForeignMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 19,
-  fieldName: "swift_proto_testing.optional_foreign_message_extension"
-)
+let SwiftProtoTesting_Extensions_optional_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{13}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_foreign_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignMessage.self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Import_ImportMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 20,
-  fieldName: "swift_proto_testing.optional_import_message_extension"
-)
+let SwiftProtoTesting_Extensions_optional_import_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{14}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_import_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportMessage.self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_TestAllTypes.NestedEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_proto_testing.optional_nested_enum_extension"
-)
+let SwiftProtoTesting_Extensions_optional_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_nested_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_ForeignEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_proto_testing.optional_foreign_enum_extension"
-)
+let SwiftProtoTesting_Extensions_optional_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_foreign_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignEnum.self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_Import_ImportEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_proto_testing.optional_import_enum_extension"
-)
+let SwiftProtoTesting_Extensions_optional_import_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_import_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportEnum.self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Import_PublicImportMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 26,
-  fieldName: "swift_proto_testing.optional_public_import_message_extension"
-)
+let SwiftProtoTesting_Extensions_optional_public_import_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0\u{1a}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_public_import_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_PublicImportMessage.self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
+    }
+  )
 
 /// Repeated
-let SwiftProtoTesting_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 31,
-  fieldName: "swift_proto_testing.repeated_int32_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_int32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{1f}\0\0\0\u{12}\0\0\0\0\0\0\0\u{5}swift_proto_testing.repeated_int32_extension")
 
-let SwiftProtoTesting_Extensions_repeated_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 32,
-  fieldName: "swift_proto_testing.repeated_int64_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_int64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0 \0\0\0\u{12}\0\0\0\0\0\0\0\u{3}swift_proto_testing.repeated_int64_extension")
 
-let SwiftProtoTesting_Extensions_repeated_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 33,
-  fieldName: "swift_proto_testing.repeated_uint32_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_uint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0!\0\0\0\u{12}\0\0\0\0\0\0\0\u{d}swift_proto_testing.repeated_uint32_extension")
 
-let SwiftProtoTesting_Extensions_repeated_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 34,
-  fieldName: "swift_proto_testing.repeated_uint64_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_uint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\"\0\0\0\u{12}\0\0\0\0\0\0\0\u{4}swift_proto_testing.repeated_uint64_extension")
 
-let SwiftProtoTesting_Extensions_repeated_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 35,
-  fieldName: "swift_proto_testing.repeated_sint32_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_sint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0#\0\0\0\u{12}\0\0\0\0\0\0\0\u{11}swift_proto_testing.repeated_sint32_extension")
 
-let SwiftProtoTesting_Extensions_repeated_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 36,
-  fieldName: "swift_proto_testing.repeated_sint64_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_sint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0$\0\0\0\u{12}\0\0\0\0\0\0\0\u{12}swift_proto_testing.repeated_sint64_extension")
 
-let SwiftProtoTesting_Extensions_repeated_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 37,
-  fieldName: "swift_proto_testing.repeated_fixed32_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_fixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0%\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}swift_proto_testing.repeated_fixed32_extension")
 
-let SwiftProtoTesting_Extensions_repeated_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 38,
-  fieldName: "swift_proto_testing.repeated_fixed64_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_fixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0&\0\0\0\u{12}\0\0\0\0\0\0\0\u{6}swift_proto_testing.repeated_fixed64_extension")
 
-let SwiftProtoTesting_Extensions_repeated_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 39,
-  fieldName: "swift_proto_testing.repeated_sfixed32_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0'\0\0\0\u{12}\0\0\0\0\0\0\0\u{f}swift_proto_testing.repeated_sfixed32_extension")
 
-let SwiftProtoTesting_Extensions_repeated_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 40,
-  fieldName: "swift_proto_testing.repeated_sfixed64_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0(\0\0\0\u{12}\0\0\0\0\0\0\0\u{10}swift_proto_testing.repeated_sfixed64_extension")
 
-let SwiftProtoTesting_Extensions_repeated_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 41,
-  fieldName: "swift_proto_testing.repeated_float_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_float_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0)\0\0\0\u{12}\0\0\0\0\0\0\0\u{2}swift_proto_testing.repeated_float_extension")
 
-let SwiftProtoTesting_Extensions_repeated_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 42,
-  fieldName: "swift_proto_testing.repeated_double_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_double_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0*\0\0\0\u{12}\0\0\0\0\0\0\0\u{1}swift_proto_testing.repeated_double_extension")
 
-let SwiftProtoTesting_Extensions_repeated_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 43,
-  fieldName: "swift_proto_testing.repeated_bool_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_bool_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0+\0\0\0\u{12}\0\0\0\0\0\0\0\u{8}swift_proto_testing.repeated_bool_extension")
 
-let SwiftProtoTesting_Extensions_repeated_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 44,
-  fieldName: "swift_proto_testing.repeated_string_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_string_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0,\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}swift_proto_testing.repeated_string_extension")
 
-let SwiftProtoTesting_Extensions_repeated_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 45,
-  fieldName: "swift_proto_testing.repeated_bytes_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_bytes_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0-\0\0\0\u{12}\0\0\0\0\0\0\0\u{c}swift_proto_testing.repeated_bytes_extension")
 
-let SwiftProtoTesting_Extensions_RepeatedGroup_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_RepeatedGroup_extension>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 46,
-  fieldName: "swift_proto_testing.repeatedgroup_extension"
-)
+let SwiftProtoTesting_Extensions_RepeatedGroup_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0.\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}swift_proto_testing.repeatedgroup_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_RepeatedGroup_extension].self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_RepeatedGroup_extension].self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_repeated_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_TestAllTypes.NestedMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 48,
-  fieldName: "swift_proto_testing.repeated_nested_message_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_nested_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\00\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_nested_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_repeated_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_ForeignMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 49,
-  fieldName: "swift_proto_testing.repeated_foreign_message_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\01\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_foreign_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignMessage].self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignMessage].self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_Import_ImportMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 50,
-  fieldName: "swift_proto_testing.repeated_import_message_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_import_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\02\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_import_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_Import_ImportMessage].self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportMessage].self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_repeated_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_TestAllTypes.NestedEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 51,
-  fieldName: "swift_proto_testing.repeated_nested_enum_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\03\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_nested_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_ForeignEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 52,
-  fieldName: "swift_proto_testing.repeated_foreign_enum_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\04\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_foreign_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignEnum].self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_Import_ImportEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 53,
-  fieldName: "swift_proto_testing.repeated_import_enum_extension"
-)
+let SwiftProtoTesting_Extensions_repeated_import_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\05\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_import_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_Import_ImportEnum].self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportEnum].self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
 /// Singular with defaults
-let SwiftProtoTesting_Extensions_default_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 61,
-  fieldName: "swift_proto_testing.default_int32_extension"
-)
+let SwiftProtoTesting_Extensions_default_int32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0=\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.default_int32_extension")
 
-let SwiftProtoTesting_Extensions_default_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 62,
-  fieldName: "swift_proto_testing.default_int64_extension"
-)
+let SwiftProtoTesting_Extensions_default_int64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0>\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}swift_proto_testing.default_int64_extension")
 
-let SwiftProtoTesting_Extensions_default_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 63,
-  fieldName: "swift_proto_testing.default_uint32_extension"
-)
+let SwiftProtoTesting_Extensions_default_uint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0?\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.default_uint32_extension")
 
-let SwiftProtoTesting_Extensions_default_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 64,
-  fieldName: "swift_proto_testing.default_uint64_extension"
-)
+let SwiftProtoTesting_Extensions_default_uint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0@\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}swift_proto_testing.default_uint64_extension")
 
-let SwiftProtoTesting_Extensions_default_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 65,
-  fieldName: "swift_proto_testing.default_sint32_extension"
-)
+let SwiftProtoTesting_Extensions_default_sint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0A\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}swift_proto_testing.default_sint32_extension")
 
-let SwiftProtoTesting_Extensions_default_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 66,
-  fieldName: "swift_proto_testing.default_sint64_extension"
-)
+let SwiftProtoTesting_Extensions_default_sint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0B\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}swift_proto_testing.default_sint64_extension")
 
-let SwiftProtoTesting_Extensions_default_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 67,
-  fieldName: "swift_proto_testing.default_fixed32_extension"
-)
+let SwiftProtoTesting_Extensions_default_fixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0C\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}swift_proto_testing.default_fixed32_extension")
 
-let SwiftProtoTesting_Extensions_default_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 68,
-  fieldName: "swift_proto_testing.default_fixed64_extension"
-)
+let SwiftProtoTesting_Extensions_default_fixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0D\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}swift_proto_testing.default_fixed64_extension")
 
-let SwiftProtoTesting_Extensions_default_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 69,
-  fieldName: "swift_proto_testing.default_sfixed32_extension"
-)
+let SwiftProtoTesting_Extensions_default_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0E\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}swift_proto_testing.default_sfixed32_extension")
 
-let SwiftProtoTesting_Extensions_default_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 70,
-  fieldName: "swift_proto_testing.default_sfixed64_extension"
-)
+let SwiftProtoTesting_Extensions_default_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0F\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}swift_proto_testing.default_sfixed64_extension")
 
-let SwiftProtoTesting_Extensions_default_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 71,
-  fieldName: "swift_proto_testing.default_float_extension"
-)
+let SwiftProtoTesting_Extensions_default_float_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0G\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}swift_proto_testing.default_float_extension")
 
-let SwiftProtoTesting_Extensions_default_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 72,
-  fieldName: "swift_proto_testing.default_double_extension"
-)
+let SwiftProtoTesting_Extensions_default_double_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0H\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}swift_proto_testing.default_double_extension")
 
-let SwiftProtoTesting_Extensions_default_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 73,
-  fieldName: "swift_proto_testing.default_bool_extension"
-)
+let SwiftProtoTesting_Extensions_default_bool_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0I\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}swift_proto_testing.default_bool_extension")
 
-let SwiftProtoTesting_Extensions_default_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 74,
-  fieldName: "swift_proto_testing.default_string_extension"
-)
+let SwiftProtoTesting_Extensions_default_string_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0J\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.default_string_extension")
 
-let SwiftProtoTesting_Extensions_default_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 75,
-  fieldName: "swift_proto_testing.default_bytes_extension"
-)
+let SwiftProtoTesting_Extensions_default_bytes_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0K\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.default_bytes_extension")
 
-let SwiftProtoTesting_Extensions_default_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_TestAllTypes.NestedEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 81,
-  fieldName: "swift_proto_testing.default_nested_enum_extension"
-)
+let SwiftProtoTesting_Extensions_default_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0Q\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_nested_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_default_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_ForeignEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 82,
-  fieldName: "swift_proto_testing.default_foreign_enum_extension"
-)
+let SwiftProtoTesting_Extensions_default_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0R\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_foreign_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignEnum.self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_Import_ImportEnum>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 83,
-  fieldName: "swift_proto_testing.default_import_enum_extension"
-)
+let SwiftProtoTesting_Extensions_default_import_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0S\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_import_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportEnum.self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
 /// For oneof test
-let SwiftProtoTesting_Extensions_oneof_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 111,
-  fieldName: "swift_proto_testing.oneof_uint32_extension"
-)
+let SwiftProtoTesting_Extensions_oneof_uint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.oneof_uint32_extension")
 
-let SwiftProtoTesting_Extensions_oneof_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestAllTypes.NestedMessage>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 112,
-  fieldName: "swift_proto_testing.oneof_nested_message_extension"
-)
+let SwiftProtoTesting_Extensions_oneof_nested_message_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0p\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.oneof_nested_message_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+    },
+    performOnSubmessageStorage: { ext, storage, operation, perform in
+      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
+    }
+  )
 
-let SwiftProtoTesting_Extensions_oneof_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 113,
-  fieldName: "swift_proto_testing.oneof_string_extension"
-)
+let SwiftProtoTesting_Extensions_oneof_string_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.oneof_string_extension")
 
-let SwiftProtoTesting_Extensions_oneof_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_TestAllExtensions>(
-  _protobuf_fieldNumber: 114,
-  fieldName: "swift_proto_testing.oneof_bytes_extension"
-)
+let SwiftProtoTesting_Extensions_oneof_bytes_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.oneof_bytes_extension")
 
-let SwiftProtoTesting_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestFieldOrderings>(
-  _protobuf_fieldNumber: 50,
-  fieldName: "swift_proto_testing.my_extension_string"
-)
+let SwiftProtoTesting_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
+  schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.my_extension_string")
 
-let SwiftProtoTesting_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_TestFieldOrderings>(
-  _protobuf_fieldNumber: 5,
-  fieldName: "swift_proto_testing.my_extension_int"
-)
+let SwiftProtoTesting_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.my_extension_int")
 
-let SwiftProtoTesting_Extensions_packed_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 90,
-  fieldName: "swift_proto_testing.packed_int32_extension"
-)
+let SwiftProtoTesting_Extensions_packed_int32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0Z\0\0\0\u{1a}\0\0\0\0\0\0\0\u{5}swift_proto_testing.packed_int32_extension")
 
-let SwiftProtoTesting_Extensions_packed_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 91,
-  fieldName: "swift_proto_testing.packed_int64_extension"
-)
+let SwiftProtoTesting_Extensions_packed_int64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0[\0\0\0\u{1a}\0\0\0\0\0\0\0\u{3}swift_proto_testing.packed_int64_extension")
 
-let SwiftProtoTesting_Extensions_packed_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 92,
-  fieldName: "swift_proto_testing.packed_uint32_extension"
-)
+let SwiftProtoTesting_Extensions_packed_uint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\\\0\0\0\u{1a}\0\0\0\0\0\0\0\u{d}swift_proto_testing.packed_uint32_extension")
 
-let SwiftProtoTesting_Extensions_packed_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 93,
-  fieldName: "swift_proto_testing.packed_uint64_extension"
-)
+let SwiftProtoTesting_Extensions_packed_uint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0]\0\0\0\u{1a}\0\0\0\0\0\0\0\u{4}swift_proto_testing.packed_uint64_extension")
 
-let SwiftProtoTesting_Extensions_packed_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 94,
-  fieldName: "swift_proto_testing.packed_sint32_extension"
-)
+let SwiftProtoTesting_Extensions_packed_sint32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0^\0\0\0\u{1a}\0\0\0\0\0\0\0\u{11}swift_proto_testing.packed_sint32_extension")
 
-let SwiftProtoTesting_Extensions_packed_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 95,
-  fieldName: "swift_proto_testing.packed_sint64_extension"
-)
+let SwiftProtoTesting_Extensions_packed_sint64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0_\0\0\0\u{1a}\0\0\0\0\0\0\0\u{12}swift_proto_testing.packed_sint64_extension")
 
-let SwiftProtoTesting_Extensions_packed_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 96,
-  fieldName: "swift_proto_testing.packed_fixed32_extension"
-)
+let SwiftProtoTesting_Extensions_packed_fixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0`\0\0\0\u{1a}\0\0\0\0\0\0\0\u{7}swift_proto_testing.packed_fixed32_extension")
 
-let SwiftProtoTesting_Extensions_packed_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 97,
-  fieldName: "swift_proto_testing.packed_fixed64_extension"
-)
+let SwiftProtoTesting_Extensions_packed_fixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0a\0\0\0\u{1a}\0\0\0\0\0\0\0\u{6}swift_proto_testing.packed_fixed64_extension")
 
-let SwiftProtoTesting_Extensions_packed_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 98,
-  fieldName: "swift_proto_testing.packed_sfixed32_extension"
-)
+let SwiftProtoTesting_Extensions_packed_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0b\0\0\0\u{1a}\0\0\0\0\0\0\0\u{f}swift_proto_testing.packed_sfixed32_extension")
 
-let SwiftProtoTesting_Extensions_packed_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 99,
-  fieldName: "swift_proto_testing.packed_sfixed64_extension"
-)
+let SwiftProtoTesting_Extensions_packed_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0c\0\0\0\u{1a}\0\0\0\0\0\0\0\u{10}swift_proto_testing.packed_sfixed64_extension")
 
-let SwiftProtoTesting_Extensions_packed_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 100,
-  fieldName: "swift_proto_testing.packed_float_extension"
-)
+let SwiftProtoTesting_Extensions_packed_float_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0d\0\0\0\u{1a}\0\0\0\0\0\0\0\u{2}swift_proto_testing.packed_float_extension")
 
-let SwiftProtoTesting_Extensions_packed_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 101,
-  fieldName: "swift_proto_testing.packed_double_extension"
-)
+let SwiftProtoTesting_Extensions_packed_double_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0e\0\0\0\u{1a}\0\0\0\0\0\0\0\u{1}swift_proto_testing.packed_double_extension")
 
-let SwiftProtoTesting_Extensions_packed_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 102,
-  fieldName: "swift_proto_testing.packed_bool_extension"
-)
+let SwiftProtoTesting_Extensions_packed_bool_extension = SwiftProtobuf.ExtensionSchema(
+  schema: "\0f\0\0\0\u{1a}\0\0\0\0\0\0\0\u{8}swift_proto_testing.packed_bool_extension")
 
-let SwiftProtoTesting_Extensions_packed_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<SwiftProtoTesting_ForeignEnum>, SwiftProtoTesting_TestPackedExtensions>(
-  _protobuf_fieldNumber: 103,
-  fieldName: "swift_proto_testing.packed_enum_extension"
-)
+let SwiftProtoTesting_Extensions_packed_enum_extension = SwiftProtobuf.ExtensionSchema(
+    schema: "\0g\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.packed_enum_extension",
+    performNontrivialExtensionOperation: { operation, ext, storage in
+      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignEnum].self)
+    },
+    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    }
+  )
 
 extension SwiftProtoTesting_TestNestedExtension {
   enum Extensions {
     /// Check for bug where string extensions declared in tested scope did not
     /// compile.
-    static let test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestAllExtensions>(
-      _protobuf_fieldNumber: 1002,
-      fieldName: "swift_proto_testing.TestNestedExtension.test"
-    )
+    static let test = SwiftProtobuf.ExtensionSchema(
+      schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.TestNestedExtension.test")
 
     /// Used to test if generated extension name is correct when there are
     /// underscores.
-    static let nested_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_TestAllExtensions>(
-      _protobuf_fieldNumber: 1003,
-      fieldName: "swift_proto_testing.TestNestedExtension.nested_string_extension"
-    )
+    static let nested_string_extension = SwiftProtobuf.ExtensionSchema(
+      schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.TestNestedExtension.nested_string_extension")
   }
 }
 
 extension SwiftProtoTesting_TestRequired {
   enum Extensions {
-    static let single = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestRequired>, SwiftProtoTesting_TestAllExtensions>(
-      _protobuf_fieldNumber: 1000,
-      fieldName: "swift_proto_testing.TestRequired.single"
-    )
+    static let single = SwiftProtobuf.ExtensionSchema(
+        schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.single",
+        performNontrivialExtensionOperation: { operation, ext, storage in
+          storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestRequired.self)
+        },
+        performOnSubmessageStorage: { ext, storage, operation, perform in
+          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestRequired.self, perform: perform)
+        }
+      )
 
-    static let multi = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_TestRequired>, SwiftProtoTesting_TestAllExtensions>(
-      _protobuf_fieldNumber: 1001,
-      fieldName: "swift_proto_testing.TestRequired.multi"
-    )
+    static let multi = SwiftProtobuf.ExtensionSchema(
+        schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.multi",
+        performNontrivialExtensionOperation: { operation, ext, storage in
+          storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestRequired].self)
+        },
+        performOnSubmessageStorage: { ext, storage, operation, perform in
+          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
+        }
+      )
   }
 }
 
 extension SwiftProtoTesting_TestParsingMerge {
   enum Extensions {
-    static let optional_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestAllTypes>, SwiftProtoTesting_TestParsingMerge>(
-      _protobuf_fieldNumber: 1000,
-      fieldName: "swift_proto_testing.TestParsingMerge.optional_ext"
-    )
+    static let optional_ext = SwiftProtobuf.ExtensionSchema(
+        schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.optional_ext",
+        performNontrivialExtensionOperation: { operation, ext, storage in
+          storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.self)
+        },
+        performOnSubmessageStorage: { ext, storage, operation, perform in
+          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+        }
+      )
 
-    static let repeated_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_TestAllTypes>, SwiftProtoTesting_TestParsingMerge>(
-      _protobuf_fieldNumber: 1001,
-      fieldName: "swift_proto_testing.TestParsingMerge.repeated_ext"
-    )
+    static let repeated_ext = SwiftProtobuf.ExtensionSchema(
+        schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.repeated_ext",
+        performNontrivialExtensionOperation: { operation, ext, storage in
+          storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes].self)
+        },
+        performOnSubmessageStorage: { ext, storage, operation, perform in
+          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
+        }
+      )
   }
 }
 

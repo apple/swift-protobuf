@@ -134,7 +134,7 @@ extension _MessageStorage {
         if unknownFields.data != other.unknownFields.data {
             return false
         }
-        if extensionFieldValues != other.extensionFieldValues {
+        if !extensionStorage.isEqual(to: other.extensionStorage) {
             return false
         }
         return true

@@ -130,7 +130,7 @@ extension _MessageStorage {
             hasher.combine(bytes: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
         }
         hasher.combine(unknownFields.data)
-        hasher.combine(extensionFieldValues)
+        extensionStorage.hash(into: &hasher)
     }
 
     /// Hashes the value of the field, given the expected type of that field.

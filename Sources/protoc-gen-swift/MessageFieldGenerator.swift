@@ -29,7 +29,6 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let swiftType: String
     private let swiftStorageType: String
     private let swiftDefaultValue: String
-    private let traitsType: String
     private let comments: String
 
     var presence: FieldPresence = .hasBit(0)
@@ -88,7 +87,6 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         swiftType = descriptor.swiftType(namer: namer)
         swiftStorageType = descriptor.swiftStorageType(namer: namer)
         swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
-        traitsType = descriptor.traitsType(namer: namer)
         comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
 
         storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"

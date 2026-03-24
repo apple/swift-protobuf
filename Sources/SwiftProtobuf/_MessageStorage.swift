@@ -45,8 +45,7 @@ import Foundation
     public var unknownFields: UnknownStorage
 
     /// The storage used for extension field values.
-    /// TODO: This will very likely change as the table-driven implementation evolves.
-    public var extensionFieldValues: ExtensionFieldValueSet
+    public var extensionStorage: ExtensionStorage
 
     /// Creates a new message storage instance for a message with the given layout.
     public init(schema: MessageSchema) {
@@ -59,7 +58,7 @@ import Foundation
             byteBuffer.initialize(repeating: 0)
         }
         self.unknownFields = UnknownStorage()
-        self.extensionFieldValues = ExtensionFieldValueSet()
+        self.extensionStorage = ExtensionStorage()
     }
 
     deinit {
@@ -284,7 +283,7 @@ extension _MessageStorage {
         destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
 
         destination.unknownFields = unknownFields
-        // TODO: Handle extension fields.
+        destination.extensionStorage = extensionStorage.copy()
 
         return destination
     }

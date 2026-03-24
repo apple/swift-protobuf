@@ -376,7 +376,7 @@ extension MessageSchema {
 private var messageSchemaHeaderSize: Int { 16 }
 
 /// The size, in bytes, of an encoded field schema in the static string representation.
-private var fieldSchemaSize: Int { 13 }
+var fieldSchemaSize: Int { 13 }
 
 extension MessageSchema {
     /// Iterates over the field schemas in the schema string.
@@ -492,7 +492,7 @@ public struct FieldSchema {
     private let buffer: UnsafeRawBufferPointer
 
     /// The number of the field whose schema is being described.
-    var fieldNumber: UInt32 {
+    @usableFromInline var fieldNumber: UInt32 {
         // The schema ensures that there will always be at least 8 bytes that we can read here, so
         // we can do a single memory read and mask off what we don't need.
         let rawBits = UInt64(littleEndian: buffer.loadUnaligned(fromByteOffset: 0, as: UInt64.self))
@@ -586,8 +586,15 @@ public struct FieldSchema {
     }
 
     /// Creates a new field schema from the given slice of a message's field schema string.
-    fileprivate init(slice: Slice<UnsafeRawBufferPointer>) {
+    init(slice: Slice<UnsafeRawBufferPointer>) {
         self.buffer = UnsafeRawBufferPointer(rebasing: slice)
+    }
+
+    /// Creates a new field layout from the given string that describes exactly one field.
+    ///
+    /// This initializer is used by generated code to represent extension fields.
+    public init(layout: StaticString) {
+        self.buffer = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
     }
 }
 
