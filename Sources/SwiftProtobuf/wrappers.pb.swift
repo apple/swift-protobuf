@@ -445,13 +445,13 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -461,7 +461,7 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -504,13 +504,13 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -520,7 +520,7 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -563,13 +563,13 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _Prot
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -579,7 +579,7 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _Prot
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -622,13 +622,13 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _Pro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -638,7 +638,7 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _Pro
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -681,13 +681,13 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _Prot
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -697,7 +697,7 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _Prot
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -740,13 +740,13 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _Pro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -756,7 +756,7 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _Pro
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -799,13 +799,13 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _Proto
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -815,7 +815,7 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _Proto
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -858,13 +858,13 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _Pro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -874,7 +874,7 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _Pro
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -917,13 +917,13 @@ extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _Prot
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -933,7 +933,7 @@ extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _Prot
   }
   public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
