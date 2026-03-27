@@ -103,8 +103,8 @@ extension _MessageStorage {
         }
 
         guard let field = schema[fieldNumber: UInt32(tag.fieldNumber)] else {
-            if let extensionSchema = extensions?[fieldNumber: UInt32(tag.fieldNumber), in: schema] {
-                if try extensionStorage.decodeNextExtension(
+            if let extensionSchema = extensions?[fieldNumber: UInt32(tag.fieldNumber), in: schema],
+                try extensionStorage.decodeNextExtension(
                     extensionSchema,
                     from: &reader,
                     tag: tag,
@@ -112,10 +112,10 @@ extension _MessageStorage {
                     partial: partial,
                     discardUnknownFields: discardUnknownFields,
                     unknownFields: &unknownFields
-                ) {
-                    // The extension consumed the field so we're done.
-                    return true
-                }
+                )
+            {
+                // The extension consumed the field so we're done.
+                return true
             }
 
             // No field or extension consumed it (it either didn't exist or it was a wire format

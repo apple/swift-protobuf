@@ -116,14 +116,13 @@ class ExtensionSetGenerator {
                     case .message:
                         p.print("performOnSubmessageStorage: { ext, storage, operation, perform in")
                         p.printIndented("try storage.performOnSubmessageStorage(of: ext, operation: operation, type: \(field.kind.name).self, perform: perform)")
-                        p.print("}")
                     case .enum(let singularName, _):
                         p.print("performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in")
                         p.printIndented("try storage.performOnRawEnumValues(of: ext, operation: operation, type: \(field.kind.name).self, enumSchema: \(singularName).enumSchema, perform: perform, onInvalidValue: onInvalidValue)")
-                        p.print("}")
                     case .map:
                         preconditionFailure("unreachable; extensions cannot be map fields")
                     }
+                    p.print("}", newlines: false)
                 } else {
                 }
                 p.print(")")

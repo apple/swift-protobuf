@@ -3582,8 +3582,7 @@ let SwiftProtoTesting_Extensions_OptionalGroup_extension = SwiftProtobuf.Extensi
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_OptionalGroup_extension.self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_nested_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{12}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_nested_message_extension",
@@ -3593,8 +3592,7 @@ let SwiftProtoTesting_Extensions_optional_nested_message_extension = SwiftProtob
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{13}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_foreign_message_extension",
@@ -3604,8 +3602,7 @@ let SwiftProtoTesting_Extensions_optional_foreign_message_extension = SwiftProto
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_import_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{14}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_import_message_extension",
@@ -3615,8 +3612,7 @@ let SwiftProtoTesting_Extensions_optional_import_message_extension = SwiftProtob
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_nested_enum_extension",
@@ -3626,8 +3622,7 @@ let SwiftProtoTesting_Extensions_optional_nested_enum_extension = SwiftProtobuf.
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_foreign_enum_extension",
@@ -3637,8 +3632,7 @@ let SwiftProtoTesting_Extensions_optional_foreign_enum_extension = SwiftProtobuf
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_import_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_import_enum_extension",
@@ -3648,8 +3642,7 @@ let SwiftProtoTesting_Extensions_optional_import_enum_extension = SwiftProtobuf.
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_optional_public_import_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1a}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_public_import_message_extension",
@@ -3659,8 +3652,7 @@ let SwiftProtoTesting_Extensions_optional_public_import_message_extension = Swif
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
-  }
-  )
+  })
 
 /// Repeated
 let SwiftProtoTesting_Extensions_repeated_int32_extension = SwiftProtobuf.ExtensionSchema(
@@ -3731,8 +3723,7 @@ let SwiftProtoTesting_Extensions_RepeatedGroup_extension = SwiftProtobuf.Extensi
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_RepeatedGroup_extension].self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_repeated_nested_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\00\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_nested_message_extension",
@@ -3742,8 +3733,7 @@ let SwiftProtoTesting_Extensions_repeated_nested_message_extension = SwiftProtob
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_repeated_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\01\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_foreign_message_extension",
@@ -3753,8 +3743,7 @@ let SwiftProtoTesting_Extensions_repeated_foreign_message_extension = SwiftProto
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignMessage].self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_repeated_import_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\02\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_import_message_extension",
@@ -3764,8 +3753,7 @@ let SwiftProtoTesting_Extensions_repeated_import_message_extension = SwiftProtob
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportMessage].self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_repeated_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\03\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_nested_enum_extension",
@@ -3775,8 +3763,7 @@ let SwiftProtoTesting_Extensions_repeated_nested_enum_extension = SwiftProtobuf.
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\04\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_foreign_enum_extension",
@@ -3786,8 +3773,7 @@ let SwiftProtoTesting_Extensions_repeated_foreign_enum_extension = SwiftProtobuf
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_repeated_import_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\05\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_import_enum_extension",
@@ -3797,8 +3783,7 @@ let SwiftProtoTesting_Extensions_repeated_import_enum_extension = SwiftProtobuf.
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportEnum].self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 /// Singular with defaults
 let SwiftProtoTesting_Extensions_default_int32_extension = SwiftProtobuf.ExtensionSchema(
@@ -3869,8 +3854,7 @@ let SwiftProtoTesting_Extensions_default_nested_enum_extension = SwiftProtobuf.E
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_default_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0R\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_foreign_enum_extension",
@@ -3880,8 +3864,7 @@ let SwiftProtoTesting_Extensions_default_foreign_enum_extension = SwiftProtobuf.
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_default_import_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0S\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_import_enum_extension",
@@ -3891,8 +3874,7 @@ let SwiftProtoTesting_Extensions_default_import_enum_extension = SwiftProtobuf.E
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 /// For oneof test
 let SwiftProtoTesting_Extensions_oneof_uint32_extension = SwiftProtobuf.ExtensionSchema(
@@ -3907,8 +3889,7 @@ let SwiftProtoTesting_Extensions_oneof_nested_message_extension = SwiftProtobuf.
   },
   performOnSubmessageStorage: { ext, storage, operation, perform in
     try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
-  }
-  )
+  })
 
 let SwiftProtoTesting_Extensions_oneof_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.oneof_string_extension",
@@ -3986,8 +3967,7 @@ let SwiftProtoTesting_Extensions_packed_enum_extension = SwiftProtobuf.Extension
   },
   performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
     try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-  }
-  )
+  })
 
 extension SwiftProtoTesting_TestNestedExtension {
   enum Extensions {
@@ -4015,8 +3995,7 @@ extension SwiftProtoTesting_TestRequired {
       },
       performOnSubmessageStorage: { ext, storage, operation, perform in
         try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestRequired.self, perform: perform)
-      }
-      )
+      })
 
     static let multi = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.multi",
@@ -4026,8 +4005,7 @@ extension SwiftProtoTesting_TestRequired {
       },
       performOnSubmessageStorage: { ext, storage, operation, perform in
         try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
-      }
-      )
+      })
   }
 }
 
@@ -4041,8 +4019,7 @@ extension SwiftProtoTesting_TestParsingMerge {
       },
       performOnSubmessageStorage: { ext, storage, operation, perform in
         try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
-      }
-      )
+      })
 
     static let repeated_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.repeated_ext",
@@ -4052,8 +4029,7 @@ extension SwiftProtoTesting_TestParsingMerge {
       },
       performOnSubmessageStorage: { ext, storage, operation, perform in
         try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
-      }
-      )
+      })
   }
 }
 
