@@ -154,3 +154,145 @@ internal struct BinaryEncoder {
         append(contentsOf: value)
     }
 }
+
+// Higher-level serialization methods shared by both `_MessageStorage` and `ExtensionStorage`.
+extension BinaryEncoder {
+    /// Serializes the field tag and value for a singular or unpacked `bool` field.
+    @inline(__always)
+    mutating func serializeBoolField(_ value: Bool, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: value ? 1 : 0)
+    }
+
+    /// Serializes the field tag and value for a singular `bytes` field.
+    @inline(__always)
+    mutating func serializeBytesField(_ value: Data, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+        putBytesValue(value: value)
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `double` field.
+    @inline(__always)
+    mutating func serializeDoubleField(_ value: Double, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
+        putDoubleValue(value: value)
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `fixed32` field.
+    @inline(__always)
+    mutating func serializeFixed32Field(_ value: UInt32, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
+        putFixedUInt32(value: value)
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `fixed64` field.
+    @inline(__always)
+    mutating func serializeFixed64Field(_ value: UInt64, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
+        putFixedUInt64(value: value)
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `float` field.
+    @inline(__always)
+    mutating func serializeFloatField(_ value: Float, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
+        putFloatValue(value: value)
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `int32` field.
+    @inline(__always)
+    mutating func serializeInt32Field(_ value: Int32, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: UInt64(bitPattern: Int64(value)))
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `int64` field.
+    @inline(__always)
+    mutating func serializeInt64Field(_ value: Int64, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: UInt64(bitPattern: value))
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `sfixed32` field.
+    @inline(__always)
+    mutating func serializeSFixed32Field(_ value: Int32, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
+        putFixedUInt32(value: UInt32(bitPattern: value))
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `sfixed64` field.
+    @inline(__always)
+    mutating func serializeSFixed64Field(_ value: Int64, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
+        putFixedUInt64(value: UInt64(bitPattern: value))
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `sint32` field.
+    @inline(__always)
+    mutating func serializeSInt32Field(_ value: Int32, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: UInt64(ZigZag.encoded(value)))
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `sint64` field.
+    @inline(__always)
+    mutating func serializeSInt64Field(_ value: Int64, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: ZigZag.encoded(value))
+    }
+
+    /// Serializes the field tag and value for a singular `string` field.
+    @inline(__always)
+    mutating func serializeStringField(_ value: String, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+        putStringValue(value: value)
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `uint32` field.
+    @inline(__always)
+    mutating func serializeUInt32Field(_ value: UInt32, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: UInt64(value))
+    }
+
+    /// Serializes the field tag and value for a singular or unpacked `uint64` field.
+    @inline(__always)
+    mutating func serializeUInt64Field(_ value: UInt64, for fieldNumber: Int) {
+        startField(fieldNumber: fieldNumber, wireFormat: .varint)
+        putVarInt(value: value)
+    }
+
+    /// Serializes a packed repeated field of fixed-size values by writing the tag and
+    /// length-delimited prefix, then calls the given closure to encode the individual values
+    /// themselves.
+    mutating func serializePackedFixedField<T>(
+        _ values: [T],
+        for fieldNumber: Int,
+        encode: (T, inout BinaryEncoder) -> Void
+    ) {
+        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+        putVarInt(value: values.count * MemoryLayout<T>.size)
+        for value in values {
+            encode(value, &self)
+        }
+    }
+
+    /// Serializes a packed repeated field of varints by writing the tag and length-delimited
+    /// prefix, then calls the given closure to encode the individual values themselves.
+    mutating func serializePackedVarintsField<T>(
+        _ values: [T],
+        for fieldNumber: Int,
+        encode: (T, inout BinaryEncoder) -> Void,
+        lengthOfElement: (T) -> Int
+    ) {
+        startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+        var length = 0
+        for value in values {
+            length += lengthOfElement(value)
+        }
+        putVarInt(value: length)
+        for value in values {
+            encode(value, &self)
+        }
+    }
+}

@@ -163,6 +163,12 @@ public enum NontrivialExtensionOperation {
 extension ExtensionStorage {
     /// Returns the value of the given message extension, or the default value if it is not set.
     @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: BitwiseCopyable>(of ext: ExtensionSchema, default: Value) -> Value {
+        values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
+    }
+
+    /// Returns the value of the given message extension, or the default value if it is not set.
+    @_alwaysEmitIntoClient @inline(__always)
     public func value<Value>(of ext: ExtensionSchema, default: Value) -> Value {
         values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
     }
@@ -196,6 +202,16 @@ extension ExtensionStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func clearValue<Value>(of ext: ExtensionSchema, type: Value.Type) {
         values.removeValue(forKey: ext.field.fieldNumber)?.release(type: Value.self)
+    }
+
+    /// Appends the given value to the array-typed value of the message extension, creating a new
+    /// array if it is not already present.
+    func appendValue<Value>(_ value: Value, to ext: ExtensionSchema) {
+        if let existingValue = values[ext.field.fieldNumber] {
+            existingValue.unsafeMutablePointerToValue(as: [Value].self).pointee.append(value)
+        } else {
+            updateValue(of: ext, to: [value])
+        }
     }
 
     /// Returns the `ExtensionValueStorage` for the given extension, assuming that it is already
@@ -540,6 +556,18 @@ extension ExtensionStorage {
             }
         }
         return true
+    }
+
+    @_alwaysEmitIntoClient @inline(__always)
+    private func isExtensionValue<T: BitwiseCopyable & Equatable>(
+        _ value: ExtensionValueStorage,
+        equalToSameValueIn other: ExtensionStorage,
+        type: T.Type
+    ) -> Bool {
+        guard let otherValue = other.values[value.schema.field.fieldNumber] else {
+            return false
+        }
+        return value.value(as: T.self) == otherValue.value(as: T.self)
     }
 
     @_alwaysEmitIntoClient @inline(__always)

@@ -101,30 +101,30 @@ class ExtensionSetGenerator {
                 "\(comments)\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)ExtensionSchema("
             )
             p.withIndentation { p in
+                p.print(#"schema: "\#(layoutLiteral)\#(fieldNamePath)","#)
+                p.print(#"extendedMessageSchemaProducer: { \#(containingTypeSwiftFullName).messageSchema }"#, newlines: false)
+
                 // Since an extension is just a single field, there will be either zero or one of
                 // these.
                 if let field = extensionLayoutCalculator.trampolineFields.first {
-                    p.withIndentation { p in
-                        p.print(#"schema: "\#(layoutLiteral)\#(fieldNamePath)","#)
-                        p.print("performNontrivialExtensionOperation: { operation, ext, storage in")
-                        p.printIndented("storage.performNontrivialExtensionOperation(operation, extension: ext, type: \(field.kind.name).self)")
-                        p.print("},")
+                    p.print(",")
+                    p.print("performNontrivialExtensionOperation: { operation, ext, storage in")
+                    p.printIndented("storage.performNontrivialExtensionOperation(operation, extension: ext, type: \(field.kind.name).self)")
+                    p.print("},")
 
-                        switch field.kind {
-                        case .message:
-                            p.print("performOnSubmessageStorage: { ext, storage, operation, perform in")
-                            p.printIndented("try storage.performOnSubmessageStorage(of: ext, operation: operation, type: \(field.kind.name).self, perform: perform)")
-                            p.print("}")
-                        case .enum(let singularName, _):
-                            p.print("performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in")
-                            p.printIndented("try storage.performOnRawEnumValues(of: ext, operation: operation, type: \(field.kind.name).self, enumSchema: \(singularName).enumSchema, perform: perform, onInvalidValue: onInvalidValue)")
-                            p.print("}")
-                        case .map:
-                            preconditionFailure("unreachable; extensions cannot be map fields")
-                        }
+                    switch field.kind {
+                    case .message:
+                        p.print("performOnSubmessageStorage: { ext, storage, operation, perform in")
+                        p.printIndented("try storage.performOnSubmessageStorage(of: ext, operation: operation, type: \(field.kind.name).self, perform: perform)")
+                        p.print("}")
+                    case .enum(let singularName, _):
+                        p.print("performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in")
+                        p.printIndented("try storage.performOnRawEnumValues(of: ext, operation: operation, type: \(field.kind.name).self, enumSchema: \(singularName).enumSchema, perform: perform, onInvalidValue: onInvalidValue)")
+                        p.print("}")
+                    case .map:
+                        preconditionFailure("unreachable; extensions cannot be map fields")
                     }
                 } else {
-                    p.print(#"schema: "\#(layoutLiteral)\#(fieldNamePath)""#, newlines: false)
                 }
                 p.print(")")
             }
@@ -262,11 +262,10 @@ class ExtensionSetGenerator {
 
             // MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifier)_Extensions
 
-            /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
-            /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
-            /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
-            /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-            \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)SimpleExtensionMap = [
+            /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+            /// this .proto file. It can be used in parsing, or it can be combined with other
+            /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
+            \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)NewExtensionMap = [
             """
         )
         p.withIndentation { p in
@@ -285,7 +284,7 @@ class ExtensionSetGenerator {
             """
 
             // Extension Objects - The only reason these might be needed is when manually
-            // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+            // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
             // accessors for the extension fields on the messages directly.
             """
         )

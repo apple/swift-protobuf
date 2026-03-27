@@ -269,7 +269,7 @@ class MessageGenerator {
                 "\(visibility)mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {"
             )
             p.withIndentation { p in
-                p.print("try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)")
+                p.print("try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)")
             }
             p.print("}")
             p.print(
@@ -283,7 +283,7 @@ class MessageGenerator {
                 "\(visibility)mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {"
             )
             p.withIndentation { p in
-                p.print("try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)")
+                p.print("try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)")
             }
             p.print("}")
             p.print(
@@ -307,7 +307,7 @@ class MessageGenerator {
             )
             p.withIndentation { p in
                 p.print("try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in")
-                p.printIndented("try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)")
+                p.printIndented("try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)")
                 p.print("}")
             }
             p.print("}")

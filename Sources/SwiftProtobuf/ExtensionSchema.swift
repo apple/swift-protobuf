@@ -49,6 +49,11 @@ public struct ExtensionSchema: @unchecked Sendable {
     /// trade-off to let us reuse the same field schema code in the runtime and in the generator.
     private let schema: UnsafeRawBufferPointer
 
+    /// The function type for the generated function that is called to return the `MessageSchema`
+    /// of the message that is being extended.
+    @_spi(ForGeneratedCodeOnly)
+    public typealias ExtendedMessageSchemaProducer = () -> MessageSchema
+
     /// The function type for the generated function that is called to perform a basic operation
     /// on certain kinds of nontrivial fields (a message, array of messages, array of enums, or map)
     /// such as deinitialization, copying, or testing for equality.
@@ -80,6 +85,10 @@ public struct ExtensionSchema: @unchecked Sendable {
         _ onInvalidValue: (Int32) throws -> Void
     ) throws -> Void
 
+    /// The function that is called to return the `MessageSchema` of the message that is being
+    /// extended.
+    let extendedMessageSchemaProducer: ExtendedMessageSchemaProducer
+
     /// The function that is called to deinitialize, copy, or test equality of a field whose type
     /// is a message (singular or repeated) or a repeated enum field.
     let performNontrivialExtensionOperation: NontrivialExtensionOperationPerformer
@@ -92,9 +101,15 @@ public struct ExtensionSchema: @unchecked Sendable {
     /// field.
     let performOnRawEnumValues: RawEnumValuesPerformer
 
+    /// The `MessageSchema` of the message that this extension field extends.
+    var extendedMessage: MessageSchema {
+        extendedMessageSchemaProducer()
+    }
+
     /// Creates a new extension schema and submessage operations from the given values.
     private init(
         schema: StaticString,
+        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
         performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
         performOnRawEnumValues: @escaping RawEnumValuesPerformer
@@ -104,6 +119,7 @@ public struct ExtensionSchema: @unchecked Sendable {
             "The schema string should have a pointer-based representation; this is a generator bug"
         )
         self.schema = UnsafeRawBufferPointer(start: schema.utf8Start, count: schema.utf8CodeUnitCount)
+        self.extendedMessageSchemaProducer = extendedMessageSchemaProducer
         self.performNontrivialExtensionOperation = performNontrivialExtensionOperation
         self.performOnSubmessageStorage = performOnSubmessageStorage
         self.performOnRawEnumValues = performOnRawEnumValues
@@ -111,9 +127,13 @@ public struct ExtensionSchema: @unchecked Sendable {
     }
 
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString) {
+    public init(
+        schema: StaticString,
+        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer
+    ) {
         self.init(
             schema: schema,
+            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
             performNontrivialExtensionOperation: { _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
@@ -129,10 +149,12 @@ public struct ExtensionSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public init(
         schema: StaticString,
+        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
         performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer
     ) {
         self.init(
             schema: schema,
+            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
             performNontrivialExtensionOperation: performNontrivialExtensionOperation,
             performOnSubmessageStorage: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -146,11 +168,13 @@ public struct ExtensionSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public init(
         schema: StaticString,
+        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
         performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer
     ) {
         self.init(
             schema: schema,
+            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
             performNontrivialExtensionOperation: performNontrivialExtensionOperation,
             performOnSubmessageStorage: performOnSubmessageStorage,
             performOnRawEnumValues: { _, _, _, _, _ in
@@ -162,11 +186,13 @@ public struct ExtensionSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public init(
         schema: StaticString,
+        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
         performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer,
         performOnRawEnumValues: @escaping RawEnumValuesPerformer
     ) {
         self.init(
             schema: schema,
+            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
             performNontrivialExtensionOperation: performNontrivialExtensionOperation,
             performOnSubmessageStorage: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")

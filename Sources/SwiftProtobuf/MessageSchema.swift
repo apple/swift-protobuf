@@ -182,6 +182,15 @@ public struct MessageSchema: @unchecked Sendable {
     /// The function that is called to perform an arbitrary operation on the elements of a map.
     let performOnMapEntry: MapEntryPerformer
 
+    /// A key that can be used to uniquely identify a message schema in a hashed collection.
+    var key: Key {
+        // TODO: As currently written, it's possible that the linker could fold strings representing
+        // messages with identical layout. We can avoid this in the future when we merge the name
+        // map and fully qualified message name into the schema string, ensuring that they'll be
+        // unique.
+        Key(value: schema.baseAddress!)
+    }
+
     /// Creates a new message schema and submessage operations from the given values.
     @_spi(ForGeneratedCodeOnly)
     public init(
@@ -304,6 +313,29 @@ public struct MessageSchema: @unchecked Sendable {
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
+    }
+}
+
+extension MessageSchema {
+    /// A key that can be used to uniquely identify the message schema in hashed containers.
+    struct Key: Hashable, Equatable, @unchecked Sendable {
+        /// The pointer to the static string data that defines the message schema.
+        ///
+        /// Since this is constant read-only data, it's suitable for use as a key for in-process
+        /// hashed container lookups.
+        private let value: UnsafeRawPointer
+
+        init(value: UnsafeRawPointer) {
+            self.value = value
+        }
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(value)
+        }
+
+        static func == (lhs: Key, rhs: Key) -> Bool {
+            return lhs.value == rhs.value
+        }
     }
 }
 
