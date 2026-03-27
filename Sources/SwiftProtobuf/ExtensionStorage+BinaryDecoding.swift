@@ -1,6 +1,6 @@
-// Sources/SwiftProtobuf/_MessageStorage+BinaryDecoding.swift - Binary decoding for messages
+// Sources/SwiftProtobuf/ExtensionStorage+BinaryDecoding.swift - Binary decoding for extensions
 //
-// Copyright (c) 2014 - 2025 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -8,79 +8,15 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Binary decoding support for `_MessageStorage.`
+/// Binary decoding support for `ExtensionStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
-    /// Decodes field values from the given binary-encoded buffer into this storage class.
-    ///
-    /// - Parameters:
-    ///   - buffer: The binary-encoded message data to decode.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
-    ///   - options: The ``BinaryDecodingOptions`` to use.
-    /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    public func merge(
-        byReadingFrom buffer: UnsafeRawBufferPointer,
-        extensions: (any ExtensionMap)?,
-        partial: Bool,
-        options: BinaryDecodingOptions
-    ) throws {
-        var reader = WireFormatReader(buffer: buffer, recursionBudget: options.messageDepthLimit)
-        try merge(
-            byReadingFrom: &reader,
-            extensions: extensions.map { $0 as! NewExtensionMap },
-            partial: partial,
-            discardUnknownFields: options.discardUnknownFields)
-    }
-
-    /// Decodes field values from the given wire format reader into this storage class.
-    ///
-    /// - Parameters:
-    ///   - buffer: The binary-encoded message data to decode.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
-    ///   - discardUnknownFields: If true, unknown fields will be discarded during
-    ///     parsing.
-    func merge(
-        byReadingFrom reader: inout WireFormatReader,
-        extensions: NewExtensionMap?,
-        partial: Bool,
-        discardUnknownFields: Bool
-    ) throws {
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-        while reader.hasAvailableData {
-            let tag = try reader.nextTag()
-            let consumed = try decodeNextField(
-                from: &reader,
-                tag: tag,
-                extensions: extensions,
-                partial: partial,
-                discardUnknownFields: discardUnknownFields,
-                mapEntryWorkingSpace: &mapEntryWorkingSpace
-            )
-            if !consumed {
-                try decodeUnknownField(from: &reader, tag: tag, discard: discardUnknownFields)
-            }
-        }
-        if reader.isTrackingGroup {
-            // If `nextTag` saw the expected end-group tag, it would have cleared out the reader's
-            // group tracking state. If that didn't happen, then we ran out of data too early.
-            throw BinaryDecodingError.truncated
-        }
-        if !partial && !isInitialized {
-            throw BinaryDecodingError.missingRequiredFields
-        }
-    }
-
-    /// Decodes the next field from the binary reader, assuming that its tag has already been read.
+extension ExtensionStorage {
+    /// Decodes the next extension field from the binary reader, assuming that its tag has already
+    /// been read.
     ///
     /// - Parameters:
     ///   - reader: The reader from which to read the next field's data.
@@ -88,13 +24,14 @@ extension _MessageStorage {
     /// - Returns: True if the field was consumed, or false to indicate that it should be stored in
     ///   unknown fields (for example, because the field did not exist or the data on the wire did
     ///   not match the expected wire format)).
-    private func decodeNextField(
+    func decodeNextExtension(
+        _ schema: ExtensionSchema,
         from reader: inout WireFormatReader,
         tag: FieldTag,
         extensions: NewExtensionMap?,
         partial: Bool,
         discardUnknownFields: Bool,
-        mapEntryWorkingSpace: inout MapEntryWorkingSpace
+        unknownFields: inout UnknownStorage
     ) throws -> Bool {
         guard tag.wireFormat != .endGroup else {
             // Just consume it; `nextTag` has already validated that it matches the last started
@@ -102,97 +39,67 @@ extension _MessageStorage {
             return true
         }
 
-        guard let field = schema[fieldNumber: UInt32(tag.fieldNumber)] else {
-            if let extensionSchema = extensions?[fieldNumber: UInt32(tag.fieldNumber), in: schema],
-                try extensionStorage.decodeNextExtension(
-                    extensionSchema,
-                    from: &reader,
-                    tag: tag,
-                    extensions: extensions,
-                    partial: partial,
-                    discardUnknownFields: discardUnknownFields,
-                    unknownFields: &unknownFields
-                )
-            {
-                // The extension consumed the field so we're done.
-                return true
-            }
-
-            // No field or extension consumed it (it either didn't exist or it was a wire format
-            // mismatch), so return false so the caller can put it into unknown fields.
-            return false
-        }
-
+        let field = schema.field
         switch field.fieldMode.cardinality {
         case .map:
-            guard tag.wireFormat == .lengthDelimited else { return false }
-            _ = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .append,
-                // Deterministic ordering doesn't apply to decoding.
-                false
-            ) { workingSpace in
-                try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                    try workingSpace.merge(
-                        byReadingFrom: &subReader,
-                        extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: true)
-                }
-                return true
-            }
+            preconditionFailure("unreachable")
 
         case .array:
             switch field.rawFieldType {
             case .bool:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     try $0.nextVarint() != 0
                 }
 
             case .bytes:
                 guard tag.wireFormat == .lengthDelimited else { return false }
                 try reader.nextLengthDelimitedSlice().withMemoryRebound(to: UInt8.self) { buffer in
-                    appendValue(Data(buffer: buffer), to: field)
+                    appendValue(Data(buffer: buffer), to: schema)
                 }
 
             case .double:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed64) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .fixed64) {
                     Double(bitPattern: try $0.nextLittleEndianUInt64())
                 }
 
             case .enum:
                 switch tag.wireFormat {
                 case .varint:
-                    try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: true)
+                    try updateEnumValue(
+                        of: schema,
+                        from: &reader,
+                        fieldNumber: tag.fieldNumber,
+                        isRepeated: true,
+                        unknownFields: &unknownFields)
                 case .lengthDelimited:
-                    try appendPackedEnumValues(from: &reader, to: field, fieldNumber: tag.fieldNumber)
+                    try appendPackedEnumValues(
+                        from: &reader,
+                        to: schema,
+                        fieldNumber: tag.fieldNumber,
+                        unknownFields: &unknownFields)
                 default:
                     return false
                 }
 
             case .fixed32:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .fixed32) {
                     try $0.nextLittleEndianUInt32()
                 }
 
             case .fixed64:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed64) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .fixed64) {
                     try $0.nextLittleEndianUInt64()
                 }
 
             case .float:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .fixed32) {
                     Float(bitPattern: try $0.nextLittleEndianUInt32())
                 }
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
                 _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
+                    schema,
                     self,
                     .append
                 ) { submessageStorage in
@@ -208,22 +115,21 @@ extension _MessageStorage {
                 }
 
             case .int32:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     // If the number on the wire is larger than fits into an `Int32`, this is not an
                     // error; we truncate it.
                     Int32(truncatingIfNeeded: try $0.nextVarint())
                 }
 
             case .int64:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     Int64(truncatingIfNeeded: try $0.nextVarint())
                 }
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
                 _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
+                    schema,
                     self,
                     .append
                 ) { submessageStorage in
@@ -239,24 +145,24 @@ extension _MessageStorage {
                 }
 
             case .sfixed32:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed32) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .fixed32) {
                     Int32(bitPattern: try $0.nextLittleEndianUInt32())
                 }
 
             case .sfixed64:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .fixed64) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .fixed64) {
                     Int64(bitPattern: try $0.nextLittleEndianUInt64())
                 }
 
             case .sint32:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     // If the number on the wire is larger than fits into an `Int32`, this is not an
                     // error; we truncate it.
                     ZigZag.decoded(UInt32(truncatingIfNeeded: try $0.nextVarint()))
                 }
 
             case .sint64:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     ZigZag.decoded(try $0.nextVarint())
                 }
 
@@ -266,17 +172,17 @@ extension _MessageStorage {
                 guard let string = utf8ToString(bytes: buffer.baseAddress!, count: buffer.count) else {
                     throw BinaryDecodingError.invalidUTF8
                 }
-                appendValue(string, to: field)
+                appendValue(string, to: schema)
 
             case .uint32:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     // If the number on the wire is larger than fits into a `UInt32`, this is not an
                     // error; we truncate it.
                     UInt32(truncatingIfNeeded: try $0.nextVarint())
                 }
 
             case .uint64:
-                return try appendMaybePackedValues(from: &reader, to: field, tag: tag, unpackedWireFormat: .varint) {
+                return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     try $0.nextVarint()
                 }
 
@@ -288,39 +194,43 @@ extension _MessageStorage {
             switch field.rawFieldType {
             case .bool:
                 guard tag.wireFormat == .varint else { return false }
-                updateValue(of: field, to: try reader.nextVarint() != 0)
+                updateValue(of: schema, to: try reader.nextVarint() != 0)
 
             case .bytes:
                 guard tag.wireFormat == .lengthDelimited else { return false }
                 try reader.nextLengthDelimitedSlice().withMemoryRebound(to: UInt8.self) { buffer in
-                    updateValue(of: field, to: Data(buffer: buffer))
+                    updateValue(of: schema, to: Data(buffer: buffer))
                 }
 
             case .double:
                 guard tag.wireFormat == .fixed64 else { return false }
-                updateValue(of: field, to: Double(bitPattern: try reader.nextLittleEndianUInt64()))
+                updateValue(of: schema, to: Double(bitPattern: try reader.nextLittleEndianUInt64()))
 
             case .enum:
                 guard tag.wireFormat == .varint else { return false }
-                try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: false)
+                try updateEnumValue(
+                    of: schema,
+                    from: &reader,
+                    fieldNumber: tag.fieldNumber,
+                    isRepeated: false,
+                    unknownFields: &unknownFields)
 
             case .fixed32:
                 guard tag.wireFormat == .fixed32 else { return false }
-                updateValue(of: field, to: try reader.nextLittleEndianUInt32())
+                updateValue(of: schema, to: try reader.nextLittleEndianUInt32())
 
             case .fixed64:
                 guard tag.wireFormat == .fixed64 else { return false }
-                updateValue(of: field, to: try reader.nextLittleEndianUInt64())
+                updateValue(of: schema, to: try reader.nextLittleEndianUInt64())
 
             case .float:
                 guard tag.wireFormat == .fixed32 else { return false }
-                updateValue(of: field, to: Float(bitPattern: try reader.nextLittleEndianUInt32()))
+                updateValue(of: schema, to: Float(bitPattern: try reader.nextLittleEndianUInt32()))
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
                 _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
+                    schema,
                     self,
                     .mutate
                 ) { submessageStorage in
@@ -339,17 +249,16 @@ extension _MessageStorage {
                 guard tag.wireFormat == .varint else { return false }
                 // If the number on the wire is larger than fits into an `Int32`, this is not an
                 // error; we truncate it.
-                updateValue(of: field, to: Int32(truncatingIfNeeded: try reader.nextVarint()))
+                updateValue(of: schema, to: Int32(truncatingIfNeeded: try reader.nextVarint()))
 
             case .int64:
                 guard tag.wireFormat == .varint else { return false }
-                updateValue(of: field, to: Int64(bitPattern: try reader.nextVarint()))
+                updateValue(of: schema, to: Int64(bitPattern: try reader.nextVarint()))
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
                 _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
+                    schema,
                     self,
                     .mutate
                 ) { submessageStorage in
@@ -366,21 +275,21 @@ extension _MessageStorage {
 
             case .sfixed32:
                 guard tag.wireFormat == .fixed32 else { return false }
-                updateValue(of: field, to: Int32(bitPattern: try reader.nextLittleEndianUInt32()))
+                updateValue(of: schema, to: Int32(bitPattern: try reader.nextLittleEndianUInt32()))
 
             case .sfixed64:
                 guard tag.wireFormat == .fixed64 else { return false }
-                updateValue(of: field, to: Int64(bitPattern: try reader.nextLittleEndianUInt64()))
+                updateValue(of: schema, to: Int64(bitPattern: try reader.nextLittleEndianUInt64()))
 
             case .sint32:
                 guard tag.wireFormat == .varint else { return false }
                 // If the number on the wire is larger than fits into an `Int32`, this is not an
                 // error; we truncate it.
-                updateValue(of: field, to: ZigZag.decoded(UInt32(truncatingIfNeeded: try reader.nextVarint())))
+                updateValue(of: schema, to: ZigZag.decoded(UInt32(truncatingIfNeeded: try reader.nextVarint())))
 
             case .sint64:
                 guard tag.wireFormat == .varint else { return false }
-                updateValue(of: field, to: ZigZag.decoded(try reader.nextVarint()))
+                updateValue(of: schema, to: ZigZag.decoded(try reader.nextVarint()))
 
             case .string:
                 guard tag.wireFormat == .lengthDelimited else { return false }
@@ -388,17 +297,17 @@ extension _MessageStorage {
                 guard let string = utf8ToString(bytes: buffer.baseAddress!, count: buffer.count) else {
                     throw BinaryDecodingError.invalidUTF8
                 }
-                updateValue(of: field, to: string)
+                updateValue(of: schema, to: string)
 
             case .uint32:
                 guard tag.wireFormat == .varint else { return false }
                 // If the number on the wire is larger than fits into a `UInt32`, this is not an
                 // error; we truncate it.
-                updateValue(of: field, to: UInt32(truncatingIfNeeded: try reader.nextVarint()))
+                updateValue(of: schema, to: UInt32(truncatingIfNeeded: try reader.nextVarint()))
 
             case .uint64:
                 guard tag.wireFormat == .varint else { return false }
-                updateValue(of: field, to: try reader.nextVarint())
+                updateValue(of: schema, to: try reader.nextVarint())
 
             default:
                 preconditionFailure("Unreachable")
@@ -425,11 +334,12 @@ extension _MessageStorage {
     ///   what was expected.
     private func appendMaybePackedValues<T>(
         from reader: inout WireFormatReader,
-        to field: FieldSchema,
+        to ext: ExtensionSchema,
         tag: FieldTag,
         unpackedWireFormat: WireFormat,
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws -> Bool {
+        let field = ext.field
         assert(
             field.rawFieldType != .bytes && field.rawFieldType != .group && field.rawFieldType != .message
                 && field.rawFieldType != .string,
@@ -438,10 +348,10 @@ extension _MessageStorage {
 
         switch tag.wireFormat {
         case unpackedWireFormat:
-            appendValue(try decodeElement(&reader), to: field)
+            appendValue(try decodeElement(&reader), to: ext)
             return true
         case .lengthDelimited:
-            try appendPackedValues(from: &reader, to: field, hasVarints: unpackedWireFormat == .varint) {
+            try appendPackedValues(from: &reader, to: ext, hasVarints: unpackedWireFormat == .varint) {
                 try decodeElement(&$0)
             }
             return true
@@ -456,15 +366,15 @@ extension _MessageStorage {
     /// This method handles both the singular case (by setting the field) and the repeated unpacked
     /// case (by appending to it).
     private func updateEnumValue(
-        of field: FieldSchema,
+        of ext: ExtensionSchema,
         from reader: inout WireFormatReader,
         fieldNumber: Int,
-        isRepeated: Bool
+        isRepeated: Bool,
+        unknownFields: inout UnknownStorage
     ) throws {
         var alreadyReadValue = false
-        try schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
+        try ext.performOnRawEnumValues(
+            ext,
             self,
             isRepeated ? .append : .mutate
         ) { _, outRawValue in
@@ -504,10 +414,11 @@ extension _MessageStorage {
     ///   - tag: The tag that was read from the wire.
     private func appendPackedEnumValues(
         from reader: inout WireFormatReader,
-        to field: FieldSchema,
-        fieldNumber: Int
+        to ext: ExtensionSchema,
+        fieldNumber: Int,
+        unknownFields: inout UnknownStorage
     ) throws {
-        assert(field.rawFieldType == .enum, "Internal error: should only be called for enum fields")
+        assert(ext.field.rawFieldType == .enum, "Internal error: should only be called for enum fields")
 
         let elementsBuffer = try reader.nextLengthDelimitedSlice()
         guard elementsBuffer.baseAddress != nil, elementsBuffer.count > 0 else {
@@ -521,9 +432,8 @@ extension _MessageStorage {
         // Recursion budget is irrelevant here because we're only reading enums.
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
 
-        try schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
+        try ext.performOnRawEnumValues(
+            ext,
             self,
             .append
         ) { _, outRawValue in
@@ -572,23 +482,23 @@ extension _MessageStorage {
     ///     elements and reads and returns a single element from it.
     private func appendPackedValues<T>(
         from reader: inout WireFormatReader,
-        to field: FieldSchema,
+        to ext: ExtensionSchema,
         hasVarints: Bool,
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws {
         // TODO: Constrain `T` to `BitwiseCopyable` if we decide to drop Swift 5.x support.
 
-        // If the field isn't already present, we need to initialize a new array first.
-        let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
-        if !isPresent(field) {
-            pointer.initialize(to: [])
-            switch field.presence {
-            case .hasBit(let hasByteOffset, let hasMask):
-                _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-            case .oneOfMember(let oneofOffset):
-                _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
-            }
+        // We don't use `appendValue` here because it's more efficient to check for presence and
+        // get the pointer to the array once and do multiple appends to it.
+        let arrayValue: ExtensionValueStorage
+        if let existingValue = values[ext.field.fieldNumber] {
+            arrayValue = existingValue
+        } else {
+            // Create an empty array to append the packed values to.
+            arrayValue = ExtensionValueStorage(schema: ext, value: [T]())
+            values[ext.field.fieldNumber] = arrayValue
         }
+        let pointer = arrayValue.unsafeMutablePointerToValue(as: [T].self)
 
         let elementsBuffer = try reader.nextLengthDelimitedSlice()
         guard let elementsPointer = elementsBuffer.baseAddress, elementsBuffer.count > 0 else {
@@ -611,19 +521,5 @@ extension _MessageStorage {
             pointer.pointee.append(try decodeElement(&elementsReader))
         }
     }
-
-    /// Decodes the next field in the reader as an unknown field.
-    ///
-    /// - Parameters:
-    ///   - reader: The `WireFormatReader` from which to read the next field.
-    ///   - tag: The tag representing the current field that was just read from the reader.
-    ///   - discard: If true, the field's data should be skipped. Otherwise, it will be stored in
-    ///     the unknown fields storage.
-    /// - Throws: `BinaryDecodingError` if an error occurred while reading from the buffer.
-    private func decodeUnknownField(from reader: inout WireFormatReader, tag: FieldTag, discard: Bool) throws {
-        let slice = try reader.sliceBySkippingField(tag: tag)
-        if !discard {
-            unknownFields.append(protobufBytes: slice)
-        }
-    }
 }
+

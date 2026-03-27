@@ -200,8 +200,7 @@ class FileGenerator {
             extensionSet.generateMessageSwiftExtensions(printer: &p)
 
             // Generate a registry for the file.
-            // TODO: Re-enable this when we implement parsing/serialization.
-            // extensionSet.generateFileProtobufExtensionRegistry(printer: &p)
+            extensionSet.generateFileProtobufExtensionRegistry(printer: &p)
 
             // Generate the Extension's declarations (used by the two above things).
             //

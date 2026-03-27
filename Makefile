@@ -424,12 +424,12 @@ regenerate-table-driven-protos: build ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProt
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_clobbering.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
-	find Sources/SwiftProtobuf -name "*.pb.swift" ! -name any.pb.swift ! -name api.pb.swift ! -name descriptor.pb.swift ! -name field_mask.pb.swift ! -name type.pb.swift -exec rm -f {} \;
+	find Sources/SwiftProtobuf -name "*.pb.swift" ! -name any.pb.swift ! -name api.pb.swift ! -name descriptor.pb.swift ! -name type.pb.swift -exec rm -f {} \;
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobuf \
-		`find Protos/Sources/SwiftProtobuf -type f -name "*.proto" ! -name any.proto ! -name api.proto ! -name descriptor.proto ! -name field_mask.proto ! -name type.proto`
+		`find Protos/Sources/SwiftProtobuf -type f -name "*.proto" ! -name any.proto ! -name api.proto ! -name descriptor.proto ! -name type.proto`
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.

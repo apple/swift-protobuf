@@ -36,53 +36,18 @@
     /// that block is stored here.
     @usableFromInline let storage: UInt64
 
-    /// Creates a new extension storage value for the given `Bool` value.
+    /// Creates a new extension storage value for the given `BitwiseCopyable` value.
     @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: Bool) {
-        self.schema = schema
-        self.storage = value ? 1 : 0
-    }
+    init<Value: BitwiseCopyable>(schema: ExtensionSchema, value: Value) {
+        precondition(MemoryLayout<Value>.size <= 8, "POD types must be 64 or fewer bits")
 
-    /// Creates a new extension storage value for the given `Int64` value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: Int64) {
+        // Copy the bits of the value into the storage inline.
+        var storage: UInt64 = 0
+        withUnsafeMutableBytes(of: &storage) { storageBuffer in
+            storageBuffer.storeBytes(of: value, as: Value.self)
+        }
         self.schema = schema
-        self.storage = .init(bitPattern: value)
-    }
-
-    /// Creates a new extension storage value for the given `UInt64` value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: UInt64) {
-        self.schema = schema
-        self.storage = value
-    }
-
-    /// Creates a new extension storage value for the given `Int32` value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: Int32) {
-        self.schema = schema
-        self.storage = .init(bitPattern: Int64(value))
-    }
-
-    /// Creates a new extension storage value for the given `UInt32` value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: UInt32) {
-        self.schema = schema
-        self.storage = UInt64(value)
-    }
-
-    /// Creates a new extension storage value for the given `Float` value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: Float) {
-        self.schema = schema
-        self.storage = UInt64(value.bitPattern)
-    }
-
-    /// Creates a new extension storage value for the given `Double` value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init(schema: ExtensionSchema, value: Double) {
-        self.schema = schema
-        self.storage = value.bitPattern
+        self.storage = storage
     }
 
     /// Creates a new extension storage value for the given non-POD value (string, data, repeated
@@ -106,46 +71,13 @@
         pointer.deallocate()
     }
 
-    /// Returns the value of the extension field, assuming it is a `Bool`.
+    /// Returns the value of the extension field, assuming it is a POD type.
     @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: Bool.Type) -> Bool {
-        storage != 0
-    }
-
-    /// Returns the value of the extension field, assuming it is an `Int64`.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: Int64.Type) -> Int64 {
-        Int64(bitPattern: storage)
-    }
-
-    /// Returns the value of the extension field, assuming it is a `UInt64`.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: UInt64.Type) -> UInt64 {
-        storage
-    }
-
-    /// Returns the value of the extension field, assuming it is an `Int32`.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: Int32.Type) -> Int32 {
-        Int32(truncatingIfNeeded: Int64(bitPattern: storage))
-    }
-
-    /// Returns the value of the extension field, assuming it is a `UInt32`.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: UInt32.Type) -> UInt32 {
-        UInt32(truncatingIfNeeded: storage)
-    }
-
-    /// Returns the value of the extension field, assuming it is a `Float`.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: Float.Type) -> Float {
-        Float(bitPattern: UInt32(truncatingIfNeeded: storage))
-    }
-
-    /// Returns the value of the extension field, assuming it is a `Double`.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value(as type: Double.Type) -> Double {
-        Double(bitPattern: storage)
+    func value<Value: BitwiseCopyable>(as type: Value.Type) -> Value {
+        var storage = storage
+        return withUnsafeBytes(of: &storage) { storageBuffer in
+            storageBuffer.load(as: Value.self)
+        }
     }
 
     /// Returns the value of the extension field, assuming it is a heap-allocated non-POD type.

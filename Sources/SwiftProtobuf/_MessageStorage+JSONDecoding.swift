@@ -21,7 +21,11 @@ extension _MessageStorage {
     ///   - buffer: The UTF-8-encoded JSON message data to decode.
     ///   - options: The ``JSONDecodingOptions`` to use.
     /// - Throws: ``JSONDecodingError`` if decoding fails.
-    public func merge(byParsingJSONUTF8Bytes buffer: UnsafeRawBufferPointer, options: JSONDecodingOptions) throws {
+    public func merge(
+        byParsingJSONUTF8Bytes buffer: UnsafeRawBufferPointer,
+        extensions: (any ExtensionMap)?,
+        options: JSONDecodingOptions
+    ) throws {
         // TODO: Support extensions.
         var reader = JSONReader(
             buffer: buffer,

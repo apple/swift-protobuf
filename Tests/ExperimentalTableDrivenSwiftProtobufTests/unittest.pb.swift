@@ -3412,462 +3412,624 @@ extension SwiftProtoTesting_TestParsingMerge {
 
 }
 
+// MARK: - File's ExtensionMap: SwiftProtoTesting_Unittest_Extensions
+
+/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used in parsing, or it can be combined with other
+/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
+let SwiftProtoTesting_Unittest_Extensions: SwiftProtobuf.NewExtensionMap = [
+  SwiftProtoTesting_Extensions_optional_int32_extension,
+  SwiftProtoTesting_Extensions_optional_int64_extension,
+  SwiftProtoTesting_Extensions_optional_uint32_extension,
+  SwiftProtoTesting_Extensions_optional_uint64_extension,
+  SwiftProtoTesting_Extensions_optional_sint32_extension,
+  SwiftProtoTesting_Extensions_optional_sint64_extension,
+  SwiftProtoTesting_Extensions_optional_fixed32_extension,
+  SwiftProtoTesting_Extensions_optional_fixed64_extension,
+  SwiftProtoTesting_Extensions_optional_sfixed32_extension,
+  SwiftProtoTesting_Extensions_optional_sfixed64_extension,
+  SwiftProtoTesting_Extensions_optional_float_extension,
+  SwiftProtoTesting_Extensions_optional_double_extension,
+  SwiftProtoTesting_Extensions_optional_bool_extension,
+  SwiftProtoTesting_Extensions_optional_string_extension,
+  SwiftProtoTesting_Extensions_optional_bytes_extension,
+  SwiftProtoTesting_Extensions_OptionalGroup_extension,
+  SwiftProtoTesting_Extensions_optional_nested_message_extension,
+  SwiftProtoTesting_Extensions_optional_foreign_message_extension,
+  SwiftProtoTesting_Extensions_optional_import_message_extension,
+  SwiftProtoTesting_Extensions_optional_nested_enum_extension,
+  SwiftProtoTesting_Extensions_optional_foreign_enum_extension,
+  SwiftProtoTesting_Extensions_optional_import_enum_extension,
+  SwiftProtoTesting_Extensions_optional_public_import_message_extension,
+  SwiftProtoTesting_Extensions_repeated_int32_extension,
+  SwiftProtoTesting_Extensions_repeated_int64_extension,
+  SwiftProtoTesting_Extensions_repeated_uint32_extension,
+  SwiftProtoTesting_Extensions_repeated_uint64_extension,
+  SwiftProtoTesting_Extensions_repeated_sint32_extension,
+  SwiftProtoTesting_Extensions_repeated_sint64_extension,
+  SwiftProtoTesting_Extensions_repeated_fixed32_extension,
+  SwiftProtoTesting_Extensions_repeated_fixed64_extension,
+  SwiftProtoTesting_Extensions_repeated_sfixed32_extension,
+  SwiftProtoTesting_Extensions_repeated_sfixed64_extension,
+  SwiftProtoTesting_Extensions_repeated_float_extension,
+  SwiftProtoTesting_Extensions_repeated_double_extension,
+  SwiftProtoTesting_Extensions_repeated_bool_extension,
+  SwiftProtoTesting_Extensions_repeated_string_extension,
+  SwiftProtoTesting_Extensions_repeated_bytes_extension,
+  SwiftProtoTesting_Extensions_RepeatedGroup_extension,
+  SwiftProtoTesting_Extensions_repeated_nested_message_extension,
+  SwiftProtoTesting_Extensions_repeated_foreign_message_extension,
+  SwiftProtoTesting_Extensions_repeated_import_message_extension,
+  SwiftProtoTesting_Extensions_repeated_nested_enum_extension,
+  SwiftProtoTesting_Extensions_repeated_foreign_enum_extension,
+  SwiftProtoTesting_Extensions_repeated_import_enum_extension,
+  SwiftProtoTesting_Extensions_default_int32_extension,
+  SwiftProtoTesting_Extensions_default_int64_extension,
+  SwiftProtoTesting_Extensions_default_uint32_extension,
+  SwiftProtoTesting_Extensions_default_uint64_extension,
+  SwiftProtoTesting_Extensions_default_sint32_extension,
+  SwiftProtoTesting_Extensions_default_sint64_extension,
+  SwiftProtoTesting_Extensions_default_fixed32_extension,
+  SwiftProtoTesting_Extensions_default_fixed64_extension,
+  SwiftProtoTesting_Extensions_default_sfixed32_extension,
+  SwiftProtoTesting_Extensions_default_sfixed64_extension,
+  SwiftProtoTesting_Extensions_default_float_extension,
+  SwiftProtoTesting_Extensions_default_double_extension,
+  SwiftProtoTesting_Extensions_default_bool_extension,
+  SwiftProtoTesting_Extensions_default_string_extension,
+  SwiftProtoTesting_Extensions_default_bytes_extension,
+  SwiftProtoTesting_Extensions_default_nested_enum_extension,
+  SwiftProtoTesting_Extensions_default_foreign_enum_extension,
+  SwiftProtoTesting_Extensions_default_import_enum_extension,
+  SwiftProtoTesting_Extensions_oneof_uint32_extension,
+  SwiftProtoTesting_Extensions_oneof_nested_message_extension,
+  SwiftProtoTesting_Extensions_oneof_string_extension,
+  SwiftProtoTesting_Extensions_oneof_bytes_extension,
+  SwiftProtoTesting_Extensions_my_extension_string,
+  SwiftProtoTesting_Extensions_my_extension_int,
+  SwiftProtoTesting_Extensions_packed_int32_extension,
+  SwiftProtoTesting_Extensions_packed_int64_extension,
+  SwiftProtoTesting_Extensions_packed_uint32_extension,
+  SwiftProtoTesting_Extensions_packed_uint64_extension,
+  SwiftProtoTesting_Extensions_packed_sint32_extension,
+  SwiftProtoTesting_Extensions_packed_sint64_extension,
+  SwiftProtoTesting_Extensions_packed_fixed32_extension,
+  SwiftProtoTesting_Extensions_packed_fixed64_extension,
+  SwiftProtoTesting_Extensions_packed_sfixed32_extension,
+  SwiftProtoTesting_Extensions_packed_sfixed64_extension,
+  SwiftProtoTesting_Extensions_packed_float_extension,
+  SwiftProtoTesting_Extensions_packed_double_extension,
+  SwiftProtoTesting_Extensions_packed_bool_extension,
+  SwiftProtoTesting_Extensions_packed_enum_extension,
+  SwiftProtoTesting_TestNestedExtension.Extensions.test,
+  SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension,
+  SwiftProtoTesting_TestRequired.Extensions.single,
+  SwiftProtoTesting_TestRequired.Extensions.multi,
+  SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext,
+  SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext
+]
+
 // Extension Objects - The only reason these might be needed is when manually
-// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
 /// Singular
 let SwiftProtoTesting_Extensions_optional_int32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.optional_int32_extension")
+  schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.optional_int32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_int64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}swift_proto_testing.optional_int64_extension")
+  schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}swift_proto_testing.optional_int64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_uint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.optional_uint32_extension")
+  schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.optional_uint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_uint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}swift_proto_testing.optional_uint64_extension")
+  schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}swift_proto_testing.optional_uint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_sint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}swift_proto_testing.optional_sint32_extension")
+  schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}swift_proto_testing.optional_sint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_sint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{6}\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}swift_proto_testing.optional_sint64_extension")
+  schema: "\0\u{6}\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}swift_proto_testing.optional_sint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_fixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{7}\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}swift_proto_testing.optional_fixed32_extension")
+  schema: "\0\u{7}\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}swift_proto_testing.optional_fixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_fixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{8}\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}swift_proto_testing.optional_fixed64_extension")
+  schema: "\0\u{8}\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}swift_proto_testing.optional_fixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{9}\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}swift_proto_testing.optional_sfixed32_extension")
+  schema: "\0\u{9}\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}swift_proto_testing.optional_sfixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{a}\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}swift_proto_testing.optional_sfixed64_extension")
+  schema: "\0\u{a}\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}swift_proto_testing.optional_sfixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_float_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}swift_proto_testing.optional_float_extension")
+  schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}swift_proto_testing.optional_float_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_double_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}swift_proto_testing.optional_double_extension")
+  schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}swift_proto_testing.optional_double_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_bool_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}swift_proto_testing.optional_bool_extension")
+  schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}swift_proto_testing.optional_bool_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_string_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.optional_string_extension")
+  schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.optional_string_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_optional_bytes_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{f}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.optional_bytes_extension")
+  schema: "\0\u{f}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.optional_bytes_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_OptionalGroup_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{10}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}swift_proto_testing.optionalgroup_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_OptionalGroup_extension.self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_OptionalGroup_extension.self, perform: perform)
-    }
-  )
+  schema: "\0\u{10}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}swift_proto_testing.optionalgroup_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_OptionalGroup_extension.self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_OptionalGroup_extension.self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_optional_nested_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{12}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_nested_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
-    }
-  )
+  schema: "\0\u{12}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_nested_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_optional_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{13}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_foreign_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignMessage.self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
-    }
-  )
+  schema: "\0\u{13}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_foreign_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignMessage.self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_ForeignMessage.self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_optional_import_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{14}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_import_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportMessage.self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
-    }
-  )
+  schema: "\0\u{14}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_import_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportMessage.self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportMessage.self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_optional_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_nested_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_nested_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_optional_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_foreign_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignEnum.self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_foreign_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignEnum.self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_optional_import_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_import_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportEnum.self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.optional_import_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportEnum.self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_optional_public_import_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0\u{1a}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_public_import_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_PublicImportMessage.self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
-    }
-  )
+  schema: "\0\u{1a}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.optional_public_import_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_PublicImportMessage.self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Import_PublicImportMessage.self, perform: perform)
+  })
 
 /// Repeated
 let SwiftProtoTesting_Extensions_repeated_int32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{1f}\0\0\0\u{12}\0\0\0\0\0\0\0\u{5}swift_proto_testing.repeated_int32_extension")
+  schema: "\0\u{1f}\0\0\0\u{12}\0\0\0\0\0\0\0\u{5}swift_proto_testing.repeated_int32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_int64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0 \0\0\0\u{12}\0\0\0\0\0\0\0\u{3}swift_proto_testing.repeated_int64_extension")
+  schema: "\0 \0\0\0\u{12}\0\0\0\0\0\0\0\u{3}swift_proto_testing.repeated_int64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_uint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0!\0\0\0\u{12}\0\0\0\0\0\0\0\u{d}swift_proto_testing.repeated_uint32_extension")
+  schema: "\0!\0\0\0\u{12}\0\0\0\0\0\0\0\u{d}swift_proto_testing.repeated_uint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_uint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\"\0\0\0\u{12}\0\0\0\0\0\0\0\u{4}swift_proto_testing.repeated_uint64_extension")
+  schema: "\0\"\0\0\0\u{12}\0\0\0\0\0\0\0\u{4}swift_proto_testing.repeated_uint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_sint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0#\0\0\0\u{12}\0\0\0\0\0\0\0\u{11}swift_proto_testing.repeated_sint32_extension")
+  schema: "\0#\0\0\0\u{12}\0\0\0\0\0\0\0\u{11}swift_proto_testing.repeated_sint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_sint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0$\0\0\0\u{12}\0\0\0\0\0\0\0\u{12}swift_proto_testing.repeated_sint64_extension")
+  schema: "\0$\0\0\0\u{12}\0\0\0\0\0\0\0\u{12}swift_proto_testing.repeated_sint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_fixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0%\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}swift_proto_testing.repeated_fixed32_extension")
+  schema: "\0%\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}swift_proto_testing.repeated_fixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_fixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0&\0\0\0\u{12}\0\0\0\0\0\0\0\u{6}swift_proto_testing.repeated_fixed64_extension")
+  schema: "\0&\0\0\0\u{12}\0\0\0\0\0\0\0\u{6}swift_proto_testing.repeated_fixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0'\0\0\0\u{12}\0\0\0\0\0\0\0\u{f}swift_proto_testing.repeated_sfixed32_extension")
+  schema: "\0'\0\0\0\u{12}\0\0\0\0\0\0\0\u{f}swift_proto_testing.repeated_sfixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0(\0\0\0\u{12}\0\0\0\0\0\0\0\u{10}swift_proto_testing.repeated_sfixed64_extension")
+  schema: "\0(\0\0\0\u{12}\0\0\0\0\0\0\0\u{10}swift_proto_testing.repeated_sfixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_float_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0)\0\0\0\u{12}\0\0\0\0\0\0\0\u{2}swift_proto_testing.repeated_float_extension")
+  schema: "\0)\0\0\0\u{12}\0\0\0\0\0\0\0\u{2}swift_proto_testing.repeated_float_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_double_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0*\0\0\0\u{12}\0\0\0\0\0\0\0\u{1}swift_proto_testing.repeated_double_extension")
+  schema: "\0*\0\0\0\u{12}\0\0\0\0\0\0\0\u{1}swift_proto_testing.repeated_double_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_bool_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0+\0\0\0\u{12}\0\0\0\0\0\0\0\u{8}swift_proto_testing.repeated_bool_extension")
+  schema: "\0+\0\0\0\u{12}\0\0\0\0\0\0\0\u{8}swift_proto_testing.repeated_bool_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_string_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0,\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}swift_proto_testing.repeated_string_extension")
+  schema: "\0,\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}swift_proto_testing.repeated_string_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_repeated_bytes_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0-\0\0\0\u{12}\0\0\0\0\0\0\0\u{c}swift_proto_testing.repeated_bytes_extension")
+  schema: "\0-\0\0\0\u{12}\0\0\0\0\0\0\0\u{c}swift_proto_testing.repeated_bytes_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_RepeatedGroup_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0.\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}swift_proto_testing.repeatedgroup_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_RepeatedGroup_extension].self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_RepeatedGroup_extension].self, perform: perform)
-    }
-  )
+  schema: "\0.\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}swift_proto_testing.repeatedgroup_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_RepeatedGroup_extension].self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_RepeatedGroup_extension].self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_repeated_nested_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\00\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_nested_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self, perform: perform)
-    }
-  )
+  schema: "\00\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_nested_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedMessage].self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_repeated_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\01\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_foreign_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignMessage].self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignMessage].self, perform: perform)
-    }
-  )
+  schema: "\01\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_foreign_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignMessage].self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignMessage].self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_repeated_import_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\02\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_import_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_Import_ImportMessage].self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportMessage].self, perform: perform)
-    }
-  )
+  schema: "\02\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.repeated_import_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_Import_ImportMessage].self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportMessage].self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_repeated_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\03\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_nested_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\03\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_nested_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes.NestedEnum].self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\04\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_foreign_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignEnum].self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\04\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_foreign_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignEnum].self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_repeated_import_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\05\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_import_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_Import_ImportEnum].self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportEnum].self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\05\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.repeated_import_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_Import_ImportEnum].self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_Import_ImportEnum].self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 /// Singular with defaults
 let SwiftProtoTesting_Extensions_default_int32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0=\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.default_int32_extension")
+  schema: "\0=\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.default_int32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_int64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0>\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}swift_proto_testing.default_int64_extension")
+  schema: "\0>\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}swift_proto_testing.default_int64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_uint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0?\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.default_uint32_extension")
+  schema: "\0?\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.default_uint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_uint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0@\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}swift_proto_testing.default_uint64_extension")
+  schema: "\0@\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}swift_proto_testing.default_uint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_sint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0A\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}swift_proto_testing.default_sint32_extension")
+  schema: "\0A\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}swift_proto_testing.default_sint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_sint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0B\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}swift_proto_testing.default_sint64_extension")
+  schema: "\0B\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}swift_proto_testing.default_sint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_fixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0C\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}swift_proto_testing.default_fixed32_extension")
+  schema: "\0C\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}swift_proto_testing.default_fixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_fixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0D\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}swift_proto_testing.default_fixed64_extension")
+  schema: "\0D\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}swift_proto_testing.default_fixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0E\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}swift_proto_testing.default_sfixed32_extension")
+  schema: "\0E\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}swift_proto_testing.default_sfixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0F\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}swift_proto_testing.default_sfixed64_extension")
+  schema: "\0F\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}swift_proto_testing.default_sfixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_float_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0G\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}swift_proto_testing.default_float_extension")
+  schema: "\0G\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}swift_proto_testing.default_float_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_double_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0H\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}swift_proto_testing.default_double_extension")
+  schema: "\0H\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}swift_proto_testing.default_double_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_bool_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0I\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}swift_proto_testing.default_bool_extension")
+  schema: "\0I\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}swift_proto_testing.default_bool_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_string_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0J\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.default_string_extension")
+  schema: "\0J\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.default_string_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_bytes_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0K\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.default_bytes_extension")
+  schema: "\0K\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.default_bytes_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_default_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0Q\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_nested_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0Q\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_nested_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, enumSchema: SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_default_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0R\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_foreign_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignEnum.self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0R\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_foreign_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_ForeignEnum.self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_ForeignEnum.self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 let SwiftProtoTesting_Extensions_default_import_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0S\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_import_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportEnum.self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0S\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.default_import_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Import_ImportEnum.self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: SwiftProtoTesting_Import_ImportEnum.self, enumSchema: SwiftProtoTesting_Import_ImportEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 /// For oneof test
 let SwiftProtoTesting_Extensions_oneof_uint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.oneof_uint32_extension")
+  schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}swift_proto_testing.oneof_uint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_oneof_nested_message_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0p\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.oneof_nested_message_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
-    },
-    performOnSubmessageStorage: { ext, storage, operation, perform in
-      try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
-    }
-  )
+  schema: "\0p\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.oneof_nested_message_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self)
+  },
+  performOnSubmessageStorage: { ext, storage, operation, perform in
+    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, perform: perform)
+  })
 
 let SwiftProtoTesting_Extensions_oneof_string_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.oneof_string_extension")
+  schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.oneof_string_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_oneof_bytes_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.oneof_bytes_extension")
+  schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}swift_proto_testing.oneof_bytes_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
-  schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.my_extension_string")
+  schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.my_extension_string",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestFieldOrderings.messageSchema })
 
 let SwiftProtoTesting_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.my_extension_int")
+  schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}swift_proto_testing.my_extension_int",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestFieldOrderings.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_int32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0Z\0\0\0\u{1a}\0\0\0\0\0\0\0\u{5}swift_proto_testing.packed_int32_extension")
+  schema: "\0Z\0\0\0\u{1a}\0\0\0\0\0\0\0\u{5}swift_proto_testing.packed_int32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_int64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0[\0\0\0\u{1a}\0\0\0\0\0\0\0\u{3}swift_proto_testing.packed_int64_extension")
+  schema: "\0[\0\0\0\u{1a}\0\0\0\0\0\0\0\u{3}swift_proto_testing.packed_int64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_uint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0\\\0\0\0\u{1a}\0\0\0\0\0\0\0\u{d}swift_proto_testing.packed_uint32_extension")
+  schema: "\0\\\0\0\0\u{1a}\0\0\0\0\0\0\0\u{d}swift_proto_testing.packed_uint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_uint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0]\0\0\0\u{1a}\0\0\0\0\0\0\0\u{4}swift_proto_testing.packed_uint64_extension")
+  schema: "\0]\0\0\0\u{1a}\0\0\0\0\0\0\0\u{4}swift_proto_testing.packed_uint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_sint32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0^\0\0\0\u{1a}\0\0\0\0\0\0\0\u{11}swift_proto_testing.packed_sint32_extension")
+  schema: "\0^\0\0\0\u{1a}\0\0\0\0\0\0\0\u{11}swift_proto_testing.packed_sint32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_sint64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0_\0\0\0\u{1a}\0\0\0\0\0\0\0\u{12}swift_proto_testing.packed_sint64_extension")
+  schema: "\0_\0\0\0\u{1a}\0\0\0\0\0\0\0\u{12}swift_proto_testing.packed_sint64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_fixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0`\0\0\0\u{1a}\0\0\0\0\0\0\0\u{7}swift_proto_testing.packed_fixed32_extension")
+  schema: "\0`\0\0\0\u{1a}\0\0\0\0\0\0\0\u{7}swift_proto_testing.packed_fixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_fixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0a\0\0\0\u{1a}\0\0\0\0\0\0\0\u{6}swift_proto_testing.packed_fixed64_extension")
+  schema: "\0a\0\0\0\u{1a}\0\0\0\0\0\0\0\u{6}swift_proto_testing.packed_fixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0b\0\0\0\u{1a}\0\0\0\0\0\0\0\u{f}swift_proto_testing.packed_sfixed32_extension")
+  schema: "\0b\0\0\0\u{1a}\0\0\0\0\0\0\0\u{f}swift_proto_testing.packed_sfixed32_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0c\0\0\0\u{1a}\0\0\0\0\0\0\0\u{10}swift_proto_testing.packed_sfixed64_extension")
+  schema: "\0c\0\0\0\u{1a}\0\0\0\0\0\0\0\u{10}swift_proto_testing.packed_sfixed64_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_float_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0d\0\0\0\u{1a}\0\0\0\0\0\0\0\u{2}swift_proto_testing.packed_float_extension")
+  schema: "\0d\0\0\0\u{1a}\0\0\0\0\0\0\0\u{2}swift_proto_testing.packed_float_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_double_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0e\0\0\0\u{1a}\0\0\0\0\0\0\0\u{1}swift_proto_testing.packed_double_extension")
+  schema: "\0e\0\0\0\u{1a}\0\0\0\0\0\0\0\u{1}swift_proto_testing.packed_double_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_bool_extension = SwiftProtobuf.ExtensionSchema(
-  schema: "\0f\0\0\0\u{1a}\0\0\0\0\0\0\0\u{8}swift_proto_testing.packed_bool_extension")
+  schema: "\0f\0\0\0\u{1a}\0\0\0\0\0\0\0\u{8}swift_proto_testing.packed_bool_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema })
 
 let SwiftProtoTesting_Extensions_packed_enum_extension = SwiftProtobuf.ExtensionSchema(
-    schema: "\0g\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.packed_enum_extension",
-    performNontrivialExtensionOperation: { operation, ext, storage in
-      storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignEnum].self)
-    },
-    performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
-      try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    }
-  )
+  schema: "\0g\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}swift_proto_testing.packed_enum_extension",
+  extendedMessageSchemaProducer: { SwiftProtoTesting_TestPackedExtensions.messageSchema },
+  performNontrivialExtensionOperation: { operation, ext, storage in
+    storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_ForeignEnum].self)
+  },
+  performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in
+    try storage.performOnRawEnumValues(of: ext, operation: operation, type: [SwiftProtoTesting_ForeignEnum].self, enumSchema: SwiftProtoTesting_ForeignEnum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+  })
 
 extension SwiftProtoTesting_TestNestedExtension {
   enum Extensions {
     /// Check for bug where string extensions declared in tested scope did not
     /// compile.
     static let test = SwiftProtobuf.ExtensionSchema(
-      schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.TestNestedExtension.test")
+      schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.TestNestedExtension.test",
+      extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
 
     /// Used to test if generated extension name is correct when there are
     /// underscores.
     static let nested_string_extension = SwiftProtobuf.ExtensionSchema(
-      schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.TestNestedExtension.nested_string_extension")
+      schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}swift_proto_testing.TestNestedExtension.nested_string_extension",
+      extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema })
   }
 }
 
 extension SwiftProtoTesting_TestRequired {
   enum Extensions {
     static let single = SwiftProtobuf.ExtensionSchema(
-        schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.single",
-        performNontrivialExtensionOperation: { operation, ext, storage in
-          storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestRequired.self)
-        },
-        performOnSubmessageStorage: { ext, storage, operation, perform in
-          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestRequired.self, perform: perform)
-        }
-      )
+      schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.single",
+      extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+      performNontrivialExtensionOperation: { operation, ext, storage in
+        storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestRequired.self)
+      },
+      performOnSubmessageStorage: { ext, storage, operation, perform in
+        try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestRequired.self, perform: perform)
+      })
 
     static let multi = SwiftProtobuf.ExtensionSchema(
-        schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.multi",
-        performNontrivialExtensionOperation: { operation, ext, storage in
-          storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestRequired].self)
-        },
-        performOnSubmessageStorage: { ext, storage, operation, perform in
-          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
-        }
-      )
+      schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestRequired.multi",
+      extendedMessageSchemaProducer: { SwiftProtoTesting_TestAllExtensions.messageSchema },
+      performNontrivialExtensionOperation: { operation, ext, storage in
+        storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestRequired].self)
+      },
+      performOnSubmessageStorage: { ext, storage, operation, perform in
+        try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestRequired].self, perform: perform)
+      })
   }
 }
 
 extension SwiftProtoTesting_TestParsingMerge {
   enum Extensions {
     static let optional_ext = SwiftProtobuf.ExtensionSchema(
-        schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.optional_ext",
-        performNontrivialExtensionOperation: { operation, ext, storage in
-          storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.self)
-        },
-        performOnSubmessageStorage: { ext, storage, operation, perform in
-          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
-        }
-      )
+      schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.optional_ext",
+      extendedMessageSchemaProducer: { SwiftProtoTesting_TestParsingMerge.messageSchema },
+      performNontrivialExtensionOperation: { operation, ext, storage in
+        storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_TestAllTypes.self)
+      },
+      performOnSubmessageStorage: { ext, storage, operation, perform in
+        try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_TestAllTypes.self, perform: perform)
+      })
 
     static let repeated_ext = SwiftProtobuf.ExtensionSchema(
-        schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.repeated_ext",
-        performNontrivialExtensionOperation: { operation, ext, storage in
-          storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes].self)
-        },
-        performOnSubmessageStorage: { ext, storage, operation, perform in
-          try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
-        }
-      )
+      schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}swift_proto_testing.TestParsingMerge.repeated_ext",
+      extendedMessageSchemaProducer: { SwiftProtoTesting_TestParsingMerge.messageSchema },
+      performNontrivialExtensionOperation: { operation, ext, storage in
+        storage.performNontrivialExtensionOperation(operation, extension: ext, type: [SwiftProtoTesting_TestAllTypes].self)
+      },
+      performOnSubmessageStorage: { ext, storage, operation, perform in
+        try storage.performOnSubmessageStorage(of: ext, operation: operation, type: [SwiftProtoTesting_TestAllTypes].self, perform: perform)
+      })
   }
 }
 
@@ -3982,13 +4144,13 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -3998,7 +4160,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4049,13 +4211,13 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4065,7 +4227,7 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4108,13 +4270,13 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4124,7 +4286,7 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4167,13 +4329,13 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4183,7 +4345,7 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4262,13 +4424,13 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4278,7 +4440,7 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4321,13 +4483,13 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4337,7 +4499,7 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4384,13 +4546,13 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4400,7 +4562,7 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4443,13 +4605,13 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4459,7 +4621,7 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4502,13 +4664,13 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4518,7 +4680,7 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4561,13 +4723,13 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4577,7 +4739,7 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4656,13 +4818,13 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4672,7 +4834,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4753,13 +4915,13 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4769,7 +4931,7 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4850,13 +5012,13 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4866,7 +5028,7 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4909,13 +5071,13 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4925,7 +5087,7 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -4968,13 +5130,13 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -4984,7 +5146,7 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5059,13 +5221,13 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5075,7 +5237,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5154,13 +5316,13 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5170,7 +5332,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5213,13 +5375,13 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5229,7 +5391,7 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5272,13 +5434,13 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5288,7 +5450,7 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5365,13 +5527,13 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5381,7 +5543,7 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5424,13 +5586,13 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5440,7 +5602,7 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5519,13 +5681,13 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5535,7 +5697,7 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5582,13 +5744,13 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5598,7 +5760,7 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5673,13 +5835,13 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5689,7 +5851,7 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5764,13 +5926,13 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5780,7 +5942,7 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5827,13 +5989,13 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5843,7 +6005,7 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -5928,13 +6090,13 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -5944,7 +6106,7 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -6023,13 +6185,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -6039,7 +6201,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -6114,13 +6276,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -6130,7 +6292,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -6205,13 +6367,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -6221,7 +6383,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -6296,13 +6458,13 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -6312,7 +6474,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 
@@ -6387,13 +6549,13 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
     return try _storage.serializedBytes(partial: partial, options: options)
   }
   mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, partial: partial, options: options)
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
   }
   func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
     return _storage.textFormatString(options: options)
   }
   mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, options: options)
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
   }
   func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
     return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
@@ -6403,7 +6565,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   }
   mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
     try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, options: options)
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
   }
 

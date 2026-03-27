@@ -1,6 +1,6 @@
-// Sources/SwiftProtobuf/_MessageStorage+BinarySize.swift - Binary size calculation for messages
+// Sources/SwiftProtobuf/ExtensionStorage+BinarySize.swift - Binary size calculation for extensions
 //
-// Copyright (c) 2014 - 2025 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -8,50 +8,43 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Computes the binary-encoded size of `_MessageStorage.`
+/// Computes the binary-encoded size of `ExtensionStorage`.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension ExtensionStorage {
     /// Computes and returns the size in bytes required to serialize this message.
     public func serializedBytesSize() -> Int {
         var serializedSize = 0
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-        for field in schema.fields {
-            guard isPresent(field) else { continue }
-            serializedSize += serializedByteSize(of: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
+        for (_, value) in values {
+            serializedSize += serializedByteSize(of: value)
         }
-        serializedSize += unknownFields.data.count
-        serializedSize += extensionStorage.serializedBytesSize()
         return serializedSize
     }
 
-    /// Returns the serialized byte size of the value of the given field.
+    /// Returns the serialized byte size of the value of the given extension field.
     ///
     /// - Precondition: The field is already known to be present.
-    private func serializedByteSize(of field: FieldSchema, mapEntryWorkingSpace: inout MapEntryWorkingSpace) -> Int {
+    private func serializedByteSize(of value: ExtensionValueStorage) -> Int {
         // TODO: Unify our field number APIs around `UInt32` to avoid casting.
+        let schema = value.schema
+        let field = schema.field
         let fieldNumber = Int(field.fieldNumber)
-        let offset = field.offset
         switch field.fieldMode.cardinality {
         case .map:
-            return serializedByteSize(
-                ofMapField: field,
-                fieldNumber: fieldNumber,
-                mapEntryWorkingSpace: &mapEntryWorkingSpace
-            )
+            preconditionFailure("unreachable")
 
         case .array:
             let isPacked = field.fieldMode.isPacked
             switch field.rawFieldType {
             case .bool:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Bool.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: Bool.self)
 
             case .bytes:
                 precondition(!isPacked, "a packed bytes field should not be reachable")
-                let values = assumedPresentValue(at: offset, as: [Data].self)
+                let values = value.value(as: [Data].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(into: 0) { result, value in
                     let count = value.count
@@ -60,26 +53,26 @@ extension _MessageStorage {
                 return (tagSize * values.count) + dataSize
 
             case .double:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Double.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: Double.self)
 
             case .enum:
-                return serializedByteSize(ofRepeatedEnumField: field, fieldNumber: fieldNumber)
+                return serializedByteSize(ofRepeatedEnumExtension: schema, fieldNumber: fieldNumber, isPacked: isPacked)
 
             case .fixed32:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: UInt32.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: UInt32.self)
 
             case .fixed64:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: UInt64.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: UInt64.self)
 
             case .float:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Float.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: Float.self)
 
             case .group:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofGroupField: field, fieldNumber: fieldNumber)
+                return serializedByteSize(ofGroupExtension: schema, fieldNumber: fieldNumber)
 
             case .int32:
-                let values = assumedPresentValue(at: offset, as: [Int32].self)
+                let values = value.value(as: [Int32].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
                 return isPacked
@@ -87,7 +80,7 @@ extension _MessageStorage {
                     : (tagSize * values.count) + dataSize
 
             case .int64:
-                let values = assumedPresentValue(at: offset, as: [Int64].self)
+                let values = value.value(as: [Int64].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
                 return isPacked
@@ -96,16 +89,16 @@ extension _MessageStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofMessageField: field, fieldNumber: fieldNumber)
+                return serializedByteSize(ofMessageExtension: schema, fieldNumber: fieldNumber)
 
             case .sfixed32:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Int32.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: Int32.self)
 
             case .sfixed64:
-                return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Int64.self)
+                return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: Int64.self)
 
             case .sint32:
-                let values = assumedPresentValue(at: offset, as: [Int32].self)
+                let values = value.value(as: [Int32].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
                 return isPacked
@@ -113,7 +106,7 @@ extension _MessageStorage {
                     : (tagSize * values.count) + dataSize
 
             case .sint64:
-                let values = assumedPresentValue(at: offset, as: [Int64].self)
+                let values = value.value(as: [Int64].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
                 return isPacked
@@ -122,7 +115,7 @@ extension _MessageStorage {
 
             case .string:
                 precondition(!isPacked, "a packed string field should not be reachable")
-                let values = assumedPresentValue(at: offset, as: [String].self)
+                let values = value.value(as: [String].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(into: 0) { result, value in
                     let count = value.utf8.count
@@ -131,7 +124,7 @@ extension _MessageStorage {
                 return (tagSize * values.count) + dataSize
 
             case .uint32:
-                let values = assumedPresentValue(at: offset, as: [UInt32].self)
+                let values = value.value(as: [UInt32].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
                 return isPacked
@@ -139,7 +132,7 @@ extension _MessageStorage {
                     : (tagSize * values.count) + dataSize
 
             case .uint64:
-                let values = assumedPresentValue(at: offset, as: [UInt64].self)
+                let values = value.value(as: [UInt64].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: $1) }
                 return isPacked
@@ -156,7 +149,7 @@ extension _MessageStorage {
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) + 1
 
             case .bytes:
-                let count = assumedPresentValue(at: offset, as: Data.self).count
+                let count = value.value(as: Data.self).count
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                     + Varint.encodedSize(of: Int64(count)) + count
 
@@ -165,7 +158,7 @@ extension _MessageStorage {
 
             case .enum:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int32.self))
+                    + Varint.encodedSize(of: value.value(as: Int32.self))
 
             case .fixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: UInt32.self)
@@ -177,18 +170,18 @@ extension _MessageStorage {
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Float.self)
 
             case .group:
-                return serializedByteSize(ofGroupField: field, fieldNumber: fieldNumber)
+                return serializedByteSize(ofGroupExtension: schema, fieldNumber: fieldNumber)
 
             case .int32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int32.self))
+                    + Varint.encodedSize(of: value.value(as: Int32.self))
 
             case .int64:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int64.self))
+                    + Varint.encodedSize(of: value.value(as: Int64.self))
 
             case .message:
-                return serializedByteSize(ofMessageField: field, fieldNumber: fieldNumber)
+                return serializedByteSize(ofMessageExtension: schema, fieldNumber: fieldNumber)
 
             case .sfixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Int32.self)
@@ -198,24 +191,24 @@ extension _MessageStorage {
 
             case .sint32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: ZigZag.encoded(assumedPresentValue(at: offset, as: Int32.self)))
+                    + Varint.encodedSize(of: ZigZag.encoded(value.value(as: Int32.self)))
 
             case .sint64:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: ZigZag.encoded(assumedPresentValue(at: offset, as: Int64.self)))
+                    + Varint.encodedSize(of: ZigZag.encoded(value.value(as: Int64.self)))
 
             case .string:
-                let count = assumedPresentValue(at: offset, as: String.self).utf8.count
+                let count = value.value(as: String.self).utf8.count
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                     + Varint.encodedSize(of: Int64(count)) + count
 
             case .uint32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: UInt32.self))
+                    + Varint.encodedSize(of: value.value(as: UInt32.self))
 
             case .uint64:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: assumedPresentValue(at: offset, as: UInt64.self))
+                    + Varint.encodedSize(of: value.value(as: UInt64.self))
 
             default:
                 preconditionFailure("Unreachable")
@@ -237,12 +230,12 @@ extension _MessageStorage {
     @inline(__always)
     private func fixedWidthRepeatedFieldSize<T>(
         for fieldNumber: Int,
-        at offset: Int,
+        value: ExtensionValueStorage,
         isPacked: Bool,
         as type: T.Type
     ) -> Int {
         let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-        let count = assumedPresentValue(at: offset, as: [T].self).count
+        let count = value.value(as: [T].self).count
         if isPacked {
             let dataSize = count * MemoryLayout<T>.size
             return tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
@@ -255,12 +248,15 @@ extension _MessageStorage {
     /// This function takes the field number as a separate argument even though it can be computed
     /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
     /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofRepeatedEnumField field: FieldSchema, fieldNumber: Int) -> Int {
+    private func serializedByteSize(
+        ofRepeatedEnumExtension schema: ExtensionSchema,
+        fieldNumber: Int,
+        isPacked: Bool
+    ) -> Int {
         var totalEnumsSize = 0
         var count = 0
         _ = try! schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
+            schema,
             self,
             .read
         ) { _, value in
@@ -269,46 +265,13 @@ extension _MessageStorage {
             return true
         } /*onInvalidValue*/ _: { _ in
         }
-        if field.fieldMode.isPacked {
+        if isPacked {
             // Packed: we need to add a single (length-delimited) tag and a varint for the length.
             return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 + Varint.encodedSize(of: UInt64(totalEnumsSize))
         }
         // Unpacked: there will be a separate tag for each value.
         return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) * count
-    }
-
-    /// Returns the serialized byte size of the given map field.
-    ///
-    /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
-    private func serializedByteSize(
-        ofMapField field: FieldSchema,
-        fieldNumber: Int,
-        mapEntryWorkingSpace: inout MapEntryWorkingSpace
-    ) -> Int {
-        var totalEntriesSize = 0
-        _ = try! schema.performOnMapEntry(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            mapEntryWorkingSpace.storage(for: field.submessageIndex),
-            .read,
-            // Deterministic ordering doesn't matter when calculating the size. Don't waste time
-            // sorting.
-            false
-        ) {
-            let entrySize = $0.serializedBytesSize()
-            totalEntriesSize +=
-                entrySize
-                // Include the size of the length-delimited tag.
-                + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                // Include the varint-encoded length.
-                + Varint.encodedSize(of: UInt64(entrySize))
-            return true
-        }
-        return totalEntriesSize
     }
 
     /// Returns the serialized byte size of the given submessage field.
@@ -318,13 +281,12 @@ extension _MessageStorage {
     /// the elements).
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofMessageField field: FieldSchema, fieldNumber: Int) -> Int {
+    /// from the `ExtensionSchema` to avoid the (minor but non-zero) cost of decoding it again from
+    /// the schema, since that has already been done by the caller.
+    private func serializedByteSize(ofMessageExtension schema: ExtensionSchema, fieldNumber: Int) -> Int {
         var totalMessagesSize = 0
         _ = try! schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
+            schema,
             self,
             .read
         ) {
@@ -349,11 +311,10 @@ extension _MessageStorage {
     /// This function takes the field number as a separate argument even though it can be computed
     /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
     /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofGroupField field: FieldSchema, fieldNumber: Int) -> Int {
+    private func serializedByteSize(ofGroupExtension schema: ExtensionSchema, fieldNumber: Int) -> Int {
         var totalMessagesSize = 0
         _ = try! schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
+            schema,
             self,
             .read
         ) {

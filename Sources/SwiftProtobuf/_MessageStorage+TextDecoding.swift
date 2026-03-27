@@ -19,6 +19,7 @@ extension _MessageStorage {
     // protocol requirements.
     public func merge(
         byParsingTextFormatString textFormatString: String,
+        extensions: (any ExtensionMap)?,
         options: TextFormatDecodingOptions
     ) throws {
         var textFormatString = textFormatString
