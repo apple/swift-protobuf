@@ -4527,7 +4527,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
       case 3: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._featureSupport) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4551,6 +4551,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
     try { if let v = self._featureSupport {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
