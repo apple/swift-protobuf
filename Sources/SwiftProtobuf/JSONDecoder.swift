@@ -743,7 +743,7 @@ internal struct JSONDecoder: Decoder {
         fieldNumber: Int
     ) throws {
         // Force-unwrap: we can only get here if the extension exists.
-        let ext = scanner.extensions[messageType, fieldNumber]!
+        let ext = scanner.extensions![messageType, fieldNumber]!
 
         try values.modify(index: fieldNumber) { fieldValue in
             if fieldValue != nil {

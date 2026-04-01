@@ -24,7 +24,10 @@ extension _MessageStorage {
     ) throws {
         var textFormatString = textFormatString
         try textFormatString.withUTF8 {
-            try merge(byParsingTextFormatBytes: $0, options: options)
+            try merge(
+                byParsingTextFormatBytes: $0,
+                extensions: extensions.map { $0 as! NewExtensionMap },
+                options: options)
         }
     }
 
@@ -40,16 +43,17 @@ extension _MessageStorage {
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     public func merge(
         byParsingTextFormatBytes buffer: UnsafeBufferPointer<UInt8>,
+        extensions: NewExtensionMap? = nil,
         options: TextFormatDecodingOptions
     ) throws {
         guard buffer.baseAddress != nil, buffer.count > 0 else { return }
 
-        // TODO: Support extensions.
         var reader = TextFormatReader(
             buffer: buffer,
             nameMap: schema.nameMap,
+            messageSchema: schema,
             options: options,
-            extensions: nil
+            extensions: extensions
         )
         try merge(byParsingTextFormatFrom: &reader)
 
@@ -58,17 +62,27 @@ extension _MessageStorage {
         }
     }
 
-    private func merge(byParsingTextFormatFrom reader: inout TextFormatReader) throws {
+    func merge(byParsingTextFormatFrom reader: inout TextFormatReader) throws {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         while let fieldNumber = try reader.nextFieldNumber() {
-            guard let field = schema[fieldNumber: fieldNumber] else {
+            // TODO: This is a little awkward, because in the extension case we're doing the lookup
+            // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
+            // find the extension that matches the name we parsed), and then here below. Once we've
+            // removed the relevant bits of the old implementation, we can clean this up by having
+            // a method on `TextFormatReader` that returns a structured value containing either the
+            // `FieldSchema` or the `ExtensionSchema` that corresponds to whatever it reads from the
+            // input.
+            if let field = schema[fieldNumber: fieldNumber] {
+                try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
+            } else if let extensions = reader.scanner.extensions.flatMap({ $0 as? NewExtensionMap }),
+                let ext = extensions[fieldNumber: fieldNumber, in: schema] {
+                try extensionStorage.decodeNextExtension(ext, from: &reader, extensions: extensions)
+            } else {
                 // The scanner should have already skipped any unknown fields or thrown an error
                 // (depending on the decoding options), so any field we get back from this reader
                 // should always exist.
                 preconditionFailure("unreachable")
             }
-
-            try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
         }
     }
 
@@ -216,39 +230,6 @@ extension _MessageStorage {
         }
     }
 
-    /// Called to scan the next value, which might be an array of values.
-    ///
-    /// In text format, repeated fields of non-message types can be represented in two ways:
-    /// repetition of the field name and value, or as the field name followed by an array of values
-    /// in square brackets. If we detect the square bracket, we delegate to the given closure to
-    /// scan and append the value until we encounter the corresponding closing bracket. Otherwise,
-    /// we call the closure only once to scan and append an individual value.
-    private func scanPossibleArray(
-        from reader: inout TextFormatReader,
-        scanAndAppendSingleValue: (inout TextFormatReader) throws -> Void
-    ) throws {
-        guard reader.scanner.skipOptionalBeginArray() else {
-            // If we didn't see a square bracket, assume it's a single element and call the closure
-            // once.
-            try scanAndAppendSingleValue(&reader)
-            return
-        }
-
-        // We saw a left bracket, so read multiple elements, calling the closure for each one.
-        var firstItem = true
-        while true {
-            if reader.scanner.skipOptionalEndArray() {
-                return
-            }
-            if firstItem {
-                firstItem = false
-            } else {
-                try reader.scanner.skipRequiredComma()
-            }
-            try scanAndAppendSingleValue(&reader)
-        }
-    }
-
     /// Scans the submessage value of the given field from the reader, performing the given
     /// operation on its storage (either mutate or append).
     private func scanSubmessageValue(
@@ -309,5 +290,38 @@ extension _MessageStorage {
         } /*onInvalidValue*/ _: { _ in
             throw TextFormatDecodingError.unrecognizedEnumValue
         }
+    }
+}
+
+/// Called to scan the next value, which might be an array of values.
+///
+/// In text format, repeated fields of non-message types can be represented in two ways:
+/// repetition of the field name and value, or as the field name followed by an array of values
+/// in square brackets. If we detect the square bracket, we delegate to the given closure to
+/// scan and append the value until we encounter the corresponding closing bracket. Otherwise,
+/// we call the closure only once to scan and append an individual value.
+func scanPossibleArray(
+    from reader: inout TextFormatReader,
+    scanAndAppendSingleValue: (inout TextFormatReader) throws -> Void
+) throws {
+    guard reader.scanner.skipOptionalBeginArray() else {
+        // If we didn't see a square bracket, assume it's a single element and call the closure
+        // once.
+        try scanAndAppendSingleValue(&reader)
+        return
+    }
+
+    // We saw a left bracket, so read multiple elements, calling the closure for each one.
+    var firstItem = true
+    while true {
+        if reader.scanner.skipOptionalEndArray() {
+            return
+        }
+        if firstItem {
+            firstItem = false
+        } else {
+            try reader.scanner.skipRequiredComma()
+        }
+        try scanAndAppendSingleValue(&reader)
     }
 }

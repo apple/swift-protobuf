@@ -26,12 +26,12 @@ extension _MessageStorage {
         extensions: (any ExtensionMap)?,
         options: JSONDecodingOptions
     ) throws {
-        // TODO: Support extensions.
         var reader = JSONReader(
             buffer: buffer,
             nameMap: schema.nameMap,
+            messageSchema: schema,
             options: options,
-            extensions: nil
+            extensions: extensions
         )
         try merge(byParsingJSONFrom: &reader)
 
@@ -40,7 +40,7 @@ extension _MessageStorage {
         }
     }
 
-    private func merge(byParsingJSONFrom reader: inout JSONReader) throws {
+    func merge(byParsingJSONFrom reader: inout JSONReader) throws {
         // Helper function that throws an appropriate error if `null` is encountered as the next
         // value. `null` is disallowed at the top-level but allowed as the value of a keyed field
         // (this is handled in `scanSingularValue`).
@@ -137,20 +137,31 @@ extension _MessageStorage {
 
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             while let fieldNumber = try reader.nextFieldNumber() {
-                guard let field = schema[fieldNumber: fieldNumber] else {
+                // TODO: This is a little awkward, because in the extension case we're doing the lookup
+                // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
+                // find the extension that matches the name we parsed), and then here below. Once we've
+                // removed the relevant bits of the old implementation, we can clean this up by having
+                // a method on `TextFormatReader` that returns a structured value containing either the
+                // `FieldSchema` or the `ExtensionSchema` that corresponds to whatever it reads from the
+                // input.
+                if let field = schema[fieldNumber: fieldNumber] {
+                    // It is an error in JSON if we encounter values for more than one member of the same
+                    // `oneof`.
+                    if case .oneOfMember(let oneOfOffset) = field.presence {
+                        if populatedOneofMember(at: oneOfOffset) != 0 {
+                            throw JSONDecodingError.conflictingOneOf
+                        }
+                    }
+                    try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
+                } else if let extensions = reader.scanner.extensions.flatMap({ $0 as? NewExtensionMap }),
+                    let ext = extensions[fieldNumber: fieldNumber, in: schema] {
+                    try extensionStorage.decodeNextExtension(ext, from: &reader)
+                } else {
                     // The scanner should have already skipped any unknown fields or thrown an error
                     // (depending on the decoding options), so any field we get back from this reader
                     // should always exist.
                     preconditionFailure("unreachable")
                 }
-                // It is an error in JSON if we encounter values for more than one member of the same
-                // `oneof`.
-                if case .oneOfMember(let oneOfOffset) = field.presence {
-                    if populatedOneofMember(at: oneOfOffset) != 0 {
-                        throw JSONDecodingError.conflictingOneOf
-                    }
-                }
-                try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
             }
         }
     }
@@ -342,37 +353,6 @@ extension _MessageStorage {
 
         default:
             preconditionFailure("Unreachable")
-        }
-    }
-
-    /// Called to scan an array of values.
-    ///
-    /// - Parameters:
-    ///   - reader: The ``JSONReader`` from which to scan the value.
-    ///   - scanAndAppendSingleValue: A closure that is called for each perceived element in the
-    ///     array, which is responsible for scanning the next value from the reader and appending it
-    ///     to the field's storage.
-    private func scanArray(
-        from reader: inout JSONReader,
-        scanAndAppendSingleValue: (inout JSONReader) throws -> Void
-    ) throws {
-        if reader.scanner.skipOptionalNull() {
-            // TODO: Figure out if we should clear the field. The old JSONDecoder implementation
-            // just returns, but that might be because we don't have a distinction between
-            // merge and init for JSON.
-            return
-        }
-        try reader.scanner.skipRequiredArrayStart()
-        if reader.scanner.skipOptionalArrayEnd() {
-            return
-        }
-
-        while true {
-            try scanAndAppendSingleValue(&reader)
-            if reader.scanner.skipOptionalArrayEnd() {
-                return
-            }
-            try reader.scanner.skipRequiredComma()
         }
     }
 
@@ -655,5 +635,36 @@ extension _MessageStorage {
         default:
             updateValue(of: schema[fieldNumber: 2]!, to: try reader.scanner.nextDouble())
         }
+    }
+}
+
+/// Called to scan an array of values.
+///
+/// - Parameters:
+///   - reader: The ``JSONReader`` from which to scan the value.
+///   - scanAndAppendSingleValue: A closure that is called for each perceived element in the
+///     array, which is responsible for scanning the next value from the reader and appending it
+///     to the field's storage.
+func scanArray(
+    from reader: inout JSONReader,
+    scanAndAppendSingleValue: (inout JSONReader) throws -> Void
+) throws {
+    if reader.scanner.skipOptionalNull() {
+        // TODO: Figure out if we should clear the field. The old JSONDecoder implementation
+        // just returns, but that might be because we don't have a distinction between
+        // merge and init for JSON.
+        return
+    }
+    try reader.scanner.skipRequiredArrayStart()
+    if reader.scanner.skipOptionalArrayEnd() {
+        return
+    }
+
+    while true {
+        try scanAndAppendSingleValue(&reader)
+        if reader.scanner.skipOptionalArrayEnd() {
+            return
+        }
+        try reader.scanner.skipRequiredComma()
     }
 }

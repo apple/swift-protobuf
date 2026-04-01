@@ -26,7 +26,7 @@ extension _MessageStorage {
     }
 
     /// A recursion helper that serializes the fields in the storage into the given JSON encoder.
-    private func serializeJSON(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
+    func serializeJSON(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
         switch CustomJSONWKTClassification(messageSchema: schema) {
         case .boolValue:
             encoder.putNonQuotedBoolValue(value: value(of: schema[fieldNumber: 1]!))
@@ -94,7 +94,7 @@ extension _MessageStorage {
                 guard isPresent(field) else { continue }
                 try serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
             }
-            // TODO: Support extensions.
+            try extensionStorage.serializeJSON(into: &encoder, options: options)
             encoder.endObject()
         }
     }

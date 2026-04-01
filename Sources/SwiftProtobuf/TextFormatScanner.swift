@@ -1164,6 +1164,7 @@ internal struct TextFormatScanner {
     internal mutating func nextFieldNumber(
         names: _NameMap,
         messageType: (any Message.Type)?,
+        messageSchema: MessageSchema? = nil,
         terminator: UInt8?
     ) throws -> Int? {
         while true {
@@ -1200,6 +1201,11 @@ internal struct TextFormatScanner {
                     let fieldNumber = extensions?.fieldNumberForProto(messageType: messageType, protoFieldName: key)
                 {
                     return fieldNumber
+                }
+                if let messageSchema,
+                   let extensionSchema = (extensions.map { $0 as! NewExtensionMap })?[fieldName: key, in: messageSchema]
+                {
+                    return Int(extensionSchema.field.fieldNumber)
                 }
                 if !options.ignoreUnknownExtensionFields {
                     throw TextFormatDecodingError.unknownField

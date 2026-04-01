@@ -26,7 +26,7 @@ extension _MessageStorage {
     }
 
     /// A recursion helper that serializes the fields in the storage into the given text format encoder.
-    private func serializeText(into encoder: inout TextFormatEncoder, options: TextFormatEncodingOptions) {
+    func serializeText(into encoder: inout TextFormatEncoder, options: TextFormatEncodingOptions) {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         for field in schema.fields {
             guard isPresent(field) else { continue }
@@ -35,7 +35,7 @@ extension _MessageStorage {
         if options.printUnknownFields {
             emitUnknownFields(bytes: unknownFields.data, into: &encoder)
         }
-        // TODO: Support extensions.
+        extensionStorage.serializeText(into: &encoder, options: options)
     }
 
     /// Serializes a single field in the storage into the given text format encoder.
@@ -229,7 +229,6 @@ extension _MessageStorage {
     ///
     /// If the field name cannot be found, the field number is used instead.
     private func emitName(ofFieldNumber fieldNumber: Int, into encoder: inout TextFormatEncoder) {
-        // TODO: Check extensions if the first check fails.
         if let protoName = schema.nameMap.names(for: fieldNumber)?.proto {
             encoder.emitFieldName(name: protoName.utf8Buffer)
         } else {

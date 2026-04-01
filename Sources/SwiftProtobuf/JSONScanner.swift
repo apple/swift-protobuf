@@ -377,7 +377,7 @@ internal struct JSONScanner {
     private var index: UnsafeRawBufferPointer.Index
     private var numberParser = DoubleParser()
     internal let options: JSONDecodingOptions
-    internal let extensions: any ExtensionMap
+    internal let extensions: (any ExtensionMap)?
     internal var recursionBudget: Int
 
     /// True if the scanner has read all of the data from the source, with the
@@ -409,7 +409,7 @@ internal struct JSONScanner {
         self.index = source.startIndex
         self.recursionBudget = options.messageDepthLimit
         self.options = options
-        self.extensions = extensions ?? SimpleExtensionMap()
+        self.extensions = extensions
     }
 
     internal mutating func incrementRecursionDepth() throws {
@@ -1283,7 +1283,8 @@ internal struct JSONScanner {
     /// it silently skips it.
     internal mutating func nextFieldNumber(
         names: _NameMap,
-        messageType: (any Message.Type)?
+        messageType: (any Message.Type)?,
+        messageSchema: MessageSchema? = nil
     ) throws -> Int? {
         while true {
             var fieldName: String
@@ -1312,12 +1313,17 @@ internal struct JSONScanner {
                 fieldName.removeFirst()
                 fieldName.removeLast()
                 if let messageType,
-                    let fieldNumber = extensions.fieldNumberForProto(
+                    let fieldNumber = extensions?.fieldNumberForProto(
                         messageType: messageType,
                         protoFieldName: fieldName
                     )
                 {
                     return fieldNumber
+                }
+                if let messageSchema,
+                   let extensionSchema = (extensions.map { $0 as! NewExtensionMap })?[fieldName: fieldName, in: messageSchema]
+                {
+                    return Int(extensionSchema.field.fieldNumber)
                 }
             }
             if !options.ignoreUnknownFields {

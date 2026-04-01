@@ -21,6 +21,7 @@ import Foundation
 struct TextFormatReader {
     var scanner: TextFormatScanner
     private var nameMap: _NameMap
+    private let messageSchema: MessageSchema?
     private var hasSeenField = false
     private let terminator: UInt8?
 
@@ -34,6 +35,7 @@ struct TextFormatReader {
     internal init(
         buffer: UnsafeBufferPointer<UInt8>,
         nameMap: _NameMap,
+        messageSchema: MessageSchema? = nil,
         options: TextFormatDecodingOptions,
         extensions: (any ExtensionMap)?
     ) {
@@ -45,6 +47,7 @@ struct TextFormatReader {
                 extensions: extensions
             ),
             nameMap: nameMap,
+            messageSchema: messageSchema,
             terminator: nil
         )
     }
@@ -52,13 +55,16 @@ struct TextFormatReader {
     private init(
         scanner: TextFormatScanner,
         nameMap: _NameMap,
+        messageSchema: MessageSchema? = nil,
         terminator: UInt8?
     ) {
         self.scanner = scanner
         self.nameMap = nameMap
+        self.messageSchema = messageSchema
         self.terminator = terminator
     }
 
+    
     /// Parses and returns the number of the next field in the text format string, or nil if the
     /// end of the input was reached.
     mutating func nextFieldNumber() throws -> UInt32? {
@@ -66,7 +72,13 @@ struct TextFormatReader {
             scanner.skipOptionalSeparator()
         }
         // TODO: Remove the `messageType` argument from the scanner.
-        guard let fieldNumber = try scanner.nextFieldNumber(names: nameMap, messageType: nil, terminator: terminator)
+        guard
+            let fieldNumber = try scanner.nextFieldNumber(
+                names: nameMap,
+                messageType: nil,
+                messageSchema: messageSchema,
+                terminator: terminator
+            )
         else {
             return nil
         }
@@ -90,7 +102,12 @@ struct TextFormatReader {
         _ body: (inout TextFormatReader) throws -> Void
     ) throws {
         let subTerminator = try scanner.skipObjectStart()
-        var subReader = TextFormatReader(scanner: scanner, nameMap: expectedSchema.nameMap, terminator: subTerminator)
+        var subReader = TextFormatReader(
+            scanner: scanner,
+            nameMap: expectedSchema.nameMap,
+            messageSchema: expectedSchema,
+            terminator: subTerminator
+        )
         try body(&subReader)
         assert((scanner.recursionBudget + 1) == subReader.scanner.recursionBudget)
         self.scanner = subReader.scanner
