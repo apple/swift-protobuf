@@ -21,6 +21,7 @@ import Foundation
 struct JSONReader {
     var scanner: JSONScanner
     private var nameMap: _NameMap
+    private var messageSchema: MessageSchema?
     private var hasSeenField = false
 
     var options: JSONDecodingOptions { scanner.options }
@@ -35,22 +36,25 @@ struct JSONReader {
     internal init(
         buffer: UnsafeRawBufferPointer,
         nameMap: _NameMap,
+        messageSchema: MessageSchema? = nil,
         options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?
+        extensions: (any ExtensionMap)?,
     ) {
         self.init(
             scanner: JSONScanner(
                 source: buffer,
                 options: options,
-                extensions: extensions
+                extensions: extensions,
             ),
-            nameMap: nameMap
+            nameMap: nameMap,
+            messageSchema: messageSchema
         )
     }
 
-    private init(scanner: JSONScanner, nameMap: _NameMap) {
+    private init(scanner: JSONScanner, nameMap: _NameMap, messageSchema: MessageSchema?) {
         self.scanner = scanner
         self.nameMap = nameMap
+        self.messageSchema = messageSchema
     }
 
     /// Parses and returns the number of the next field in the JSON string, or nil if the end of the
@@ -63,7 +67,7 @@ struct JSONReader {
             try scanner.skipRequiredComma()
         }
         // TODO: Remove the `messageType` argument from the scanner.
-        guard let fieldNumber = try scanner.nextFieldNumber(names: nameMap, messageType: nil) else {
+        guard let fieldNumber = try scanner.nextFieldNumber(names: nameMap, messageType: nil, messageSchema: messageSchema) else {
             return nil
         }
         hasSeenField = true
@@ -85,7 +89,10 @@ struct JSONReader {
         expectedSchema: MessageSchema,
         _ body: (inout JSONReader) throws -> Void
     ) throws {
-        var subReader = JSONReader(scanner: scanner, nameMap: expectedSchema.nameMap)
+        var subReader = JSONReader(
+            scanner: scanner,
+            nameMap: expectedSchema.nameMap,
+            messageSchema: messageSchema)
         try body(&subReader)
         assert(scanner.recursionBudget == subReader.scanner.recursionBudget)
         self.scanner = subReader.scanner

@@ -372,4 +372,122 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
             o.SwiftProtoTesting_defaultInt32Extension = 17
         }
     }
+
+    func test_Text_file_level_extension() {
+        assertTextFormatEncode(
+            "[swift_proto_testing.optional_int32_extension]: 789\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_optionalInt32Extension = 789
+        }
+        // Fails if we don't provide the extensions to the decoder:
+        assertTextFormatDecodeFails("[swift_proto_testing.optional_int32_extension]: 789\n")
+
+        assertTextFormatEncode(
+            "[swift_proto_testing.optionalgroup_extension] {\n  a: 789\n}\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_optionalGroupExtension.a = 789
+        }
+        // Fails if we don't provide the extensions to the decoder:
+        assertTextFormatDecodeFails("[swift_proto_testing.optionalgroup_extension] {\n  a: 789\n}\n")
+    }
+
+    func test_Text_nested_extension() {
+        assertTextFormatEncode(
+            "[swift_proto_testing.TestNestedExtension.test]: \"foo\"\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_TestNestedExtension_test = "foo"
+        }
+        // Fails if we don't provide the extensions to the decoder:
+        assertTextFormatDecodeFails("[swift_proto_testing.TestNestedExtension.test]: \"foo\"\n")
+    }
+
+
+    func test_JSON_optionalInt32Extension() throws {
+        assertJSONEncode(
+            "{\"[swift_proto_testing.optional_int32_extension]\":17}",
+            extensions: extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_optionalInt32Extension = 17
+        }
+
+        assertJSONDecodeFails(
+            "{\"[swift_proto_testing.UNKNOWN_EXTENSION]\":17}",
+            extensions: extensions
+        )
+        assertJSONDecodeFails(
+            "{\"[UNKNOWN_PACKAGE.optional_int32_extension]\":17}",
+            extensions: extensions
+        )
+        assertJSONDecodeFails(
+            "{\"[swift_proto_testing.optional_int32_extension\":17}",
+            extensions: extensions
+        )
+        assertJSONDecodeFails(
+            "{\"swift_proto_testing.optional_int32_extension]\":17}",
+            extensions: extensions
+        )
+        assertJSONDecodeFails(
+            "{\"[optional_int32_extension\":17}",
+            extensions: extensions
+        )
+        assertJSONDecodeFails(
+            "{\"swift_proto_testing.optional_int32_extension\":17}",
+            extensions: extensions
+        )
+    }
+
+    func test_JSON_optionalMessageExtension() throws {
+        assertJSONEncode(
+            "{\"[swift_proto_testing.optional_nested_message_extension]\":{\"bb\":12}}",
+            extensions: extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_optionalNestedMessageExtension =
+            SwiftProtoTesting_TestAllTypes.NestedMessage.with {
+                $0.bb = 12
+            }
+        }
+    }
+
+    func test_JSON_repeatedInt32Extension() throws {
+        assertJSONEncode(
+            "{\"[swift_proto_testing.repeated_int32_extension]\":[1,2,3,17]}",
+            extensions: extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_repeatedInt32Extension = [1, 2, 3, 17]
+        }
+    }
+
+    func test_JSON_repeatedMessageExtension() throws {
+        assertJSONEncode(
+            "{\"[swift_proto_testing.repeated_nested_message_extension]\":[{\"bb\":12},{}]}",
+            extensions: extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_repeatedNestedMessageExtension =
+            [
+                SwiftProtoTesting_TestAllTypes.NestedMessage.with { $0.bb = 12 },
+                SwiftProtoTesting_TestAllTypes.NestedMessage(),
+            ]
+        }
+    }
+
+    func test_JSON_optionalStringExtensionWithDefault() throws {
+        assertJSONEncode("{\"[swift_proto_testing.default_string_extension]\":\"hi\"}", extensions: extensions) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_defaultStringExtension = "hi"
+        }
+
+        assertJSONDecodeSucceeds("{}", extensions: extensions) {
+            $0.SwiftProtoTesting_defaultStringExtension == "hello"
+        }
+    }
 }
