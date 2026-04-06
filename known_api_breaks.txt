@@ -1,1 +1,0 @@
-API breakage: enumelement Google_Protobuf_Edition.edition2026 has been added as a new enum case
