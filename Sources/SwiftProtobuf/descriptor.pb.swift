@@ -62,6 +62,7 @@ public enum Google_Protobuf_Edition: Int, Enum, Swift.CaseIterable {
   /// comparison.
   case edition2023 = 1000
   case edition2024 = 1001
+  case edition2026 = 1002
 
   /// A placeholder edition for developing and testing unscheduled features.
   case unstable = 9999
@@ -2792,7 +2793,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Edition: _ProtoNameProviding {
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}fL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{1}EDITION_2026\0\u{2}eL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
 }
 
 extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
@@ -3210,7 +3211,7 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
       case 3: try { try decoder.decodeSingularEnumField(value: &self._verification) }()
       case 50: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ExtensionRangeOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -3231,6 +3232,7 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 50)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3910,7 +3912,7 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
         case 45: try { try decoder.decodeSingularStringField(value: &_storage._rubyPackage) }()
         case 50: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
         case 999: try { try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption) }()
-        case 1000..<536870912:
+        case 990..<999, 1000..<536870912:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber) }()
         default: break
         }
@@ -3984,6 +3986,7 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
       try { if let v = _storage._features {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 50)
       } }()
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
@@ -4056,7 +4059,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
       case 11: try { try decoder.decodeSingularBoolField(value: &self._deprecatedLegacyJsonFieldConflicts) }()
       case 12: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4086,6 +4089,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4191,7 +4195,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
         case 21: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
         case 22: try { try decoder.decodeSingularMessageField(value: &_storage._featureSupport) }()
         case 999: try { try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption) }()
-        case 1000..<536870912:
+        case 990..<999, 1000..<536870912:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
         default: break
         }
@@ -4244,6 +4248,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
       try { if let v = _storage._featureSupport {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 22)
       } }()
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
@@ -4409,7 +4414,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4424,6 +4429,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4462,7 +4468,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
       case 6: try { try decoder.decodeSingularBoolField(value: &self._deprecatedLegacyJsonFieldConflicts) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4486,6 +4492,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4591,7 +4598,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
       case 33: try { try decoder.decodeSingularBoolField(value: &self._deprecated) }()
       case 34: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4609,6 +4616,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 34)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4647,7 +4655,7 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
       case 34: try { try decoder.decodeSingularEnumField(value: &self._idempotencyLevel) }()
       case 35: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4668,6 +4676,7 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
