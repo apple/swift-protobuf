@@ -73,6 +73,9 @@ extension _MessageStorage {
         case .duration:
             try parseAsDuration(from: &reader)
 
+        case .fieldMask:
+            try parseAsFieldMask(from: &reader)
+
         case .floatValue:
             try disallowingNull {
                 updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextFloat())
@@ -126,10 +129,6 @@ extension _MessageStorage {
 
         case .value:
             try parseAsValue(from: &reader)
-
-        case .fieldMask:
-            // TODO: Actually implement these. For now, just fall through to the default.
-            fallthrough
 
         case .notWellKnown:
             // This is the common case.
@@ -603,6 +602,18 @@ extension _MessageStorage {
         updateValue(of: schema[fieldNumber: 2]!, to: nanos)
     }
 
+    /// Parses the next quoted string from the input and interprets it as the JSON representation
+    /// of a well-known type `FieldMask`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.FieldMask`.
+    private func parseAsFieldMask(from reader: inout JSONReader) throws {
+        let pathsField = schema[fieldNumber: 1]!
+        let fieldMaskString = try reader.scanner.nextQuotedString()
+        try parseFieldMask(fieldMaskString) { name in
+            appendValue(name, to: pathsField)
+        }
+    }
+
     /// Parses the next value from the input and interprets it as the JSON representation of a
     /// well-known type `ListValue`.
     ///
@@ -772,4 +783,59 @@ func scanArray(
 // registry, just do this minimal validation check.
 func isTypeURLValid(_ typeURL: String) -> Bool {
     typeURL.contains(where: { $0 == "/" })
+}
+
+private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
+    var fieldNameCount = 0
+    var fieldName = String()
+    for c in names {
+        switch c {
+        case ",":
+            if fieldNameCount == 0 {
+                throw JSONEncodingError.fieldMaskConversion
+            }
+            if let pbName = protoName(forJSONFieldMaskPath: fieldName) {
+                receive(pbName)
+            } else {
+                throw JSONEncodingError.fieldMaskConversion
+            }
+            fieldName = String()
+            fieldNameCount = 0
+        default:
+            fieldName.append(c)
+            fieldNameCount += 1
+        }
+    }
+    if fieldNameCount == 0 {  // Last field name can't be empty
+        throw JSONEncodingError.fieldMaskConversion
+    }
+    if let pbName = protoName(forJSONFieldMaskPath: fieldName) {
+        receive(pbName)
+    } else {
+        throw JSONEncodingError.fieldMaskConversion
+    }
+}
+
+/// Returns the protobuf form of the field mask path with the given JSON name, or nil if it was not
+/// possible to convert it to a protobuf form.
+private func protoName(forJSONFieldMaskPath name: String) -> String? {
+    guard isPrintableASCII(name) else { return nil }
+    var path = String()
+    for c in name {
+        switch c {
+        case "_":
+            return nil
+        case "A"..."Z":
+            path.append(Character("_"))
+            path.append(String(c).lowercased())
+        case "a"..."z", "0"..."9", ".", "(", ")":
+            path.append(c)
+        default:
+            // TODO: Change to `return nil` once
+            // we know everything legal is being
+            // handled above
+            path.append(c)
+        }
+    }
+    return path
 }
