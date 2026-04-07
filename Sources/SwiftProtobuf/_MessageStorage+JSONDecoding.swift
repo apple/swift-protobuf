@@ -514,7 +514,7 @@ extension _MessageStorage {
             return
         }
 
-        var typeURL = ""
+        var typeURL: String? = nil
         var possibleWKTValueJSON = ""
         var hadFieldsOtherThanValue = false
 
@@ -524,10 +524,11 @@ extension _MessageStorage {
             let key = try reader.scanner.nextQuotedString()
             try reader.scanner.skipRequiredColon()
             if key == "@type" {
-                typeURL = try reader.scanner.nextQuotedString()
-                guard isTypeURLValid(typeURL) else {
-                    throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: typeURL)
+                let scannedURL = try reader.scanner.nextQuotedString()
+                guard isTypeURLValid(scannedURL) else {
+                    throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: scannedURL)
                 }
+                typeURL = scannedURL
             } else {
                 jsonEncoder.startField(name: key)
                 let keyValueJSON = try reader.scanner.skip()
@@ -543,7 +544,7 @@ extension _MessageStorage {
                 jsonEncoder.append(text: keyValueJSON)
             }
             if reader.scanner.skipOptionalObjectEnd() {
-                if typeURL.isEmpty {
+                if typeURL == nil {
                     throw SwiftProtobufError.JSONDecoding.emptyAnyTypeURL()
                 }
                 break
@@ -552,8 +553,11 @@ extension _MessageStorage {
         }
         jsonEncoder.endObject()
 
+        guard let typeURL else {
+            throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: "")
+        }
         guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
-            throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: typeURL)
+            throw SwiftProtobufError.JSONDecoding.unknownAnyTypeURL(type_url: typeURL)
         }
 
         let messageStorage = _MessageStorage(schema: messageSchema)
@@ -567,11 +571,13 @@ extension _MessageStorage {
             try messageStorage.merge(byParsingJSONFrom: &subReader)
         }
 
-        if CustomJSONWKTClassification(messageSchema: messageSchema) == .notWellKnown {
+        switch CustomJSONWKTClassification(messageSchema: messageSchema) {
+        case .notWellKnown:
             try jsonEncoder.bytesResult.withUnsafeBytes { buffer in
                 try parseJSONBuffer(buffer)
             }
-        } else {
+
+        default:
             // Well-known types in `Any` must *only* have a `value` field, unless we're ignoring
             // unknown fields.
             if hadFieldsOtherThanValue && !reader.options.ignoreUnknownFields {
@@ -584,11 +590,6 @@ extension _MessageStorage {
 
         updateValue(of: typeURLField, to: typeURL)
         updateValue(of: valueField, to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions()))
-    }
-
-    /// Returns a value indicating whether the `Any` type URL is valid.
-    func isTypeURLValid(_ typeURL: String) -> Bool {
-        typeURL.contains("/")
     }
 
     /// Parses the next quoted string from the input and interprets it as the JSON representation
@@ -764,4 +765,11 @@ func scanArray(
         }
         try reader.scanner.skipRequiredComma()
     }
+}
+
+// Spec for Any says this should contain atleast one slash. Looking at upstream languages, most
+// actually look up the value in their runtime registries, but since we don't have a complete type
+// registry, just do this minimal validation check.
+func isTypeURLValid(_ typeURL: String) -> Bool {
+    typeURL.contains(where: { $0 == "/" })
 }

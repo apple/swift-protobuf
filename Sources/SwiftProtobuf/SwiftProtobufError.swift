@@ -292,6 +292,21 @@ extension SwiftProtobufError {
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
+
+        /// While decoding a `google.protobuf.Any` encountered a `@type` key that was syntactically
+        /// valid but not found in the message registry.
+        public static func unknownAnyTypeURL(
+            type_url: String,
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonDecodingError,
+                message: "google.protobuf.Any '@type' was not registered: \(type_url).",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
     }
 
     /// Errors arising from JSON encoding of messages.
@@ -337,6 +352,21 @@ extension SwiftProtobufError {
             SwiftProtobufError(
                 code: .textFormatDecodingError,
                 message: "google.protobuf.Any '@type' was invalid: \(type_url).",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+
+        /// While decoding a `google.protobuf.Any` encountered a `@type` key that was syntactically
+        /// valid but not found in the message registry.
+        public static func unknownAnyTypeURL(
+            type_url: String,
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .textFormatDecodingError,
+                message: "google.protobuf.Any '@type' was not registered: \(type_url).",
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
