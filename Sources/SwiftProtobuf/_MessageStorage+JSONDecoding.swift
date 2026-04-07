@@ -607,9 +607,10 @@ extension _MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.FieldMask`.
     private func parseAsFieldMask(from reader: inout JSONReader) throws {
+        let pathsField = schema[fieldNumber: 1]!
         let fieldMaskString = try reader.scanner.nextQuotedString()
         try parseFieldMask(fieldMaskString) { name in
-            appendValue(name, to: schema[fieldNumber: 1]!)
+            appendValue(name, to: pathsField)
         }
     }
 
