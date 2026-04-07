@@ -113,3 +113,15 @@ extension Unicode.Scalar {
         return Self(value & 0x5f)!
     }
 }
+
+// True if the string only contains printable (non-control)
+// ASCII characters.  Note: This follows the ASCII standard;
+// space is not a "printable" character.
+func isPrintableASCII(_ s: String) -> Bool {
+    for u in s.utf8 {
+        if u <= 0x20 || u >= 0x7f {
+            return false
+        }
+    }
+    return true
+}

@@ -54,6 +54,9 @@ extension _MessageStorage {
         case .duration:
             try emitAsDuration(into: &encoder)
 
+        case .fieldMask:
+            try emitAsFieldMask(into: &encoder)
+
         case .floatValue:
             encoder.putFloatValue(value: value(of: schema[fieldNumber: 1]!))
 
@@ -95,10 +98,6 @@ extension _MessageStorage {
 
         case .value:
             try emitAsValue(into: &encoder, options: options)
-
-        case .fieldMask:
-            // TODO: Actually implement these. For now, just fall through to the default.
-            fallthrough
 
         case .notWellKnown:
             // This is the common case.
@@ -454,6 +453,24 @@ extension _MessageStorage {
         encoder.putStringValue(value: formatted)
     }
 
+    /// Emits a double-quoted string to the encoder that is the JSON representation of the receiver
+    /// as a well-known-type `FieldMask`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.FieldMask`.
+    private func emitAsFieldMask(into encoder: inout JSONEncoder) throws {
+        let paths = value(of: schema[fieldNumber: 1]!, default: []) as [String]
+        var jsonPaths = [String]()
+        jsonPaths.reserveCapacity(paths.count)
+        for path in paths {
+            if let jsonPath = jsonName(forProtoFieldMaskPath: path) {
+                jsonPaths.append(jsonPath)
+            } else {
+                throw JSONEncodingError.fieldMaskConversion
+            }
+        }
+        encoder.putStringValue(value: jsonPaths.joined(separator: ","))
+    }
+
     /// Emits a JSON array to the encoder that is the JSON representation of the receiver as a
     /// well-known-type `ListValue`.
     ///
@@ -574,4 +591,37 @@ extension _MessageStorage {
             throw JSONEncodingError.missingValue
         }
     }
+}
+
+/// Returns the JSON form of the field mask path with the given proto name, or nil if it was not
+/// possible to convert it to a JSON form.
+private func jsonName(forProtoFieldMaskPath name: String) -> String? {
+    guard isPrintableASCII(name) else { return nil }
+    var jsonPath = String()
+    var chars = name.makeIterator()
+    while let c = chars.next() {
+        switch c {
+        case "_":
+            if let toupper = chars.next() {
+                switch toupper {
+                case "a"..."z":
+                    jsonPath.append(String(toupper).uppercased())
+                default:
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        case "A"..."Z":
+            return nil
+        case "a"..."z", "0"..."9", ".", "(", ")":
+            jsonPath.append(c)
+        default:
+            // TODO: Change this to `return nil`
+            // once we know everything legal is handled
+            // above.
+            jsonPath.append(c)
+        }
+    }
+    return jsonPath
 }

@@ -1071,6 +1071,18 @@ extension _MessageStorage {
         }
     }
 
+    /// Returns the array value of the given field, or the default value if it is not present.
+    func value<T>(of field: FieldSchema, default: [T] = []) -> [T] {
+        guard isPresent(field) else { return `default` }
+        let offset = field.offset
+        switch field.presence {
+        case .hasBit(let hasByteOffset, let hasMask):
+            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+        case .oneOfMember:
+            preconditionFailure("Unreachable")
+        }
+    }
+
     /// Returns the field number of the oneof member that is populated, using the given field to
     /// look up its containing oneof.
     public func populatedOneofMember(of field: FieldSchema) -> UInt32 {

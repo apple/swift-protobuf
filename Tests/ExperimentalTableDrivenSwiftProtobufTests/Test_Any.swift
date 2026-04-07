@@ -359,8 +359,7 @@ final class Test_Any: XCTestCase {
         }
     }
 
-    // TODO: Re-enable after we implement custom JSON for field masks.
-    func DISABLED_test_Any_FieldMask_JSON_roundtrip() throws {
+    func test_Any_FieldMask_JSON_roundtrip() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.FieldMask\",\"value\":\"foo,bar.bazQuux\"}}"
         do {
@@ -381,8 +380,7 @@ final class Test_Any: XCTestCase {
         }
     }
 
-    // TODO: Re-enable after we implement custom JSON for field masks.
-    func DISABLED_test_Any_FieldMask_transcode() throws {
+    func test_Any_FieldMask_transcode() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.FieldMask\",\"value\":\"foo,bar.bazQuux\"}}"
         do {
