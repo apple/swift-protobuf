@@ -50,14 +50,10 @@ extension Message {
         options: TextFormatEncodingOptions
     ) -> String {
         var visitor = TextFormatEncodingVisitor(message: self, options: options)
-        if let any = self as? Google_Protobuf_Any {
-            any._storage.textTraverse(visitor: &visitor)
-        } else {
-            // Although the general traversal/encoding infrastructure supports
-            // throwing errors (needed for JSON/Binary WKTs support, binary format
-            // missing required fields); TextEncoding never actually does throw.
-            try! traverse(visitor: &visitor)
-        }
+        // Although the general traversal/encoding infrastructure supports
+        // throwing errors (needed for JSON/Binary WKTs support, binary format
+        // missing required fields); TextEncoding never actually does throw.
+        try! traverse(visitor: &visitor)
         return visitor.result
     }
 

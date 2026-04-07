@@ -39,7 +39,9 @@ extension Message {
         extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
-        self.init()
-        try unpackingAny._storage.unpackTo(target: &self, extensions: extensions, options: options)
+        guard unpackingAny.isA(Self.self) else {
+            throw AnyUnpackError.typeMismatch
+        }
+        try self.init(serializedBytes: unpackingAny.value, extensions: extensions, options: options)
     }
 }

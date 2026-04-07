@@ -41,5 +41,15 @@ public struct JSONEncodingOptions: Sendable {
     /// and subject to change.
     public var useDeterministicOrdering: Bool = false
 
+    /// The extension map to use when encoding messages that have been packed in a
+    /// `google.protobuf.Any` message.
+    ///
+    /// The in-memory representation of a `google.protobuf.Any` message stores the
+    /// packed message as its binary wire encoding. JSON serialization requires
+    /// parsing that packed message data in order to re-encode it, because unlike
+    /// regular messages where the information about stored extensions is already
+    /// in memory, parsing the binary data requires the extension map.
+    public var extensions: NewExtensionMap?
+
     public init() {}
 }

@@ -63,25 +63,40 @@ extension _MessageStorage {
     }
 
     func merge(byParsingTextFormatFrom reader: inout TextFormatReader) throws {
-        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-        while let fieldNumber = try reader.nextFieldNumber() {
-            // TODO: This is a little awkward, because in the extension case we're doing the lookup
-            // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
-            // find the extension that matches the name we parsed), and then here below. Once we've
-            // removed the relevant bits of the old implementation, we can clean this up by having
-            // a method on `TextFormatReader` that returns a structured value containing either the
-            // `FieldSchema` or the `ExtensionSchema` that corresponds to whatever it reads from the
-            // input.
-            if let field = schema[fieldNumber: fieldNumber] {
-                try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
-            } else if let extensions = reader.scanner.extensions.flatMap({ $0 as? NewExtensionMap }),
-                let ext = extensions[fieldNumber: fieldNumber, in: schema] {
-                try extensionStorage.decodeNextExtension(ext, from: &reader, extensions: extensions)
-            } else {
-                // The scanner should have already skipped any unknown fields or thrown an error
-                // (depending on the decoding options), so any field we get back from this reader
-                // should always exist.
-                preconditionFailure("unreachable")
+        switch CustomJSONWKTClassification(messageSchema: schema) {
+        case .any:
+            // Check if the message is the expanded form of `google.protobuf.Any`.
+            if let typeURL = try reader.scanner.nextOptionalAnyURL() {
+                try parseAsExpandedAny(from: &reader, typeURL: typeURL)
+                break
+            }
+
+            // If it didn't use the expanded form, then we should parse it as regular fields.
+            fallthrough
+
+        default:
+            var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+            while let fieldNumber = try reader.nextFieldNumber() {
+                print("field number = \(fieldNumber)")
+                // TODO: This is a little awkward, because in the extension case we're doing the lookup
+                // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
+                // find the extension that matches the name we parsed), and then here below. Once we've
+                // removed the relevant bits of the old implementation, we can clean this up by having
+                // a method on `TextFormatReader` that returns a structured value containing either the
+                // `FieldSchema` or the `ExtensionSchema` that corresponds to whatever it reads from the
+                // input.
+                if let field = schema[fieldNumber: fieldNumber] {
+                    try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
+                } else if let extensions = reader.scanner.extensions.flatMap({ $0 as? NewExtensionMap }),
+                          let ext = extensions[fieldNumber: fieldNumber, in: schema]
+                {
+                    try extensionStorage.decodeNextExtension(ext, from: &reader)
+                } else {
+                    // The scanner should have already skipped any unknown fields or thrown an error
+                    // (depending on the decoding options), so any field we get back from this reader
+                    // should always exist.
+                    preconditionFailure("unreachable")
+                }
             }
         }
     }
@@ -290,6 +305,33 @@ extension _MessageStorage {
         } /*onInvalidValue*/ _: { _ in
             throw TextFormatDecodingError.unrecognizedEnumValue
         }
+    }
+
+    /// Parses the next object from the input and interprets it as the expanded form of the
+    /// well-known type `Any` containing a message with the given type URL.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
+    private func parseAsExpandedAny(from reader: inout TextFormatReader, typeURL: String) throws {
+        guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
+            throw SwiftProtobufError.TextFormatDecoding.invalidAnyTypeURL(type_url: typeURL)
+        }
+
+        let messageStorage = _MessageStorage(schema: messageSchema)
+
+        try reader.withReaderForNextObject(expectedSchema: messageSchema) { subReader in
+            try messageStorage.merge(byParsingTextFormatFrom: &subReader)
+        }
+        // The expanded form of `Any` can never have additional keys. This call is required to
+        // verify that and to consume the closing separator.
+        if try reader.nextFieldNumber() != nil {
+            throw TextFormatDecodingError.malformedText
+        }
+
+        updateValue(of: schema[fieldNumber: 1]!, to: typeURL)
+        updateValue(
+            of: schema[fieldNumber: 2]!,
+            to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions())
+        )
     }
 }
 

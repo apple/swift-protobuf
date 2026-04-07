@@ -283,11 +283,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
         self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
         // Encode submessage
         encoder.startMessageField()
-        if let any = value as? Google_Protobuf_Any {
-            any.textTraverse(visitor: &self)
-        } else {
-            try! value.traverse(visitor: &self)
-        }
+        try! value.traverse(visitor: &self)
         encoder.endMessageField()
         // Restore configuration before returning
         self.extensions = oldExtensions
@@ -311,11 +307,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
         self.nameResolver = [:]
         self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
 
-        if let any = value as? Google_Protobuf_Any {
-            any.textTraverse(visitor: &self)
-        } else {
-            try! value.traverse(visitor: &self)
-        }
+        try! value.traverse(visitor: &self)
 
         // Restore configuration before returning
         self.extensions = oldExtensions
@@ -487,11 +479,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
         for v in value {
             encoder.emitFieldName(name: fieldName)
             encoder.startMessageField()
-            if let any = v as? Google_Protobuf_Any {
-                any.textTraverse(visitor: &self)
-            } else {
-                try! v.traverse(visitor: &self)
-            }
+            try! v.traverse(visitor: &self)
             encoder.endMessageField()
         }
         // Restore state

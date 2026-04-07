@@ -153,6 +153,14 @@ extension Google_Protobuf_Any {
         return result
     }
 
+    /// Returns the message schema expected for the given type URL.
+    public static func messageSchema(forTypeURL url: String) -> MessageSchema? {
+        let messageTypeName = typeName(fromURL: url)
+        guard let messageType = self.messageType(forMessageName: messageTypeName) else {
+            return nil
+        }
+        return (messageType as! any _MessageImplementationBase.Type).messageSchema
+    }
 }
 
 private enum DispatchFlags {
