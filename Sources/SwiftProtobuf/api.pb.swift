@@ -64,20 +64,29 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// strongly discouraged. This message does not reliability preserve all
 /// information necessary to model the schema and preserve semantics. Instead
 /// make use of FileDescriptorSet which preserves the necessary information.
-public struct Google_Protobuf_Api: Sendable {
+public struct Google_Protobuf_Api: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The fully qualified name of this interface, including package name
   /// followed by the interface's simple name.
-  public var name: String = String()
+  public var name: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+  }
 
   /// The methods of this interface, in unspecified order.
-  public var methods: [Google_Protobuf_Method] = []
+  public var methods: [Google_Protobuf_Method] {
+    get { _storage.value(at: 8, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+  }
 
   /// Any metadata attached to the interface.
-  public var options: [Google_Protobuf_Option] = []
+  public var options: [Google_Protobuf_Option] {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+  }
 
   /// A version string for this interface. If specified, must have the form
   /// `major-version.minor-version`, as in `1.10`. If the minor version is
@@ -98,33 +107,59 @@ public struct Google_Protobuf_Api: Sendable {
   /// `google.feature.v1`. For major versions 0 and 1, the suffix can
   /// be omitted. Zero major versions must only be used for
   /// experimental, non-GA interfaces.
-  public var version: String = String()
+  public var version: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 36), hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+  }
 
   /// Source context for the protocol buffer service represented by this
   /// message.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get {_sourceContext ?? Google_Protobuf_SourceContext()}
-    set {_sourceContext = newValue}
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 16), default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `sourceContext` has been explicitly set.
-  public var hasSourceContext: Bool {self._sourceContext != nil}
+  public var hasSourceContext: Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
-  public mutating func clearSourceContext() {self._sourceContext = nil}
+  public mutating func clearSourceContext() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 16), type: Google_Protobuf_SourceContext.self, hasBit: (0, 1)) }
 
   /// Included interfaces. See [Mixin][].
-  public var mixins: [Google_Protobuf_Mixin] = []
+  public var mixins: [Google_Protobuf_Mixin] {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 20), hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+  }
 
   /// The source syntax of the service.
-  public var syntax: Google_Protobuf_Syntax = .proto2
+  public var syntax: Google_Protobuf_Syntax {
+    get { _storage.value(at: 4, default: .proto2, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != .proto2, hasBit: (0, 64)) }
+  }
 
   /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
-  public var edition: String = String()
+  public var edition: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 48), hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
 
-  fileprivate var _sourceContext: Google_Protobuf_SourceContext? = nil
+  private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Method represents a method of an API interface.
@@ -133,28 +168,46 @@ public struct Google_Protobuf_Api: Sendable {
 /// strongly discouraged. This message does not reliability preserve all
 /// information necessary to model the schema and preserve semantics. Instead
 /// make use of FileDescriptorSet which preserves the necessary information.
-public struct Google_Protobuf_Method: Sendable {
+public struct Google_Protobuf_Method: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The simple name of this method.
-  public var name: String = String()
+  public var name: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
   /// A URL of the input message type.
-  public var requestTypeURL: String = String()
+  public var requestTypeURL: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+  }
 
   /// If true, the request is streamed.
-  public var requestStreaming: Bool = false
+  public var requestStreaming: Bool {
+    get { _storage.value(at: 1, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(at: 1, to: newValue, willBeSet: newValue != false, hasBit: (0, 4)) }
+  }
 
   /// The URL of the output message type.
-  public var responseTypeURL: String = String()
+  public var responseTypeURL: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+  }
 
   /// If true, the response is streamed.
-  public var responseStreaming: Bool = false
+  public var responseStreaming: Bool {
+    get { _storage.value(at: 2, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(at: 2, to: newValue, willBeSet: newValue != false, hasBit: (0, 16)) }
+  }
 
   /// Any metadata attached to the method.
-  public var options: [Google_Protobuf_Option] = []
+  public var options: [Google_Protobuf_Option] {
+    get { _storage.value(at: 8, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+  }
 
   /// The source syntax of this method.
   ///
@@ -162,7 +215,10 @@ public struct Google_Protobuf_Method: Sendable {
   /// Api. This is similar to Field and EnumValue.
   ///
   /// NOTE: This field was marked as deprecated in the .proto file.
-  public var syntax: Google_Protobuf_Syntax = .proto2
+  public var syntax: Google_Protobuf_Syntax {
+    get { _storage.value(at: 4, default: .proto2, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != .proto2, hasBit: (0, 64)) }
+  }
 
   /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
   ///
@@ -170,11 +226,30 @@ public struct Google_Protobuf_Method: Sendable {
   /// Api. This is similar to Field and EnumValue.
   ///
   /// NOTE: This field was marked as deprecated in the .proto file.
-  public var edition: String = String()
+  public var edition: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 48), hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 /// Declares an API Interface to be included in this interface. The including
@@ -255,21 +330,43 @@ public struct Google_Protobuf_Method: Sendable {
 ///       }
 ///       ...
 ///     }
-public struct Google_Protobuf_Mixin: Sendable {
+public struct Google_Protobuf_Mixin: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The fully qualified name of the interface which is included.
-  public var name: String = String()
+  public var name: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
   /// If non-empty specifies a path under which inherited HTTP paths
   /// are rooted.
-  public var root: String = String()
+  public var root: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+  }
 
-  public var unknownFields = UnknownStorage()
+  public var unknownFields: UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
+
+  private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
+
+  private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
+    _ = _uniqueStorage()
+  }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -278,169 +375,251 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Api"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0\u{1}edition\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: StaticString { "\0`\0\0\u{8}\0\0\0\0\0\u{1}\0\0\u{9}\0\0\u{1}\0\0\0\00\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0@\0\0\u{4}\0\0\0\u{9}\u{5}\0\0\0\0\u{18}\0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\u{2} \0\0\u{5}\0\u{5}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0P\0\0\u{7}\0\0\0\u{9}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: StaticString { "\0<\0\0\u{8}\0\0\0\0\0\u{1}\0\0\u{9}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0$\0\0\u{4}\0\0\0\u{9}\u{5}\0\0\0\0\u{10}\0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\u{2}\u{14}\0\0\u{5}\0\u{5}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\00\0\0\u{7}\0\0\0\u{9}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Api\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0\u{1}edition\0" }
+
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: Google_Protobuf_Syntax.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [Google_Protobuf_Method].self)
+    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: [Google_Protobuf_Option].self)
+    case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: Google_Protobuf_SourceContext.self)
+    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: [Google_Protobuf_Mixin].self)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+    switch token.index {
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Google_Protobuf_Method].self, perform: perform)
+    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Google_Protobuf_Option].self, perform: perform)
+    case 4: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: Google_Protobuf_SourceContext.self, perform: perform)
+    case 5: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Google_Protobuf_Mixin].self, perform: perform)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+    switch token.index {
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: Google_Protobuf_Syntax.self, enumSchema: Google_Protobuf_Syntax.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
+    switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, workingSpace: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+    switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.methods) }()
-      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.options) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.version) }()
-      case 5: try { try decoder.decodeSingularMessageField(value: &self._sourceContext) }()
-      case 6: try { try decoder.decodeRepeatedMessageField(value: &self.mixins) }()
-      case 7: try { try decoder.decodeSingularEnumField(value: &self.syntax) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.edition) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
-    if !self.methods.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.methods, fieldNumber: 2)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
-    }
-    if !self.version.isEmpty {
-      try visitor.visitSingularStringField(value: self.version, fieldNumber: 4)
-    }
-    try { if let v = self._sourceContext {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    } }()
-    if !self.mixins.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.mixins, fieldNumber: 6)
-    }
-    if self.syntax != .proto2 {
-      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
-    }
-    if !self.edition.isEmpty {
-      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 8)
-    }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Api, rhs: Google_Protobuf_Api) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs.methods != rhs.methods {return false}
-    if lhs.options != rhs.options {return false}
-    if lhs.version != rhs.version {return false}
-    if lhs._sourceContext != rhs._sourceContext {return false}
-    if lhs.mixins != rhs.mixins {return false}
-    if lhs.syntax != rhs.syntax {return false}
-    if lhs.edition != rhs.edition {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 
 extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Method"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0\u{1}edition\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: StaticString { "\0P\0\0\u{8}\0\0\0\0\0\0\0\0\u{9}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{1}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\u{2}\u{8}\0\0\u{5}\0\u{2}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{9}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: StaticString { "\0<\0\0\u{8}\0\0\0\0\0\0\0\0\u{9}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{1}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0$\0\0\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\u{2}\u{8}\0\0\u{5}\0\u{2}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\00\0\0\u{7}\0\0\0\u{9}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Method\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0\u{1}edition\0" }
+
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
+    switch token.index {
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: Google_Protobuf_Syntax.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [Google_Protobuf_Option].self)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+    switch token.index {
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Google_Protobuf_Option].self, perform: perform)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+    switch token.index {
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: Google_Protobuf_Syntax.self, enumSchema: Google_Protobuf_Syntax.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
+    switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage, workingSpace: SwiftProtobuf._MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf._MessageStorage) throws -> Bool) throws -> Bool {
+    switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.requestTypeURL) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.requestStreaming) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.responseTypeURL) }()
-      case 5: try { try decoder.decodeSingularBoolField(value: &self.responseStreaming) }()
-      case 6: try { try decoder.decodeRepeatedMessageField(value: &self.options) }()
-      case 7: try { try decoder.decodeSingularEnumField(value: &self.syntax) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.edition) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
-    if !self.requestTypeURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.requestTypeURL, fieldNumber: 2)
-    }
-    if self.requestStreaming != false {
-      try visitor.visitSingularBoolField(value: self.requestStreaming, fieldNumber: 3)
-    }
-    if !self.responseTypeURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.responseTypeURL, fieldNumber: 4)
-    }
-    if self.responseStreaming != false {
-      try visitor.visitSingularBoolField(value: self.responseStreaming, fieldNumber: 5)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 6)
-    }
-    if self.syntax != .proto2 {
-      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
-    }
-    if !self.edition.isEmpty {
-      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 8)
-    }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Method, rhs: Google_Protobuf_Method) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs.requestTypeURL != rhs.requestTypeURL {return false}
-    if lhs.requestStreaming != rhs.requestStreaming {return false}
-    if lhs.responseTypeURL != rhs.responseTypeURL {return false}
-    if lhs.responseStreaming != rhs.responseStreaming {return false}
-    if lhs.options != rhs.options {return false}
-    if lhs.syntax != rhs.syntax {return false}
-    if lhs.edition != rhs.edition {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
 
 extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}root\0")
+  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: StaticString { "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: StaticString { "\0$\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Mixin\0\u{1}name\0\u{1}root\0" }
+
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString)
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.root) }()
-      default: break
-      }
-    }
+    fatalError("table-driven decodeMessage not yet implemented")
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    fatalError("table-driven traverse not yet implemented")
+  }
+
+  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
+    return try _storage.serializedBytes(partial: partial, options: options)
+  }
+  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
+    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
+  }
+  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
+    return _storage.textFormatString(options: options)
+  }
+  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
+  }
+  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
+    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
+  }
+  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
+    return try _storage.jsonUTF8Bytes(options: options)
+  }
+  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
+    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
     }
-    if !self.root.isEmpty {
-      try visitor.visitSingularStringField(value: self.root, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Mixin, rhs: Google_Protobuf_Mixin) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs.root != rhs.root {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+    return lhs._storage.isEqual(to: rhs._storage)
+  }
+  public func hash(into hasher: inout Swift.Hasher) {
+    _storage.hash(into: &hasher)
   }
 }
