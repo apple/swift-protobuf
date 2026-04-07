@@ -93,6 +93,7 @@ extension SwiftProtobufError {
             case binaryStreamDecodingError
             case jsonDecodingError
             case jsonEncodingError
+            case textFormatDecodingError
 
             var description: String {
                 switch self {
@@ -104,6 +105,8 @@ extension SwiftProtobufError {
                     return "JSON decoding error"
                 case .jsonEncodingError:
                     return "JSON encoding error"
+                case .textFormatDecodingError:
+                    return "Text format decoding error"
                 }
             }
         }
@@ -137,6 +140,11 @@ extension SwiftProtobufError {
         /// Errors arising from JSON encoding of messages.
         public static var jsonEncodingError: Self {
             Self(.jsonEncodingError)
+        }
+
+        /// Errors arising from text format decoding of data into protobufs.
+        public static var textFormatDecodingError: Self {
+            Self(.textFormatDecodingError)
         }
     }
 
@@ -311,6 +319,24 @@ extension SwiftProtobufError {
             SwiftProtobufError(
                 code: .jsonEncodingError,
                 message: "google.protobuf.Any 'type_url' was empty, only allowed for empty objects.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+    }
+
+    /// Errors arising from text format decoding of data into protobufs.
+    public enum TextFormatDecoding {
+        /// While decoding a `google.protobuf.Any` encountered a malformed `@type` key for
+        /// the `type_url` field.
+        public static func invalidAnyTypeURL(
+            type_url: String,
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .textFormatDecodingError,
+                message: "google.protobuf.Any '@type' was invalid: \(type_url).",
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }

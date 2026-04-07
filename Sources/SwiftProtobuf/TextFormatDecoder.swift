@@ -485,13 +485,7 @@ internal struct TextFormatDecoder: Decoder {
         }
         let terminator = try scanner.skipObjectStart()
         var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
-        if M.self == Google_Protobuf_Any.self {
-            var any = value as! Google_Protobuf_Any?
-            try any!.decodeTextFormat(decoder: &subDecoder)
-            value = any as! M?
-        } else {
-            try value!.decodeMessage(decoder: &subDecoder)
-        }
+        try value!.decodeMessage(decoder: &subDecoder)
         assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
         scanner = subDecoder.scanner
     }
@@ -511,30 +505,18 @@ internal struct TextFormatDecoder: Decoder {
                 }
                 let terminator = try scanner.skipObjectStart()
                 var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
-                if M.self == Google_Protobuf_Any.self {
-                    var message = Google_Protobuf_Any()
-                    try message.decodeTextFormat(decoder: &subDecoder)
-                    value.append(message as! M)
-                } else {
-                    var message = M()
-                    try message.decodeMessage(decoder: &subDecoder)
-                    value.append(message)
-                }
+                var message = M()
+                try message.decodeMessage(decoder: &subDecoder)
+                value.append(message)
                 assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
                 scanner = subDecoder.scanner
             }
         } else {
             let terminator = try scanner.skipObjectStart()
             var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
-            if M.self == Google_Protobuf_Any.self {
-                var message = Google_Protobuf_Any()
-                try message.decodeTextFormat(decoder: &subDecoder)
-                value.append(message as! M)
-            } else {
-                var message = M()
-                try message.decodeMessage(decoder: &subDecoder)
-                value.append(message)
-            }
+            var message = M()
+            try message.decodeMessage(decoder: &subDecoder)
+            value.append(message)
             assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
             scanner = subDecoder.scanner
         }

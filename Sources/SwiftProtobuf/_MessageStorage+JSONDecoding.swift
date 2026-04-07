@@ -52,6 +52,9 @@ extension _MessageStorage {
         }
 
         switch CustomJSONWKTClassification(messageSchema: schema) {
+        case .any:
+            try parseAsAny(from: &reader)
+
         case .boolValue:
             try disallowingNull {
                 updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextBool())
@@ -124,7 +127,7 @@ extension _MessageStorage {
         case .value:
             try parseAsValue(from: &reader)
 
-        case .any, .fieldMask:
+        case .fieldMask:
             // TODO: Actually implement these. For now, just fall through to the default.
             fallthrough
 
@@ -492,6 +495,100 @@ extension _MessageStorage {
         } /*onInvalidValue*/ _: { _ in
             throw JSONDecodingError.unrecognizedEnumValue
         }
+    }
+
+    /// Parses the next object from the input and interprets it as the JSON representation of a
+    /// well-known type `Any`.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
+    private func parseAsAny(from reader: inout JSONReader) throws {
+        let typeURLField = schema[fieldNumber: 1]!
+        let valueField = schema[fieldNumber: 2]!
+
+        try reader.scanner.skipRequiredObjectStart()
+
+        // An empty JSON object is allowed.
+        if reader.scanner.skipOptionalObjectEnd() {
+            clearValue(of: typeURLField, type: String.self)
+            clearValue(of: valueField, type: Data.self)
+            return
+        }
+
+        var typeURL = ""
+        var possibleWKTValueJSON = ""
+        var hadFieldsOtherThanValue = false
+
+        var jsonEncoder = JSONEncoder()
+        jsonEncoder.startObject()
+        while true {
+            let key = try reader.scanner.nextQuotedString()
+            try reader.scanner.skipRequiredColon()
+            if key == "@type" {
+                typeURL = try reader.scanner.nextQuotedString()
+                guard isTypeURLValid(typeURL) else {
+                    throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: typeURL)
+                }
+            } else {
+                jsonEncoder.startField(name: key)
+                let keyValueJSON = try reader.scanner.skip()
+                if key == "value" {
+                    // When we encounter the key `value`, we may need to parse this as a well-known
+                    // type with a special representation, so keep track of it.
+                    possibleWKTValueJSON = keyValueJSON
+                } else {
+                    // Keep track of this because if it's a well-known type, we need to fail later
+                    // if we're not ignoring unknown fields.
+                    hadFieldsOtherThanValue = true
+                }
+                jsonEncoder.append(text: keyValueJSON)
+            }
+            if reader.scanner.skipOptionalObjectEnd() {
+                if typeURL.isEmpty {
+                    throw SwiftProtobufError.JSONDecoding.emptyAnyTypeURL()
+                }
+                break
+            }
+            try reader.scanner.skipRequiredComma()
+        }
+        jsonEncoder.endObject()
+
+        guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
+            throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: typeURL)
+        }
+
+        let messageStorage = _MessageStorage(schema: messageSchema)
+        func parseJSONBuffer(_ buffer: UnsafeRawBufferPointer) throws {
+            var subReader = JSONReader(
+                buffer: buffer,
+                nameMap: messageSchema.nameMap,
+                messageSchema: messageSchema,
+                options: reader.options,
+                extensions: reader.scanner.extensions)
+            try messageStorage.merge(byParsingJSONFrom: &subReader)
+        }
+
+        if CustomJSONWKTClassification(messageSchema: messageSchema) == .notWellKnown {
+            try jsonEncoder.bytesResult.withUnsafeBytes { buffer in
+                try parseJSONBuffer(buffer)
+            }
+        } else {
+            // Well-known types in `Any` must *only* have a `value` field, unless we're ignoring
+            // unknown fields.
+            if hadFieldsOtherThanValue && !reader.options.ignoreUnknownFields {
+                throw AnyUnpackError.malformedWellKnownTypeJSON
+            }
+            try possibleWKTValueJSON.withUTF8 { buffer in
+                try parseJSONBuffer(UnsafeRawBufferPointer(buffer))
+            }
+        }
+
+        updateValue(of: typeURLField, to: typeURL)
+        updateValue(of: valueField, to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions()))
+    }
+
+    /// Returns a value indicating whether the `Any` type URL is valid.
+    func isTypeURLValid(_ typeURL: String) -> Bool {
+        typeURL.contains("/")
     }
 
     /// Parses the next quoted string from the input and interprets it as the JSON representation

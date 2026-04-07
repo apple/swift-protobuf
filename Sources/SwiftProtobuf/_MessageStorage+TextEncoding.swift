@@ -28,14 +28,78 @@ extension _MessageStorage {
     /// A recursion helper that serializes the fields in the storage into the given text format encoder.
     func serializeText(into encoder: inout TextFormatEncoder, options: TextFormatEncodingOptions) {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-        for field in schema.fields {
-            guard isPresent(field) else { continue }
-            serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
+
+        switch CustomJSONWKTClassification(messageSchema: schema) {
+        case .any:
+            emitAsAny(into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
+
+        default:
+            for field in schema.fields {
+                guard isPresent(field) else { continue }
+                serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
+            }
         }
+
         if options.printUnknownFields {
             emitUnknownFields(bytes: unknownFields.data, into: &encoder)
         }
         extensionStorage.serializeText(into: &encoder, options: options)
+    }
+
+    /// Emits the text format representation of the receiver as a well-known-type `Any` to the
+    /// encoder.
+    ///
+    /// If the message type is in the global registry, this function parses it and emits the
+    /// verbose form of `Any` text encoding, which renders the type URL like an extension field (in
+    /// square brackets) and then prints the value as a fully expanded message. If the type is not
+    /// registered, emit it in standard form.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
+    private func emitAsAny(
+        into encoder: inout TextFormatEncoder,
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace,
+        options: TextFormatEncodingOptions
+    ) {
+        let typeURLField = schema[fieldNumber: 1]!
+        let valueField = schema[fieldNumber: 2]!
+        let valueOffset = valueField.offset
+        let isValuePresent = isPresent(valueField)
+
+        // If we can unpack it, emit the verbose form.
+        let typeURL = value(of: typeURLField) as String
+        if isValuePresent, let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) {
+            let messageStorage = _MessageStorage(schema: messageSchema)
+            let bytes = assumedPresentValue(at: valueOffset) as Data
+            do {
+                try bytes.withUnsafeBytes { buffer in
+                    try messageStorage.merge(
+                        byReadingFrom: buffer,
+                        extensions: options.extensions,
+                        partial: false,
+                        options: BinaryDecodingOptions()
+                    )
+                }
+                encoder.emitExtensionFieldName(name: typeURL)
+                encoder.startMessageField()
+                messageStorage.serializeText(into: &encoder, options: options)
+                encoder.endMessageField()
+                return
+            } catch {
+                // Fall back to emitting the standard form below.
+            }
+        }
+
+        // Otherwise, emit the fields in their standard form (binary serialized string).
+        if isPresent(typeURLField) {
+            serializeField(typeURLField, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
+        }
+        if isValuePresent {
+            let bytes = assumedPresentValue(at: valueOffset) as Data
+            emitName(ofFieldNumber: Int(valueField.fieldNumber), into: &encoder)
+            encoder.startRegularField()
+            encoder.putBytesValue(value: bytes)
+            encoder.endRegularField()
+        }
     }
 
     /// Serializes a single field in the storage into the given text format encoder.

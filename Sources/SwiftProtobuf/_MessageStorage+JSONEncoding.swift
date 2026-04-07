@@ -26,8 +26,22 @@ extension _MessageStorage {
     }
 
     /// A recursion helper that serializes the fields in the storage into the given JSON encoder.
-    func serializeJSON(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
+    ///
+    /// - Parameters:
+    ///   - encoder: The JSON encoder into which the message should be serialized.
+    ///   - options: The options to use when encoding the message.
+    ///   - shouldInlineFields: If true, the fields of the receiver will be inlined into an already
+    ///     existing JSON object instead of starting a new object. This is used when serializing
+    ///     messaged tested inside a `google.protobuf.Any`.
+    func serializeJSON(
+        into encoder: inout JSONEncoder,
+        options: JSONEncodingOptions,
+        shouldInlineFields: Bool = false
+    ) throws {
         switch CustomJSONWKTClassification(messageSchema: schema) {
+        case .any:
+            try emitAsAny(into: &encoder, options: options)
+
         case .boolValue:
             encoder.putNonQuotedBoolValue(value: value(of: schema[fieldNumber: 1]!))
 
@@ -82,20 +96,24 @@ extension _MessageStorage {
         case .value:
             try emitAsValue(into: &encoder, options: options)
 
-        case .any, .fieldMask:
+        case .fieldMask:
             // TODO: Actually implement these. For now, just fall through to the default.
             fallthrough
 
         case .notWellKnown:
             // This is the common case.
-            encoder.startObject()
+            if !shouldInlineFields {
+                encoder.startObject()
+            }
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             for field in schema.fields {
                 guard isPresent(field) else { continue }
                 try serializeField(field, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
             }
             try extensionStorage.serializeJSON(into: &encoder, options: options)
-            encoder.endObject()
+            if !shouldInlineFields {
+                encoder.endObject()
+            }
         }
     }
 
@@ -366,6 +384,60 @@ extension _MessageStorage {
             encoder.putStringValue(value: assumedPresentValue(at: offset))
 
         default: preconditionFailure("Unreachable")
+        }
+    }
+
+    /// Emits the JSON representation of the receiver as a well-known-type `Any` to the encoder.
+    ///
+    /// For `Any`s that wrap a well-known type, this will represent it using that value's custom
+    /// JSON representation as the value of the `value` field (for example, a `Duration` is stored
+    /// like `"value": "0s"`). For all other messages, the fields of that message are _inlined_
+    /// into the same JSON object that holds the `Any`'s type URL.
+    ///
+    /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
+    private func emitAsAny(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
+        encoder.startObject()
+        defer { encoder.endObject() }
+
+        let typeURLField = schema[fieldNumber: 1]!
+        let valueField = schema[fieldNumber: 2]!
+
+        let isValuePresent = isPresent(valueField)
+
+        // Follow the C++ protostream_objectsource.cc's
+        // `ProtoStreamObjectSource::RenderAny()` special casing of an empty value.
+        if !isPresent(typeURLField) && !isValuePresent {
+            return
+        }
+
+        let typeURL = value(of: typeURLField) as String
+        guard !typeURL.isEmpty else {
+            throw SwiftProtobufError.JSONEncoding.emptyAnyTypeURL()
+        }
+        guard isTypeURLValid(typeURL) else {
+            throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: typeURL)
+        }
+        encoder.startField(name: "@type")
+        encoder.putStringValue(value: typeURL)
+
+        guard isValuePresent else {
+            // If the value field is not present, then there's nothing to decode, and we don't
+            // check if the type URL is registered.
+            return
+        }
+
+        guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
+            throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: typeURL)
+        }
+        let isWKT = CustomJSONWKTClassification(messageSchema: messageSchema) != .notWellKnown
+        if isWKT {
+            encoder.startField(name: "value")
+        }
+        let bytes = assumedPresentValue(at: valueField.offset) as Data
+        try bytes.withUnsafeBytes { buffer in
+            let messageStorage = _MessageStorage(schema: messageSchema)
+            try messageStorage.merge(byReadingFrom: buffer, extensions: options.extensions, partial: false, options: BinaryDecodingOptions())
+            try messageStorage.serializeJSON(into: &encoder, options: options, shouldInlineFields: !isWKT)
         }
     }
 
