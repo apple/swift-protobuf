@@ -49,8 +49,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v6
-      with:
-        submodules: true
     - name: Update and install dependencies
       # Just ensure we have the latest `g++` for building protoc (since it is
       # built by SwiftPM), full dependencies available at
@@ -80,8 +78,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v6
-      with:
-        submodules: true
     - name: Update and install dependencies
       # Just ensure we have the latest `g++` for building protoc (since it is
       # built by SwiftPM), full dependencies available at
@@ -105,7 +101,6 @@ jobs:
       uses: actions/checkout@v6
       with:
         fetch-depth: 0
-        submodules: true
     - name: Mark the workspace as safe
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
@@ -124,8 +119,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v6
-      with:
-        submodules: true
     - name: Mark the workspace as safe
       # https://github.com/actions/checkout/issues/766
       run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
@@ -154,8 +147,6 @@ jobs:
       image: swift:latest
     steps:
     - uses: actions/checkout@v6
-      with:
-        submodules: true
 
     - name: Test
       run: |
@@ -182,7 +173,5 @@ jobs:
       image: swift:latest
     steps:
     - uses: actions/checkout@v6
-      with:
-        submodules: true
     - name: Build
       run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions

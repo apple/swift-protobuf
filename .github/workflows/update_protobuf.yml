@@ -1,4 +1,4 @@
-name: Update Protobuf and Abseil Submodules
+name: Update Protobuf and Abseil Dependencies
 
 permissions:
   contents: write
@@ -15,152 +15,56 @@ jobs:
     # Only do this job on the main repo (and not forks of it).
     if: github.repository == 'apple/swift-protobuf'
     runs-on: ubuntu-latest
-    # Ensure we have the lastest Swift incase so Reference can be updated.
+    # Ensure we have the latest Swift in case Reference can be updated.
     container:
       image: swift:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v6
       with:
-        submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Fetch tags in protobuf submodule
-      run: |
-        # The checkout doesn't fetch the tags in submodules, we'll need them. so
-        # rather then forcing a full history checkout ('fetch-depth: 0 modules: true')
-        # of the main and all submodules, just do this one place ourselves.
-        cd Sources/protobuf/protobuf
-        git fetch --tags
-
     - name: Update and install dependencies
-      # This step is run before check_release because we need curl and jq
-      run: apt-get update && apt-get install -y curl jq
+      run: apt-get update && apt-get install -y make g++
 
-    - name: Check for new protobuf release
-      id: check_release
-      run: |
-        # Get the latest protobuf release tag
-        LATEST_TAG=$(curl -s https://api.github.com/repos/protocolbuffers/protobuf/releases/latest | jq -r '.tag_name')
-        echo "Latest protobuf release: $LATEST_TAG"
-
-        # Get current protobuf submodule tag
-        #
-        # It would be nice to just use `git describe --tags --exact-match`, but
-        # the protobuf repo also cuts langugage specific tags. So odds are one
-        # of those is "closer" than the main protobuf tag, so look for all tags
-        # for the current commit and then filter down to the right style.
-        cd Sources/protobuf/protobuf
-        TAG_REGEX='^v[0-9]+\.[0-9]+$'
-        TAG_MATCHES=$(git tag --points-at HEAD | grep -E "$TAG_REGEX")
-        if [ -z "$TAG_MATCHES" ]; then
-          echo "Error: Failed to figure out any current tag."
-          exit 1
-        fi
-        NUM_TAG_MATCHES=$(echo "$TAG_MATCHES" | wc -l)
-        if [ "$NUM_TAG_MATCHES" -gt 1 ]; then
-          echo "Error: Found $NUM_TAG_MATCHES lines that could be the current tag:" >&2
-          echo "$TAG_MATCHES" >&2
-          exit 1
-        fi
-        # At this point, only one match, so good to use it as the current.
-        CURRENT_TAG="$TAG_MATCHES"
-        echo "Current protobuf version: $CURRENT_TAG"
-        cd ../../..
-
-        # Check if update is needed
-        if [ "$LATEST_TAG" != "$CURRENT_TAG" ] && [ "$LATEST_TAG" != "null" ]; then
-          echo "needs_update=true" >> $GITHUB_OUTPUT
-          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
-          echo "Update needed: $CURRENT_TAG -> $LATEST_TAG"
-        else
-          echo "needs_update=false" >> $GITHUB_OUTPUT
-          echo "No update needed"
-        fi
-
-    - name: Update protobuf submodule
-      if: steps.check_release.outputs.needs_update == 'true'
-      run: |
-        cd Sources/protobuf/protobuf
-        git checkout ${{ steps.check_release.outputs.latest_tag }}
-        cd ../../..
-
-    - name: Determine required abseil version
-      if: steps.check_release.outputs.needs_update == 'true'
-      id: check_abseil
-      run: |
-        # Extract abseil commit from protobuf_deps.bzl
-        ABSEIL_COMMIT=$(grep -A 10 '"abseil-cpp"' Sources/protobuf/protobuf/protobuf_deps.bzl | grep 'commit' | head -1 | sed 's/.*"\([a-f0-9]*\)".*/\1/')
-
-        if [ -z "$ABSEIL_COMMIT" ]; then
-          echo "Error: Could not determine abseil commit"
-          exit 1
-        fi
-
-        echo "Required abseil commit: $ABSEIL_COMMIT"
-        echo "abseil_commit=$ABSEIL_COMMIT" >> $GITHUB_OUTPUT
-
-    - name: Update abseil submodule
-      if: steps.check_release.outputs.needs_update == 'true'
-      run: |
-        cd Sources/protobuf/abseil
-        git fetch
-        git checkout ${{ steps.check_abseil.outputs.abseil_commit }}
-        cd ../../..
-
-    - name: Stage submodule updates
-      if: steps.check_release.outputs.needs_update == 'true'
-      run: |
-        # Avoid "detected dubious ownership in repository at '/__w/swift-protobuf/swift-protobuf'"
-        git config --global --add safe.directory /__w/swift-protobuf/swift-protobuf
-        git add Sources/protobuf/protobuf
-        git add Sources/protobuf/abseil
-
-    - name: Get abseil version info
-      if: steps.check_release.outputs.needs_update == 'true'
-      id: abseil_info
-      run: |
-        cd Sources/protobuf/abseil
-        ABSEIL_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "commit ${{ steps.check_abseil.outputs.abseil_commit }}")
-        echo "abseil_version=$ABSEIL_TAG" >> $GITHUB_OUTPUT
-        cd ../../..
+    - name: Update vendored dependencies
+      id: update
+      run: python3 scripts/UpdateProtobufSubtrees.py --github-output "$GITHUB_OUTPUT"
 
     - name: Update Reference Protos
+      if: steps.update.outputs.updated == 'true'
       # The Reference/upstream contents is generated from Source/protobuf/protobuf, so
       # update them.
       #
       # Note: we could move the work in `make reference` to a helper script and skip the
       # install of Make, but given it shares setup with other targets in the Makefile,
       # not sure it's worth while.
-      if: steps.check_release.outputs.needs_update == 'true'
-      run: |
-        apt-get update && apt-get install -y make
-        make reference
+      run: make reference
 
     - name: Create Pull Request
-      if: steps.check_release.outputs.needs_update == 'true'
+      if: steps.update.outputs.updated == 'true'
       uses: peter-evans/create-pull-request@v8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: |
-          Update protobuf to ${{ steps.check_release.outputs.latest_tag }} and abseil-cpp
+          Update protobuf to ${{ steps.update.outputs.protobuf_tag }} and abseil-cpp
 
-          - Update protobuf submodule to ${{ steps.check_release.outputs.latest_tag }}
-          - Update abseil-cpp submodule to ${{ steps.abseil_info.outputs.abseil_version }}
-        branch: automated/update-protobuf-${{ steps.check_release.outputs.latest_tag }}
+          - Update vendored protobuf to ${{ steps.update.outputs.protobuf_tag }}
+          - Update vendored abseil to required commit from protobuf_deps.bzl
+        branch: automated/update-protobuf-${{ steps.update.outputs.protobuf_tag }}
         delete-branch: true
-        title: 'Update protobuf to ${{ steps.check_release.outputs.latest_tag }}'
+        title: 'Update protobuf to ${{ steps.update.outputs.protobuf_tag }}'
         body: |
           ## Automated Protobuf Update
 
-          This PR automatically updates the protobuf and abseil-cpp submodules to their latest versions.
+          This PR automatically updates the vendored protobuf and abseil-cpp sources.
 
           ### Changes
-          - **Protobuf**: Updated to `${{ steps.check_release.outputs.latest_tag }}`
-          - **Abseil-cpp**: Updated to `${{ steps.abseil_info.outputs.abseil_version }}`
+          - **Protobuf**: Updated to `${{ steps.update.outputs.protobuf_tag }}`
+          - **Abseil-cpp**: Updated to commit required by protobuf `${{ steps.update.outputs.abseil_commit }}`
 
           ### Release Notes
-          See the [protobuf ${{ steps.check_release.outputs.latest_tag }} release notes](https://github.com/protocolbuffers/protobuf/releases/tag/${{ steps.check_release.outputs.latest_tag }}) for details.
+          See the [protobuf ${{ steps.update.outputs.protobuf_tag }} release notes](https://github.com/protocolbuffers/protobuf/releases/tag/${{ steps.update.outputs.protobuf_tag }}) for details.
 
           ---
 
