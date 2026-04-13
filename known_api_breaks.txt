@@ -1,1 +1,0 @@
-API breakage: enumelement Google_Protobuf_FeatureSet.EnforceNamingStyle.style2026 has been added as a new enum case
