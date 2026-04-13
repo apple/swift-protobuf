@@ -26,8 +26,8 @@
 SWIFT=swift
 
 # How to run a working version of protoc. By default, we build our own copy
-# from the submodule using Swift Package Manager. Invoke make with PROTOC=[path]
-# to override this value, i.e. -
+# from vendored protobuf sources using Swift Package Manager. Invoke make with
+# PROTOC=[path] to override this value, i.e. -
 #   make [TARGET] PROTOC=../protobuf/src/protoc
 PROTOC?=.build/debug/protoc
 
@@ -40,7 +40,7 @@ BINDIR=/usr/local/bin
 # Install tool name
 INSTALL=install
 
-# Where to find a google/protobuf checkout. Defaults to the submodule.
+# Where to find a google/protobuf checkout. Defaults to the vendored subtree.
 # Invoke make with GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT] to
 # override this value, i.e. -
 #   make check-proto-files GOOGLE_PROTOBUF_CHECKOUT=[PATH_TO_CHECKOUT]
@@ -128,7 +128,7 @@ build:
 # Anything that needs the plugin should do a build.
 ${PROTOC_GEN_SWIFT}: build
 
-# Build our local copy of protoc from the submodule
+# Build our local copy of protoc from vendored sources
 ${PROTOC}: build
 
 # Does it really make sense to install a debug build, or should this be forcing
