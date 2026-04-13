@@ -734,6 +734,12 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Exte
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedField() {_uniqueStorage()._delimitedField = nil}
 
+  /// recursive
+  var mapRecursive: Dictionary<Int32,ProtobufTestMessages_Editions_TestAllTypesEdition2023> {
+    get {_storage._mapRecursive}
+    set {_uniqueStorage()._mapRecursive = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_OneofField: Equatable, Sendable {
@@ -1083,7 +1089,7 @@ extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.Message, S
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesEdition2023"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{4}\u{2}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{4}\u{2}optional_string_piece\0\u{3}optional_cord\0\u{4}\u{2}recursive_message\0\u{4}\u{4}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{4}\u{2}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4}\u{2}repeated_string_piece\0\u{3}repeated_cord\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_bytes\0\u{3}map_string_nested_message\0\u{3}map_string_foreign_message\0\u{3}map_string_nested_enum\0\u{3}map_string_foreign_enum\0\u{3}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_nested_enum\0\u{3}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_nested_enum\0\u{4}\u{9}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_bool\0\u{3}oneof_uint64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_enum\0\u{8}R\u{1}GroupLikeType\0\u{3}delimited_field\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{4}\u{2}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{4}\u{2}optional_string_piece\0\u{3}optional_cord\0\u{4}\u{2}recursive_message\0\u{4}\u{4}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{4}\u{2}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4}\u{2}repeated_string_piece\0\u{3}repeated_cord\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_bytes\0\u{3}map_string_nested_message\0\u{3}map_string_foreign_message\0\u{3}map_string_nested_enum\0\u{3}map_string_foreign_enum\0\u{3}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_nested_enum\0\u{3}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_nested_enum\0\u{4}\u{9}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_bool\0\u{3}oneof_uint64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_enum\0\u{8}R\u{1}GroupLikeType\0\u{3}delimited_field\0\u{4}c\u{1}map_recursive\0")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -1179,6 +1185,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
     var _oneofField: ProtobufTestMessages_Editions_TestAllTypesEdition2023.OneOf_OneofField?
     var _groupLikeType: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType? = nil
     var _delimitedField: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType? = nil
+    var _mapRecursive: Dictionary<Int32,ProtobufTestMessages_Editions_TestAllTypesEdition2023> = [:]
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -1282,6 +1289,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
       _oneofField = source._oneofField
       _groupLikeType = source._groupLikeType
       _delimitedField = source._delimitedField
+      _mapRecursive = source._mapRecursive
     }
   }
 
@@ -1300,6 +1308,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedNestedMessage) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapStringNestedMessage) {return false}
       if let v = _storage._oneofField, !v.isInitialized {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapRecursive) {return false}
       return true
     }
   }
@@ -1481,6 +1490,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
         }()
         case 201: try { try decoder.decodeSingularGroupField(value: &_storage._groupLikeType) }()
         case 202: try { try decoder.decodeSingularGroupField(value: &_storage._delimitedField) }()
+        case 301: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufTestMessages_Editions_TestAllTypesEdition2023>.self, value: &_storage._mapRecursive) }()
         case 120..<201:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufTestMessages_Editions_TestAllTypesEdition2023.self, fieldNumber: fieldNumber) }()
         default: break
@@ -1811,6 +1821,9 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
       try { if let v = _storage._delimitedField {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 202)
       } }()
+      if !_storage._mapRecursive.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufTestMessages_Editions_TestAllTypesEdition2023>.self, value: _storage._mapRecursive, fieldNumber: 301)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1913,6 +1926,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
         if _storage._oneofField != rhs_storage._oneofField {return false}
         if _storage._groupLikeType != rhs_storage._groupLikeType {return false}
         if _storage._delimitedField != rhs_storage._delimitedField {return false}
+        if _storage._mapRecursive != rhs_storage._mapRecursive {return false}
         return true
       }
       if !storagesAreEqual {return false}
