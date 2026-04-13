@@ -25,11 +25,13 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Update and install dependencies
-      run: apt-get update && apt-get install -y make g++
+      run: apt-get update && apt-get install -y make g++ python3
 
     - name: Update vendored dependencies
       id: update
-      run: python3 scripts/UpdateProtobufSubtrees.py --github-output "$GITHUB_OUTPUT"
+      run: |
+        git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        python3 scripts/UpdateProtobufSubtrees.py --github-output "$GITHUB_OUTPUT"
 
     - name: Update Reference Protos
       if: steps.update.outputs.updated == 'true'
