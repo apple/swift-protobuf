@@ -2381,6 +2381,7 @@ public struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
     case unknown = 0
     case style2024 = 1
     case styleLegacy = 2
+    case style2026 = 3
 
     public init() {
       self = .unknown
@@ -4916,7 +4917,7 @@ extension Google_Protobuf_FeatureSet.JsonFormat: _ProtoNameProviding {
 }
 
 extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
-  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0")
+  public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0\u{1}STYLE2026\0")
 }
 
 extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase, _ProtoNameProviding {
