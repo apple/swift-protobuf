@@ -1193,11 +1193,21 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
     /// Clears the value of `i`. Subsequent reads from it will return its default value.
     mutating func clearI() {self._i = nil}
 
+    var subMsg: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
+      get {_subMsg ?? ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect()}
+      set {_subMsg = newValue}
+    }
+    /// Returns true if `subMsg` has been explicitly set.
+    var hasSubMsg: Bool {self._subMsg != nil}
+    /// Clears the value of `subMsg`. Subsequent reads from it will return its default value.
+    mutating func clearSubMsg() {self._subMsg = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
     fileprivate var _i: Int32? = nil
+    fileprivate var _subMsg: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect? = nil
   }
 
   struct ExtensionWithOneof: Sendable {
@@ -3649,7 +3659,12 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
 
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Proto2_TestAllTypesProto2.protoMessageName + ".MessageSetCorrectExtension2"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{9}i\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{9}i\0\u{3}sub_msg\0")
+
+  public var isInitialized: Bool {
+    if let v = self._subMsg, !v.isInitialized {return false}
+    return true
+  }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3658,6 +3673,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 9: try { try decoder.decodeSingularInt32Field(value: &self._i) }()
+      case 10: try { try decoder.decodeSingularMessageField(value: &self._subMsg) }()
       default: break
       }
     }
@@ -3671,11 +3687,15 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
     try { if let v = self._i {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
     } }()
+    try { if let v = self._subMsg {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2, rhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2) -> Bool {
     if lhs._i != rhs._i {return false}
+    if lhs._subMsg != rhs._subMsg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
