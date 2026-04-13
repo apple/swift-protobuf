@@ -27,6 +27,40 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+enum Pb_CustomOptionLifetimesEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case testCustomOption // = 0
+  case customOption1 // = 1
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .testCustomOption
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .testCustomOption
+    case 1: self = .customOption1
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .testCustomOption: return 0
+    case .customOption1: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Pb_CustomOptionLifetimesEnum] = [
+    .testCustomOption,
+    .customOption1,
+  ]
+
+}
+
 enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testEnumFeatureUnknown // = 0
@@ -215,6 +249,29 @@ enum Pb_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
     .valueLifetimeRemoved,
   ]
 
+}
+
+struct Pb_CustomOptionLifetimesMessage: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var customEnum: Pb_CustomOptionLifetimesEnum {
+    get {_customEnum ?? .testCustomOption}
+    set {_customEnum = newValue}
+  }
+  /// Returns true if `customEnum` has been explicitly set.
+  var hasCustomEnum: Bool {self._customEnum != nil}
+  /// Clears the value of `customEnum`. Subsequent reads from it will return its default value.
+  mutating func clearCustomEnum() {self._customEnum = nil}
+
+  var repeatedCustomEnum: [Pb_CustomOptionLifetimesEnum] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _customEnum: Pb_CustomOptionLifetimesEnum? = nil
 }
 
 struct Pb_TestMessage: Sendable {
@@ -410,6 +467,15 @@ struct Pb_TestFeatures: @unchecked Sendable {
   /// Clears the value of `removedFeature`. Subsequent reads from it will return its default value.
   mutating func clearRemovedFeature() {_uniqueStorage()._removedFeature = nil}
 
+  var sameEditionRemovedFeature: Pb_EnumFeature {
+    get {_storage._sameEditionRemovedFeature ?? .testEnumFeatureUnknown}
+    set {_uniqueStorage()._sameEditionRemovedFeature = newValue}
+  }
+  /// Returns true if `sameEditionRemovedFeature` has been explicitly set.
+  var hasSameEditionRemovedFeature: Bool {_storage._sameEditionRemovedFeature != nil}
+  /// Clears the value of `sameEditionRemovedFeature`. Subsequent reads from it will return its default value.
+  mutating func clearSameEditionRemovedFeature() {_uniqueStorage()._sameEditionRemovedFeature = nil}
+
   var futureFeature: Pb_EnumFeature {
     get {_storage._futureFeature ?? .testEnumFeatureUnknown}
     set {_uniqueStorage()._futureFeature = newValue}
@@ -526,6 +592,24 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   mutating func clearPb_TestMessage_Nested_testNested() {
     clearExtensionValue(ext: Pb_TestMessage.Nested.Extensions.test_nested)
   }
+}
+
+extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+
+  var Pb_customOptionLifetimesMessage: Pb_CustomOptionLifetimesMessage {
+    get {return getExtensionValue(ext: Pb_Extensions_custom_option_lifetimes_message) ?? Pb_CustomOptionLifetimesMessage()}
+    set {setExtensionValue(ext: Pb_Extensions_custom_option_lifetimes_message, value: newValue)}
+  }
+  /// Returns true if extension `Pb_Extensions_custom_option_lifetimes_message`
+  /// has been explicitly set.
+  var hasPb_customOptionLifetimesMessage: Bool {
+    return hasExtensionValue(ext: Pb_Extensions_custom_option_lifetimes_message)
+  }
+  /// Clears the value of extension `Pb_Extensions_custom_option_lifetimes_message`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearPb_customOptionLifetimesMessage() {
+    clearExtensionValue(ext: Pb_Extensions_custom_option_lifetimes_message)
+  }
 
 }
 
@@ -536,6 +620,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let Pb_UnittestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  Pb_Extensions_custom_option_lifetimes_message,
   Pb_Extensions_test,
   Pb_TestMessage.Extensions.test_message,
   Pb_TestMessage.Nested.Extensions.test_nested
@@ -544,6 +629,11 @@ let Pb_UnittestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
+
+let Pb_Extensions_custom_option_lifetimes_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CustomOptionLifetimesMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+  _protobuf_fieldNumber: 7737012,
+  fieldName: "pb.custom_option_lifetimes_message"
+)
 
 let Pb_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   _protobuf_fieldNumber: 9999,
@@ -572,6 +662,10 @@ extension Pb_TestMessage.Nested {
 
 fileprivate let _protobuf_package = "pb"
 
+extension Pb_CustomOptionLifetimesEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_CUSTOM_OPTION\0\u{1}CUSTOM_OPTION1\0")
+}
+
 extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_FEATURE_UNKNOWN\0\u{1}VALUE1\0\u{1}VALUE2\0\u{1}VALUE3\0\u{1}VALUE4\0\u{1}VALUE5\0\u{1}VALUE6\0\u{1}VALUE7\0\u{1}VALUE8\0\u{1}VALUE9\0\u{1}VALUE10\0\u{1}VALUE11\0\u{1}VALUE12\0\u{1}VALUE13\0\u{1}VALUE14\0\u{1}VALUE15\0")
 }
@@ -582,6 +676,45 @@ extension Pb_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
 
 extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_VALUE_LIFETIME_UNKNOWN\0\u{1}VALUE_LIFETIME_INHERITED\0\u{1}VALUE_LIFETIME_SUPPORT\0\u{1}VALUE_LIFETIME_EMPTY_SUPPORT\0\u{1}VALUE_LIFETIME_FUTURE\0\u{1}VALUE_LIFETIME_DEPRECATED\0\u{1}VALUE_LIFETIME_REMOVED\0")
+}
+
+extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".CustomOptionLifetimesMessage"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}custom_enum\0\u{3}repeated_custom_enum\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._customEnum) }()
+      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedCustomEnum) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._customEnum {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    if !self.repeatedCustomEnum.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedCustomEnum, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Pb_CustomOptionLifetimesMessage, rhs: Pb_CustomOptionLifetimesMessage) -> Bool {
+    if lhs._customEnum != rhs._customEnum {return false}
+    if lhs.repeatedCustomEnum != rhs.repeatedCustomEnum {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -692,7 +825,7 @@ extension Pb_TestNestedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{4}\u{2}new_unstable_feature\0\u{3}unstable_existing_feature\0\u{3}removed_unstable_feature\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{3}same_edition_removed_feature\0\u{3}new_unstable_feature\0\u{3}unstable_existing_feature\0\u{3}removed_unstable_feature\0")
 
   fileprivate class _StorageClass {
     var _fileFeature: Pb_EnumFeature? = nil
@@ -709,6 +842,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     var _sourceFeature: Pb_EnumFeature? = nil
     var _sourceFeature2: Pb_EnumFeature? = nil
     var _removedFeature: Pb_EnumFeature? = nil
+    var _sameEditionRemovedFeature: Pb_EnumFeature? = nil
     var _futureFeature: Pb_EnumFeature? = nil
     var _legacyFeature: Pb_EnumFeature? = nil
     var _valueLifetimeFeature: Pb_ValueLifetimeFeature? = nil
@@ -739,6 +873,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       _sourceFeature = source._sourceFeature
       _sourceFeature2 = source._sourceFeature2
       _removedFeature = source._removedFeature
+      _sameEditionRemovedFeature = source._sameEditionRemovedFeature
       _futureFeature = source._futureFeature
       _legacyFeature = source._legacyFeature
       _valueLifetimeFeature = source._valueLifetimeFeature
@@ -780,6 +915,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         case 18: try { try decoder.decodeSingularEnumField(value: &_storage._futureFeature) }()
         case 19: try { try decoder.decodeSingularEnumField(value: &_storage._legacyFeature) }()
         case 20: try { try decoder.decodeSingularEnumField(value: &_storage._valueLifetimeFeature) }()
+        case 21: try { try decoder.decodeSingularEnumField(value: &_storage._sameEditionRemovedFeature) }()
         case 22: try { try decoder.decodeSingularEnumField(value: &_storage._newUnstableFeature) }()
         case 23: try { try decoder.decodeSingularEnumField(value: &_storage._unstableExistingFeature) }()
         case 24: try { try decoder.decodeSingularEnumField(value: &_storage._removedUnstableFeature) }()
@@ -846,6 +982,9 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       try { if let v = _storage._valueLifetimeFeature {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 20)
       } }()
+      try { if let v = _storage._sameEditionRemovedFeature {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
+      } }()
       try { if let v = _storage._newUnstableFeature {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 22)
       } }()
@@ -878,6 +1017,7 @@ extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         if _storage._sourceFeature != rhs_storage._sourceFeature {return false}
         if _storage._sourceFeature2 != rhs_storage._sourceFeature2 {return false}
         if _storage._removedFeature != rhs_storage._removedFeature {return false}
+        if _storage._sameEditionRemovedFeature != rhs_storage._sameEditionRemovedFeature {return false}
         if _storage._futureFeature != rhs_storage._futureFeature {return false}
         if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
         if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}

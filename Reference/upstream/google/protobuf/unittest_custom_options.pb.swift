@@ -48,6 +48,19 @@ enum Proto2Unittest_MethodOpt1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+enum Proto2Unittest_CustomOptionLifetimesEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case customOptionEnumDefault = 0
+  case customOptionEnumRemovedEdition2023 = 1
+  case customOptionEnumRemovedProto3 = 2
+  case customOptionEnumValue3 = 3
+  case customOptionEnumValue4 = 4
+
+  init() {
+    self = .customOptionEnumDefault
+  }
+
+}
+
 enum Proto2Unittest_AggregateEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case value = 1
 
@@ -55,6 +68,71 @@ enum Proto2Unittest_AggregateEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     self = .value
   }
 
+}
+
+struct Proto2Unittest_CustomOptionLifetimesMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var removedOption: String {
+    get {_removedOption ?? String()}
+    set {_removedOption = newValue}
+  }
+  /// Returns true if `removedOption` has been explicitly set.
+  var hasRemovedOption: Bool {self._removedOption != nil}
+  /// Clears the value of `removedOption`. Subsequent reads from it will return its default value.
+  mutating func clearRemovedOption() {self._removedOption = nil}
+
+  var deprecatedOption: String {
+    get {_deprecatedOption ?? String()}
+    set {_deprecatedOption = newValue}
+  }
+  /// Returns true if `deprecatedOption` has been explicitly set.
+  var hasDeprecatedOption: Bool {self._deprecatedOption != nil}
+  /// Clears the value of `deprecatedOption`. Subsequent reads from it will return its default value.
+  mutating func clearDeprecatedOption() {self._deprecatedOption = nil}
+
+  var repeatedCustomOptionLifetimesEnum: [Proto2Unittest_CustomOptionLifetimesEnum] = []
+
+  var nestedCustomOptionLifetimesMessage: Proto2Unittest_NestedCustomOptionLifetimesMessage {
+    get {_nestedCustomOptionLifetimesMessage ?? Proto2Unittest_NestedCustomOptionLifetimesMessage()}
+    set {_nestedCustomOptionLifetimesMessage = newValue}
+  }
+  /// Returns true if `nestedCustomOptionLifetimesMessage` has been explicitly set.
+  var hasNestedCustomOptionLifetimesMessage: Bool {self._nestedCustomOptionLifetimesMessage != nil}
+  /// Clears the value of `nestedCustomOptionLifetimesMessage`. Subsequent reads from it will return its default value.
+  mutating func clearNestedCustomOptionLifetimesMessage() {self._nestedCustomOptionLifetimesMessage = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _removedOption: String? = nil
+  fileprivate var _deprecatedOption: String? = nil
+  fileprivate var _nestedCustomOptionLifetimesMessage: Proto2Unittest_NestedCustomOptionLifetimesMessage? = nil
+}
+
+struct Proto2Unittest_NestedCustomOptionLifetimesMessage: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var deprecatedOption: String {
+    get {_deprecatedOption ?? String()}
+    set {_deprecatedOption = newValue}
+  }
+  /// Returns true if `deprecatedOption` has been explicitly set.
+  var hasDeprecatedOption: Bool {self._deprecatedOption != nil}
+  /// Clears the value of `deprecatedOption`. Subsequent reads from it will return its default value.
+  mutating func clearDeprecatedOption() {self._deprecatedOption = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _deprecatedOption: String? = nil
 }
 
 /// A test message with custom options at all possible locations (and also some
@@ -796,6 +874,24 @@ extension Proto2Unittest_ComplexOptionType2 {
   }
 }
 
+extension Proto2Unittest_CustomOptionLifetimesMessage {
+
+  var Proto2Unittest_customNestedOption: String {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_custom_nested_option) ?? String()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_custom_nested_option, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_Extensions_custom_nested_option`
+  /// has been explicitly set.
+  var hasProto2Unittest_customNestedOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_custom_nested_option)
+  }
+  /// Clears the value of extension `Proto2Unittest_Extensions_custom_nested_option`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_customNestedOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_custom_nested_option)
+  }
+}
+
 extension SwiftProtobuf.Google_Protobuf_EnumOptions {
 
   var Proto2Unittest_enumOpt1: Int32 {
@@ -990,6 +1086,71 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   /// Subsequent reads from it will return its default value.
   mutating func clearProto2Unittest_messageOpt1() {
     clearExtensionValue(ext: Proto2Unittest_Extensions_message_opt1)
+  }
+
+  var Proto2Unittest_removedOption: Bool {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_removed_option) ?? false}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_removed_option, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_Extensions_removed_option`
+  /// has been explicitly set.
+  var hasProto2Unittest_removedOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_removed_option)
+  }
+  /// Clears the value of extension `Proto2Unittest_Extensions_removed_option`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_removedOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_removed_option)
+  }
+
+  var Proto2Unittest_deprecatedOption: Bool {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_deprecated_option) ?? false}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_deprecated_option, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_Extensions_deprecated_option`
+  /// has been explicitly set.
+  var hasProto2Unittest_deprecatedOption: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_deprecated_option)
+  }
+  /// Clears the value of extension `Proto2Unittest_Extensions_deprecated_option`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_deprecatedOption() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_deprecated_option)
+  }
+
+  var Proto2Unittest_customOptionLifetimesMessage: Proto2Unittest_CustomOptionLifetimesMessage {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_message) ?? Proto2Unittest_CustomOptionLifetimesMessage()}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_message, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_Extensions_custom_option_lifetimes_message`
+  /// has been explicitly set.
+  var hasProto2Unittest_customOptionLifetimesMessage: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_message)
+  }
+  /// Clears the value of extension `Proto2Unittest_Extensions_custom_option_lifetimes_message`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_customOptionLifetimesMessage() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_message)
+  }
+
+  var Proto2Unittest_customOptionLifetimesEnum: Proto2Unittest_CustomOptionLifetimesEnum {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_enum) ?? .customOptionEnumDefault}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_enum, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_Extensions_custom_option_lifetimes_enum`
+  /// has been explicitly set.
+  var hasProto2Unittest_customOptionLifetimesEnum: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_enum)
+  }
+  /// Clears the value of extension `Proto2Unittest_Extensions_custom_option_lifetimes_enum`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_customOptionLifetimesEnum() {
+    clearExtensionValue(ext: Proto2Unittest_Extensions_custom_option_lifetimes_enum)
+  }
+
+  var Proto2Unittest_repeatedCustomOptionLifetimesMessage: [Proto2Unittest_CustomOptionLifetimesMessage] {
+    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_custom_option_lifetimes_message) ?? []}
+    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_custom_option_lifetimes_message, value: newValue)}
   }
 
   var Proto2Unittest_boolOpt: Bool {
@@ -1454,6 +1615,12 @@ let Proto2Unittest_UnittestCustomOptions_Extensions: SwiftProtobuf.SimpleExtensi
   Proto2Unittest_Extensions_enum_value_opt1,
   Proto2Unittest_Extensions_service_opt1,
   Proto2Unittest_Extensions_method_opt1,
+  Proto2Unittest_Extensions_removed_option,
+  Proto2Unittest_Extensions_deprecated_option,
+  Proto2Unittest_Extensions_custom_option_lifetimes_message,
+  Proto2Unittest_Extensions_custom_option_lifetimes_enum,
+  Proto2Unittest_Extensions_repeated_custom_option_lifetimes_message,
+  Proto2Unittest_Extensions_custom_nested_option,
   Proto2Unittest_Extensions_bool_opt,
   Proto2Unittest_Extensions_int32_opt,
   Proto2Unittest_Extensions_int64_opt,
@@ -1542,6 +1709,36 @@ let Proto2Unittest_Extensions_service_opt1 = SwiftProtobuf.MessageExtension<Swif
 let Proto2Unittest_Extensions_method_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_MethodOpt1>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 7890860,
   fieldName: "proto2_unittest.method_opt1"
+)
+
+let Proto2Unittest_Extensions_removed_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+  _protobuf_fieldNumber: 7733026,
+  fieldName: "proto2_unittest.removed_option"
+)
+
+let Proto2Unittest_Extensions_deprecated_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+  _protobuf_fieldNumber: 7737036,
+  fieldName: "proto2_unittest.deprecated_option"
+)
+
+let Proto2Unittest_Extensions_custom_option_lifetimes_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_CustomOptionLifetimesMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+  _protobuf_fieldNumber: 7737026,
+  fieldName: "proto2_unittest.custom_option_lifetimes_message"
+)
+
+let Proto2Unittest_Extensions_custom_option_lifetimes_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_CustomOptionLifetimesEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+  _protobuf_fieldNumber: 7737022,
+  fieldName: "proto2_unittest.custom_option_lifetimes_enum"
+)
+
+let Proto2Unittest_Extensions_repeated_custom_option_lifetimes_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_CustomOptionLifetimesMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+  _protobuf_fieldNumber: 7737021,
+  fieldName: "proto2_unittest.repeated_custom_option_lifetimes_message"
+)
+
+let Proto2Unittest_Extensions_custom_nested_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_CustomOptionLifetimesMessage>(
+  _protobuf_fieldNumber: 101,
+  fieldName: "proto2_unittest.custom_nested_option"
 )
 
 let Proto2Unittest_Extensions_bool_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
@@ -1753,8 +1950,104 @@ extension Proto2Unittest_MethodOpt1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}METHODOPT1_VAL1\0\u{1}METHODOPT1_VAL2\0")
 }
 
+extension Proto2Unittest_CustomOptionLifetimesEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0CUSTOM_OPTION_ENUM_DEFAULT\0\u{1}CUSTOM_OPTION_ENUM_REMOVED_EDITION2023\0\u{1}CUSTOM_OPTION_ENUM_REMOVED_PROTO3\0\u{1}CUSTOM_OPTION_ENUM_VALUE3\0\u{1}CUSTOM_OPTION_ENUM_VALUE4\0")
+}
+
 extension Proto2Unittest_AggregateEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}VALUE\0")
+}
+
+extension Proto2Unittest_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".CustomOptionLifetimesMessage"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}removed_option\0\u{3}deprecated_option\0\u{4}\u{2}repeated_custom_option_lifetimes_enum\0\u{3}nested_custom_option_lifetimes_message\0")
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._removedOption) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._deprecatedOption) }()
+      case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedCustomOptionLifetimesEnum) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._nestedCustomOptionLifetimesMessage) }()
+      case 100..<201:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_CustomOptionLifetimesMessage.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._removedOption {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._deprecatedOption {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    if !self.repeatedCustomOptionLifetimesEnum.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.repeatedCustomOptionLifetimesEnum, fieldNumber: 4)
+    }
+    try { if let v = self._nestedCustomOptionLifetimesMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 201)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_CustomOptionLifetimesMessage, rhs: Proto2Unittest_CustomOptionLifetimesMessage) -> Bool {
+    if lhs._removedOption != rhs._removedOption {return false}
+    if lhs._deprecatedOption != rhs._deprecatedOption {return false}
+    if lhs.repeatedCustomOptionLifetimesEnum != rhs.repeatedCustomOptionLifetimesEnum {return false}
+    if lhs._nestedCustomOptionLifetimesMessage != rhs._nestedCustomOptionLifetimesMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_NestedCustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NestedCustomOptionLifetimesMessage"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}deprecated_option\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._deprecatedOption) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._deprecatedOption {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_NestedCustomOptionLifetimesMessage, rhs: Proto2Unittest_NestedCustomOptionLifetimesMessage) -> Bool {
+    if lhs._deprecatedOption != rhs._deprecatedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension Proto2Unittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

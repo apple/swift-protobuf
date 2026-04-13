@@ -256,6 +256,10 @@ enum Proto2Unittest_VeryLargeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
+/// Warning: Many tests make assume about the number of fields in TestAllTypes,
+///          including assumptions about wire compatibility of overlay messages.
+///          Take care when adding or modifying fields in this message to check
+///          TGP results and fix any issues.
 struct Proto2Unittest_TestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2838,7 +2842,31 @@ struct Proto2Unittest_TestLazyMessage: Sendable {
   /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
   mutating func clearSubMessage() {self._subMessage = nil}
 
+  var one: Proto2Unittest_TestLazyMessage.OneOf_One? = nil
+
+  var oneof1: Proto2Unittest_TestAllTypes {
+    get {
+      if case .oneof1(let v)? = one {return v}
+      return Proto2Unittest_TestAllTypes()
+    }
+    set {one = .oneof1(newValue)}
+  }
+
+  var oneof2: Proto2Unittest_TestAllTypes {
+    get {
+      if case .oneof2(let v)? = one {return v}
+      return Proto2Unittest_TestAllTypes()
+    }
+    set {one = .oneof2(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_One: Equatable, Sendable {
+    case oneof1(Proto2Unittest_TestAllTypes)
+    case oneof2(Proto2Unittest_TestAllTypes)
+
+  }
 
   init() {}
 
@@ -5536,6 +5564,11 @@ struct Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, @un
   var hasOptionalStringPiece: Bool {_storage._optionalStringPiece != nil}
   /// Clears the value of `optionalStringPiece`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStringPiece() {_uniqueStorage()._optionalStringPiece = nil}
+
+  var repeatedUtf8String: [String] {
+    get {_storage._repeatedUtf8String}
+    set {_uniqueStorage()._repeatedUtf8String = newValue}
+  }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8322,6 +8355,18 @@ struct Proto2Unittest_TestMessageForMove_Large: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct Proto2Unittest_TestAllTypesAsExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 // MARK: - Extension support defined in unittest.proto.
 
 // MARK: - Extension Properties
@@ -8894,6 +8939,8 @@ extension Proto2Unittest_TestAllExtensions {
     clearExtensionValue(ext: Proto2Unittest_Extensions_optional_lazy_message_extension)
   }
 
+  /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
+  /// An extension can't be labeled as "unverified_lazy".
   var Proto2Unittest_optionalUnverifiedLazyMessageExtension: Proto2Unittest_TestAllTypes.NestedMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension) ?? Proto2Unittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension, value: newValue)}
@@ -9401,26 +9448,6 @@ extension Proto2Unittest_TestAllExtensions {
     clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_bytes_extension)
   }
 
-  var Proto2Unittest_optionalUtf8StringExtension: String {
-    get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_utf8_string_extension) ?? String()}
-    set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_utf8_string_extension, value: newValue)}
-  }
-  /// Returns true if extension `Proto2Unittest_Extensions_optional_utf8_string_extension`
-  /// has been explicitly set.
-  var hasProto2Unittest_optionalUtf8StringExtension: Bool {
-    return hasExtensionValue(ext: Proto2Unittest_Extensions_optional_utf8_string_extension)
-  }
-  /// Clears the value of extension `Proto2Unittest_Extensions_optional_utf8_string_extension`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalUtf8StringExtension() {
-    clearExtensionValue(ext: Proto2Unittest_Extensions_optional_utf8_string_extension)
-  }
-
-  var Proto2Unittest_repeatedUtf8StringExtension: [String] {
-    get {return getExtensionValue(ext: Proto2Unittest_Extensions_repeated_utf8_string_extension) ?? []}
-    set {setExtensionValue(ext: Proto2Unittest_Extensions_repeated_utf8_string_extension, value: newValue)}
-  }
-
   /// Singular message containing required fields; used to test initialization.
   var Proto2Unittest_requiredMessageExtension: Proto2Unittest_TestRequired {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension) ?? Proto2Unittest_TestRequired()}
@@ -9489,6 +9516,24 @@ extension Proto2Unittest_TestAllExtensions {
   var Proto2Unittest_TestRequired_multi: [Proto2Unittest_TestRequired] {
     get {return getExtensionValue(ext: Proto2Unittest_TestRequired.Extensions.multi) ?? []}
     set {setExtensionValue(ext: Proto2Unittest_TestRequired.Extensions.multi, value: newValue)}
+  }
+}
+
+extension Proto2Unittest_TestAllTypesAsExtension {
+
+  var Proto2Unittest_TestAllTypesAsExtension_ext: Proto2Unittest_TestAllTypes {
+    get {return getExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext) ?? Proto2Unittest_TestAllTypes()}
+    set {setExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext, value: newValue)}
+  }
+  /// Returns true if extension `Proto2Unittest_TestAllTypesAsExtension.Extensions.ext`
+  /// has been explicitly set.
+  var hasProto2Unittest_TestAllTypesAsExtension_ext: Bool {
+    return hasExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext)
+  }
+  /// Clears the value of extension `Proto2Unittest_TestAllTypesAsExtension.Extensions.ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProto2Unittest_TestAllTypesAsExtension_ext() {
+    clearExtensionValue(ext: Proto2Unittest_TestAllTypesAsExtension.Extensions.ext)
   }
 }
 
@@ -10012,8 +10057,6 @@ let Proto2Unittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_oneof_nested_message_extension,
   Proto2Unittest_Extensions_oneof_string_extension,
   Proto2Unittest_Extensions_oneof_bytes_extension,
-  Proto2Unittest_Extensions_optional_utf8_string_extension,
-  Proto2Unittest_Extensions_repeated_utf8_string_extension,
   Proto2Unittest_Extensions_required_message_extension,
   Proto2Unittest_Extensions_my_extension_string,
   Proto2Unittest_Extensions_my_extension_int,
@@ -10080,7 +10123,8 @@ let Proto2Unittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Int64ParseTester.Extensions.repeated_int64_ext,
   Proto2Unittest_Int64ParseTester.Extensions.packed_int64_ext,
   Proto2Unittest_StringParseTester.Extensions.optional_string_ext,
-  Proto2Unittest_StringParseTester.Extensions.repeated_string_ext
+  Proto2Unittest_StringParseTester.Extensions.repeated_string_ext,
+  Proto2Unittest_TestAllTypesAsExtension.Extensions.ext
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -10225,6 +10269,8 @@ let Proto2Unittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.Me
   fieldName: "proto2_unittest.optional_lazy_message_extension"
 )
 
+/// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
+/// An extension can't be labeled as "unverified_lazy".
 let Proto2Unittest_Extensions_optional_unverified_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypes.NestedMessage>, Proto2Unittest_TestAllExtensions>(
   _protobuf_fieldNumber: 28,
   fieldName: "proto2_unittest.optional_unverified_lazy_message_extension"
@@ -10480,16 +10526,6 @@ let Proto2Unittest_Extensions_oneof_string_extension = SwiftProtobuf.MessageExte
 let Proto2Unittest_Extensions_oneof_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensions>(
   _protobuf_fieldNumber: 114,
   fieldName: "proto2_unittest.oneof_bytes_extension"
-)
-
-let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensions>(
-  _protobuf_fieldNumber: 115,
-  fieldName: "proto2_unittest.optional_utf8_string_extension"
-)
-
-let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestAllExtensions>(
-  _protobuf_fieldNumber: 116,
-  fieldName: "proto2_unittest.repeated_utf8_string_extension"
 )
 
 /// Singular message containing required fields; used to test initialization.
@@ -10884,6 +10920,15 @@ extension Proto2Unittest_StringParseTester {
   }
 }
 
+extension Proto2Unittest_TestAllTypesAsExtension {
+  enum Extensions {
+    static let ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypes>, Proto2Unittest_TestAllTypesAsExtension>(
+      _protobuf_fieldNumber: 10,
+      fieldName: "proto2_unittest.TestAllTypesAsExtension.ext"
+    )
+  }
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto2_unittest"
@@ -10914,7 +10959,7 @@ extension Proto2Unittest_VeryLargeEnum: SwiftProtobuf._ProtoNameProviding {
 
 extension Proto2Unittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{7}OptionalGroup\0\u{4}\u{2}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_import_enum\0\u{3}optional_string_piece\0\u{3}optional_cord\0\u{3}optional_public_import_message\0\u{3}optional_lazy_message\0\u{3}optional_unverified_lazy_message\0\u{4}\u{3}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{3}repeated_import_enum\0\u{3}repeated_string_piece\0\u{3}repeated_cord\0\u{4}\u{2}repeated_lazy_message\0\u{4}\u{4}default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{3}default_string_piece\0\u{3}default_cord\0\u{3}optional_bytes_cord\0\u{4}\u{19}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_cord\0\u{3}oneof_string_piece\0\u{3}oneof_lazy_nested_message\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{7}OptionalGroup\0\u{4}\u{2}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_import_enum\0\u{3}optional_string_piece\0\u{3}optional_cord\0\u{3}optional_public_import_message\0\u{3}optional_lazy_message\0\u{3}optional_unverified_lazy_message\0\u{4}\u{3}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{3}repeated_import_enum\0\u{3}repeated_string_piece\0\u{3}repeated_cord\0\u{4}\u{2}repeated_lazy_message\0\u{4}\u{4}default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{3}default_string_piece\0\u{3}default_cord\0\u{3}optional_bytes_cord\0\u{4}\u{19}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_cord\0\u{3}oneof_string_piece\0\u{3}oneof_lazy_nested_message\0\u{c}i\u{f}\u{1}\u{c}j\u{f}\u{1}\u{c}k\u{f}\u{1}")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -14356,7 +14401,7 @@ extension Proto2Unittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf.
 
 extension Proto2Unittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestLazyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub_message\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub_message\0\u{2}\u{9}oneof1\0\u{2}\u{a}oneof2\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -14365,6 +14410,32 @@ extension Proto2Unittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._subMessage) }()
+      case 10: try {
+        var v: Proto2Unittest_TestAllTypes?
+        var hadOneofValue = false
+        if let current = self.one {
+          hadOneofValue = true
+          if case .oneof1(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.one = .oneof1(v)
+        }
+      }()
+      case 20: try {
+        var v: Proto2Unittest_TestAllTypes?
+        var hadOneofValue = false
+        if let current = self.one {
+          hadOneofValue = true
+          if case .oneof2(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.one = .oneof2(v)
+        }
+      }()
       default: break
       }
     }
@@ -14378,11 +14449,23 @@ extension Proto2Unittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._
     try { if let v = self._subMessage {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    switch self.one {
+    case .oneof1?: try {
+      guard case .oneof1(let v)? = self.one else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+    }()
+    case .oneof2?: try {
+      guard case .oneof2(let v)? = self.one else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
+    }()
+    case nil: break
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Proto2Unittest_TestLazyMessage, rhs: Proto2Unittest_TestLazyMessage) -> Bool {
     if lhs._subMessage != rhs._subMessage {return false}
+    if lhs.one != rhs.one {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -17761,7 +17844,7 @@ extension Proto2Unittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbers"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}pq\u{7f}\u{7f}\u{1f}optional_int32\0\u{3}fixed_32\0\u{3}repeated_int32\0\u{3}packed_int32\0\u{3}optional_enum\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_message\0\u{7}OptionalGroup\0\u{4}\u{2}string_string_map\0\u{3}oneof_uint32\0\u{3}oneof_test_all_types\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}optional_bool\0\u{3}optional_int64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_utf8_string\0\u{3}optional_cord\0\u{3}optional_string_piece\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}pq\u{7f}\u{7f}\u{1f}optional_int32\0\u{3}fixed_32\0\u{3}repeated_int32\0\u{3}packed_int32\0\u{3}optional_enum\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_message\0\u{7}OptionalGroup\0\u{4}\u{2}string_string_map\0\u{3}oneof_uint32\0\u{3}oneof_test_all_types\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}optional_bool\0\u{3}optional_int64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_utf8_string\0\u{3}optional_cord\0\u{3}optional_string_piece\0\u{3}repeated_utf8_string\0")
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32? = nil
@@ -17782,6 +17865,7 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
     var _optionalUtf8String: String? = nil
     var _optionalCord: String? = nil
     var _optionalStringPiece: String? = nil
+    var _repeatedUtf8String: [String] = []
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -17810,6 +17894,7 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
       _optionalUtf8String = source._optionalUtf8String
       _optionalCord = source._optionalCord
       _optionalStringPiece = source._optionalStringPiece
+      _repeatedUtf8String = source._repeatedUtf8String
     }
   }
 
@@ -17887,6 +17972,7 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
         case 536870019: try { try decoder.decodeSingularStringField(value: &_storage._optionalUtf8String) }()
         case 536870020: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 536870021: try { try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece) }()
+        case 536870022: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedUtf8String) }()
         case 536860000..<536870000:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestHugeFieldNumbers.self, fieldNumber: fieldNumber) }()
         default: break
@@ -17972,6 +18058,9 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
       try { if let v = _storage._optionalStringPiece {
         try visitor.visitSingularStringField(value: v, fieldNumber: 536870021)
       } }()
+      if !_storage._repeatedUtf8String.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedUtf8String, fieldNumber: 536870022)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -17999,6 +18088,7 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProto
         if _storage._optionalUtf8String != rhs_storage._optionalUtf8String {return false}
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
+        if _storage._repeatedUtf8String != rhs_storage._repeatedUtf8String {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -21232,6 +21322,35 @@ extension Proto2Unittest_TestMessageForMove_Large: SwiftProtobuf.Message, SwiftP
       if !storagesAreEqual {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto2Unittest_TestAllTypesAsExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestAllTypesAsExtension"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (10 <= fieldNumber && fieldNumber < 536870912) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_TestAllTypesAsExtension.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 10, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto2Unittest_TestAllTypesAsExtension, rhs: Proto2Unittest_TestAllTypesAsExtension) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }

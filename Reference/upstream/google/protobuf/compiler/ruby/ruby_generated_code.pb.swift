@@ -74,11 +74,13 @@ enum A_B_C_TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
+/// Leading comment for TestMessage
 struct A_B_C_TestMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// Leading comment for optional_int32
   var optionalInt32: Int32 {
     get {_storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}

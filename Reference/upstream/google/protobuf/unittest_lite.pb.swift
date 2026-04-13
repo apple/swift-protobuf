@@ -2081,6 +2081,8 @@ extension Proto2Unittest_TestAllExtensionsLite {
     clearExtensionValue(ext: Proto2Unittest_Extensions_optional_lazy_message_extension_lite)
   }
 
+  /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
+  /// An extension can't be labeled as "unverified_lazy".
   var Proto2Unittest_optionalUnverifiedLazyMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite) ?? Proto2Unittest_TestAllTypesLite.NestedMessage()}
     set {setExtensionValue(ext: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite, value: newValue)}
@@ -2965,6 +2967,8 @@ let Proto2Unittest_Extensions_optional_lazy_message_extension_lite = SwiftProtob
   fieldName: "proto2_unittest.optional_lazy_message_extension_lite"
 )
 
+/// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
+/// An extension can't be labeled as "unverified_lazy".
 let Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestAllTypesLite.NestedMessage>, Proto2Unittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 28,
   fieldName: "proto2_unittest.optional_unverified_lazy_message_extension_lite"
