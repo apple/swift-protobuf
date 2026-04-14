@@ -41,6 +41,9 @@ class EnumGenerator {
     /// The Swift expression that is equivalent to the default value of the enum (its first case).
     fileprivate var swiftDefaultValue: String
 
+    fileprivate var enumSchemaCalculator: EnumSchemaCalculator
+    fileprivate var compressedReflectionData: String
+
     /// The defined values in the enum, ignoring aliases.
     fileprivate var valuesIgnoringAliases: [EnumValueDescriptor] {
         aliasInfo.mainValues
@@ -74,6 +77,11 @@ class EnumGenerator {
         swiftRelativeName = namer.relativeName(enum: descriptor)
         swiftFullName = namer.fullName(enum: descriptor)
         swiftDefaultValue = namer.dottedRelativeName(enumValue: enumDescriptor.values.first!)
+
+        self.enumSchemaCalculator = EnumSchemaCalculator(fullyQualifiedName: enumDescriptor.fullName)
+        self.compressedReflectionData = ReflectionTableCalculator(
+            enumValues: mainEnumValueDescriptorsSorted, aliasInfo: aliasInfo
+        ).stringLiteral()
     }
 
     /// Prints the main Swift type declaration for the protobuf enum.
@@ -99,7 +107,9 @@ class EnumGenerator {
         p.withIndentation { p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_enumSchemaString: StaticString { "" }"#
+                #"private static var _protobuf_enumSchemaString: StaticString { "\#(enumSchemaCalculator.schemaLiteral)" }"#,
+                "@_alwaysEmitIntoClient @inline(__always)",
+                #"private static var _protobuf_reflectionData: StaticString { "\#(compressedReflectionData)" }"#
             )
             p.print(
                 "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)"

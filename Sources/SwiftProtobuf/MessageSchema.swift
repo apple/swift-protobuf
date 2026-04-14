@@ -215,10 +215,11 @@ public struct MessageSchema: @unchecked Sendable {
         self.performOnMapEntry = performOnMapEntry
         precondition(version == 0, "This runtime only supports version 0 message schemas")
         precondition(
-            self.schema.count == messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
+            self.schema.count >= messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
             """
             The schema size in bytes was not consistent with the number of fields \
-            (got \(self.schema.count), expected \(messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize)); \
+            (got \(self.schema.count), expected at least \
+            \(messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize)); \
             this is a generator bug
             """
         )
@@ -391,6 +392,14 @@ extension MessageSchema {
         UInt32(fixed3ByteBase128(in: schema, atByteOffset: 13))
     }
 
+    /// The fully-qualified name of the message.
+    var messageName: String {
+        let lengthOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
+        let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
+        let nameStart = lengthOffset + 2
+        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+    }
+
     /// Returns a value indicating whether or not the given field is required.
     func isFieldRequired(_ field: FieldSchema) -> Bool {
         let raw = field.rawPresence
@@ -415,8 +424,8 @@ extension MessageSchema {
     struct FieldIterator: IteratorProtocol {
         var current: Slice<UnsafeRawBufferPointer>
 
-        init(schema: UnsafeRawBufferPointer) {
-            self.current = schema.dropFirst(messageSchemaHeaderSize)
+        init(fields: Slice<UnsafeRawBufferPointer>) {
+            self.current = fields
         }
 
         mutating func next() -> FieldSchema? {
@@ -428,7 +437,12 @@ extension MessageSchema {
 
     /// Returns a sequence that represents the schemas of the fields in the message, in field number
     /// order.
-    var fields: some Sequence<FieldSchema> { IteratorSequence(FieldIterator(schema: self.schema)) }
+    var fields: some Sequence<FieldSchema> {
+        // For ease of iteration, we strip off the message schema header at the beginning and the
+        // message name at the end, leaving only the slice containing the fixed-size field schemas.
+        let endOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
+        return IteratorSequence(FieldIterator(fields: self.schema[messageSchemaHeaderSize..<endOffset]))
+    }
 
     /// Returns the schema for the field with the given number in the message, or nil if the field
     /// is not defined.
@@ -703,7 +717,7 @@ package struct FieldMode: RawRepresentable, Equatable, Hashable, Sendable {
 /// Returns the up-to-14-bit unsigned integer that has been base-128 encoded at the given byte
 /// offset in the buffer.
 @_alwaysEmitIntoClient @inline(__always)
-private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
+func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let rawBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
     return Int((rawBits & 0x007f) | ((rawBits & 0x7f00) >> 1))
 }
@@ -711,7 +725,7 @@ private func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset b
 /// Returns the up-to-21-bit unsigned integer that has been base-128 encoded at the given byte
 /// offset in the buffer.
 @_alwaysEmitIntoClient @inline(__always)
-private func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
+func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let lowBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
     let highBits = buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt8.self)
     return Int((lowBits & 0x00007f) | ((lowBits & 0x007f00) >> 1)) | Int((highBits << 16))
