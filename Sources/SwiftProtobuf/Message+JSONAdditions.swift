@@ -26,14 +26,6 @@ extension Message {
     ///   - options: The JSONEncodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
     public func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
-        return try _jsonString(options: options)
-    }
-
-    // TODO: Delete this when we have removed the old implementation.
-    public func _jsonString(options: JSONEncodingOptions) throws -> String {
-        if let m = self as? (any _CustomJSONCodable) {
-            return try m.encodedJSONString(options: options)
-        }
         let data: [UInt8] = try jsonUTF8Bytes(options: options)
         return String(decoding: data, as: UTF8.self)
     }
@@ -50,20 +42,7 @@ extension Message {
     public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> Bytes {
-        return try _jsonUTF8Bytes(options: options)
-    }
-
-    // TODO: Delete this when we have removed the old implementation.
-    public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions) throws -> Bytes {
-        if let m = self as? (any _CustomJSONCodable) {
-            let string = try m.encodedJSONString(options: options)
-            return Bytes(string.utf8)
-        }
-        var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
-        visitor.startObject(message: self)
-        try traverse(visitor: &visitor)
-        visitor.endObject()
-        return Bytes(visitor.dataResult)
+        return try storageForRuntime.jsonUTF8Bytes(options: options)
     }
 
     /// Creates a new message by decoding the given string containing a
@@ -131,40 +110,10 @@ extension Message {
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws {
         self.init()
-        try self._merge(jsonUTF8Bytes: jsonUTF8Bytes, options: options, extensions: extensions)
-    }
-
-    // TODO: Delete this when we have removed the old implementation.
-    public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(
-        jsonUTF8Bytes: Bytes,
-        options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?
-    ) throws {
-        try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            // Empty input is valid for binary, but not for JSON.
-            guard body.count > 0 else {
-                throw JSONDecodingError.truncated
-            }
-            var decoder = JSONDecoder(
-                source: body,
-                options: options,
-                messageType: Self.self,
-                extensions: extensions
-            )
-            if decoder.scanner.skipOptionalNull() {
-                if let customCodable = Self.self as? any _CustomJSONCodable.Type,
-                    let message = try customCodable.decodedFromJSONNull()
-                {
-                    self = message as! Self
-                } else {
-                    throw JSONDecodingError.illegalNull
-                }
-            } else {
-                try decoder.decodeFullObject(message: &self)
-            }
-            if !decoder.scanner.complete {
-                throw JSONDecodingError.trailingGarbage
-            }
+        try jsonUTF8Bytes.withUnsafeBytes { buffer in
+            // Since we're inside an initializer, there's no need to ensure that the storage is unique.
+            // If we ever implement a true `merge` for JSON, we would need to do it there.
+            try storageForRuntime.merge(byParsingJSONUTF8Bytes: buffer, extensions: extensions, options: options)
         }
     }
 }

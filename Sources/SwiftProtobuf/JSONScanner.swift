@@ -1312,14 +1312,6 @@ internal struct JSONScanner {
             {
                 fieldName.removeFirst()
                 fieldName.removeLast()
-                if let messageType,
-                    let fieldNumber = extensions?.fieldNumberForProto(
-                        messageType: messageType,
-                        protoFieldName: fieldName
-                    )
-                {
-                    return fieldNumber
-                }
                 if let messageSchema,
                    let extensionSchema = (extensions.map { $0 as! NewExtensionMap })?[fieldName: fieldName, in: messageSchema]
                 {

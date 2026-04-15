@@ -134,20 +134,6 @@ extension Google_Protobuf_Duration {
     }
 }
 
-extension Google_Protobuf_Duration: _CustomJSONCodable {
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        (seconds, nanos) = try parseDuration(text: s)
-    }
-    func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-        if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
-            return "\"\(formatted)\""
-        } else {
-            throw JSONEncodingError.durationRange
-        }
-    }
-}
-
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 

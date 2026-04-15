@@ -14,6 +14,8 @@
 
 import Foundation
 
+// TODO: Migrate these to work with the table-driven approach.
+/*
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
     /// Creates a new array of messages by decoding the given `Data`
@@ -73,3 +75,4 @@ extension Message {
         try jsonUTF8Bytes(from: collection, options: options)
     }
 }
+*/

@@ -14,10 +14,7 @@
 
 import Foundation
 
-/// This type is a high-level wrapper around `TextFormatScanner`. It is the analogue of
-/// `TextFormatDecoder` from the old implementation, but without the `Decoder` infrastructure that
-/// we'll be deleting. Once that refactoring is complete, we should consider whether it makes sense
-/// to merge this with `TextFormatScanner` instead of keeping them separate.
+/// This type is a high-level wrapper around `TextFormatScanner`.
 struct TextFormatReader {
     var scanner: TextFormatScanner
     private var nameMap: _NameMap

@@ -1197,11 +1197,6 @@ internal struct TextFormatScanner {
                 break
             case asciiOpenSquareBracket:  // Start of an extension field
                 let key = try parseExtensionKey()
-                if let messageType = messageType,
-                    let fieldNumber = extensions?.fieldNumberForProto(messageType: messageType, protoFieldName: key)
-                {
-                    return fieldNumber
-                }
                 if let messageSchema,
                    let extensionSchema = (extensions.map { $0 as! NewExtensionMap })?[fieldName: key, in: messageSchema]
                 {

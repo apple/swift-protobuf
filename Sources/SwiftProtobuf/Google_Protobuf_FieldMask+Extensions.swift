@@ -142,33 +142,7 @@ extension Google_Protobuf_FieldMask {
     // names is not entirely deterministic.
 }
 
-extension Google_Protobuf_FieldMask: _CustomJSONCodable {
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        if let names = parseJSONFieldNames(names: s) {
-            paths = names
-        } else {
-            throw JSONDecodingError.malformedFieldMask
-        }
-    }
-
-    func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-        // Note:  Proto requires alphanumeric field names, so there
-        // cannot be a ',' or '"' character to mess up this formatting.
-        var jsonPaths = [String]()
-        for p in paths {
-            if let jsonPath = ProtoToJSON(name: p) {
-                jsonPaths.append(jsonPath)
-            } else {
-                throw JSONEncodingError.fieldMaskConversion
-            }
-        }
-        return "\"" + jsonPaths.joined(separator: ",") + "\""
-    }
-}
-
 extension Google_Protobuf_FieldMask {
-
     /// Initiates a field mask with all fields of the message type.
     ///
     /// - Parameter messageType: Message type to get all paths from.
@@ -217,9 +191,10 @@ extension Google_Protobuf_FieldMask {
         _ path: String,
         of messageType: M.Type
     ) throws {
-        guard M.isPathValid(path) else {
-            throw FieldMaskError.invalidPath
-        }
+        // TODO: Reimplement with reflection.
+        // guard M.isPathValid(path) else {
+        //     throw FieldMaskError.invalidPath
+        // }
         paths.append(path)
     }
 
@@ -327,10 +302,12 @@ extension Google_Protobuf_FieldMask {
     public func isValid<M: Message & _ProtoNameProviding>(
         for messageType: M.Type
     ) -> Bool {
-        var message = M()
-        return paths.allSatisfy { path in
-            message.isPathValid(path)
-        }
+        // TODO: Reimplement with reflection.
+        return false
+        // var message = M()
+        // return paths.allSatisfy { path in
+        //     message.isPathValid(path)
+        // }
     }
 }
 

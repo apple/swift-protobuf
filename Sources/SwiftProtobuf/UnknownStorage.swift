@@ -41,10 +41,4 @@ public struct UnknownStorage: Equatable, Sendable {
             data.append(pointer, count: buffer.count)
         }
     }
-
-    public func traverse<V: Visitor>(visitor: inout V) throws {
-        if !data.isEmpty {
-            try visitor.visitUnknown(bytes: data)
-        }
-    }
 }

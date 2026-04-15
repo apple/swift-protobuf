@@ -1169,19 +1169,12 @@ struct ConflictingImportMessage:
 
     init() {}
 
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let _ = try decoder.nextFieldNumber() {
-        }
-    }
-
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try unknownFields.traverse(visitor: &visitor)
-    }
-
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = SwiftProtobuf._NameMap()
 
     static func == (lhs: ConflictingImportMessage, rhs: ConflictingImportMessage) -> Bool {
         if lhs.unknownFields != rhs.unknownFields { return false }
         return true
     }
+
+    func hash(into hasher: inout Hasher) {}
 }

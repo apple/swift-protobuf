@@ -101,36 +101,11 @@ public struct NewExtensionMap: Sendable, ExpressibleByArrayLiteral {
 // makes testing much easier. The new table-driven implementation will force-cast it to
 // `NewExtensionMap` before using it, so the requirements implemented below will never actually be
 // called.
-extension NewExtensionMap: ExtensionMap {
-    public subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? {
-        fatalError()
-    }
+extension NewExtensionMap: ExtensionMap {}
 
-    public func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int? {
-        fatalError()
-    }
-}
-
-/// A collection of extension objects.
-///
-/// An `ExtensionMap` is used during decoding to look up
-/// extension objects corresponding to the serialized data.
-///
-/// This is a protocol so that developers can build their own
-/// extension handling if they need something more complex than the
-/// standard `SimpleExtensionMap` implementation.
+/// TODO: Delete this protocol.
 @preconcurrency
-public protocol ExtensionMap: Sendable {
-    /// Returns the extension object describing an extension or nil
-    subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? { get }
+public protocol ExtensionMap: Sendable {}
 
-    /// Returns the field number for a message with a specific field name
-    ///
-    /// The field name here matches the format used by the protobuf
-    /// Text serialization: it typically looks like
-    /// `package.message.field_name`, where `package` is the package
-    /// for the proto file and `message` is the name of the message in
-    /// which the extension was defined. (This is different from the
-    /// message that is being extended!)
-    func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int?
-}
+/// TODO: Delete this.
+public typealias SimpleExtensionMap = NewExtensionMap
