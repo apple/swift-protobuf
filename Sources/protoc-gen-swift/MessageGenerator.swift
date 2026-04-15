@@ -201,7 +201,6 @@ class MessageGenerator {
             p.print(
                 "",
                 "private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)",
-                "",
                 "private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {"
             )
             p.withIndentation { p in
@@ -212,10 +211,14 @@ class MessageGenerator {
             }
             p.print("}")
             p.print(
-                "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {"
+                "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }"
             )
-            p.printIndented("_ = _uniqueStorage()")
-            p.print("}")
+            p.print(
+                "\(visibility)func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }"
+            )
+            p.print(
+                "\(visibility)mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }"
+            )
         }
         p.print("}")
     }

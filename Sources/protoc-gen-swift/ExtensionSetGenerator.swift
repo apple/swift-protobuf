@@ -141,8 +141,8 @@ class ExtensionSetGenerator {
                 "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {"
             )
             p.printIndented(
-                "get { _storage.extensionStorage.value(of: \(swiftFullExtensionName), default: \(defaultValue)) }",
-                "set { _uniqueStorage().extensionStorage.updateValue(of: \(swiftFullExtensionName), to: newValue) }"
+                "get { _protobuf_extensionStorage().value(of: \(swiftFullExtensionName), default: \(defaultValue)) }",
+                "set { _protobuf_uniqueExtensionStorage().updateValue(of: \(swiftFullExtensionName), to: newValue) }"
             )
             p.print("}")
 
@@ -151,12 +151,12 @@ class ExtensionSetGenerator {
             if !fieldDescriptor.isRepeated {
                 p.print(
                     "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.",
-                    "\(visibility)var \(extensionNames.has): Bool { _storage.extensionStorage.hasValue(for: \(swiftFullExtensionName)) }"
+                    "\(visibility)var \(extensionNames.has): Bool { _protobuf_extensionStorage().hasValue(for: \(swiftFullExtensionName)) }"
                 )
                 p.print(
                     "/// Clears the value of extension `\(swiftFullExtensionName)`.",
                     "/// Subsequent reads from it will return its default value.",
-                    "\(visibility)mutating func \(extensionNames.clear)() { _uniqueStorage().extensionStorage.clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
+                    "\(visibility)mutating func \(extensionNames.clear)() { _protobuf_uniqueExtensionStorage().clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
                 )
             }
         }

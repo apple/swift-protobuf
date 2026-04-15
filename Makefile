@@ -425,6 +425,11 @@ regenerate-table-driven-protos: build regenerate-library-protos regenerate-plugi
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_clobbering.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto \
 		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
+	${GENERATE_SRCS} \
+		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
+		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.
