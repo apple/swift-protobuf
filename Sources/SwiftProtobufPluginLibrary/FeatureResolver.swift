@@ -73,7 +73,7 @@ package class FeatureResolver {
     package init(
         edition: Google_Protobuf_Edition,
         featureSetDefaults defaults: Google_Protobuf_FeatureSetDefaults,
-        featureExtensions extensions: [any AnyMessageExtension] = []
+        featureExtensions extensions: [ExtensionSchema] = []
     ) throws {
         guard edition >= defaults.minimumEdition && (edition <= defaults.maximumEdition || edition == .unstable) else {
             throw Error.unsupported(
@@ -98,11 +98,13 @@ package class FeatureResolver {
             extensionMap = nil
         } else {
             for e in extensions {
-                if e.messageType != Google_Protobuf_FeatureSet.self {
-                    throw Error.invalidExtension(type: e.messageType.protoMessageName)
-                }
+                // TODO: We may need an API on the new ExtensionSchema to query or compare the
+                // extended message.
+                // if e.messageType != Google_Protobuf_FeatureSet.self {
+                //     throw Error.invalidExtension(type: e.messageType.protoMessageName)
+                // }
             }
-            var simpleMap = SimpleExtensionMap()
+            var simpleMap = NewExtensionMap()
             simpleMap.insert(contentsOf: extensions)
             extensionMap = simpleMap
         }

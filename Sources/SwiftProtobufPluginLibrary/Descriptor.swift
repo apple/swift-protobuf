@@ -84,7 +84,7 @@ public final class DescriptorSet {
     public init(
         protos: [Google_Protobuf_FileDescriptorProto],
         featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
-        featureExtensions: [any AnyMessageExtension] = []
+        featureExtensions: [ExtensionSchema] = []
     ) {
         precondition(
             Self.bundledEditionsSupport.contains(featureSetDefaults.minimumEdition),
@@ -298,7 +298,7 @@ public final class FileDescriptor {
     fileprivate init(
         proto: Google_Protobuf_FileDescriptorProto,
         featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
-        featureExtensions: [any AnyMessageExtension],
+        featureExtensions: [ExtensionSchema],
         registry: Registry
     ) {
         self.name = proto.name
