@@ -10,6 +10,8 @@ on:
 jobs:
   semver-label-check:
     name: Semantic version label check
+    # Only do this job on the main repo (and not forks of it).
+    if: github.repository == 'apple/swift-protobuf'
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
