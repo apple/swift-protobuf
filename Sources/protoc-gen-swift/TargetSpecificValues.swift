@@ -22,14 +22,14 @@ import SwiftProtobufPluginLibrary
 /// This type currently assumes that the only axis upon which values will differ is the bit-width
 /// of the target's pointers. However, we design this type to be more generalizable so that
 /// unforeseen situations can be handled in the future without refactoring large usage sites.
-struct TargetSpecificValues<Element> {
+package struct TargetSpecificValues<Element> {
     /// The value to use when targeting platforms with 64-bit pointers.
     var values: [TargetSpecificValueChoice: Element]
 
     /// Creates a new set of target-specific values from the given dictionary.
     ///
     /// Precondition: There must be a value provided for each `TargetSpecificValueChoice`.
-    init(_ values: [TargetSpecificValueChoice: Element]) {
+    package init(_ values: [TargetSpecificValueChoice: Element]) {
         precondition(
             values.count == TargetSpecificValueChoice.allCases.count,
             "At least one TargetSpecificValueChoice was not provided"
@@ -38,13 +38,13 @@ struct TargetSpecificValues<Element> {
     }
 
     /// Creates a new set of target-specific values that uses the given value for all targets.
-    init(forAllTargets value: Element) {
+    package init(forAllTargets value: Element) {
         self.init(Dictionary(uniqueKeysWithValues: TargetSpecificValueChoice.allCases.map { ($0, value) }))
     }
 }
 
 /// Represents the supported target platforms for `TargetSpecificValues`.
-enum TargetSpecificValueChoice: String, CaseIterable {
+package enum TargetSpecificValueChoice: String, CaseIterable {
     /// The value for platforms that use 64-bit pointers.
     case pointerWidth64
 

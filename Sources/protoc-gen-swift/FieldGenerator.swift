@@ -23,7 +23,7 @@ import SwiftProtobufPluginLibrary
 /// that their layout in-memory is in these groups. This allows us to optimize across two factors:
 /// how well they are packed to avoid excessive padding (by keeping values with smaller alignments
 /// together) and grouping all trivial fields together before non-trivial fields.
-enum FieldStorageKind: Comparable {
+package enum FieldStorageKind: Comparable {
     /// The field occupies 1 byte in memory, regardless of target architecture.
     case oneByteScalar
 
@@ -54,7 +54,7 @@ enum FieldStorageKind: Comparable {
 }
 
 /// Represents the presence information for a field in memory.
-enum FieldPresence {
+package enum FieldPresence {
     /// The field is not a member of a `oneof` and this is the index of its has-bit.
     case hasBit(UInt16)
 
@@ -73,7 +73,7 @@ enum FieldPresence {
 }
 
 /// Information about a field that needs to be part of trampoline function generation.
-enum TrampolineFieldKind {
+package enum TrampolineFieldKind {
     /// The field is a message type or an array of a message type.
     ///
     /// The associated value is the full Swift name of that (possibly array) type.
@@ -113,7 +113,7 @@ enum TrampolineFieldKind {
 }
 
 /// Interface for field generators.
-protocol FieldGenerator: AnyObject {
+package protocol FieldGenerator: AnyObject {
     /// The field number of the field.
     var number: Int { get }
 
@@ -159,6 +159,12 @@ protocol FieldGenerator: AnyObject {
     /// Indicates whether this field should cause its parent message to have `isInitialized`
     /// generated.
     var needsIsInitializedGeneration: Bool { get }
+
+    /// The text format name of the field.
+    var name: String { get }
+
+    /// The JSON name of the field.
+    var jsonName: String { get }
 
     /// Writes the field's name information to the given bytecode stream.
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter)
@@ -252,6 +258,20 @@ class FieldGeneratorBase {
             "\(storageOffsets[$0])"
         }.joined(separator: ", ")
         return "SwiftProtobuf._fieldOffset(\(fieldOffsetArguments))"
+    }
+
+    var name: String {
+        if fieldDescriptor.isGroupLike {
+            fieldDescriptor.messageType!.name
+        } else {
+            fieldDescriptor.name
+        }
+    }
+
+    var jsonName: String {
+        // This is guaranteed to be present by an assertion when we build the
+        // descriptor objects.
+        fieldDescriptor.jsonName!
     }
 
     func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {

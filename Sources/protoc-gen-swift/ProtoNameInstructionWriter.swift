@@ -13,7 +13,7 @@ import SwiftProtobufPluginLibrary
 
 /// A convenience wrapper that adds operations to write `ProtoNameInstruction`s and their operands
 /// into bytecode streams.
-struct ProtoNameInstructionWriter {
+package struct ProtoNameInstructionWriter {
     private(set) var bytecode = BytecodeWriter<ProtoNameInstruction>()
 
     /// The previous field or case number written to the stream, which is used to compute deltas.

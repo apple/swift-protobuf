@@ -90,14 +90,13 @@ struct SwiftProtoTesting_TestAny: @unchecked Sendable {
   init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -109,13 +108,15 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messa
   static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny" }
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: StaticString { "4\u{1}\0\0 \u{1f}97\rZs5FC\u{1f}Zbf/g4j(\u{2}\\`c?\u{8}\u{15}F`C:tzl\u{1f}H#\u{7f}\n\01bqb\u{b}n/Vb>G/g\0[W\u{10}$=4ifxB2\u{7f}\u{e}JKm\u{7f}\u{18}x]nX\u{13}u)T\"r\u{1a}IkX\u{1}\u{c}&u=buQ]3toU2Jiq%\u{7}\0\0" }
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestAny\0\u{3}int32_value\0\u{3}any_value\0\u{3}repeated_any_value\0\u{1}text\0" }
 

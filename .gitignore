@@ -25,3 +25,11 @@ succeeding_tests.txt
 
 PluginExamples/.build
 PluginExamples/.swiftpm/
+
+# Ignore the .vscode folder to exclude user-specific configuration...
+.vscode/
+# ...but do not ignore these shared configuration files
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

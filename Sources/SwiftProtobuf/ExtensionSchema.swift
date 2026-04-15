@@ -27,10 +27,10 @@ public struct ExtensionSchema: @unchecked Sendable {
     /// `StaticString`:
     ///
     /// ```
-    /// +---------+--------------+-------------------+
-    /// | Bytes 0 | Bytes 1-13   | Bytes 14-variable |
-    /// | Version | Field schema | Field name        |
-    /// +---------+--------------+-------------------+
+    /// +---------+--------------+----------------------------+
+    /// | Bytes 0 | Bytes 1-13   | Bytes 14-variable          |
+    /// | Version | Field schema | Length-prefixed field name |
+    /// +---------+--------------+----------------------------+
     /// ```
     ///
     /// *   Byte 0: A `UInt8` that describes the version of the schema. Currently, this is always 0.
@@ -39,8 +39,8 @@ public struct ExtensionSchema: @unchecked Sendable {
     ///     schema used by the same generation.
     /// *   Bytes 1-13: The schema of the extension field. This is identical to the schema defined by
     ///     `FieldSchema` for the message schema with the same version number.
-    /// *   Bytes 14-variable: A variable-length UTF-8 blob that contains the name of the extension
-    ///     field.
+    /// *   Bytes 14-variable: A 7-bit-encoded 2-byte integer indicating the length of the extension's
+    ///     name followed by the UTF-8 blob that contains the name of the extension field.
     ///
     /// Note that even though extension fields use the same schema as regular fields, not all of the
     /// values are actually used. For example, presence is tracked differently and the byte offsets are
@@ -225,6 +225,9 @@ extension ExtensionSchema {
         // TODO: Once we've trimmed out the legacy code that will no longer be used, consider
         // exposing this slice directly and letting encoders/decoders work with it so that we
         // avoid having to materialize a new string every time.
-        String(decoding: schema[(1 + fieldSchemaSize)...], as: UTF8.self)
+        let lengthOffset = 1 + fieldSchemaSize
+        let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
+        let nameStart = lengthOffset + 2
+        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
     }
 }

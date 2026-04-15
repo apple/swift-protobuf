@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/MessageLayoutCalculator.swift - Message layout calculator
+// Sources/protoc-gen-swift/MessageSchemaCalculator.swift - Message schema calculator
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -13,26 +13,24 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
-/// Iterates over the fields of a message to compute the encoded layout string that will be emitted
+/// Iterates over the fields of a message to compute the encoded schema string that will be emitted
 /// into generated code.
-struct MessageLayoutCalculator {
-    /// Manages the generation of the Swift string literals that encode the message layout in the
+struct MessageSchemaCalculator {
+    /// Manages the generation of the Swift string literals that encode the message schema in the
     /// generated source.
-    private var layoutWriters: TargetSpecificValues<MessageLayoutWriter>
+    private var schemaWriters: TargetSpecificValues<SchemaWriter>
 
     /// Collects submessage information as it is encountered while iterating over the fields of the
     /// message.
     private var trampolineFieldCollector = TrampolineFieldCollector()
 
-    /// The Swift string literals (without surrounding quotes) that encode the message layout in
+    /// The Swift string literals (without surrounding quotes) that encode the message schema in
     /// the generated source.
-    var layoutLiterals: TargetSpecificValues<String> {
-        layoutWriters.map(\.layoutCode)
+    var schemaLiterals: TargetSpecificValues<String> {
+        schemaWriters.map(\.schemaCode)
     }
 
-    /// The fully-qualified names of all submessages used by the message whose layout is being
+    /// The fully-qualified names of all submessages used by the message whose schema is being
     /// calculated.
     ///
     /// The first element in this array corresponds to the submessage with index 1, and the rest
@@ -41,10 +39,10 @@ struct MessageLayoutCalculator {
         trampolineFieldCollector.usedFields.sorted { $0.value.index < $1.value.index }.map { $0.value }
     }
 
-    /// Creates a new message layout calculator for a message containing the given fields and for
+    /// Creates a new message schema calculator for a message containing the given fields and for
     /// a platform with the given pointer bit-width.
-    init(fieldsSortedByNumber: [any FieldGenerator]) {
-        self.layoutWriters = .init(forAllTargets: .init())
+    init(fullyQualifiedName: String, fieldsSortedByNumber: [any FieldGenerator]) {
+        self.schemaWriters = .init(forAllTargets: .init())
 
         let fieldCount = fieldsSortedByNumber.count
 
@@ -131,9 +129,9 @@ struct MessageLayoutCalculator {
             trampolineFieldCollector.collect(field)
         }
 
-        // Now we have all the information we need to generate the layout string. First we write
+        // Now we have all the information we need to generate the schema string. First we write
         // the header, then the fields in order of field number.
-        layoutWriters.modify { writer, which in
+        schemaWriters.modify { writer, which in
             writer.writeBase128Int(0, byteWidth: 1)
             writer.writeBase128Int(UInt64(byteOffsets[which]), byteWidth: 3)
             writer.writeBase128Int(UInt64(fieldsSortedByNumber.count), byteWidth: 3)
@@ -150,15 +148,17 @@ struct MessageLayoutCalculator {
                 )
                 writer.writeBase128Int(UInt64(field.rawFieldType.rawValue), byteWidth: 1)
             }
+            writer.writeBase128Int(UInt64(fullyQualifiedName.utf8.count), byteWidth: 2)
+            writer.writeString(fullyQualifiedName)
         }
     }
 
-    /// Creates a new message layout writer for a single extension field.
-    init(extensionField: any FieldGenerator) {
+    /// Creates a new message schema writer for a single extension field.
+    init(extensionField: any FieldGenerator, extensionName: String) {
         trampolineFieldCollector.collect(extensionField)
 
-        self.layoutWriters = .init(forAllTargets: .init())
-        layoutWriters.modify { writer, _ in
+        self.schemaWriters = .init(forAllTargets: .init())
+        schemaWriters.modify { writer, _ in
             writer.writeBase128Int(0, byteWidth: 1)
             writer.writeBase128Int(
                 UInt64(extensionField.number) | (UInt64(extensionField.fieldMode.rawValue) << 28), byteWidth: 5)
@@ -169,52 +169,14 @@ struct MessageLayoutCalculator {
                 byteWidth: 2
             )
             writer.writeBase128Int(UInt64(extensionField.rawFieldType.rawValue), byteWidth: 1)
+
+            writer.writeBase128Int(UInt64(extensionName.utf8.count), byteWidth: 2)
+            writer.writeString(extensionName)
         }
     }
 }
 
-/// Manages the generation of a message layout string for a single platform.
-private struct MessageLayoutWriter {
-    /// Contains the Swift string literal (without quotes) that encodes the message layout in the
-    /// generated source.
-    var layoutCode: String = ""
-
-    /// Appends the given integer to the encoded layout literal in base 128 format, using the given
-    /// number of bytes to represent it.
-    mutating func writeBase128Int(_ value: UInt64, byteWidth: Int) {
-        func append(_ value: UInt64) {
-            // Print the normal scalar if it's ASCII-printable so that we only use longer `\u{...}`
-            // sequences for those that are not.
-            if value == 0 {
-                layoutCode.append("\\0")
-            } else if isprint(Int32(truncatingIfNeeded: value)) != 0 {
-                self.append(escapingIfNecessary: UnicodeScalar(UInt32(truncatingIfNeeded: value))!)
-            } else {
-                layoutCode.append(String(format: "\\u{%x}", value))
-            }
-        }
-        var v = value
-        for _ in 0..<byteWidth {
-            append(v & 0x7f)
-            v &>>= 7
-        }
-    }
-
-    /// Appends the given Unicode scalar to the bytecode literal, escaping it if necessary for use
-    /// in Swift code.
-    private mutating func append(escapingIfNecessary scalar: Unicode.Scalar) {
-        switch scalar {
-        case "\\", "\"":
-            layoutCode.unicodeScalars.append("\\")
-            layoutCode.unicodeScalars.append(scalar)
-        default:
-            layoutCode.unicodeScalars.append(scalar)
-        }
-    }
-
-}
-
-/// Collects the message and enum types referenced by a message whose layout is being generated,
+/// Collects the message and enum types referenced by a message whose schema is being generated,
 /// assigning each one a unique index that will be used when looking them up by the runtime.
 private struct TrampolineFieldCollector {
     /// Tracks the field numbers of any submessage fields and the corresponding index of that

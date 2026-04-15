@@ -224,13 +224,23 @@ public protocol _MessageImplementationBase: Message, Hashable {
     /// statically-known schema for a message without creating an instance of it.
     static var messageSchema: MessageSchema { get }
 
-    // This is an implementation detail of the runtime; users should not call it. The return type
-    // is a class-bound existential because the true SPI type cannot be used in a protocol
-    // requirement.
+    /// This is an implementation detail of the runtime; users should not call it. The return type
+    /// is a class-bound existential because the true SPI type cannot be used in a protocol
+    /// requirement.
     func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject
 
-    // This is an implementation detail of the runtime; users should not call it.
+    /// This is an implementation detail of the runtime; users should not call it.
     mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken)
+
+    /// This is an implementation detail of the runtime; users should not call it. The return type
+    /// is a class-bound existential because the true SPI type cannot be used in a protocol
+    /// requirement.
+    func _protobuf_extensionStorageImpl() -> AnyObject
+
+    /// This is an implementation detail of the runtime; users should not call it. The return type
+    /// is a class-bound existential because the true SPI type cannot be used in a protocol
+    /// requirement.
+    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject
 
     // Legacy function; no longer used, but left to maintain source compatibility.
     func _protobuf_generated_isEqualTo(other: Self) -> Bool
@@ -246,15 +256,27 @@ extension _MessageImplementationBase {
         Self.messageSchema
     }
 
-    // TODO: Remove this default implementation once we're generating all the WKTs with the new
-    // implementation.
+    // TODO: Remove this default implementation once we're generating all the test protos
+    // with the new implementation.
     public func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject {
         fatalError()
     }
 
-    // TODO: Remove this default implementation once we're generating all the WKTs with the new
-    // implementation.
+    // TODO: Remove this default implementation once we're generating all the test protos
+    // with the new implementation.
     public mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken) {
+        fatalError()
+    }
+
+    // TODO: Remove this default implementation once we're generating all the test protos
+    // with the new implementation.
+    public func _protobuf_extensionStorageImpl() -> AnyObject {
+        fatalError()
+    }
+
+    // TODO: Remove this default implementation once we're generating all the test protos
+    // with the new implementation.
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject {
         fatalError()
     }
 
@@ -284,5 +306,19 @@ extension _MessageImplementationBase {
     /// typed message.
     internal var storageForRuntime: _MessageStorage {
         unsafeDowncast(_protobuf_messageStorage(accessToken: _MessageStorageToken()), to: _MessageStorage.self)
+    }
+
+    /// Convenience method for generated code to retrieve the underlying storage for the extensions
+    /// of a message.
+    @_spi(ForGeneratedCodeOnly)
+    public func _protobuf_extensionStorage() -> ExtensionStorage {
+        unsafeDowncast(_protobuf_extensionStorageImpl(), to: ExtensionStorage.self)
+    }
+
+    /// Convenience method for generated code to retrieve the underlying storage for the extensions
+    /// of a message, ensuring that it is unique for mutation.
+    @_spi(ForGeneratedCodeOnly)
+    public mutating func _protobuf_uniqueExtensionStorage() -> ExtensionStorage {
+        unsafeDowncast(_protobuf_uniqueExtensionStorageImpl(), to: ExtensionStorage.self)
     }
 }

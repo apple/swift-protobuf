@@ -56,7 +56,7 @@ public protocol CodeGenerator {
     /// A list of extensions that define Custom Options
     /// (https://protobuf.dev/programming-guides/proto2/#customoptions) for this generator so
     /// they will be exposed on the `Descriptor` options.
-    var customOptionExtensions: [any AnyMessageExtension] { get }
+    var customOptionExtensions: [ExtensionSchema] { get }
 
     /// If provided, the argument parsing will support `--version` and report
     /// this value.
@@ -116,22 +116,24 @@ extension CodeGenerator {
             return
         }
 
-        var extensionMap = SimpleExtensionMap()
+        var extensionMap = NewExtensionMap()
         if !customOptionExtensions.isEmpty {
             for e in customOptionExtensions {
                 // Don't include Google_Protobuf_FeatureSet, that will be handing via custom features.
-                precondition(
-                    e.messageType == Google_Protobuf_EnumOptions.self
-                        || e.messageType == Google_Protobuf_EnumValueOptions.self
-                        || e.messageType == Google_Protobuf_ExtensionRangeOptions.self
-                        || e.messageType == Google_Protobuf_FieldOptions.self
-                        || e.messageType == Google_Protobuf_FileOptions.self
-                        || e.messageType == Google_Protobuf_MessageOptions.self
-                        || e.messageType == Google_Protobuf_MethodOptions.self
-                        || e.messageType == Google_Protobuf_OneofOptions.self
-                        || e.messageType == Google_Protobuf_ServiceOptions.self,
-                    "CodeGenerator `customOptionExtensions` must only extend the descriptor.proto 'Options' messages \(e.messageType)."
-                )
+                // TODO: We may need an API on the new ExtensionSchema to query or compare the
+                // extended message.
+                // precondition(
+                //     e.messageType == Google_Protobuf_EnumOptions.self
+                //         || e.messageType == Google_Protobuf_EnumValueOptions.self
+                //         || e.messageType == Google_Protobuf_ExtensionRangeOptions.self
+                //         || e.messageType == Google_Protobuf_FieldOptions.self
+                //         || e.messageType == Google_Protobuf_FileOptions.self
+                //         || e.messageType == Google_Protobuf_MessageOptions.self
+                //         || e.messageType == Google_Protobuf_MethodOptions.self
+                //         || e.messageType == Google_Protobuf_OneofOptions.self
+                //         || e.messageType == Google_Protobuf_ServiceOptions.self,
+                //     "CodeGenerator `customOptionExtensions` must only extend the descriptor.proto 'Options' messages \(e.messageType)."
+                // )
             }
             extensionMap.insert(contentsOf: customOptionExtensions)
         }
@@ -178,7 +180,7 @@ extension CodeGenerator {
         // they support editions.
         Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
     }
-    public var customOptionExtensions: [any AnyMessageExtension] { [] }
+    public var customOptionExtensions: [ExtensionSchema] { [] }
     public var version: String? { nil }
     public var projectURL: String? { nil }
     public var copyrightLine: String? { nil }

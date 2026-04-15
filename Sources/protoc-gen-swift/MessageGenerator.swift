@@ -31,7 +31,8 @@ class MessageGenerator {
     private let enums: [EnumGenerator]
     private let messages: [MessageGenerator]
     private let mapEntries: [String: MapEntryGenerator]
-    private let messageLayoutCalculator: MessageLayoutCalculator
+    private let messageSchemaCalculator: MessageSchemaCalculator
+    private let compressedReflectionData: String
 
     init(
         descriptor: Descriptor,
@@ -102,11 +103,9 @@ class MessageGenerator {
             }
         )
 
-        // TODO: This is where we previously selected a specific storage class for the `Any` WKT.
-        // We'll need to make sure that `Any` storage is compatible with table-driven messages
-        // while also supporting the special hooks we need there.
-
-        self.messageLayoutCalculator = MessageLayoutCalculator(fieldsSortedByNumber: fieldsSortedByNumber)
+        self.messageSchemaCalculator = MessageSchemaCalculator(
+            fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
+        self.compressedReflectionData = ReflectionTableCalculator(fields: fieldsSortedByNumber).stringLiteral()
     }
 
     func generateMainStruct(
@@ -202,7 +201,6 @@ class MessageGenerator {
             p.print(
                 "",
                 "private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)",
-                "",
                 "private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {"
             )
             p.withIndentation { p in
@@ -213,10 +211,14 @@ class MessageGenerator {
             }
             p.print("}")
             p.print(
-                "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {"
+                "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }"
             )
-            p.printIndented("_ = _uniqueStorage()")
-            p.print("}")
+            p.print(
+                "\(visibility)func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }"
+            )
+            p.print(
+                "\(visibility)mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }"
+            )
         }
         p.print("}")
     }
@@ -339,19 +341,22 @@ class MessageGenerator {
             writer.writeReservedNumbers(range)
         }
 
-        messageLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &p) { value, _, p in
+        messageSchemaCalculator.schemaLiterals.printConditionalBlocks(to: &p) { value, _, p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
                 #"private static var _protobuf_messageSchemaString: StaticString { "\#(value)" }"#
             )
         }
-
+        p.print(
+            "@_alwaysEmitIntoClient @inline(__always)",
+            #"private static var _protobuf_reflectionData: StaticString { "\#(compressedReflectionData)" }"#
+        )
         p.print(
             "@_alwaysEmitIntoClient @inline(__always)",
             #"private static var _protobuf_fieldNamesString: StaticString { \#(writer.bytecode.stringLiteral) }"#
         )
 
-        let trampolineFields = messageLayoutCalculator.trampolineFields
+        let trampolineFields = messageSchemaCalculator.trampolineFields
         p.print()
         p.print(
             "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString",

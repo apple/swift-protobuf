@@ -78,35 +78,35 @@ class ExtensionSetGenerator {
         }
 
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
-            let extensionLayoutCalculator = MessageLayoutCalculator(extensionField: self)
-            guard let layoutLiteral = extensionLayoutCalculator.layoutLiterals.valueIfAllEqual else {
-                preconditionFailure("extension field layouts should not be target-sensitive")
+            let extensionName: String
+            if fieldDescriptor.containingType.useMessageSetWireFormat && fieldDescriptor.type == .message
+                && (!fieldDescriptor.isRepeated && !fieldDescriptor.isRequired)
+                && fieldDescriptor.messageType === fieldDescriptor.extensionScope
+            {
+                extensionName = fieldDescriptor.messageType!.fullName
+            } else {
+                extensionName = fieldDescriptor.fullName
+            }
+
+            let extensionSchemaCalculator = MessageSchemaCalculator(extensionField: self, extensionName: extensionName)
+            guard let schemaLiteral = extensionSchemaCalculator.schemaLiterals.valueIfAllEqual else {
+                preconditionFailure("extension field schemas should not be target-sensitive")
             }
 
             let visibility = generatorOptions.visibilitySourceSnippet
             let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
-            var fieldNamePath: String
-            if fieldDescriptor.containingType.useMessageSetWireFormat && fieldDescriptor.type == .message
-                && (!fieldDescriptor.isRepeated && !fieldDescriptor.isRequired)
-                && fieldDescriptor.messageType === fieldDescriptor.extensionScope
-            {
-                fieldNamePath = fieldDescriptor.messageType!.fullName
-            } else {
-                fieldNamePath = fieldDescriptor.fullName
-            }
-
             p.print(
                 "\(comments)\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)ExtensionSchema("
             )
             p.withIndentation { p in
-                p.print(#"schema: "\#(layoutLiteral)\#(fieldNamePath)","#)
+                p.print(#"schema: "\#(schemaLiteral)","#)
                 p.print(#"extendedMessageSchemaProducer: { \#(containingTypeSwiftFullName).messageSchema }"#, newlines: false)
 
                 // Since an extension is just a single field, there will be either zero or one of
                 // these.
-                if let field = extensionLayoutCalculator.trampolineFields.first {
+                if let field = extensionSchemaCalculator.trampolineFields.first {
                     p.print(",")
                     p.print("performNontrivialExtensionOperation: { operation, ext, storage in")
                     p.printIndented("storage.performNontrivialExtensionOperation(operation, extension: ext, type: \(field.kind.name).self)")
@@ -141,8 +141,8 @@ class ExtensionSetGenerator {
                 "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {"
             )
             p.printIndented(
-                "get { _storage.extensionStorage.value(of: \(swiftFullExtensionName), default: \(defaultValue)) }",
-                "set { _uniqueStorage().extensionStorage.updateValue(of: \(swiftFullExtensionName), to: newValue) }"
+                "get { _protobuf_extensionStorage().value(of: \(swiftFullExtensionName), default: \(defaultValue)) }",
+                "set { _protobuf_uniqueExtensionStorage().updateValue(of: \(swiftFullExtensionName), to: newValue) }"
             )
             p.print("}")
 
@@ -151,12 +151,12 @@ class ExtensionSetGenerator {
             if !fieldDescriptor.isRepeated {
                 p.print(
                     "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.",
-                    "\(visibility)var \(extensionNames.has): Bool { _storage.extensionStorage.hasValue(for: \(swiftFullExtensionName)) }"
+                    "\(visibility)var \(extensionNames.has): Bool { _protobuf_extensionStorage().hasValue(for: \(swiftFullExtensionName)) }"
                 )
                 p.print(
                     "/// Clears the value of extension `\(swiftFullExtensionName)`.",
                     "/// Subsequent reads from it will return its default value.",
-                    "\(visibility)mutating func \(extensionNames.clear)() { _uniqueStorage().extensionStorage.clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
+                    "\(visibility)mutating func \(extensionNames.clear)() { _protobuf_uniqueExtensionStorage().clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
                 )
             }
         }

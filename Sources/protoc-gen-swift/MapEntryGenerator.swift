@@ -23,7 +23,7 @@ class MapEntryGenerator {
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
     private let swiftValueType: String
-    private let entryLayoutCalculator: MessageLayoutCalculator
+    private let entrySchemaCalculator: MessageSchemaCalculator
 
     let keyParticipantType: String
     let valueParticipantType: String
@@ -51,7 +51,8 @@ class MapEntryGenerator {
         }
         let fieldsSortedByNumber = fields.sorted { $0.number < $1.number }
 
-        self.entryLayoutCalculator = MessageLayoutCalculator(fieldsSortedByNumber: fieldsSortedByNumber)
+        self.entrySchemaCalculator = MessageSchemaCalculator(
+            fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
 
         keyParticipantType = participantTypeName(for: keyDescriptor, namer: namer)
         valueParticipantType = participantTypeName(for: valueDescriptor, namer: namer)
@@ -72,12 +73,12 @@ class MapEntryGenerator {
             trailingArguments = ""
             schemaLabel = "schemaForMapEntryWithScalarValues"
         }
-        if let schemaString = entryLayoutCalculator.layoutLiterals.valueIfAllEqual {
+        if let schemaString = entrySchemaCalculator.schemaLiterals.valueIfAllEqual {
             printer.print(
                 #"return SwiftProtobuf.MessageSchema(\#(schemaLabel): "\#(schemaString)"\#(trailingArguments))"#
             )
         } else {
-            entryLayoutCalculator.layoutLiterals.printConditionalBlocks(to: &printer) { schemaString, _, printer in
+            entrySchemaCalculator.schemaLiterals.printConditionalBlocks(to: &printer) { schemaString, _, printer in
                 printer.print(#"let schemaString: StaticString = "\#(schemaString)""#)
             }
             printer.print(

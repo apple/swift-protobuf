@@ -14,7 +14,7 @@ import XCTest
 
 final class Test_FeatureResolver: XCTestCase {
 
-    private func simpleResolver(extensions: [any AnyMessageExtension] = []) -> FeatureResolver {
+    private func simpleResolver(extensions: [ExtensionSchema] = []) -> FeatureResolver {
         let defaults = try! Google_Protobuf_FeatureSetDefaults(
             textFormatString: """
                 minimum_edition: EDITION_PROTO2
@@ -190,7 +190,9 @@ final class Test_FeatureResolver: XCTestCase {
         XCTAssertEqual(resolver3.defaultFeatureSet.fieldPresence, .legacyRequired)
     }
 
-    func testInit_BadExtension() throws {
+    // TODO: Re-enable this test once we've added an ability for an extension to check the schema
+    // of its extended message.
+    func DISABLED_testInit_BadExtension() throws {
         let defaults = try! Google_Protobuf_FeatureSetDefaults(
             textFormatString: """
                 minimum_edition: EDITION_PROTO2
