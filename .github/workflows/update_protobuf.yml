@@ -35,13 +35,37 @@ jobs:
 
     - name: Update Reference Protos
       if: steps.update.outputs.updated == 'true'
+      id: make_reference_protos
       # The Reference/upstream contents is generated from Source/protobuf/protobuf, so
       # update them.
+      #
+      # If this fails, it likely means protobuf and/or abseil have changed and
+      # Package.swift need to be updated. In that case, we'll revert Reference/ and let
+      # the PR get created, it will fail CI, but serve as a notice that something needs
+      # to be done to update things.
       #
       # Note: we could move the work in `make reference` to a helper script and skip the
       # install of Make, but given it shares setup with other targets in the Makefile,
       # not sure it's worth while.
-      run: make reference
+      run: |
+        if echo make reference ; then
+          echo 'as_draft=false' >> $GITHUB_OUTPUT
+          echo 'message=' >> $GITHUB_OUTPUT
+        else
+          echo 'as_draft=true' >> $GITHUB_OUTPUT
+
+          echo 'message<<EOF' >> $GITHUB_OUTPUT
+          echo '' >> $GITHUB_OUTPUT
+          echo '> [!WARNING]' >> $GITHUB_OUTPUT
+          echo '> _make reference_ failed, this PR likely needs _Package.swift_ to be fixed!' >> $GITHUB_OUTPUT
+          echo '' >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+          echo ''
+          echo 'WARNING: "make reference" failed, the PR will likely be incomplete.'
+          echo ''
+          git checkout -- Reference
+        fi
 
     - name: Create Pull Request
       if: steps.update.outputs.updated == 'true'
@@ -55,12 +79,13 @@ jobs:
           - Update vendored abseil to required commit from protobuf_deps.bzl
         branch: automated/update-protobuf-${{ steps.update.outputs.protobuf_tag }}
         delete-branch: true
+        draft: ${{ steps.make_reference_protos.outputs.as_draft }}
         title: 'Update protobuf to ${{ steps.update.outputs.protobuf_tag }}'
         body: |
           ## Automated Protobuf Update
 
           This PR automatically updates the vendored protobuf and abseil-cpp sources.
-
+          ${{ steps.make_reference_protos.outputs.message }}
           ### Changes
           - **Protobuf**: Updated to `${{ steps.update.outputs.protobuf_tag }}`
           - **Abseil-cpp**: Updated to commit required by protobuf `${{ steps.update.outputs.abseil_commit }}`

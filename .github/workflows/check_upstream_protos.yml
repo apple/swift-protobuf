@@ -12,6 +12,8 @@ on:
 
 jobs:
   build:
+    # Only do this job on the main repo (and not forks of it).
+    if: github.repository == 'apple/swift-protobuf'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
