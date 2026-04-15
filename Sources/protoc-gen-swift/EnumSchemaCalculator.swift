@@ -35,7 +35,10 @@ struct EnumSchemaCalculator {
     init(fullyQualifiedName: String) {
         self.schemaWriter = .init()
 
+        // Version indicator (1 byte)
         schemaWriter.writeBase128Int(0, byteWidth: 1)
+
+        // Enum name length (2 bytes), followed by enum name
         schemaWriter.writeBase128Int(UInt64(fullyQualifiedName.utf8.count), byteWidth: 2)
         schemaWriter.writeString(fullyQualifiedName)
     }

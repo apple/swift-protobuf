@@ -1,3 +1,17 @@
+// Sources/SwiftProtobuf/Compression+Decompressing.swift - Decompression algorithm
+//
+// Copyright (c) 2014 - 2026 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+///
+/// The LZSS-inspired algorithm used to decompress reflection data.
+///
+// -----------------------------------------------------------------------------
+
 import Foundation
 
 extension Compression {
@@ -16,7 +30,7 @@ extension Compression {
             preconditionFailure("Compressed data too short to contain size header")
         }
 
-        let size = Int(UInt32(b0) | (UInt32(b1) << 8) | (UInt32(b2) << 16) | (UInt32(b3) << 24))
+        let size = Int(UInt32(b0) | (UInt32(b1) &<< 8) | (UInt32(b2) &<< 16) | (UInt32(b3) &<< 24))
 
         // The most significant bit of the size is reserved for future
         // expansion.
@@ -32,7 +46,7 @@ extension Compression {
         var mainModel = FrequencyModel(count: mainModelSize)
         var escapeModel = FrequencyModel(count: 256)  // one entry per possible byte value
         var offsetModel = FrequencyModel(count: windowSize)
-        var lengthModel = FrequencyModel(count: 1 << lengthBits)
+        var lengthModel = FrequencyModel(count: 1 &<< lengthBits)
 
         while output.count < size {
             let count = rangeDecoder.decode(total: mainModel.total)
@@ -113,7 +127,7 @@ extension Compression {
         var input: UnsafeRawBufferPointer
 
         /// An internal buffer to hold pending bits.
-        var buffer: UInt64 = 0
+        var buffer: UInt16 = 0
 
         /// The number of valid bits currently in `buffer`.
         var bitCount: Int = 0
@@ -133,7 +147,7 @@ extension Compression {
                     return nil
                 }
                 input = UnsafeRawBufferPointer(rebasing: input.dropFirst())
-                buffer |= UInt64(byte & 0x7F) << bitCount
+                buffer |= UInt16(byte & 0x7F) &<< bitCount
                 bitCount &+= 7
             }
             let result = UInt8(buffer & 0xFF)
@@ -154,6 +168,8 @@ extension Compression {
         private var low: UInt32 = 0
 
         /// The size of the current range.
+        ///
+        /// This is not a valid size (since we reserve the MSB for future use).
         private var size: UInt32 = 0xFFFF_FFFF
 
         /// The current code value being decoded.
@@ -168,11 +184,10 @@ extension Compression {
             self.input = input
 
             for _ in 0..<4 {
-                if let byte = self.input.nextByte() {
-                    code = (code << 8) | UInt32(byte)
-                } else {
-                    code = code << 8
+                guard let byte = self.input.nextByte() else {
+                    preconditionFailure("truncated compressed data")
                 }
+                code = (code &<< 8) | UInt32(byte)
             }
         }
 
@@ -194,33 +209,31 @@ extension Compression {
         ///   - total: The total frequency of all symbols in the model.
         mutating func remove(cumulativeFrequency: UInt32, frequency: UInt32, total: UInt32) {
             let r = size / total
-            low += cumulativeFrequency * r
-            code -= cumulativeFrequency * r
-            size = frequency * r
+            low &+= cumulativeFrequency &* r
+            code &-= cumulativeFrequency &* r
+            size = frequency &* r
 
             // Renormalization: If the top 8 bits of 'low' and 'low + size' are
             // identical, they are fixed. We shift them out and read a new byte.
-            while (low ^ (low + size)) < 0x1000000 {
-                low <<= 8
-                size <<= 8
-                if let byte = input.nextByte() {
-                    code = (code << 8) | UInt32(byte)
-                } else {
-                    code = code << 8
+            while (low & 0xFF000000) == ((low &+ size) & 0xFF000000) {
+                low &<<= 8
+                size &<<= 8
+                guard let byte = self.input.nextByte() else {
+                    preconditionFailure("truncated compressed data")
                 }
+                code = (code &<< 8) | UInt32(byte)
             }
 
             // Underflow prevention: If 'size' becomes too small but the top
             // bits didn't match, we force a shift to maintain precision for
             // division.
             if size < 0x10000 {
-                low <<= 8
-                if let byte = input.nextByte() {
-                    code = (code << 8) | UInt32(byte)
-                } else {
-                    code = code << 8
+                low &<<= 8
+                guard let byte = self.input.nextByte() else {
+                    preconditionFailure("truncated compressed data")
                 }
-                size = 0 &- low  // no unary minus for UInt32
+                code = (code &<< 8) | UInt32(byte)
+                size = 0 &- low
             }
         }
     }

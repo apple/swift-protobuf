@@ -1,3 +1,18 @@
+// Sources/SwiftProtobuf/Compression.swift - Compression operations
+//
+// Copyright (c) 2014 - 2026 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+///
+/// The namespace for the LZSS-inspired algorithm used to compress reflection
+/// data, and shared code used by both compression and decompression.
+///
+// -----------------------------------------------------------------------------
+
 /// A namespace for a custom compression algorithm designed for short strings,
 /// such as protobuf field and enum case names, and index tables (field number
 /// to offset and vice versa).
@@ -48,13 +63,13 @@ package enum Compression {
     package static let lengthBits = 4
 
     /// The size of the sliding window for LZSS.
-    package static var windowSize: Int { 1 << windowSizeBits }
+    package static var windowSize: Int { 1 &<< windowSizeBits }
 
     /// The minimum length of a match to be encoded.
     package static let minMatchLength = 3
 
     /// The maximum length of a match to be encoded.
-    package static var maxMatchLength: Int { (1 << lengthBits) + minMatchLength - 1 }
+    package static var maxMatchLength: Int { (1 &<< lengthBits) &+ minMatchLength &- 1 }
 
     /// Encapsulates a custom encoding used for text in our compression
     /// algorithm that optimizes for regular protobuf field and enum case names
@@ -102,6 +117,7 @@ package enum Compression {
         /// Creates a new `Symbol` from its numeric value.
         @inline(__always)
         package init(code: UInt8) {
+            precondition(code <= 63, "Symbol code out of range")
             self.code = code
         }
 
@@ -153,8 +169,8 @@ package enum Compression {
             for i in 1...count {
                 var idx = i
                 while idx <= count {
-                    tree[idx] += 1
-                    idx += idx & -idx  // Add lowest set bit
+                    tree[idx] &+= 1
+                    idx &+= idx & -idx  // Add lowest set bit
                 }
             }
         }
@@ -164,8 +180,8 @@ package enum Compression {
             var sum: UInt32 = 0
             var idx = symbol
             while idx > 0 {
-                sum += tree[idx]
-                idx -= idx & -idx  // Remove lowest set bit
+                sum &+= tree[idx]
+                idx &-= idx & -idx  // Remove lowest set bit
             }
             return sum
         }
@@ -195,16 +211,16 @@ package enum Compression {
         @inline(__always)
         package func symbol(forCumulativeFrequency target: UInt32) -> Int {
             var idx = 0
-            var mask = 1 << (31 - UInt32(frequencies.count).leadingZeroBitCount)
+            var mask = 1 &<< (31 &- UInt32(frequencies.count).leadingZeroBitCount)
             var currentSum: UInt32 = 0
 
             while mask > 0 {
-                let nextIdx = idx + mask
-                if nextIdx < tree.count && currentSum + tree[nextIdx] <= target {
+                let nextIdx = idx &+ mask
+                if nextIdx < tree.count && currentSum &+ tree[nextIdx] <= target {
                     idx = nextIdx
-                    currentSum += tree[idx]
+                    currentSum &+= tree[idx]
                 }
-                mask >>= 1
+                mask &>>= 1
             }
             return idx
         }
@@ -214,14 +230,14 @@ package enum Compression {
         /// If the total exceeds a threshold (0x10000), all frequencies are
         /// scaled down by half to prevent overflow and maintain adaptivity.
         package mutating func incrementFrequency(of symbol: Int) {
-            frequencies[symbol] += 1
-            total += 1
+            frequencies[symbol] &+= 1
+            total &+= 1
 
             // Update the Fenwick tree
-            var idx = symbol + 1
+            var idx = symbol &+ 1
             while idx < tree.count {
-                tree[idx] += 1
-                idx += idx & -idx
+                tree[idx] &+= 1
+                idx &+= idx & -idx
             }
 
             if total > 0x10000 {
@@ -234,7 +250,7 @@ package enum Compression {
             var newTotal: UInt32 = 0
             for i in 0..<frequencies.count {
                 frequencies[i] = max(1, frequencies[i] / 2)
-                newTotal += frequencies[i]
+                newTotal &+= frequencies[i]
             }
             total = newTotal
 
@@ -243,11 +259,11 @@ package enum Compression {
                 tree[i] = 0
             }
             for i in 1...frequencies.count {
-                let freq = frequencies[i - 1]
+                let freq = frequencies[i &- 1]
                 var idx = i
                 while idx < tree.count {
-                    tree[idx] += freq
-                    idx += idx & -idx  // Remove lowest set bit
+                    tree[idx] &+= freq
+                    idx &+= idx & -idx  // Remove lowest set bit
                 }
             }
         }

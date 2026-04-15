@@ -1,3 +1,21 @@
+// Sources/protoc-gen-swift/Compression+Compressing.swift - Compression algorithm
+//
+// Copyright (c) 2014 - 2026 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+///
+/// The LZSS-inspired algorithm used to compress reflection data.
+///
+/// Since compression only needs to happen at generation time, this lives in
+/// the protoc-gen-swift plugin instead of the runtime library. However, the
+/// `Compression` namespace itself is imported from there.
+///
+// -----------------------------------------------------------------------------
+
 import SwiftProtobuf
 
 extension Compression {
@@ -24,7 +42,7 @@ extension Compression {
         var mainModel = FrequencyModel(count: mainModelSize)
         var escapeModel = FrequencyModel(count: 256)  // one entry per possible byte value
         var offsetModel = FrequencyModel(count: windowSize)
-        var lengthModel = FrequencyModel(count: 1 << lengthBits)
+        var lengthModel = FrequencyModel(count: 1 &<< lengthBits)
 
         /// Helper function for encoding a single literal byte.
         func encodeLiteral(_ byte: UInt8, rangeEncoder: inout RangeEncoder) {
@@ -111,8 +129,8 @@ extension Compression {
 
         @inline(__always)
         func computeHash(_ i: Int) -> Int {
-            let val = (Int(data[i]) << 8) ^ (Int(data[i + 1]) << 4) ^ Int(data[i + 2])
-            return val & (hashSize - 1)
+            let val = (Int(data[i]) &<< 8) ^ (Int(data[i + 1]) &<< 4) ^ Int(data[i + 2])
+            return val & (hashSize &- 1)
         }
 
         /// Inserts the 3-byte sequence starting at `index` into the hash table.
@@ -204,18 +222,18 @@ extension Compression {
         private var output: [UInt8] = []
 
         /// An internal buffer to hold pending bits.
-        private var buffer: UInt64 = 0
+        private var buffer: UInt16 = 0
 
         /// The number of valid bits currently in `buffer`.
         private var bitCount: Int = 0
 
         /// Appends an 8-bit byte to the stream, splitting it into 7-bit chunks.
         mutating func append(_ byte: UInt8) {
-            buffer |= UInt64(byte) << bitCount
+            buffer |= UInt16(byte) &<< bitCount
             bitCount &+= 8
             while bitCount >= 7 {
                 output.append(UInt8(buffer & 0x7F))
-                buffer >>= 7
+                buffer &>>= 7
                 bitCount &-= 7
             }
         }
@@ -243,6 +261,8 @@ extension Compression {
         private var low: UInt32 = 0
 
         /// The size of the current range.
+        ///
+        /// This is not a valid size (since we reserve the MSB for future use).
         private var size: UInt32 = 0xFFFF_FFFF
 
         /// The bit writer used to emit bytes to the output stream.
@@ -261,23 +281,23 @@ extension Compression {
         ///   - total: The total frequency of all symbols in the model.
         mutating func encode(cumulativeFrequency: UInt32, frequency: UInt32, total: UInt32) {
             let r = size / total
-            low += cumulativeFrequency * r
-            size = frequency * r
+            low &+= cumulativeFrequency &* r
+            size = frequency &* r
 
             // Renormalization: If the top 8 bits of 'low' and 'low + size' are
             // identical, they are fixed. We emit them and shift.
-            while (low ^ (low + size)) < 0x1000000 {
-                output.append(UInt8(low >> 24))
-                low <<= 8
-                size <<= 8
+            while (low & 0xFF000000) == ((low &+ size) & 0xFF000000) {
+                output.append(UInt8(low &>> 24))
+                low &<<= 8
+                size &<<= 8
             }
 
             // Underflow prevention: If 'size' becomes too small but the top
             // bits didn't match, we force a shift to maintain precision for
             // division.
             if size < 0x10000 {
-                output.append(UInt8(low >> 24))
-                low <<= 8
+                output.append(UInt8(low &>> 24))
+                low &<<= 8
                 size = 0 &- low  // no unary minus for UInt32
             }
         }
@@ -288,8 +308,8 @@ extension Compression {
         /// The encoder can no longer be used after this method is called.
         consuming func finish() -> [UInt8] {
             for _ in 0..<4 {
-                output.append(UInt8(low >> 24))
-                low <<= 8
+                output.append(UInt8(low &>> 24))
+                low &<<= 8
             }
             return output.finish()
         }

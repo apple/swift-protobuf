@@ -1,3 +1,17 @@
+// Tests/protoc-gen-swiftTests/Test_Compression.swift - Compression algorithm tests
+//
+// Copyright (c) 2014 - 2026 Apple Inc. and the project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See LICENSE.txt for license information:
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
+//
+// -----------------------------------------------------------------------------
+///
+/// Tests for the LZSS-inspired compression algorithm.
+///
+// -----------------------------------------------------------------------------
+
 import SwiftProtobuf
 import Testing
 import protoc_gen_swift
