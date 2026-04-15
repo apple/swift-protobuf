@@ -143,14 +143,13 @@ public struct Google_Protobuf_FileDescriptorSet: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a complete .proto file.
@@ -288,14 +287,13 @@ public struct Google_Protobuf_FileDescriptorProto: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a message type.
@@ -427,14 +425,13 @@ public struct Google_Protobuf_DescriptorProto: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   /// Range of reserved tag numbers. Reserved tag numbers may not be used by
@@ -476,27 +473,25 @@ public struct Google_Protobuf_DescriptorProto: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_ExtensionRangeOptions: @unchecked Sendable {
@@ -633,27 +628,25 @@ public struct Google_Protobuf_ExtensionRangeOptions: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a field within a message.
@@ -878,14 +871,13 @@ public struct Google_Protobuf_FieldDescriptorProto: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a oneof.
@@ -923,14 +915,13 @@ public struct Google_Protobuf_OneofDescriptorProto: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes an enum type.
@@ -1037,27 +1028,25 @@ public struct Google_Protobuf_EnumDescriptorProto: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a value within an enum.
@@ -1104,14 +1093,13 @@ public struct Google_Protobuf_EnumValueDescriptorProto: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a service.
@@ -1154,14 +1142,13 @@ public struct Google_Protobuf_ServiceDescriptorProto: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes a method of a service.
@@ -1239,14 +1226,13 @@ public struct Google_Protobuf_MethodDescriptorProto: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_FileOptions: @unchecked Sendable {
@@ -1541,14 +1527,13 @@ public struct Google_Protobuf_FileOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_MessageOptions: @unchecked Sendable {
@@ -1689,14 +1674,13 @@ public struct Google_Protobuf_MessageOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_FieldOptions: @unchecked Sendable {
@@ -1996,14 +1980,13 @@ public struct Google_Protobuf_FieldOptions: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   /// Information about the support window of a feature.
@@ -2080,27 +2063,25 @@ public struct Google_Protobuf_FieldOptions: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_OneofOptions: @unchecked Sendable {
@@ -2138,14 +2119,13 @@ public struct Google_Protobuf_OneofOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_EnumOptions: @unchecked Sendable {
@@ -2224,14 +2204,13 @@ public struct Google_Protobuf_EnumOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_EnumValueOptions: @unchecked Sendable {
@@ -2304,14 +2283,13 @@ public struct Google_Protobuf_EnumValueOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_ServiceOptions: @unchecked Sendable {
@@ -2362,14 +2340,13 @@ public struct Google_Protobuf_ServiceOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 public struct Google_Protobuf_MethodOptions: @unchecked Sendable {
@@ -2447,14 +2424,13 @@ public struct Google_Protobuf_MethodOptions: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A message representing a option the parser does not recognize. This only
@@ -2576,27 +2552,25 @@ public struct Google_Protobuf_UninterpretedOption: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// TODO Enums in C++ gencode (and potentially other languages) are
@@ -2807,27 +2781,25 @@ public struct Google_Protobuf_FeatureSet: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A compiled specification for the defaults of a set of features.  These
@@ -2923,27 +2895,25 @@ public struct Google_Protobuf_FeatureSetDefaults: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Encapsulates information about the original source file from which a
@@ -3133,27 +3103,25 @@ public struct Google_Protobuf_SourceCodeInfo: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Describes the relationship between generated code and its original source
@@ -3263,27 +3231,25 @@ public struct Google_Protobuf_GeneratedCodeInfo: @unchecked Sendable {
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

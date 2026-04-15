@@ -95,14 +95,13 @@ public struct Google_Protobuf_Compiler_Version: @unchecked Sendable {
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// An encoded CodeGeneratorRequest is written to the plugin's stdin.
@@ -182,14 +181,13 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: @unchecked Sendable
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.
@@ -382,27 +380,25 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: @unchecked Sendabl
     public init() {}
 
     private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
     private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-      _ = _uniqueStorage()
-    }
+    public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+    public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
   }
 
   public init() {}
 
   private var _storage = SwiftProtobuf._MessageStorage(schema: Self.messageSchema)
-
   private mutating func _uniqueStorage() -> SwiftProtobuf._MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) {
-    _ = _uniqueStorage()
-  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf._MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
