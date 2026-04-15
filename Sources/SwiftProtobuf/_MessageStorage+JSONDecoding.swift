@@ -23,7 +23,7 @@ extension _MessageStorage {
     /// - Throws: ``JSONDecodingError`` if decoding fails.
     public func merge(
         byParsingJSONUTF8Bytes buffer: UnsafeRawBufferPointer,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
         options: JSONDecodingOptions
     ) throws {
         var reader = JSONReader(
@@ -155,7 +155,7 @@ extension _MessageStorage {
                         }
                     }
                     try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
-                } else if let extensions = reader.scanner.extensions.flatMap({ $0 as? NewExtensionMap }),
+                } else if let extensions = reader.scanner.extensions,
                     let ext = extensions[fieldNumber: fieldNumber, in: schema] {
                     try extensionStorage.decodeNextExtension(ext, from: &reader)
                 } else {

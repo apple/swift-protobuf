@@ -185,7 +185,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONEncode(
         _ expected: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap = ExtensionMap(),
         encodingOptions: JSONEncodingOptions = .init(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
@@ -259,7 +259,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     /// * Decodes it again and verifies that the round-trip gives an equal object
     func assertTextFormatEncode(
         _ expected: String,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
@@ -290,7 +290,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     // func assertJSONArrayEncode(
     //     _ expected: String,
-    //     extensions: any ExtensionMap = SimpleExtensionMap(),
+    //     extensions: ExtensionMap = ExtensionMap(),
     //     file: XCTestFileArgType = #file,
     //     line: UInt = #line,
     //     configure: (inout [MessageTestType]) -> Void
@@ -328,7 +328,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertJSONDecodeSucceeds(
         _ json: String,
         options: JSONDecodingOptions = JSONDecodingOptions(),
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap = ExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
@@ -468,7 +468,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONDecodeFails(
         _ json: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap = ExtensionMap(),
         options: JSONDecodingOptions = JSONDecodingOptions(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
@@ -500,7 +500,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     // func assertJSONArrayDecodeFails(
     //     _ json: String,
-    //     extensions: any ExtensionMap = SimpleExtensionMap(),
+    //     extensions: ExtensionMap = ExtensionMap(),
     //     file: XCTestFileArgType = #file,
     //     line: UInt = #line
     // ) {

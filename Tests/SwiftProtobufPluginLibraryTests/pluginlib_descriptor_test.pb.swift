@@ -535,7 +535,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.NewExtensionMap = [
+let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.ExtensionMap = [
   SDTExtensions_ext_str,
   SDTScoperForExt.Extensions.ext_enum,
   SDTScoperForExt.Extensions.ext_msg

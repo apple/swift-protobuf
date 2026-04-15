@@ -146,7 +146,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.NewExtensionMap = [
+let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftFeatureTest_Extensions_test
 ]
 

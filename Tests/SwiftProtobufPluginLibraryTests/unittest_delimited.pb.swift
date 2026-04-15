@@ -398,7 +398,7 @@ extension EditionsUnittest_TestDelimited {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.NewExtensionMap = [
+let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.ExtensionMap = [
   EditionsUnittest_Extensions_lengthprefixed,
   EditionsUnittest_Extensions_GroupLikeFileScope,
   EditionsUnittest_Extensions_not_group_like_scope,

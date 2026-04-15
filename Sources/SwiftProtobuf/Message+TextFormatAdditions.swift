@@ -57,7 +57,7 @@ extension Message {
     // TODO: delete this (and keep the one with the extra param instead) when we break API
     public init(
         textFormatString: String,
-        extensions: (any ExtensionMap)? = nil
+        extensions: ExtensionMap? = nil
     ) throws {
         try self.init(
             textFormatString: textFormatString,
@@ -79,7 +79,7 @@ extension Message {
     public init(
         textFormatString: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        extensions: (any ExtensionMap)? = nil
+        extensions: ExtensionMap? = nil
     ) throws {
         self.init()
         var textFormatString = textFormatString
@@ -88,7 +88,7 @@ extension Message {
             // If we ever implement a true `merge` for text format, we would need to do it there.
             try storageForRuntime.merge(
                 byParsingTextFormatBytes: utf8Buffer,
-                extensions: extensions.map { $0 as! NewExtensionMap },
+                extensions: extensions,
                 options: options
             )
         }

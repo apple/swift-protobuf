@@ -264,7 +264,7 @@ class ExtensionSetGenerator {
             /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
             /// this .proto file. It can be used in parsing, or it can be combined with other
             /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-            \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)NewExtensionMap = [
+            \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)ExtensionMap = [
             """
         )
         p.withIndentation { p in

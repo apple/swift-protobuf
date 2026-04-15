@@ -40,7 +40,7 @@ extension Message {
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public init(
         jsonUTF8Data: Data,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws {
         try self.init(jsonUTF8Bytes: jsonUTF8Data, extensions: extensions, options: options)

@@ -3385,7 +3385,7 @@ extension SwiftProtoTesting_TestParsingMerge {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftProtoTesting_Unittest_Extensions: SwiftProtobuf.NewExtensionMap = [
+let SwiftProtoTesting_Unittest_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftProtoTesting_Extensions_optional_int32_extension,
   SwiftProtoTesting_Extensions_optional_int64_extension,
   SwiftProtoTesting_Extensions_optional_uint32_extension,

@@ -57,7 +57,7 @@ extension Message {
     @inlinable
     public init<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -84,7 +84,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public init(
         serializedBytes bytes: RawSpan,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -115,7 +115,7 @@ extension Message {
     @inlinable
     public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -147,7 +147,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public mutating func merge(
         serializedBytes bytes: RawSpan,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -164,7 +164,7 @@ extension Message {
     @usableFromInline
     mutating func _merge(
         rawBuffer body: UnsafeRawBufferPointer,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
         partial: Bool,
         options: BinaryDecodingOptions
     ) throws {

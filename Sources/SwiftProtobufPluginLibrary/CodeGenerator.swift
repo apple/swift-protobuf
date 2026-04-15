@@ -116,7 +116,7 @@ extension CodeGenerator {
             return
         }
 
-        var extensionMap = NewExtensionMap()
+        var extensionMap = ExtensionMap()
         if !customOptionExtensions.isEmpty {
             for e in customOptionExtensions {
                 // Don't include Google_Protobuf_FeatureSet, that will be handing via custom features.

@@ -35,7 +35,7 @@ struct JSONReader {
         nameMap: _NameMap,
         messageSchema: MessageSchema? = nil,
         options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
     ) {
         self.init(
             scanner: JSONScanner(

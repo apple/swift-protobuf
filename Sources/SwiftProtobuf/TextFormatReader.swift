@@ -34,7 +34,7 @@ struct TextFormatReader {
         nameMap: _NameMap,
         messageSchema: MessageSchema? = nil,
         options: TextFormatDecodingOptions,
-        extensions: (any ExtensionMap)?
+        extensions: ExtensionMap?
     ) {
         self.init(
             scanner: TextFormatScanner(

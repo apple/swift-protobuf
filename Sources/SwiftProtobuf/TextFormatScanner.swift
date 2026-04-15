@@ -240,7 +240,7 @@ private func decodeString(_ s: String) -> String? {
 /// TextFormatScanner has no public members.
 ///
 internal struct TextFormatScanner {
-    internal let extensions: (any ExtensionMap)?
+    internal let extensions: ExtensionMap?
     private var p: UnsafeRawPointer
     private let end: UnsafeRawPointer
     private let doubleParser = DoubleParser()
@@ -254,7 +254,7 @@ internal struct TextFormatScanner {
         utf8Pointer: UnsafeRawPointer,
         count: Int,
         options: TextFormatDecodingOptions,
-        extensions: (any ExtensionMap)? = nil
+        extensions: ExtensionMap? = nil
     ) {
         p = utf8Pointer
         end = p + count
@@ -1197,9 +1197,7 @@ internal struct TextFormatScanner {
                 break
             case asciiOpenSquareBracket:  // Start of an extension field
                 let key = try parseExtensionKey()
-                if let messageSchema,
-                   let extensionSchema = (extensions.map { $0 as! NewExtensionMap })?[fieldName: key, in: messageSchema]
-                {
+                if let messageSchema, let extensionSchema = extensions?[fieldName: key, in: messageSchema] {
                     return Int(extensionSchema.field.fieldNumber)
                 }
                 if !options.ignoreUnknownExtensionFields {

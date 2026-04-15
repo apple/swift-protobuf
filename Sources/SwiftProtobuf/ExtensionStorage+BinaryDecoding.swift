@@ -28,7 +28,7 @@ extension ExtensionStorage {
         _ schema: ExtensionSchema,
         from reader: inout WireFormatReader,
         tag: FieldTag,
-        extensions: NewExtensionMap?,
+        extensions: ExtensionMap?,
         partial: Bool,
         discardUnknownFields: Bool,
         unknownFields: inout UnknownStorage
