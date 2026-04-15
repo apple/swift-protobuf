@@ -117,7 +117,7 @@ package enum Compression {
         /// Creates a new `Symbol` from its numeric value.
         @inline(__always)
         package init(code: UInt8) {
-            precondition(code <= 63, "Symbol code out of range")
+            precondition(code <= matchCode, "Symbol code out of range")
             self.code = code
         }
 
