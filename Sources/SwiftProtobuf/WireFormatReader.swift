@@ -25,7 +25,7 @@ struct WireFormatReader {
 
     /// The maximum number of times that the reader can recurse via sub-readers (for message and
     /// group parsing) before throwing an error.
-    private var recursionBudget: Int
+    internal private(set) var recursionBudget: Int
 
     /// If non-zero, this indicates that the reader is being used to read a group with the given
     /// field number.
@@ -104,6 +104,12 @@ struct WireFormatReader {
         }
 
         return tag
+    }
+
+    /// Reads the next varint from the input and returns the equivalent `FieldTag` without checking
+    /// for group balancing.
+    internal mutating func nextTagWithoutGroupCheck() throws -> FieldTag {
+        return try nextTagWithoutUpdatingLastTagPointer()
     }
 
     /// Reads the next varint from the input and returns the equivalent `FieldTag` without updating
