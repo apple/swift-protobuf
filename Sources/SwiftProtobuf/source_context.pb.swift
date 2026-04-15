@@ -94,13 +94,15 @@ extension Google_Protobuf_SourceContext: Message, _MessageImplementationBase, _P
   public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext" }
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: StaticString { "4\0\0\0@\\[%.MI2u9\u{5}V!T}66;\u{3}\u{3}/UEG/}LO\u{1c}$|&`rU\u{18}.\0\0" }
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.SourceContext\0\u{3}file_name\0" }
 

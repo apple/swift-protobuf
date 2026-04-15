@@ -192,13 +192,15 @@ extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase, _Proto
   public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}" }
+    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp" }
   #else
     #error("Unsupported platform")
   #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: StaticString { "8\0\0\0@^O'=J\0)h\0]8Gn0\u{10}\u{1f}\u{11}'MS\u{18}cXX>`D,\tc\u{12}\u{19}61j\0\0\0" }
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Timestamp\0\u{1}seconds\0\u{1}nanos\0" }
 
