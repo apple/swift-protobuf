@@ -87,16 +87,6 @@ internal struct JSONEncoder {
         data.append(contentsOf: buff)
     }
 
-    /// Append a `_NameMap.Name` to the JSON text surrounded by quotes.
-    internal mutating func appendQuoted(name: _NameMap.Name) {
-        data.append(asciiDoubleQuote)
-        // 99.999% of all JSON field names are ASCII, but `json_name` exists as an option in
-        // the .proto file grammar, and allows folks to do some bad things. So when writing we
-        // still have to do escaping as needed.
-        appendEscapedStringValue(utf8Buffer: name.utf8Buffer)
-        data.append(asciiDoubleQuote)
-    }
-
     /// Append a `String` to the JSON text. The text is assumed well formed for the current context
     /// and so no processing is done.
     internal mutating func append(text: String) {
@@ -107,16 +97,6 @@ internal struct JSONEncoder {
     /// the current context and so no processing is done.
     internal mutating func append(utf8Bytes: [UInt8]) {
         data.append(contentsOf: utf8Bytes)
-    }
-
-    /// Begin a new field whose name is given as a `_NameMap.Name`.
-    internal mutating func startField(name: _NameMap.Name) {
-        if let s = separator {
-            data.append(s)
-        }
-        appendQuoted(name: name)
-        data.append(asciiColon)
-        separator = asciiComma
     }
 
     /// Begin a new field whose name is given as a `String`.
@@ -247,10 +227,10 @@ internal struct JSONEncoder {
         appendInt(value: Int64(value))
     }
 
-    internal mutating func putEnumValue(rawValue: Int32, nameMap: _NameMap, alwaysPrintEnumsAsInts: Bool) {
+    internal mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema, alwaysPrintEnumsAsInts: Bool) {
         // JSON names of enum cases are equivalent to their text format names.
-        if !alwaysPrintEnumsAsInts, let name = nameMap.names(for: Int(rawValue))?.proto {
-            appendQuoted(name: name)
+        if !alwaysPrintEnumsAsInts, let name = enumSchema.textName(forEnumCase: rawValue) {
+            putStringValue(value: name)
         } else {
             appendInt(value: Int64(rawValue))
         }

@@ -42,7 +42,7 @@ package enum CustomJSONWKTClassification {
 
     /// Classifies the message represented by the given schema.
     package init(messageSchema: MessageSchema) {
-        guard let suffix = suffixIfWellKnown(messageSchema.nameMap.fullyQualifiedName) else {
+        guard let suffix = suffixIfWellKnown(messageSchema.messageName) else {
             self = .notWellKnown
             return
         }
@@ -69,7 +69,7 @@ package enum CustomJSONWKTClassification {
 
     /// Classifies the enum represented by the given schema.
     package init(enumSchema: EnumSchema) {
-        self = enumSchema.nameMap.fullyQualifiedName == "google.protobuf.NullValue" ? .nullValue : .notWellKnown
+        self = enumSchema.enumName == "google.protobuf.NullValue" ? .nullValue : .notWellKnown
     }
 }
 

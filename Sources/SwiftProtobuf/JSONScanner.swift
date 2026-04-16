@@ -1245,7 +1245,7 @@ internal struct JSONScanner {
     /// Returns pointer/count spanning the UTF8 bytes of the next regular
     /// key or nil if the key contains a backslash (and therefore requires
     /// the full string-parsing logic to properly parse).
-    private mutating func nextOptionalKey() throws -> UnsafeRawBufferPointer? {
+    private mutating func nextOptionalKey() throws -> String? {
         skipWhitespace()
         let stringStart = index
         guard hasMoreContent else {
@@ -1271,7 +1271,7 @@ internal struct JSONScanner {
             count: index - nameStart
         )
         advance()
-        return buff
+        return String(decoding: buff, as: UTF8.self)
     }
 
     /// Parse a field name, look it up in the provided field name map,
@@ -1281,29 +1281,22 @@ internal struct JSONScanner {
     /// If it encounters an unknown field name, it throws
     /// unless `options.ignoreUnknownFields` is set, in which case
     /// it silently skips it.
-    internal mutating func nextFieldNumber(
-        names: _NameMap,
-        messageType: (any Message.Type)?,
-        messageSchema: MessageSchema? = nil
-    ) throws -> Int? {
+    internal mutating func nextFieldNumber(messageSchema: MessageSchema) throws -> UInt32? {
         while true {
             var fieldName: String
             if let key = try nextOptionalKey() {
-                // Fast path:  We parsed it as UTF8 bytes...
+                // Fast path:  We didn't have to process any escapes...
                 try skipRequiredCharacter(asciiColon)  // :
-                if let fieldNumber = names.number(forJSONName: key) {
+                if let fieldNumber = messageSchema.fieldNumber(forJSONName: key) {
                     return fieldNumber
                 }
-                if let s = utf8ToString(bytes: key.baseAddress!, count: key.count) {
-                    fieldName = s
-                } else {
-                    throw JSONDecodingError.invalidUTF8
-                }
+                fieldName = key
+//                throw JSONDecodingError.invalidUTF8
             } else {
                 // Slow path:  We parsed a String; lookups from String are slower.
                 fieldName = try nextQuotedString()
                 try skipRequiredCharacter(asciiColon)  // :
-                if let fieldNumber = names.number(forJSONName: fieldName) {
+                if let fieldNumber = messageSchema.fieldNumber(forJSONName: fieldName) {
                     return fieldNumber
                 }
             }
@@ -1312,8 +1305,8 @@ internal struct JSONScanner {
             {
                 fieldName.removeFirst()
                 fieldName.removeLast()
-                if let messageSchema, let extensionSchema = extensions?[fieldName: fieldName, in: messageSchema] {
-                    return Int(extensionSchema.field.fieldNumber)
+                if let extensionSchema = extensions?[fieldName: fieldName, in: messageSchema] {
+                    return extensionSchema.field.fieldNumber
                 }
             }
             if !options.ignoreUnknownFields {
@@ -1345,14 +1338,14 @@ internal struct JSONScanner {
         }
         if currentByte == asciiDoubleQuote {
             if let name = try nextOptionalKey() {
-                if let e = E(rawUTF8: name) {
+                if let e = E(textFormatName: name) {
                     return e
                 } else {
                     return try throwOrIgnore()
                 }
             }
             let name = try nextQuotedString()
-            if let e = E(name: name) {
+            if let e = E(textFormatName: name) {
                 return e
             } else {
                 return try throwOrIgnore()

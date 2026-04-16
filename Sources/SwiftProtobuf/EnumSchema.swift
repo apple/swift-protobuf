@@ -29,26 +29,57 @@ public struct EnumSchema: @unchecked Sendable {
     /// we get nil back, but this could be useful for a future reflection API.
     private let schema: UnsafeRawBufferPointer
 
-    /// The name map for the enum.
-    ///
-    /// TODO: This is a big but temporary performance regression while we're moving to the new
-    /// implementation. Previously, name maps were a `static let` on the individual enum types,
-    /// which meant their initialization only occurred when they were first used (e.g., when
-    /// performing text/JSON serialization). Now, the name map needs to be part of the schema to
-    /// satisfy the self-describing nature of `_MessageStorage` for the new table-driven text/JSON
-    /// implementation, which forces it to be initialized whenever any part of the schema is
-    /// requested (even during binary serialization). In the near future, we will replace the
-    /// current name map implementation with a new one that eliminates this first-time
-    /// initialization cost.
-    ///
-    /// TODO: This is public so that it can be read by generated enums to satisfy the
-    /// `ProtoNameProviding` requirement. Make it internal once that's no longer necessary.
-    public let nameMap: _NameMap
+    /// The reference to the reflection table for the enum.
+    private let reflection: ReflectionTableReference
 
     /// Creates a new enum schema from the given values.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, names: StaticString) {
-        self.schema = UnsafeRawBufferPointer(start: schema.utf8Start, count: schema.utf8CodeUnitCount)
-        self.nameMap = names.utf8CodeUnitCount != 0 ? _NameMap(bytecode: names) : _NameMap()
+    public init(schema: StaticString, reflection: StaticString) {
+        self.schema = schema.rawBufferPointer
+        // TODO: Use the `.compressed` form and lazily decompress and cache it.
+        self.reflection = .direct(ReflectionTable(
+            fieldCount: Self.valueCount(from: schema.rawBufferPointer),
+            data: Compression.decompress(reflection.rawBufferPointer)
+        ))
+    }
+}
+
+private let enumSchemaHeaderSize = 6
+
+extension EnumSchema {
+    /// Helper function to read the value count from the schema buffer.
+    static func valueCount(from buffer: UnsafeRawBufferPointer) -> Int {
+        let lowBits = UInt32(littleEndian: buffer.loadUnaligned(fromByteOffset: 1, as: UInt32.self))
+        let highBits = buffer.loadUnaligned(fromByteOffset: 5, as: UInt8.self)
+        return Int((lowBits & 0x00_0000_007f)
+            | ((lowBits & 0x00_0000_7f00) >> 1)
+            | ((lowBits & 0x00_007f_0000) >> 2)
+            | ((lowBits & 0x00_7f00_0000) >> 3)
+            | (UInt32(highBits & 0x0f) << 28))
+    }
+
+    /// The number of values defined in this enum, excluding aliases.
+    var valueCount: Int {
+        Self.valueCount(from: schema)
+    }
+
+    /// The fully-qualified name of the enum.
+    var enumName: String {
+        let lengthOffset = enumSchemaHeaderSize
+        let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
+        let nameStart = lengthOffset + 2
+        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+    }
+}
+
+extension EnumSchema {
+    /// The text and JSON name for the given enum case value.
+    func textName(forEnumCase value: Int32) -> String? {
+        reflection.table.textName(forEnumCase: value)
+    }
+
+    /// The enum case value for the given text and JSON name.
+    func enumCase(forTextName name: String) -> Int32? {
+        reflection.table.enumCase(forTextName: name)
     }
 }

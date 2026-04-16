@@ -1029,14 +1029,14 @@ internal struct TextFormatScanner {
         }
     }
 
-    internal mutating func nextOptionalEnumName() throws -> UnsafeRawBufferPointer? {
+    internal mutating func nextOptionalEnumName() throws -> String? {
         skipWhitespace()
         if p == end {
             throw TextFormatDecodingError.malformedText
         }
         switch p[0] {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
-            return parseUTF8Identifier()
+            return String(decoding: parseUTF8Identifier(), as: UTF8.self)
         default:
             return nil
         }
@@ -1161,12 +1161,7 @@ internal struct TextFormatScanner {
     ///
     /// This function accounts for as much as 2/3 of the total run
     /// time of the entire parse.
-    internal mutating func nextFieldNumber(
-        names: _NameMap,
-        messageType: (any Message.Type)?,
-        messageSchema: MessageSchema? = nil,
-        terminator: UInt8?
-    ) throws -> Int? {
+    internal mutating func nextFieldNumber(messageSchema: MessageSchema, terminator: UInt8?) throws -> UInt32? {
         while true {
             skipWhitespace()
             if p == end {
@@ -1182,12 +1177,12 @@ internal struct TextFormatScanner {
             switch c {
             case asciiLowerA...asciiLowerZ,
                 asciiUpperA...asciiUpperZ:  // a...z, A...Z
-                let key = parseUTF8Identifier()
-                if let fieldNumber = names.number(forProtoName: key) {
+                let key = String(decoding: parseUTF8Identifier(), as: UTF8.self)
+                if let fieldNumber = messageSchema.fieldNumber(forTextName: key) {
                     return fieldNumber
                 }
                 if !options.ignoreUnknownFields {
-                    if names.isReserved(name: key) {
+                    if messageSchema.isFieldNameReserved(key) {
                         isReserved = true
                     } else {
                         throw TextFormatDecodingError.unknownField
@@ -1197,8 +1192,8 @@ internal struct TextFormatScanner {
                 break
             case asciiOpenSquareBracket:  // Start of an extension field
                 let key = try parseExtensionKey()
-                if let messageSchema, let extensionSchema = extensions?[fieldName: key, in: messageSchema] {
-                    return Int(extensionSchema.field.fieldNumber)
+                if let extensionSchema = extensions?[fieldName: key, in: messageSchema] {
+                    return extensionSchema.field.fieldNumber
                 }
                 if !options.ignoreUnknownExtensionFields {
                     throw TextFormatDecodingError.unknownField
@@ -1207,12 +1202,12 @@ internal struct TextFormatScanner {
                 break
             case asciiOne...asciiNine:  // 1-9 (field numbers are 123, not 0123)
                 let start = p
-                var fieldNum = Int(c) - Int(asciiZero)
+                var fieldNum = UInt32(c) - UInt32(asciiZero)
                 p += 1
                 while p != end {
                     let c = p[0]
                     if c >= asciiZero && c <= asciiNine {
-                        fieldNum = fieldNum &* 10 &+ (Int(c) - Int(asciiZero))
+                        fieldNum = fieldNum &* 10 &+ (UInt32(c) - UInt32(asciiZero))
                     } else {
                         break
                     }
@@ -1222,12 +1217,12 @@ internal struct TextFormatScanner {
                     }
                 }
                 skipWhitespace()
-                if names.names(for: fieldNum) != nil {
+                if messageSchema.textName(forFieldNumber: fieldNum) != nil {
                     return fieldNum
                 }
                 if !options.ignoreUnknownFields {
                     // fieldNumber is range checked while parsing, so safe can truncate.
-                    if names.isReserved(number: Int32(truncatingIfNeeded: fieldNum)) {
+                    if messageSchema.isFieldNumberReserved(fieldNum) {
                         isReserved = true
                     } else {
                         throw TextFormatDecodingError.unknownField

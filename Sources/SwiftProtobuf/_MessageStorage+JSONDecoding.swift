@@ -28,7 +28,6 @@ extension _MessageStorage {
     ) throws {
         var reader = JSONReader(
             buffer: buffer,
-            nameMap: schema.nameMap,
             messageSchema: schema,
             options: options,
             extensions: extensions
@@ -477,7 +476,7 @@ extension _MessageStorage {
             hasSeenValue = true
 
             if let name = try reader.scanner.nextOptionalQuotedString() {
-                guard let number = enumSchema.nameMap.number(forJSONName: name) else {
+                guard let number = enumSchema.enumCase(forTextName: name) else {
                     throw JSONDecodingError.unrecognizedEnumValue
                 }
                 value = Int32(number)
@@ -563,7 +562,6 @@ extension _MessageStorage {
         func parseJSONBuffer(_ buffer: UnsafeRawBufferPointer) throws {
             var subReader = JSONReader(
                 buffer: buffer,
-                nameMap: messageSchema.nameMap,
                 messageSchema: messageSchema,
                 options: reader.options,
                 extensions: reader.scanner.extensions)

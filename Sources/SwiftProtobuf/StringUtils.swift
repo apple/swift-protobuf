@@ -125,3 +125,13 @@ func isPrintableASCII(_ s: String) -> Bool {
     }
     return true
 }
+
+extension StaticString {
+    /// Returns an `UnsafeRawBufferPointer` to the `StaticString`'s data.
+    ///
+    /// - Precondition: The static string must use the UTF-8 representation, not single code point
+    ///   representation.
+    var rawBufferPointer: UnsafeRawBufferPointer {
+        UnsafeRawBufferPointer(start: utf8Start, count: utf8CodeUnitCount)
+    }
+}

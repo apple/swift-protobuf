@@ -50,7 +50,6 @@ extension _MessageStorage {
 
         var reader = TextFormatReader(
             buffer: buffer,
-            nameMap: schema.nameMap,
             messageSchema: schema,
             options: options,
             extensions: extensions
@@ -288,10 +287,10 @@ extension _MessageStorage {
             hasSeenValue = true
 
             if let name = try reader.scanner.nextOptionalEnumName() {
-                guard let number = enumSchema.nameMap.number(forProtoName: name) else {
+                guard let number = enumSchema.enumCase(forTextName: name) else {
                     throw TextFormatDecodingError.unrecognizedEnumValue
                 }
-                value = Int32(number)
+                value = number
                 return true
             }
 

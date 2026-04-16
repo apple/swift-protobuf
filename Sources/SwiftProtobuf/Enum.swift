@@ -18,6 +18,9 @@
 /// Generated enum types conform to this protocol.
 @preconcurrency
 public protocol Enum: RawRepresentable, Hashable, Sendable {
+    /// The schema that provides information about this enum's cases and names.
+    static var enumSchema: EnumSchema { get }
+
     /// Creates a new instance of the enum initialized to its default value.
     init()
 
@@ -49,11 +52,8 @@ extension Enum {
     ///
     /// Since the text format and JSON names are always identical, we don't need
     /// to distinguish them.
-    package var name: _NameMap.Name? {
-        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type else {
-            return nil
-        }
-        return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
+    package var textFormatName: String? {
+        Self.enumSchema.textName(forEnumCase: Int32(rawValue))
     }
 
     /// Internal convenience initializer that returns the enum value with the
@@ -63,28 +63,10 @@ extension Enum {
     /// to distinguish them.
     ///
     /// - Parameter name: The name of the enum case.
-    internal init?(name: String) {
-        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
-            let number = nameProviding._protobuf_nameMap.number(forJSONName: name)
-        else {
+    internal init?(textFormatName: String) {
+        guard let number = Self.enumSchema.enumCase(forTextName: textFormatName) else {
             return nil
         }
-        self.init(rawValue: number)
-    }
-
-    /// Internal convenience initializer that returns the enum value with the
-    /// given name, if it provides names.
-    ///
-    /// Since the text format and JSON names are always identical, we don't need
-    /// to distinguish them.
-    ///
-    /// - Parameter name: Buffer holding the UTF-8 bytes of the desired name.
-    internal init?(rawUTF8: UnsafeRawBufferPointer) {
-        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
-            let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8)
-        else {
-            return nil
-        }
-        self.init(rawValue: number)
+        self.init(rawValue: Int(number))
     }
 }

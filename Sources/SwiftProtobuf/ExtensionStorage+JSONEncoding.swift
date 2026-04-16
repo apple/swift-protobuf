@@ -76,7 +76,7 @@ extension ExtensionStorage {
                     // TODO: Handle the WKT `NullValue` with a custom JSON representation.
                     encoder.putEnumValue(
                         rawValue: value,
-                        nameMap: enumSchema.nameMap,
+                        enumSchema: enumSchema,
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
@@ -166,7 +166,7 @@ extension ExtensionStorage {
             ) { enumSchema, value in
                 encoder.putEnumValue(
                     rawValue: value,
-                    nameMap: enumSchema.nameMap,
+                    enumSchema: enumSchema,
                     alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                 )
                 return true

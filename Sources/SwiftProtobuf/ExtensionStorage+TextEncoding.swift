@@ -159,7 +159,7 @@ extension ExtensionStorage {
                     self,
                     .read
                 ) { enumSchema, value in
-                    encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
+                    encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
                     return true
                 } /*onInvalidValue*/ _: { _ in
                     assertionFailure("invalid value handler should never be called for .read")
@@ -210,7 +210,7 @@ extension ExtensionStorage {
                 if !firstItem {
                     encoder.arraySeparator()
                 }
-                encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
+                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
                 firstItem = false
                 return true
             } /*onInvalidValue*/ _: { _ in
@@ -228,7 +228,7 @@ extension ExtensionStorage {
             ) { enumSchema, value in
                 encoder.emitExtensionFieldName(name: schema.fieldName)
                 encoder.startRegularField()
-                encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
+                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
                 encoder.endRegularField()
                 return true
             } /*onInvalidValue*/ _: { _ in

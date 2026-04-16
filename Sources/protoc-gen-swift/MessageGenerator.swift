@@ -105,7 +105,11 @@ class MessageGenerator {
 
         self.messageSchemaCalculator = MessageSchemaCalculator(
             fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
-        self.compressedReflectionData = ReflectionTableCalculator(fields: fieldsSortedByNumber).stringLiteral()
+        self.compressedReflectionData = ReflectionTableCalculator(
+            fields: fieldsSortedByNumber,
+            reservedRanges: descriptor.reservedRanges,
+            reservedNames: descriptor.reservedNames
+        ).stringLiteral()
     }
 
     func generateMainStruct(
@@ -226,7 +230,7 @@ class MessageGenerator {
     func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
         p.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase, \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
+            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase {"
         )
         p.withIndentation { p in
             if let parent = parent {
@@ -240,10 +244,6 @@ class MessageGenerator {
             } else {
                 p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
             }
-            // TODO: Remove this compatibility property for the name map.
-            p.print(
-                "\(visibility)static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }"
-            )
             generateMessageSchema(printer: &p)
             p.print(
                 "",
@@ -265,18 +265,6 @@ class MessageGenerator {
     }
 
     private func generateMessageSchema(printer p: inout CodePrinter) {
-        var writer = ProtoNameInstructionWriter()
-        writer.writeFullyQualifiedName(descriptor.fullName)
-        for f in fieldsSortedByNumber {
-            f.writeProtoNameInstruction(to: &writer)
-        }
-        for name in descriptor.reservedNames {
-            writer.writeReservedName(name)
-        }
-        for range in descriptor.reservedRanges {
-            writer.writeReservedNumbers(range)
-        }
-
         messageSchemaCalculator.schemaLiterals.printConditionalBlocks(to: &p) { value, _, p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
@@ -287,15 +275,11 @@ class MessageGenerator {
             "@_alwaysEmitIntoClient @inline(__always)",
             #"private static var _protobuf_reflectionData: StaticString { "\#(compressedReflectionData)" }"#
         )
-        p.print(
-            "@_alwaysEmitIntoClient @inline(__always)",
-            #"private static var _protobuf_fieldNamesString: StaticString { \#(writer.bytecode.stringLiteral) }"#
-        )
 
         let trampolineFields = messageSchemaCalculator.trampolineFields
         p.print()
         p.print(
-            "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString",
+            "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData",
             newlines: false
         )
 

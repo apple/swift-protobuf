@@ -64,25 +64,110 @@ extension ReflectionTable {
 
     /// Returns the field number with the given text name.
     package func fieldNumber(forTextName name: String) -> UInt32? {
-        number(for: name, inTableStartingAt: 8 + fieldCount * 8, count: fieldCount)
+        let num = rawNumber(forTextName: name)
+        // We might hit a reserved name with a number of 0, so convert that to nil.
+        return num == 0 ? nil : num
     }
 
     /// Returns the enum case with the given text name.
     package func enumCase(forTextName name: String) -> Int32? {
-        guard let number = fieldNumber(forTextName: name) else { return nil }
-        return Int32(bitPattern: number)
+        rawNumber(forTextName: name).map(Int32.init(bitPattern:))
     }
 
     /// Returns the field number with the given JSON name.
     package func fieldNumber(forJSONName name: String) -> UInt32? {
-        number(for: name, inTableStartingAt: 8 + fieldCount * 16, count: distinctJSONNameCount)
-            ?? fieldNumber(forTextName: name)
+        let num = rawNumber(forJSONName: name) ?? fieldNumber(forTextName: name)
+        // We might hit a reserved name with a number of 0, so convert that to nil.
+        return num == 0 ? nil : num
     }
 
     /// Returns the enum case with the given JSON name.
     package func enumCase(forJSONName name: String) -> Int32? {
-        guard let number = fieldNumber(forJSONName: name) else { return nil }
+        guard let number = rawNumber(forJSONName: name) ?? rawNumber(forTextName: name) else { return nil }
         return Int32(bitPattern: number)
+    }
+}
+
+extension ReflectionTable {
+    /// Returns true if the given field number is reserved.
+    package func isNumberReserved(_ number: UInt32) -> Bool {
+        guard data.count >= 4 else { return false }
+        let section2Offset = data.withUnsafeBytes { bytes in
+            Int(bytes.load(fromByteOffset: 0, as: UInt32.self))
+        }
+        guard section2Offset > 0 && section2Offset < data.count else { return false }
+        
+        return data.withUnsafeBytes { bytes in
+            let endOffset = Int(bytes.load(fromByteOffset: section2Offset, as: UInt32.self))
+            if endOffset - section2Offset <= 8 {
+                return false // Fast path: Section 2 is empty
+            }
+
+            let dataStart = section2Offset + 4
+            guard dataStart + 4 <= data.count else { return false }
+            
+            let singleCount = Int(bytes.load(fromByteOffset: dataStart, as: UInt16.self))
+            let multiCount = Int(bytes.load(fromByteOffset: dataStart + 2, as: UInt16.self))
+            
+            let currentOffset = dataStart + 4
+            
+            // Single-element ranges (Binary Search)
+            guard currentOffset + singleCount * 4 <= data.count else { return false }
+            var low = 0
+            var high = singleCount - 1
+            while low <= high {
+                let mid = (low + high) / 2
+                let offset = currentOffset + mid * 4
+                let reservedNumber = bytes.load(fromByteOffset: offset, as: Int32.self)
+                let uReserved = UInt32(bitPattern: reservedNumber)
+                
+                if uReserved == number {
+                    return true
+                } else if uReserved < number {
+                    low = mid + 1
+                } else {
+                    high = mid - 1
+                }
+            }
+
+            // Multi-element ranges (Binary Search)
+            let multiStart = currentOffset + singleCount * 4
+            guard multiStart + multiCount * 8 <= data.count else { return false }
+            low = 0
+            high = multiCount - 1
+            var candidateIndex = -1
+
+            while low <= high {
+                let mid = (low + high) / 2
+                let offset = multiStart + mid * 8
+                let lower = bytes.load(fromByteOffset: offset, as: Int32.self)
+                let uLower = UInt32(bitPattern: lower)
+
+                if uLower <= number {
+                    candidateIndex = mid
+                    low = mid + 1 // Look for a larger lower bound
+                } else {
+                    high = mid - 1
+                }
+            }
+
+            if candidateIndex != -1 {
+                let offset = multiStart + candidateIndex * 8
+                let upper = bytes.load(fromByteOffset: offset + 4, as: Int32.self)
+                let uUpper = UInt32(bitPattern: upper)
+                if number < uUpper {
+                    return true
+                }
+            }
+
+            return false
+        }
+    }
+
+    /// Returns true if the given name is reserved.
+    package func isNameReserved(_ name: String) -> Bool {
+        guard reservedNameCount > 0 else { return false } // Fast path
+        return number(for: name, inTableStartingAt: 8 + fieldCount * 8, count: fieldCount + reservedNameCount) == 0
     }
 }
 
@@ -92,7 +177,15 @@ extension ReflectionTable {
     @inline(__always) @_alwaysEmitIntoClient
     private var distinctJSONNameCount: Int {
         data.withUnsafeBytes { bytes in
-            Int(bytes.load(fromByteOffset: 4, as: UInt32.self))
+            Int(bytes.load(fromByteOffset: 4, as: UInt16.self))
+        }
+    }
+
+    /// Returns the count of reserved names.
+    @inline(__always) @_alwaysEmitIntoClient
+    private var reservedNameCount: Int {
+        data.withUnsafeBytes { bytes in
+            Int(bytes.load(fromByteOffset: 6, as: UInt16.self))
         }
     }
 
@@ -100,8 +193,19 @@ extension ReflectionTable {
     @inline(__always) @_alwaysEmitIntoClient
     private var nameTableOffset: Int {
         2 * MemoryLayout<UInt32>.size
-            + 4 * fieldCount * MemoryLayout<UInt32>.size
+            + 2 * fieldCount * MemoryLayout<UInt32>.size
+            + 2 * (fieldCount + reservedNameCount) * MemoryLayout<UInt32>.size
             + 2 * distinctJSONNameCount * MemoryLayout<UInt32>.size
+    }
+
+    /// Returns the field or enum case number associated with the given text name.
+    private func rawNumber(forTextName name: String) -> UInt32? {
+        number(for: name, inTableStartingAt: 8 + fieldCount * 8, count: fieldCount + reservedNameCount)
+    }
+
+    /// Returns the field or enum case number associated with the given JSON name.
+    private func rawNumber(forJSONName name: String) -> UInt32? {
+        number(for: name, inTableStartingAt: 8 + fieldCount * 16, count: distinctJSONNameCount)
     }
 
     /// Returns the offset of the text name for the given field number.
@@ -192,7 +296,7 @@ extension ReflectionTable {
         ReflectionTable(
             fieldCount: 2,
             data: [
-                52, 0, 0, 0,  // Offset of default values section (unused)
+                52, 0, 0, 0,  // Offset of reserved numbers section (unused)
                 0, 0, 0, 0,  // Number of fields with distinct JSON names (0)
                 // Field number to text offset table
                 1, 0, 0, 0,  // field 1
@@ -210,9 +314,38 @@ extension ReflectionTable {
                 UInt8(ascii: "e"), 0,
                 // Alignment padding
                 0, 0,
+                56, 0, 0, 0,  // Offset of default values section (unused)
             ]
         )
     }()
+}
+
+/// A reference to a reflection table, which may be inlined (embedded in the generated code) or
+/// stored as a compressed buffer.
+enum ReflectionTableReference: @unchecked Sendable {
+    /// A compressed reflection table stored as a static string in generated code.
+    /// 
+    /// The pointer to the compressed data is used as a unique key to reference the table.
+    case compressed(UnsafeRawBufferPointer, fieldCount: Int)
+
+    /// Refers to a reflection table that already exists at the time a message/enum schema is
+    /// created.
+    ///
+    /// This is used for map entry pseudo-messages, which have a fixed reflection table shared
+    /// across all map entries.
+    case direct(ReflectionTable)
+
+    /// Returns the reflection table, decompressing it if necessary.
+    var table: ReflectionTable {
+        switch self {
+        case .compressed(let buffer, let fieldCount):
+            // TODO: Move this to a cache instead of decompressing every time.
+            let decompressed = Compression.decompress(buffer)
+            return ReflectionTable(fieldCount: fieldCount, data: decompressed)
+        case .direct(let table):
+            return table
+        }
+    }
 }
 
 /// A reflection table that is lazily decompressed when first accessed.

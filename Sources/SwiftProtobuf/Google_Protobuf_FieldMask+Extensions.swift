@@ -146,12 +146,13 @@ extension Google_Protobuf_FieldMask {
     /// Initiates a field mask with all fields of the message type.
     ///
     /// - Parameter messageType: Message type to get all paths from.
-    public init<M: Message & _ProtoNameProviding>(
+    public init<M: Message>(
         allFieldsOf messageType: M.Type
     ) {
-        self = .with { mask in
-            mask.paths = M.allProtoNames
-        }
+        // TODO: Reimplement this.
+        // self = .with { mask in
+        //     mask.paths = M.allProtoNames
+        // }
     }
 
     /// Initiates a field mask from some particular field numbers of a message
@@ -162,20 +163,21 @@ extension Google_Protobuf_FieldMask {
     /// - Returns: Field mask that include paths of corresponding field numbers.
     /// - Throws: `FieldMaskError.invalidFieldNumber` if the field number
     ///  is not on the message
-    public init<M: Message & _ProtoNameProviding>(
+    public init<M: Message>(
         fieldNumbers: [Int],
         of messageType: M.Type
     ) throws {
-        var paths: [String] = []
-        for number in fieldNumbers {
-            guard let name = M.protoName(for: number) else {
-                throw FieldMaskError.invalidFieldNumber
-            }
-            paths.append(name)
-        }
-        self = .with { mask in
-            mask.paths = paths
-        }
+        // TODO: Reimplement this.
+        // var paths: [String] = []
+        // for number in fieldNumbers {
+        //     guard let name = M.protoName(for: number) else {
+        //         throw FieldMaskError.invalidFieldNumber
+        //     }
+        //     paths.append(name)
+        // }
+        // self = .with { mask in
+        //     mask.paths = paths
+        // }
     }
 }
 
@@ -299,7 +301,7 @@ extension Google_Protobuf_FieldMask {
     ///
     /// - Parameter messageType: Message type to paths check with.
     /// - Returns: Boolean determines FieldMask is valid.
-    public func isValid<M: Message & _ProtoNameProviding>(
+    public func isValid<M: Message>(
         for messageType: M.Type
     ) -> Bool {
         // TODO: Reimplement with reflection.
@@ -319,14 +321,4 @@ public enum FieldMaskError: Error {
 
     /// Describes a fieldNumber is invalid for a Message type.
     case invalidFieldNumber
-}
-
-extension Message where Self: _ProtoNameProviding {
-    fileprivate static func protoName(for number: Int) -> String? {
-        Self._protobuf_nameMap.names(for: number)?.proto.description
-    }
-
-    fileprivate static var allProtoNames: [String] {
-        Self._protobuf_nameMap.names.map(\.description)
-    }
 }

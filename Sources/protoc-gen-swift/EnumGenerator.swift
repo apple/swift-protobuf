@@ -78,7 +78,9 @@ class EnumGenerator {
         swiftFullName = namer.fullName(enum: descriptor)
         swiftDefaultValue = namer.dottedRelativeName(enumValue: enumDescriptor.values.first!)
 
-        self.enumSchemaCalculator = EnumSchemaCalculator(fullyQualifiedName: enumDescriptor.fullName)
+        self.enumSchemaCalculator = EnumSchemaCalculator(
+            fullyQualifiedName: enumDescriptor.fullName, enumValues: mainEnumValueDescriptorsSorted
+        )
         self.compressedReflectionData = ReflectionTableCalculator(
             enumValues: mainEnumValueDescriptorsSorted, aliasInfo: aliasInfo
         ).stringLiteral()
@@ -99,10 +101,9 @@ class EnumGenerator {
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter) {
-        // TODO: Drop the _ProtoNameProviding conformance and the old name map property.
         p.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
+            "extension \(swiftFullName) {"
         )
         p.withIndentation { p in
             p.print(
@@ -112,9 +113,8 @@ class EnumGenerator {
                 #"private static var _protobuf_reflectionData: StaticString { "\#(compressedReflectionData)" }"#
             )
             p.print(
-                "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)"
+                "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)"
             )
-            generateProtoNameProviding(printer: &p)
         }
         p.print("}")
     }
@@ -155,27 +155,6 @@ class EnumGenerator {
         let aliasName = namer.relativeName(enumValue: aliasDescriptor)
         let originalName = namer.relativeName(enumValue: originalDescriptor)
         p.print("\(generatorOptions.visibilitySourceSnippet)static let \(aliasName) = \(originalName)")
-    }
-
-    /// Generates the mapping from case numbers to their text/JSON names.
-    ///
-    /// - Parameter p: The code printer.
-    private func generateProtoNameProviding(printer p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-
-        var writer = ProtoNameInstructionWriter()
-        writer.writeFullyQualifiedName(enumDescriptor.fullName)
-        for v in mainEnumValueDescriptorsSorted {
-            if let aliases = aliasInfo.aliases(v) {
-                writer.writeAliased(v, aliases: aliases)
-            } else {
-                writer.writeSame(number: v.number, name: v.name)
-            }
-        }
-        p.print(
-            "private static var _protobuf_valueNamesString: Swift.StaticString { \(writer.bytecode.stringLiteral) }",
-            "\(visibility)static var _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap { enumSchema.nameMap }"
-        )
     }
 }
 
