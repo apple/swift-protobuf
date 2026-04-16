@@ -36,10 +36,6 @@ extension Message {
         return try storageForRuntime.serializedBytes(partial: partial, options: options)
     }
 
-    internal func serializedDataSize() throws -> Int {
-        fatalError("no longer used")
-    }
-
     /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
     /// containing a serialized message in Protocol Buffer binary format.
     ///
