@@ -15,7 +15,6 @@
 #include <cstdint>
 #include <cstring>
 #include <new>  // IWYU pragma: keep for operator new().
-#include <optional>
 #include <queue>
 #include <string>
 #include <vector>
@@ -30,6 +29,7 @@
 #include "absl/strings/str_join.h"
 #include "absl/strings/string_view.h"
 #include "absl/synchronization/mutex.h"
+#include "absl/types/optional.h"
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/descriptor.pb.h"
 #include "google/protobuf/dynamic_message.h"
@@ -108,10 +108,8 @@ void Message::CopyFrom(const Message& from) {
     // Fail if "from" is a descendant of "to" as such copy is not allowed.
     ABSL_DCHECK(!internal::IsDescendant(*this, from))
         << "Source of CopyFrom cannot be a descendant of the target.";
-#ifdef PROTOBUF_FUTURE_NO_RECURSIVE_MESSAGE_COPY
     ABSL_DCHECK(!internal::IsDescendant(from, *this))
         << "Target of CopyFrom cannot be a descendant of the source.";
-#endif  // PROTOBUF_FUTURE_NO_RECURSIVE_MESSAGE_COPY
     Clear();
     class_to->full().merge_to_from(*this, from);
   } else {
@@ -245,7 +243,7 @@ void* CreateSplitMessageGeneric(Arena* arena, const void* default_split,
                                 const void* default_message) {
   ABSL_DCHECK_NE(message, default_message);
   void* split =
-      (arena == nullptr) ? ::operator new(size) : arena->AllocateAligned(size);
+      (arena == nullptr) ? Allocate(size) : arena->AllocateAligned(size);
   memcpy(split, default_split, size);
   return split;
 }
@@ -275,11 +273,11 @@ class GeneratedMessageFactory final : public MessageFactory {
     dropped_defaults_factory_.SetDelegateToGeneratedFactory(true);
   }
 
-  std::optional<const Message*> FindInTypeMap(const Descriptor* type)
+  absl::optional<const Message*> FindInTypeMap(const Descriptor* type)
       ABSL_SHARED_LOCKS_REQUIRED(mutex_)
   {
     auto it = type_map_.find(type);
-    if (it == type_map_.end()) return std::nullopt;
+    if (it == type_map_.end()) return absl::nullopt;
     return it->second.get();
   }
 
@@ -394,7 +392,7 @@ const Message* GeneratedMessageFactory::GetPrototype(const Descriptor* type) {
 
 const Message* GeneratedMessageFactory::TryGetPrototype(
     const Descriptor* type) {
-  std::optional<const Message*> result;
+  absl::optional<const Message*> result;
   {
     absl::ReaderMutexLock lock(&mutex_);
     result = FindInTypeMap(type);
