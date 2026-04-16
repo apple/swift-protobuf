@@ -252,7 +252,6 @@ class MessageGenerator {
             )
             generateIsInitialized(printer: &p)
             // generateIsInitialized provides a blank line after itself.
-            generateMessageEqualityAndHash(printer: &p)
         }
         p.print("}")
 
@@ -443,19 +442,6 @@ class MessageGenerator {
                 "}"
             )
         }
-    }
-
-    private func generateMessageEqualityAndHash(printer p: inout CodePrinter) {
-        p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
-        p.withIndentation { p in
-            p.print("return lhs._storage.isEqual(to: rhs._storage)")
-        }
-        p.print("}")
-        p.print("\(visibility)func hash(into hasher: inout Swift.Hasher) {")
-        p.withIndentation { p in
-            p.print("_storage.hash(into: &hasher)")
-        }
-        p.print("}")
     }
 
     /// Generates the `isInitialized` property for the message, if needed.
