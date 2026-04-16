@@ -49,7 +49,7 @@ public struct JSONEncodingOptions: Sendable {
     /// parsing that packed message data in order to re-encode it, because unlike
     /// regular messages where the information about stored extensions is already
     /// in memory, parsing the binary data requires the extension map.
-    public var extensions: NewExtensionMap?
+    public var extensions: ExtensionMap?
 
     public init() {}
 }

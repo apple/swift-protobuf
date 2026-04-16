@@ -222,21 +222,6 @@ extension Google_Protobuf_Timestamp {
     }
 }
 
-extension Google_Protobuf_Timestamp: _CustomJSONCodable {
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        (seconds, nanos) = try parseTimestamp(s: s)
-    }
-
-    func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-        if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
-            return "\"\(formatted)\""
-        } else {
-            throw JSONEncodingError.timestampRange
-        }
-    }
-}
-
 extension Google_Protobuf_Timestamp {
     #if !REMOVE_DEPRECATED_APIS
     /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00

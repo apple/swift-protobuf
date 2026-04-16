@@ -42,19 +42,7 @@ extension Message {
     public func textFormatString(
         options: TextFormatEncodingOptions
     ) -> String {
-        return _textFormatString(options: options)
-    }
-
-    // TODO: Delete this when we have removed the old implementation.
-    public func _textFormatString(
-        options: TextFormatEncodingOptions
-    ) -> String {
-        var visitor = TextFormatEncodingVisitor(message: self, options: options)
-        // Although the general traversal/encoding infrastructure supports
-        // throwing errors (needed for JSON/Binary WKTs support, binary format
-        // missing required fields); TextEncoding never actually does throw.
-        try! traverse(visitor: &visitor)
-        return visitor.result
+        return storageForRuntime.textFormatString(options: options)
     }
 
     /// Creates a new message by decoding the given string containing a
@@ -69,7 +57,7 @@ extension Message {
     // TODO: delete this (and keep the one with the extra param instead) when we break API
     public init(
         textFormatString: String,
-        extensions: (any ExtensionMap)? = nil
+        extensions: ExtensionMap? = nil
     ) throws {
         try self.init(
             textFormatString: textFormatString,
@@ -91,36 +79,18 @@ extension Message {
     public init(
         textFormatString: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        extensions: (any ExtensionMap)? = nil
+        extensions: ExtensionMap? = nil
     ) throws {
         self.init()
-        try _merge(textFormatString: textFormatString, options: options, extensions: extensions)
-    }
-
-    // TODO: Delete this when we have removed the old implementation.
-    public mutating func _merge(
-        textFormatString: String,
-        options: TextFormatDecodingOptions,
-        extensions: (any ExtensionMap)?
-    ) throws {
-        if !textFormatString.isEmpty {
-            if let data = textFormatString.data(using: String.Encoding.utf8) {
-                try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-                    if let baseAddress = body.baseAddress, body.count > 0 {
-                        var decoder = try TextFormatDecoder(
-                            messageType: Self.self,
-                            utf8Pointer: baseAddress,
-                            count: body.count,
-                            options: options,
-                            extensions: extensions
-                        )
-                        try decodeMessage(decoder: &decoder)
-                        if !decoder.complete {
-                            throw TextFormatDecodingError.trailingGarbage
-                        }
-                    }
-                }
-            }
+        var textFormatString = textFormatString
+        try textFormatString.withUTF8 { utf8Buffer in
+            // Since we're inside an initializer, there's no need to ensure that the storage is unique.
+            // If we ever implement a true `merge` for text format, we would need to do it there.
+            try storageForRuntime.merge(
+                byParsingTextFormatBytes: utf8Buffer,
+                extensions: extensions,
+                options: options
+            )
         }
     }
 }

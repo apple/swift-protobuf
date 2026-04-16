@@ -108,7 +108,7 @@ public enum BinaryDelimited {
     public static func parse<M: Message>(
         messageType: M.Type,
         from stream: InputStream,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws -> M {
@@ -150,7 +150,7 @@ public enum BinaryDelimited {
     public static func merge<M: Message>(
         into message: inout M,
         from stream: InputStream,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {

@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+// TODO: Re-implement these using a reflection API.
+/*
 import Foundation
 
 extension Message {
@@ -72,17 +74,19 @@ extension Message {
         fieldMask: Google_Protobuf_FieldMask,
         mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
     ) throws {
-        var visitor = PathVisitor<Self>()
-        try source.traverse(visitor: &visitor)
-        let values = visitor.values
-        // TODO: setting all values with only one decoding
-        for path in fieldMask.paths {
-            try? set(
-                path: path,
-                value: values[path],
-                mergeOption: mergeOption
-            )
-        }
+        // TODO: Re-enable this based on a reflection API.
+    
+        // var visitor = PathVisitor<Self>()
+        // try source.traverse(visitor: &visitor)
+        // let values = visitor.values
+        // // TODO: setting all values with only one decoding
+        // for path in fieldMask.paths {
+        //     try? set(
+        //         path: path,
+        //         value: values[path],
+        //         mergeOption: mergeOption
+        //     )
+        // }
     }
 }
 
@@ -120,14 +124,17 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
 extension Message {
     fileprivate init(removingAllFieldsOf message: Self) {
         let newMessage: Self = .init()
-        if var newExtensible = newMessage as? any ExtensibleMessage,
-            let extensible = message as? any ExtensibleMessage
-        {
-            newExtensible._protobuf_extensionFieldValues = extensible._protobuf_extensionFieldValues
-            self = newExtensible as? Self ?? newMessage
-        } else {
+        // TODO: Make sure we do the right thing here for extensions.
+
+        // if var newExtensible = newMessage as? any ExtensibleMessage,
+        //     let extensible = message as? any ExtensibleMessage
+        // {
+        //     newExtensible._protobuf_extensionFieldValues = extensible._protobuf_extensionFieldValues
+        //     self = newExtensible as? Self ?? newMessage
+        // } else {
             self = newMessage
-        }
+        // }
         self.unknownFields = message.unknownFields
     }
 }
+*/

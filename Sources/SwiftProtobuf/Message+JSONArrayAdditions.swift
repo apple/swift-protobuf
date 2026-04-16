@@ -14,6 +14,8 @@
 
 import Foundation
 
+// TODO: Migrate these to work with the table-driven approach.
+/*
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
     /// Returns a string containing the JSON serialization of the messages.
@@ -152,3 +154,4 @@ extension Message {
     }
 
 }
+*/

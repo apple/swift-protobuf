@@ -252,70 +252,6 @@ class MessageGenerator {
             )
             generateIsInitialized(printer: &p)
             // generateIsInitialized provides a blank line after itself.
-            generateDecodeMessage(printer: &p)
-            p.print()
-            generateTraverse(printer: &p)
-            p.print()
-
-            // TODO: These only need to exist while we are in the transitional state of using
-            // table-driven messages for testing but needing to support the old generated WKTs and
-            // plugin protos. Remove them when everything is generated table-driven.
-            p.print(
-                "\(visibility)func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {"
-            )
-            p.withIndentation { p in
-                p.print("return try _storage.serializedBytes(partial: partial, options: options)")
-            }
-            p.print("}")
-            p.print(
-                "\(visibility)mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {"
-            )
-            p.withIndentation { p in
-                p.print("try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)")
-            }
-            p.print("}")
-            p.print(
-                "\(visibility)func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {"
-            )
-            p.withIndentation { p in
-                p.print("return _storage.textFormatString(options: options)")
-            }
-            p.print("}")
-            p.print(
-                "\(visibility)mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {"
-            )
-            p.withIndentation { p in
-                p.print("try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)")
-            }
-            p.print("}")
-            p.print(
-                "\(visibility)func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {"
-            )
-            p.withIndentation { p in
-                p.print(
-                    "return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)"
-                )
-            }
-            p.print("}")
-            p.print(
-                "\(visibility)func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {"
-            )
-            p.withIndentation { p in
-                p.print("return try _storage.jsonUTF8Bytes(options: options)")
-            }
-            p.print("}")
-            p.print(
-                "\(visibility)mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {"
-            )
-            p.withIndentation { p in
-                p.print("try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in")
-                p.printIndented("try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)")
-                p.print("}")
-            }
-            p.print("}")
-
-            p.print()
-            generateMessageEqualityAndHash(printer: &p)
         }
         p.print("}")
 
@@ -506,43 +442,6 @@ class MessageGenerator {
                 "}"
             )
         }
-    }
-
-    /// Generates the `decodeMessage` method for the message.
-    ///
-    /// - Parameter p: The code printer.
-    private func generateDecodeMessage(printer p: inout CodePrinter) {
-        p.print(
-            "\(visibility)mutating func decodeMessage<D: \(namer.swiftProtobufModulePrefix)Decoder>(decoder: inout D) throws {"
-        )
-        p.withIndentation { p in
-            p.print(#"fatalError("table-driven decodeMessage not yet implemented")"#)
-        }
-        p.print("}")
-    }
-
-    /// Generates the `traverse` method for the message.
-    ///
-    /// - Parameter p: The code printer.
-    private func generateTraverse(printer p: inout CodePrinter) {
-        p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModulePrefix)Visitor>(visitor: inout V) throws {")
-        p.withIndentation { p in
-            p.print(#"fatalError("table-driven traverse not yet implemented")"#)
-        }
-        p.print("}")
-    }
-
-    private func generateMessageEqualityAndHash(printer p: inout CodePrinter) {
-        p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
-        p.withIndentation { p in
-            p.print("return lhs._storage.isEqual(to: rhs._storage)")
-        }
-        p.print("}")
-        p.print("\(visibility)func hash(into hasher: inout Swift.Hasher) {")
-        p.withIndentation { p in
-            p.print("_storage.hash(into: &hasher)")
-        }
-        p.print("}")
     }
 
     /// Generates the `isInitialized` property for the message, if needed.

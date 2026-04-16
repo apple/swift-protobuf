@@ -60,50 +60,6 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// It is *not* a full descriptor.
     var messageSchema: MessageSchema { get }
 
-    //
-    // General serialization/deserialization machinery
-    //
-
-    /// Decode all of the fields from the given decoder.
-    ///
-    /// This is a simple loop that repeatedly gets the next field number
-    /// from `decoder.nextFieldNumber()` and then uses the number returned
-    /// and the type information from the original .proto file to decide
-    /// what type of data should be decoded for that field.  The corresponding
-    /// method on the decoder is then called to get the field value.
-    ///
-    /// This is the core method used by the deserialization machinery. It is
-    /// `public` to enable users to implement their own encoding formats by
-    /// conforming to `Decoder`; it should not be called otherwise.
-    ///
-    /// Note that this is not specific to binary encodng; formats that use
-    /// textual identifiers translate those to field numbers and also go
-    /// through this to decode messages.
-    ///
-    /// - Parameters:
-    ///   - decoder: a `Decoder`; the `Message` will call the method
-    ///     corresponding to the type of this field.
-    /// - Throws: an error on failure or type mismatch.  The type of error
-    ///     thrown depends on which decoder is used.
-    mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
-
-    /// Traverses the fields of the message, calling the appropriate methods
-    /// of the passed `Visitor` object.
-    ///
-    /// This is used internally by:
-    ///
-    /// * Protobuf binary serialization
-    /// * JSON serialization (with some twists to account for specialty JSON)
-    /// * Protobuf Text serialization
-    /// * `Hashable` computation
-    ///
-    /// Conceptually, serializers create visitor objects that are
-    /// then passed recursively to every message and field via generated
-    /// `traverse` methods.  The details get a little involved due to
-    /// the need to allow particular messages to override particular
-    /// behaviors for specific encodings, but the general idea is quite simple.
-    func traverse<V: Visitor>(visitor: inout V) throws
-
     // Standard utility properties and methods.
     // Most of these are simple wrappers on top of the visitor machinery.
     // They are implemented in the protocol, not in the generated structs,
@@ -119,36 +75,23 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// types.
     func isEqualTo(message: any Message) -> Bool
 
-    // TODO: I am *temporarily* making these protocol requirements so that I can replace their
-    // implementation in generated table-driven messages. That will let me support decoding in all
-    // of its forms (encoding and decoding) by only generating these methods and ensure that all
-    // encoding/decoding code paths go through these hooks instead of the protocol extension
-    // defaults. They will be removed once the implementation is far enough along that I can
-    // regenerate all the WKTs and plugin protos, since everything will be moved into the runtime at
-    // that point.
-    func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
-        partial: Bool,
-        options: BinaryEncodingOptions
-    ) throws -> Bytes
-    mutating func _merge(
-        rawBuffer body: UnsafeRawBufferPointer,
-        extensions: (any ExtensionMap)?,
-        partial: Bool,
-        options: BinaryDecodingOptions
-    ) throws
-    func _textFormatString(options: TextFormatEncodingOptions) -> String
-    mutating func _merge(
-        textFormatString: String,
-        options: TextFormatDecodingOptions,
-        extensions: (any ExtensionMap)?
-    ) throws
-    func _jsonString(options: JSONEncodingOptions) throws -> String
-    func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions) throws -> Bytes
-    mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(
-        jsonUTF8Bytes: Bytes,
-        options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?
-    ) throws
+    /// This is an implementation detail of the runtime; users should not call it. The return type
+    /// is a class-bound existential because the true SPI type cannot be used in a protocol
+    /// requirement.
+    func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject
+
+    /// This is an implementation detail of the runtime; users should not call it.
+    mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken)
+
+    /// This is an implementation detail of the runtime; users should not call it. The return type
+    /// is a class-bound existential because the true SPI type cannot be used in a protocol
+    /// requirement.
+    func _protobuf_extensionStorageImpl() -> AnyObject
+
+    /// This is an implementation detail of the runtime; users should not call it. The return type
+    /// is a class-bound existential because the true SPI type cannot be used in a protocol
+    /// requirement.
+    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject
 }
 
 extension Message {
@@ -159,13 +102,6 @@ extension Message {
     public var isInitialized: Bool {
         // The generated code will include a specialization as needed.
         true
-    }
-
-    /// A hash based on the message's full contents.
-    public func hash(into hasher: inout Hasher) {
-        var visitor = HashVisitor(hasher)
-        try? traverse(visitor: &visitor)
-        hasher = visitor.hasher
     }
 
     /// A description generated by recursively visiting all fields in the message,
@@ -223,27 +159,6 @@ public protocol _MessageImplementationBase: Message, Hashable {
     /// This is identical to the instance property `messageSchema`, but provides a way to access the
     /// statically-known schema for a message without creating an instance of it.
     static var messageSchema: MessageSchema { get }
-
-    /// This is an implementation detail of the runtime; users should not call it. The return type
-    /// is a class-bound existential because the true SPI type cannot be used in a protocol
-    /// requirement.
-    func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject
-
-    /// This is an implementation detail of the runtime; users should not call it.
-    mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken)
-
-    /// This is an implementation detail of the runtime; users should not call it. The return type
-    /// is a class-bound existential because the true SPI type cannot be used in a protocol
-    /// requirement.
-    func _protobuf_extensionStorageImpl() -> AnyObject
-
-    /// This is an implementation detail of the runtime; users should not call it. The return type
-    /// is a class-bound existential because the true SPI type cannot be used in a protocol
-    /// requirement.
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject
-
-    // Legacy function; no longer used, but left to maintain source compatibility.
-    func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 extension _MessageImplementationBase {
@@ -256,30 +171,6 @@ extension _MessageImplementationBase {
         Self.messageSchema
     }
 
-    // TODO: Remove this default implementation once we're generating all the test protos
-    // with the new implementation.
-    public func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject {
-        fatalError()
-    }
-
-    // TODO: Remove this default implementation once we're generating all the test protos
-    // with the new implementation.
-    public mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken) {
-        fatalError()
-    }
-
-    // TODO: Remove this default implementation once we're generating all the test protos
-    // with the new implementation.
-    public func _protobuf_extensionStorageImpl() -> AnyObject {
-        fatalError()
-    }
-
-    // TODO: Remove this default implementation once we're generating all the test protos
-    // with the new implementation.
-    public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject {
-        fatalError()
-    }
-
     public func isEqualTo(message: any Message) -> Bool {
         guard let other = message as? Self else {
             return false
@@ -287,21 +178,16 @@ extension _MessageImplementationBase {
         return self == other
     }
 
-    // Legacy default implementation that is used by old generated code, current
-    // versions of the plugin/generator provide this directly, but this is here
-    // just to avoid breaking source compatibility.
     public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs._protobuf_generated_isEqualTo(other: rhs)
+        lhs.storageForRuntime.isEqual(to: rhs.storageForRuntime)
     }
 
-    // Legacy function that is generated by old versions of the plugin/generator,
-    // defaulted to keep things simple without changing the api surface.
-    public func _protobuf_generated_isEqualTo(other: Self) -> Bool {
-        self == other
+    public func hash(into hasher: inout Hasher) {
+        self.storageForRuntime.hash(into: &hasher)
     }
 }
 
-extension _MessageImplementationBase {
+extension Message {
     /// Convenience property for the runtime to retrieve the underlying storage for a concretely
     /// typed message.
     internal var storageForRuntime: _MessageStorage {

@@ -163,44 +163,6 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    fatalError("table-driven decodeMessage not yet implemented")
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    fatalError("table-driven traverse not yet implemented")
-  }
-
-  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
-    return try _storage.serializedBytes(partial: partial, options: options)
-  }
-  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
-  }
-  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
-    return _storage.textFormatString(options: options)
-  }
-  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
-  }
-  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
-    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
-  }
-  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
-    return try _storage.jsonUTF8Bytes(options: options)
-  }
-  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
-    }
-  }
-
-  public static func ==(lhs: SwiftProtobuf_GenSwift_ModuleMappings, rhs: SwiftProtobuf_GenSwift_ModuleMappings) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -224,42 +186,4 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, Sw
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    fatalError("table-driven decodeMessage not yet implemented")
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    fatalError("table-driven traverse not yet implemented")
-  }
-
-  public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false, options: BinaryEncodingOptions = BinaryEncodingOptions()) throws -> Bytes {
-    return try _storage.serializedBytes(partial: partial, options: options)
-  }
-  public mutating func _merge(rawBuffer body: UnsafeRawBufferPointer, extensions: (any ExtensionMap)?, partial: Bool, options: BinaryDecodingOptions) throws {
-    try _uniqueStorage().merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
-  }
-  public func _textFormatString(options: TextFormatEncodingOptions = TextFormatEncodingOptions()) -> String {
-    return _storage.textFormatString(options: options)
-  }
-  public mutating func _merge(textFormatString: String, options: TextFormatDecodingOptions = TextFormatDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try _uniqueStorage().merge(byParsingTextFormatString: textFormatString, extensions: extensions, options: options)
-  }
-  public func _jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
-    return String(decoding: try _storage.jsonUTF8Bytes(options: options) as [UInt8], as: UTF8.self)
-  }
-  public func _jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> Bytes {
-    return try _storage.jsonUTF8Bytes(options: options)
-  }
-  public mutating func _merge<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes, options: JSONDecodingOptions = JSONDecodingOptions(), extensions: (any ExtensionMap)? = nil) throws {
-    try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _uniqueStorage().merge(byParsingJSONUTF8Bytes: body, extensions: extensions, options: options)
-    }
-  }
-
-  public static func ==(lhs: SwiftProtobuf_GenSwift_ModuleMappings.Entry, rhs: SwiftProtobuf_GenSwift_ModuleMappings.Entry) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

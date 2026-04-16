@@ -14,10 +14,7 @@
 
 import Foundation
 
-/// This type is a high-level wrapper around `JSONScanner`. It is the analogue of `JSONDecoder`
-/// from the old implementation, but without the `Decoder` infrastructure that we'll be deleting.
-/// Once that refactoring is complete, we should consider whether it makes sense to merge this with
-/// `JSONScanner` instead of keeping them separate.
+/// This type is a high-level wrapper around `JSONScanner`.
 struct JSONReader {
     var scanner: JSONScanner
     private var nameMap: _NameMap
@@ -38,7 +35,7 @@ struct JSONReader {
         nameMap: _NameMap,
         messageSchema: MessageSchema? = nil,
         options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
     ) {
         self.init(
             scanner: JSONScanner(

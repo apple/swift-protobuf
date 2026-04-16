@@ -36,7 +36,7 @@ extension Message {
     ///   ``BinaryDecodingError`` on failure.
     public init(
         unpackingAny: Google_Protobuf_Any,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         guard unpackingAny.isA(Self.self) else {

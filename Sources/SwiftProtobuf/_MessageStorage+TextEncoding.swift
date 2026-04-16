@@ -352,24 +352,15 @@ extension _MessageStorage {
     /// encoder.
     private func emitUnknownFields(bytes: Data, into encoder: inout TextFormatEncoder) {
         bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> Void in
-            if let baseAddress = body.baseAddress, body.count > 0 {
-                // All fields will be directly handled, so there is no need for
-                // the unknown field buffering/collection (when scannings to see
-                // if something is a message, this would be extremely wasteful).
-                var binaryOptions = BinaryDecodingOptions()
-                binaryOptions.discardUnknownFields = true
-                var decoder = BinaryDecoder(
-                    forReadingFrom: baseAddress,
-                    count: body.count,
-                    options: binaryOptions
-                )
-                emitUnknownFields(decoder: &decoder, into: &encoder)
+            if body.count > 0 {
+                var reader = WireFormatReader(buffer: body, recursionBudget: 10)
+                emitUnknownFields(reader: &reader, into: &encoder)
             }
         }
     }
 
-    /// Helper for printing out unknown fields by decoding them from the given binary decoder
-    /// (which wraps the original unknown fields binary blob)..
+    /// Helper for printing out unknown fields by decoding them from the given wire format reader
+    /// (which wraps the original unknown fields binary blob).
     ///
     /// The implementation tries to be "helpful" and if a length delimited field appears to be a
     /// submessage, it prints it as such. However, that opens the door to someone sending a message
@@ -377,76 +368,61 @@ extension _MessageStorage {
     /// the stack and thus opening up an attack vector. To keep this "help" but avoid the attack, a
     /// limit is placed on how many times it will recurse before just treating the length delimited
     /// fields as bytes and not trying to decode them.
-    private func emitUnknownFields(
-        decoder: inout BinaryDecoder,
-        into encoder: inout TextFormatEncoder,
-        recursionBudget: Int = 10
-    ) {
-        // This stack serves to avoid recursion for groups within groups within groups..., avoiding
+    private func emitUnknownFields(reader: inout WireFormatReader, into encoder: inout TextFormatEncoder) {
+        // This stack serves to avoid recursion for groups within groups within groups, avoiding
         // the stack attack that the message detection hits. No limit is placed on this because
         // there is no stack risk with recursion, and because if a limit was hit, there is no other
         // way to encode the group (the message field can just print as length-delimited; groups
         // don't have an option like that).
         var groupFieldNumberStack: [Int] = []
 
-        while let tag = try! decoder.getTag() {
+        while reader.hasAvailableData {
+            guard let tag = try? reader.nextTagWithoutGroupCheck() else {
+                // Stop processing unknown fields if we encounter malformed data.
+                return
+            }
             switch tag.wireFormat {
             case .varint:
                 encoder.emitFieldNumber(number: tag.fieldNumber)
-                var value: UInt64 = 0
                 encoder.startRegularField()
-                try! decoder.decodeSingularUInt64Field(value: &value)
+                let value = try! reader.nextVarint()
                 encoder.putUInt64(value: value)
                 encoder.endRegularField()
 
             case .fixed64:
                 encoder.emitFieldNumber(number: tag.fieldNumber)
-                var value: UInt64 = 0
                 encoder.startRegularField()
-                try! decoder.decodeSingularFixed64Field(value: &value)
+                let value = try! reader.nextLittleEndianUInt64()
                 encoder.putUInt64Hex(value: value, digits: 16)
                 encoder.endRegularField()
 
             case .lengthDelimited:
                 encoder.emitFieldNumber(number: tag.fieldNumber)
-                var bytes = Data()
-                try! decoder.decodeSingularBytesField(value: &bytes)
+                let slice = try! reader.nextLengthDelimitedSlice()
                 var encodeAsBytes = true
-                if bytes.count > 0 && recursionBudget > 0 {
-                    bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> Void in
-                        if let baseAddress = body.baseAddress, body.count > 0 {
-                            do {
-                                // Walk all the fields to test if it looks like a message.
-                                var testDecoder = BinaryDecoder(
-                                    forReadingFrom: baseAddress,
-                                    count: body.count,
-                                    parent: decoder
-                                )
-                                while let _ = try testDecoder.nextFieldNumber() {}
-
-                                // If there was no error, output the fields as a message body.
-                                encodeAsBytes = false
-                                var subDecoder = BinaryDecoder(
-                                    forReadingFrom: baseAddress,
-                                    count: bytes.count,
-                                    parent: decoder
-                                )
-                                encoder.startMessageField()
-                                emitUnknownFields(
-                                    decoder: &subDecoder,
-                                    into: &encoder,
-                                    recursionBudget: recursionBudget - 1
-                                )
-                                encoder.endMessageField()
-                            } catch {
-                                // Fall back to encoding the fields as a binary blob.
-                                encodeAsBytes = true
-                            }
+                if slice.count > 0 && reader.recursionBudget > 0 {
+                    do {
+                        // Walk all the fields to test if it looks like a message.
+                        var testReader = WireFormatReader(buffer: slice, recursionBudget: 0)
+                        while testReader.hasAvailableData {
+                            let innerTag = try testReader.nextTag()
+                            _ = try testReader.sliceBySkippingField(tag: innerTag)
                         }
+
+                        // If there was no error, output the fields as a message body.
+                        encodeAsBytes = false
+                        var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget - 1)
+                        encoder.startMessageField()
+                        emitUnknownFields(reader: &subReader, into: &encoder)
+                        encoder.endMessageField()
+                    } catch {
+                        // Fall back to encoding the fields as a binary blob.
+                        encodeAsBytes = true
                     }
                 }
                 if encodeAsBytes {
                     encoder.startRegularField()
+                    let bytes = Data(bytes: slice.baseAddress!, count: slice.count)
                     encoder.putBytesValue(value: bytes)
                     encoder.endRegularField()
                 }
@@ -465,9 +441,8 @@ extension _MessageStorage {
 
             case .fixed32:
                 encoder.emitFieldNumber(number: tag.fieldNumber)
-                var value: UInt32 = 0
                 encoder.startRegularField()
-                try! decoder.decodeSingularFixed32Field(value: &value)
+                let value = try! reader.nextLittleEndianUInt32()
                 encoder.putUInt64Hex(value: UInt64(value), digits: 8)
                 encoder.endRegularField()
             }

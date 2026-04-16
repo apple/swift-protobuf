@@ -377,7 +377,7 @@ internal struct JSONScanner {
     private var index: UnsafeRawBufferPointer.Index
     private var numberParser = DoubleParser()
     internal let options: JSONDecodingOptions
-    internal let extensions: (any ExtensionMap)?
+    internal let extensions: ExtensionMap?
     internal var recursionBudget: Int
 
     /// True if the scanner has read all of the data from the source, with the
@@ -403,7 +403,7 @@ internal struct JSONScanner {
     internal init(
         source: UnsafeRawBufferPointer,
         options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?
+        extensions: ExtensionMap?
     ) {
         self.source = source
         self.index = source.startIndex
@@ -1312,17 +1312,7 @@ internal struct JSONScanner {
             {
                 fieldName.removeFirst()
                 fieldName.removeLast()
-                if let messageType,
-                    let fieldNumber = extensions?.fieldNumberForProto(
-                        messageType: messageType,
-                        protoFieldName: fieldName
-                    )
-                {
-                    return fieldNumber
-                }
-                if let messageSchema,
-                   let extensionSchema = (extensions.map { $0 as! NewExtensionMap })?[fieldName: fieldName, in: messageSchema]
-                {
+                if let messageSchema, let extensionSchema = extensions?[fieldName: fieldName, in: messageSchema] {
                     return Int(extensionSchema.field.fieldNumber)
                 }
             }

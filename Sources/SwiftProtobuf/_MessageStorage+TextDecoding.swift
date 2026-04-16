@@ -19,14 +19,14 @@ extension _MessageStorage {
     // protocol requirements.
     public func merge(
         byParsingTextFormatString textFormatString: String,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
         options: TextFormatDecodingOptions
     ) throws {
         var textFormatString = textFormatString
         try textFormatString.withUTF8 {
             try merge(
                 byParsingTextFormatBytes: $0,
-                extensions: extensions.map { $0 as! NewExtensionMap },
+                extensions: extensions,
                 options: options)
         }
     }
@@ -43,7 +43,7 @@ extension _MessageStorage {
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     public func merge(
         byParsingTextFormatBytes buffer: UnsafeBufferPointer<UInt8>,
-        extensions: NewExtensionMap? = nil,
+        extensions: ExtensionMap? = nil,
         options: TextFormatDecodingOptions
     ) throws {
         guard buffer.baseAddress != nil, buffer.count > 0 else { return }
@@ -87,7 +87,7 @@ extension _MessageStorage {
                 // input.
                 if let field = schema[fieldNumber: fieldNumber] {
                     try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
-                } else if let extensions = reader.scanner.extensions.flatMap({ $0 as? NewExtensionMap }),
+                } else if let extensions = reader.scanner.extensions,
                           let ext = extensions[fieldNumber: fieldNumber, in: schema]
                 {
                     try extensionStorage.decodeNextExtension(ext, from: &reader)

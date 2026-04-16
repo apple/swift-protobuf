@@ -35,7 +35,7 @@ extension Message {
     @available(*, deprecated, renamed: "init(serializedBytes:extensions:partial:options:)")
     public init(
         serializedData data: Data,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -62,7 +62,7 @@ extension Message {
     @available(*, deprecated, renamed: "init(serializedBytes:extensions:partial:options:)")
     public init<Bytes: ContiguousBytes>(
         contiguousBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -94,7 +94,7 @@ extension Message {
     )
     public init<Bytes: ContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -126,7 +126,7 @@ extension Message {
     @available(*, deprecated, renamed: "merge(serializedBytes:extensions:partial:options:)")
     public mutating func merge<Bytes: ContiguousBytes>(
         contiguousBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -164,7 +164,7 @@ extension Message {
     )
     public mutating func merge<Bytes: ContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -196,7 +196,7 @@ extension Message {
     @inlinable
     public mutating func merge(
         serializedData data: Data,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {

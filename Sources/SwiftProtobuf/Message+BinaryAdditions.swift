@@ -33,54 +33,7 @@ extension Message {
         partial: Bool = false,
         options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws -> Bytes {
-        return try _serializedBytes(partial: partial, options: options)
-    }
-
-    // TODO: Delete this when we have removed the old implementation.
-    public func _serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
-        partial: Bool,
-        options: BinaryEncodingOptions
-    ) throws -> Bytes {
-        if !partial && !isInitialized {
-            throw BinaryEncodingError.missingRequiredFields
-        }
-
-        // Note that this assumes `options` will not change the required size.
-        let requiredSize = try serializedDataSize()
-
-        // Messages have a 2GB limit in encoded size, the upstread C++ code
-        // (message_lite, etc.) does this enforcement also.
-        // https://protobuf.dev/programming-guides/encoding/#cheat-sheet
-        //
-        // Testing here enables the limit without adding extra conditionals to all
-        // the places that encode message fields (or strings/bytes fields), keeping
-        // the overhead of the check to a minimum.
-        guard requiredSize < 0x7fff_ffff else {
-            // Adding a new error is a breaking change.
-            throw BinaryEncodingError.missingRequiredFields
-        }
-
-        var data = Bytes(repeating: 0, count: requiredSize)
-        try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
-            var visitor = BinaryEncodingVisitor(forWritingInto: body, options: options)
-            try traverse(visitor: &visitor)
-            // Currently not exposing this from the api because it really would be
-            // an internal error in the library and should never happen.
-            assert(visitor.encoder.remainder.count == 0)
-        }
-        return data
-    }
-
-    /// Returns the size in bytes required to encode the message in binary format.
-    /// This is used by `serializedData()` to precalculate the size of the buffer
-    /// so that encoding can proceed without bounds checks or reallocation.
-    internal func serializedDataSize() throws -> Int {
-        // Note: since this api is internal, it doesn't currently worry about
-        // needing a partial argument to handle required fields. If this become
-        // public, it will need that added.
-        var visitor = BinaryEncodingSizeVisitor()
-        try traverse(visitor: &visitor)
-        return visitor.serializedSize
+        return try storageForRuntime.serializedBytes(partial: partial, options: options)
     }
 
     /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
@@ -100,7 +53,7 @@ extension Message {
     @inlinable
     public init<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -127,7 +80,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public init(
         serializedBytes bytes: RawSpan,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -158,7 +111,7 @@ extension Message {
     @inlinable
     public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -190,7 +143,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public mutating func merge(
         serializedBytes bytes: RawSpan,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -204,25 +157,14 @@ extension Message {
     // allowing the generic over `SwiftProtobufContiguousBytes` to get better codegen from the
     // compiler by being `@inlinable`. For some discussion on this see
     // https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
-    // TODO: I had to undo the `@usableFromInline` when making this public. Once we refactor these
-    // initializers (and revert this method from being a protocol requirement), put it back.
-    public mutating func _merge(
+    @usableFromInline
+    mutating func _merge(
         rawBuffer body: UnsafeRawBufferPointer,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
         partial: Bool,
         options: BinaryDecodingOptions
     ) throws {
-        if let baseAddress = body.baseAddress, body.count > 0 {
-            var decoder = BinaryDecoder(
-                forReadingFrom: baseAddress,
-                count: body.count,
-                options: options,
-                extensions: extensions
-            )
-            try decoder.decodeFullMessage(message: &self)
-        }
-        if !partial && !isInitialized {
-            throw BinaryDecodingError.missingRequiredFields
-        }
+        _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+        try storageForRuntime.merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
     }
 }

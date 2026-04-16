@@ -185,7 +185,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONEncode(
         _ expected: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap = ExtensionMap(),
         encodingOptions: JSONEncodingOptions = .init(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
@@ -259,7 +259,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     /// * Decodes it again and verifies that the round-trip gives an equal object
     func assertTextFormatEncode(
         _ expected: String,
-        extensions: (any ExtensionMap)? = nil,
+        extensions: ExtensionMap? = nil,
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
@@ -288,47 +288,47 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONArrayEncode(
-        _ expected: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
-        file: XCTestFileArgType = #file,
-        line: UInt = #line,
-        configure: (inout [MessageTestType]) -> Void
-    ) {
-        let empty = [MessageTestType]()
-        var configured = empty
-        configure(&configured)
-        XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
-        do {
-            let encoded = try MessageTestType.jsonString(from: configured)
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
-            do {
-                let decoded = try MessageTestType.array(
-                    fromJSONString: encoded,
-                    extensions: extensions
-                )
-                XCTAssert(
-                    decoded == configured,
-                    "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
-                    file: file,
-                    line: line
-                )
-            } catch {
-                XCTFail(
-                    "Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)",
-                    file: file,
-                    line: line
-                )
-            }
-        } catch let e {
-            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
-        }
-    }
+    // func assertJSONArrayEncode(
+    //     _ expected: String,
+    //     extensions: ExtensionMap = ExtensionMap(),
+    //     file: XCTestFileArgType = #file,
+    //     line: UInt = #line,
+    //     configure: (inout [MessageTestType]) -> Void
+    // ) {
+    //     let empty = [MessageTestType]()
+    //     var configured = empty
+    //     configure(&configured)
+    //     XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
+    //     do {
+    //         let encoded = try MessageTestType.jsonString(from: configured)
+    //         XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+    //         do {
+    //             let decoded = try MessageTestType.array(
+    //                 fromJSONString: encoded,
+    //                 extensions: extensions
+    //             )
+    //             XCTAssert(
+    //                 decoded == configured,
+    //                 "Encode/decode cycle should generate equal object: \(decoded) != \(configured)",
+    //                 file: file,
+    //                 line: line
+    //             )
+    //         } catch {
+    //             XCTFail(
+    //                 "Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)",
+    //                 file: file,
+    //                 line: line
+    //             )
+    //         }
+    //     } catch let e {
+    //         XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+    //     }
+    // }
 
     func assertJSONDecodeSucceeds(
         _ json: String,
         options: JSONDecodingOptions = JSONDecodingOptions(),
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap = ExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
@@ -438,37 +438,37 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONArrayDecodeSucceeds(
-        _ json: String,
-        file: XCTestFileArgType = #file,
-        line: UInt = #line,
-        check: ([MessageTestType]) -> Bool
-    ) {
-        do {
-            let decoded: [MessageTestType] = try MessageTestType.array(fromJSONString: json)
-            XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
+    // func assertJSONArrayDecodeSucceeds(
+    //     _ json: String,
+    //     file: XCTestFileArgType = #file,
+    //     line: UInt = #line,
+    //     check: ([MessageTestType]) -> Bool
+    // ) {
+    //     do {
+    //         let decoded: [MessageTestType] = try MessageTestType.array(fromJSONString: json)
+    //         XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
-            do {
-                let encoded = try MessageTestType.jsonString(from: decoded)
-                do {
-                    let redecoded = try MessageTestType.array(fromJSONString: json)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
-                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
-                } catch {
-                    XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
-                }
-            } catch let e {
-                XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
-            }
-        } catch let e {
-            XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
-            return
-        }
-    }
+    //         do {
+    //             let encoded = try MessageTestType.jsonString(from: decoded)
+    //             do {
+    //                 let redecoded = try MessageTestType.array(fromJSONString: json)
+    //                 XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
+    //                 XCTAssertEqual(decoded, redecoded, file: file, line: line)
+    //             } catch {
+    //                 XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
+    //             }
+    //         } catch let e {
+    //             XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
+    //         }
+    //     } catch let e {
+    //         XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
+    //         return
+    //     }
+    // }
 
     func assertJSONDecodeFails(
         _ json: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap = ExtensionMap(),
         options: JSONDecodingOptions = JSONDecodingOptions(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
@@ -498,19 +498,19 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONArrayDecodeFails(
-        _ json: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
-        file: XCTestFileArgType = #file,
-        line: UInt = #line
-    ) {
-        do {
-            let _ = try MessageTestType.array(fromJSONString: json)
-            XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
-        } catch {
-            // Yay! It failed!
-        }
-    }
+    // func assertJSONArrayDecodeFails(
+    //     _ json: String,
+    //     extensions: ExtensionMap = ExtensionMap(),
+    //     file: XCTestFileArgType = #file,
+    //     line: UInt = #line
+    // ) {
+    //     do {
+    //         let _ = try MessageTestType.array(fromJSONString: json)
+    //         XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
+    //     } catch {
+    //         // Yay! It failed!
+    //     }
+    // }
 
     func assertDebugDescription(
         _ expected: String,
@@ -561,74 +561,5 @@ extension XCTestCase {
 
     func isSwiftProtobufErrorEqual(_ actual: SwiftProtobufError, _ expected: SwiftProtobufError) -> Bool {
         (actual.code == expected.code) && (actual.message == expected.message)
-    }
-}
-
-/// Protocol to help write visitor for testing.  It provides default implementations
-/// that will cause a failure if anything gets called.  This way specific tests can
-/// just hook the methods they intend to validate.
-protocol PBTestVisitor: Visitor {
-    // Adds nothing.
-}
-
-extension PBTestVisitor {
-    mutating func visitUnknown(bytes: Data) throws {
-        XCTFail("Unexpected unknowns: \(bytes)")
-    }
-
-    mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-        XCTFail("Unexpected bool: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-        XCTFail("Unexpected bytes: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-        XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
-        XCTFail("Unexpected Enum: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-        XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
-        XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-        XCTFail("Unexpected String: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-        XCTFail("Unexpected UInt64: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitMapField<KeyType, ValueType: MapValueType>(
-        fieldType: _ProtobufMap<KeyType, ValueType>.Type,
-        value: _ProtobufMap<KeyType, ValueType>.BaseType,
-        fieldNumber: Int
-    ) throws {
-        XCTFail("Unexpected map<*, *>: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitMapField<KeyType, ValueType>(
-        fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
-        value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
-        fieldNumber: Int
-    ) throws where ValueType.RawValue == Int {
-        XCTFail("Unexpected map<*, Enum>: \(fieldNumber) = \(value)")
-    }
-
-    mutating func visitMapField<KeyType, ValueType>(
-        fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
-        value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
-        fieldNumber: Int
-    ) throws {
-        XCTFail("Unexpected map<*, Message>: \(fieldNumber) = \(value)")
     }
 }

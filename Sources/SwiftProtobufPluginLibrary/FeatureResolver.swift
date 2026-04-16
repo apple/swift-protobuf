@@ -54,7 +54,7 @@ package class FeatureResolver {
     /// The detaults to use for this edition.
     package let defaultFeatureSet: Google_Protobuf_FeatureSet
 
-    private let extensionMap: (any ExtensionMap)?
+    private let extensionMap: ExtensionMap?
 
     /// Construct a resolver for a given edition with the correct defaults.
     ///
@@ -104,7 +104,7 @@ package class FeatureResolver {
                 //     throw Error.invalidExtension(type: e.messageType.protoMessageName)
                 // }
             }
-            var simpleMap = NewExtensionMap()
+            var simpleMap = ExtensionMap()
             simpleMap.insert(contentsOf: extensions)
             extensionMap = simpleMap
         }

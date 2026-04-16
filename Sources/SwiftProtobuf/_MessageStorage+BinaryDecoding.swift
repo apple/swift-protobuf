@@ -27,14 +27,14 @@ extension _MessageStorage {
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     public func merge(
         byReadingFrom buffer: UnsafeRawBufferPointer,
-        extensions: (any ExtensionMap)?,
+        extensions: ExtensionMap?,
         partial: Bool,
         options: BinaryDecodingOptions
     ) throws {
         var reader = WireFormatReader(buffer: buffer, recursionBudget: options.messageDepthLimit)
         try merge(
             byReadingFrom: &reader,
-            extensions: extensions.map { $0 as! NewExtensionMap },
+            extensions: extensions,
             partial: partial,
             discardUnknownFields: options.discardUnknownFields)
     }
@@ -51,7 +51,7 @@ extension _MessageStorage {
     ///     parsing.
     func merge(
         byReadingFrom reader: inout WireFormatReader,
-        extensions: NewExtensionMap?,
+        extensions: ExtensionMap?,
         partial: Bool,
         discardUnknownFields: Bool
     ) throws {
@@ -91,7 +91,7 @@ extension _MessageStorage {
     private func decodeNextField(
         from reader: inout WireFormatReader,
         tag: FieldTag,
-        extensions: NewExtensionMap?,
+        extensions: ExtensionMap?,
         partial: Bool,
         discardUnknownFields: Bool,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace

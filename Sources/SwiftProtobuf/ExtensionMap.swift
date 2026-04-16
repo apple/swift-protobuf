@@ -14,13 +14,11 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: Rename this to just `ExtensionMap` when we remove the old APIs.
-
 /// A collection of extension schemas.
 ///
-/// A `NewExtensionMap` is used during decoding to look up extension schemas corresponding to
+/// An `ExtensionMap` is used during decoding to look up extension schemas corresponding to
 /// serialized data.
-public struct NewExtensionMap: Sendable, ExpressibleByArrayLiteral {
+public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
     /// The hashable key used to look up extension schemas in the registry by their field number.
     private struct FieldNumberKey: Hashable {
         let messageSchemaKey: MessageSchema.Key
@@ -82,55 +80,16 @@ public struct NewExtensionMap: Sendable, ExpressibleByArrayLiteral {
     }
 
     /// Merges the given extension map into the receiver in-place.
-    public mutating func formUnion(_ other: NewExtensionMap) {
+    public mutating func formUnion(_ other: ExtensionMap) {
         registryByNumber.merge(other.registryByNumber) { (_, new) in new }
         registryByName.merge(other.registryByName) { (_, new) in new }
     }
 
     /// Returns a new extension map that represents the merging of the receiver and the given
     /// extension map.
-    public func union(_ other: NewExtensionMap) -> NewExtensionMap {
+    public func union(_ other: ExtensionMap) -> ExtensionMap {
         var result = self
         result.formUnion(other)
         return result
     }
-}
-
-// TODO: This conformance only exists so that we can pass a `NewExtensionMap` into the existing
-// `init`/`merge` APIs on `Message` without having to specialize them all for the new type. This
-// makes testing much easier. The new table-driven implementation will force-cast it to
-// `NewExtensionMap` before using it, so the requirements implemented below will never actually be
-// called.
-extension NewExtensionMap: ExtensionMap {
-    public subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? {
-        fatalError()
-    }
-
-    public func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int? {
-        fatalError()
-    }
-}
-
-/// A collection of extension objects.
-///
-/// An `ExtensionMap` is used during decoding to look up
-/// extension objects corresponding to the serialized data.
-///
-/// This is a protocol so that developers can build their own
-/// extension handling if they need something more complex than the
-/// standard `SimpleExtensionMap` implementation.
-@preconcurrency
-public protocol ExtensionMap: Sendable {
-    /// Returns the extension object describing an extension or nil
-    subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? { get }
-
-    /// Returns the field number for a message with a specific field name
-    ///
-    /// The field name here matches the format used by the protobuf
-    /// Text serialization: it typically looks like
-    /// `package.message.field_name`, where `package` is the package
-    /// for the proto file and `message` is the name of the message in
-    /// which the extension was defined. (This is different from the
-    /// message that is being extended!)
-    func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int?
 }
