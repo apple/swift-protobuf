@@ -48,7 +48,7 @@ jobs:
       # install of Make, but given it shares setup with other targets in the Makefile,
       # not sure it's worth while.
       run: |
-        if echo make reference ; then
+        if make reference ; then
           echo 'as_draft=false' >> $GITHUB_OUTPUT
           echo 'message=' >> $GITHUB_OUTPUT
         else
