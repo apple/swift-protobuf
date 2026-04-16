@@ -4106,12 +4106,6 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestAllTypes, rhs: SwiftProtoTesting_TestAllTypes) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
@@ -4145,12 +4139,6 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, S
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestAllTypes.NestedMessage, rhs: SwiftProtoTesting_TestAllTypes.NestedMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4174,12 +4162,6 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, S
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestAllTypes.OptionalGroup, rhs: SwiftProtoTesting_TestAllTypes.OptionalGroup) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4203,12 +4185,6 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, S
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestAllTypes.RepeatedGroup, rhs: SwiftProtoTesting_TestAllTypes.RepeatedGroup) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4268,12 +4244,6 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_NestedTestAllTypes, rhs: SwiftProtoTesting_NestedTestAllTypes) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4297,12 +4267,6 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_ForeignMessage, rhs: SwiftProtoTesting_ForeignMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4330,12 +4294,6 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.Message, SwiftProto
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestAllExtensions, rhs: SwiftProtoTesting_TestAllExtensions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4359,12 +4317,6 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.Message, Swif
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_OptionalGroup_extension, rhs: SwiftProtoTesting_OptionalGroup_extension) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4388,12 +4340,6 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.Message, Swif
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_RepeatedGroup_extension, rhs: SwiftProtoTesting_RepeatedGroup_extension) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4417,12 +4363,6 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.Message, SwiftPro
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestNestedExtension, rhs: SwiftProtoTesting_TestNestedExtension) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4482,12 +4422,6 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestRequired, rhs: SwiftProtoTesting_TestRequired) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4549,12 +4483,6 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestRequiredForeign, rhs: SwiftProtoTesting_TestRequiredForeign) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4616,12 +4544,6 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestRequiredMessage, rhs: SwiftProtoTesting_TestRequiredMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4645,12 +4567,6 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtob
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestEmptyMessage, rhs: SwiftProtoTesting_TestEmptyMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4674,12 +4590,6 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swi
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestReallyLargeTagNumber, rhs: SwiftProtoTesting_TestReallyLargeTagNumber) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4735,12 +4645,6 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestRecursiveMessage, rhs: SwiftProtoTesting_TestRecursiveMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4800,12 +4704,6 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestFieldOrderings, rhs: SwiftProtoTesting_TestFieldOrderings) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4829,12 +4727,6 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Mess
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestFieldOrderings.NestedMessage, rhs: SwiftProtoTesting_TestFieldOrderings.NestedMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4858,12 +4750,6 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.Message, Swi
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestExtremeDefaultValues, rhs: SwiftProtoTesting_TestExtremeDefaultValues) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4921,12 +4807,6 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestOneof, rhs: SwiftProtoTesting_TestOneof) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -4950,12 +4830,6 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProt
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestOneof.FooGroup, rhs: SwiftProtoTesting_TestOneof.FooGroup) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5015,12 +4889,6 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestRequiredOneof, rhs: SwiftProtoTesting_TestRequiredOneof) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5048,12 +4916,6 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Messa
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestRequiredOneof.NestedMessage, rhs: SwiftProtoTesting_TestRequiredOneof.NestedMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5109,12 +4971,6 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobu
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestPackedTypes, rhs: SwiftProtoTesting_TestPackedTypes) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5170,12 +5026,6 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProto
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestUnpackedTypes, rhs: SwiftProtoTesting_TestUnpackedTypes) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5203,12 +5053,6 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.Message, SwiftPr
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestPackedExtensions, rhs: SwiftProtoTesting_TestPackedExtensions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5274,12 +5118,6 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftProtoTesting_TestParsingMerge, rhs: SwiftProtoTesting_TestParsingMerge) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5339,12 +5177,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5400,12 +5232,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5461,12 +5287,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5522,12 +5342,6 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestParsingMerge.OptionalGroup, rhs: SwiftProtoTesting_TestParsingMerge.OptionalGroup) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -5583,10 +5397,4 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestParsingMerge.RepeatedGroup, rhs: SwiftProtoTesting_TestParsingMerge.RepeatedGroup) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

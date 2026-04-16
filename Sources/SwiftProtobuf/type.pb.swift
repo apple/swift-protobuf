@@ -703,12 +703,6 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Type, rhs: Google_Protobuf_Type) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_Field: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -768,12 +762,6 @@ extension Google_Protobuf_Field: Message, _MessageImplementationBase, _ProtoName
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Field, rhs: Google_Protobuf_Field) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_Field.Kind: _ProtoNameProviding {
@@ -855,12 +843,6 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Enum, rhs: Google_Protobuf_Enum) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -916,12 +898,6 @@ extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase, _Proto
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_EnumValue, rhs: Google_Protobuf_EnumValue) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_Option: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -977,10 +953,4 @@ extension Google_Protobuf_Option: Message, _MessageImplementationBase, _ProtoNam
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Option, rhs: Google_Protobuf_Option) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

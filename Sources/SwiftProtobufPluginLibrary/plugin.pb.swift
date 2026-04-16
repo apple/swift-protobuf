@@ -426,12 +426,6 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Compiler_Version, rhs: Google_Protobuf_Compiler_Version) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -493,12 +487,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorRequest, rhs: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -554,12 +542,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf._ProtoNameProviding {
@@ -625,10 +607,4 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse.File, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

@@ -221,12 +221,6 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._M
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftFeatureTest_TestFeatures, rhs: SwiftFeatureTest_TestFeatures) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftFeatureTest_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {

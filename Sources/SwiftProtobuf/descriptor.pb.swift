@@ -3333,12 +3333,6 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FileDescriptorSet, rhs: Google_Protobuf_FileDescriptorSet) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3410,12 +3404,6 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FileDescriptorProto, rhs: Google_Protobuf_FileDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3489,12 +3477,6 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_DescriptorProto, rhs: Google_Protobuf_DescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3554,12 +3536,6 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImple
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_DescriptorProto.ExtensionRange, rhs: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3583,12 +3559,6 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplem
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_DescriptorProto.ReservedRange, rhs: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3654,12 +3624,6 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_ExtensionRangeOptions, rhs: Google_Protobuf_ExtensionRangeOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_ExtensionRangeOptions.VerificationState: _ProtoNameProviding {
@@ -3693,12 +3657,6 @@ extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageIm
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_ExtensionRangeOptions.Declaration, rhs: Google_Protobuf_ExtensionRangeOptions.Declaration) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3762,12 +3720,6 @@ extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationB
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FieldDescriptorProto, rhs: Google_Protobuf_FieldDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FieldDescriptorProto.TypeEnum: _ProtoNameProviding {
@@ -3847,12 +3799,6 @@ extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationB
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_OneofDescriptorProto, rhs: Google_Protobuf_OneofDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3918,12 +3864,6 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_EnumDescriptorProto, rhs: Google_Protobuf_EnumDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -3947,12 +3887,6 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _Messa
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_EnumDescriptorProto.EnumReservedRange, rhs: Google_Protobuf_EnumDescriptorProto.EnumReservedRange) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4012,12 +3946,6 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_EnumValueDescriptorProto, rhs: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4079,12 +4007,6 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_ServiceDescriptorProto, rhs: Google_Protobuf_ServiceDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4144,12 +4066,6 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_MethodDescriptorProto, rhs: Google_Protobuf_MethodDescriptorProto) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4213,12 +4129,6 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FileOptions, rhs: Google_Protobuf_FileOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FileOptions.OptimizeMode: _ProtoNameProviding {
@@ -4290,12 +4200,6 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_MessageOptions, rhs: Google_Protobuf_MessageOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4369,12 +4273,6 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FieldOptions, rhs: Google_Protobuf_FieldOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FieldOptions.CType: _ProtoNameProviding {
@@ -4470,12 +4368,6 @@ extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplemen
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_FieldOptions.EditionDefault, rhs: Google_Protobuf_FieldOptions.EditionDefault) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4531,12 +4423,6 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplemen
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_FieldOptions.FeatureSupport, rhs: Google_Protobuf_FieldOptions.FeatureSupport) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4598,12 +4484,6 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_OneofOptions, rhs: Google_Protobuf_OneofOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4665,12 +4545,6 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_EnumOptions, rhs: Google_Protobuf_EnumOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4734,12 +4608,6 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_EnumValueOptions, rhs: Google_Protobuf_EnumValueOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4801,12 +4669,6 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_ServiceOptions, rhs: Google_Protobuf_ServiceOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4870,12 +4732,6 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_MethodOptions, rhs: Google_Protobuf_MethodOptions) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_MethodOptions.IdempotencyLevel: _ProtoNameProviding {
@@ -4945,12 +4801,6 @@ extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBa
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_UninterpretedOption, rhs: Google_Protobuf_UninterpretedOption) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -4978,12 +4828,6 @@ extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImpleme
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_UninterpretedOption.NamePart, rhs: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -5057,12 +4901,6 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase, _Prot
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FeatureSet, rhs: Google_Protobuf_FeatureSet) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FeatureSet.FieldPresence: _ProtoNameProviding {
@@ -5156,12 +4994,6 @@ extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImpleme
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_FeatureSet.VisibilityFeature, rhs: Google_Protobuf_FeatureSet.VisibilityFeature) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility: _ProtoNameProviding {
@@ -5233,12 +5065,6 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FeatureSetDefaults, rhs: Google_Protobuf_FeatureSetDefaults) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -5300,12 +5126,6 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault, rhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -5365,12 +5185,6 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase, _
     return _storage.isInitialized
   }
 
-  public static func ==(lhs: Google_Protobuf_SourceCodeInfo, rhs: Google_Protobuf_SourceCodeInfo) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -5394,12 +5208,6 @@ extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementati
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_SourceCodeInfo.Location, rhs: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -5455,12 +5263,6 @@ extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_GeneratedCodeInfo, rhs: Google_Protobuf_GeneratedCodeInfo) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImplementationBase, _ProtoNameProviding {
@@ -5516,12 +5318,6 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImpleme
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_GeneratedCodeInfo.Annotation, rhs: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic: _ProtoNameProviding {

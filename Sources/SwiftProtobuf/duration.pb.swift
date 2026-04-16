@@ -177,10 +177,4 @@ extension Google_Protobuf_Duration: Message, _MessageImplementationBase, _ProtoN
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

@@ -322,12 +322,6 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftDescriptorTest_Proto3MessageForPresence, rhs: SwiftDescriptorTest_Proto3MessageForPresence) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: SwiftProtobuf._ProtoNameProviding {
@@ -361,10 +355,4 @@ extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftDescriptorTest_OtherMessage, rhs: SwiftDescriptorTest_OtherMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

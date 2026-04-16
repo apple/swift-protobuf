@@ -225,10 +225,4 @@ extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNamePr
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  public static func ==(lhs: Google_Protobuf_Any, rhs: Google_Protobuf_Any) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  public func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

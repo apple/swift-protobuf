@@ -646,12 +646,6 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SDTTopLevelMessage, rhs: SDTTopLevelMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
@@ -717,12 +711,6 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SDTTopLevelMessage.SubMessage, rhs: SDTTopLevelMessage.SubMessage) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -780,12 +768,6 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SDTTopLevelMessage2, rhs: SDTTopLevelMessage2) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -847,12 +829,6 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SDTExternalRefs, rhs: SDTExternalRefs) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -876,12 +852,6 @@ extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SDTScoperForExt, rhs: SDTScoperForExt) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -947,10 +917,4 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SDTProto2MessageForPresence, rhs: SDTProto2MessageForPresence) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

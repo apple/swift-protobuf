@@ -179,10 +179,4 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftDescriptorTest_EditionsMessageForDelimited, rhs: SwiftDescriptorTest_EditionsMessageForDelimited) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

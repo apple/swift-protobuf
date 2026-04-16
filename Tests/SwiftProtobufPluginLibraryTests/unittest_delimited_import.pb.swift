@@ -88,10 +88,4 @@ extension EditionsUnittest_MessageImport: SwiftProtobuf.Message, SwiftProtobuf._
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: EditionsUnittest_MessageImport, rhs: EditionsUnittest_MessageImport) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

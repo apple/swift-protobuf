@@ -158,10 +158,4 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_TestAny, rhs: SwiftProtoTesting_TestAny) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

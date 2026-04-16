@@ -490,12 +490,6 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf.
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: EditionsUnittest_LengthPrefixed, rhs: EditionsUnittest_LengthPrefixed) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -519,12 +513,6 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtob
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: EditionsUnittest_NotGroupLikeScope, rhs: EditionsUnittest_NotGroupLikeScope) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -548,12 +536,6 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProto
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: EditionsUnittest_GroupLikeFileScope, rhs: EditionsUnittest_GroupLikeFileScope) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -621,12 +603,6 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
     return _storage.isInitialized
   }
 
-  static func ==(lhs: EditionsUnittest_TestDelimited, rhs: EditionsUnittest_TestDelimited) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -650,12 +626,6 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, 
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: EditionsUnittest_TestDelimited.LengthPrefixed, rhs: EditionsUnittest_TestDelimited.LengthPrefixed) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -679,10 +649,4 @@ extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message, Swift
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: EditionsUnittest_TestDelimited.GroupLike, rhs: EditionsUnittest_TestDelimited.GroupLike) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

@@ -188,10 +188,4 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, Sw
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftProtoTesting_EnumClobbering_EnumHolder, rhs: SwiftProtoTesting_EnumClobbering_EnumHolder) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }

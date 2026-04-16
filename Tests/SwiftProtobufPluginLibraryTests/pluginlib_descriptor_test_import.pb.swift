@@ -181,12 +181,6 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message, SwiftProtob
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
-  static func ==(lhs: SwiftDescriptorTest_Import_Version, rhs: SwiftDescriptorTest_Import_Version) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -246,12 +240,6 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, Swift
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftDescriptorTest_Import_ExtendableOne, rhs: SwiftDescriptorTest_Import_ExtendableOne) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
 
 extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -279,10 +267,4 @@ extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.
     return _storage.isInitialized
   }
 
-  static func ==(lhs: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo, rhs: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo) -> Bool {
-    return lhs._storage.isEqual(to: rhs._storage)
-  }
-  func hash(into hasher: inout Swift.Hasher) {
-    _storage.hash(into: &hasher)
-  }
 }
