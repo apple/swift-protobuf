@@ -184,9 +184,8 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing.enum2"
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\0(\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{4}\0\u{e}'\0swift_proto_testing.enum2.SwiftEnumTest" }
@@ -197,11 +196,9 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "h\0\0\0p#$\u{2}\u{1b}K\0)h\0]8Gn0\u{8}?>ty\u{5}jce+\u{1e}D\\X\u{11}Pv5\t\u{13}\u{8}\u{2}\u{b}\u{5}..St\"MgSkog\u{11}'Oe\u{e}1\u{1d}\u{11}\0\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumTest\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0" }
+  private static var _protobuf_reflectionData: StaticString { "p\0\0\0p#$\u{2}\u{1b}K\0)h\0]8Gn0\u{8}?>ty\u{5}jce+\u{1e}D\\X\u{11}Pv5\t\u{13}\u{8}\u{2}\u{b}\u{5}..St\"MgSkog\u{11}'Oe\u{e}I\rY\u{b}6;A\u{2}" }
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
@@ -245,49 +242,40 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
 
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1 {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\01\0swift_proto_testing.enum2.SwiftEnumTest.EnumTest1" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{2}\0\0\0\01\0swift_proto_testing.enum2.SwiftEnumTest.EnumTest1" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\\\0\0\0\u{10}?bsm\u{6}&pmNE53g7\u{7}\"\u{2}9\u{2}R\u{1b}f\u{2}\"1pRA\u{e}C=\nv\u{4}w`T\u{6}9=-i_\u{10}F!1i#`=BM\0\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumTest.EnumTest1\0\u{1}ENUM_TEST_1_FIRST_VALUE\0\u{1}ENUM_TEST_1_SECOND_VALUE\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "d\0\0\0\u{10}?bsm\u{6}&pmNE53g7\u{7}\"\u{2}9\u{2}R\u{1b}f\u{2}\"1pRA\u{e}C=\nv\u{4}w`T\u{6}9=-i_\u{10}F!1i#`=CQ\u{1b}\u{5}`F:" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2 {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\01\0swift_proto_testing.enum2.SwiftEnumTest.EnumTest2" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{2}\0\0\0\01\0swift_proto_testing.enum2.SwiftEnumTest.EnumTest2" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "P\0\0\0P4^1\u{1}H$\u{7f}B\u{c}\u{17}2\u{14}}\u{11}z\tLrT\\keGk\0&&2~GR>4tu!g5S\u{3}qrF4]J\"5ZeY\0\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumTest.EnumTest2\0\u{1}ENUM_TEST_2_FIRST_VALUE\0\u{1}SECOND_VALUE\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "X\0\0\0P4^1\u{1}H$\u{7f}B\u{c}\u{17}2\u{14}}\u{11}z\tLrT\\keGk\0&&2~GR>4tu!g5S\u{3}qrF4]J\"5:)q\u{c}\n)$\t" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\06\0swift_proto_testing.enum2.SwiftEnumTest.EnumTestNoStem" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{2}\0\0\0\06\0swift_proto_testing.enum2.SwiftEnumTest.EnumTestNoStem" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "P\0\0\0P4^1\u{1}H$\u{7f}B\u{c}\u{17}2\u{14}}\t\u{19}KVrT\\keGk\0&&2z/Yh2?![%a\u{1a}Aw2\0\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumTest.EnumTestNoStem\0\u{1}ENUM_TEST_NO_STEM_1\0\u{1}ENUM_TEST_NO_STEM_2\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "X\0\0\0P4^1\u{1}H$\u{7f}B\u{c}\u{17}2\u{14}}\t\u{19}KVrT\\keGk\0&&2z/Yh2?![%a\u{1a}\u{1}Y.KZ\u{7}\u{1}\u{1}" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\0<\0swift_proto_testing.enum2.SwiftEnumTest.EnumTestReservedWord" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{2}\0\0\0\0<\0swift_proto_testing.enum2.SwiftEnumTest.EnumTestReservedWord" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "l\0\0\0pE\u{14}\0'K\0)h\0]8GnX\u{5}\u{19}\u{12}'MSNG[.\u{12}*E\u{1c}}]\u{b}\\*J[S)i '3v\u{8},Y)t\u{8}\u{1a}\u{17}|\u{e},\u{7f}\u{10}\u{3}" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumTest.EnumTestReservedWord\0\u{1}ENUM_TEST_RESERVED_WORD_VAR\0\u{1}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "t\0\0\0pE\u{14}\0'K\0)h\0]8GnX\u{5}\u{19}\u{12}'MSNG[.\u{12}*E\u{1c}}]\u{b}\\*J[S)i '3v\u{8},Y)t\u{8}\u{1a}\u{17}|\u{f},Ie5 9\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}0\0swift_proto_testing.enum2.SwiftEnumWithAliasTest" }
@@ -298,11 +286,9 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { " \0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}_z\u{1e}jc\0\0\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumWithAliasTest\0\u{1}values\0" }
+  private static var _protobuf_reflectionData: StaticString { "(\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}_z>*\u{12}F8\u{1c}&t\u{19}\0" }
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
@@ -340,12 +326,10 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
 
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\0>\0swift_proto_testing.enum2.SwiftEnumWithAliasTest.EnumWithAlias" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{3}\0\0\0\0>\0swift_proto_testing.enum2.SwiftEnumWithAliasTest.EnumWithAlias" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "d\0\0\0p\u{1}4\u{4}\u{f}K\0)h\0]8Gnt@~$tjE,$8K\0\u{1f}i61*3T~,e\u{11}(u\u{f}v\u{e}0sC^j\u{14}Y#\u{f}~'W^b:\u{2}4(" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.enum2.SwiftEnumWithAliasTest.EnumWithAlias\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "l\0\0\0p\u{1}4\u{4}\u{f}K\0)h\0]8Gnt@~$tjE,$8K\0\u{1f}i61*3T~,e\u{11}(u\u{f}v\u{e}0sC^j\u{14}Y#\u{f}~'W^bz>q\u{4}&p\u{2}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

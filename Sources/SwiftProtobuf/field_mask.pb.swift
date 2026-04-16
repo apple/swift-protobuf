@@ -284,9 +284,8 @@ public struct Google_Protobuf_FieldMask: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase, _ProtoNameProviding {
+extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".FieldMask"
-  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask" }
@@ -297,11 +296,9 @@ extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase, _Proto
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { " \0\0\0\0?'L)\u{7}&pm\u{e}FPd\u{10}\u{11}[Sn7[\u{10}\0\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.FieldMask\0\u{1}paths\0" }
+  private static var _protobuf_reflectionData: StaticString { "(\0\0\0\0?'L)\u{7}&pm\u{e}FPd\u{10}\u{11}[S\u{e}xn6.Zda\u{2}\0" }
 
-  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString)
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

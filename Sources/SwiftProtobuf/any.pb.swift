@@ -204,9 +204,8 @@ public struct Google_Protobuf_Any: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
+extension Google_Protobuf_Any: Message, _MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Any"
-  public static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}\u{13}\0google.protobuf.Any" }
@@ -217,11 +216,9 @@ extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNamePr
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "H\0\0\0P\u{10}z1fLI2u9\u{5}V\u{1f}jTjM:\u{13}.]\u{1b};\u{17}G\u{1}UT\u{3}s\u{18}tHD%\u{8}?=,*\u{7f}\u{14}K\u{2}\u{1e}1\0\u{15}3\u{e}\0\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}google.protobuf.Any\0\u{3}type_url\0\u{1}value\0" }
+  private static var _protobuf_reflectionData: StaticString { "P\0\0\0P\u{10}z1fLI2u9\u{5}V\u{1f}jTjM:\u{13}.]\u{1b};\u{17}G\u{1}UT\u{3}s\u{18}tHD%\u{8}?=,*\u{7f}\u{14}K\u{2}\u{1e}1\0]U6G|!Q\u{2}" }
 
-  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString)
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

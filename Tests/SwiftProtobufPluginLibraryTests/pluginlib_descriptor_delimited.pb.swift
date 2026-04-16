@@ -102,9 +102,8 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".EditionsMessageForDelimited"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited" }
@@ -115,11 +114,9 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{18}\u{2}\0\0\0? e-ZOr:z\u{7}SCZ?\u{19}\"x<Dn\u{19}\u{7}G`\u{f}f$'1_\u{13}\u{7f}n=\u{17}}N\u{1d}g\u{15}[\t]iSp5$UK13WVe.]&m]r\u{19}\n11\u{19}D\u{1b}}$\u{5}gBO\u{11}+\u{1b}\u{b}cN9\u{7f}M\u{6}\u{c}|\u{1e}\u{15}g\"\u{7}\r,0\u{6}[\u{1f}\u{15}\u{e}C#yRa\u{19}G2\u{f}Goll\u{b}\u{8}c Uroh\u{3}{$1xH7X\tjck09\\\u{13}\u{c}`\0a5\u{17}\n$f\u{1}\t%\0\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_descriptor_test.EditionsMessageForDelimited\0\u{3}scalar_field\0\u{3}map_field\0\u{3}message_map_field\0\u{3}delimited_field\0\u{3}length_prefixed_field\0" }
+  private static var _protobuf_reflectionData: StaticString { " \u{2}\0\0\0? e-ZOr:z\u{7}SCZ?\u{19}\"x<Dn\u{19}\u{7}G`\u{f}f$'1_\u{13}\u{7f}n=\u{17}}N\u{1d}g\u{15}[\t]iSp5$UK13WVe.]&m]r\u{19}\n11\u{19}D\u{1b}}$\u{5}gBO\u{11}+\u{1b}\u{b}cN9\u{7f}M\u{6}\u{c}|\u{1e}\u{15}g\"\u{7}\r,0\u{6}[\u{1f}\u{15}\u{e}C#yRa\u{19}G2\u{f}Goll\u{b}\u{8}c Uroh\u{3}{$1xH7X\tjck09\\\u{13}\u{c}`\0a5\u{17}\n$FE#\\V9Xo\u{1b}\u{10}" }
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
