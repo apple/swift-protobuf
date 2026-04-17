@@ -40,13 +40,25 @@ package struct ReflectionTableCalculator {
     /// equivalent of the case values, which may be negative.
     private var names: [UInt32: [Names]] = [:]
 
+    /// The ranges of any reserved field numbers (used for messages only).
+    private var reservedRanges: [Range<Int32>] = []
+
+    /// The names of any reserved field names (used for messages only).
+    private var reservedNames: [String] = []
+
     // TODO: Add default values for fields.
 
     /// Initializes a new reflection table calculator for a message with the given fields.
-    package init(fields: [any FieldGenerator]) {
+    package init(
+        fields: [any FieldGenerator],
+        reservedRanges: [Range<Int32>],
+        reservedNames: [String]
+    ) {
         for field in fields {
             addField(field)
         }
+        self.reservedRanges = reservedRanges
+        self.reservedNames = reservedNames
     }
 
     /// Initializes a new reflection table calculator for an enum with the given values and alias
@@ -107,14 +119,15 @@ package struct ReflectionTableCalculator {
 
         /// Reserves space for an aligned integer of the given type and returns the index where it
         /// should be written later by calling `updateInteger`.
-        func reserveInteger<T: BinaryInteger & FixedWidthInteger>(type: T.Type) -> Int {
-            align(to: T.self)
-            let index = result.endIndex
-            for _ in 0..<MemoryLayout<T>.size {
-                // Fill it with something other than 0 to help debugging if we need it.
-                result.append(0xcc)
-            }
-            return index
+        func appendSection(body: () -> Void) {
+            assert(result.count % MemoryLayout<UInt32>.alignment == 0, "Section header must be 32-bit aligned")
+
+            let nextSectionOffsetIndex = result.endIndex
+            // Fill the placeholder with something other than 0 to help debugging if we need it.
+            appendInteger(UInt32(0xcccc_cccc))
+            body()
+            align(to: UInt32.self)
+            updateInteger(at: nextSectionOffsetIndex, to: UInt32(result.count))
         }
 
         /// Updates an integer in the result buffer at the given index, ensuring that the value is
@@ -164,43 +177,101 @@ package struct ReflectionTableCalculator {
             }
         }
 
-        // Store the index where we will later write the offset of the default values section.
-        // It's easier to write it back than to deal with alignment and multiple tables when we
-        let defaultsSectionOffsetIndex = reserveInteger(type: UInt32.self)
+        // Add any reserved names to the table.
+        for name in reservedNames {
+            // Record the offset of the text format name, and use field number 0 (invalid) to
+            // indicate that it's a reserved name.
+            let textOffset = UInt32(namesBlob.count)
+            textOffsetToNumber[.init(offset: textOffset, name: name)] = 0
 
-        // Number of fields with JSON names that differ from their text format counterparts,
-        // 16-bit little endian.
-        appendInteger(UInt16(jsonOffsetToNumber.count))
-
-        // Field/case number to text offset table (UInt32 -> UInt32), in field/case number order.
-        // Note that enum values are stored as their unsigned bit-pattern, so the effective sort
-        // order is 0...2^31-1, then -2^31...-1. The runtime must therefore perform an unsigned
-        // search when looking up enum values.
-        for (number, textOffset) in numberToTextOffset.sorted(by: { $0.key < $1.key }) {
-            appendInteger(number)
-            appendInteger(textOffset)
+            // Append the name to the blob.
+            namesBlob.append(contentsOf: name.utf8)
+            namesBlob.append(0)
         }
 
-        // Text format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
-        for (offsetAndName, number) in textOffsetToNumber.sorted(by: { $0.key.name < $1.key.name}) {
-            appendInteger(offsetAndName.offset)
-            appendInteger(number)
+        // Split the reserved ranges into those that have a single element and those that are
+        // larger.
+        var singleElementReservedRanges: [Int32] = []
+        var multipleElementReservedRanges: [Range<Int32>] = []
+        for range in reservedRanges {
+            if range.count == 1 {
+                singleElementReservedRanges.append(range.lowerBound)
+            } else {
+                multipleElementReservedRanges.append(range)
+            }
+        }
+        guard reservedNames.count <= 1 << 16
+            && singleElementReservedRanges.count <= 1 << 16
+            && multipleElementReservedRanges.count <= 1 << 16
+        else {
+            // Nobody should ever hit this.
+            fatalError(
+                """
+                The current metadata format only supports a maximum of 2^16 reserved names, \
+                2^16 single-element reserved ranges, and 2^16 multi-element reserved ranges.
+                """)
+        }
+        singleElementReservedRanges.sort()
+        multipleElementReservedRanges.sort { $0.lowerBound < $1.lowerBound }
+
+        // This section contains bidirectional mappings between numbers and names.
+        appendSection {
+            // Number of fields with JSON names that differ from their text format counterparts,
+            // 16-bit little endian.
+            appendInteger(UInt16(jsonOffsetToNumber.count))
+
+            // Number of reserved names, 16-bit little endian.
+            appendInteger(UInt16(reservedNames.count))
+
+            // Field/case number to text offset table (UInt32 -> UInt32), in field/case number order.
+            // Note that enum values are stored as their unsigned bit-pattern, so the effective sort
+            // order is 0...2^31-1, then -2^31...-1. The runtime must therefore perform an unsigned
+            // search when looking up enum values.
+            for (number, textOffset) in numberToTextOffset.sorted(by: { $0.key < $1.key }) {
+                appendInteger(number)
+                appendInteger(textOffset)
+            }
+
+            // Text format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
+            for (offsetAndName, number) in textOffsetToNumber.sorted(by: { $0.key.name < $1.key.name}) {
+                appendInteger(offsetAndName.offset)
+                appendInteger(number)
+            }
+
+            // JSON format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
+            for (offsetAndName, number) in jsonOffsetToNumber.sorted(by: { $0.key.name < $1.key.name}) {
+                appendInteger(offsetAndName.offset)
+                appendInteger(number)
+            }
+
+            // Name data blob, null-delimited entries.
+            result.append(contentsOf: namesBlob)
         }
 
-        // JSON format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
-        for (offsetAndName, number) in jsonOffsetToNumber.sorted(by: { $0.key.name < $1.key.name}) {
-            appendInteger(offsetAndName.offset)
-            appendInteger(number)
+        // This section contains the reserved field numbers and ranges.
+        appendSection {
+            guard !singleElementReservedRanges.isEmpty || !multipleElementReservedRanges.isEmpty else {
+                return
+            }
+            // Number of single-element reserved ranges, 16-bit little endian.
+            appendInteger(UInt16(singleElementReservedRanges.count))
+
+            // Number of multiple-element reserved ranges, 16-bit little endian.
+            appendInteger(UInt16(multipleElementReservedRanges.count))
+
+            // Single-element reserved ranges, in ascending order of the reserved number.
+            for number in singleElementReservedRanges {
+                appendInteger(number)
+            }
+
+            // Multiple-element reserved ranges, in ascending order of the lower bound.
+            for range in multipleElementReservedRanges {
+                appendInteger(range.lowerBound)
+                appendInteger(range.upperBound)
+            }
         }
 
-        // Name data blob, null-delimited entries.
-        result.append(contentsOf: namesBlob)
-
-        // TODO: Encode non-zero/non-empty default values. For now, just write out alignment
-        // padding and record the section start.
-        align(to: UInt32.self)
-        updateInteger(at: defaultsSectionOffsetIndex, to: UInt32(result.count))
-
+        // TODO: Encode non-zero/non-empty default values.
         return result
     }
 

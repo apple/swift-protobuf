@@ -168,9 +168,8 @@ let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
 
 fileprivate let _protobuf_package = "swift_feature_test"
 
-extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures" }
@@ -181,11 +180,9 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._M
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{8}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}&pmNE53g/G\u{2};j\u{5}[BB\u{1}\"\u{1b}bwQ{\"\u{1d}/($Wiq\n\u{12}\u{15}/Yi5M\u{17}|D!\u{1d}Eso]w\u{1b}\u{b}N3t(s~\u{15}\"&/,KL5\n\u{15}" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_feature_test.TestFeatures\0\u{1}feature1\0\u{1}feature2\0\u{1}feature3\0\u{1}feature4\0\u{1}feature5\0" }
+  private static var _protobuf_reflectionData: StaticString { "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}&pmNE53g/G\u{2};j\u{5}[BB\u{1}\"\u{1b}bwQ{\"\u{1d}/($Wiq\n\u{12}\u{15}/Yi5M\u{17}|D!\u{1d}Eso]w\u{1b}\u{b}N3t(s~\u{15}\"&/,MHWp@\u{1}\u{18}\0\0" }
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {
@@ -223,12 +220,10 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._M
 
 }
 
-extension SwiftFeatureTest_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
+extension SwiftFeatureTest_TestFeatures.EnumFeature {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\0+\0swift_feature_test.TestFeatures.EnumFeature" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{7}\0\0\0\0+\0swift_feature_test.TestFeatures.EnumFeature" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{8}\u{2}\0\0\0_\u{10}c>8=m6qH|! \u{4}r\u{2}C-`Of\u{18}E7\u{f}C\"\u{1b}\u{7}VSL\t\u{18}nd\u{10}8|0VxXPUm]VQ\u{4}\u{13}7d7\u{19}\u{1b}\u{7}\"O\t\n\u{19}\u{8}<c^j/Wd-R\u{1}X{\u{17};\u{f}\u{1}l\t\u{17}:W\u{1d}T0\u{16}\u{1e}Fjdvj\u{16}YT\u{7f}1y+&8Bx\u{1b}M\0\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_feature_test.TestFeatures.EnumFeature\0\u{2}\0ENUM_FEATURE_UNKNOWN\0\u{1}ENUM_FEATURE_VALUE1\0\u{1}ENUM_FEATURE_VALUE2\0\u{1}ENUM_FEATURE_VALUE3\0\u{1}ENUM_FEATURE_VALUE4\0\u{1}ENUM_FEATURE_VALUE5\0\u{1}ENUM_FEATURE_VALUE6\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "\u{c}\u{2}\0\0\0_\u{10}c>8=m6qH|! \u{4}r\u{2}C-`Of\u{18}E7\u{f}C\"\u{1b}\u{7}VSL\t\u{18}nd\u{10}8|0VxXPUm]VQ\u{4}\u{13}7d7\u{19}\u{1b}\u{7}\"O\t\n\u{19}\u{8}<c^j/Wd-R\u{1}X{\u{17};\u{f}\u{1}l\t\u{17}:W\u{1d}T0\u{16}\u{1e}Fjdvj\u{16}YT\u{7f}1y+&8B\u{18}ee0g\u{f}s\0\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

@@ -103,9 +103,8 @@ struct SwiftProtoTesting_TestAny: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny" }
@@ -116,11 +115,9 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messa
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\u{1}\0\0 \u{1f}97\rZs5FC\u{1f}Zbf/g4j(\u{2}\\`c?\u{8}\u{15}F`C:tzl\u{1f}H#\u{7f}\n\01bqb\u{b}n/Vb>G/g\0[W\u{10}$=4ifxB2\u{7f}\u{e}JKm\u{7f}\u{18}x]nX\u{13}u)T\"r\u{1a}IkX\u{1}\u{c}&u=buQ]3toU2Jiq%\u{7}\0\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.TestAny\0\u{3}int32_value\0\u{3}any_value\0\u{3}repeated_any_value\0\u{1}text\0" }
+  private static var _protobuf_reflectionData: StaticString { "8\u{1}\0\0 \u{1f}97\rZs5FC\u{1f}Zbf/g4j(\u{2}\\`c?\u{8}\u{15}F`C:tzl\u{1f}H#\u{7f}\n\01bqb\u{b}n/Vb>G/g\0[W\u{10}$=4ifxB2\u{7f}\u{e}JKm\u{7f}\u{18}x]nX\u{13}u)T\"r\u{1a}IkX\u{1}\u{c}&u=buQ]3toU2JiuNjF\t\u{1b}\0\0\0" }
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
   private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf._MessageStorage) -> Bool {
     switch token.index {

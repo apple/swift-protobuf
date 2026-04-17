@@ -95,7 +95,7 @@ extension _MessageStorage {
         }
         if isValuePresent {
             let bytes = assumedPresentValue(at: valueOffset) as Data
-            emitName(ofFieldNumber: Int(valueField.fieldNumber), into: &encoder)
+            emitName(ofFieldNumber: valueField.fieldNumber, into: &encoder)
             encoder.startRegularField()
             encoder.putBytesValue(value: bytes)
             encoder.endRegularField()
@@ -109,7 +109,7 @@ extension _MessageStorage {
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: TextFormatEncodingOptions
     ) {
-        let fieldNumber = Int(field.fieldNumber)
+        let fieldNumber = field.fieldNumber
         let fieldType = field.rawFieldType
         let offset = field.offset
 
@@ -256,7 +256,7 @@ extension _MessageStorage {
                     self,
                     .read
                 ) { enumSchema, value in
-                    encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
+                    encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
                     return true
                 } /*onInvalidValue*/ _: { _ in
                     assertionFailure("invalid value handler should never be called for .read")
@@ -292,18 +292,18 @@ extension _MessageStorage {
     /// Emits the name of the field with the given number to the encoder.
     ///
     /// If the field name cannot be found, the field number is used instead.
-    private func emitName(ofFieldNumber fieldNumber: Int, into encoder: inout TextFormatEncoder) {
-        if let protoName = schema.nameMap.names(for: fieldNumber)?.proto {
-            encoder.emitFieldName(name: protoName.utf8Buffer)
+    private func emitName(ofFieldNumber fieldNumber: UInt32, into encoder: inout TextFormatEncoder) {
+        if let name = schema.textName(forFieldNumber: fieldNumber) {
+            encoder.emitFieldName(name: name)
         } else {
-            encoder.emitFieldNumber(number: fieldNumber)
+            encoder.emitFieldNumber(number: Int(fieldNumber))
         }
     }
 
     /// Emits the name and values of a repeated enum field, using compact representation if the
     /// field is packed.
     private func emitRepeatedEnumField(_ field: FieldSchema, into encoder: inout TextFormatEncoder) {
-        let fieldNumber = Int(field.fieldNumber)
+        let fieldNumber = field.fieldNumber
         if field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
             emitName(ofFieldNumber: fieldNumber, into: &encoder)
@@ -320,7 +320,7 @@ extension _MessageStorage {
                 if !firstItem {
                     encoder.arraySeparator()
                 }
-                encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
+                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
                 firstItem = false
                 return true
             } /*onInvalidValue*/ _: { _ in
@@ -339,7 +339,7 @@ extension _MessageStorage {
             ) { enumSchema, value in
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startRegularField()
-                encoder.putEnumValue(rawValue: value, nameMap: enumSchema.nameMap)
+                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
                 encoder.endRegularField()
                 return true
             } /*onInvalidValue*/ _: { _ in

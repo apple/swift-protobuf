@@ -17,8 +17,7 @@ import Foundation
 /// This type is a high-level wrapper around `TextFormatScanner`.
 struct TextFormatReader {
     var scanner: TextFormatScanner
-    private var nameMap: _NameMap
-    private let messageSchema: MessageSchema?
+    private let messageSchema: MessageSchema
     private var hasSeenField = false
     private let terminator: UInt8?
 
@@ -31,8 +30,7 @@ struct TextFormatReader {
     /// - Precondition: `buffer.baseAddress` is not nil.
     internal init(
         buffer: UnsafeBufferPointer<UInt8>,
-        nameMap: _NameMap,
-        messageSchema: MessageSchema? = nil,
+        messageSchema: MessageSchema,
         options: TextFormatDecodingOptions,
         extensions: ExtensionMap?
     ) {
@@ -43,7 +41,6 @@ struct TextFormatReader {
                 options: options,
                 extensions: extensions
             ),
-            nameMap: nameMap,
             messageSchema: messageSchema,
             terminator: nil
         )
@@ -51,12 +48,10 @@ struct TextFormatReader {
 
     private init(
         scanner: TextFormatScanner,
-        nameMap: _NameMap,
-        messageSchema: MessageSchema? = nil,
+        messageSchema: MessageSchema,
         terminator: UInt8?
     ) {
         self.scanner = scanner
-        self.nameMap = nameMap
         self.messageSchema = messageSchema
         self.terminator = terminator
     }
@@ -68,15 +63,7 @@ struct TextFormatReader {
         if hasSeenField {
             scanner.skipOptionalSeparator()
         }
-        // TODO: Remove the `messageType` argument from the scanner.
-        guard
-            let fieldNumber = try scanner.nextFieldNumber(
-                names: nameMap,
-                messageType: nil,
-                messageSchema: messageSchema,
-                terminator: terminator
-            )
-        else {
+        guard let fieldNumber = try scanner.nextFieldNumber(messageSchema: messageSchema, terminator: terminator) else {
             return nil
         }
         hasSeenField = true
@@ -99,12 +86,7 @@ struct TextFormatReader {
         _ body: (inout TextFormatReader) throws -> Void
     ) throws {
         let subTerminator = try scanner.skipObjectStart()
-        var subReader = TextFormatReader(
-            scanner: scanner,
-            nameMap: expectedSchema.nameMap,
-            messageSchema: expectedSchema,
-            terminator: subTerminator
-        )
+        var subReader = TextFormatReader(scanner: scanner, messageSchema: expectedSchema, terminator: subTerminator)
         try body(&subReader)
         assert((scanner.recursionBudget + 1) == subReader.scanner.recursionBudget)
         self.scanner = subReader.scanner

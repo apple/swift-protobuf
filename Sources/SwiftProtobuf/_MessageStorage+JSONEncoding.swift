@@ -123,7 +123,7 @@ extension _MessageStorage {
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: JSONEncodingOptions
     ) throws {
-        let fieldNumber = Int(field.fieldNumber)
+        let fieldNumber = field.fieldNumber
         let fieldType = field.rawFieldType
         let offset = field.offset
 
@@ -198,7 +198,7 @@ extension _MessageStorage {
                     // TODO: Handle the WKT `NullValue` with a custom JSON representation.
                     encoder.putEnumValue(
                         rawValue: value,
-                        nameMap: enumSchema.nameMap,
+                        enumSchema: enumSchema,
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
@@ -264,15 +264,15 @@ extension _MessageStorage {
     /// Emits the JSON key (and subsequent colon) for the field with the given number, throwing an
     /// error if the field's name isn't found.
     private func emitKey(
-        forFieldNumber fieldNumber: Int,
+        forFieldNumber fieldNumber: UInt32,
         into encoder: inout JSONEncoder,
         options: JSONEncodingOptions
     ) throws {
-        let name: _NameMap.Name?
+        let name: String?
         if options.preserveProtoFieldNames {
-            name = schema.nameMap.names(for: fieldNumber)?.proto
+            name = schema.textName(forFieldNumber: fieldNumber)
         } else {
-            name = schema.nameMap.names(for: fieldNumber)?.json
+            name = schema.jsonName(forFieldNumber: fieldNumber)
         }
 
         // TODO: When we support extensions, look those up after this first branch.
@@ -312,7 +312,7 @@ extension _MessageStorage {
                 // TODO: Handle the WKT `NullValue` with a custom JSON representation.
                 encoder.putEnumValue(
                     rawValue: value,
-                    nameMap: enumSchema.nameMap,
+                    enumSchema: enumSchema,
                     alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                 )
                 return true

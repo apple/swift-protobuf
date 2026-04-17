@@ -179,10 +179,10 @@ extension ExtensionStorage {
             hasSeenValue = true
 
             if let name = try reader.scanner.nextOptionalEnumName() {
-                guard let number = enumSchema.nameMap.number(forProtoName: name) else {
+                guard let number = enumSchema.enumCase(forTextName: name) else {
                     throw TextFormatDecodingError.unrecognizedEnumValue
                 }
-                value = Int32(number)
+                value = number
                 return true
             }
 

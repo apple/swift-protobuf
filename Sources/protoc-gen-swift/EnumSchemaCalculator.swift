@@ -13,6 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import SwiftProtobufPluginLibrary
+
 /// Computes the encoded schema string that will be emitted into generated code to represent an
 /// enum.
 ///
@@ -31,12 +33,15 @@ struct EnumSchemaCalculator {
     /// the generated source.
     var schemaLiteral: String { schemaWriter.schemaCode }
 
-    /// Creates a new enum schema calculator for an enum with the given name.
-    init(fullyQualifiedName: String) {
+    /// Creates a new enum schema calculator for an enum with the given generator.
+    init(fullyQualifiedName: String, enumValues: [EnumValueDescriptor]) {
         self.schemaWriter = .init()
 
         // Version indicator (1 byte)
         schemaWriter.writeBase128Int(0, byteWidth: 1)
+
+        // The number of defined cases (aliases are not included).
+        schemaWriter.writeBase128Int(UInt64(enumValues.count), byteWidth: 5)
 
         // Enum name length (2 bytes), followed by enum name
         schemaWriter.writeBase128Int(UInt64(fullyQualifiedName.utf8.count), byteWidth: 2)

@@ -24,7 +24,6 @@ class DummyFieldGenerator: FieldGenerator {
     var presence: FieldPresence = .hasBit(0)
     var storageOffsets: TargetSpecificValues<Int> = .init(forAllTargets: 0)
     var needsIsInitializedGeneration: Bool { false }
-    func writeProtoNameInstruction(to writer: inout ProtoNameInstructionWriter) {}
     func generateInterface(printer: inout CodePrinter) {}
 }
 
@@ -34,7 +33,7 @@ class DummyFieldGenerator: FieldGenerator {
     let field3 = DummyFieldGenerator(number: 3, name: "foo", jsonName: "bar") // Distinct JSON name
     
     let fields = [field1, field2, field3]
-    let calculator = ReflectionTableCalculator(fields: fields)
+    let calculator = ReflectionTableCalculator(fields: fields, reservedRanges: [], reservedNames: [])
     let result = calculator.uncompressedData()
     let table = ReflectionTable(fieldCount: fields.count, data: result)
     
@@ -68,7 +67,7 @@ class DummyFieldGenerator: FieldGenerator {
     let case4 = DummyFieldGenerator(number: 0xFFFF_FF9C, name: "QUX", jsonName: "QUX") // -100 as Int32
     
     let cases = [case1, case2, case3, case4]
-    let calculator = ReflectionTableCalculator(fields: cases)
+    let calculator = ReflectionTableCalculator(fields: cases, reservedRanges: [], reservedNames: [])
     let result = calculator.uncompressedData()
     let table = ReflectionTable(fieldCount: cases.count, data: result)
     
@@ -106,3 +105,56 @@ class DummyFieldGenerator: FieldGenerator {
     #expect(table.fieldNumber(forTextName: "key") == 1)
     #expect(table.fieldNumber(forTextName: "value") == 2)
 }
+
+@Test func reservedFields() throws {
+    let field1 = DummyFieldGenerator(number: 1, name: "key", jsonName: "key")
+    let fields = [field1]
+    
+    let calculator = ReflectionTableCalculator(
+        fields: fields,
+        reservedRanges: [10..<11, 20..<25],
+        reservedNames: ["reserved1", "reserved2"]
+    )
+    let result = calculator.uncompressedData()
+    let table = ReflectionTable(fieldCount: fields.count, data: result)
+    
+    // Verify reserved names.
+    #expect(table.isNameReserved("reserved1") == true)
+    #expect(table.isNameReserved("reserved2") == true)
+    #expect(table.isNameReserved("key") == false)
+    
+    // Verify reserved names return nil from regular lookup.
+    #expect(table.fieldNumber(forTextName: "reserved1") == nil)
+    #expect(table.fieldNumber(forTextName: "reserved2") == nil)
+    #expect(table.fieldNumber(forTextName: "key") == 1)
+    
+    // Verify reserved numbers.
+    #expect(table.isNumberReserved(1) == false)
+    #expect(table.isNumberReserved(10) == true)
+    #expect(table.isNumberReserved(11) == false)
+    #expect(table.isNumberReserved(20) == true)
+    #expect(table.isNumberReserved(24) == true)
+    #expect(table.isNumberReserved(25) == false)
+}
+
+@Test func reservedFieldsEmpty() throws {
+    let field1 = DummyFieldGenerator(number: 1, name: "key", jsonName: "key")
+    let fields = [field1]
+    
+    let calculator = ReflectionTableCalculator(
+        fields: fields,
+        reservedRanges: [],
+        reservedNames: []
+    )
+    let result = calculator.uncompressedData()
+    let table = ReflectionTable(fieldCount: fields.count, data: result)
+    
+    // Verify reserved names return false.
+    #expect(table.isNameReserved("reserved1") == false)
+    #expect(table.isNameReserved("key") == false)
+    
+    // Verify reserved numbers return false.
+    #expect(table.isNumberReserved(10) == false)
+    #expect(table.isNumberReserved(1) == false)
+}
+

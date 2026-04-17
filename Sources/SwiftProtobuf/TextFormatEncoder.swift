@@ -46,10 +46,6 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: buff)
     }
 
-    internal mutating func append(name: _NameMap.Name) {
-        data.append(contentsOf: name.utf8Buffer)
-    }
-
     internal mutating func append(bytes: [UInt8]) {
         data.append(contentsOf: bytes)
     }
@@ -64,19 +60,9 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    mutating func emitFieldName(name: UnsafeRawBufferPointer) {
+    mutating func emitFieldName(name: String) {
         indent()
-        data.append(contentsOf: name)
-    }
-
-    mutating func emitFieldName(name: StaticString) {
-        let buff = UnsafeRawBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        emitFieldName(name: buff)
-    }
-
-    mutating func emitFieldName(name: [UInt8]) {
-        indent()
-        data.append(contentsOf: name)
+        data.append(contentsOf: name.utf8)
     }
 
     mutating func emitExtensionFieldName(name: String) {
@@ -125,16 +111,16 @@ internal struct TextFormatEncoder {
     }
 
     mutating func putEnumValue<E: Enum>(value: E) {
-        if let name = value.name {
-            data.append(contentsOf: name.utf8Buffer)
+        if let name = value.textFormatName {
+            data.append(contentsOf: name.utf8)
         } else {
             appendInt(value: Int64(value.rawValue))
         }
     }
 
-    mutating func putEnumValue(rawValue: Int32, nameMap: _NameMap) {
-        if let name = nameMap.names(for: Int(rawValue))?.proto {
-            data.append(contentsOf: name.utf8Buffer)
+    mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema) {
+        if let name = enumSchema.textName(forEnumCase: rawValue) {
+            data.append(contentsOf: name.utf8)
         } else {
             appendInt(value: Int64(rawValue))
         }

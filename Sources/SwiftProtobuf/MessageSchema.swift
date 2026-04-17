@@ -24,9 +24,8 @@ public struct MessageSchema: @unchecked Sendable {
 
     /// The encoded schema of the fields of the message.
     ///
-    /// The message schema is encoded in UTF-8-compatible form as a `StaticString`. Unlike
-    /// `_NameMap`, which uses variable-width sequences of "instructions", the message schema is
-    /// represented as a fixed size "header" followed by a sequence of fixed size field schema
+    /// The message schema is encoded in UTF-8-compatible form as a `StaticString`. It is
+    /// represented by a fixed size "header" followed by a sequence of fixed size field schema
     /// descriptors. This allows for fast lookup of those fields (constant time in some cases,
     /// falling back to binary search when needed).
     ///
@@ -96,21 +95,8 @@ public struct MessageSchema: @unchecked Sendable {
     /// *   Byte 12: The type of the field.
     private let schema: UnsafeRawBufferPointer
 
-    /// The name map for the message.
-    ///
-    /// TODO: This is a big but temporary performance regression while we're moving to the new
-    /// implementation. Previously, name maps were a `static let` on the individual message types,
-    /// which meant their initialization only occurred when they were first used (e.g., when
-    /// performing text/JSON serialization). Now, the name map needs to be part of the schema to
-    /// satisfy the self-describing nature of `_MessageStorage` for the new table-driven text/JSON
-    /// implementation, which forces it to be initialized whenever any part of the schema is
-    /// requested (even during binary serialization). In the near future, we will replace the
-    /// current name map implementation with a new one that eliminates this first-time
-    /// initialization cost.
-    ///
-    /// TODO: This is public so that it can be read by generated messages to satisfy the
-    /// `ProtoNameProviding` requirement. Make it internal once that's no longer necessary.
-    public let nameMap: _NameMap
+    /// The reference to the reflection table for the message.
+    private let reflection: ReflectionTableReference
 
     /// The function type for the generated function that is called to perform a basic operation
     /// on certain kinds of nontrivial fields (a message, array of messages, array of enums, or map)
@@ -195,33 +181,25 @@ public struct MessageSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public init(
         schema: StaticString,
-        names: StaticString,
+        reflection: StaticString,
         performNontrivialFieldOperation: @escaping NontrivialFieldOperationPerformer,
         performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
         performOnRawEnumValues: @escaping RawEnumValuesPerformer,
         mapEntrySchema: @escaping MapEntrySchema,
         performOnMapEntry: @escaping MapEntryPerformer
     ) {
-        precondition(
-            schema.hasPointerRepresentation,
-            "The schema string should have a pointer-based representation; this is a generator bug"
-        )
-        self.schema = UnsafeRawBufferPointer(start: schema.utf8Start, count: schema.utf8CodeUnitCount)
-        self.nameMap = names.utf8CodeUnitCount != 0 ? _NameMap(bytecode: names) : _NameMap()
-        self.performNontrivialFieldOperation = performNontrivialFieldOperation
-        self.performOnSubmessageStorage = performOnSubmessageStorage
-        self.performOnRawEnumValues = performOnRawEnumValues
-        self.mapEntrySchema = mapEntrySchema
-        self.performOnMapEntry = performOnMapEntry
-        precondition(version == 0, "This runtime only supports version 0 message schemas")
-        precondition(
-            self.schema.count >= messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
-            """
-            The schema size in bytes was not consistent with the number of fields \
-            (got \(self.schema.count), expected at least \
-            \(messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize)); \
-            this is a generator bug
-            """
+        self.init(
+            schema: schema,
+            // TODO: Use the `.compressed` form and lazily decompress and cache it.
+            reflectionReference: .direct(ReflectionTable(
+                fieldCount: Self.fieldCount(from: schema.rawBufferPointer),
+                data: Compression.decompress(reflection.rawBufferPointer)
+            )),
+            performNontrivialFieldOperation: performNontrivialFieldOperation,
+            performOnSubmessageStorage: performOnSubmessageStorage,
+            performOnRawEnumValues: performOnRawEnumValues,
+            mapEntrySchema: mapEntrySchema,
+            performOnMapEntry: performOnMapEntry
         )
     }
 
@@ -230,10 +208,14 @@ public struct MessageSchema: @unchecked Sendable {
     /// Schemas created with this initalizer must have no submessage fields because the invalid
     /// submessage operation placeholder will be used.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, names: StaticString) {
+    public init(schema: StaticString, reflection: StaticString) {
         self.init(
             schema: schema,
-            names: names,
+            // TODO: Use the `.compressed` form and lazily decompress and cache it.
+            reflectionReference: .direct(ReflectionTable(
+                fieldCount: Self.fieldCount(from: schema.rawBufferPointer),
+                data: Compression.decompress(reflection.rawBufferPointer)
+            )),
             performNontrivialFieldOperation: { _, _, _, _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             },
@@ -256,7 +238,25 @@ public struct MessageSchema: @unchecked Sendable {
     /// entries where the value type is a scalar.
     @_spi(ForGeneratedCodeOnly)
     public init(schemaForMapEntryWithScalarValues schema: StaticString) {
-        self.init(schema: schema, names: mapEntryFieldNameBytecode)
+        self.init(
+            schema: schema,
+            reflectionReference: .direct(.mapEntry),
+            performNontrivialFieldOperation: { _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnSubmessageStorage: { _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnRawEnumValues: { _, _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            mapEntrySchema: { _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            performOnMapEntry: { _, _, _, _, _, _, _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            }
+        )
     }
 
     /// Creates a new message schema for the message-like storage used to encode and decode map
@@ -265,7 +265,7 @@ public struct MessageSchema: @unchecked Sendable {
     public init<T: _MessageImplementationBase>(schema: StaticString, forMapEntryWithValueType type: T.Type) {
         self.init(
             schema: schema,
-            names: mapEntryFieldNameBytecode,
+            reflectionReference: .direct(.mapEntry),
             performNontrivialFieldOperation: { _, operation, field, storage in
                 return storage.performNontrivialFieldOperation(operation, field: field, type: type)
             },
@@ -290,7 +290,7 @@ public struct MessageSchema: @unchecked Sendable {
     public init<T: Enum>(schema: StaticString, forMapEntryWithValueType type: T.Type, enumSchema: EnumSchema) {
         self.init(
             schema: schema,
-            names: mapEntryFieldNameBytecode,
+            reflectionReference: .direct(.mapEntry),
             performNontrivialFieldOperation: { _, operation, field, storage in
                 return storage.performNontrivialFieldOperation(operation, field: field, type: type)
             },
@@ -315,6 +315,40 @@ public struct MessageSchema: @unchecked Sendable {
             }
         )
     }
+
+    /// Creates a new message schema and submessage operations from the given values.
+    private init(
+        schema: StaticString,
+        reflectionReference: ReflectionTableReference,
+        performNontrivialFieldOperation: @escaping NontrivialFieldOperationPerformer,
+        performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
+        performOnRawEnumValues: @escaping RawEnumValuesPerformer,
+        mapEntrySchema: @escaping MapEntrySchema,
+        performOnMapEntry: @escaping MapEntryPerformer
+    ) {
+        precondition(
+            schema.hasPointerRepresentation,
+            "The schema string should have a pointer-based representation; this is a generator bug"
+        )
+        self.schema = schema.rawBufferPointer
+        self.reflection = reflectionReference
+        self.performNontrivialFieldOperation = performNontrivialFieldOperation
+        self.performOnSubmessageStorage = performOnSubmessageStorage
+        self.performOnRawEnumValues = performOnRawEnumValues
+        self.mapEntrySchema = mapEntrySchema
+        self.performOnMapEntry = performOnMapEntry
+        precondition(version == 0, "This runtime only supports version 0 message schemas")
+        precondition(
+            self.schema.count >= messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
+            """
+            The schema size in bytes was not consistent with the number of fields \
+            (got \(self.schema.count), expected at least \
+            \(messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize)); \
+            this is a generator bug
+            """
+        )
+    }
+
 }
 
 extension MessageSchema {
@@ -340,14 +374,12 @@ extension MessageSchema {
     }
 }
 
-/// The name map bytecode that represents the fields of a map entry, which is needed when
-/// serializing or parsing maps in text format.
-///
-/// TODO: Consider ways to replace this hardcoded bytecode with a less fragile representation of a
-/// fixed name map.
-private let mapEntryFieldNameBytecode: StaticString = "\0\u{1}key\0\u{1}value\0"
-
 extension MessageSchema {
+    /// Helper function to read the field count from the given schema string.
+    private static func fieldCount(from schema: UnsafeRawBufferPointer) -> Int {
+        fixed3ByteBase128(in: schema, atByteOffset: 4)
+    }
+
     /// The version of the schema data.
     ///
     /// Currently, the runtime only supports version 0. If the schema needs to change in a breaking
@@ -364,7 +396,7 @@ extension MessageSchema {
 
     /// The number of non-extension fields defined by the message.
     var fieldCount: Int {
-        fixed3ByteBase128(in: schema, atByteOffset: 4)
+        Self.fieldCount(from: schema)
     }
 
     /// The number of required fields defined by the message.
@@ -410,6 +442,38 @@ extension MessageSchema {
     func fieldHasPresence(_ field: FieldSchema) -> Bool {
         let raw = field.rawPresence
         return 0 <= raw && raw < explicitPresenceCount
+    }
+}
+
+extension MessageSchema {
+    /// Returns the text name for the given field number.
+    func textName(forFieldNumber number: UInt32) -> String? {
+        reflection.table.textName(forFieldNumber: number)
+    }
+
+    /// Returns the JSON name for the given field number.
+    func jsonName(forFieldNumber number: UInt32) -> String? {
+        reflection.table.jsonName(forFieldNumber: number)
+    }
+
+    /// Returns the field number for the given text name.
+    func fieldNumber(forTextName name: String) -> UInt32? {
+        reflection.table.fieldNumber(forTextName: name)
+    }
+
+    /// Returns the field number for the given JSON name.
+    func fieldNumber(forJSONName name: String) -> UInt32? {
+        reflection.table.fieldNumber(forJSONName: name)
+    }
+
+    /// Returns a value indicating whether or not the given field name is reserved.
+    func isFieldNameReserved(_ name: String) -> Bool {
+        reflection.table.isNameReserved(name)
+    }
+
+    /// Returns a value indicating whether or not the given field number is reserved.
+    func isFieldNumberReserved(_ number: UInt32) -> Bool {
+        reflection.table.isNumberReserved(number)
     }
 }
 

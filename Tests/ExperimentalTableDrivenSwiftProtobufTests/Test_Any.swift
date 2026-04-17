@@ -1160,7 +1160,6 @@ final class Test_Any: XCTestCase {
 struct ConflictingImportMessage:
     SwiftProtobuf.Message,
     SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding,
     Sendable
 {
     static let protoMessageName: String = "swift_proto_testing.import.ImportMessage"
@@ -1168,8 +1167,6 @@ struct ConflictingImportMessage:
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = SwiftProtobuf._NameMap()
 
     func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject { fatalError() }
 

@@ -105,19 +105,16 @@ struct SwiftProtoTesting_Import_ImportMessage: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing.import"
 
-extension SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Import_ImportEnum {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\0%\0swift_proto_testing.import.ImportEnum" }
+  private static var _protobuf_enumSchemaString: StaticString { "\0\u{3}\0\0\0\0%\0swift_proto_testing.import.ImportEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\\\0\0\0\u{10}?bsm\u{6}.02\u{19}iu{\".g\u{6}-*,\u{19}){>Y\u{7f}\u{7f}3t'=`0l?5\u{2}\n(%\u{7f}jI\u{11}L\u{1e}\u{1e}I'Do+@H\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, names: _protobuf_valueNamesString)
-  private static var _protobuf_valueNamesString: Swift.StaticString { "\0\u{d}swift_proto_testing.import.ImportEnum\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0" }
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { enumSchema.nameMap }
+  private static var _protobuf_reflectionData: StaticString { "`\0\0\0\u{10}?bsm\u{6}.02\u{19}iu{\".g\u{6}-*,\u{19}){>Y\u{7f}\u{7f}3t'=`0l?5\u{2}\n(%\u{7f}jI\u{11}L\u{1e}\u{1e}I'D/i\u{19}qjV\u{b}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
-  static var _protobuf_nameMap: SwiftProtobuf._NameMap { messageSchema.nameMap }
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
     private static var _protobuf_messageSchemaString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0swift_proto_testing.import.ImportMessage" }
@@ -128,11 +125,9 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{1c}\0\0\0\0?ck-\u{7}&pm\u{e}FP[L9)N\u{1f}\0" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_fieldNamesString: StaticString { "\0\u{d}swift_proto_testing.import.ImportMessage\0\u{1}d\0" }
+  private static var _protobuf_reflectionData: StaticString { " \0\0\0\0?ck-\u{7}&pm\u{e}FP[L=\u{11}\u{f}\u{1b}sCT\u{1}\0\0" }
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, names: _protobuf_fieldNamesString)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

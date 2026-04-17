@@ -243,10 +243,10 @@ extension ExtensionStorage {
             hasSeenValue = true
 
             if let name = try reader.scanner.nextOptionalQuotedString() {
-                guard let number = enumSchema.nameMap.number(forJSONName: name) else {
+                guard let number = enumSchema.enumCase(forTextName: name) else {
                     throw JSONDecodingError.unrecognizedEnumValue
                 }
-                value = Int32(number)
+                value = number
                 return true
             }
 
