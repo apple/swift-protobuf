@@ -105,6 +105,8 @@ class MessageGenerator {
 
         self.messageSchemaCalculator = MessageSchemaCalculator(
             fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
+        // TODO: Look at using sortAndMergeContinuous like we do for extension ranges to potentially
+        // shrink them further.
         self.compressedReflectionData = ReflectionTableCalculator(
             fields: fieldsSortedByNumber,
             reservedRanges: descriptor.reservedRanges,

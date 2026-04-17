@@ -120,12 +120,11 @@ package struct ReflectionTableCalculator {
         /// Reserves space for an aligned integer of the given type and returns the index where it
         /// should be written later by calling `updateInteger`.
         func appendSection(body: () -> Void) {
-            align(to: UInt32.self)
+            assert(result.count % MemoryLayout<UInt32>.alignment == 0, "Section header must be 32-bit aligned")
+
             let nextSectionOffsetIndex = result.endIndex
-            for _ in 0..<MemoryLayout<UInt32>.size {
-                // Fill it with something other than 0 to help debugging if we need it.
-                result.append(0xcc)
-            }
+            // Fill the placeholder with something other than 0 to help debugging if we need it.
+            appendInteger(UInt32(0xcccc_cccc))
             body()
             align(to: UInt32.self)
             updateInteger(at: nextSectionOffsetIndex, to: UInt32(result.count))
@@ -251,6 +250,9 @@ package struct ReflectionTableCalculator {
 
         // This section contains the reserved field numbers and ranges.
         appendSection {
+            guard !singleElementReservedRanges.isEmpty || !multipleElementReservedRanges.isEmpty else {
+                return
+            }
             // Number of single-element reserved ranges, 16-bit little endian.
             appendInteger(UInt16(singleElementReservedRanges.count))
 

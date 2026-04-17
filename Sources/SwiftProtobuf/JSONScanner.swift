@@ -1291,7 +1291,6 @@ internal struct JSONScanner {
                     return fieldNumber
                 }
                 fieldName = key
-//                throw JSONDecodingError.invalidUTF8
             } else {
                 // Slow path:  We parsed a String; lookups from String are slower.
                 fieldName = try nextQuotedString()
