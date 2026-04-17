@@ -107,6 +107,9 @@ private let analysisCache: UnsafeMutableTransferBox<[String: AnalyzeResult]> = .
     "google.protobuf.Any": .useStorage
 ])
 
+/// Cache for containsRecursiveSingularField() values to speed things up.
+private let recursiveMessageCache: UnsafeMutableTransferBox<[String: Bool]> = .init([:])
+
 /// Analyze the given descriptor to decide if it should use storage and what
 /// the cost of it will be when appearing as a single field in another message.
 private func analyze(descriptor: Descriptor) -> AnalyzeResult {
@@ -115,12 +118,19 @@ private func analyze(descriptor: Descriptor) -> AnalyzeResult {
     }
 
     func containsRecursiveSingularField(_ descriptor: Descriptor) -> Bool {
+        if let cached = recursiveMessageCache.wrappedValue[descriptor.fullName] {
+            return cached
+        }
+
         let initialFile = descriptor.file
 
         func recursionHelper(_ descriptor: Descriptor, messageStack: [Descriptor]) -> Bool {
             var messageStack = messageStack
             messageStack.append(descriptor)
-            return descriptor.fields.contains {
+            // Note: This stops as soon as it finds recursion though any singular message field.
+            // That means there could be other cycles via other message types that won't get caught
+            // until starting with one of them message in that distict cycle.
+            let result = descriptor.fields.contains {
                 guard !$0.isRepeated else { return false }
                 // Ignore fields that aren’t messages or groups.
                 guard $0.type == .message || $0.type == .group else { return false }
@@ -130,32 +140,55 @@ private func analyze(descriptor: Descriptor) -> AnalyzeResult {
                 // in the cycle must be defined in the same file.
                 guard messageType.file === initialFile else { return false }
 
+                // If the message for this field has already been checked and is known to not be
+                // recursive, there is no need to check it again. If it was known to be recursive
+                // then as mentioned above, that doesn't mean anything about the message that
+                // referenced it as a field and there could be an undiscovered loop through that
+                // message back to the original, so we still have to do the work.
+                if recursiveMessageCache.wrappedValue[messageType.fullName] == false {
+                    return false
+                }
+
                 // Did things recurse?
                 if let first = messageStack.firstIndex(where: { $0 === messageType }) {
-                    // Mark all those in the loop as using storage.
+                    // Go ahead and flag that range as recursive and might as well also seed the
+                    // analysis cache with the fact that they are going to use storage.
                     for msg in messageStack[first..<messageStack.endIndex] {
+                        recursiveMessageCache.wrappedValue[msg.fullName] = true
                         analysisCache.wrappedValue[msg.fullName] = .useStorage
                     }
 
-                    // And it was the top message, so return the result.
+                    // If it was the first thing in the stack, we've recurse the thing original
+                    // asked about, so done (stops the `contains`) and says the message being
+                    // checked is recursive.
                     if first == messageStack.startIndex {
                         return true
                     }
 
-                    // It recursed to something lower in the graph, so no need to
-                    // process it again.
+                    // The cycle wasn't the whole message stack, meaning the cycle was between
+                    // some nested down in subfields and didn't go all the way back up to the
+                    // message we started with, so that means we haven't found recursion for the
+                    // message we actually are checking.
                     return false
                 }
 
                 // Examine sub-message.
                 return recursionHelper(messageType, messageStack: messageStack)
             }
+            recursiveMessageCache.wrappedValue[descriptor.fullName] = result
+            return result
         }
 
         return recursionHelper(descriptor, messageStack: [])
     }
 
     func helper(_ descriptor: Descriptor) -> AnalyzeResult {
+        // NOTE: The first thing we do is check if the message has any path to being recursive.
+        // An alternative would be to do this check after adding up the sizes of fields to see
+        // if we want to spill to storage. However, that has the side effect that the storage
+        // choice could *change* if you moved the messages around within the file as the decision
+        // to use storage could make a second recursive path not also use storage. And having
+        // a determistic decision regardless of order seems more correct.
         if containsRecursiveSingularField(descriptor) {
             return .useStorage
         }
