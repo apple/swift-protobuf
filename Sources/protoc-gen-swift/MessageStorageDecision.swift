@@ -130,6 +130,16 @@ private func analyze(descriptor: Descriptor) -> AnalyzeResult {
                 // in the cycle must be defined in the same file.
                 guard messageType.file === initialFile else { return false }
 
+                // If this message has already been fully analyzed, skip re-traversal.
+                // Without this check, well-connected graphs (like large combined.proto files
+                // with hub types referenced by hundreds of messages) cause exponential
+                // re-traversal because recursionHelper does not consult the cache.
+                // Any cycle involving this message would already have been detected and
+                // written into analysisCache when it was first analyzed.
+                if analysisCache.wrappedValue[messageType.fullName] != nil {
+                    return false
+                }
+
                 // Did things recurse?
                 if let first = messageStack.firstIndex(where: { $0 === messageType }) {
                     // Mark all those in the loop as using storage.
