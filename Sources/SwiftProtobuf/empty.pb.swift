@@ -98,7 +98,7 @@ extension Google_Protobuf_Empty: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{10}\0\0\0\0\u{7f}\u{f}\tA\u{7}6PD`v\u{6}9\0" }
+  private static var _protobuf_reflectionData: StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

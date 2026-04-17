@@ -1043,7 +1043,7 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: StaticString { "\0\u{4}\0\0\0\07\0swift_proto_testing.test3.TestAllTypesProto3.NestedEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "`\0\0\0@x~-S\u{6}ze\u{17}'/{'\u{3}\u{1e}DN[\rf;|n7\"Mx8\u{c}cG)au\u{1a}<\u{1e}'dxf\u{b}*}3~Q\u{f}[[\u{f} \u{11}!P4R\u{1f}" }
+  private static var _protobuf_reflectionData: StaticString { "\\\0\0\0@x~-S\u{6}ze\u{17}'/{'\u{3}\u{1e}DN[\rf;|n7\"Mx8\u{c}cG)au\u{1a}<\u{1e}'dxf\u{b}*}3~Q\u{f}[[O\u{1f}v\u{f}@A\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -1059,7 +1059,7 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobu
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "@\0\0\0@^O'=J\0)h\0]8L\u{c}(\\\u{15}\u{6}r\u{e}eM\u{1f}\u{5}ic>)\u{10}\u{2}/_o\u{13}j\u{19}\u{5}=\u{2}" }
+  private static var _protobuf_reflectionData: StaticString { "<\0\0\0@^O'=J\0)h\0]8L\u{c}(\\\u{15}\u{6}r\u{e}eM\u{1f}\u{5}ic>)\u{10}\u{2}/\u{7f}~BsGT\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

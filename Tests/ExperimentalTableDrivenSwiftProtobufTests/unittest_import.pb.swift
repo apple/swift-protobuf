@@ -109,7 +109,7 @@ extension SwiftProtoTesting_Import_ImportEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: StaticString { "\0\u{3}\0\0\0\0%\0swift_proto_testing.import.ImportEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "d\0\0\0\u{10}?bsm\u{6}.02\u{19}iu{\".g\u{6}-*,\u{19}){>Y\u{7f}\u{7f}3t'=`0l?5\u{2}\n(%\u{7f}jI\u{11}L\u{1e}\u{1e}I'D/0Kp<\rN\u{14}" }
+  private static var _protobuf_reflectionData: StaticString { "`\0\0\0\u{10}?bsm\u{6}.02\u{19}iu{\".g\u{6}-*,\u{19}){>Y\u{7f}\u{7f}3t'=`0l?5\u{2}\n(%\u{7f}jI\u{11}L\u{1e}\u{1e}I'D/i\u{19}qjV\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -125,7 +125,7 @@ extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftPr
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?ck-\u{7}&pm\u{e}FP[L=\u{19}\u{1f}Aup>\u{11}\u{3}" }
+  private static var _protobuf_reflectionData: StaticString { " \0\0\0\0?ck-\u{7}&pm\u{e}FP[L=\u{11}\u{f}\u{1b}sCT\u{1}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

@@ -216,7 +216,7 @@ extension Google_Protobuf_Any: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "P\0\0\0P\u{10}z1fLI2u9\u{5}V\u{1f}jTjM:\u{13}.]\u{1b};\u{17}G\u{1}UT\u{3}s\u{18}tHD%\u{8}?=,*\u{7f}\u{14}K\u{2}\u{1e}1\0]U6G|!Q\u{2}" }
+  private static var _protobuf_reflectionData: StaticString { "L\0\0\0P\u{10}z1fLI2u9\u{5}V\u{1f}jTjM:\u{13}.]\u{1b};\u{17}G\u{1}UT\u{3}s\u{18}tHD%\u{8}?=,*\u{7f}\u{14}K\u{2}\u{1e}1\0EE\u{1f}\u{1f}A\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

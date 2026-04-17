@@ -172,7 +172,7 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message, SwiftProtob
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "l\0\0\0p\u{1}4\u{4}\u{f}K\0)h\0]8Gll_\u{7f}7ty\u{5}V\u{7}\u{5}'\u{1e}D\\K>\u{1}qu\u{3}\u{1e}!E>6{F\u{2}\u{3}' \u{16}@P\u{7}\u{4}#{B\u{b}D\u{1a}cN\tuk\u{1c}N:\u{5}\"g 0\0\0" }
+  private static var _protobuf_reflectionData: StaticString { "h\0\0\0p\u{1}4\u{4}\u{f}K\0)h\0]8Gll_\u{7f}7ty\u{5}V\u{7}\u{5}'\u{1e}D\\K>\u{1}qu\u{3}\u{1e}!E>6{F\u{2}\u{3}' \u{16}@P\u{7}\u{4}#{B\u{b}D\u{1a}cN\tuk\u{1c}N\u{2}s<{~\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -192,7 +192,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, Swift
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "D\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$\u{c}u|[X\u{13}i\u{12}*p\"hR5ySe\u{1b}g^@*@:\u{17}\u{10}M0\u{f}}6]1qG8\u{7}\n\u{2}\0" }
+  private static var _protobuf_reflectionData: StaticString { "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$\u{c}u|[X\u{13}i\u{12}*p\"hR5ySe\u{1b}g^@*@:\u{17}\u{10}M0\u{f}}6mqfPTl{\u{5}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -248,7 +248,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{10}\0\0\0\0\u{7f}\u{f}\tA\u{7}6PD`v\u{6}9\0" }
+  private static var _protobuf_reflectionData: StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

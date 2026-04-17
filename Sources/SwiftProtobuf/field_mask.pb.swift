@@ -296,7 +296,7 @@ extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "(\0\0\0\0?'L)\u{7}&pm\u{e}FPd\u{10}\u{11}[S\u{e}xn6.Zda\u{2}\0" }
+  private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPd\u{10}\u{11}[S\u{e}xn\u{3}P\u{1b}`\u{3}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

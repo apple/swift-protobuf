@@ -129,7 +129,7 @@ extension SwiftProtoTesting_EnumClobbering_Foo {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: StaticString { "\0\u{3}\0\0\0\0'\0swift_proto_testing.enum_clobbering.Foo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "L\0\0\0`NM7\u{17}\u{6}ze\u{17}'/{'\u{3}\u{1e}DN[\rv+Eb\u{6}{\u{18} \\\u{1d}IzuWON}I\u{c}\u{c}H.\u{19};\0" }
+  private static var _protobuf_reflectionData: StaticString { "H\0\0\0`NM7\u{17}\u{6}ze\u{17}'/{'\u{3}\u{1e}DN[\rv+Eb\u{6}{\u{18} \\\u{1d}IzuWON}I\u{4}\u{c}U\u{b}}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -145,7 +145,7 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message, Sw
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "8\0\0\0@\u{1a}o+%J\0)h \u{1d}\u{f}\u{1f}m,7\u{10}\u{4}(t%(B\u{13}k\u{1d}\u{1f}%#a\u{14}2[q\r" }
+  private static var _protobuf_reflectionData: StaticString { "4\0\0\0@\u{1a}o+%J\0)h \u{1d}\u{f}\u{1f}m,7\u{10}\u{4}(t%(B\u{13}k\u{1d}\u{1f}%\u{13})\u{1e}^6\u{f}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

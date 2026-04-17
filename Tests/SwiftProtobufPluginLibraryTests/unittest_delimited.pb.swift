@@ -481,7 +481,7 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf.
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:93<}$3Pg" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -501,7 +501,7 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtob
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:93<}$3Pg" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -521,7 +521,7 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProto
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:93<}$3Pg" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -541,7 +541,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "P\u{1}\0\00\u{7f}\u{c}\u{19}y[?s'LtW2\u{4}H|\u{13}xR2@@7\tHs%?~kJ+pi?O\u{f}V\u{e}EA4?\u{16}\u{13}Z75DY|o\u{6}]\u{10}\"5\u{19}hx\u{13}=jK3nOG\u{1e}sy\u{4}+j8e\u{4}(\"Y\u{2}GP\u{18}9o\u{17}JI\u{1d}E\"V,007?j\u{5}H<\u{19}!\u{8}X-\u{2}#vJ\r\u{1d}\u{10}[\02EP{Li6k\tf`eT\u{b};" }
+  private static var _protobuf_reflectionData: StaticString { "L\u{1}\0\00\u{7f}\u{c}\u{19}y[?s'LtW2\u{4}H|\u{13}xR2@@7\tHs%?~kJ+pi?O\u{f}V\u{e}EA4?\u{16}\u{13}Z75DY|o\u{6}]\u{10}\"5\u{19}hx\u{13}=jK3nOG\u{1e}sy\u{4}+j8e\u{4}(\"Y\u{2}GP\u{18}9o\u{17}JI\u{1d}E\"V,007?j\u{5}H<\u{19}!\u{8}X-\u{2}#vJ\r\u{1d}\u{10}[\02EP{Li6a:5rt\t\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -605,7 +605,7 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, 
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:93<}$3Pg" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -625,7 +625,7 @@ extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message, Swift
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:93<}$3Pg" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

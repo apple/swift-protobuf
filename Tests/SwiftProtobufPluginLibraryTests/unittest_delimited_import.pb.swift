@@ -79,7 +79,7 @@ extension EditionsUnittest_MessageImport: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:93<}$3Pg" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 

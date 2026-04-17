@@ -703,7 +703,7 @@ extension SwiftProtoTesting_Required1: SwiftProtobuf.Message, SwiftProtobuf._Mes
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{1c}\u{1}\0\0 _\u{19}3-Z\u{b}?GC\u{1f}Zbf/g4j(\u{2}\\\u{14}+n,\u{4}\rNb\tN'dss+\u{16}\u{13}\u{1}N\u{3}y7i\u{3}\u{b}=5i{V!\u{10}\u{17}\u{12}jY#et~'50\u{1a}IP\u{19}^k\u{14}9ES((\u{4}Al\u{6}dw^|)*U P\u{1e}R\u{f}'Ja\u{2}\0" }
+  private static var _protobuf_reflectionData: StaticString { "\u{18}\u{1}\0\0 _\u{19}3-Z\u{b}?GC\u{1f}Zbf/g4j(\u{2}\\\u{14}+n,\u{4}\rNb\tN'dss+\u{16}\u{13}\u{1}N\u{3}y7i\u{3}\u{b}=5i{V!\u{10}\u{17}\u{12}jY#et~'50\u{1a}IP\u{19}^k\u{14}9ES((\u{4}Al\u{6}dw^|)*U P\u{1e}\u{11}b:^\u{1e}\u{1}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -727,7 +727,7 @@ extension SwiftProtoTesting_Required8: SwiftProtobuf.Message, SwiftProtobuf._Mes
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "p\u{2}\0\00d\u{14}\\ S1?O,g;0T_6T.F\u{1e}'9\u{f}E\u{10}FW v,u*~\u{1d}.!\u{c}(}.\u{1c}E<v\u{1e}X\u{1f};l8%$\u{1f}!lT0\u{13}zoZJ\u{7}\u{10}\u{e}Me\tAbr^=\u{3}RtCAPt`=.;,~\u{5}\";\\d<,\u{1}y$\0\"\u{4}+\u{16}}b}w%:<7\u{c}Jhza{w\u{4}x\u{14}JNtqR\u{6}\u{b}@\u{5}<%E(\u{13}\u{1e}]b\u{16}*O\u{1c}w!\u{b}\u{1c}\u{18}\u{10}KH\"4\r\t/y\u{1a})/\u{6}B\u{7f}\u{7f}xF8\t#{Oik\t@+e\u{e}7\u{1a}:K1}Ks>\0\0" }
+  private static var _protobuf_reflectionData: StaticString { "l\u{2}\0\00d\u{14}\\ S1?O,g;0T_6T.F\u{1e}'9\u{f}E\u{10}FW v,u*~\u{1d}.!\u{c}(}.\u{1c}E<v\u{1e}X\u{1f};l8%$\u{1f}!lT0\u{13}zoZJ\u{7}\u{10}\u{e}Me\tAbr^=\u{3}RtCAPt`=.;,~\u{5}\";\\d<,\u{1}y$\0\"\u{4}+\u{16}}b}w%:<7\u{c}Jhza{w\u{4}x\u{14}JNtqR\u{6}\u{b}@\u{5}<%E(\u{13}\u{1e}]b\u{16}*O\u{1c}w!\u{b}\u{1c}\u{18}\u{10}KH\"4\r\t/y\u{1a})/\u{6}B\u{7f}\u{7f}xF8\t#{Oik\t@+e\u{e}7jY;0\u{11}p\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -751,7 +751,7 @@ extension SwiftProtoTesting_Required9: SwiftProtobuf.Message, SwiftProtobuf._Mes
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{18}\u{3}\0\0 _V35[S\nY.)SCZ?a1 qD;z}XSf)}gb\t\u{1b}P%+MjQOOW\u{2}EXe~WppA\u{12}GH\u{8}XC^\u{4}<\u{1e}Ll\u{b}\u{11}o\u{1d}zr\u{1f}\tJ\u{7}y(d\u{7}\u{7}u\u{1c}\u{b}\u{6}Nk6Rq\u{1a}vL\u{1a}jPJ^A4W#\u{1}\u{12}\u{3}@7\u{7}2K\u{1e}.\u{4}j|@\u{c}(J';\t6[9A\u{1d}\"E1\u{1d}\u{6}sF7\rX\u{10}n(h2l\u{1a}\u{7f}\u{7f}~2\r\u{b}jT\u{17}Oyfey \u{1f}[0%QO]|\u{1d}U\u{1f}:%HS5>\u{c}\0IB`+\u{1b}9'R&MW9(r`*H(+\u{16}\u{4}FmgUdYe\u{15}\0" }
+  private static var _protobuf_reflectionData: StaticString { "\u{14}\u{3}\0\0 _V35[S\nY.)SCZ?a1 qD;z}XSf)}gb\t\u{1b}P%+MjQOOW\u{2}EXe~WppA\u{12}GH\u{8}XC^\u{4}<\u{1e}Ll\u{b}\u{11}o\u{1d}zr\u{1f}\tJ\u{7}y(d\u{7}\u{7}u\u{1c}\u{b}\u{6}Nk6Rq\u{1a}vL\u{1a}jPJ^A4W#\u{1}\u{12}\u{3}@7\u{7}2K\u{1e}.\u{4}j|@\u{c}(J';\t6[9A\u{1d}\"E1\u{1d}\u{6}sF7\rX\u{10}n(h2l\u{1a}\u{7f}\u{7f}~2\r\u{b}jT\u{17}Oyfey \u{1f}[0%QO]|\u{1d}U\u{1f}:%HS5>\u{c}\0IB`+\u{1b}9'R&MW9(r`*H(+\u{16}\u{4}F%\0\u{1a}\0\u{2}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -775,7 +775,7 @@ extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "(\u{2}\0\0\0?(&%ZS\u{2}BD\u{18}SCZ?\u{19}\"x<Dm\u{1f}bD`\u{f}&$f_X\"\u{1f}\u{b}A&(\u{11}$Za@\u{14}Fov\u{13}i~Bo5r\u{1e}v\u{7}Gezgs\u{1}_\r\u{10}Y\u{15}7\u{1b}A\u{8}uN+\u{16}\u{e}awO}h_ld\u{5}^ZX\u{3}sE$\u{1d}v?Mi2o\"\0(\u{c}\u{7}J\u{b}kg&\nIpH]q\"X]<w\u{1d}\u{b}x\"2I\u{b}TnQL>c\u{c}R5h|x~*K\u{18}t\u{1e}fen>\u{18}iq\u{1d}e\0\u{13}\u{5}Q;U\u{f}\0" }
+  private static var _protobuf_reflectionData: StaticString { "$\u{2}\0\0\0?(&%ZS\u{2}BD\u{18}SCZ?\u{19}\"x<Dm\u{1f}bD`\u{f}&$f_X\"\u{1f}\u{b}A&(\u{11}$Za@\u{14}Fov\u{13}i~Bo5r\u{1e}v\u{7}Gezgs\u{1}_\r\u{10}Y\u{15}7\u{1b}A\u{8}uN+\u{16}\u{e}awO}h_ld\u{5}^ZX\u{3}sE$\u{1d}v?Mi2o\"\0(\u{c}\u{7}J\u{b}kg&\nIpH]q\"X]<w\u{1d}\u{b}x\"2I\u{b}TnQL>c\u{c}R5h|x~*K\u{18}t\u{1e}fen>\u{18}iq\rE\u{7f}\u{2}UI\u{3}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -799,7 +799,7 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "(\0\0\0\0?'L)\u{7}&pm\u{e}FPbrfKbIu@\u{c}\u{5}>(=\u{3}\0" }
+  private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPbrfKbIu@m.W~\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -855,7 +855,7 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message, S
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "(\0\0\0\0?'L)\u{7}&pm\u{e}FPbrfKbIu@\u{c}\u{5}>(=\u{3}\0" }
+  private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPbrfKbIu@m.W~\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -911,7 +911,7 @@ extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message, SwiftProtobuf
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"xfb0c3\u{2}\u{12}YU\u{1f}\u{11}Ob7K\0\0" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"xfb0c3\u{2}\u{12}YS\u{17}Cu`'\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -935,7 +935,7 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message, SwiftProtobuf._
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "X\0\0\0PTZ-~r5C~S-o9BI3\u{12}q4{\u{f}\u{1e}z\u{b}HsR@z1vu23\u{5}m.-s&6o.\u{1c}d\u{1b}R\u{c}oS{3\u{17}}\u{16};\u{1}\u{c}\0" }
+  private static var _protobuf_reflectionData: StaticString { "T\0\0\0PTZ-~r5C~S-o9BI3\u{12}q4{\u{f}\u{1e}z\u{b}HsR@z1vu23\u{5}m.-s&6o.\u{1c}d\u{1b}R\u{c}oS;2\u{1b}!-g\u{1}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -987,7 +987,7 @@ extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message, SwiftProt
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"x^rf|6\u{17}\u{12}YU\u{1f}\u{11}Ob7K\0\0" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"x^rf|6\u{17}\u{12}YS\u{17}Cu`'\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
@@ -1007,7 +1007,7 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "X\0\0\0PTZ-~r5C~S-o9BI3\u{12}q4{\u{f}\u{1e}z\u{b}HsR@z1vu23\u{5}m.-s&6o.\u{1c}d\u{1b}R\u{c}oS{3\u{17}}\u{16};\u{1}\u{c}\0" }
+  private static var _protobuf_reflectionData: StaticString { "T\0\0\0PTZ-~r5C~S-o9BI3\u{12}q4{\u{f}\u{1e}z\u{b}HsR@z1vu23\u{5}m.-s&6o.\u{1c}d\u{1b}R\u{c}oS;2\u{1b}!-g\u{1}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -1063,7 +1063,7 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message, 
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"xZn:v9\u{2}\u{12}YU\u{1f}\u{11}Ob7K\0\0" }
+  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"xZn:v9\u{2}\u{12}YS\u{17}Cu`'\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

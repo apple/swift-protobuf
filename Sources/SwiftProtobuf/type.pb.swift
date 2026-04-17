@@ -638,7 +638,7 @@ extension Google_Protobuf_Syntax {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: StaticString { "\0\u{3}\0\0\0\0\u{16}\0google.protobuf.Syntax" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "l\0\0\0p\u{1}4\u{4}I\u{7}\u{12}vW'&^!\u{2}\u{1e}Dn;C@hq\u{1d}Ca\u{1a}\u{13}n_}_b)\\i+lf>\u{19}_B\u{1}:!<s14n\u{7f}c5\n\u{3}\u{c}m\u{5})" }
+  private static var _protobuf_reflectionData: StaticString { "h\0\0\0p\u{1}4\u{4}I\u{7}\u{12}vW'&^!\u{2}\u{1e}Dn;C@hq\u{1d}Ca\u{1a}\u{13}n_}_b)\\i+lf>\u{19}_B\u{1}:!<s14n\u{7f}c2\u{1c}=F$\u{f}\0" }
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -654,7 +654,7 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "P\u{1}\0\00\u{7f}\u{c}\u{19}y[?s'LtW2\u{4}H|# '\u{11}-#t\"\u{4}\u{14}7\u{1f}WwdZ7#z\u{8}`G5h+\u{11}v;;\u{17}^=@e*+fQ\u{8}3Ne^8dqM_'\u{b}\u{12}\u{10}\\\u{4}^\u{4}\u{1f}yDOjC_\u{6}${:;`*zO\u{5}iwn\u{6}f\u{7}I'(J\"\u{8}-8-pU=9ylY$kht\u{10}Z2 YyeC\u{2}|ZZ\u{2}D\u{2}" }
+  private static var _protobuf_reflectionData: StaticString { "L\u{1}\0\00\u{7f}\u{c}\u{19}y[?s'LtW2\u{4}H|# '\u{11}-#t\"\u{4}\u{14}7\u{1f}WwdZ7#z\u{8}`G5h+\u{11}v;;\u{17}^=@e*+fQ\u{8}3Ne^8dqM_'\u{b}\u{12}\u{10}\\\u{4}^\u{4}\u{1f}yDOjC_\u{6}${:;`*zO\u{5}iwn\u{6}f\u{7}I'(J\"\u{8}-8-pU=9ylY$kht\u{10}Z2 Yye\u{3}\u{2}\u{f}gq\u{7}\n\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -712,7 +712,7 @@ extension Google_Protobuf_Field: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "T\u{2}\0\0\u{10}s\u{1e}\rzS}TH1'9s\u{17}\u{10}^b%z;\u{1}!'\u{1a}<\u{17}<L\u{1e}1fnC\u{1b}g\u{17}5}H\u{11}&0^\u{1a}-.qDoV\u{11}\u{6}\u{8}e]\u{15}~EG6\u{1d}1X]S\u{3}`e_\u{1e}\u{13}R(5\u{14}iB\u{e}lSSbU\u{18}5\u{17}[X\u{7f}a@7@IS9\0,\u{13}\u{7}`\u{15}9\tO\t\u{13}\u{1a}Ko\u{3}\n\\Yu\u{1}\rK)K\u{f}X\u{1a}\u{1b}I\rX4_2\u{1f}zIC3\u{15}l,z\u{1a}\u{15}g=H\u{11}d8`d\r\u{1d}6SE%2k-9\tG~uy]Pdq\0i\"~\u{1d}<\u{2}A`\tGd\u{4}M4\u{19}M%8Dnh<cre\u{18}\u{7}\u{15}coY]l\u{4}+\u{5}(J\u{1e}DFoQ\0\0" }
+  private static var _protobuf_reflectionData: StaticString { "P\u{2}\0\0\u{10}s\u{1e}\rzS}TH1'9s\u{17}\u{10}^b%z;\u{1}!'\u{1a}<\u{17}<L\u{1e}1fnC\u{1b}g\u{17}5}H\u{11}&0^\u{1a}-.qDoV\u{11}\u{6}\u{8}e]\u{15}~EG6\u{1d}1X]S\u{3}`e_\u{1e}\u{13}R(5\u{14}iB\u{e}lSSbU\u{18}5\u{17}[X\u{7f}a@7@IS9\0,\u{13}\u{7}`\u{15}9\tO\t\u{13}\u{1a}Ko\u{3}\n\\Yu\u{1}\rK)K\u{f}X\u{1a}\u{1b}I\rX4_2\u{1f}zIC3\u{15}l,z\u{1a}\u{15}g=H\u{11}d8`d\r\u{1d}6SE%2k-9\tG~uy]Pdq\0i\"~\u{1d}<\u{2}A`\tGd\u{4}M4\u{19}M%8Dnh<cre\u{18}\u{7}\u{15}coY]l\u{4}+\u{5}>\u{14}\rH\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -760,7 +760,7 @@ extension Google_Protobuf_Field.Kind {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: StaticString { "\0\u{13}\0\0\0\0\u{1a}\0google.protobuf.Field.Kind" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "$\u{4}\0\0\0?dEH\u{16}'Vx\u{c}\t\u{7f}LVaj\u{1d}mKc4$eE#<@\u{18}{~r\u{8}A.E>k\u{7}\u{c}cC\u{e}u\tO=M &F[qAo-@#r\u{13}\u{4}/dX:tD@ii/G5V58uSi>Cq\u{1d}K\u{15}\u{5}:\u{c}WHo\u{1f}XDc{\u{5}\u{12}\u{10}\u{f}\u{5}/7q>vz\u{19}pyG;j`+M\u{3}KCKyBwYb\u{1f}}\u{13}\u{4}I/2!W\t^\u{1}\u{17}X\u{c}\t/C>M-\u{14}GX\u{13}cyDcb:\u{f}Z!\u{12}ers\u{16}4\u{1f}c8\u{16}up!\u{2}_cV\u{7f}\u{1c}?Ss\u{12}\u{5}\u{18}j\u{10}Vn%_9rvFr81FSlle\u{1d}oDOeAMt\u{4}\u{12}\u{1f}@\u{1e}S\u{1}H\u{e}\u{2}p\u{8}Jn\u{12}g\u{5}5.Xj#CMrG[MHNcr\0\u{5}F1\u{11}xd\u{17}ZVJ.+XA\nG\u{7f}o Mg9?dc'{i`3\u{8}\u{f}'\0\"\0\0" }
+  private static var _protobuf_reflectionData: StaticString { " \u{4}\0\0\0?dEH\u{16}'Vx\u{c}\t\u{7f}LVaj\u{1d}mKc4$eE#<@\u{18}{~r\u{8}A.E>k\u{7}\u{c}cC\u{e}u\tO=M &F[qAo-@#r\u{13}\u{4}/dX:tD@ii/G5V58uSi>Cq\u{1d}K\u{15}\u{5}:\u{c}WHo\u{1f}XDc{\u{5}\u{12}\u{10}\u{f}\u{5}/7q>vz\u{19}pyG;j`+M\u{3}KCKyBwYb\u{1f}}\u{13}\u{4}I/2!W\t^\u{1}\u{17}X\u{c}\t/C>M-\u{14}GX\u{13}cyDcb:\u{f}Z!\u{12}ers\u{16}4\u{1f}c8\u{16}up!\u{2}_cV\u{7f}\u{1c}?Ss\u{12}\u{5}\u{18}j\u{10}Vn%_9rvFr81FSlle\u{1d}oDOeAMt\u{4}\u{12}\u{1f}@\u{1e}S\u{1}H\u{e}\u{2}p\u{8}Jn\u{12}g\u{5}5.Xj#CMrG[MHNcr\0\u{5}F1\u{11}xd\u{17}ZVJ.+XA\nG\u{7f}o Mg9?dc'{ET\u{15}\t\u{1f}\0\0" }
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -768,7 +768,7 @@ extension Google_Protobuf_Field.Cardinality {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: StaticString { "\0\u{4}\0\0\0\0!\0google.protobuf.Field.Cardinality" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "$\u{1}\0\0 ?a{-z\"\u{13}\u{8}M$%KUa\u{2}\u{17}}~R%E\u{1a}+Uc\t\u{7f}csP]\u{3}\u{6}BmEV@B\u{1c}\u{1a}\u{1f}i;o\u{7f}o3^\u{15}Tb\u{1d}R\u{11}\u{1c}j* '\u{4}\u{8}rL\u{15}_\u{b}qr^x\u{14},jpU\u{18}%\u{e}\u{1a}F>\t$@\u{1}\0" }
+  private static var _protobuf_reflectionData: StaticString { " \u{1}\0\0 ?a{-z\"\u{13}\u{8}M$%KUa\u{2}\u{17}}~R%E\u{1a}+Uc\t\u{7f}csP]\u{3}\u{6}BmEV@B\u{1c}\u{1a}\u{1f}i;o\u{7f}o3^\u{15}Tb\u{1d}R\u{11}\u{1c}j* '\u{4}\u{8}rL\u{15}_\u{b}qr^x\u{14},jpU\u{18}%\u{e}j\u{2}?S\u{f}\0\0" }
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -784,7 +784,7 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "<\u{1}\0\0 \u{1f}97\rZC#$,u\u{3}4[SW6/m\u{5}\u{1e}\u{1e}\u{7f}1*7*C\u{18}F0\u{7}N\u{1e}[\u{14}B\u{4}\u{1f}(a0o\u{13}4&\u{1e}Q'R\u{1a}\u{3}YX\u{1e}\u{c}\u{8}\u{19}?\u{f}\u{7f}$,\u{1a}!\u{2}\u{10}\u{11}\r`\u{4}b=.\u{15}<MP}vM\u{5} F|'l\u{18}Z%)\u{1c}_{rh,\u{14}H['3\u{7f}U\u{18}#L1-\09\u{11} \u{11}tM)9l\u{5}" }
+  private static var _protobuf_reflectionData: StaticString { "8\u{1}\0\0 \u{1f}97\rZC#$,u\u{3}4[SW6/m\u{5}\u{1e}\u{1e}\u{7f}1*7*C\u{18}F0\u{7}N\u{1e}[\u{14}B\u{4}\u{1f}(a0o\u{13}4&\u{1e}Q'R\u{1a}\u{3}YX\u{1e}\u{c}\u{8}\u{19}?\u{f}\u{7f}$,\u{1a}!\u{2}\u{10}\u{11}\r`\u{4}b=.\u{15}<MP}vM\u{5} F|'l\u{18}Z%)\u{1c}_{rh,\u{14}H['3\u{7f}U\u{18}#L1-\09\u{11}\u{10}1XA\u{7f}\r\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -842,7 +842,7 @@ extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "T\0\0\0P\u{12}.3uKx\u{18}(`g8GlL\u{7}X4uZ=XJ/+\u{4}vG/\00\u{f}U%^\t\u{1f}\u{1d}Wu\u{16}\u{1d}9M\u{8}87q,K,>rU\u{1}\0" }
+  private static var _protobuf_reflectionData: StaticString { "P\0\0\0P\u{12}.3uKx\u{18}(`g8GlL\u{7}X4uZ=XJ/+\u{4}vG/\00\u{f}U%^\t\u{1f}\u{1d}Wu\u{16}\u{1d}9M\u{8}87ql\n\u{14}#1h\u{1}\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -894,7 +894,7 @@ extension Google_Protobuf_Option: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "<\0\0\0@<_)1J\0)h\0]8GlL\u{f}Y\u{c}a\u{e}C\u{14}/`\u{11}\t\u{14}T2K\u{1e}D~6$KTQ\u{3}" }
+  private static var _protobuf_reflectionData: StaticString { "8\0\0\0@<_)1J\0)h\0]8GlL\u{f}Y\u{c}a\u{e}C\u{14}/`\u{11}\t\u{14}T2K\u{1e}t=[<|\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

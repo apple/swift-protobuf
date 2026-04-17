@@ -168,7 +168,7 @@ extension Google_Protobuf_Duration: Message, _MessageImplementationBase {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "@\0\0\0@^O'=J\0)h\0]8Gn0\u{10}\u{1f}\u{11}'MS\u{18}cXX>`D,\tc\u{12}\u{19}\u{16}<p}j\rI\u{8}\u{1e}" }
+  private static var _protobuf_reflectionData: StaticString { "<\0\0\0@^O'=J\0)h\0]8Gn0\u{10}\u{1f}\u{11}'MS\u{18}cXX>`D,\tc\u{12}\u{19}\u{16}|kV\u{11}h\u{3}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
 
