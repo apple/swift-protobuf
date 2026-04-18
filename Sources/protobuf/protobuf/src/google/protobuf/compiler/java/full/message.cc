@@ -11,8 +11,6 @@
 
 #include "google/protobuf/compiler/java/full/message.h"
 
-#include <algorithm>
-#include <cstdint>
 #include <memory>
 #include <string>
 #include <utility>
@@ -40,9 +38,7 @@
 #include "google/protobuf/compiler/java/names.h"
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/descriptor.pb.h"
-#include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/io/printer.h"
-#include "google/protobuf/wire_format.h"
 
 // Must be last.
 #include "google/protobuf/port_def.inc"
@@ -786,6 +782,17 @@ void ImmutableMessageGenerator::GenerateDescriptorMethods(
         "fileclass", name_resolver_->GetImmutableClassName(descriptor_->file()),
         "identifier", UniqueFileScopeIdentifier(descriptor_));
   }
+
+  printer->Print(
+      "@java.lang.Override\n"
+      "public com.google.protobuf.Descriptors.Descriptor "
+      "getDescriptorForType() {\n"
+      "  return $fileclass$.internal_$identifier$_descriptor;\n"
+      "}\n"
+      "\n",
+      "fileclass", name_resolver_->GetImmutableClassName(descriptor_->file()),
+      "identifier", UniqueFileScopeIdentifier(descriptor_));
+
   std::vector<const FieldDescriptor*> map_fields;
   for (int i = 0; i < descriptor_->field_count(); i++) {
     const FieldDescriptor* field = descriptor_->field(i);
@@ -842,7 +849,32 @@ void ImmutableMessageGenerator::GenerateIsInitialized(io::Printer* printer) {
   // Memoizes whether the protocol buffer is fully initialized (has all
   // required fields). -1 means not yet computed. 0 means false and 1 means
   // true.
-  printer->Print("private byte memoizedIsInitialized = -1;\n");
+  if (internal::IsOss()) {
+    // Leave this as non-transient in OSS to avoid breaking customers that are
+    // holding GSON wrong.
+    // TODO: Remove this in a future PBJ breaking release.
+    printer->Print("private byte memoizedIsInitialized = -1;\n");
+  } else {
+    // If the message transitively has no required fields or extensions,
+    // isInitialized() is always true.
+    if (!HasRequiredFields(descriptor_)) {
+      printer->Print(
+          "/**\n"
+          "  * @deprecated This always returns true for this type as it \n"
+          "  *   does not transitively contain any required fields.\n"
+          "  */\n"
+          "@java.lang.Deprecated\n"
+          "@java.lang.Override\n"
+          "public final boolean isInitialized() {\n"
+          "  return true;\n"
+          "}\n"
+          "\n");
+      return;
+    }
+
+    printer->Print("private transient byte memoizedIsInitialized = -1;\n");
+  }
+
   printer->Print(
       "@java.lang.Override\n"
       "public final boolean isInitialized() {\n");
