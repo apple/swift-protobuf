@@ -12,6 +12,7 @@
 #include <type_traits>
 
 #include "absl/log/absl_check.h"
+#include "google/protobuf/internal_metadata_locator.h"
 #include "google/protobuf/internal_visibility.h"
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/map.h"
@@ -38,6 +39,20 @@ class MapFieldLite {
  public:
   typedef Map<Key, T> MapType;
 
+#ifdef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_MAP_FIELD
+  explicit constexpr MapFieldLite(InternalMetadataOffset offset)
+      : map_(offset) {}
+  constexpr MapFieldLite(ArenaInitialized, InternalMetadataOffset offset)
+      : MapFieldLite(offset) {}
+
+  constexpr MapFieldLite(InternalVisibility, InternalMetadataOffset offset)
+      : map_(offset) {}
+  MapFieldLite(InternalVisibility, InternalMetadataOffset offset,
+               const MapFieldLite& from)
+      : map_(offset) {
+    MergeFrom(from);
+  }
+#else
   constexpr MapFieldLite() : map_() {}
   explicit MapFieldLite(Arena* arena) : map_(arena) {}
   MapFieldLite(ArenaInitialized, Arena* arena) : MapFieldLite(arena) {}
@@ -47,6 +62,7 @@ class MapFieldLite {
       : map_(arena) {
     MergeFrom(from);
   }
+#endif
 
 #ifdef NDEBUG
   ~MapFieldLite() { map_.~Map(); }
@@ -58,16 +74,22 @@ class MapFieldLite {
     // everything (as opposed to leaving an allocation behind with no
     // data in it, as would happen if a vector was resize'd to zero.
     // Map::Swap with an empty map accomplishes that.
-    decltype(map_) swapped_map(map_.arena());
+    decltype(map_) swapped_map;
     map_.InternalSwap(&swapped_map);
   }
 #endif
   // Accessors
-  const Map<Key, T>& GetMap() const { return map_; }
-  Map<Key, T>* MutableMap() { return &map_; }
+  PROTOBUF_FUTURE_ADD_EARLY_NODISCARD const Map<Key, T>& GetMap() const {
+    return map_;
+  }
+  PROTOBUF_FUTURE_ADD_EARLY_NODISCARD Map<Key, T>* MutableMap() {
+    return &map_;
+  }
 
   // Convenient methods for generated message implementation.
-  int size() const { return static_cast<int>(map_.size()); }
+  PROTOBUF_FUTURE_ADD_EARLY_NODISCARD int size() const {
+    return static_cast<int>(map_.size());
+  }
   void Clear() { return map_.clear(); }
   void MergeFrom(const MapFieldLite& other) {
     internal::MapMergeFrom(map_, other.map_);
@@ -75,11 +97,13 @@ class MapFieldLite {
   void Swap(MapFieldLite* other) { map_.swap(other->map_); }
   void InternalSwap(MapFieldLite* other) { map_.InternalSwap(&other->map_); }
 
+#ifndef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_MAP_FIELD
   static constexpr size_t InternalGetArenaOffset(
       internal::InternalVisibility access) {
     return PROTOBUF_FIELD_OFFSET(MapFieldLite, map_) +
            decltype(map_)::InternalGetArenaOffset(access);
   }
+#endif
 
  private:
   typedef void DestructorSkippable_;
@@ -98,7 +122,8 @@ class MapFieldLite {
 // protobuf compiler from ever having to emit loops in IsInitialized() methods.
 // We want the C++ compiler to inline this or not as it sees fit.
 template <typename Key, typename T>
-bool AllAreInitialized(const MapFieldLite<Key, T>& field) {
+PROTOBUF_FUTURE_ADD_EARLY_NODISCARD bool AllAreInitialized(
+    const MapFieldLite<Key, T>& field) {
   const auto& t = field.GetMap();
   for (typename Map<Key, T>::const_iterator it = t.begin(); it != t.end();
        ++it) {

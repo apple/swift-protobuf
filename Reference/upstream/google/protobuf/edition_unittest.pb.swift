@@ -7958,6 +7958,8 @@ extension EditionUnittest_TestAllExtensions {
     clearExtensionValue(ext: EditionUnittest_Extensions_optional_lazy_message_extension)
   }
 
+  /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
+  /// An extension can't be labeled as "unverified_lazy".
   var EditionUnittest_optionalUnverifiedLazyMessageExtension: EditionUnittest_TestAllTypes.NestedMessage {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_optional_unverified_lazy_message_extension) ?? EditionUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: EditionUnittest_Extensions_optional_unverified_lazy_message_extension, value: newValue)}
@@ -9249,6 +9251,8 @@ let EditionUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.M
   fieldName: "edition_unittest.optional_lazy_message_extension"
 )
 
+/// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
+/// An extension can't be labeled as "unverified_lazy".
 let EditionUnittest_Extensions_optional_unverified_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 28,
   fieldName: "edition_unittest.optional_unverified_lazy_message_extension"

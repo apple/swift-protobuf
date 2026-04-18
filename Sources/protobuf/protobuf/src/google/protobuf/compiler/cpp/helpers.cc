@@ -16,7 +16,6 @@
 #include <cstdint>
 #include <limits>
 #include <memory>
-#include <optional>
 #include <queue>
 #include <string>
 #include <type_traits>
@@ -41,6 +40,7 @@
 #include "absl/strings/string_view.h"
 #include "absl/strings/substitute.h"
 #include "absl/synchronization/mutex.h"
+#include "absl/types/optional.h"
 #include "absl/types/span.h"
 #include "google/protobuf/arenastring.h"
 #include "google/protobuf/compiler/code_generator.h"
@@ -56,6 +56,7 @@
 #include "google/protobuf/io/printer.h"
 #include "google/protobuf/io/strtod.h"
 #include "google/protobuf/map.h"
+#include "google/protobuf/port.h"
 #include "google/protobuf/repeated_ptr_field.h"
 #include "google/protobuf/wire_format.h"
 #include "google/protobuf/wire_format_lite.h"
@@ -242,22 +243,20 @@ bool HasV2Table(const Descriptor* descriptor, const Options& options) {
 
 }  // namespace
 
-bool IsLazy(const FieldDescriptor* field, const Options& options,
-            MessageSCCAnalyzer* scc_analyzer) {
+bool IsLazy(const FieldDescriptor* field, const Options& options) {
   return IsLazilyVerifiedLazy(field, options) ||
-         IsEagerlyVerifiedLazy(field, options, scc_analyzer);
+         IsEagerlyVerifiedLazy(field, options);
 }
 
 // Returns true if "field" is a message field that is backed by LazyField per
 // profile (go/pdlazy).
 inline bool IsLazyByProfile(const FieldDescriptor* field,
-                            const Options& options,
-                            MessageSCCAnalyzer* scc_analyzer) {
+                            const Options& options) {
   return false;
 }
 
-bool IsEagerlyVerifiedLazy(const FieldDescriptor* field, const Options& options,
-                           MessageSCCAnalyzer* scc_analyzer) {
+bool IsEagerlyVerifiedLazy(const FieldDescriptor* field,
+                           const Options& options) {
   return false;
 }
 
@@ -267,9 +266,8 @@ bool IsLazilyVerifiedLazy(const FieldDescriptor* field,
 }
 
 internal::field_layout::TransformValidation GetLazyStyle(
-    const FieldDescriptor* field, const Options& options,
-    MessageSCCAnalyzer* scc_analyzer) {
-  if (IsEagerlyVerifiedLazy(field, options, scc_analyzer)) {
+    const FieldDescriptor* field, const Options& options) {
+  if (IsEagerlyVerifiedLazy(field, options)) {
     return internal::field_layout::kTvEager;
   }
   if (IsLazilyVerifiedLazy(field, options)) {
@@ -286,8 +284,6 @@ absl::flat_hash_map<absl::string_view, std::string> MessageVars(
       {"cached_size", absl::StrCat(prefix, "_cached_size_")},
       {"extensions", absl::StrCat(prefix, "_extensions_")},
       {"has_bits", absl::StrCat(prefix, "_has_bits_")},
-      {"inlined_string_donated_array",
-       absl::StrCat(prefix, "_inlined_string_donated_")},
       {"oneof_case", absl::StrCat(prefix, "_oneof_case_")},
       {"tracker", "Impl_::_tracker_"},
       {"weak_field_map", absl::StrCat(prefix, "_weak_field_map_")},
@@ -371,8 +367,7 @@ const char kThinSeparator[] =
     "// -------------------------------------------------------------------\n";
 
 bool CanInitializeByZeroing(const FieldDescriptor* field,
-                            const Options& options,
-                            MessageSCCAnalyzer* scc_analyzer) {
+                            const Options& options) {
   static_assert(
       std::numeric_limits<float>::is_iec559 &&
           std::numeric_limits<double>::is_iec559,
@@ -428,8 +423,7 @@ bool CanClearByZeroing(const FieldDescriptor* field) {
 }
 
 // Determines if swap can be implemented via memcpy.
-bool HasTrivialSwap(const FieldDescriptor* field, const Options& options,
-                    MessageSCCAnalyzer* scc_analyzer) {
+bool HasTrivialSwap(const FieldDescriptor* field, const Options& options) {
   if (field->is_repeated() || field->is_extension()) return false;
   switch (field->cpp_type()) {
     case FieldDescriptor::CPPTYPE_ENUM:
@@ -444,7 +438,7 @@ bool HasTrivialSwap(const FieldDescriptor* field, const Options& options,
     case FieldDescriptor::CPPTYPE_MESSAGE:
       // Non-repeated, non-lazy message fields are simply raw pointers, so we
       // can swap them with memcpy.
-      return !IsLazy(field, options, scc_analyzer);
+      return !IsLazy(field, options);
     default:
       return false;
   }
@@ -1074,22 +1068,22 @@ bool IsLikelyPresent(const FieldDescriptor* field, const Options& options) {
   return false;
 }
 
-std::optional<float> GetPresenceProbability(const FieldDescriptor* field,
-                                            const Options& options) {
-  return std::nullopt;
+absl::optional<float> GetPresenceProbability(const FieldDescriptor* field,
+                                             const Options& options) {
+  return absl::nullopt;
 }
 
-std::optional<float> GetFieldGroupPresenceProbability(
+absl::optional<float> GetFieldGroupPresenceProbability(
     const std::vector<const FieldDescriptor*>& fields, const Options& options) {
   ABSL_DCHECK(!fields.empty());
-  if (!IsProfileDriven(options)) return std::nullopt;
+  if (!IsProfileDriven(options)) return absl::nullopt;
 
   double all_absent_probability = 1.0;
 
   for (const auto* field : fields) {
-    std::optional<float> probability = GetPresenceProbability(field, options);
+    absl::optional<float> probability = GetPresenceProbability(field, options);
     if (!probability) {
-      return std::nullopt;
+      return absl::nullopt;
     }
     all_absent_probability *= 1.0 - *probability;
   }
@@ -1137,20 +1131,20 @@ bool IsStringInlined(const FieldDescriptor* field, const Options& options) {
   return false;
 }
 
-static bool HasLazyFields(const Descriptor* descriptor, const Options& options,
-                          MessageSCCAnalyzer* scc_analyzer) {
+static bool HasLazyFields(const Descriptor* descriptor,
+                          const Options& options) {
   for (int field_idx = 0; field_idx < descriptor->field_count(); field_idx++) {
-    if (IsLazy(descriptor->field(field_idx), options, scc_analyzer)) {
+    if (IsLazy(descriptor->field(field_idx), options)) {
       return true;
     }
   }
   for (int idx = 0; idx < descriptor->extension_count(); idx++) {
-    if (IsLazy(descriptor->extension(idx), options, scc_analyzer)) {
+    if (IsLazy(descriptor->extension(idx), options)) {
       return true;
     }
   }
   for (int idx = 0; idx < descriptor->nested_type_count(); idx++) {
-    if (HasLazyFields(descriptor->nested_type(idx), options, scc_analyzer)) {
+    if (HasLazyFields(descriptor->nested_type(idx), options)) {
       return true;
     }
   }
@@ -1158,16 +1152,15 @@ static bool HasLazyFields(const Descriptor* descriptor, const Options& options,
 }
 
 // Does the given FileDescriptor use lazy fields?
-bool HasLazyFields(const FileDescriptor* file, const Options& options,
-                   MessageSCCAnalyzer* scc_analyzer) {
+bool HasLazyFields(const FileDescriptor* file, const Options& options) {
   for (int i = 0; i < file->message_type_count(); i++) {
     const Descriptor* descriptor(file->message_type(i));
-    if (HasLazyFields(descriptor, options, scc_analyzer)) {
+    if (HasLazyFields(descriptor, options)) {
       return true;
     }
   }
   for (int field_idx = 0; field_idx < file->extension_count(); field_idx++) {
-    if (IsLazy(file->extension(field_idx), options, scc_analyzer)) {
+    if (IsLazy(file->extension(field_idx), options)) {
       return true;
     }
   }
@@ -1189,19 +1182,15 @@ bool IsArenaStringPtr(const FieldDescriptor* field, const Options& opts) {
          field->cpp_string_type() == FieldDescriptor::CppStringType::kView;
 }
 
-bool ShouldVerify(const Descriptor* descriptor, const Options& options,
-                  MessageSCCAnalyzer* scc_analyzer) {
+bool ShouldVerify(const Descriptor* descriptor, const Options& options) {
   (void)descriptor;
   (void)options;
-  (void)scc_analyzer;
   return false;
 }
 
-bool ShouldVerify(const FileDescriptor* file, const Options& options,
-                  MessageSCCAnalyzer* scc_analyzer) {
+bool ShouldVerify(const FileDescriptor* file, const Options& options) {
   (void)file;
   (void)options;
-  (void)scc_analyzer;
   return false;
 }
 
@@ -1356,8 +1345,7 @@ bool IsV2EnabledForMessage(const Descriptor* descriptor,
 
 // Returns true if a message (descriptor) directly has required fields. Later
 // CLs will expand to cover transitively required fields.
-bool ShouldVerifyV2(const Descriptor* descriptor, const Options& options,
-                    MessageSCCAnalyzer* scc_analyzer) {
+bool ShouldVerifyV2(const Descriptor* descriptor, const Options& options) {
   return false;
 }
 
@@ -1767,8 +1755,7 @@ bool UsingImplicitWeakFields(const FileDescriptor* file,
          GetOptimizeFor(file, options) == FileOptions::LITE_RUNTIME;
 }
 
-bool IsImplicitWeakField(const FieldDescriptor* field, const Options& options,
-                         MessageSCCAnalyzer* scc_analyzer) {
+bool IsImplicitWeakField(const FieldDescriptor* field, const Options& options) {
   return UsingImplicitWeakFields(field->file(), options) &&
          field->type() == FieldDescriptor::TYPE_MESSAGE &&
          !field->is_required() && !field->is_map() && !field->is_extension() &&
@@ -1777,8 +1764,8 @@ bool IsImplicitWeakField(const FieldDescriptor* field, const Options& options,
              "net/proto2/proto/descriptor.proto" &&
          // We do not support implicit weak fields between messages in the same
          // strongly-connected component.
-         scc_analyzer->GetSCC(field->containing_type()) !=
-             scc_analyzer->GetSCC(field->message_type());
+         options.scc_analyzer->GetSCC(field->containing_type()) !=
+             options.scc_analyzer->GetSCC(field->message_type());
 }
 
 MessageAnalysis MessageSCCAnalyzer::GetSCCAnalysis(const SCC* scc) {
@@ -2099,7 +2086,7 @@ static bool HasBootstrapProblem(const FileDescriptor* file,
   // are converted to extensions.
   DynamicMessageFactory factory(pool);
   Message* fd_proto = factory.GetPrototype(fd_proto_descriptor)->New();
-  fd_proto->ParseFromString(linkedin_fd_proto.SerializeAsString());
+  ABSL_CHECK(fd_proto->ParseFromString(linkedin_fd_proto.SerializeAsString()));
 
   bool res = HasExtensionFromFile(*fd_proto, file, options,
                                   has_opt_codesize_extension);
@@ -2157,7 +2144,7 @@ bool HasMessageFieldOrExtension(const Descriptor* desc) {
 
 std::vector<io::Printer::Sub> AnnotatedAccessors(
     const FieldDescriptor* field, absl::Span<const absl::string_view> prefixes,
-    std::optional<google::protobuf::io::AnnotationCollector::Semantic> semantic) {
+    absl::optional<google::protobuf::io::AnnotationCollector::Semantic> semantic) {
   auto field_name = FieldName(field);
 
   std::vector<io::Printer::Sub> vars;
