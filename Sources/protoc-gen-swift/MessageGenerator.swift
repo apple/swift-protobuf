@@ -232,7 +232,7 @@ class MessageGenerator {
     func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
         p.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase {"
+            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message {"
         )
         p.withIndentation { p in
             if let parent = parent {
@@ -428,6 +428,7 @@ class MessageGenerator {
                 "}"
             )
         }
+        p.print("\(visibility)var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }")
     }
 
     /// Generates the `isInitialized` property for the message, if needed.
