@@ -27,7 +27,7 @@ final class Test_Any: XCTestCase {
 
         var m = SwiftProtoTesting_TestAny()
         m.int32Value = 12
-        m.anyValue = try Google_Protobuf_Any(message: content)
+        m.anyValue = try Google_Protobuf_Any(packing: content)
 
         // The Any holding an object can be JSON serialized
         XCTAssertNotNil(try m.jsonString())
@@ -165,7 +165,7 @@ final class Test_Any: XCTestCase {
 
         var m = SwiftProtoTesting_TestAny()
         m.int32Value = 12
-        m.anyValue = try Google_Protobuf_Any(message: content)
+        m.anyValue = try Google_Protobuf_Any(packing: content)
 
         let encoded = try m.jsonString()
         XCTAssertEqual(
@@ -204,25 +204,7 @@ final class Test_Any: XCTestCase {
     func test_Any_UnknownUserMessage_JSON() throws {
         Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
         let start = "{\"int32Value\":12,\"anyValue\":{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalInt32\":7}}"
-        let decoded = try SwiftProtoTesting_TestAny(jsonString: start)
-
-        // JSON-to-JSON transcoding succeeds
-        let recoded = try decoded.jsonString()
-        XCTAssertEqual(recoded, start)
-
-        let anyValue = decoded.anyValue
-        XCTAssertNotNil(anyValue)
-        XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertEqual(anyValue.value, Data())
-
-        XCTAssertEqual(
-            anyValue.textFormatString(),
-            "type_url: \"type.googleapis.com/UNKNOWN\"\n#json: \"{\\\"optionalInt32\\\":7}\"\n"
-        )
-
-        // Verify:  JSON-to-protobuf transcoding should fail here
-        // since the Any does not have type information
-        XCTAssertThrowsError(try decoded.serializedBytes() as [UInt8])
+        XCTAssertThrowsError(try SwiftProtoTesting_TestAny(jsonString: start))
     }
 
     func test_Any_UnknownUserMessage_protobuf() throws {
@@ -321,7 +303,7 @@ final class Test_Any: XCTestCase {
     func test_Any_recursive() throws {
         func nestedAny(_ i: Int) throws -> Google_Protobuf_Any {
             guard i > 0 else { return Google_Protobuf_Any() }
-            return try Google_Protobuf_Any(message: nestedAny(i - 1))
+            return try Google_Protobuf_Any(packing: nestedAny(i - 1))
         }
         let any = try nestedAny(5)
         let encoded: [UInt8] = try any.serializedBytes()
@@ -473,7 +455,7 @@ final class Test_Any: XCTestCase {
     // TODO: Test remaining XxxValue types
 
     func test_Any_Struct_JSON_roundtrip() throws {
-        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1}}}"
+        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
             XCTAssertNotNil(decoded.optionalAny)
@@ -568,7 +550,7 @@ final class Test_Any: XCTestCase {
 
     func test_Any_ListValue_JSON_roundtrip() throws {
         let start =
-            "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.ListValue\",\"value\":[\"foo\",1]}}"
+            "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.ListValue\",\"value\":[\"foo\",1.0]}}"
         do {
             let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
             let anyField = decoded.optionalAny
@@ -618,7 +600,7 @@ final class Test_Any: XCTestCase {
 
     func test_Any_Value_struct_JSON_roundtrip() throws {
         // Value holding a JSON Struct
-        let start1 = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1}}}"
+        let start1 = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded1 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start1)
             XCTAssertNotNil(decoded1.optionalAny)
@@ -667,7 +649,7 @@ final class Test_Any: XCTestCase {
 
     func test_Any_Value_int_JSON_roundtrip() throws {
         // Value holding an Int
-        let start2 = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":1}}"
+        let start2 = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":1.0}}"
         do {
             let decoded2 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start2)
             XCTAssertNotNil(decoded2.optionalAny)
@@ -774,7 +756,7 @@ final class Test_Any: XCTestCase {
             $0.stringValue = "abc"
         }
         var msg = SwiftProtoTesting_Test3_TestAllTypesProto3()
-        msg.optionalAny = try Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
+        msg.optionalAny = try Google_Protobuf_Any(packing: valueMsg, typeURLPrefix: "Odd\nPrefix\"")
         let newJSON = try msg.jsonString()
         XCTAssertEqual(
             newJSON,
@@ -787,44 +769,124 @@ final class Test_Any: XCTestCase {
         content.SwiftProtoTesting_optionalInt32Extension = 17
 
         var msg = SwiftProtoTesting_TestAny()
-        msg.anyValue = try Google_Protobuf_Any(message: content)
+        msg.anyValue = try Google_Protobuf_Any(packing: content)
 
-        let json = try msg.jsonString()
+        var options = JSONEncodingOptions()
+        options.extensions = SwiftProtoTesting_Unittest_Extensions
+        let json = try msg.jsonString(options: options)
         XCTAssertEqual(
             json,
             "{\"anyValue\":{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllExtensions\",\"[swift_proto_testing.optional_int32_extension]\":17}}"
         )
 
-        // Decode the outer message without any extension knowledge
-        let decoded = try SwiftProtoTesting_TestAny(jsonString: json)
-        // Decoding the inner content fails without extension info
-        XCTAssertThrowsError(try SwiftProtoTesting_TestAllExtensions(unpackingAny: decoded.anyValue))
-        // Succeeds if you do provide extension info
-        let decodedContent = try SwiftProtoTesting_TestAllExtensions(
-            unpackingAny: decoded.anyValue,
-            extensions: SwiftProtoTesting_Unittest_Extensions
-        )
-        XCTAssertEqual(content, decodedContent)
+        // Fails if we don't provide the extension registry.
+        XCTAssertThrowsError(try SwiftProtoTesting_TestAny(jsonString: json))
 
-        // Transcoding should fail without extension info
-        XCTAssertThrowsError(try decoded.serializedBytes() as [UInt8])
-
-        // Decode the outer message with extension information
-        let decodedWithExtensions = try SwiftProtoTesting_TestAny(
+        // Succeeds if we provide the extension registry.
+        let decodedMsg = try SwiftProtoTesting_TestAny(
             jsonString: json,
             extensions: SwiftProtoTesting_Unittest_Extensions
         )
-        // Still fails; the Any doesn't record extensions that were in effect when the outer Any was decoded
-        XCTAssertThrowsError(try SwiftProtoTesting_TestAllExtensions(unpackingAny: decodedWithExtensions.anyValue))
-        let decodedWithExtensionsContent = try SwiftProtoTesting_TestAllExtensions(
-            unpackingAny: decodedWithExtensions.anyValue,
+        let decodedContent = try SwiftProtoTesting_TestAllExtensions(
+            unpackingAny: decodedMsg.anyValue,
             extensions: SwiftProtoTesting_Unittest_Extensions
         )
-        XCTAssertEqual(content, decodedWithExtensionsContent)
+        XCTAssertEqual(decodedContent.SwiftProtoTesting_optionalInt32Extension, 17)
+    }
 
-        XCTAssertTrue(Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllExtensions.self))
-        // Throws because the extensions can't be implicitly transcoded
-        XCTAssertThrowsError(try decodedWithExtensions.serializedBytes() as [UInt8])
+    func test_Any_JSON_Extensions_noRegistry() throws {
+        var content = SwiftProtoTesting_TestAllExtensions()
+        content.SwiftProtoTesting_optionalInt32Extension = 17
+
+        var msg = SwiftProtoTesting_TestAny()
+        msg.anyValue = try Google_Protobuf_Any(packing: content)
+
+        // Extensions are lost if we don't provide an extension registry. This is not treated as
+        // an error; the Java implementation also does this.
+        let json = try msg.jsonString()
+        XCTAssertEqual(
+            json,
+            "{\"anyValue\":{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllExtensions\"}}"
+        )
+    }
+
+    func test_Any_Text_Extensions() throws {
+        var content = SwiftProtoTesting_TestAllExtensions()
+        content.SwiftProtoTesting_optionalInt32Extension = 17
+
+        var msg = SwiftProtoTesting_TestAny()
+        msg.anyValue = try Google_Protobuf_Any(packing: content)
+
+        var options = TextFormatEncodingOptions()
+        options.extensions = SwiftProtoTesting_Unittest_Extensions
+        let text = msg.textFormatString(options: options)
+        XCTAssertEqual(
+            text,
+            """
+            any_value {
+              [type.googleapis.com/swift_proto_testing.TestAllExtensions] {
+                [swift_proto_testing.optional_int32_extension]: 17
+              }
+            }
+
+            """
+        )
+
+        // Fails if we don't provide the extension registry.
+        XCTAssertThrowsError(try SwiftProtoTesting_TestAny(textFormatString: text))
+
+        // Succeeds if we provide the extension registry.
+        let decodedMsg = try SwiftProtoTesting_TestAny(
+            textFormatString: text,
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        )
+        let decodedContent = try SwiftProtoTesting_TestAllExtensions(
+            unpackingAny: decodedMsg.anyValue,
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        )
+        XCTAssertEqual(decodedContent.SwiftProtoTesting_optionalInt32Extension, 17)
+    }
+
+    func test_Any_Text_Extensions_notExpanded() throws {
+        let text = #"""
+            any_value {
+              type_url: "type.googleapis.com/swift_proto_testing.TestAllExtensions"
+              value: "\x08\x11"
+            }
+
+            """#
+
+        // Succeeds if we don't provide the extension registry during parsing, because we don't
+        // need to look up names.
+        let decodedMsg = try SwiftProtoTesting_TestAny(textFormatString: text)
+        let decodedContent = try SwiftProtoTesting_TestAllExtensions(
+            unpackingAny: decodedMsg.anyValue,
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        )
+        XCTAssertEqual(decodedContent.SwiftProtoTesting_optionalInt32Extension, 17)
+    }
+
+    func test_Any_Text_Extensions_noRegistry() throws {
+        var content = SwiftProtoTesting_TestAllExtensions()
+        content.SwiftProtoTesting_optionalInt32Extension = 17
+
+        var msg = SwiftProtoTesting_TestAny()
+        msg.anyValue = try Google_Protobuf_Any(packing: content)
+
+        // Extensions are printed like unknown fields if we don't provide an extension registry,
+        // because we need to transcode during encoding and that requires name lookup.
+        let text = msg.textFormatString()
+        XCTAssertEqual(
+            text,
+            """
+            any_value {
+              [type.googleapis.com/swift_proto_testing.TestAllExtensions] {
+                1: 17
+              }
+            }
+
+            """
+        )
     }
 
     func test_Any_WKT_UnknownFields() throws {
@@ -836,26 +898,24 @@ final class Test_Any: XCTestCase {
         ]
         for json in testcases {
             for ignoreUnknown in [false, true] {
-                var options = JSONDecodingOptions()
-                options.ignoreUnknownFields = ignoreUnknown
-                // This may appear a little odd, since Any lazy parses, this will
-                // always succeed because the Any isn't decoded until requested.
-                let decoded = try! SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json, options: options)
-
-                XCTAssertNotNil(decoded.optionalAny)
-                let anyField = decoded.optionalAny
                 do {
+                    var options = JSONDecodingOptions()
+                    options.ignoreUnknownFields = ignoreUnknown
+
+                    let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json, options: options)
+                    // The previous operation should have thrown if we're not ignoring unknowns.
+                    XCTAssertTrue(ignoreUnknown)
+
+                    XCTAssertNotNil(decoded.optionalAny)
+                    let anyField = decoded.optionalAny
+
                     let unpacked = try Google_Protobuf_Duration(unpackingAny: anyField)
-                    XCTAssertTrue(ignoreUnknown)  // Should have throw if not ignoring unknowns.
                     XCTAssertEqual(unpacked.seconds, 99)
                     XCTAssertEqual(unpacked.nanos, 1_000_000)
                 } catch {
+                    // We should get here if we're not ignoring unknowns.
                     XCTAssertTrue(!ignoreUnknown)
                 }
-
-                // The extra field should still be there.
-                let encoded = try decoded.jsonString()
-                XCTAssertEqual(encoded, json)
             }
         }
     }
@@ -921,8 +981,6 @@ final class Test_Any: XCTestCase {
         //               StatusIs(absl::StatusCode::kInvalidArgument));
         // }
 
-        // ---- With a binary protobuf data in the backing store:
-
         do {
             // No payload, no type_url
             var any = Google_Protobuf_Any()
@@ -981,133 +1039,6 @@ final class Test_Any: XCTestCase {
             }
         }
 
-        // ---- With a message in the backing store:
-
-        do {
-            var content = SwiftProtoTesting_TestAllTypes()
-            var anyEmpty = try Google_Protobuf_Any(message: content)
-            content.optionalInt32 = 17
-            var anyNonEmpty = try Google_Protobuf_Any(message: content)
-
-            // Valid
-            XCTAssertEqual(
-                try anyEmpty.jsonString(),
-                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\"}"
-            )
-            XCTAssertEqual(
-                try anyNonEmpty.jsonString(),
-                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":17}"
-            )
-            // Blank type url, will get defaulted again.
-            anyEmpty.typeURL = ""
-            anyNonEmpty.typeURL = ""
-            XCTAssertEqual(
-                try anyEmpty.jsonString(),
-                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\"}"
-            )
-            XCTAssertEqual(
-                try anyNonEmpty.jsonString(),
-                "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":17}"
-            )
-            // Invalid type url, will error
-            anyEmpty.typeURL = "not_valid"
-            anyNonEmpty.typeURL = "not_valid"
-            XCTAssertThrowsError(
-                try anyEmpty.jsonString()
-            ) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
-                    )
-                )
-            }
-            XCTAssertThrowsError(
-                try anyNonEmpty.jsonString()
-            ) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
-                    )
-                )
-            }
-        }
-
-        // ---- With json data in the backing store:
-
-        do {
-            // Empty, round trips.
-            var json = "{}"
-            var any = try Google_Protobuf_Any(jsonString: json)
-            XCTAssertEqual(json, try any.jsonString())
-            // Empty with valid type_url, round trips
-            json = "{\"@type\":\"type.googleapis.com/SomeMessage\"}"
-            any = try Google_Protobuf_Any(jsonString: json)
-            XCTAssertEqual(json, try any.jsonString())
-            // Empty with invalid type_url
-            XCTAssertThrowsError(
-                try Google_Protobuf_Any(jsonString: "{\"@type\":\"not_valid\"}")
-            ) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONDecoding.invalidAnyTypeURL(type_url: "not_valid")
-                    )
-                )
-            }
-            // Empty, override with valid type_url, round trips
-            json = "{\"@type\":\"type.googleapis.com/SomeMessage\"}"
-            any = try Google_Protobuf_Any(jsonString: json)
-            any.typeURL = "type.googleapis.com/AnotherMessage"
-            XCTAssertEqual("{\"@type\":\"type.googleapis.com/AnotherMessage\"}", try any.jsonString())
-            // Empty, override with invalid type_url
-            any = try Google_Protobuf_Any(jsonString: json)
-            any.typeURL = "not_valid"
-            XCTAssertThrowsError(
-                try any.jsonString()
-            ) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
-                    )
-                )
-            }
-            // Field but no type_url won't even decode.
-            XCTAssertThrowsError(
-                try Google_Protobuf_Any(jsonString: "{\"value\":1}")
-            ) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONDecoding.emptyAnyTypeURL()
-                    )
-                )
-            }
-            // Non empty and a type_url round trips.
-            json = "{\"@type\":\"type.googleapis.com/SomeMessage\",\"value\":1}"
-            any = try Google_Protobuf_Any(jsonString: json)
-            XCTAssertEqual(json, try any.jsonString())
-            // Non empty and override of the type_url still works
-            any = try Google_Protobuf_Any(jsonString: json)
-            any.typeURL = "type.googleapis.com/AnotherMessage"
-            XCTAssertEqual("{\"@type\":\"type.googleapis.com/AnotherMessage\",\"value\":1}", try any.jsonString())
-            // Non empty, override with invalid type_url
-            any = try Google_Protobuf_Any(jsonString: json)
-            any.typeURL = "not_valid"
-            XCTAssertThrowsError(
-                try any.jsonString()
-            ) { error in
-                XCTAssertTrue(
-                    self.isSwiftProtobufErrorEqual(
-                        error as! SwiftProtobufError,
-                        .JSONEncoding.invalidAnyTypeURL(type_url: "not_valid")
-                    )
-                )
-            }
-        }
-
         // ---- These come from the upstream conformace tests:
 
         do {
@@ -1150,27 +1081,6 @@ final class Test_Any: XCTestCase {
                 )
             }
         }
-    }
-
-    func test_Any_nestedList() throws {
-        var start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/Something\",\"x\":"
-        for _ in 0...10000 {
-            start.append("[")
-        }
-        XCTAssertThrowsError(
-            // This should fail because the deeply-nested array is not closed
-            // It should not crash from exhausting stack space
-            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
-        )
-        for _ in 0...10000 {
-            start.append("]")
-        }
-        start.append("}}")
-        // This should succeed because the deeply-nested array is properly closed
-        // It should not crash from exhausting stack space and should
-        // not fail due to recursion limits (because when skipping, those are
-        // only applied to objects).
-        _ = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
     }
 
     func test_IsA() {
@@ -1247,31 +1157,20 @@ final class Test_Any: XCTestCase {
 // Dummy message class to test registration conflicts, this is basically the
 // generated code from SwiftProtoTesting_TestEmptyMessage.
 
-struct ConflictingImportMessage:
-    SwiftProtobuf.Message,
-    SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding,
-    Sendable
-{
+struct ConflictingImportMessage: SwiftProtobuf.Message, Sendable {
     static let protoMessageName: String = "swift_proto_testing.import.ImportMessage"
+
+    var messageSchema: MessageSchema { fatalError() }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let _ = try decoder.nextFieldNumber() {
-        }
-    }
+    func _protobuf_messageStorage(accessToken: MessageStorageToken) -> AnyObject { fatalError() }
 
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        try unknownFields.traverse(visitor: &visitor)
-    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken) {}
 
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = SwiftProtobuf._NameMap()
+    func _protobuf_extensionStorageImpl() -> AnyObject { fatalError() }
 
-    static func == (lhs: ConflictingImportMessage, rhs: ConflictingImportMessage) -> Bool {
-        if lhs.unknownFields != rhs.unknownFields { return false }
-        return true
-    }
+    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { fatalError() }
 }

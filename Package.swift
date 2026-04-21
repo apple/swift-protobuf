@@ -390,25 +390,22 @@ let package = Package(
             exclude: ["CMakeLists.txt"],
             swiftSettings: .packageSettings
         ),
-        // TODO: Re-enable this once we're regenerating the conformance protos.
-        // .executableTarget(
-        //     name: "Conformance",
-        //     dependencies: ["SwiftProtobuf"],
-        //     exclude: ["failure_list_swift.txt", "text_format_failure_list_swift.txt"],
-        //     swiftSettings: .packageSettings
-        // ),
+        .executableTarget(
+            name: "Conformance",
+            dependencies: ["SwiftProtobuf"],
+            exclude: ["failure_list_swift.txt", "text_format_failure_list_swift.txt"],
+            swiftSettings: .packageSettings
+        ),
         .plugin(
             name: "SwiftProtobufPlugin",
             capability: .buildTool(),
             dependencies: ["protoc-gen-swift", "protoc"]
         ),
-        // TODO: Eventually, the existing tests should just work with table-driven protos. For now,
-        // limit ourselves to a much smaller set that we know will run and pass during development.
-        // .testTarget(
-        //     name: "SwiftProtobufTests",
-        //     dependencies: ["SwiftProtobuf"],
-        //     swiftSettings: .packageSettings
-        // ),
+        .testTarget(
+            name: "SwiftProtobufTests",
+            dependencies: ["SwiftProtobuf"],
+            swiftSettings: .packageSettings
+        ),
         .testTarget(
             name: "ExperimentalTableDrivenSwiftProtobufTests",
             dependencies: ["SwiftProtobuf"],

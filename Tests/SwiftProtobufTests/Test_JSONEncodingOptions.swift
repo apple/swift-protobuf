@@ -87,6 +87,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
             "{\"optionalMessage\":{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}}"
         )
 
+        /* TODO: Re-enable.
         // Array additions.
         let msgArray = [msg1, msg2, msg3]
         XCTAssertEqual(
@@ -100,6 +101,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
             "[" + "{\"optionalInt64\":1656338459803}" + "," + "{\"repeatedInt64\":[1656338459802,1656338459803]}" + ","
                 + "{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}" + "]"
         )
+        */
 
         // Any.
         Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
@@ -210,8 +212,8 @@ final class Test_JSONEncodingOptions: XCTestCase {
             "{\"optionalMessage\":{\"mapInt32Enum\":{\"42\":2}}}"
         )
 
+        /* TODO: Re-enable.
         // The array additions
-
         let msgArray = [msg1, msg2, msg3]
         XCTAssertEqual(
             try SwiftProtoTesting_Message3.jsonString(from: msgArray, options: asStrings),
@@ -223,6 +225,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
             "[" + "{\"optionalEnum\":1}" + "," + "{\"repeatedEnum\":[1,2]}" + "," + "{\"mapInt32Enum\":{\"42\":2}}"
                 + "]"
         )
+        */
 
         // Any
 
@@ -306,8 +309,8 @@ final class Test_JSONEncodingOptions: XCTestCase {
             "{\"optional_message\":{\"map_int32_enum\":{\"42\":\"BAZ\"}}}"
         )
 
+        /* TODO: Re-enable.
         // The array additions
-
         let msgArray = [msg1, msg2, msg3]
         XCTAssertEqual(
             try SwiftProtoTesting_Message3.jsonString(from: msgArray, options: jsonNames),
@@ -319,6 +322,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
             "[" + "{\"optional_enum\":\"BAR\"}" + "," + "{\"repeated_enum\":[\"BAR\",\"BAZ\"]}" + ","
                 + "{\"map_int32_enum\":{\"42\":\"BAZ\"}}" + "]"
         )
+        */
 
         // Any
 

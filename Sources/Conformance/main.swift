@@ -103,7 +103,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     }
 
     let msgType: any SwiftProtobuf.Message.Type
-    let extensions: any SwiftProtobuf.ExtensionMap
+    let extensions: SwiftProtobuf.ExtensionMap
     switch request.messageType {
     case "":
         // Note: This case is here to cover using a old version of the conformance test
@@ -111,7 +111,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         fallthrough
     case ProtobufTestMessages_Proto3_TestAllTypesProto3.protoMessageName:
         msgType = ProtobufTestMessages_Proto3_TestAllTypesProto3.self
-        extensions = SwiftProtobuf.SimpleExtensionMap()
+        extensions = SwiftProtobuf.ExtensionMap()
     case ProtobufTestMessages_Proto2_TestAllTypesProto2.protoMessageName:
         msgType = ProtobufTestMessages_Proto2_TestAllTypesProto2.self
         extensions = ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions
@@ -123,7 +123,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         extensions = ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions
     case ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.protoMessageName:
         msgType = ProtobufTestMessages_Editions_Proto3_TestAllTypesProto3.self
-        extensions = SwiftProtobuf.SimpleExtensionMap()
+        extensions = SwiftProtobuf.ExtensionMap()
     case ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.protoMessageName:
         msgType = ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.self
         extensions = ProtobufTestMessages_Editions_Proto2_TestMessagesProto2Editions_Extensions

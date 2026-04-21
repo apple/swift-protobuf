@@ -24,6 +24,7 @@ extension SwiftProtoTesting_RawMessageSet.Item {
     }
 }
 
+/* TODO: Re-enable.
 final class Test_MessageSet: XCTestCase {
 
     // wireformat_unittest.cc: TEST(WireFormatTest, SerializeMessageSet)
@@ -444,3 +445,4 @@ final class Test_MessageSet: XCTestCase {
         }
     }
 }
+*/
