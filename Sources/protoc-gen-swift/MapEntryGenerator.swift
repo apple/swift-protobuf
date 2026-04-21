@@ -79,7 +79,7 @@ class MapEntryGenerator {
             )
         } else {
             entrySchemaCalculator.schemaLiterals.printConditionalBlocks(to: &printer) { schemaString, _, printer in
-                printer.print(#"let schemaString: StaticString = "\#(schemaString)""#)
+                printer.print(#"let schemaString: Swift.StaticString = "\#(schemaString)""#)
             }
             printer.print(
                 "return SwiftProtobuf.MessageSchema(\(schemaLabel): schemaString\(trailingArguments))"

@@ -108,9 +108,9 @@ class EnumGenerator {
         p.withIndentation { p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_enumSchemaString: StaticString { "\#(enumSchemaCalculator.schemaLiteral)" }"#,
+                #"private static var _protobuf_enumSchemaString: Swift.StaticString { "\#(enumSchemaCalculator.schemaLiteral)" }"#,
                 "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_reflectionData: StaticString { "\#(compressedReflectionData)" }"#
+                #"private static var _protobuf_reflectionData: Swift.StaticString { "\#(compressedReflectionData)" }"#
             )
             p.print(
                 "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)"
@@ -168,7 +168,7 @@ private final class OpenEnumGenerator: EnumGenerator {
             "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
-            p.print("\(visibility)typealias RawValue = Int")
+            p.print("\(visibility)typealias RawValue = Swift.Int")
 
             // Cases/aliases
             generateCaseDeclarations(to: &p)
@@ -201,7 +201,7 @@ private final class OpenEnumGenerator: EnumGenerator {
 
     override func generateCaseDeclarations(to p: inout CodePrinter) {
         super.generateCaseDeclarations(to: &p)
-        p.print("case \(unrecognizedCaseName)(Int)")
+        p.print("case \(unrecognizedCaseName)(Swift.Int)")
     }
 
     override func generateCaseDeclaration(for enumValueDescriptor: EnumValueDescriptor, to p: inout CodePrinter) {
@@ -215,7 +215,7 @@ private final class OpenEnumGenerator: EnumGenerator {
     private func generateInitRawValue(to p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
-        p.print("\(visibility)init?(rawValue: Int) {")
+        p.print("\(visibility)init?(rawValue: Swift.Int) {")
         p.withIndentation { p in
             p.print("switch rawValue {")
             for v in mainEnumValueDescriptorsSorted {
@@ -244,7 +244,7 @@ private final class OpenEnumGenerator: EnumGenerator {
         let neededCases = mainEnumValueDescriptorsSorted.count + (enumDescriptor.isClosed ? 0 : 1)
         let useMultipleSwitches = neededCases > maxCasesInSwitch
 
-        p.print("\(visibility)var rawValue: Int {")
+        p.print("\(visibility)var rawValue: Swift.Int {")
         p.withIndentation { p in
             if useMultipleSwitches {
                 for (i, v) in mainEnumValueDescriptorsSorted.enumerated() {
@@ -316,7 +316,7 @@ private final class ClosedEnumGenerator: EnumGenerator {
 
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             // Cases/aliases
