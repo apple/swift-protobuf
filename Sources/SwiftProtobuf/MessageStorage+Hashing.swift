@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+Hashing.swift - Table-driven message storage hashing
+// Sources/SwiftProtobuf/MessageStorage+Hashing.swift - Table-driven message storage hashing
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Implementation of hashing for `_MessageStorage`.
+/// Implementation of hashing for `MessageStorage`.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Hashes the values of this storage object's fields into the given hasher.
     ///
     /// As required by the definitions of those operations, hashing -- like equality -- considers

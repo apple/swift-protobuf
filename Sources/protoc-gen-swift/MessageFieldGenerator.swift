@@ -123,7 +123,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         p.print("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
 
-        // The `willBeSet` argument to `_MessageStorage.updateValue` depends on a variety of
+        // The `willBeSet` argument to `MessageStorage.updateValue` depends on a variety of
         // factors, such as the field's presence (or lack thereof) or whether it is a repeated
         // field.
         let willBeSetArgument: String

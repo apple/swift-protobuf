@@ -164,7 +164,7 @@ extension Message {
         partial: Bool,
         options: BinaryDecodingOptions
     ) throws {
-        _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+        _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
         try storageForRuntime.merge(byReadingFrom: body, extensions: extensions, partial: partial, options: options)
     }
 }

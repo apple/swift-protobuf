@@ -106,7 +106,7 @@ public struct MessageSchema: @unchecked Sendable {
         _ token: TrampolineToken,
         _ operation: NontrivialFieldOperation,
         _ field: FieldSchema,
-        _ storage: _MessageStorage
+        _ storage: MessageStorage
     ) -> Bool
 
     /// The function type for the generated function that is called to perform an arbitrary
@@ -115,9 +115,9 @@ public struct MessageSchema: @unchecked Sendable {
     public typealias SubmessageStoragePerformer = (
         _ token: TrampolineToken,
         _ field: FieldSchema,
-        _ storage: _MessageStorage,
+        _ storage: MessageStorage,
         _ operation: TrampolineFieldOperation,
-        _ perform: (_MessageStorage) throws -> Bool
+        _ perform: (MessageStorage) throws -> Bool
     ) throws -> Bool
 
     /// The function type for the generated function that is called to perform an arbitrary
@@ -126,7 +126,7 @@ public struct MessageSchema: @unchecked Sendable {
     public typealias RawEnumValuesPerformer = (
         _ token: TrampolineToken,
         _ field: FieldSchema,
-        _ storage: _MessageStorage,
+        _ storage: MessageStorage,
         _ operation: TrampolineFieldOperation,
         _ perform: (EnumSchema, inout Int32) throws -> Bool,
         _ onInvalidValue: (Int32) throws -> Void
@@ -143,11 +143,11 @@ public struct MessageSchema: @unchecked Sendable {
     public typealias MapEntryPerformer = (
         _ token: TrampolineToken,
         _ field: FieldSchema,
-        _ storage: _MessageStorage,
-        _ workingSpace: _MessageStorage,
+        _ storage: MessageStorage,
+        _ workingSpace: MessageStorage,
         _ operation: TrampolineFieldOperation,
         _ deterministicOrdering: Bool,
-        _ perform: (_MessageStorage) throws -> Bool
+        _ perform: (MessageStorage) throws -> Bool
     ) throws -> Bool
 
     /// The function that is called to deinitialize a field whose type is a message (singular or
@@ -689,7 +689,7 @@ public struct FieldSchema {
         case .fixed32, .uint32: return MemoryLayout<UInt32>.stride
         case .bool: return MemoryLayout<Bool>.stride
         case .string: return MemoryLayout<String>.stride
-        case .group, .message: return MemoryLayout<_MessageStorage>.stride
+        case .group, .message: return MemoryLayout<MessageStorage>.stride
         case .bytes: return MemoryLayout<Data>.stride
         default: preconditionFailure("Unreachable")
         }

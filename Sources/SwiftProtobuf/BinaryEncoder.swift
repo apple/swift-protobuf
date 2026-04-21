@@ -155,7 +155,7 @@ internal struct BinaryEncoder {
     }
 }
 
-// Higher-level serialization methods shared by both `_MessageStorage` and `ExtensionStorage`.
+// Higher-level serialization methods shared by both `MessageStorage` and `ExtensionStorage`.
 extension BinaryEncoder {
     /// Serializes the field tag and value for a singular or unpacked `bool` field.
     @inline(__always)

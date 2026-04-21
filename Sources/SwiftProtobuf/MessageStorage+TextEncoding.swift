@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+TextEncoding.swift - Text format encoding for messages
+// Sources/SwiftProtobuf/MessageStorage+TextEncoding.swift - Text format encoding for messages
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Text format encoding support for `_MessageStorage.`
+/// Text format encoding support for `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Returns a string containing the Protocol Buffer text format serialization of the message.
     ///
     /// - Parameter options: The options to use when encoding the message.
@@ -68,7 +68,7 @@ extension _MessageStorage {
         // If we can unpack it, emit the verbose form.
         let typeURL = value(of: typeURLField) as String
         if isValuePresent, let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) {
-            let messageStorage = _MessageStorage(schema: messageSchema)
+            let messageStorage = MessageStorage(schema: messageSchema)
             let bytes = assumedPresentValue(at: valueOffset) as Data
             do {
                 try bytes.withUnsafeBytes { buffer in

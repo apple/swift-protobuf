@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+JSONEncoding.swift - JSON format encoding for messages
+// Sources/SwiftProtobuf/MessageStorage+JSONEncoding.swift - JSON format encoding for messages
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// JSON format encoding support for `_MessageStorage.`
+/// JSON format encoding support for `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Returns the Protocol Buffer JSON serialization of the message.
     ///
     /// - Parameter options: The options to use when encoding the message.
@@ -434,7 +434,7 @@ extension _MessageStorage {
         }
         let bytes = assumedPresentValue(at: valueField.offset) as Data
         try bytes.withUnsafeBytes { buffer in
-            let messageStorage = _MessageStorage(schema: messageSchema)
+            let messageStorage = MessageStorage(schema: messageSchema)
             try messageStorage.merge(byReadingFrom: buffer, extensions: options.extensions, partial: false, options: BinaryDecodingOptions())
             try messageStorage.serializeJSON(into: &encoder, options: options, shouldInlineFields: !isWKT)
         }

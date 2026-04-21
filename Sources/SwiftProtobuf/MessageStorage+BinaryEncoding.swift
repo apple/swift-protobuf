@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+BinaryEncoding.swift - Binary encoding for messages
+// Sources/SwiftProtobuf/MessageStorage+BinaryEncoding.swift - Binary encoding for messages
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Binary encoding support for `_MessageStorage.`
+/// Binary encoding support for `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Serializes the message represented by this storage into binary format and returns the
     /// corresponding bytes.
     public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
