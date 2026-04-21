@@ -220,6 +220,7 @@ final class Test_NamingUtils: XCTestCase {
             // Some of our names get the disambiguator added.
             ("debugDescription", "debugDescription_p"),
             ("isInitialized", "isInitialized_p"),
+            ("messageSchema", "messageSchema_p"),
 
             // Some Swift keywords.
             ("associatedtype", "`associatedtype`"),
@@ -263,7 +264,7 @@ final class Test_NamingUtils: XCTestCase {
 
             // Some of our names get the disambiguator added.
             ("debugDescription", "debugDescription_"),
-            ("dynamicType", "dynamicType_"),
+            ("enumSchema", "enumSchema_"),
 
             // Some Swift keywords work with backticks
             ("associatedtype", "`associatedtype`"),
@@ -292,7 +293,6 @@ final class Test_NamingUtils: XCTestCase {
 
             // Some of our names get the disambiguator added.
             ("debugDescription", "debugDescription_"),
-            ("dynamicType", "dynamicType_"),
 
             // Some Swift keywords work with backticks
             ("associatedtype", "`associatedtype`"),
