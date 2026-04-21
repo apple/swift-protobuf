@@ -91,11 +91,11 @@ if [ "$(uname)" == "Darwin" ]; then
   CMD_BASE=(
     xcrun
       --toolchain swift
-      swift build -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
+      swift build --sanitize=fuzzer --sanitize=address
   )
 else
   CMD_BASE=(
-    swift build -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
+    swift build --sanitize=fuzzer --sanitize=address
   )
 fi
 
