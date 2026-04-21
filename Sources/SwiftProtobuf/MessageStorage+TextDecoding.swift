@@ -76,7 +76,6 @@ extension MessageStorage {
         default:
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             while let fieldNumber = try reader.nextFieldNumber() {
-                print("field number = \(fieldNumber)")
                 // TODO: This is a little awkward, because in the extension case we're doing the lookup
                 // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
                 // find the extension that matches the name we parsed), and then here below. Once we've
