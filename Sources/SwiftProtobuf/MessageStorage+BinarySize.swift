@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+BinarySize.swift - Binary size calculation for messages
+// Sources/SwiftProtobuf/MessageStorage+BinarySize.swift - Binary size calculation for messages
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Computes the binary-encoded size of `_MessageStorage.`
+/// Computes the binary-encoded size of `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Computes and returns the size in bytes required to serialize this message.
     public func serializedBytesSize() -> Int {
         var serializedSize = 0

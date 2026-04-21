@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage.swift - Table-driven message storage
+// Sources/SwiftProtobuf/MessageStorage.swift - Table-driven message storage
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -34,7 +34,7 @@ import Foundation
 ///
 /// This type is public because it needs to be referenced and initialized from generated messages.
 /// Clients should not access it or its members directly.
-@_spi(ForGeneratedCodeOnly) public final class _MessageStorage {
+@_spi(ForGeneratedCodeOnly) public final class MessageStorage {
     /// The schema of this instance of storage.
     @usableFromInline let schema: MessageSchema
 
@@ -156,14 +156,14 @@ public enum NontrivialFieldOperation {
 
     /// The value of the field should be copied to its correct memory offset in the destination
     /// storage.
-    case copy(destination: _MessageStorage)
+    case copy(destination: MessageStorage)
 
     /// The value of the field should be checked for equality against the value of the same field
     /// in the other storage.
-    case isEqual(other: _MessageStorage)
+    case isEqual(other: MessageStorage)
 }
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Performs the given operation on the nontrivial value of a field.
     ///
     /// - Parameters:
@@ -194,13 +194,13 @@ extension _MessageStorage {
 
 // MARK: - Whole-message operations
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Creates and returns an independent copy of the values in this storage.
     ///
     /// This is used to implement copy-on-write behavior.
     @inline(never)
-    public func copy() -> _MessageStorage {
-        let destination = _MessageStorage(schema: schema)
+    public func copy() -> MessageStorage {
+        let destination = MessageStorage(schema: schema)
 
         // Loops through the fields, copy-initializing any that are non-trivial types. We ignore
         // the trivial ones here, instead tracking the byte offset of the first non-trivial field
@@ -290,7 +290,7 @@ extension _MessageStorage {
 
     /// Copy-initializes the field associated with the given layout information in the destination
     /// storage using its value from this storage.
-    private func copyField<T>(_ field: FieldSchema, to destination: _MessageStorage, type: T.Type) {
+    private func copyField<T>(_ field: FieldSchema, to destination: MessageStorage, type: T.Type) {
         guard isPresent(field) else { return }
 
         let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
@@ -304,7 +304,7 @@ extension _MessageStorage {
 
 // MARK: - Non-specific submessage storage operations
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Called by generated trampoline functions to invoke the given closure on the storage of a
     /// singular submessage, providing the type hint of the concrete message type.
     ///
@@ -315,7 +315,7 @@ extension _MessageStorage {
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
         type: T.Type,
-        perform: (_MessageStorage) throws -> Bool
+        perform: (MessageStorage) throws -> Bool
     ) rethrows -> Bool {
         switch operation {
         case .read:
@@ -335,7 +335,7 @@ extension _MessageStorage {
                     _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
                 }
             } else {
-                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
             }
             return try perform(pointer.pointee.storageForRuntime)
 
@@ -365,7 +365,7 @@ extension _MessageStorage {
                     _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
                 }
             } else {
-                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
             }
             pointer.pointee.nullValue = .nullValue
             return true
@@ -386,7 +386,7 @@ extension _MessageStorage {
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
         type: [T].Type,
-        perform: (_MessageStorage) throws -> Bool
+        perform: (MessageStorage) throws -> Bool
     ) rethrows -> Bool {
         switch operation {
         case .read, .mutate:
@@ -436,7 +436,7 @@ extension _MessageStorage {
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
         type: [K: V].Type,
-        perform: (_MessageStorage) throws -> Bool
+        perform: (MessageStorage) throws -> Bool
     ) rethrows -> Bool {
         switch operation {
         case .read:
@@ -579,11 +579,11 @@ extension _MessageStorage {
     public func performOnMapEntry<K: ProtobufMapKey, V: ProtobufMapParticipant>(
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
-        workingSpace: _MessageStorage,
+        workingSpace: MessageStorage,
         keyType: K.Type,
         valueType: V.Type,
         deterministicOrdering: Bool,
-        perform: (_MessageStorage) throws -> Bool
+        perform: (MessageStorage) throws -> Bool
     ) rethrows -> Bool {
         typealias DictionaryType = [K.Base: V.Base]
 
@@ -650,7 +650,7 @@ extension _MessageStorage {
 
 // MARK: - Presence helpers
 
-extension _MessageStorage {
+extension MessageStorage {
     /// The byte offset and bitmask of a field's has-bit in in-memory storage.
     public typealias HasBit = (offset: Int, mask: UInt8)
 
@@ -672,7 +672,7 @@ extension _MessageStorage {
 
 // MARK: - Field readers used during encoding
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Returns the value at the given offset in the storage.
     ///
     /// - Precondition: The value must already be known to be present.
@@ -711,7 +711,7 @@ extension _MessageStorage {
 // We expect an upcoming version of Swift to formalize these two attributes with new names, at
 // which point we can conditionally switch to those names to guarantee the behavior.
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Returns the `Bool` value at the given offset in the storage, or the default value if the
     /// value is not present.
     @_alwaysEmitIntoClient @inline(__always)
@@ -836,7 +836,7 @@ extension _MessageStorage {
 // These APIs take the offset and has-bit directly because generating that produces more efficient
 // code for accessors than one that would have to extract the same information from a `FieldSchema`.
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Updates the `Bool` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Bool, willBeSet: Bool, hasBit: HasBit) {
@@ -950,7 +950,7 @@ extension _MessageStorage {
 // parsing messages and in reflection APIs, where we don't know the nature of an arbitrary field's
 // explicit presence (or lack of it) as we do when we generate accessors directly.
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Returns the `Bool` value of the given field, or the default value if it is not present.
     func value(of field: FieldSchema, default: Bool = false) -> Bool {
         guard isPresent(field) else { return `default` }
@@ -1299,7 +1299,7 @@ extension _MessageStorage {
 
 // MARK: - Oneof support
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Describes presence information that is used when getting or setting oneof members.
     public typealias OneofPresence = (offset: Int, fieldNumber: UInt32)
 
@@ -1568,7 +1568,7 @@ extension _MessageStorage {
 
 // MARK: - Message initialized (i.e., required fields) check
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Indicates whether all required fields are present in this message.
     ///
     /// This is a shallow check; it does not recurse into submessages to check their initialized
@@ -1658,7 +1658,7 @@ extension _MessageStorage {
 /// This type is public because the runtime must be able to generically access the underlying
 /// storage of a message, so a protocol requirement on `Message` is provided that takes a value of
 /// this type as an argument. However, only the runtime may create instances of it.
-public struct _MessageStorageToken {
+public struct MessageStorageToken {
     init() {}
 }
 

@@ -14,8 +14,8 @@
 
 /// The storage for a single extension field in a message.
 ///
-/// This can be thought of as a miniature version of `_MessageStorage`, but which only holds the
-/// value for a single field. Just as `_MessageStorage` is self-describing (it contains its own
+/// This can be thought of as a miniature version of `MessageStorage`, but which only holds the
+/// value for a single field. Just as `MessageStorage` is self-describing (it contains its own
 /// `_MessageLayout`), each extension value is self-describing (it contains its own
 /// `_MessageExtension`).
 ///
@@ -114,7 +114,7 @@
         as type: Value.Type,
     ) -> UnsafeMutablePointer<Value> {
         let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
-        pointer.pointee._protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken())
+        pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
         return pointer
     }
 }

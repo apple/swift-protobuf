@@ -21,29 +21,29 @@ import Foundation
     associatedtype Base
 
     /// Returns the value of the field based on the given offset and presence information.
-    static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Base
+    static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Base
 
     /// Updates the value of the field based on the given offset and presence information.
     static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Base,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     )
 
     /// Clears the value of the field based on the given offset and presence information.
     static func clearValue(
         at offset: Int,
-        in storage: _MessageStorage,
-        hasBit: _MessageStorage.HasBit
+        in storage: MessageStorage,
+        hasBit: MessageStorage.HasBit
     )
 }
 
 extension ProtobufMapParticipant {
     public static func clearValue(
         at offset: Int,
-        in storage: _MessageStorage,
-        hasBit: _MessageStorage.HasBit
+        in storage: MessageStorage,
+        hasBit: MessageStorage.HasBit
     ) {
         // This implementation is suitable for all types but enums; see below.
         storage.clearValue(at: offset, type: Base.self, hasBit: hasBit)
@@ -67,15 +67,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `bool` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapBoolField: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Bool {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Bool {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Bool,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -90,15 +90,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `bytes` map values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapDataField: ProtobufMapParticipant {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Data {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Data {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Data,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -106,15 +106,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `double` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapDoubleField: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Double {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Double {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Double,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -122,26 +122,26 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `enum` map values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapEnumField<E: Enum>: ProtobufMapParticipant {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> E {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> E {
         storage.value(at: offset, default: E(), hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: E,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
 
     public static func clearValue(
         at offset: Int,
-        in storage: _MessageStorage,
-        hasBit: _MessageStorage.HasBit
+        in storage: MessageStorage,
+        hasBit: MessageStorage.HasBit
     ) {
         // We must re-implement this here where the compiler has the additional context that
-        // `Base: Enum` to ensure that the correct specialization of `_MessageStorage.clearValue`
+        // `Base: Enum` to ensure that the correct specialization of `MessageStorage.clearValue`
         // is called.
         storage.clearValue(at: offset, type: Base.self, hasBit: hasBit)
     }
@@ -149,15 +149,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `float` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapFloatField: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Float {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Float {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Float,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -165,15 +165,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `int32`, `sfixed32`, and `sint32` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapInt32Field: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Int32 {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Int32 {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Int32,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -181,15 +181,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `int64`, `sfixed64` and `sint64` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapInt64Field: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> Int64 {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Int64 {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: Int64,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -198,15 +198,15 @@ extension ProtobufMapKey where Base: Comparable {
 /// The proxy type for submessage map values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapMessageField<M: Message>: ProtobufMapParticipant
 {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> M {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> M {
         storage.value(at: offset, default: M(), hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: M,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -214,15 +214,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `string` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapStringField: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> String {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> String {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: String,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -230,15 +230,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `fixed32` and `uint32` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapUInt32Field: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> UInt32 {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> UInt32 {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: UInt32,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }
@@ -246,15 +246,15 @@ extension ProtobufMapKey where Base: Comparable {
 
 /// The proxy type for `fixed64` and `uint64` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapUInt64Field: ProtobufMapKey {
-    public static func value(at offset: Int, in storage: _MessageStorage, hasBit: _MessageStorage.HasBit) -> UInt64 {
+    public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> UInt64 {
         storage.value(at: offset, hasBit: hasBit)
     }
 
     public static func updateValue(
         at offset: Int,
-        in storage: _MessageStorage,
+        in storage: MessageStorage,
         to newValue: UInt64,
-        hasBit: _MessageStorage.HasBit
+        hasBit: MessageStorage.HasBit
     ) {
         storage.updateValue(at: offset, to: newValue, willBeSet: true, hasBit: hasBit)
     }

@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+JSONDecoding.swift - JSON decoding for messages
+// Sources/SwiftProtobuf/MessageStorage+JSONDecoding.swift - JSON decoding for messages
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// JSON decoding support for `_MessageStorage.`
+/// JSON decoding support for `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Decodes field values from the given UTF-8-encoded JSON buffer into this storage class.
     ///
     /// - Parameters:
@@ -558,7 +558,7 @@ extension _MessageStorage {
             throw SwiftProtobufError.JSONDecoding.unknownAnyTypeURL(type_url: typeURL)
         }
 
-        let messageStorage = _MessageStorage(schema: messageSchema)
+        let messageStorage = MessageStorage(schema: messageSchema)
         func parseJSONBuffer(_ buffer: UnsafeRawBufferPointer) throws {
             var subReader = JSONReader(
                 buffer: buffer,

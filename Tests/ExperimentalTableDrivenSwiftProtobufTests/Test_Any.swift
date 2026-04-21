@@ -1166,9 +1166,9 @@ struct ConflictingImportMessage: SwiftProtobuf.Message, Sendable {
 
     init() {}
 
-    func _protobuf_messageStorage(accessToken: _MessageStorageToken) -> AnyObject { fatalError() }
+    func _protobuf_messageStorage(accessToken: MessageStorageToken) -> AnyObject { fatalError() }
 
-    mutating func _protobuf_ensureUniqueStorage(accessToken: _MessageStorageToken) {}
+    mutating func _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken) {}
 
     func _protobuf_extensionStorageImpl() -> AnyObject { fatalError() }
 

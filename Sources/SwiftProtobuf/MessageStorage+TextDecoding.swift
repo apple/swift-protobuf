@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+TextDecoding.swift - Text format decoding for messages
+// Sources/SwiftProtobuf/MessageStorage+TextDecoding.swift - Text format decoding for messages
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Text format decoding support for `_MessageStorage.`
+/// Text format decoding support for `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     // TODO: This is only called by the generated code. Remove it once we've cleaned up the
     // protocol requirements.
     public func merge(
@@ -315,7 +315,7 @@ extension _MessageStorage {
             throw SwiftProtobufError.TextFormatDecoding.invalidAnyTypeURL(type_url: typeURL)
         }
 
-        let messageStorage = _MessageStorage(schema: messageSchema)
+        let messageStorage = MessageStorage(schema: messageSchema)
 
         try reader.withReaderForNextObject(expectedSchema: messageSchema) { subReader in
             try messageStorage.merge(byParsingTextFormatFrom: &subReader)

@@ -261,7 +261,7 @@ extension ExtensionStorage {
         of ext: ExtensionSchema,
         operation: TrampolineFieldOperation,
         type: T.Type,
-        perform: (_MessageStorage) throws -> Bool
+        perform: (MessageStorage) throws -> Bool
     ) rethrows -> Bool {
         let field = ext.field
 
@@ -312,7 +312,7 @@ extension ExtensionStorage {
         of ext: ExtensionSchema,
         operation: TrampolineFieldOperation,
         type: [T].Type,
-        perform: (_MessageStorage) throws -> Bool
+        perform: (MessageStorage) throws -> Bool
     ) rethrows -> Bool {
         let field = ext.field
 

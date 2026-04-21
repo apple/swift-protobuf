@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+BinaryDecoding.swift - Binary decoding for messages
+// Sources/SwiftProtobuf/MessageStorage+BinaryDecoding.swift - Binary decoding for messages
 //
 // Copyright (c) 2014 - 2025 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Binary decoding support for `_MessageStorage.`
+/// Binary decoding support for `MessageStorage.`
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Decodes field values from the given binary-encoded buffer into this storage class.
     ///
     /// - Parameters:

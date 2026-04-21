@@ -21,15 +21,15 @@
 /// representation is only used when encoding/decoding.
 ///
 /// To minimize unnecessary allocations, the encode/decode loop for a message creates an instance
-/// of this type to maintain a cache of `_MessageStorage` objects that it uses as temporary
+/// of this type to maintain a cache of `MessageStorage` objects that it uses as temporary
 /// workspace before/after transferring the key and value into/out of the dictionary. This allows
 /// map entry serialization to be implemented in essentially the same fashion as other types.
 struct MapEntryWorkingSpace {
     /// The schema of the message that contains the map field being encoded/decoded.
     private let ownerSchema: MessageSchema
 
-    /// The cache of `_MessageStorage` objects used for the map entries in this message.
-    private var entryStorage: [Int: _MessageStorage]
+    /// The cache of `MessageStorage` objects used for the map entries in this message.
+    private var entryStorage: [Int: MessageStorage]
 
     /// Creates a new map entry working space for the message with the given schema.
     init(ownerSchema: MessageSchema) {
@@ -37,15 +37,15 @@ struct MapEntryWorkingSpace {
         self.entryStorage = [:]
     }
 
-    /// Returns the `_MessageStorage` used to encode/decode map entries with the given trampoline
+    /// Returns the `MessageStorage` used to encode/decode map entries with the given trampoline
     /// index, creating it if necessary.
-    mutating func storage(for trampolineIndex: Int) -> _MessageStorage {
+    mutating func storage(for trampolineIndex: Int) -> MessageStorage {
         if let storage = entryStorage[trampolineIndex] {
             return storage
         }
 
         // It didn't already exist, so create it and cache it.
-        let storage = _MessageStorage(
+        let storage = MessageStorage(
             schema: ownerSchema.mapEntrySchema(MessageSchema.TrampolineToken(index: trampolineIndex))
         )
         entryStorage[trampolineIndex] = storage

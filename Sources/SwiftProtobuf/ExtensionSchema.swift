@@ -71,7 +71,7 @@ public struct ExtensionSchema: @unchecked Sendable {
         _ ext: ExtensionSchema,
         _ storage: ExtensionStorage,
         _ operation: TrampolineFieldOperation,
-        _ perform: (_MessageStorage) throws -> Bool
+        _ perform: (MessageStorage) throws -> Bool
     ) throws -> Bool
 
     /// The function type for the generated function that is called to perform an arbitrary

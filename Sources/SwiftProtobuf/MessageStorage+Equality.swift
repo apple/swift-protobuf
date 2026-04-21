@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/_MessageStorage+Equality.swift - Table-driven message storage equality
+// Sources/SwiftProtobuf/MessageStorage+Equality.swift - Table-driven message storage equality
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,13 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Implementation of equality for `_MessageStorage`.
+/// Implementation of equality for `MessageStorage`.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-extension _MessageStorage {
+extension MessageStorage {
     /// Tests this message storage for equality with the other storage.
     ///
     /// Precondition: Both instances of storage are assumed to be represented by the same message
@@ -24,7 +24,7 @@ extension _MessageStorage {
     /// field set to 100 is not considered equal to one where that field is not present but has a
     /// default defined to be 100.
     @inline(never)
-    public func isEqual(to other: _MessageStorage) -> Bool {
+    public func isEqual(to other: MessageStorage) -> Bool {
         if self === other {
             /// Identical message storage means they must be equal.
             return true
@@ -144,7 +144,7 @@ extension _MessageStorage {
     /// storage, given the expected type of that field.
     func isField<T: Equatable>(
         _ field: FieldSchema,
-        equalToSameFieldIn other: _MessageStorage,
+        equalToSameFieldIn other: MessageStorage,
         type: T.Type
     ) -> Bool {
         let isSelfPresent = isPresent(field)
