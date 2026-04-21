@@ -168,7 +168,7 @@ let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
 
 fileprivate let _protobuf_package = "swift_feature_test"
 
-extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -215,6 +215,7 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._M
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

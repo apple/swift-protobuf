@@ -67,7 +67,7 @@ struct EditionsUnittest_MessageImport: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "editions_unittest"
 
-extension EditionsUnittest_MessageImport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension EditionsUnittest_MessageImport: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MessageImport"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -82,6 +82,7 @@ extension EditionsUnittest_MessageImport: SwiftProtobuf.Message, SwiftProtobuf._
   private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

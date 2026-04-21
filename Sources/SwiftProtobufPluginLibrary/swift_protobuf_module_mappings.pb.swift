@@ -110,7 +110,7 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
 
-extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".ModuleMappings"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -157,12 +157,13 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message {
   public static let protoMessageName: String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -177,6 +178,7 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, Sw
   private static var _protobuf_reflectionData: StaticString { "t\0\0\0pg@z0p\u{11}}\ru\u{1c}i)rJ3\u{12}\u{11}u\u{7}mf{\u{3}HoR@z1B\u{16}W;\u{8}\u{1e}%%w\u{1a}\u{13}\"=t\u{2}I`Z{c\u{3}3u\no\tt\u{5}ie\u{1c}\r\u{e}M9\\bQBY3\u{5}*`\u{12}!\u{f}\u{1}\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

@@ -103,7 +103,7 @@ struct SwiftProtoTesting_TestAny: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -152,6 +152,7 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messa
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

@@ -843,7 +843,7 @@ struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing.test3"
 
-extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesProto3"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -1034,6 +1034,7 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.Message, Swi
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -1047,7 +1048,7 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = SwiftProtoTesting_Test3_TestAllTypesProto3.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -1094,6 +1095,7 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobu
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
