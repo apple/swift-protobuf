@@ -90,7 +90,7 @@ struct SwiftProtoTesting_Import_PublicImportMessage: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing.import"
 
-extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".PublicImportMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -105,6 +105,7 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
   private static var _protobuf_reflectionData: StaticString { " \0\0\0\0?ck-\u{7}&pm\u{e}FP\\fP\u{12}\u{3}\u{1b}sCT\u{1}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

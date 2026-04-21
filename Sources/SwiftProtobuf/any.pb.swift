@@ -204,7 +204,7 @@ public struct Google_Protobuf_Any: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Any: Message, _MessageImplementationBase {
+extension Google_Protobuf_Any: Message {
   public static let protoMessageName: String = _protobuf_package + ".Any"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -219,6 +219,7 @@ extension Google_Protobuf_Any: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "L\0\0\0P\u{10}z1fLI2u9\u{5}V\u{1f}jTjM:\u{13}.]\u{1b};\u{17}G\u{1}UT\u{3}s\u{18}tHD%\u{8}?=,*\u{7f}\u{14}K\u{2}\u{1e}1\0EE\u{1f}\u{1f}A\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

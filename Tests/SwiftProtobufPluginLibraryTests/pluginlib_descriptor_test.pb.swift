@@ -585,7 +585,7 @@ extension SDTTopLevelEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SDTTopLevelMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -638,6 +638,7 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -651,7 +652,7 @@ extension SDTTopLevelMessage.SubEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -698,12 +699,13 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SDTTopLevelMessage2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage2"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -752,12 +754,13 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SDTExternalRefs: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -806,6 +809,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -815,7 +819,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
 }
 
-extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SDTScoperForExt: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ScoperForExt"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -830,12 +834,13 @@ extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   private static var _protobuf_reflectionData: StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SDTProto2MessageForPresence: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Proto2MessageForPresence"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -888,6 +893,7 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

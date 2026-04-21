@@ -257,7 +257,7 @@ extension ExtensionStorage {
     /// - Precondition: For read operations, the field is already known to be present.
     ///
     /// - Returns: The value returned from the closure.
-    public func performOnSubmessageStorage<T: _MessageImplementationBase>(
+    public func performOnSubmessageStorage<T: Message>(
         of ext: ExtensionSchema,
         operation: TrampolineFieldOperation,
         type: T.Type,
@@ -308,7 +308,7 @@ extension ExtensionStorage {
     ///   present.
     ///
     /// - Returns: The value returned from the last invocation of the closure.
-    public func performOnSubmessageStorage<T: _MessageImplementationBase>(
+    public func performOnSubmessageStorage<T: Message>(
         of ext: ExtensionSchema,
         operation: TrampolineFieldOperation,
         type: [T].Type,

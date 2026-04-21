@@ -405,7 +405,7 @@ public struct Google_Protobuf_BytesValue: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase {
+extension Google_Protobuf_DoubleValue: Message {
   public static let protoMessageName: String = _protobuf_package + ".DoubleValue"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -420,12 +420,13 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase {
+extension Google_Protobuf_FloatValue: Message {
   public static let protoMessageName: String = _protobuf_package + ".FloatValue"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -440,12 +441,13 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase {
+extension Google_Protobuf_Int64Value: Message {
   public static let protoMessageName: String = _protobuf_package + ".Int64Value"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -460,12 +462,13 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase {
+extension Google_Protobuf_UInt64Value: Message {
   public static let protoMessageName: String = _protobuf_package + ".UInt64Value"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -480,12 +483,13 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase {
+extension Google_Protobuf_Int32Value: Message {
   public static let protoMessageName: String = _protobuf_package + ".Int32Value"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -500,12 +504,13 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase {
+extension Google_Protobuf_UInt32Value: Message {
   public static let protoMessageName: String = _protobuf_package + ".UInt32Value"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -520,12 +525,13 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase {
+extension Google_Protobuf_BoolValue: Message {
   public static let protoMessageName: String = _protobuf_package + ".BoolValue"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -540,12 +546,13 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_StringValue: Message, _MessageImplementationBase {
+extension Google_Protobuf_StringValue: Message {
   public static let protoMessageName: String = _protobuf_package + ".StringValue"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -560,12 +567,13 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase {
+extension Google_Protobuf_BytesValue: Message {
   public static let protoMessageName: String = _protobuf_package + ".BytesValue"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -580,6 +588,7 @@ extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}gJ\u{8}G>3Dr-\u{8}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

@@ -159,7 +159,11 @@ extension Google_Protobuf_Any {
         guard let messageType = self.messageType(forMessageName: messageTypeName) else {
             return nil
         }
-        return (messageType as! any _MessageImplementationBase.Type).messageSchema
+        // Generated messages have a static `messageSchema` property, but there is no protocol
+        // requirement for this property. Create an instance to get the schema.
+        // TODO: Consider dropping the `Message.Type`-based URLs APIs and only support the
+        // schema-based ones.
+        return messageType.init().messageSchema
     }
 }
 

@@ -186,7 +186,7 @@ public struct Google_Protobuf_Timestamp: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase {
+extension Google_Protobuf_Timestamp: Message {
   public static let protoMessageName: String = _protobuf_package + ".Timestamp"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -201,6 +201,7 @@ extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "<\0\0\0@^O'=J\0)h\0]8Gn0\u{10}\u{1f}\u{11}'MS\u{18}cXX>`D,\tc\u{12}\u{19}\u{16}|kV\u{11}h\u{3}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

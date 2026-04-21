@@ -263,7 +263,7 @@ struct SwiftDescriptorTest_OtherMessage: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Proto3MessageForPresence"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -316,6 +316,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -329,7 +330,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OtherMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -344,6 +345,7 @@ extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FP\\:UW2\u{1e}A\u{10}\u{3}P\u{1b}`\u{3}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

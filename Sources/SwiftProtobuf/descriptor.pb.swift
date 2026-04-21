@@ -3272,7 +3272,7 @@ extension Google_Protobuf_SymbolVisibility {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase {
+extension Google_Protobuf_FileDescriptorSet: Message {
   public static let protoMessageName: String = _protobuf_package + ".FileDescriptorSet"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3319,6 +3319,7 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3328,7 +3329,7 @@ extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase
 
 }
 
-extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_FileDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".FileDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3387,6 +3388,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3396,7 +3398,7 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
 
 }
 
-extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_DescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".DescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3457,6 +3459,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3466,7 +3469,7 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase {
 
 }
 
-extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImplementationBase {
+extension Google_Protobuf_DescriptorProto.ExtensionRange: Message {
   public static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ExtensionRange"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3513,6 +3516,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImple
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3522,7 +3526,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImple
 
 }
 
-extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplementationBase {
+extension Google_Protobuf_DescriptorProto.ReservedRange: Message {
   public static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ReservedRange"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3537,12 +3541,13 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: Message, _MessageImplem
   private static var _protobuf_reflectionData: StaticString { "8\0\0\0@<_)1J\0)h\0]8Gllg_\n'MS\u{18}\u{13}\\3]\u{10}[+!w\u{1c}v{\u{13}\u{17}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_ExtensionRangeOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".ExtensionRangeOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3595,6 +3600,7 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3612,7 +3618,7 @@ extension Google_Protobuf_ExtensionRangeOptions.VerificationState {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageImplementationBase {
+extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message {
   public static let protoMessageName: String = Google_Protobuf_ExtensionRangeOptions.protoMessageName + ".Declaration"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3627,12 +3633,13 @@ extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageIm
   private static var _protobuf_reflectionData: StaticString { " \u{1}\0\0 _\u{19}3-ZC#$,u\u{3}4[SWv14V^2\u{5}\u{4}5CS-\u{14}'1*\u{10}e/E\u{15}\u{1b}tte-,\u{b}$-~'qZ\u{f}\u{15}H-9b\u{f}2r\u{14}'B>Kl\\KH\t;\"H\u{f}KD\u{f}'\u{15}>8v\u{e}H!\u{1a}\u{19}q\u{c}?B[dB\u{7f}/dt;\u{5}&K\u{4}R\u{18}.\u{b}>" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_FieldDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3683,6 +3690,7 @@ extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationB
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3708,7 +3716,7 @@ extension Google_Protobuf_FieldDescriptorProto.Label {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_OneofDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3755,6 +3763,7 @@ extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationB
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3764,7 +3773,7 @@ extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationB
 
 }
 
-extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_EnumDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3817,6 +3826,7 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3826,7 +3836,7 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
 
 }
 
-extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _MessageImplementationBase {
+extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message {
   public static let protoMessageName: String = Google_Protobuf_EnumDescriptorProto.protoMessageName + ".EnumReservedRange"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3841,12 +3851,13 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: Message, _Messa
   private static var _protobuf_reflectionData: StaticString { "8\0\0\0@<_)1J\0)h\0]8Gllg_\n'MS\u{18}\u{13}\\3]\u{10}[+!w\u{1c}v{\u{13}\u{17}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_EnumValueDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumValueDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3893,6 +3904,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3902,7 +3914,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
 
 }
 
-extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_ServiceDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -3951,6 +3963,7 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -3960,7 +3973,7 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
 
 }
 
-extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementationBase {
+extension Google_Protobuf_MethodDescriptorProto: Message {
   public static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4007,6 +4020,7 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4016,7 +4030,7 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
 
 }
 
-extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_FileOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".FileOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4067,6 +4081,7 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4084,7 +4099,7 @@ extension Google_Protobuf_FileOptions.OptimizeMode {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_MessageOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".MessageOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4133,6 +4148,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4142,7 +4158,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase {
 
 }
 
-extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_FieldOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4203,6 +4219,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4244,7 +4261,7 @@ extension Google_Protobuf_FieldOptions.OptionTargetType {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplementationBase {
+extension Google_Protobuf_FieldOptions.EditionDefault: Message {
   public static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".EditionDefault"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4291,12 +4308,13 @@ extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplemen
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplementationBase {
+extension Google_Protobuf_FieldOptions.FeatureSupport: Message {
   public static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".FeatureSupport"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4343,12 +4361,13 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: Message, _MessageImplemen
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_OneofOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".OneofOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4397,6 +4416,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4406,7 +4426,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase {
 
 }
 
-extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_EnumOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4455,6 +4475,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4464,7 +4485,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase {
 
 }
 
-extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_EnumValueOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumValueOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4515,6 +4536,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase 
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4524,7 +4546,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase 
 
 }
 
-extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_ServiceOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4573,6 +4595,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4582,7 +4605,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase {
 
 }
 
-extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase {
+extension Google_Protobuf_MethodOptions: Message {
   public static let protoMessageName: String = _protobuf_package + ".MethodOptions"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4633,6 +4656,7 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4650,7 +4674,7 @@ extension Google_Protobuf_MethodOptions.IdempotencyLevel {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBase {
+extension Google_Protobuf_UninterpretedOption: Message {
   public static let protoMessageName: String = _protobuf_package + ".UninterpretedOption"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4697,6 +4721,7 @@ extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBa
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4706,7 +4731,7 @@ extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBa
 
 }
 
-extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImplementationBase {
+extension Google_Protobuf_UninterpretedOption.NamePart: Message {
   public static let protoMessageName: String = Google_Protobuf_UninterpretedOption.protoMessageName + ".NamePart"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4721,6 +4746,7 @@ extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImpleme
   private static var _protobuf_reflectionData: StaticString { "h\0\0\0p!p\0\u{c}\u{14}1`\u{1c}\u{4}9L#?Ah\u{10}}cC\u{3} \u{3}.|D7px\u{17}+wRM\u{11}\u{b}Y61bV\u{1b}\u{1b}P5ClLh7?zi1rR\u{18}'7\u{10}\u{15}Dz#\u{8}a\u{1a}]Td\u{3}\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4730,7 +4756,7 @@ extension Google_Protobuf_UninterpretedOption.NamePart: Message, _MessageImpleme
 
 }
 
-extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase {
+extension Google_Protobuf_FeatureSet: Message {
   public static let protoMessageName: String = _protobuf_package + ".FeatureSet"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4791,6 +4817,7 @@ extension Google_Protobuf_FeatureSet: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4856,7 +4883,7 @@ extension Google_Protobuf_FeatureSet.EnforceNamingStyle {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase {
+extension Google_Protobuf_FeatureSet.VisibilityFeature: Message {
   public static let protoMessageName: String = Google_Protobuf_FeatureSet.protoMessageName + ".VisibilityFeature"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4871,6 +4898,7 @@ extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImpleme
   private static var _protobuf_reflectionData: StaticString { "\u{18}\0\0\0\0\u{7f}\u{f}\tA\u{7}:x_\u{18}e\u{1}p\u{1f}an\u{13}\u{11}ZF\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4884,7 +4912,7 @@ extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBase {
+extension Google_Protobuf_FeatureSetDefaults: Message {
   public static let protoMessageName: String = _protobuf_package + ".FeatureSetDefaults"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4933,6 +4961,7 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -4942,7 +4971,7 @@ extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBas
 
 }
 
-extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, _MessageImplementationBase {
+extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message {
   public static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -4991,6 +5020,7 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -5000,7 +5030,7 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
 
 }
 
-extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase {
+extension Google_Protobuf_SourceCodeInfo: Message {
   public static let protoMessageName: String = _protobuf_package + ".SourceCodeInfo"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -5047,6 +5077,7 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -5056,7 +5087,7 @@ extension Google_Protobuf_SourceCodeInfo: Message, _MessageImplementationBase {
 
 }
 
-extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementationBase {
+extension Google_Protobuf_SourceCodeInfo.Location: Message {
   public static let protoMessageName: String = Google_Protobuf_SourceCodeInfo.protoMessageName + ".Location"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -5071,12 +5102,13 @@ extension Google_Protobuf_SourceCodeInfo.Location: Message, _MessageImplementati
   private static var _protobuf_reflectionData: StaticString { "t\u{1}\0\00\u{1f}4^Q[o\u{5}J\u{3}\u{1f}DR6kE>1YrM\"RAak-i\u{17}q\u{1a}xoNq \u{7}`EQ&\u{1}\u{2}$(]z\u{3}mNj3\u{11}\u{10}B:k\u{11}\u{14}90!z]\u{1}[u\u{17}|%[}e\u{14}~z6\u{1f}G[_\u{13}]?(|\u{4}<ug\u{14}\u{1e}\u{11}4nj\\\"#s2J[5\u{11}<\u{1b}|\u{5}\u{1b}fpq=^#\u{e}d2\u{7f}\u{5}\u{10}c1R\u{1}\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase {
+extension Google_Protobuf_GeneratedCodeInfo: Message {
   public static let protoMessageName: String = _protobuf_package + ".GeneratedCodeInfo"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -5123,12 +5155,13 @@ extension Google_Protobuf_GeneratedCodeInfo: Message, _MessageImplementationBase
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImplementationBase {
+extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message {
   public static let protoMessageName: String = Google_Protobuf_GeneratedCodeInfo.protoMessageName + ".Annotation"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -5175,6 +5208,7 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _MessageImpleme
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

@@ -102,7 +102,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".EditionsMessageForDelimited"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -173,6 +173,7 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

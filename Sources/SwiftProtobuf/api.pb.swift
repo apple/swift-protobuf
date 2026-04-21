@@ -370,7 +370,7 @@ public struct Google_Protobuf_Mixin: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Api: Message, _MessageImplementationBase {
+extension Google_Protobuf_Api: Message {
   public static let protoMessageName: String = _protobuf_package + ".Api"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -425,12 +425,13 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Method: Message, _MessageImplementationBase {
+extension Google_Protobuf_Method: Message {
   public static let protoMessageName: String = _protobuf_package + ".Method"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -479,12 +480,13 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Mixin: Message, _MessageImplementationBase {
+extension Google_Protobuf_Mixin: Message {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -499,6 +501,7 @@ extension Google_Protobuf_Mixin: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "8\0\0\0@<_)1J\0)h\0]8GlL\u{f}Y\u{c}a\u{e}C\u{14}/`\u{11}iN\u{1d}\u{4}\u{1b}H\u{2}\u{f}]k@\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

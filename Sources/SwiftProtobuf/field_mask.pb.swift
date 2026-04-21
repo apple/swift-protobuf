@@ -284,7 +284,7 @@ public struct Google_Protobuf_FieldMask: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase {
+extension Google_Protobuf_FieldMask: Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldMask"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -299,6 +299,7 @@ extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase {
   private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPd\u{10}\u{11}[S\u{e}xn\u{3}P\u{1b}`\u{3}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 

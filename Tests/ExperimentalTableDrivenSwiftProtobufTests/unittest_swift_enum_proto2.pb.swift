@@ -184,7 +184,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: @unchecked Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing.enum2"
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -237,6 +237,7 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
@@ -274,7 +275,7 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
+extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
@@ -321,6 +322,7 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
+  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf._MessageStorageToken) -> AnyObject { _storage }
 
