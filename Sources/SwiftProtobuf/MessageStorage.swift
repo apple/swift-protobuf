@@ -1634,7 +1634,22 @@ extension MessageStorage {
                 break
             }
         }
-        // TODO: Check extension fields.
+
+        // If any extension fields are groups or messages, we need to check their initialization
+        // state.
+        for (_, value) in extensionStorage.values {
+            let ext = value.schema
+            let field = ext.field
+            if field.rawFieldType == .message || field.rawFieldType == .group {
+                let isSubmessageInitialized = try! ext.performOnSubmessageStorage(
+                    ext,
+                    extensionStorage,
+                    .read
+                ) { $0.isInitialized }
+                if !isSubmessageInitialized { return false }
+            }
+        }
+
         return true
     }
 
