@@ -110,7 +110,7 @@
     /// The returned pointer must not escape the `ExtensionStorage` that owns it.
     ///
     /// - Precondition: The type of the extension field must be a message or group.
-    func unsafePointerToSubmessageWithUniqueStorage<Value: _MessageImplementationBase>(
+    func unsafePointerToSubmessageWithUniqueStorage<Value: Message>(
         as type: Value.Type,
     ) -> UnsafeMutablePointer<Value> {
         let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!

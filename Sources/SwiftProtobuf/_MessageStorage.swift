@@ -311,7 +311,7 @@ extension _MessageStorage {
     /// - Precondition: For read operations, the field is already known to be present.
     ///
     /// - Returns: The value returned from the closure.
-    public func performOnSubmessageStorage<T: _MessageImplementationBase>(
+    public func performOnSubmessageStorage<T: Message>(
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
         type: T.Type,
@@ -382,7 +382,7 @@ extension _MessageStorage {
     ///   present.
     ///
     /// - Returns: The value returned from the last invocation of the closure.
-    public func performOnSubmessageStorage<T: _MessageImplementationBase>(
+    public func performOnSubmessageStorage<T: Message>(
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
         type: [T].Type,
@@ -432,7 +432,7 @@ extension _MessageStorage {
     /// - Precondition: Only the read operation is supported and the field must already be present.
     ///
     /// - Returns: The value returned from the last invocation of the closure.
-    public func performOnSubmessageStorage<K, V: _MessageImplementationBase>(
+    public func performOnSubmessageStorage<K, V: Message>(
         of field: FieldSchema,
         operation: TrampolineFieldOperation,
         type: [K: V].Type,
@@ -1656,8 +1656,8 @@ extension _MessageStorage {
 /// A token that allows the runtime to access the underlying storage of a message.
 ///
 /// This type is public because the runtime must be able to generically access the underlying
-/// storage of a message, so a protocol requirement on `_MessageImplementationBase` is provided that
-/// takes a value of this type as an argument. However, only the runtime may create instances of it.
+/// storage of a message, so a protocol requirement on `Message` is provided that takes a value of
+/// this type as an argument. However, only the runtime may create instances of it.
 public struct _MessageStorageToken {
     init() {}
 }

@@ -1157,12 +1157,10 @@ final class Test_Any: XCTestCase {
 // Dummy message class to test registration conflicts, this is basically the
 // generated code from SwiftProtoTesting_TestEmptyMessage.
 
-struct ConflictingImportMessage:
-    SwiftProtobuf.Message,
-    SwiftProtobuf._MessageImplementationBase,
-    Sendable
-{
+struct ConflictingImportMessage: SwiftProtobuf.Message, Sendable {
     static let protoMessageName: String = "swift_proto_testing.import.ImportMessage"
+
+    var messageSchema: MessageSchema { fatalError() }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 

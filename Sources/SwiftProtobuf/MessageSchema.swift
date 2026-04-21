@@ -262,7 +262,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is another message.
     @_spi(ForGeneratedCodeOnly)
-    public init<T: _MessageImplementationBase>(schema: StaticString, forMapEntryWithValueType type: T.Type) {
+    public init<T: Message>(schema: StaticString, forMapEntryWithValueType type: T.Type) {
         self.init(
             schema: schema,
             reflectionReference: .direct(.mapEntry),
