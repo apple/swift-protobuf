@@ -173,10 +173,6 @@ check-version-numbers:
 test-runtime: build
 	${SWIFT} test ${SWIFT_BUILD_TEST_HOOK}
 
-# TODO: Remove this once all the existing protos just work as table-driven.
-test-table-driven: build regenerate-table-driven-protos test-runtime
-	${SWIFT} test --target ExperimentalTableDrivenSwiftProtobufTests
-
 #
 # Test the plugin by itself:
 #   * Translate every proto in Protos into Swift using local protoc-gen-swift
@@ -401,30 +397,6 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftPr
 		--tfiws_out=Tests/SwiftProtobufTests \
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
 	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
-		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
-		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
-
-# TODO: Remove this once all the existing protos just work as table-driven.
-regenerate-table-driven-protos: build regenerate-library-protos regenerate-plugin-protos ${PROTOC_GEN_SWIFT} Protos/Tests/SwiftProtobufTests/map_unittest.proto Protos/Tests/SwiftProtobufTests/any_test.proto Protos/Tests/SwiftProtobufTests/test_messages_proto3.proto Protos/Tests/SwiftProtobufTests/unittest.proto Protos/Tests/SwiftProtobufTests/unittest_import.proto Protos/Tests/SwiftProtobufTests/unittest_import_public.proto Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto Protos/Tests/SwiftProtobufTests/unittest_swift_all_required_types.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_clobbering.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
-	find Tests/ExperimentalTableDrivenSwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
-	    -I Protos/Tests/SwiftProtobufTests \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Tests/ExperimentalTableDrivenSwiftProtobufTests \
-		Protos/Tests/SwiftProtobufTests/any_test.proto \
-		Protos/Tests/SwiftProtobufTests/map_unittest.proto \
-		Protos/Tests/SwiftProtobufTests/test_messages_proto3.proto \
-		Protos/Tests/SwiftProtobufTests/unittest.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_import.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_import_public.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_swift_all_required_types.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_swift_required_fields.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_clobbering.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.proto \
-		Protos/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.proto
 	${GENERATE_SRCS} \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		--tfiws_opt=FileNaming=DropPath \
