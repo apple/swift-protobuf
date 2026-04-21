@@ -159,34 +159,6 @@ extension Message {
     }
 }
 
-/// Implementation base for all messages; not intended for client use.
-///
-/// In general, use `SwiftProtobuf.Message` instead when you need a variable or
-/// argument that can hold any type of message. Occasionally, you can use
-/// `SwiftProtobuf.Message & Equatable` or `SwiftProtobuf.Message & Hashable` as
-/// generic constraints if you need to write generic code that can be applied to
-/// multiple message types that uses equality tests, puts messages in a `Set`,
-/// or uses them as `Dictionary` keys.
-@preconcurrency
-public protocol _MessageImplementationBase: Message {
-    /// Returns the schema for all messages of this generated message type.
-    ///
-    /// This is identical to the instance property `messageSchema`, but provides a way to access the
-    /// statically-known schema for a message without creating an instance of it.
-    static var messageSchema: MessageSchema { get }
-}
-
-extension _MessageImplementationBase {
-    // TODO: Remove this default implementation when we've regenerated all messages.
-    public static var messageSchema: MessageSchema {
-        fatalError()
-    }
-
-    public var messageSchema: MessageSchema {
-        Self.messageSchema
-    }
-}
-
 extension Message {
     /// Convenience property for the runtime to retrieve the underlying storage for a concretely
     /// typed message.
