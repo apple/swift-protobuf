@@ -32,7 +32,7 @@
 /// The actual functionality is implemented either in the generated code or in
 /// default implementations of the below methods and properties.
 @preconcurrency
-public protocol Message: Sendable, CustomDebugStringConvertible {
+public protocol Message: Sendable, Equatable, Hashable, CustomDebugStringConvertible {
     /// Creates a new message with all of its fields initialized to their default
     /// values.
     init()
@@ -95,6 +95,21 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
 }
 
 extension Message {
+    public func isEqualTo(message: any Message) -> Bool {
+        guard let other = message as? Self else {
+            return false
+        }
+        return self == other
+    }
+
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.storageForRuntime.isEqual(to: rhs.storageForRuntime)
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        self.storageForRuntime.hash(into: &hasher)
+    }
+
     /// Generated proto2 messages that contain required fields, nested messages
     /// that contain required fields, and/or extensions will provide their own
     /// implementation of this property that tests that all required fields are
@@ -153,7 +168,7 @@ extension Message {
 /// multiple message types that uses equality tests, puts messages in a `Set`,
 /// or uses them as `Dictionary` keys.
 @preconcurrency
-public protocol _MessageImplementationBase: Message, Hashable {
+public protocol _MessageImplementationBase: Message {
     /// Returns the schema for all messages of this generated message type.
     ///
     /// This is identical to the instance property `messageSchema`, but provides a way to access the
@@ -169,21 +184,6 @@ extension _MessageImplementationBase {
 
     public var messageSchema: MessageSchema {
         Self.messageSchema
-    }
-
-    public func isEqualTo(message: any Message) -> Bool {
-        guard let other = message as? Self else {
-            return false
-        }
-        return self == other
-    }
-
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.storageForRuntime.isEqual(to: rhs.storageForRuntime)
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        self.storageForRuntime.hash(into: &hasher)
     }
 }
 
