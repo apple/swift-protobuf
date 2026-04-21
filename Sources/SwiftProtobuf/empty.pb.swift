@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///     service Foo {
 ///       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
 ///     }
-public struct Google_Protobuf_Empty: @unchecked Sendable {
+public struct Google_Protobuf_Empty: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,8 +78,8 @@ public struct Google_Protobuf_Empty: @unchecked Sendable {
     return _storage
   }
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  public func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -87,22 +87,22 @@ public struct Google_Protobuf_Empty: @unchecked Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Empty: Message {
-  public static let protoMessageName: String = _protobuf_package + ".Empty"
+  public static let protoMessageName: Swift.String = _protobuf_package + ".Empty"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0google.protobuf.Empty" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0google.protobuf.Empty" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0google.protobuf.Empty" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0google.protobuf.Empty" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }

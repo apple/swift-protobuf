@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_Import_Version: @unchecked Sendable {
+struct SwiftDescriptorTest_Import_Version: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -46,7 +46,7 @@ struct SwiftDescriptorTest_Import_Version: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `major` has been explicitly set.
-  var hasMajor: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasMajor: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `major`. Subsequent reads from it will return its default value.
   mutating func clearMajor() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -55,7 +55,7 @@ struct SwiftDescriptorTest_Import_Version: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `minor` has been explicitly set.
-  var hasMinor: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasMinor: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `minor`. Subsequent reads from it will return its default value.
   mutating func clearMinor() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -64,7 +64,7 @@ struct SwiftDescriptorTest_Import_Version: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `patch` has been explicitly set.
-  var hasPatch: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasPatch: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `patch`. Subsequent reads from it will return its default value.
   mutating func clearPatch() { _uniqueStorage().clearValue(at: 12, type: Int32.self, hasBit: (0, 4)) }
 
@@ -73,7 +73,7 @@ struct SwiftDescriptorTest_Import_Version: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 24), to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `suffix` has been explicitly set.
-  var hasSuffix: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasSuffix: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `suffix`. Subsequent reads from it will return its default value.
   mutating func clearSuffix() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 24), type: String.self, hasBit: (0, 8)) }
 
@@ -93,11 +93,11 @@ struct SwiftDescriptorTest_Import_Version: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Sendable {
+struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -107,7 +107,7 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `subMsgField` has been explicitly set.
-  var hasSubMsgField: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasSubMsgField: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `subMsgField`. Subsequent reads from it will return its default value.
   mutating func clearSubMsgField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self, hasBit: (0, 1)) }
 
@@ -119,7 +119,7 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Sendable {
     }
   }
 
-  struct ExtendableTwo: @unchecked Sendable {
+  struct ExtendableTwo: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -140,8 +140,8 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Sendable {
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   init() {}
@@ -152,8 +152,8 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -161,57 +161,57 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Sendable {
 fileprivate let _protobuf_package = "swift_descriptor_test.import"
 
 extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Version"
+  static let protoMessageName: Swift.String = _protobuf_package + ".Version"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0 \0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "h\0\0\0p\u{1}4\u{4}\u{f}K\0)h\0]8Gll_\u{7f}7ty\u{5}V\u{7}\u{5}'\u{1e}D\\K>\u{1}qu\u{3}\u{1e}!E>6{F\u{2}\u{3}' \u{16}@P\u{7}\u{4}#{B\u{b}D\u{1a}cN\tuk\u{1c}N\u{2}s<{~\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "h\0\0\0p\u{1}4\u{4}\u{f}K\0)h\0]8Gll_\u{7f}7ty\u{5}V\u{7}\u{5}'\u{1e}D\\K>\u{1}qu\u{3}\u{1e}!E>6{F\u{2}\u{3}' \u{16}@P\u{7}\u{4}#{B\u{b}D\u{1a}cN\tuk\u{1c}N\u{2}s<{~\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".ExtendableOne"
+  static let protoMessageName: Swift.String = _protobuf_package + ".ExtendableOne"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$\u{c}u|[X\u{13}i\u{12}*p\"hR5ySe\u{1b}g^@*@:\u{17}\u{10}M0\u{f}}6mqfPTl{\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$\u{c}u|[X\u{13}i\u{12}*p\"hR5ySe\u{1b}g^@*@:\u{17}\u{10}M0\u{f}}6mqfPTl{\u{5}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -223,41 +223,41 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message {
-  static let protoMessageName: String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
+  static let protoMessageName: Swift.String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 

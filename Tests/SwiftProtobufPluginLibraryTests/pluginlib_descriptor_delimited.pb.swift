@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
+struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -46,7 +46,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `scalarField` has been explicitly set.
-  var hasScalarField: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasScalarField: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `scalarField`. Subsequent reads from it will return its default value.
   mutating func clearScalarField() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -65,7 +65,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `delimitedField` has been explicitly set.
-  var hasDelimitedField: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasDelimitedField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 16), type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 2)) }
 
@@ -74,7 +74,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 20), to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `lengthPrefixedField` has been explicitly set.
-  var hasLengthPrefixedField: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasLengthPrefixedField: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `lengthPrefixedField`. Subsequent reads from it will return its default value.
   mutating func clearLengthPrefixedField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 20), type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 4)) }
 
@@ -94,8 +94,8 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -103,22 +103,22 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".EditionsMessageForDelimited"
+  static let protoMessageName: Swift.String = _protobuf_package + ".EditionsMessageForDelimited"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{1c}\u{2}\0\0\0? e-ZOr:z\u{7}SCZ?\u{19}\"x<Dn\u{19}\u{7}G`\u{f}f$'1_\u{13}\u{7f}n=\u{17}}N\u{1d}g\u{15}[\t]iSp5$UK13WVe.]&m]r\u{19}\n11\u{19}D\u{1b}}$\u{5}gBO\u{11}+\u{1b}\u{b}cN9\u{7f}M\u{6}\u{c}|\u{1e}\u{15}g\"\u{7}\r,0\u{6}[\u{1f}\u{15}\u{e}C#yRa\u{19}G2\u{f}Goll\u{b}\u{8}c Uroh\u{3}{$1xH7X\tjck09\\\u{13}\u{c}`\0a5\u{17}\n$F\u{5} W\u{1e}\nN\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{1c}\u{2}\0\0\0? e-ZOr:z\u{7}SCZ?\u{19}\"x<Dn\u{19}\u{7}G`\u{f}f$'1_\u{13}\u{7f}n=\u{17}}N\u{1d}g\u{15}[\t]iSp5$UK13WVe.]&m]r\u{19}\n11\u{19}D\u{1b}}$\u{5}gBO\u{11}+\u{1b}\u{b}cN9\u{7f}M\u{6}\u{c}|\u{1e}\u{15}g\"\u{7}\r,0\u{6}[\u{1f}\u{15}\u{e}C#yRa\u{19}G2\u{f}Goll\u{b}\u{8}c Uroh\u{3}{$1xH7X\tjck09\\\u{13}\u{c}`\0a5\u{17}\n$F\u{5} W\u{1e}\nN\u{b}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: String].self)
     case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftDescriptorTest_EditionsMessageForDelimited].self)
@@ -127,7 +127,7 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Int32: SwiftDescriptorTest_EditionsMessageForDelimited].self, perform: perform)
     case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftDescriptorTest_EditionsMessageForDelimited.self, perform: perform)
@@ -136,7 +136,7 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -146,18 +146,18 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     switch token.index {
     case 1:
       #if _pointerBitWidth(_64)
-        let schemaString: StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
+        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 2:
       #if _pointerBitWidth(_64)
-        let schemaString: StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
@@ -166,7 +166,7 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapStringField.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 2: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftDescriptorTest_EditionsMessageForDelimited>.self, deterministicOrdering: deterministicOrdering, perform: perform)
@@ -175,6 +175,6 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }

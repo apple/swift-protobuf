@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct EditionsUnittest_MessageImport: @unchecked Sendable {
+struct EditionsUnittest_MessageImport: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -30,7 +30,7 @@ struct EditionsUnittest_MessageImport: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -39,7 +39,7 @@ struct EditionsUnittest_MessageImport: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -59,8 +59,8 @@ struct EditionsUnittest_MessageImport: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -68,22 +68,22 @@ struct EditionsUnittest_MessageImport: @unchecked Sendable {
 fileprivate let _protobuf_package = "editions_unittest"
 
 extension EditionsUnittest_MessageImport: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".MessageImport"
+  static let protoMessageName: Swift.String = _protobuf_package + ".MessageImport"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{1f}\0editions_unittest.MessageImport" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{1f}\0editions_unittest.MessageImport" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{1f}\0editions_unittest.MessageImport" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{1f}\0editions_unittest.MessageImport" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }

@@ -8,7 +8,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-import SwiftProtobuf
+@_spi(ForGeneratedCodeOnly) import SwiftProtobuf
 
 import ImportsAPublicly
 
@@ -22,79 +22,106 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct UsesATransitively: Sendable {
+public struct UsesATransitively: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   public var a: ModuleA.A {
-    get {_a ?? ModuleA.A()}
-    set {_a = newValue}
+    get { _storage.value(at: 8, default: ModuleA.A(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  public var hasA: Bool {self._a != nil}
+  public var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  public mutating func clearA() {self._a = nil}
+  public mutating func clearA() { _uniqueStorage().clearValue(at: 8, type: ModuleA.A.self, hasBit: (0, 1)) }
 
   public var e: ModuleA.E {
-    get {_e ?? .unset}
-    set {_e = newValue}
+    get { _storage.value(at: 4, default: .unset, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `e` has been explicitly set.
-  public var hasE: Bool {self._e != nil}
+  public var hasE: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
-  public mutating func clearE() {self._e = nil}
+  public mutating func clearE() { _uniqueStorage().clearValue(at: 4, type: ModuleA.E.self, hasBit: (0, 2)) }
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields: SwiftProtobuf.UnknownStorage {
+    get { _storage.unknownFields }
+    _modify {
+      _ = _uniqueStorage()
+      yield &_storage.unknownFields
+    }
+  }
 
   public init() {}
 
-  fileprivate var _a: ModuleA.A? = nil
-  fileprivate var _e: ModuleA.E? = nil
+  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  public func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension UsesATransitively: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "UsesATransitively"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}e\u{1}a\0\u{1}e\0")
+extension UsesATransitively: SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String = "UsesATransitively"
+  #if _pointerBitWidth(_64)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively" }
+  #elseif _pointerBitWidth(_32)
+    @_alwaysEmitIntoClient @inline(__always)
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively" }
+  #else
+    #error("Unsupported platform")
+  #endif
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}y-/p2YH\u{2}\u{18}&[!\u{14}H\u{1a}w\u{7f}\u{7f}-hH8\0\0\0" }
 
-  public var isInitialized: Bool {
-    if let v = self._a, !v.isInitialized {return false}
-    return true
-  }
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 101: try { try decoder.decodeSingularMessageField(value: &self._a) }()
-      case 102: try { try decoder.decodeSingularEnumField(value: &self._e) }()
-      default: break
-      }
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+    switch token.index {
+    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: ModuleA.E.self)
+    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: ModuleA.A.self)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._a {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 101)
-    } }()
-    try { if let v = self._e {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 102)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
+    switch token.index {
+    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: ModuleA.A.self, perform: perform)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
   }
 
-  public static func ==(lhs: UsesATransitively, rhs: UsesATransitively) -> Bool {
-    if lhs._a != rhs._a {return false}
-    if lhs._e != rhs._e {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
+    switch token.index {
+    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: ModuleA.E.self, enumSchema: ModuleA.E.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
   }
+
+  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
+    switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
+    switch token.index {
+    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    }
+  }
+  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
+
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+  public var isInitialized: Swift.Bool {
+    return _storage.isInitialized
+  }
+
 }
